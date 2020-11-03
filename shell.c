@@ -1,6 +1,10 @@
 /* shell.c -- GNU's idea of the POSIX shell specification. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -80,7 +84,10 @@ extern int get_tty_state __P((void));
 #endif
 
 #if defined (READLINE)
+<<<<<<< HEAD
 #  include <readline/readline.h>
+=======
+>>>>>>> orgin/bash-4.3-testing
 #  include "bashline.h"
 #endif
 
@@ -103,7 +110,21 @@ extern int errno;
 extern char **environ;	/* used if no third argument to main() */
 #endif
 
+<<<<<<< HEAD
 extern int gnu_error_format;
+=======
+extern char *dist_version, *release_status;
+extern int patch_level, build_version;
+extern int shell_level;
+extern int subshell_environment;
+extern int last_command_exit_value;
+extern int line_number;
+extern int expand_aliases;
+extern int array_needs_making;
+extern int gnu_error_format;
+extern char *primary_prompt, *secondary_prompt;
+extern char *this_command_name;
+>>>>>>> orgin/bash-4.3-testing
 
 /* Non-zero means that this shell has already been run; i.e. you should
    call shell_reinitialize () if you need to start afresh. */
@@ -224,8 +245,11 @@ int dump_po_strings;		/* Dump strings in $"..." in po format */
 int wordexp_only = 0;		/* Do word expansion only */
 int protected_mode = 0;		/* No command substitution with --wordexp */
 
+<<<<<<< HEAD
 int pretty_print_mode = 0;	/* pretty-print a shell script */
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if defined (STRICT_POSIX)
 int posixly_correct = 1;	/* Non-zero means posix.2 superset. */
 #else
@@ -254,7 +278,10 @@ static const struct {
   { "noprofile", Int, &no_profile, (char **)0x0 },
   { "norc", Int, &no_rc, (char **)0x0 },
   { "posix", Int, &posixly_correct, (char **)0x0 },
+<<<<<<< HEAD
   { "pretty-print", Int, &pretty_print_mode, (char **)0x0 },
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if defined (WORDEXP_OPTION)
   { "protected", Int, &protected_mode, (char **)0x0 },
 #endif
@@ -292,7 +319,10 @@ int want_pending_command;	/* -c flag supplied */
 
 /* This variable is not static so it can be bound to $BASH_EXECUTION_STRING */
 char *command_execution_string;	/* argument to -c option */
+<<<<<<< HEAD
 char *shell_script_filename; 	/* shell script */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 int malloc_trace_at_exit = 0;
 
@@ -429,7 +459,11 @@ main (argc, argv, env)
   arg_index = 1;
   if (arg_index > argc)
     arg_index = argc;
+<<<<<<< HEAD
   command_execution_string = shell_script_filename = (char *)NULL;
+=======
+  command_execution_string = (char *)NULL;
+>>>>>>> orgin/bash-4.3-testing
   want_pending_command = locally_skip_execution = read_from_stdin = 0;
   default_input = stdin;
 #if defined (BUFFERED_INPUT)
@@ -569,6 +603,7 @@ main (argc, argv, env)
   set_default_locale_vars ();
 
   /*
+<<<<<<< HEAD
    * M-x term -> TERM=eterm-color INSIDE_EMACS='251,term:0.96' (eterm)
    * M-x shell -> TERM='dumb' INSIDE_EMACS='25.1,comint' (no line editing)
    *
@@ -608,6 +643,26 @@ main (argc, argv, env)
       /* running_under_emacs == 2 for `eterm' */
       running_under_emacs = in_emacs || STREQN (term, "emacs", 5);
       running_under_emacs += emacs_term && STREQN (term, "eterm", 5);
+=======
+   * M-x term -> TERM=eterm EMACS=22.1 (term:0.96)	(eterm)
+   * M-x shell -> TERM=dumb EMACS=t			(no line editing)
+   * M-x terminal -> TERM=emacs-em7955 EMACS=		(line editing)
+   */
+  if (interactive_shell)
+    {
+      char *term, *emacs;
+
+      term = get_string_value ("TERM");
+      emacs = get_string_value ("EMACS");
+
+      /* Not sure any emacs terminal emulator sets TERM=emacs any more */
+      no_line_editing |= term && (STREQ (term, "emacs"));
+      no_line_editing |= emacs && emacs[0] == 't' && emacs[1] == '\0' && STREQ (term, "dumb");
+
+      /* running_under_emacs == 2 for `eterm' */
+      running_under_emacs = (emacs != 0) || (term && STREQN (term, "emacs", 5));
+      running_under_emacs += term && STREQN (term, "eterm", 5) && emacs && strstr (emacs, "term");
+>>>>>>> orgin/bash-4.3-testing
 
       if (running_under_emacs)
 	gnu_error_format = 1;
@@ -720,9 +775,12 @@ main (argc, argv, env)
     }
 #endif
 
+<<<<<<< HEAD
   cmd_init ();		/* initialize the command object caches */
   uwp_init ();
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (command_execution_string)
     {
       startup_state = 2;
@@ -762,7 +820,14 @@ main (argc, argv, env)
 
   set_bash_input ();
 
+<<<<<<< HEAD
   if (debugging_mode && locally_skip_execution == 0 && running_setuid == 0 && (reading_shell_script || interactive_shell == 0))
+=======
+  /* Bind remaining args to $1 ... $n */
+  arg_index = bind_args (argv, arg_index, argc, 1);
+
+  if (debugging_mode && locally_skip_execution == 0 && running_setuid == 0 && dollar_vars[1])
+>>>>>>> orgin/bash-4.3-testing
     start_debugger ();
 
   /* Do the things that should be done only for interactive shells. */
@@ -959,6 +1024,7 @@ exit_shell (s)
   fflush (stdout);		/* XXX */
   fflush (stderr);
 
+<<<<<<< HEAD
   /* Clean up the terminal if we are in a state where it's been modified. */
 #if defined (READLINE)
   if (RL_ISSTATE (RL_STATE_TERMPREPPED) && rl_deprep_term_function)
@@ -967,6 +1033,8 @@ exit_shell (s)
   if (read_tty_modified ())
     read_tty_cleanup ();
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   /* Do trap[0] if defined.  Allow it to override the exit status
      passed to us. */
   if (signal_is_trapped (0))
@@ -1436,6 +1504,11 @@ bind_args (argv, arg_start, arg_end, start_index)
 	}
     }
 
+<<<<<<< HEAD
+=======
+  for (i = arg_start, args = (WORD_LIST *)NULL; i < arg_end; i++)
+    args = make_word_list (make_word (argv[i]), args);
+>>>>>>> orgin/bash-4.3-testing
   if (args)
     {
       if (start_index == 0)	/* bind to $0...$n for sh -c command */
@@ -1446,15 +1519,20 @@ bind_args (argv, arg_start, arg_end, start_index)
 	  FREE (dollar_vars[0]);
 	  dollar_vars[0] = savestring (args->word->word);
 	  remember_args (args->next, 1);
+<<<<<<< HEAD
 	  if (debugging_mode)
 	    {
 	      push_args (args->next);	/* BASH_ARGV and BASH_ARGC */
 	      bash_argv_initialized = 1;
 	    }
+=======
+	  push_args (args->next);	/* BASH_ARGV and BASH_ARGC */
+>>>>>>> orgin/bash-4.3-testing
 	}
       else			/* bind to $1...$n for shell script */
         {
 	  remember_args (args, 1);
+<<<<<<< HEAD
 	  /* We do this unconditionally so something like -O extdebug doesn't
 	     do it first.  We're setting the definitive positional params
 	     here. */
@@ -1463,6 +1541,9 @@ bind_args (argv, arg_start, arg_end, start_index)
 	      push_args (args);		/* BASH_ARGV and BASH_ARGC */
 	      bash_argv_initialized = 1;
 	    }
+=======
+	  push_args (args);		/* BASH_ARGV and BASH_ARGC */
+>>>>>>> orgin/bash-4.3-testing
         }
 
       dispose_words (args);
@@ -1483,11 +1564,15 @@ start_debugger ()
 {
 #if defined (DEBUGGER) && defined (DEBUGGER_START_FILE)
   int old_errexit;
+<<<<<<< HEAD
   int r;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   old_errexit = exit_immediately_on_error;
   exit_immediately_on_error = 0;
 
+<<<<<<< HEAD
   r = force_execute_file (DEBUGGER_START_FILE, 1);
   if (r < 0)
     {
@@ -1498,6 +1583,10 @@ start_debugger ()
 
   set_shellopts ();
   set_bashopts ();
+=======
+  maybe_execute_file (DEBUGGER_START_FILE, 1);
+  function_trace_mode = 1;
+>>>>>>> orgin/bash-4.3-testing
 
   exit_immediately_on_error += old_errexit;
 #endif
@@ -1554,6 +1643,7 @@ open_shell_script (script_name)
       exec_argv0 = (char *)NULL;
     }
 
+<<<<<<< HEAD
   if (file_isdir (filename))
     {
 #if defined (EISDIR)
@@ -1568,6 +1658,8 @@ open_shell_script (script_name)
       sh_exit (EX_NOINPUT);
     }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if defined (ARRAY_VARS)
   GET_ARRAY_FROM_VAR ("FUNCNAME", funcname_v, funcname_a);
   GET_ARRAY_FROM_VAR ("BASH_SOURCE", bash_source_v, bash_source_a);
@@ -1600,6 +1692,7 @@ open_shell_script (script_name)
 	{
 	  e = errno;
 	  if ((fstat (fd, &sb) == 0) && S_ISDIR (sb.st_mode))
+<<<<<<< HEAD
 	    {
 #if defined (EISDIR)
 	      errno = EISDIR;
@@ -1608,6 +1701,9 @@ open_shell_script (script_name)
 	      internal_error (_("%s: Is a directory"), filename);
 #endif
 	    }
+=======
+	    internal_error (_("%s: is a directory"), filename);
+>>>>>>> orgin/bash-4.3-testing
 	  else
 	    {
 	      errno = e;
@@ -1621,9 +1717,12 @@ open_shell_script (script_name)
       else if (sample_len > 0 && (check_binary_file (sample, sample_len)))
 	{
 	  internal_error (_("%s: cannot execute binary file"), filename);
+<<<<<<< HEAD
 #if defined (JOB_CONTROL)
 	  end_job_control ();	/* just in case we were run as bash -i script */
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  exit (EX_BINARY_FILE);
 	}
       /* Now rewind the file back to the beginning. */
@@ -1768,10 +1867,13 @@ init_interactive ()
 {
   expand_aliases = interactive_shell = startup_state = 1;
   interactive = 1;
+<<<<<<< HEAD
 #if defined (HISTORY)
   remember_on_history = enable_history_list = 1;	/* XXX */
   histexp_flag = history_expansion;			/* XXX */
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
 
 static void
@@ -1795,9 +1897,12 @@ init_interactive_script ()
 {
   init_noninteractive ();
   expand_aliases = interactive_shell = startup_state = 1;
+<<<<<<< HEAD
 #if defined (HISTORY)
   remember_on_history = enable_history_list = 1;	/* XXX */
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
 
 void
@@ -1905,8 +2010,13 @@ shell_initialize ()
      running in privileged or restricted mode or if the shell is running
      setuid. */
 #if defined (RESTRICTED_SHELL)
+<<<<<<< HEAD
   initialize_shell_options (privileged_mode||restricted||should_be_restricted||running_setuid);
   initialize_bashopts (privileged_mode||restricted||should_be_restricted||running_setuid);
+=======
+  initialize_shell_options (privileged_mode||restricted||running_setuid);
+  initialize_bashopts (privileged_mode||restricted||running_setuid);
+>>>>>>> orgin/bash-4.3-testing
 #else
   initialize_shell_options (privileged_mode||running_setuid);
   initialize_bashopts (privileged_mode||running_setuid);
@@ -1939,6 +2049,8 @@ shell_reinitialize ()
   subshell_environment = running_in_background = 0;
   expand_aliases = 0;
   bash_argv_initialized = 0;
+
+  /* XXX - should we set jobs_m_flag to 0 here? */
 
   /* XXX - should we set jobs_m_flag to 0 here? */
 
@@ -2013,9 +2125,12 @@ show_shell_usage (fp, extra)
       fprintf (fp, _("Type `%s -c \"help set\"' for more information about shell options.\n"), shell_name);
       fprintf (fp, _("Type `%s -c help' for more information about shell builtin commands.\n"), shell_name);
       fprintf (fp, _("Use the `bashbug' command to report bugs.\n"));
+<<<<<<< HEAD
       fprintf (fp, "\n");
       fprintf (fp, _("bash home page: <http://www.gnu.org/software/bash>\n"));
       fprintf (fp, _("General help using GNU software: <http://www.gnu.org/gethelp/>\n"));
+=======
+>>>>>>> orgin/bash-4.3-testing
     }
 }
 

@@ -1,7 +1,11 @@
 #
 # Simple makefile for the sample loadable builtins
 #
+<<<<<<< HEAD
 # Copyright (C) 1996-2015 Free Software Foundation, Inc.
+=======
+# Copyright (C) 1996-2009 Free Software Foundation, Inc.     
+>>>>>>> orgin/bash-4.3-testing
 
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -16,9 +20,12 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+<<<<<<< HEAD
 
 PACKAGE = @PACKAGE_NAME@
 VERSION = @PACKAGE_VERSION@
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 # Include some boilerplate Gnu makefile definitions.
 prefix = @prefix@
@@ -31,9 +38,12 @@ includedir = @includedir@
 
 datarootdir = @datarootdir@
 
+<<<<<<< HEAD
 loadablesdir = @loadablesdir@
 headersdir = @headersdir@
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 topdir = @top_srcdir@
 BUILD_DIR = @BUILD_DIR@
 srcdir = @srcdir@
@@ -67,8 +77,11 @@ CPPFLAGS = @CPPFLAGS@
 
 BASHINCDIR = ${topdir}/include
 
+<<<<<<< HEAD
 SUPPORT_SRC = $(topdir)/support/
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 LIBBUILD = ${BUILD_DIR}/lib
 
 INTL_LIBSRC = ${topdir}/lib/intl
@@ -92,7 +105,11 @@ SHOBJ_XLDFLAGS = @SHOBJ_XLDFLAGS@
 SHOBJ_LIBS = @SHOBJ_LIBS@
 SHOBJ_STATUS = @SHOBJ_STATUS@
 
+<<<<<<< HEAD
 INC = -I. -I.. -I$(topdir) -I$(topdir)/lib -I$(topdir)/builtins -I${srcdir} \
+=======
+INC = -I. -I.. -I$(topdir) -I$(topdir)/lib -I$(topdir)/builtins \
+>>>>>>> orgin/bash-4.3-testing
       -I$(BASHINCDIR) -I$(BUILD_DIR) -I$(LIBBUILD) \
       -I$(BUILD_DIR)/builtins $(INTL_INC)
 
@@ -102,8 +119,13 @@ INC = -I. -I.. -I$(topdir) -I$(topdir)/lib -I$(topdir)/builtins -I${srcdir} \
 
 ALLPROG = print truefalse sleep finfo logname basename dirname fdflags \
 	  tty pathchk tee head mkdir rmdir printenv id whoami \
+<<<<<<< HEAD
 	  uname sync push ln unlink realpath strftime mypid setpgid seq
 OTHERPROG = necho hello cat pushd stat rm
+=======
+	  uname sync push ln unlink realpath strftime mypid
+OTHERPROG = necho hello cat
+>>>>>>> orgin/bash-4.3-testing
 
 all:	$(SHOBJ_STATUS)
 
@@ -211,12 +233,15 @@ strftime:	strftime.o
 mypid:	mypid.o
 	$(SHOBJ_LD) $(SHOBJ_LDFLAGS) $(SHOBJ_XLDFLAGS) -o $@ mypid.o $(SHOBJ_LIBS)
 
+<<<<<<< HEAD
 setpgid:	setpgid.o
 	$(SHOBJ_LD) $(SHOBJ_LDFLAGS) $(SHOBJ_XLDFLAGS) -o $@ setpgid.o $(SHOBJ_LIBS)
 
 stat:	stat.o
 	$(SHOBJ_LD) $(SHOBJ_LDFLAGS) $(SHOBJ_XLDFLAGS) -o $@ stat.o $(SHOBJ_LIBS)
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 # pushd is a special case.  We use the same source that the builtin version
 # uses, with special compilation options.
 #
@@ -294,7 +319,11 @@ push.o: push.c
 mkdir.o: mkdir.c
 realpath.o: realpath.c
 strftime.o: strftime.c
+<<<<<<< HEAD
 setpgid.o: setpgid.c
 stat.o: stat.c
 fdflags.o: fdflags.c
 seq.o: seq.c
+=======
+mypid.o: mypid.c
+>>>>>>> orgin/bash-4.3-testing

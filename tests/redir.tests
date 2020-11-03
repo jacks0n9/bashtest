@@ -57,9 +57,12 @@ echo to c 1>&6
 cat $TMPDIR/bash-c
 echo "Point 5"
 
+<<<<<<< HEAD
 # clean up before running scripts
 exec 4>&- 5>&- 6<&-
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 rm -f $TMPDIR/bash-a $TMPDIR/bash-b $TMPDIR/bash-c
 
 #
@@ -192,5 +195,8 @@ exec 9>&-
 ${THIS_SH} ./redir9.sub
 
 ${THIS_SH} ./redir10.sub
+<<<<<<< HEAD
 
 ${THIS_SH} ./redir11.sub
+=======
+>>>>>>> orgin/bash-4.3-testing

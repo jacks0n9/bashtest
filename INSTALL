@@ -61,9 +61,15 @@ out how 'configure' could check whether or not to do them, and mail
 diffs or instructions to <bash-maintainers@gnu.org> so they can be
 considered for the next release.
 
+<<<<<<< HEAD
 The file 'configure.ac' is used to create 'configure' by a program
 called Autoconf.  You only need 'configure.ac' if you want to change it
 or regenerate 'configure' using a newer version of Autoconf.  If you do
+=======
+The file `configure.ac' is used to create `configure' by a program
+called Autoconf.  You only need `configure.ac' if you want to change it
+or regenerate `configure' using a newer version of Autoconf.  If you do
+>>>>>>> orgin/bash-4.3-testing
 this, make sure you are using Autoconf version 2.50 or newer.
 
 You can remove the program binaries and object files from the source
@@ -203,6 +209,7 @@ the Bash 'configure' recognizes.
 '--with-afs'
      Define if you are using the Andrew File System from Transarc.
 
+<<<<<<< HEAD
 '--with-bash-malloc'
      Use the Bash version of 'malloc' in the directory 'lib/malloc'.
      This is not the same 'malloc' that appears in GNU libc, but an
@@ -214,6 +221,19 @@ the Bash 'configure' recognizes.
      systems.
 
 '--with-curses'
+=======
+`--with-bash-malloc'
+     Use the Bash version of `malloc' in the directory `lib/malloc'.
+     This is not the same `malloc' that appears in GNU libc, but an
+     older version originally derived from the 4.2 BSD `malloc'.  This
+     `malloc' is very fast, but wastes some space on each allocation.
+     This option is enabled by default.  The `NOTES' file contains a
+     list of systems for which this should be turned off, and
+     `configure' disables this option automatically for a number of
+     systems.
+
+`--with-curses'
+>>>>>>> orgin/bash-4.3-testing
      Use the curses library instead of the termcap library.  This should
      be supplied if your system has an inadequate or incomplete termcap
      database.
@@ -223,10 +243,17 @@ the Bash 'configure' recognizes.
 
 '--with-installed-readline[=PREFIX]'
      Define this to make Bash link with a locally-installed version of
+<<<<<<< HEAD
      Readline rather than the version in 'lib/readline'.  This works
      only with Readline 5.0 and later versions.  If PREFIX is 'yes' or
      not supplied, 'configure' uses the values of the make variables
      'includedir' and 'libdir', which are subdirectories of 'prefix' by
+=======
+     Readline rather than the version in `lib/readline'.  This works
+     only with Readline 5.0 and later versions.  If PREFIX is `yes' or
+     not supplied, `configure' uses the values of the make variables
+     `includedir' and `libdir', which are subdirectories of `prefix' by
+>>>>>>> orgin/bash-4.3-testing
      default, to find the installed version of Readline if it is not in
      the standard system include and library directories.  If PREFIX is
      'no', Bash links with the version in 'lib/readline'.  If PREFIX is
@@ -265,8 +292,13 @@ The 'minimal-config' option can be used to disable all of the following
 options, but it is processed first, so individual options may be enabled
 using 'enable-FEATURE'.
 
+<<<<<<< HEAD
 All of the following options except for 'disabled-builtins',
 'direxpand-default', and 'xpg-echo-default' are enabled by default,
+=======
+All of the following options except for `disabled-builtins',
+`directpand-default', and `xpg-echo-default' are enabled by default,
+>>>>>>> orgin/bash-4.3-testing
 unless the operating system does not provide the necessary support.
 
 '--enable-alias'
@@ -286,6 +318,7 @@ unless the operating system does not provide the necessary support.
      Include support for 'csh'-like history substitution (*note History
      Interaction::).
 
+<<<<<<< HEAD
 '--enable-brace-expansion'
      Include 'csh'-like brace expansion ( 'b{a,b}c' ==> 'bac bbc' ).
      See *note Brace Expansion::, for a complete description.
@@ -295,6 +328,20 @@ unless the operating system does not provide the necessary support.
      builtin and assignment statements.  Variables with the UPPERCASE
      attribute, for example, will have their values converted to
      uppercase upon assignment.
+=======
+`--enable-brace-expansion'
+     Include `csh'-like brace expansion ( `b{a,b}c' ==> `bac bbc' ).
+     See *note Brace Expansion::, for a complete description.
+
+`--enable-casemod-attributes'
+     Include support for case-modifying attributes in the `declare'
+     builtin and assignment statements.  Variables with the UPPERCASE
+     attribute, for example, will have their values converted to
+     uppercase upon assignment.
+
+`--enable-casemod-expansion'
+     Include support for case-modifying word expansions.
+>>>>>>> orgin/bash-4.3-testing
 
 '--enable-casemod-expansion'
      Include support for case-modifying word expansions.
@@ -305,6 +352,7 @@ unless the operating system does not provide the necessary support.
      (*note Pipelines::).  This allows pipelines as well as shell
      builtins and functions to be timed.
 
+<<<<<<< HEAD
 '--enable-cond-command'
      Include support for the '[[' conditional command.  (*note
      Conditional Constructs::).
@@ -340,6 +388,37 @@ unless the operating system does not provide the necessary support.
      Allow builtin commands to be invoked via 'builtin xxx' even after
      'xxx' has been disabled using 'enable -n xxx'.  See *note Bash
      Builtins::, for details of the 'builtin' and 'enable' builtin
+=======
+`--enable-cond-command'
+     Include support for the `[[' conditional command.  (*note
+     Conditional Constructs::).
+
+`--enable-cond-regexp'
+     Include support for matching POSIX regular expressions using the
+     `=~' binary operator in the `[[' conditional command.  (*note
+     Conditional Constructs::).
+
+`--enable-coprocesses'
+     Include support for coprocesses and the `coproc' reserved word
+     (*note Pipelines::).
+
+`--enable-debugger'
+     Include support for the bash debugger (distributed separately).
+
+`--enable-direxpand-default'
+     Cause the `direxpand' shell option (*note The Shopt Builtin::) to
+     be enabled by default when the shell starts.  It is normally
+     disabled by default.
+
+`--enable-directory-stack'
+     Include support for a `csh'-like directory stack and the `pushd',
+     `popd', and `dirs' builtins (*note The Directory Stack::).
+
+`--enable-disabled-builtins'
+     Allow builtin commands to be invoked via `builtin xxx' even after
+     `xxx' has been disabled using `enable -n xxx'.  See *note Bash
+     Builtins::, for details of the `builtin' and `enable' builtin
+>>>>>>> orgin/bash-4.3-testing
      commands.
 
 '--enable-dparen-arithmetic'
@@ -350,6 +429,7 @@ unless the operating system does not provide the necessary support.
      Include support for the extended pattern matching features
      described above under *note Pattern Matching::.
 
+<<<<<<< HEAD
 '--enable-extended-glob-default'
      Set the default value of the EXTGLOB shell option described above
      under *note The Shopt Builtin:: to be enabled.
@@ -364,6 +444,17 @@ unless the operating system does not provide the necessary support.
      above under *note The Shopt Builtin:: to be enabled.  This controls
      the behavior of character ranges when used in pattern matching
      bracket expressions.
+=======
+`--enable-extended-glob-default'
+     Set the default value of the EXTGLOB shell option described above
+     under *note The Shopt Builtin:: to be enabled.
+
+`--enable-glob-asciirange-default'
+     Set the default value of the GLOBASCIIRANGES shell option described
+     above under *note The Shopt Builtin:: to be enabled.  This
+     controls the behavior of character ranges when used in pattern
+     matching bracket expressions.
+>>>>>>> orgin/bash-4.3-testing
 
 '--enable-help-builtin'
      Include the 'help' builtin, which displays help on shell builtins
@@ -377,11 +468,19 @@ unless the operating system does not provide the necessary support.
      This enables the job control features (*note Job Control::), if the
      operating system supports them.
 
+<<<<<<< HEAD
 '--enable-multibyte'
      This enables support for multibyte characters if the operating
      system provides the necessary support.
 
 '--enable-net-redirections'
+=======
+`--enable-multibyte'
+     This enables support for multibyte characters if the operating
+     system provides the necessary support.
+
+`--enable-net-redirections'
+>>>>>>> orgin/bash-4.3-testing
      This enables the special handling of filenames of the form
      '/dev/tcp/HOST/PORT' and '/dev/udp/HOST/PORT' when used in
      redirections (*note Redirections::).
@@ -390,11 +489,16 @@ unless the operating system does not provide the necessary support.
      This enables process substitution (*note Process Substitution::) if
      the operating system provides the necessary support.
 
+<<<<<<< HEAD
 '--enable-progcomp'
+=======
+`--enable-progcomp'
+>>>>>>> orgin/bash-4.3-testing
      Enable the programmable completion facilities (*note Programmable
      Completion::).  If Readline is not enabled, this option has no
      effect.
 
+<<<<<<< HEAD
 '--enable-prompt-string-decoding'
      Turn on the interpretation of a number of backslash-escaped
      characters in the '$PS0', '$PS1', '$PS2', and '$PS4' prompt
@@ -402,11 +506,21 @@ unless the operating system does not provide the necessary support.
      of prompt string escape sequences.
 
 '--enable-readline'
+=======
+`--enable-prompt-string-decoding'
+     Turn on the interpretation of a number of backslash-escaped
+     characters in the `$PS1', `$PS2', `$PS3', and `$PS4' prompt
+     strings.  See *note Controlling the Prompt::, for a complete list
+     of prompt string escape sequences.
+
+`--enable-readline'
+>>>>>>> orgin/bash-4.3-testing
      Include support for command-line editing and history with the Bash
      version of the Readline library (*note Command Line Editing::).
 
 '--enable-restricted'
      Include support for a "restricted shell".  If this is enabled,
+<<<<<<< HEAD
      Bash, when called as 'rbash', enters a restricted mode.  See *note
      The Restricted Shell::, for a description of restricted mode.
 
@@ -443,3 +557,41 @@ options which are not settable from 'configure'.  Some of these are not
 meant to be changed; beware of the consequences if you do.  Read the
 comments associated with each definition for more information about its
 effect.
+=======
+     Bash, when called as `rbash', enters a restricted mode.  See *note
+     The Restricted Shell::, for a description of restricted mode.
+
+`--enable-select'
+     Include the `select' compound command, which allows the generation
+     of simple menus (*note Conditional Constructs::).
+
+`--enable-separate-helpfiles'
+     Use external files for the documentation displayed by the `help'
+     builtin instead of storing the text internally.
+
+`--enable-single-help-strings'
+     Store the text displayed by the `help' builtin as a single string
+     for each help topic.  This aids in translating the text to
+     different languages.  You may need to disable this if your
+     compiler cannot handle very long string literals.
+
+`--enable-strict-posix-default'
+     Make Bash POSIX-conformant by default (*note Bash POSIX Mode::).
+
+`--enable-usg-echo-default'
+     A synonym for `--enable-xpg-echo-default'.
+
+`--enable-xpg-echo-default'
+     Make the `echo' builtin expand backslash-escaped characters by
+     default, without requiring the `-e' option.  This sets the default
+     value of the `xpg_echo' shell option to `on', which makes the Bash
+     `echo' behave more like the version specified in the Single Unix
+     Specification, version 3.  *Note Bash Builtins::, for a
+     description of the escape sequences that `echo' recognizes.
+
+The file `config-top.h' contains C Preprocessor `#define' statements
+for options which are not settable from `configure'.  Some of these are
+not meant to be changed; beware of the consequences if you do.  Read
+the comments associated with each definition for more information about
+its effect.
+>>>>>>> orgin/bash-4.3-testing

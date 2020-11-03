@@ -49,7 +49,10 @@
 #include "sig.h"
 #include "quit.h"
 #include "error.h"	/* for internal_warning */
+<<<<<<< HEAD
 #include "ocache.h"
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* Structure describing a saved variable and the value to restore it to.  */
 typedef struct {
@@ -76,6 +79,10 @@ typedef union uwp {
   } sv;
 } UNWIND_ELT;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> orgin/bash-4.3-testing
 static void without_interrupts __P((VFunction *, char *, char *));
 static void unwind_frame_discard_internal __P((char *, char *));
 static void unwind_frame_run_internal __P((char *, char *));
@@ -199,6 +206,7 @@ have_unwind_protects ()
   return (unwind_protect_list != 0);
 }
 
+<<<<<<< HEAD
 int
 unwind_protect_tag_on_stack (tag)
      const char *tag;
@@ -215,6 +223,8 @@ unwind_protect_tag_on_stack (tag)
   return 0;
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* **************************************************************** */
 /*								    */
 /*			The Actual Functions		 	    */
@@ -380,9 +390,16 @@ print_unwind_protect_tags ()
   elt = unwind_protect_list;
   while (elt)
     {
+<<<<<<< HEAD
       if (elt->head.cleanup == 0)
         fprintf(stderr, "tag: %s\n", elt->arg.v);
       elt = elt->head.next;
+=======
+      unwind_protect_list = unwind_protect_list->head.next;
+      if (elt->head.cleanup == 0)
+        fprintf(stderr, "tag: %s\n", elt->arg.v);
+      elt = unwind_protect_list;
+>>>>>>> orgin/bash-4.3-testing
     }
 }
 #endif

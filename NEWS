@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a terse description of the new features added to bash-5.0 since
 the release of bash-4.4.  As always, the manual page (doc/bash.1) is
 the place to look for complete descriptions.
@@ -400,6 +401,8 @@ t.  New application-settable variable: rl_persistent_signal_handlers: if set
     line has been read.
 
 -------------------------------------------------------------------------------
+=======
+>>>>>>> orgin/bash-4.3-testing
 This is a terse description of the new features added to bash-4.3 since
 the release of bash-4.2.  As always, the manual page (doc/bash.1) is
 the place to look for complete descriptions.
@@ -519,10 +522,14 @@ jj. Completing directory names containing shell variables now adds a trailing
     slash if the expanded result is a directory.
 
 kk. `cd' has a new `-@' option to browse a file's extended attributes on
+<<<<<<< HEAD
     systems that support O_XATTR.
 
 ll. The test/[/[[ `-v variable' binary operator now understands array
     references.
+=======
+   systems that support O_XATTR.
+>>>>>>> orgin/bash-4.3-testing
 
 2.  New Features in Readline
 

@@ -6,6 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bash 2.0\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2018-12-19 15:52-0500\n"
 "PO-Revision-Date: 2004-03-17 13:48+0200\n"
 "Last-Translator: Petri Jooste <rkwjpj@puk.ac.za>\n"
@@ -17,10 +18,23 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #: arrayfunc.c:58
+=======
+"POT-Creation-Date: 2014-01-23 16:04-0500\n"
+"PO-Revision-Date: 2004-03-17 13:48+0200\n"
+"Last-Translator: Petri Jooste <rkwjpj@puk.ac.za>\n"
+"Language-Team: Afrikaans <i18n@af.org.za>\n"
+"Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: arrayfunc.c:51
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "bad array subscript"
 msgstr "Os/2 Biskaart Skikking"
 
+<<<<<<< HEAD
 #: arrayfunc.c:377 builtins/declare.def:638 variables.c:2254 variables.c:2280
 #: variables.c:3108
 #, c-format
@@ -28,70 +42,128 @@ msgid "%s: removing nameref attribute"
 msgstr ""
 
 #: arrayfunc.c:402 builtins/declare.def:851
+=======
+#: arrayfunc.c:356 builtins/declare.def:566
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot convert indexed to associative array"
 msgstr ""
 
+<<<<<<< HEAD
 #: arrayfunc.c:586
 #, c-format
 msgid "%s: invalid associative array key"
 msgstr ""
 
 #: arrayfunc.c:588
+=======
+#: arrayfunc.c:539
+#, fuzzy, c-format
+msgid "%s: invalid associative array key"
+msgstr "%s: illegal option -- %c\n"
+
+#: arrayfunc.c:541
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot assign to non-numeric index"
 msgstr ""
 
+<<<<<<< HEAD
 #: arrayfunc.c:633
+=======
+#: arrayfunc.c:586
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: must use subscript when assigning associative array"
 msgstr ""
 
+<<<<<<< HEAD
 #: bashhist.c:451
+=======
+#: bashhist.c:388
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot create: %s"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: bashline.c:4144
 msgid "bash_execute_unix_command: cannot find keymap for command"
 msgstr ""
 
 #: bashline.c:4254
+=======
+#: bashline.c:3971
+msgid "bash_execute_unix_command: cannot find keymap for command"
+msgstr ""
+
+#: bashline.c:4058
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: first non-whitespace character is not `\"'"
 msgstr ""
 
+<<<<<<< HEAD
 #: bashline.c:4283
+=======
+#: bashline.c:4087
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "no closing `%c' in %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: bashline.c:4317
+=======
+#: bashline.c:4121
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: missing colon separator"
 msgstr ""
 
+<<<<<<< HEAD
 #: braces.c:331
+=======
+#: braces.c:321
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "brace expansion: cannot allocate memory for %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: braces.c:429
 #, c-format
 msgid "brace expansion: failed to allocate memory for %u elements"
 msgstr ""
 
 #: braces.c:474
+=======
+#: braces.c:413
+#, c-format
+msgid "brace expansion: failed to allocate memory for %d elements"
+msgstr ""
+
+#: braces.c:452
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "brace expansion: failed to allocate memory for `%s'"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/alias.def:131 variables.c:1842
 #, c-format
 msgid "`%s': invalid alias name"
 msgstr ""
 
 #: builtins/bind.def:122 builtins/bind.def:125
+=======
+#: builtins/alias.def:132
+#, fuzzy, c-format
+msgid "`%s': invalid alias name"
+msgstr "%s: illegal option -- %c\n"
+
+#: builtins/bind.def:123 builtins/bind.def:126
+>>>>>>> orgin/bash-4.3-testing
 msgid "line editing not enabled"
 msgstr ""
 
@@ -100,11 +172,23 @@ msgstr ""
 msgid "`%s': invalid keymap name"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/bind.def:252
+=======
+#: builtins/bind.def:251
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot read: %s"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
+=======
+#: builtins/bind.def:266
+#, fuzzy, c-format
+msgid "`%s': cannot unbind"
+msgstr "%s: bevel nie gevind nie"
+
+>>>>>>> orgin/bash-4.3-testing
 #: builtins/bind.def:304 builtins/bind.def:334
 #, fuzzy, c-format
 msgid "`%s': unknown function name"
@@ -120,6 +204,7 @@ msgstr ""
 msgid "%s can be invoked via "
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/bind.def:353 builtins/bind.def:368
 #, fuzzy, c-format
 msgid "`%s': cannot unbind"
@@ -134,21 +219,42 @@ msgid "only meaningful in a `for', `while', or `until' loop"
 msgstr ""
 
 #: builtins/caller.def:136
+=======
+#: builtins/break.def:77 builtins/break.def:117
+#, fuzzy
+msgid "loop count"
+msgstr "Afteken"
+
+#: builtins/break.def:137
+msgid "only meaningful in a `for', `while', or `until' loop"
+msgstr ""
+
+#: builtins/caller.def:134
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Returns the context of the current subroutine call.\n"
 "    \n"
 "    Without EXPR, returns "
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/cd.def:326
 msgid "HOME not set"
 msgstr ""
 
 #: builtins/cd.def:334 builtins/common.c:161 test.c:891
+=======
+#: builtins/cd.def:319
+msgid "HOME not set"
+msgstr ""
+
+#: builtins/cd.def:327 builtins/common.c:166 test.c:855
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "too many arguments"
 msgstr "te veel parameters"
 
+<<<<<<< HEAD
 #: builtins/cd.def:341
 #, fuzzy
 msgid "null directory"
@@ -169,154 +275,288 @@ msgid "warning: "
 msgstr ""
 
 #: builtins/common.c:148
+=======
+#: builtins/cd.def:338
+msgid "OLDPWD not set"
+msgstr ""
+
+#: builtins/common.c:101
+#, fuzzy, c-format
+msgid "line %d: "
+msgstr "3d modus"
+
+#: builtins/common.c:139 error.c:265
+#, fuzzy, c-format
+msgid "warning: "
+msgstr "besig om te skryf"
+
+#: builtins/common.c:153
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: usage: "
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:193 shell.c:510 shell.c:838
+=======
+#: builtins/common.c:191 shell.c:506 shell.c:788
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: option requires an argument"
 msgstr "%s: option `%s' requires an argument\n"
 
+<<<<<<< HEAD
 #: builtins/common.c:200
+=======
+#: builtins/common.c:198
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: numeric argument required"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:207
+=======
+#: builtins/common.c:205
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: not found"
 msgstr "%s: bevel nie gevind nie"
 
+<<<<<<< HEAD
 #: builtins/common.c:216 shell.c:851
+=======
+#: builtins/common.c:214 shell.c:801
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: invalid option"
 msgstr "%s: illegal option -- %c\n"
 
+<<<<<<< HEAD
 #: builtins/common.c:223
+=======
+#: builtins/common.c:221
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: invalid option name"
 msgstr "%s: illegal option -- %c\n"
 
+<<<<<<< HEAD
 #: builtins/common.c:230 execute_cmd.c:2372 general.c:352 general.c:357
+=======
+#: builtins/common.c:228 general.c:234 general.c:239
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "`%s': not a valid identifier"
 msgstr "Die datum is nie geldige!"
 
+<<<<<<< HEAD
 #: builtins/common.c:240
+=======
+#: builtins/common.c:238
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "invalid octal number"
 msgstr "Die sein nommer wat was gevang het"
 
+<<<<<<< HEAD
 #: builtins/common.c:242
+=======
+#: builtins/common.c:240
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "invalid hex number"
 msgstr "Die sein nommer wat was gevang het"
 
+<<<<<<< HEAD
 #: builtins/common.c:244 expr.c:1564
+=======
+#: builtins/common.c:242 expr.c:1470
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "invalid number"
 msgstr "Die sein nommer wat was gevang het"
 
+<<<<<<< HEAD
 #: builtins/common.c:252
+=======
+#: builtins/common.c:250
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid signal specification"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:259
+=======
+#: builtins/common.c:257
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "`%s': not a pid or valid job spec"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:266 error.c:510
+=======
+#: builtins/common.c:264 error.c:488
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: readonly variable"
 msgstr "Veranderlike boom"
 
+<<<<<<< HEAD
 #: builtins/common.c:274
+=======
+#: builtins/common.c:272
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s out of range"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:274 builtins/common.c:276
+=======
+#: builtins/common.c:272 builtins/common.c:274
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "argument"
 msgstr "argument verwag\n"
 
+<<<<<<< HEAD
 #: builtins/common.c:276
+=======
+#: builtins/common.c:274
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s out of range"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:284
+=======
+#: builtins/common.c:282
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: no such job"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:292
+=======
+#: builtins/common.c:290
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: no job control"
 msgstr "geen taakbeheer in hierdie dop nie"
 
+<<<<<<< HEAD
 #: builtins/common.c:294
+=======
+#: builtins/common.c:292
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "no job control"
 msgstr "geen taakbeheer in hierdie dop nie"
 
+<<<<<<< HEAD
 #: builtins/common.c:304
+=======
+#: builtins/common.c:302
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: restricted"
 msgstr "Die bediener beëindig Die verbinding."
 
+<<<<<<< HEAD
 #: builtins/common.c:306
 msgid "restricted"
 msgstr ""
 
 #: builtins/common.c:314
+=======
+#: builtins/common.c:304
+#, fuzzy
+msgid "restricted"
+msgstr ""
+"\n"
+"Bevel beëindig\n"
+
+#: builtins/common.c:312
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not a shell builtin"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:323
+=======
+#: builtins/common.c:321
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "write error: %s"
 msgstr "pypfout: %s"
 
+<<<<<<< HEAD
 #: builtins/common.c:331
+=======
+#: builtins/common.c:329
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "error setting terminal attributes: %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:333
+=======
+#: builtins/common.c:331
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "error getting terminal attributes: %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:579
+=======
+#: builtins/common.c:563
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: error retrieving current directory: %s: %s\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/common.c:645 builtins/common.c:647
+=======
+#: builtins/common.c:629 builtins/common.c:631
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: ambiguous job spec"
 msgstr "%s: dubbelsinnige herroetering"
 
+<<<<<<< HEAD
 #: builtins/common.c:908
 msgid "help not available in this version"
 msgstr ""
 
 #: builtins/complete.def:281
+=======
+#: builtins/complete.def:277
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid action name"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/complete.def:474 builtins/complete.def:679
 #: builtins/complete.def:910
+=======
+#: builtins/complete.def:450 builtins/complete.def:645
+#: builtins/complete.def:855
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: no completion specification"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/complete.def:733
 msgid "warning: -F option may not work as you expect"
 msgstr ""
@@ -334,15 +574,39 @@ msgid "can only be used in a function"
 msgstr ""
 
 #: builtins/declare.def:369 builtins/declare.def:756
+=======
+#: builtins/complete.def:697
+msgid "warning: -F option may not work as you expect"
+msgstr ""
+
+#: builtins/complete.def:699
+msgid "warning: -C option may not work as you expect"
+msgstr ""
+
+#: builtins/complete.def:828
+msgid "not currently executing completion function"
+msgstr ""
+
+#: builtins/declare.def:126
+msgid "can only be used in a function"
+msgstr ""
+
+#: builtins/declare.def:315 builtins/declare.def:509
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: reference variable cannot be an array"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/declare.def:380 variables.c:3363
+=======
+#: builtins/declare.def:324
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: nameref variable self references not allowed"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/declare.def:385 variables.c:2084 variables.c:3272 variables.c:3285
 #: variables.c:3360
 #, c-format
@@ -359,117 +623,209 @@ msgid "cannot use `-f' to make functions"
 msgstr ""
 
 #: builtins/declare.def:532 execute_cmd.c:5852
+=======
+#: builtins/declare.def:398
+msgid "cannot use `-f' to make functions"
+msgstr ""
+
+#: builtins/declare.def:410 execute_cmd.c:5349
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: readonly function"
 msgstr "%s: leesalleen-funksie"
 
+<<<<<<< HEAD
 #: builtins/declare.def:824
 #, c-format
 msgid "%s: quoted compound array assignment deprecated"
 msgstr ""
 
 #: builtins/declare.def:838
+=======
+#: builtins/declare.def:553
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot destroy array variables in this way"
 msgstr "Kan nie soek 'n handtekening in hierdie boodskap!"
 
+<<<<<<< HEAD
 #: builtins/declare.def:845 builtins/read.def:788
+=======
+#: builtins/declare.def:560 builtins/read.def:733
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot convert associative to indexed array"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/enable.def:143 builtins/enable.def:151
 msgid "dynamic loading not available"
 msgstr ""
 
 #: builtins/enable.def:343
+=======
+#: builtins/enable.def:137 builtins/enable.def:145
+msgid "dynamic loading not available"
+msgstr ""
+
+#: builtins/enable.def:312
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "cannot open shared object %s: %s"
 msgstr "Kan nie oopmaak vir skrip-afvoer nie: \""
 
+<<<<<<< HEAD
 #: builtins/enable.def:369
+=======
+#: builtins/enable.def:335
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot find %s in shared object %s: %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/enable.def:387
 #, c-format
 msgid "load function for %s returns failure (%d): not loaded"
 msgstr ""
 
 #: builtins/enable.def:512
+=======
+#: builtins/enable.def:459
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not dynamically loaded"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/enable.def:538
+=======
+#: builtins/enable.def:474
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot delete: %s"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:138 builtins/hash.def:184 execute_cmd.c:5684
+=======
+#: builtins/evalfile.c:140 builtins/hash.def:171 execute_cmd.c:5196
+#: shell.c:1481
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: is a directory"
 msgstr "%s: is 'n gids"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:144
+=======
+#: builtins/evalfile.c:146
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: not a regular file"
 msgstr "%s: kan nie 'n binêre lêer uitvoer nie"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:153
+=======
+#: builtins/evalfile.c:155
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: file is too large"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:188 builtins/evalfile.c:206 shell.c:1623
+=======
+#: builtins/evalfile.c:190 builtins/evalfile.c:208 shell.c:1491
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot execute binary file"
 msgstr "%s: kan nie 'n binêre lêer uitvoer nie"
 
+<<<<<<< HEAD
 #: builtins/exec.def:156 builtins/exec.def:158 builtins/exec.def:243
+=======
+#: builtins/exec.def:154 builtins/exec.def:156 builtins/exec.def:228
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot execute: %s"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: builtins/exit.def:64
+=======
+#: builtins/exit.def:65
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "logout\n"
 msgstr "Afteken"
 
+<<<<<<< HEAD
 #: builtins/exit.def:89
 msgid "not login shell: use `exit'"
 msgstr ""
 
 #: builtins/exit.def:121
+=======
+#: builtins/exit.def:88
+msgid "not login shell: use `exit'"
+msgstr ""
+
+#: builtins/exit.def:120
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "There are stopped jobs.\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/exit.def:123
+=======
+#: builtins/exit.def:122
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "There are running jobs.\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/fc.def:265
+=======
+#: builtins/fc.def:262
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "no command found"
 msgstr "%s: bevel nie gevind nie"
 
+<<<<<<< HEAD
 #: builtins/fc.def:323 builtins/fc.def:372
 msgid "history specification"
 msgstr ""
 
 #: builtins/fc.def:393
+=======
+#: builtins/fc.def:320 builtins/fc.def:369
+msgid "history specification"
+msgstr ""
+
+#: builtins/fc.def:390
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot open temp file: %s"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: builtins/fg_bg.def:152 builtins/jobs.def:284
 msgid "current"
 msgstr ""
 
 #: builtins/fg_bg.def:161
+=======
+#: builtins/fg_bg.def:149 builtins/jobs.def:282
+msgid "current"
+msgstr ""
+
+#: builtins/fg_bg.def:158
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "job %d started without job control"
 msgstr ""
@@ -484,7 +840,11 @@ msgstr "%s: illegal option -- %c\n"
 msgid "%s: option requires an argument -- %c\n"
 msgstr "%s: option `%s' requires an argument\n"
 
+<<<<<<< HEAD
 #: builtins/hash.def:91
+=======
+#: builtins/hash.def:92
+>>>>>>> orgin/bash-4.3-testing
 msgid "hashing disabled"
 msgstr ""
 
@@ -493,29 +853,50 @@ msgstr ""
 msgid "%s: hash table empty\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/hash.def:266
+=======
+#: builtins/hash.def:245
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "hits\tcommand\n"
 msgstr "Bevelreël"
 
+<<<<<<< HEAD
 #: builtins/help.def:133
+=======
+#: builtins/help.def:130
+#, c-format
+>>>>>>> orgin/bash-4.3-testing
 msgid "Shell commands matching keyword `"
 msgid_plural "Shell commands matching keywords `"
 msgstr[0] ""
 msgstr[1] ""
 
+<<<<<<< HEAD
 #: builtins/help.def:185
+=======
+#: builtins/help.def:182
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "no help topics match `%s'.  Try `help help' or `man -k %s' or `info %s'."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/help.def:224
+=======
+#: builtins/help.def:199
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot open: %s"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: builtins/help.def:524
+=======
+#: builtins/help.def:485
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "These shell commands are defined internally.  Type `help' to see this list.\n"
@@ -531,6 +912,7 @@ msgstr ""
 msgid "cannot use more than one of -anrw"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/history.def:187 builtins/history.def:197 builtins/history.def:212
 #: builtins/history.def:229 builtins/history.def:241 builtins/history.def:248
 msgid "history position"
@@ -542,6 +924,13 @@ msgid "%s: invalid timestamp"
 msgstr ""
 
 #: builtins/history.def:442
+=======
+#: builtins/history.def:186
+msgid "history position"
+msgstr ""
+
+#: builtins/history.def:366
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: history expansion failed"
 msgstr "%s: heelgetal-uitdrukking is verwag\n"
@@ -549,42 +938,72 @@ msgstr "%s: heelgetal-uitdrukking is verwag\n"
 #: builtins/inlib.def:71
 #, fuzzy, c-format
 msgid "%s: inlib failed"
+<<<<<<< HEAD
 msgstr "Veranderlike boom"
+=======
+msgstr "%s: heelgetal-uitdrukking is verwag\n"
+>>>>>>> orgin/bash-4.3-testing
 
 #: builtins/jobs.def:109
 msgid "no other options allowed with `-x'"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/kill.def:211
+=======
+#: builtins/kill.def:200
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: arguments must be process or job IDs"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/kill.def:274
+=======
+#: builtins/kill.def:263
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "Unknown error"
 msgstr "Onbekende fout %d"
 
+<<<<<<< HEAD
 #: builtins/let.def:97 builtins/let.def:122 expr.c:638 expr.c:656
+=======
+#: builtins/let.def:95 builtins/let.def:120 expr.c:583 expr.c:598
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "expression expected"
 msgstr "Bools uitdrukking verwag"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:178
 #, c-format
 msgid "%s: not an indexed array"
 msgstr ""
 
 #: builtins/mapfile.def:271 builtins/read.def:307
+=======
+#: builtins/mapfile.def:172
+#, fuzzy, c-format
+msgid "%s: not an indexed array"
+msgstr "Veranderlike boom"
+
+#: builtins/mapfile.def:259 builtins/read.def:302
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid file descriptor specification"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:279 builtins/read.def:314
+=======
+#: builtins/mapfile.def:267 builtins/read.def:309
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%d: invalid file descriptor: %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:288 builtins/mapfile.def:326
 #, c-format
 msgid "%s: invalid line count"
@@ -609,54 +1028,120 @@ msgid "array variable support required"
 msgstr ""
 
 #: builtins/printf.def:420
+=======
+#: builtins/mapfile.def:276 builtins/mapfile.def:314
+#, fuzzy, c-format
+msgid "%s: invalid line count"
+msgstr "%s: illegal option -- %c\n"
+
+#: builtins/mapfile.def:287
+#, fuzzy, c-format
+msgid "%s: invalid array origin"
+msgstr "%s: illegal option -- %c\n"
+
+#: builtins/mapfile.def:304
+#, fuzzy, c-format
+msgid "%s: invalid callback quantum"
+msgstr "Die sein nommer wat was gevang het"
+
+#: builtins/mapfile.def:336
+#, fuzzy
+msgid "empty array variable name"
+msgstr "Veranderlike boom"
+
+#: builtins/mapfile.def:357
+msgid "array variable support required"
+msgstr ""
+
+#: builtins/printf.def:402
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "`%s': missing format character"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/printf.def:475
 #, c-format
 msgid "`%c': invalid time format specification"
 msgstr ""
 
 #: builtins/printf.def:677
+=======
+#: builtins/printf.def:456
+#, fuzzy, c-format
+msgid "`%c': invalid time format specification"
+msgstr "%s: illegal option -- %c\n"
+
+#: builtins/printf.def:658
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "`%c': invalid format character"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/printf.def:703
+=======
+#: builtins/printf.def:684
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "warning: %s: %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/printf.def:789
+=======
+#: builtins/printf.def:768
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "format parsing problem: %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/printf.def:886
 msgid "missing hex digit for \\x"
 msgstr ""
 
 #: builtins/printf.def:901
+=======
+#: builtins/printf.def:865
+msgid "missing hex digit for \\x"
+msgstr ""
+
+#: builtins/printf.def:880
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "missing unicode digit for \\%c"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/pushd.def:199
+=======
+#: builtins/pushd.def:195
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "no other directory"
 msgstr "boonste lêergids."
 
+<<<<<<< HEAD
 #: builtins/pushd.def:360
 #, fuzzy, c-format
 msgid "%s: invalid argument"
 msgstr "%s: option `%s' requires an argument\n"
 
 #: builtins/pushd.def:480
+=======
+#: builtins/pushd.def:354
+#, fuzzy, c-format
+msgid "%s: invalid argument"
+msgstr "%s: illegal option -- %c\n"
+
+#: builtins/pushd.def:468
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "<no current directory>"
 msgstr "Nuutste gebruik word werksaam gids"
 
+<<<<<<< HEAD
 #: builtins/pushd.def:524
 msgid "directory stack empty"
 msgstr ""
@@ -666,6 +1151,18 @@ msgid "directory stack index"
 msgstr ""
 
 #: builtins/pushd.def:701
+=======
+#: builtins/pushd.def:512
+msgid "directory stack empty"
+msgstr ""
+
+#: builtins/pushd.def:514
+#, fuzzy
+msgid "directory stack index"
+msgstr "Stapel grootte verhoog"
+
+#: builtins/pushd.def:689
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display the list of currently remembered directories.  Directories\n"
 "    find their way onto the list with the `pushd' command; you can get\n"
@@ -689,7 +1186,11 @@ msgid ""
 "\tdirs when invoked without options, starting with zero."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/pushd.def:723
+=======
+#: builtins/pushd.def:711
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Adds a directory to the top of the directory stack, or rotates\n"
 "    the stack, making the new top of the stack the current working\n"
@@ -714,7 +1215,11 @@ msgid ""
 "    The `dirs' builtin displays the directory stack."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/pushd.def:748
+=======
+#: builtins/pushd.def:736
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Removes entries from the directory stack.  With no arguments, removes\n"
 "    the top directory from the stack, and changes to the new top directory.\n"
@@ -735,16 +1240,25 @@ msgid ""
 "    The `dirs' builtin displays the directory stack."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/read.def:279
+=======
+#: builtins/read.def:275
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid timeout specification"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/read.def:733
+=======
+#: builtins/read.def:678
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "read error: %d: %s"
 msgstr "pypfout: %s"
 
+<<<<<<< HEAD
 #: builtins/return.def:68
 msgid "can only `return' from a function or sourced script"
 msgstr ""
@@ -754,151 +1268,271 @@ msgid "cannot simultaneously unset a function and a variable"
 msgstr ""
 
 #: builtins/set.def:904
+=======
+#: builtins/return.def:75
+msgid "can only `return' from a function or sourced script"
+msgstr ""
+
+#: builtins/set.def:782
+msgid "cannot simultaneously unset a function and a variable"
+msgstr ""
+
+#: builtins/set.def:826
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot unset"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: builtins/set.def:925 variables.c:3813
+=======
+#: builtins/set.def:843
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot unset: readonly %s"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: builtins/set.def:938
+=======
+#: builtins/set.def:854
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: not an array variable"
 msgstr "Veranderlike boom"
 
+<<<<<<< HEAD
 #: builtins/setattr.def:189
+=======
+#: builtins/setattr.def:187
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: not a function"
 msgstr "%s: leesalleen-funksie"
 
+<<<<<<< HEAD
 #: builtins/setattr.def:194
 #, fuzzy, c-format
 msgid "%s: cannot export"
 msgstr "%s: kan nie %s skep nie"
 
 #: builtins/shift.def:73 builtins/shift.def:79
+=======
+#: builtins/shift.def:71 builtins/shift.def:77
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "shift count"
 msgstr "Shift"
 
+<<<<<<< HEAD
 #: builtins/shopt.def:310
 msgid "cannot set and unset shell options simultaneously"
 msgstr ""
 
 #: builtins/shopt.def:420
+=======
+#: builtins/shopt.def:279
+msgid "cannot set and unset shell options simultaneously"
+msgstr ""
+
+#: builtins/shopt.def:346
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid shell option name"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/source.def:128
 msgid "filename argument required"
 msgstr ""
 
 #: builtins/source.def:154
+=======
+#: builtins/source.def:130
+msgid "filename argument required"
+msgstr ""
+
+#: builtins/source.def:155
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: file not found"
 msgstr "%s: bevel nie gevind nie"
 
+<<<<<<< HEAD
 #: builtins/suspend.def:102
 msgid "cannot suspend"
 msgstr ""
 
 #: builtins/suspend.def:112
+=======
+#: builtins/suspend.def:101
+msgid "cannot suspend"
+msgstr ""
+
+#: builtins/suspend.def:111
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "cannot suspend a login shell"
 msgstr "Begin aanteken tolk"
 
+<<<<<<< HEAD
 #: builtins/type.def:235
+=======
+#: builtins/type.def:234
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is aliased to `%s'\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/type.def:256
+=======
+#: builtins/type.def:255
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is a shell keyword\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/type.def:275
+=======
+#: builtins/type.def:274
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s is a function\n"
 msgstr "%s: leesalleen-funksie"
 
+<<<<<<< HEAD
 #: builtins/type.def:299
 #, c-format
 msgid "%s is a special shell builtin\n"
 msgstr ""
 
 #: builtins/type.def:301
+=======
+#: builtins/type.def:296
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is a shell builtin\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/type.def:323 builtins/type.def:408
+=======
+#: builtins/type.def:317 builtins/type.def:393
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is %s\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/type.def:343
+=======
+#: builtins/type.def:337
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is hashed (%s)\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:396
+=======
+#: builtins/ulimit.def:383
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid limit argument"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:422
+=======
+#: builtins/ulimit.def:409
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "`%c': bad command"
 msgstr "%s: illegal option -- %c\n"
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:451
+=======
+#: builtins/ulimit.def:438
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot get limit: %s"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:477
+=======
+#: builtins/ulimit.def:464
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "limit"
 msgstr "Filter beperk:"
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:489 builtins/ulimit.def:789
+=======
+#: builtins/ulimit.def:476 builtins/ulimit.def:776
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot modify limit: %s"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: builtins/umask.def:115
+=======
+#: builtins/umask.def:114
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "octal number"
 msgstr "Die sein nommer wat was gevang het"
 
+<<<<<<< HEAD
 #: builtins/umask.def:232
+=======
+#: builtins/umask.def:227
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "`%c': invalid symbolic mode operator"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins/umask.def:287
+=======
+#: builtins/umask.def:282
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "`%c': invalid symbolic mode character"
 msgstr ""
 
+<<<<<<< HEAD
 #: error.c:89 error.c:347 error.c:349 error.c:351
 msgid " line "
 msgstr ""
 
 #: error.c:164
+=======
+#: error.c:90 error.c:325 error.c:327 error.c:329
+msgid " line "
+msgstr ""
+
+#: error.c:165
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "last command: %s\n"
 msgstr "Bevelreël"
 
+<<<<<<< HEAD
 #: error.c:172
+=======
+#: error.c:173
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Aborting..."
 msgstr ""
 
+<<<<<<< HEAD
 #. TRANSLATORS: this is a prefix for informational messages.
 #: error.c:287
 #, c-format
@@ -906,55 +1540,91 @@ msgid "INFORM: "
 msgstr ""
 
 #: error.c:462
+=======
+#: error.c:440
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "unknown command error"
 msgstr "Onbekende fout %d"
 
+<<<<<<< HEAD
 #: error.c:463
+=======
+#: error.c:441
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "bad command type"
 msgstr "bevelnaam"
 
+<<<<<<< HEAD
 #: error.c:464
+=======
+#: error.c:442
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "bad connector"
 msgstr "foutiewe verbinder`%d'"
 
+<<<<<<< HEAD
 #: error.c:465
+=======
+#: error.c:443
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "bad jump"
 msgstr "Spring na:"
 
+<<<<<<< HEAD
 #: error.c:503
+=======
+#: error.c:481
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: unbound variable"
 msgstr "Veranderlike boom"
 
+<<<<<<< HEAD
 #: eval.c:245
+=======
+#: eval.c:189
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "\atimed out waiting for input: auto-logout\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: execute_cmd.c:536
+=======
+#: execute_cmd.c:512
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot redirect standard input from /dev/null: %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: execute_cmd.c:1306
+=======
+#: execute_cmd.c:1233
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "TIMEFORMAT: `%c': invalid format character"
 msgstr ""
 
+<<<<<<< HEAD
 #: execute_cmd.c:2361
 #, c-format
 msgid "execute_coproc: coproc [%d:%s] still exists"
 msgstr ""
 
 #: execute_cmd.c:2485
+=======
+#: execute_cmd.c:2287
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "pipe error"
 msgstr "pypfout: %s"
 
+<<<<<<< HEAD
 #: execute_cmd.c:4671
 #, c-format
 msgid "eval: maximum eval nesting level exceeded (%d)"
@@ -966,59 +1636,103 @@ msgid "%s: maximum source nesting level exceeded (%d)"
 msgstr ""
 
 #: execute_cmd.c:4791
+=======
+#: execute_cmd.c:4374
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: maximum function nesting level exceeded (%d)"
 msgstr ""
 
+<<<<<<< HEAD
 #: execute_cmd.c:5340
+=======
+#: execute_cmd.c:4872
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: restricted: cannot specify `/' in command names"
 msgstr ""
 
+<<<<<<< HEAD
 #: execute_cmd.c:5438
+=======
+#: execute_cmd.c:4961
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: command not found"
 msgstr "%s: bevel nie gevind nie"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5682
+=======
+#: execute_cmd.c:5194
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: execute_cmd.c:5720
+=======
+#: execute_cmd.c:5231
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: %s: bad interpreter"
 msgstr "%s: is 'n gids"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5757
+=======
+#: execute_cmd.c:5268
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot execute binary file: %s"
 msgstr "%s: kan nie 'n binêre lêer uitvoer nie"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5843
+=======
+#: execute_cmd.c:5340
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "`%s': is a special builtin"
 msgstr ""
 
+<<<<<<< HEAD
 #: execute_cmd.c:5895
+=======
+#: execute_cmd.c:5392
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "cannot duplicate fd %d to fd %d"
 msgstr "kan nie fd %d na fd 0 dupliseer nie: %s"
 
+<<<<<<< HEAD
 #: expr.c:263
 msgid "expression recursion level exceeded"
 msgstr ""
 
 #: expr.c:291
+=======
+#: expr.c:259
+msgid "expression recursion level exceeded"
+msgstr ""
+
+#: expr.c:283
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "recursion stack underflow"
 msgstr "Stapel grootte verhoog"
 
+<<<<<<< HEAD
 #: expr.c:477
+=======
+#: expr.c:431
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "syntax error in expression"
 msgstr "Sintaks fout in patroon"
 
+<<<<<<< HEAD
 #: expr.c:521
 msgid "attempted assignment to non-variable"
 msgstr ""
@@ -1029,19 +1743,35 @@ msgid "syntax error in variable assignment"
 msgstr "Sintaks fout in patroon"
 
 #: expr.c:544 expr.c:910
+=======
+#: expr.c:475
+msgid "attempted assignment to non-variable"
+msgstr ""
+
+#: expr.c:495 expr.c:858
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "division by 0"
 msgstr "devisie by nul."
 
+<<<<<<< HEAD
 #: expr.c:591
 msgid "bug: bad expassign token"
 msgstr ""
 
 #: expr.c:645
+=======
+#: expr.c:542
+msgid "bug: bad expassign token"
+msgstr ""
+
+#: expr.c:595
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "`:' expected for conditional expression"
 msgstr "Soek die lêer vir 'n uitdrukking"
 
+<<<<<<< HEAD
 #: expr.c:971
 msgid "exponent less than 0"
 msgstr ""
@@ -1051,26 +1781,50 @@ msgid "identifier expected after pre-increment or pre-decrement"
 msgstr ""
 
 #: expr.c:1055
+=======
+#: expr.c:919
+msgid "exponent less than 0"
+msgstr ""
+
+#: expr.c:976
+msgid "identifier expected after pre-increment or pre-decrement"
+msgstr ""
+
+#: expr.c:1002
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "missing `)'"
 msgstr "Ontbrekende '>'"
 
+<<<<<<< HEAD
 #: expr.c:1106 expr.c:1484
+=======
+#: expr.c:1053 expr.c:1390
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "syntax error: operand expected"
 msgstr "Onverwagte einde van lêer tydens inlees van hulpbron."
 
+<<<<<<< HEAD
 #: expr.c:1486
 msgid "syntax error: invalid arithmetic operator"
 msgstr ""
 
 #: expr.c:1510
+=======
+#: expr.c:1392
+msgid "syntax error: invalid arithmetic operator"
+msgstr ""
+
+#: expr.c:1416
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s%s%s: %s (error token is \"%s\")"
 msgstr ""
 "Hierdie is die fout boodskap van %1:\n"
 "%2"
 
+<<<<<<< HEAD
 #: expr.c:1568
 msgid "invalid arithmetic base"
 msgstr ""
@@ -1085,132 +1839,250 @@ msgid "%s: expression error\n"
 msgstr "Pypfout.\n"
 
 #: general.c:69
+=======
+#: expr.c:1474
+msgid "invalid arithmetic base"
+msgstr ""
+
+#: expr.c:1494
+msgid "value too great for base"
+msgstr "waarde te groot vir basis"
+
+#: expr.c:1543
+#, fuzzy, c-format
+msgid "%s: expression error\n"
+msgstr "%s: heelgetal-uitdrukking is verwag\n"
+
+#: general.c:61
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "getcwd: cannot access parent directories"
 msgstr "Kan nie die program uitvoer nie:"
 
+<<<<<<< HEAD
 #: input.c:99 subst.c:5930
 #, c-format
 msgid "cannot reset nodelay mode for fd %d"
 msgstr ""
 
 #: input.c:266
+=======
+#: input.c:102 subst.c:5168
+#, fuzzy, c-format
+msgid "cannot reset nodelay mode for fd %d"
+msgstr "kan nie fd %d na fd 0 dupliseer nie: %s"
+
+#: input.c:269
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot allocate new file descriptor for bash input from fd %d"
 msgstr ""
 
+<<<<<<< HEAD
 #: input.c:274
+=======
+#: input.c:277
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "save_bash_input: buffer already exists for new fd %d"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:529
 msgid "start_pipeline: pgrp pipe"
 msgstr ""
 
 #: jobs.c:1084
+=======
+#: jobs.c:471
+msgid "start_pipeline: pgrp pipe"
+msgstr ""
+
+#: jobs.c:893
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "forked pid %d appears in running job %d"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:1203
+=======
+#: jobs.c:1012
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "deleting stopped job %d with process group %ld"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:1307
+=======
+#: jobs.c:1117
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "add_process: process %5ld (%s) in the_pipeline"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:1310
+=======
+#: jobs.c:1120
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "add_process: pid %5ld (%s) marked as still alive"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:1639
+=======
+#: jobs.c:1435
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "describe_pid: %ld: no such pid"
 msgstr "E108: Geen veranderlike: \"%s\""
 
+<<<<<<< HEAD
 #: jobs.c:1654
+=======
+#: jobs.c:1450
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "Signal %d"
 msgstr "Sein kwaliteit:"
 
+<<<<<<< HEAD
 #: jobs.c:1668 jobs.c:1694
 msgid "Done"
 msgstr "Klaar"
 
 #: jobs.c:1673 siglist.c:123
+=======
+#: jobs.c:1464 jobs.c:1489
+msgid "Done"
+msgstr "Klaar"
+
+#: jobs.c:1469 siglist.c:123
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "Stopped"
 msgstr "Op gehou"
 
+<<<<<<< HEAD
 #: jobs.c:1677
+=======
+#: jobs.c:1473
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "Stopped(%s)"
 msgstr "Op gehou"
 
+<<<<<<< HEAD
 #: jobs.c:1681
+=======
+#: jobs.c:1477
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "Running"
 msgstr "aktief"
 
+<<<<<<< HEAD
 #: jobs.c:1698
+=======
+#: jobs.c:1491
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Done(%d)"
 msgstr "Klaar(%d)"
 
+<<<<<<< HEAD
 #: jobs.c:1700
+=======
+#: jobs.c:1493
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Exit %d"
 msgstr "Verlaat %d"
 
+<<<<<<< HEAD
 #: jobs.c:1703
 msgid "Unknown status"
 msgstr "Onbekende status"
 
 #: jobs.c:1790
+=======
+#: jobs.c:1496
+msgid "Unknown status"
+msgstr "Onbekende status"
+
+#: jobs.c:1583
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "(core dumped) "
 msgstr "Kern Ontwikkelaar"
 
+<<<<<<< HEAD
 #: jobs.c:1809
+=======
+#: jobs.c:1602
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "  (wd: %s)"
 msgstr "Aktiveer nou dadelik"
 
+<<<<<<< HEAD
 #: jobs.c:2037
+=======
+#: jobs.c:1819
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "child setpgid (%ld to %ld)"
 msgstr "Fout in die skryf van %s"
 
+<<<<<<< HEAD
 #: jobs.c:2399 nojobs.c:657
+=======
+#: jobs.c:2138 nojobs.c:605
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "wait: pid %ld is not a child of this shell"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:2695
+=======
+#: jobs.c:2385
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "wait_for: No record of process %ld"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:3055
+=======
+#: jobs.c:2694
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "wait_for_job: job %d is stopped"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:3362
+=======
+#: jobs.c:2986
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: job has terminated"
 msgstr "Die bediener beëindig Die verbinding."
 
+<<<<<<< HEAD
 #: jobs.c:3371
+=======
+#: jobs.c:2995
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: job %d already in background"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:3597
 msgid "waitchld: turning on WNOHANG to avoid indefinite block"
 msgstr ""
@@ -1221,20 +2093,41 @@ msgid "%s: line %d: "
 msgstr ""
 
 #: jobs.c:4134 nojobs.c:900
+=======
+#: jobs.c:3220
+msgid "waitchld: turning on WNOHANG to avoid indefinite block"
+msgstr ""
+
+#: jobs.c:3711
+#, fuzzy, c-format
+msgid "%s: line %d: "
+msgstr "3d modus"
+
+#: jobs.c:3725 nojobs.c:843
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid " (core dumped)"
 msgstr "Kern Ontwikkelaar"
 
+<<<<<<< HEAD
 #: jobs.c:4146 jobs.c:4159
+=======
+#: jobs.c:3737 jobs.c:3750
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "(wd now: %s)\n"
 msgstr "Aktiveer nou dadelik"
 
+<<<<<<< HEAD
 #: jobs.c:4191
+=======
+#: jobs.c:3782
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "initialize_job_control: getpgrp failed"
 msgstr "Inisialisering van OpenGL het misluk."
 
+<<<<<<< HEAD
 #: jobs.c:4247
 msgid "initialize_job_control: no job control in background"
 msgstr ""
@@ -1244,31 +2137,55 @@ msgid "initialize_job_control: line discipline"
 msgstr ""
 
 #: jobs.c:4273
+=======
+#: jobs.c:3843
+msgid "initialize_job_control: line discipline"
+msgstr ""
+
+#: jobs.c:3853
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "initialize_job_control: setpgid"
 msgstr "Inisialisering van OpenGL het misluk."
 
+<<<<<<< HEAD
 #: jobs.c:4294 jobs.c:4303
+=======
+#: jobs.c:3874 jobs.c:3883
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot set terminal process group (%d)"
 msgstr ""
 
+<<<<<<< HEAD
 #: jobs.c:4308
 msgid "no job control in this shell"
 msgstr "geen taakbeheer in hierdie dop nie"
 
 #: lib/malloc/malloc.c:331
+=======
+#: jobs.c:3888
+msgid "no job control in this shell"
+msgstr "geen taakbeheer in hierdie dop nie"
+
+#: lib/malloc/malloc.c:296
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "malloc: failed assertion: %s\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: lib/malloc/malloc.c:347
+=======
+#: lib/malloc/malloc.c:312
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "\r\n"
 "malloc: %s:%d: assertion botched\r\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: lib/malloc/malloc.c:348
 msgid "unknown"
 msgstr "onbekend"
@@ -1306,16 +2223,64 @@ msgid "realloc: start and end chunk sizes differ"
 msgstr ""
 
 #: lib/malloc/table.c:191
+=======
+#: lib/malloc/malloc.c:313
+#, fuzzy
+msgid "unknown"
+msgstr "(onbekend)"
+
+#: lib/malloc/malloc.c:801
+msgid "malloc: block on free list clobbered"
+msgstr ""
+
+#: lib/malloc/malloc.c:878
+msgid "free: called with already freed block argument"
+msgstr ""
+
+#: lib/malloc/malloc.c:881
+msgid "free: called with unallocated block argument"
+msgstr ""
+
+#: lib/malloc/malloc.c:900
+msgid "free: underflow detected; mh_nbytes out of range"
+msgstr ""
+
+#: lib/malloc/malloc.c:906
+msgid "free: start and end chunk sizes differ"
+msgstr ""
+
+#: lib/malloc/malloc.c:1005
+msgid "realloc: called with unallocated block argument"
+msgstr ""
+
+#: lib/malloc/malloc.c:1020
+msgid "realloc: underflow detected; mh_nbytes out of range"
+msgstr ""
+
+#: lib/malloc/malloc.c:1026
+msgid "realloc: start and end chunk sizes differ"
+msgstr ""
+
+#: lib/malloc/table.c:194
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "register_alloc: alloc table is full with FIND_ALLOC?\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: lib/malloc/table.c:200
+=======
+#: lib/malloc/table.c:203
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "register_alloc: %p already in table as allocated?\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: lib/malloc/table.c:253
+=======
+#: lib/malloc/table.c:256
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "register_free: %p already in table as free?\n"
 msgstr ""
@@ -1339,26 +2304,46 @@ msgstr ""
 msgid "%s: bad network path specification"
 msgstr ""
 
+<<<<<<< HEAD
 #: lib/sh/netopen.c:347
 msgid "network operations not supported"
 msgstr ""
 
 #: locale.c:205
+=======
+#: lib/sh/netopen.c:346
+msgid "network operations not supported"
+msgstr ""
+
+#: locale.c:200
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "setlocale: LC_ALL: cannot change locale (%s)"
 msgstr ""
 
+<<<<<<< HEAD
 #: locale.c:207
+=======
+#: locale.c:202
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "setlocale: LC_ALL: cannot change locale (%s): %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: locale.c:272
+=======
+#: locale.c:259
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "setlocale: %s: cannot change locale (%s)"
 msgstr ""
 
+<<<<<<< HEAD
 #: locale.c:274
+=======
+#: locale.c:261
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "setlocale: %s: cannot change locale (%s): %s"
 msgstr ""
@@ -1378,36 +2363,61 @@ msgstr "Wanneer nuwe pos arriveer in"
 msgid "The mail in %s has been read\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: make_cmd.c:317
+=======
+#: make_cmd.c:323
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "syntax error: arithmetic expression required"
 msgstr "Sintaks fout in patroon"
 
+<<<<<<< HEAD
 #: make_cmd.c:319
+=======
+#: make_cmd.c:325
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "syntax error: `;' unexpected"
 msgstr "Onverwagte einde van lêer tydens inlees van hulpbron."
 
+<<<<<<< HEAD
 #: make_cmd.c:320
+=======
+#: make_cmd.c:326
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "syntax error: `((%s))'"
 msgstr "sintaksfout"
 
+<<<<<<< HEAD
 #: make_cmd.c:572
+=======
+#: make_cmd.c:578
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "make_here_document: bad instruction type %d"
 msgstr ""
 
+<<<<<<< HEAD
 #: make_cmd.c:657
+=======
+#: make_cmd.c:662
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "here-document at line %d delimited by end-of-file (wanted `%s')"
 msgstr ""
 
+<<<<<<< HEAD
 #: make_cmd.c:756
+=======
+#: make_cmd.c:759
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "make_redirection: redirection instruction `%d' out of range"
 msgstr ""
 
+<<<<<<< HEAD
 #: parse.y:2380
 #, c-format
 msgid ""
@@ -1420,182 +2430,325 @@ msgid "maximum here-document count exceeded"
 msgstr ""
 
 #: parse.y:3536 parse.y:3906
+=======
+#: parse.y:3273 parse.y:3556
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected EOF while looking for matching `%c'"
 msgstr ""
 
+<<<<<<< HEAD
 #: parse.y:4606
 msgid "unexpected EOF while looking for `]]'"
 msgstr ""
 
 #: parse.y:4611
+=======
+#: parse.y:4163
+msgid "unexpected EOF while looking for `]]'"
+msgstr ""
+
+#: parse.y:4168
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "syntax error in conditional expression: unexpected token `%s'"
 msgstr ""
 
+<<<<<<< HEAD
 #: parse.y:4615
+=======
+#: parse.y:4172
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "syntax error in conditional expression"
 msgstr "Sintaks fout in patroon"
 
+<<<<<<< HEAD
 #: parse.y:4693
+=======
+#: parse.y:4250
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected token `%s', expected `)'"
 msgstr ""
 
+<<<<<<< HEAD
 #: parse.y:4697
+=======
+#: parse.y:4254
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "expected `)'"
 msgstr "')' is verwag\n"
 
+<<<<<<< HEAD
 #: parse.y:4725
+=======
+#: parse.y:4282
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected argument `%s' to conditional unary operator"
 msgstr ""
 
+<<<<<<< HEAD
 #: parse.y:4729
 msgid "unexpected argument to conditional unary operator"
 msgstr ""
 
 #: parse.y:4775
+=======
+#: parse.y:4286
+msgid "unexpected argument to conditional unary operator"
+msgstr ""
+
+#: parse.y:4332
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "unexpected token `%s', conditional binary operator expected"
 msgstr "%s: binêre operator is verwag\n"
 
+<<<<<<< HEAD
 #: parse.y:4779
+=======
+#: parse.y:4336
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "conditional binary operator expected"
 msgstr "%s: binêre operator is verwag\n"
 
+<<<<<<< HEAD
 #: parse.y:4801
+=======
+#: parse.y:4358
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected argument `%s' to conditional binary operator"
 msgstr ""
 
+<<<<<<< HEAD
 #: parse.y:4805
 msgid "unexpected argument to conditional binary operator"
 msgstr ""
 
 #: parse.y:4816
+=======
+#: parse.y:4362
+msgid "unexpected argument to conditional binary operator"
+msgstr ""
+
+#: parse.y:4373
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "unexpected token `%c' in conditional command"
 msgstr "Soek die lêer vir 'n uitdrukking"
 
+<<<<<<< HEAD
 #: parse.y:4819
+=======
+#: parse.y:4376
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "unexpected token `%s' in conditional command"
 msgstr "Soek die lêer vir 'n uitdrukking"
 
+<<<<<<< HEAD
 #: parse.y:4823
+=======
+#: parse.y:4380
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "unexpected token %d in conditional command"
 msgstr "Soek die lêer vir 'n uitdrukking"
 
+<<<<<<< HEAD
 #: parse.y:6245
+=======
+#: parse.y:5730
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "syntax error near unexpected token `%s'"
 msgstr ""
 
+<<<<<<< HEAD
 #: parse.y:6263
+=======
+#: parse.y:5748
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "syntax error near `%s'"
 msgstr "Sintaks fout in patroon"
 
+<<<<<<< HEAD
 #: parse.y:6273
+=======
+#: parse.y:5758
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "syntax error: unexpected end of file"
 msgstr "Onverwagte einde van lêer tydens inlees van hulpbron."
 
+<<<<<<< HEAD
 #: parse.y:6273
 msgid "syntax error"
 msgstr "sintaksfout"
 
 #: parse.y:6335
+=======
+#: parse.y:5758
+msgid "syntax error"
+msgstr "sintaksfout"
+
+#: parse.y:5820
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "Use \"%s\" to leave the shell.\n"
 msgstr "Gebruik Kaart na Los Tronk"
 
+<<<<<<< HEAD
 #: parse.y:6497
 msgid "unexpected EOF while looking for matching `)'"
 msgstr ""
 
 #: pcomplete.c:1132
+=======
+#: parse.y:5982
+msgid "unexpected EOF while looking for matching `)'"
+msgstr ""
+
+#: pcomplete.c:1094
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "completion: function `%s' not found"
 msgstr ""
 
+<<<<<<< HEAD
 #: pcomplete.c:1722
 #, c-format
 msgid "programmable_completion: %s: possible retry loop"
 msgstr ""
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #: pcomplib.c:182
 #, c-format
 msgid "progcomp_insert: %s: NULL COMPSPEC"
 msgstr ""
 
+<<<<<<< HEAD
 #: print_cmd.c:302
+=======
+#: print_cmd.c:300
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "print_command: bad connector `%d'"
 msgstr ""
 
+<<<<<<< HEAD
 #: print_cmd.c:375
+=======
+#: print_cmd.c:373
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "xtrace_set: %d: invalid file descriptor"
 msgstr ""
 
+<<<<<<< HEAD
 #: print_cmd.c:380
 msgid "xtrace_set: NULL file pointer"
 msgstr ""
 
 #: print_cmd.c:384
+=======
+#: print_cmd.c:378
+msgid "xtrace_set: NULL file pointer"
+msgstr ""
+
+#: print_cmd.c:382
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "xtrace fd (%d) != fileno xtrace fp (%d)"
 msgstr ""
 
+<<<<<<< HEAD
 #: print_cmd.c:1540
+=======
+#: print_cmd.c:1518
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cprintf: `%c': invalid format character"
 msgstr ""
 
+<<<<<<< HEAD
 #: redir.c:121 redir.c:167
 msgid "file descriptor out of range"
 msgstr ""
 
 #: redir.c:174
+=======
+#: redir.c:123 redir.c:170
+msgid "file descriptor out of range"
+msgstr ""
+
+#: redir.c:177
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: ambiguous redirect"
 msgstr "%s: dubbelsinnige herroetering"
 
+<<<<<<< HEAD
 #: redir.c:178
+=======
+#: redir.c:181
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot overwrite existing file"
 msgstr "Jy het gespesifiseer 'n bestaande lêer"
 
+<<<<<<< HEAD
 #: redir.c:183
+=======
+#: redir.c:186
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: restricted: cannot redirect output"
 msgstr ""
 
+<<<<<<< HEAD
 #: redir.c:188
+=======
+#: redir.c:191
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot create temp file for here-document: %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: redir.c:192
+=======
+#: redir.c:195
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot assign fd to variable"
 msgstr "Kan nie soek 'n handtekening in hierdie boodskap!"
 
+<<<<<<< HEAD
 #: redir.c:591
 msgid "/dev/(tcp|udp)/host/port not supported without networking"
 msgstr ""
 
 #: redir.c:875 redir.c:990 redir.c:1051 redir.c:1221
+=======
+#: redir.c:582
+msgid "/dev/(tcp|udp)/host/port not supported without networking"
+msgstr ""
+
+#: redir.c:861 redir.c:973 redir.c:1034 redir.c:1199
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "redirection error: cannot duplicate fd"
 msgstr "Pypfout.\n"
 
+<<<<<<< HEAD
 #: shell.c:343
 msgid "could not find /tmp, please create!"
 msgstr ""
@@ -1609,10 +2762,22 @@ msgid "pretty-printing mode ignored in interactive shells"
 msgstr ""
 
 #: shell.c:940
+=======
+#: shell.c:339
+msgid "could not find /tmp, please create!"
+msgstr ""
+
+#: shell.c:343
+msgid "/tmp must be a valid directory name"
+msgstr ""
+
+#: shell.c:890
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%c%c: invalid option"
 msgstr "%s: illegal option -- %c\n"
 
+<<<<<<< HEAD
 #: shell.c:1299
 #, c-format
 msgid "cannot set uid to %d: effective uid %d"
@@ -1637,53 +2802,93 @@ msgid "I have no name!"
 msgstr "Ek het nie 'n naam nie!"
 
 #: shell.c:1980
+=======
+#: shell.c:1682
+msgid "I have no name!"
+msgstr "Ek het nie 'n naam nie!"
+
+#: shell.c:1827
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "GNU bash, version %s-(%s)\n"
 msgstr "bedryfstelselkernweergawe"
 
+<<<<<<< HEAD
 #: shell.c:1981
+=======
+#: shell.c:1828
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "Usage:\t%s [GNU long option] [option] ...\n"
 "\t%s [GNU long option] [option] script-file ...\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: shell.c:1983
+=======
+#: shell.c:1830
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "GNU long options:\n"
 msgstr "Gnu C Saamsteller Opsies"
 
+<<<<<<< HEAD
 #: shell.c:1987
+=======
+#: shell.c:1834
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "Shell options:\n"
 msgstr "opneem opsies"
 
+<<<<<<< HEAD
 #: shell.c:1988
 msgid "\t-ilrsD or -c command or -O shopt_option\t\t(invocation only)\n"
 msgstr ""
 
 #: shell.c:2007
+=======
+#: shell.c:1835
+msgid "\t-ilrsD or -c command or -O shopt_option\t\t(invocation only)\n"
+msgstr ""
+
+#: shell.c:1850
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "\t-%s or -o option\n"
 msgstr ""
 "Gebruik so: %s LÊER \n"
 "   of:  %s OPSIE\n"
 
+<<<<<<< HEAD
 #: shell.c:2013
+=======
+#: shell.c:1856
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Type `%s -c \"help set\"' for more information about shell options.\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: shell.c:2014
+=======
+#: shell.c:1857
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Type `%s -c help' for more information about shell builtin commands.\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: shell.c:2015
+=======
+#: shell.c:1858
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Use the `bashbug' command to report bugs.\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: shell.c:2017
 #, c-format
 msgid "bash home page: <http://www.gnu.org/software/bash>\n"
@@ -1695,6 +2900,9 @@ msgid "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
 msgstr ""
 
 #: sig.c:730
+=======
+#: sig.c:691
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "sigprocmask: %d: invalid operation"
 msgstr ""
@@ -1775,9 +2983,13 @@ msgstr "wêreld horlosie"
 #: siglist.c:111
 #, fuzzy
 msgid "Terminated"
+<<<<<<< HEAD
 msgstr ""
 "\n"
 "Bevel beëindig\n"
+=======
+msgstr "Gedruk: %s"
+>>>>>>> orgin/bash-4.3-testing
 
 #: siglist.c:115
 #, fuzzy
@@ -1902,65 +3114,110 @@ msgstr "Sein kwaliteit:"
 msgid "Unknown Signal #%d"
 msgstr "Sein kwaliteit:"
 
+<<<<<<< HEAD
 #: subst.c:1454 subst.c:1644
+=======
+#: subst.c:1362 subst.c:1520
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "bad substitution: no closing `%s' in %s"
 msgstr "--Geen reëls in buffer--"
 
+<<<<<<< HEAD
 #: subst.c:3231
+=======
+#: subst.c:2847
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot assign list to array member"
 msgstr ""
 
+<<<<<<< HEAD
 #: subst.c:5789 subst.c:5805
+=======
+#: subst.c:5065 subst.c:5081
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "cannot make pipe for process substitution"
 msgstr "Woord Substitusie"
 
+<<<<<<< HEAD
 #: subst.c:5851
+=======
+#: subst.c:5113
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "cannot make child for process substitution"
 msgstr "Woord Substitusie"
 
+<<<<<<< HEAD
 #: subst.c:5920
+=======
+#: subst.c:5158
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "cannot open named pipe %s for reading"
 msgstr "Kan nie oopmaak vir skrip-afvoer nie: \""
 
+<<<<<<< HEAD
 #: subst.c:5922
+=======
+#: subst.c:5160
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "cannot open named pipe %s for writing"
 msgstr "Kan nie oopmaak vir skrip-afvoer nie: \""
 
+<<<<<<< HEAD
 #: subst.c:5945
+=======
+#: subst.c:5178
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "cannot duplicate named pipe %s as fd %d"
 msgstr "Kan nie oopmaak vir skrip-afvoer nie: \""
 
+<<<<<<< HEAD
 #: subst.c:6062
 #, fuzzy
 msgid "command substitution: ignored null byte in input"
 msgstr "--Geen reëls in buffer--"
 
 #: subst.c:6190
+=======
+#: subst.c:5376
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "cannot make pipe for command substitution"
 msgstr "Woord Substitusie"
 
+<<<<<<< HEAD
 #: subst.c:6233
+=======
+#: subst.c:5414
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "cannot make child for command substitution"
 msgstr "Woord Substitusie"
 
+<<<<<<< HEAD
 #: subst.c:6259
 msgid "command_substitute: cannot duplicate pipe as fd 1"
 msgstr ""
 
 #: subst.c:6710 subst.c:9623
+=======
+#: subst.c:5433
+msgid "command_substitute: cannot duplicate pipe as fd 1"
+msgstr ""
+
+#: subst.c:5837 subst.c:8050
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid variable name for name reference"
 msgstr ""
 
+<<<<<<< HEAD
 #: subst.c:6806 subst.c:6824 subst.c:6979
 #, c-format
 msgid "%s: invalid indirect expansion"
@@ -1977,37 +3234,64 @@ msgid "%s: parameter not set"
 msgstr ""
 
 #: subst.c:7058
+=======
+#: subst.c:6048
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: parameter null or not set"
 msgstr ""
 
+<<<<<<< HEAD
 #: subst.c:7295 subst.c:7310
+=======
+#: subst.c:6320 subst.c:6335
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: substring expression < 0"
 msgstr "ongeldige uitdrukking"
 
+<<<<<<< HEAD
 #: subst.c:8973 subst.c:8994
+=======
+#: subst.c:7506
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: bad substitution"
 msgstr "Woord Substitusie"
 
+<<<<<<< HEAD
 #: subst.c:9082
+=======
+#: subst.c:7583
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "$%s: cannot assign in this way"
 msgstr "Kan nie soek 'n handtekening in hierdie boodskap!"
 
+<<<<<<< HEAD
 #: subst.c:9485
+=======
+#: subst.c:7917
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "future versions of the shell will force evaluation as an arithmetic "
 "substitution"
 msgstr ""
 
+<<<<<<< HEAD
 #: subst.c:10043
+=======
+#: subst.c:8421
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "bad substitution: no closing \"`\" in %s"
 msgstr "--Geen reëls in buffer--"
 
+<<<<<<< HEAD
 #: subst.c:11070
+=======
+#: subst.c:9322
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "no match: %s"
 msgstr ""
@@ -2022,67 +3306,112 @@ msgstr "argument verwag\n"
 msgid "%s: integer expression expected"
 msgstr "%s: heelgetal-uitdrukking is verwag\n"
 
+<<<<<<< HEAD
 #: test.c:265
+=======
+#: test.c:264
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "`)' expected"
 msgstr "')' is verwag\n"
 
+<<<<<<< HEAD
 #: test.c:267
+=======
+#: test.c:266
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "`)' expected, found %s"
 msgstr "')' is verwag, maar %s gevind\n"
 
+<<<<<<< HEAD
 #: test.c:282 test.c:750 test.c:753
+=======
+#: test.c:281 test.c:721 test.c:724
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: unary operator expected"
 msgstr "%s: unitêre operator is verwag\n"
 
+<<<<<<< HEAD
 #: test.c:469 test.c:793
+=======
+#: test.c:468 test.c:764
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: binary operator expected"
 msgstr "%s: binêre operator is verwag\n"
 
+<<<<<<< HEAD
 #: test.c:875
+=======
+#: test.c:839
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "missing `]'"
 msgstr "Ontbrekende '>'"
 
+<<<<<<< HEAD
 #: trap.c:216
+=======
+#: trap.c:217
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "invalid signal number"
 msgstr "Die sein nommer wat was gevang het"
 
+<<<<<<< HEAD
 #: trap.c:320
 #, c-format
 msgid "trap handler: maximum trap handler level exceeded (%d)"
 msgstr ""
 
 #: trap.c:408
+=======
+#: trap.c:371
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "run_pending_traps: bad value in trap_list[%d]: %p"
 msgstr ""
 
+<<<<<<< HEAD
 #: trap.c:412
+=======
+#: trap.c:375
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "run_pending_traps: signal handler is SIG_DFL, resending %d (%s) to myself"
 msgstr ""
 
+<<<<<<< HEAD
 #: trap.c:470
+=======
+#: trap.c:428
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "trap_handler: bad signal %d"
 msgstr ""
 
+<<<<<<< HEAD
 #: variables.c:412
+=======
+#: variables.c:382
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "error importing function definition for `%s'"
 msgstr ""
 
+<<<<<<< HEAD
 #: variables.c:821
+=======
+#: variables.c:780
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "shell level (%d) too high, resetting to 1"
 msgstr ""
 
+<<<<<<< HEAD
 #: variables.c:2655
 msgid "make_local_variable: no function context at current scope"
 msgstr ""
@@ -2102,20 +3431,50 @@ msgid "all_local_variables: no function context at current scope"
 msgstr ""
 
 #: variables.c:4698
+=======
+#: variables.c:1865
+#, c-format
+msgid "%s: circular name reference"
+msgstr ""
+
+#: variables.c:2228
+msgid "make_local_variable: no function context at current scope"
+msgstr ""
+
+#: variables.c:2247
+#, fuzzy, c-format
+msgid "%s: variable may not be assigned value"
+msgstr "Kan nie soek 'n handtekening in hierdie boodskap!"
+
+#: variables.c:3646
+msgid "all_local_variables: no function context at current scope"
+msgstr ""
+
+#: variables.c:3891
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s has null exportstr"
 msgstr ""
 
+<<<<<<< HEAD
 #: variables.c:4703 variables.c:4712
+=======
+#: variables.c:3896 variables.c:3905
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "invalid character %d in exportstr for %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: variables.c:4718
+=======
+#: variables.c:3911
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "no `=' in exportstr for %s"
 msgstr ""
 
+<<<<<<< HEAD
 #: variables.c:5243
 msgid "pop_var_context: head of shell_variables not a function context"
 msgstr ""
@@ -2134,17 +3493,46 @@ msgid "%s: %s: cannot open as FILE"
 msgstr ""
 
 #: variables.c:6277
+=======
+#: variables.c:4344
+msgid "pop_var_context: head of shell_variables not a function context"
+msgstr ""
+
+#: variables.c:4357
+msgid "pop_var_context: no global_variables context"
+msgstr ""
+
+#: variables.c:4431
+msgid "pop_scope: head of shell_variables not a temporary environment scope"
+msgstr ""
+
+#: variables.c:5257
+#, fuzzy, c-format
+msgid "%s: %s: cannot open as FILE"
+msgstr "%s: kan nie %s skep nie"
+
+#: variables.c:5262
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: invalid value for trace file descriptor"
 msgstr ""
 
+<<<<<<< HEAD
 #: variables.c:6322
+=======
+#: variables.c:5307
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: compatibility value out of range"
 msgstr ""
 
+<<<<<<< HEAD
 #: version.c:46 version2.c:46
 msgid "Copyright (C) 2018 Free Software Foundation, Inc."
+=======
+#: version.c:46
+msgid "Copyright (C) 2013 Free Software Foundation, Inc."
+>>>>>>> orgin/bash-4.3-testing
 msgstr ""
 
 #: version.c:47 version2.c:47
@@ -2166,112 +3554,214 @@ msgstr ""
 msgid "There is NO WARRANTY, to the extent permitted by law."
 msgstr ""
 
+<<<<<<< HEAD
 #: xmalloc.c:93
+=======
+#: version2.c:46
+msgid "Copyright (C) 2012 Free Software Foundation, Inc."
+msgstr ""
+
+#: xmalloc.c:91
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot allocate %lu bytes (%lu bytes allocated)"
 msgstr ""
 
+<<<<<<< HEAD
 #: xmalloc.c:95
+=======
+#: xmalloc.c:93
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: cannot allocate %lu bytes"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: xmalloc.c:165
+=======
+#: xmalloc.c:163
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s:%d: cannot allocate %lu bytes (%lu bytes allocated)"
 msgstr ""
 
+<<<<<<< HEAD
 #: xmalloc.c:167
+=======
+#: xmalloc.c:165
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy, c-format
 msgid "%s: %s:%d: cannot allocate %lu bytes"
 msgstr "%s: kan nie %s skep nie"
 
+<<<<<<< HEAD
 #: builtins.c:45
+=======
+#: builtins.c:43
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "alias [-p] [name[=value] ... ]"
 msgstr "E418: Ongeldige waarde: %s"
 
+<<<<<<< HEAD
 #: builtins.c:49
+=======
+#: builtins.c:47
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "unalias [-a] name [name ...]"
 msgstr "Volle Naam:"
 
+<<<<<<< HEAD
 #: builtins.c:53
+=======
+#: builtins.c:51
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "bind [-lpsvPSVX] [-m keymap] [-f filename] [-q name] [-u name] [-r keyseq] [-"
 "x keyseq:shell-command] [keyseq:readline-function or readline-command]"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:56
+=======
+#: builtins.c:54
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "break [n]"
 msgstr "Breek"
 
+<<<<<<< HEAD
 #: builtins.c:58
+=======
+#: builtins.c:56
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "continue [n]"
 msgstr "Gaan voort"
 
+<<<<<<< HEAD
 #: builtins.c:60
+=======
+#: builtins.c:58
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "builtin [shell-builtin [arg ...]]"
 msgstr "Ontfouting %1 (met arg %2 %3)"
 
+<<<<<<< HEAD
 #: builtins.c:63
+=======
+#: builtins.c:61
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "caller [expr]"
 msgstr "/Opsies/Toets"
 
+<<<<<<< HEAD
 #: builtins.c:66
+=======
+#: builtins.c:64
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "cd [-L|[-P [-e]] [-@]] [dir]"
 msgstr "init_cache_dir %s... "
 
+<<<<<<< HEAD
 #: builtins.c:68
+=======
+#: builtins.c:66
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "pwd [-LP]"
 msgstr "miniserv.pl is gestop\n"
 
+<<<<<<< HEAD
 #: builtins.c:76
+=======
+#: builtins.c:68
+msgid ":"
+msgstr ":"
+
+#: builtins.c:70
+msgid "true"
+msgstr ""
+
+#: builtins.c:72
+msgid "false"
+msgstr ""
+
+#: builtins.c:74
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "command [-pVv] command [arg ...]"
 msgstr "Gebruik so: %s [OPSIE] [BEVEL [ARG]...]\n"
 
+<<<<<<< HEAD
 #: builtins.c:78
+=======
+#: builtins.c:76
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "declare [-aAfFgilnrtux] [-p] [name[=value] ...]"
 msgstr "E418: Ongeldige waarde: %s"
 
+<<<<<<< HEAD
 #: builtins.c:80
 #, fuzzy
 msgid "typeset [-aAfFgilnrtux] [-p] name[=value] ..."
 msgstr "E418: Ongeldige waarde: %s"
 
 #: builtins.c:82
+=======
+#: builtins.c:78
+#, fuzzy
+msgid "typeset [-aAfFgilrtux] [-p] name[=value] ..."
+msgstr "E418: Ongeldige waarde: %s"
+
+#: builtins.c:80
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "local [option] name[=value] ..."
 msgstr "Name=Plaaslike Netwerk"
 
+<<<<<<< HEAD
 #: builtins.c:85
+=======
+#: builtins.c:83
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "echo [-neE] [arg ...]"
 msgstr "Ontfouting %1 (met arg %2 %3)"
 
+<<<<<<< HEAD
 #: builtins.c:89
+=======
+#: builtins.c:87
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "echo [-n] [arg ...]"
 msgstr "Konfigureer Eggo"
 
+<<<<<<< HEAD
 #: builtins.c:92
+=======
+#: builtins.c:90
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "enable [-a] [-dnps] [-f filename] [name ...]"
 msgstr "Teruglus lêernaam:"
 
+<<<<<<< HEAD
 #: builtins.c:94
+=======
+#: builtins.c:92
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "eval [arg ...]"
 msgstr "Ontfouting %1 (met arg %2 %3)"
 
+<<<<<<< HEAD
 #: builtins.c:96
 msgid "getopts optstring name [arg]"
 msgstr ""
@@ -2281,45 +3771,85 @@ msgid "exec [-cl] [-a name] [command [arguments ...]] [redirection ...]"
 msgstr ""
 
 #: builtins.c:100
+=======
+#: builtins.c:94
+msgid "getopts optstring name [arg]"
+msgstr ""
+
+#: builtins.c:96
+msgid "exec [-cl] [-a name] [command [arguments ...]] [redirection ...]"
+msgstr ""
+
+#: builtins.c:98
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "exit [n]"
 msgstr "Verlaat"
 
+<<<<<<< HEAD
 #: builtins.c:102
+=======
+#: builtins.c:100
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "logout [n]"
 msgstr "Afteken"
 
+<<<<<<< HEAD
 #: builtins.c:105
 msgid "fc [-e ename] [-lnr] [first] [last] or fc -s [pat=rep] [command]"
 msgstr ""
 
 #: builtins.c:109
+=======
+#: builtins.c:103
+msgid "fc [-e ename] [-lnr] [first] [last] or fc -s [pat=rep] [command]"
+msgstr ""
+
+#: builtins.c:107
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "fg [job_spec]"
 msgstr "Kort Spesifikasie werkvoorbeeld"
 
+<<<<<<< HEAD
 #: builtins.c:113
+=======
+#: builtins.c:111
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "bg [job_spec ...]"
 msgstr "Kort Spesifikasie werkvoorbeeld"
 
+<<<<<<< HEAD
 #: builtins.c:116
+=======
+#: builtins.c:114
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "hash [-lr] [-p pathname] [-dt] [name ...]"
 msgstr "Teruglus lêernaam:"
 
+<<<<<<< HEAD
 #: builtins.c:119
+=======
+#: builtins.c:117
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "help [-dms] [pattern ...]"
 msgstr "enige patroon"
 
+<<<<<<< HEAD
 #: builtins.c:123
+=======
+#: builtins.c:121
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "history [-c] [-d offset] [n] or history -anrw [filename] or history -ps arg "
 "[arg...]"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:127
 msgid "jobs [-lnprs] [jobspec ...] or jobs -x command [args]"
 msgstr ""
@@ -2329,106 +3859,202 @@ msgid "disown [-h] [-ar] [jobspec ... | pid ...]"
 msgstr ""
 
 #: builtins.c:134
+=======
+#: builtins.c:125
+msgid "jobs [-lnprs] [jobspec ...] or jobs -x command [args]"
+msgstr ""
+
+#: builtins.c:129
+msgid "disown [-h] [-ar] [jobspec ...]"
+msgstr ""
+
+#: builtins.c:132
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l "
 "[sigspec]"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:136
+=======
+#: builtins.c:134
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "let arg [arg ...]"
 msgstr "Kom ons begin!"
 
+<<<<<<< HEAD
 #: builtins.c:138
+=======
+#: builtins.c:136
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars] [-p "
 "prompt] [-t timeout] [-u fd] [name ...]"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:140
+=======
+#: builtins.c:138
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "return [n]"
 msgstr "Terug Adres - 3/4 x 2\""
 
+<<<<<<< HEAD
 #: builtins.c:142
+=======
+#: builtins.c:140
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "set [-abefhkmnptuvxBCHP] [-o option-name] [--] [arg ...]"
 msgstr "Gebruik so: %s [OPSIE]... [-] [GEBRUIKER [ARG]...]\n"
 
+<<<<<<< HEAD
 #: builtins.c:144
+=======
+#: builtins.c:142
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "unset [-f] [-v] [-n] [name ...]"
 msgstr "Volle Naam:"
 
+<<<<<<< HEAD
 #: builtins.c:146
+=======
+#: builtins.c:144
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "export [-fn] [name[=value] ...] or export -p"
 msgstr "Bediener of domein naam:"
 
+<<<<<<< HEAD
 #: builtins.c:148
+=======
+#: builtins.c:146
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "readonly [-aAf] [name[=value] ...] or readonly -p"
 msgstr "Bediener of domein naam:"
 
+<<<<<<< HEAD
 #: builtins.c:150
 #, fuzzy
 msgid "shift [n]"
 msgstr "Shift"
 
 #: builtins.c:152
+=======
+#: builtins.c:148
+#, fuzzy
+msgid "shift [n]"
+msgstr "Verlaat"
+
+#: builtins.c:150
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "source filename [arguments]"
 msgstr "Kies Lêernaam"
 
+<<<<<<< HEAD
 #: builtins.c:154
+=======
+#: builtins.c:152
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid ". filename [arguments]"
 msgstr ". lêernaam"
 
+<<<<<<< HEAD
 #: builtins.c:157
+=======
+#: builtins.c:155
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "suspend [-f]"
 msgstr "|uitsit}\n"
 
+<<<<<<< HEAD
 #: builtins.c:160
+=======
+#: builtins.c:158
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "test [expr]"
 msgstr "/Opsies/Toets"
 
+<<<<<<< HEAD
 #: builtins.c:162
+=======
+#: builtins.c:160
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "[ arg... ]"
 msgstr "Arg %1"
 
+<<<<<<< HEAD
 #: builtins.c:166
 msgid "trap [-lp] [[arg] signal_spec ...]"
 msgstr ""
 
 #: builtins.c:168
+=======
+#: builtins.c:162
+#, fuzzy
+msgid "times"
+msgstr "Herhaal %1  times "
+
+#: builtins.c:164
+msgid "trap [-lp] [[arg] signal_spec ...]"
+msgstr ""
+
+#: builtins.c:166
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "type [-afptP] name [name ...]"
 msgstr "Tipe die naam van die %1 speler."
 
+<<<<<<< HEAD
 #: builtins.c:171
 #, fuzzy
 msgid "ulimit [-SHabcdefiklmnpqrstuvxPT] [limit]"
 msgstr "Grootte beperk (Kb):"
 
 #: builtins.c:174
+=======
+#: builtins.c:169
+#, fuzzy
+msgid "ulimit [-SHabcdefilmnpqrstuvxT] [limit]"
+msgstr "Grootte beperk (Kb):"
+
+#: builtins.c:172
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "umask [-p] [-S] [mode]"
 msgstr "Belmetode"
 
+<<<<<<< HEAD
 #: builtins.c:177
 #, fuzzy
 msgid "wait [-fn] [id ...]"
 msgstr "Konfigureer Eggo"
 
 #: builtins.c:181
+=======
+#: builtins.c:175
+#, fuzzy
+msgid "wait [-n] [id ...]"
+msgstr "Wag:"
+
+#: builtins.c:179
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "wait [pid ...]"
 msgstr "Wag:"
 
+<<<<<<< HEAD
 #: builtins.c:184
 msgid "for NAME [in WORDS ... ] ; do COMMANDS; done"
 msgstr ""
@@ -2450,11 +4076,35 @@ msgid "case WORD in [PATTERN [| PATTERN]...) COMMANDS ;;]... esac"
 msgstr ""
 
 #: builtins.c:194
+=======
+#: builtins.c:182
+msgid "for NAME [in WORDS ... ] ; do COMMANDS; done"
+msgstr ""
+
+#: builtins.c:184
+msgid "for (( exp1; exp2; exp3 )); do COMMANDS; done"
+msgstr ""
+
+#: builtins.c:186
+msgid "select NAME [in WORDS ... ;] do COMMANDS; done"
+msgstr ""
+
+#: builtins.c:188
+msgid "time [-p] pipeline"
+msgstr ""
+
+#: builtins.c:190
+msgid "case WORD in [PATTERN [| PATTERN]...) COMMANDS ;;]... esac"
+msgstr ""
+
+#: builtins.c:192
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "if COMMANDS; then COMMANDS; [ elif COMMANDS; then COMMANDS; ]... [ else "
 "COMMANDS; ] fi"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:196
 msgid "while COMMANDS; do COMMANDS; done"
 msgstr ""
@@ -2468,39 +4118,80 @@ msgid "coproc [NAME] command [redirections]"
 msgstr ""
 
 #: builtins.c:202
+=======
+#: builtins.c:194
+msgid "while COMMANDS; do COMMANDS; done"
+msgstr ""
+
+#: builtins.c:196
+#, fuzzy
+msgid "until COMMANDS; do COMMANDS; done"
+msgstr "Bediener of domein naam:"
+
+#: builtins.c:198
+msgid "coproc [NAME] command [redirections]"
+msgstr ""
+
+#: builtins.c:200
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "function name { COMMANDS ; } or name () { COMMANDS ; }"
 msgstr "Bediener of domein naam:"
 
+<<<<<<< HEAD
 #: builtins.c:204
+=======
+#: builtins.c:202
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "{ COMMANDS ; }"
 msgstr "Opdragte"
 
+<<<<<<< HEAD
 #: builtins.c:206
+=======
+#: builtins.c:204
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "job_spec [&]"
 msgstr "Kort Spesifikasie werkvoorbeeld"
 
+<<<<<<< HEAD
 #: builtins.c:208
+=======
+#: builtins.c:206
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "(( expression ))"
 msgstr "Bools uitdrukking verwag"
 
+<<<<<<< HEAD
 #: builtins.c:210
+=======
+#: builtins.c:208
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "[[ expression ]]"
 msgstr "Bools uitdrukking verwag"
 
+<<<<<<< HEAD
 #: builtins.c:212
 msgid "variables - Names and meanings of some shell variables"
 msgstr ""
 
 #: builtins.c:215
+=======
+#: builtins.c:210
+msgid "variables - Names and meanings of some shell variables"
+msgstr ""
+
+#: builtins.c:213
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "pushd [-n] [+N | -N | dir]"
 msgstr "Tydelike gids:"
 
+<<<<<<< HEAD
 #: builtins.c:219
 msgid "popd [-n] [+N | -N]"
 msgstr ""
@@ -2510,10 +4201,22 @@ msgid "dirs [-clpv] [+N] [-N]"
 msgstr ""
 
 #: builtins.c:226
+=======
+#: builtins.c:217
+msgid "popd [-n] [+N | -N]"
+msgstr ""
+
+#: builtins.c:221
+msgid "dirs [-clpv] [+N] [-N]"
+msgstr ""
+
+#: builtins.c:224
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid "shopt [-pqsu] [-o] [optname ...]"
 msgstr "Volle Naam:"
 
+<<<<<<< HEAD
 #: builtins.c:228
 msgid "printf [-v var] format [arguments]"
 msgstr ""
@@ -2521,10 +4224,20 @@ msgstr ""
 #: builtins.c:231
 msgid ""
 "complete [-abcdefgjksuv] [-pr] [-DEI] [-o option] [-A action] [-G globpat] [-"
+=======
+#: builtins.c:226
+msgid "printf [-v var] format [arguments]"
+msgstr ""
+
+#: builtins.c:229
+msgid ""
+"complete [-abcdefgjksuv] [-pr] [-DE] [-o option] [-A action] [-G globpat] [-"
+>>>>>>> orgin/bash-4.3-testing
 "W wordlist]  [-F function] [-C command] [-X filterpat] [-P prefix] [-S "
 "suffix] [name ...]"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:235
 msgid ""
 "compgen [-abcdefgjksuv] [-o option] [-A action] [-G globpat] [-W wordlist]  "
@@ -2549,6 +4262,32 @@ msgid ""
 msgstr ""
 
 #: builtins.c:256
+=======
+#: builtins.c:233
+msgid ""
+"compgen [-abcdefgjksuv] [-o option]  [-A action] [-G globpat] [-W wordlist]  "
+"[-F function] [-C command] [-X filterpat] [-P prefix] [-S suffix] [word]"
+msgstr ""
+
+#: builtins.c:237
+#, fuzzy
+msgid "compopt [-o|+o option] [-DE] [name ...]"
+msgstr "Tipe die naam van die %1 speler."
+
+#: builtins.c:240
+msgid ""
+"mapfile [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c "
+"quantum] [array]"
+msgstr ""
+
+#: builtins.c:242
+msgid ""
+"readarray [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c "
+"quantum] [array]"
+msgstr ""
+
+#: builtins.c:254
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Define or display aliases.\n"
 "    \n"
@@ -2560,7 +4299,11 @@ msgid ""
 "    alias substitution when the alias is expanded.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -p\tprint all defined aliases in a reusable format\n"
+=======
+"      -p\tPrint all defined aliases in a reusable format\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    alias returns true unless a NAME is supplied for which no alias has "
@@ -2568,17 +4311,29 @@ msgid ""
 "    defined."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:278
+=======
+#: builtins.c:276
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remove each NAME from the list of defined aliases.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -a\tremove all alias definitions\n"
+=======
+"      -a\tremove all alias definitions.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Return success unless a NAME is not an existing alias."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:291
+=======
+#: builtins.c:289
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set Readline key bindings and variables.\n"
 "    \n"
@@ -2612,15 +4367,23 @@ msgid ""
 "      -f  filename       Read key bindings from FILENAME.\n"
 "      -x  keyseq:shell-command\tCause SHELL-COMMAND to be executed when\n"
 "    \t\t\t\tKEYSEQ is entered.\n"
+<<<<<<< HEAD
 "      -X                 List key sequences bound with -x and associated "
 "commands\n"
+=======
+"      -X\t\t     List key sequences bound with -x and associated commands\n"
+>>>>>>> orgin/bash-4.3-testing
 "                         in a form that can be reused as input.\n"
 "    \n"
 "    Exit Status:\n"
 "    bind returns 0 unless an unrecognized option is given or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:330
+=======
+#: builtins.c:328
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Exit for, while, or until loops.\n"
 "    \n"
@@ -2631,7 +4394,11 @@ msgid ""
 "    The exit status is 0 unless N is not greater than or equal to 1."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:342
+=======
+#: builtins.c:340
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Resume for, while, or until loops.\n"
 "    \n"
@@ -2642,7 +4409,11 @@ msgid ""
 "    The exit status is 0 unless N is not greater than or equal to 1."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:354
+=======
+#: builtins.c:352
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute shell builtins.\n"
 "    \n"
@@ -2653,10 +4424,17 @@ msgid ""
 "    \n"
 "    Exit Status:\n"
 "    Returns the exit status of SHELL-BUILTIN, or false if SHELL-BUILTIN is\n"
+<<<<<<< HEAD
 "    not a shell builtin."
 msgstr ""
 
 #: builtins.c:369
+=======
+"    not a shell builtin.."
+msgstr ""
+
+#: builtins.c:367
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return the context of the current subroutine call.\n"
 "    \n"
@@ -2672,7 +4450,11 @@ msgid ""
 "    is invalid."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:387
+=======
+#: builtins.c:385
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Change the shell working directory.\n"
 "    \n"
@@ -2695,6 +4477,7 @@ msgid ""
 "    its value is used for DIR.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -L\tforce symbolic links to be followed: resolve symbolic\n"
 "    \t\tlinks in DIR after processing instances of `..'\n"
 "      -P\tuse the physical directory structure without following\n"
@@ -2705,6 +4488,18 @@ msgid ""
 "    \t\ta non-zero status\n"
 "      -@\ton systems that support it, present a file with extended\n"
 "    \t\tattributes as a directory containing the file attributes\n"
+=======
+"        -L\tforce symbolic links to be followed: resolve symbolic links in\n"
+"    \tDIR after processing instances of `..'\n"
+"        -P\tuse the physical directory structure without following symbolic\n"
+"    \tlinks: resolve symbolic links in DIR before processing instances\n"
+"    \tof `..'\n"
+"        -e\tif the -P option is supplied, and the current working directory\n"
+"    \tcannot be determined successfully, exit with a non-zero status\n"
+"        -@  on systems that support it, present a file with extended "
+"attributes\n"
+"            as a directory containing the file attributes\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The default is to follow symbolic links, as if `-L' were specified.\n"
 "    `..' is processed by removing the immediately previous pathname "
@@ -2717,13 +4512,21 @@ msgid ""
 "    -P is used; non-zero otherwise."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:425
+=======
+#: builtins.c:422
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Print the name of the current working directory.\n"
 "    \n"
 "    Options:\n"
 "      -L\tprint the value of $PWD if it names the current working\n"
+<<<<<<< HEAD
 "    \t\tdirectory\n"
+=======
+"    \tdirectory\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -P\tprint the physical directory, without any symbolic links\n"
 "    \n"
 "    By default, `pwd' behaves as if `-L' were specified.\n"
@@ -2733,7 +4536,11 @@ msgid ""
 "    cannot be read."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:442
+=======
+#: builtins.c:439
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Null command.\n"
 "    \n"
@@ -2743,7 +4550,11 @@ msgid ""
 "    Always succeeds."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:453
+=======
+#: builtins.c:450
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return a successful result.\n"
 "    \n"
@@ -2751,7 +4562,11 @@ msgid ""
 "    Always succeeds."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:462
+=======
+#: builtins.c:459
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return an unsuccessful result.\n"
 "    \n"
@@ -2759,7 +4574,11 @@ msgid ""
 "    Always fails."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:471
+=======
+#: builtins.c:468
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute a simple command or display information about commands.\n"
 "    \n"
@@ -2769,16 +4588,27 @@ msgid ""
 "    on disk when a function with the same name exists.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -p    use a default value for PATH that is guaranteed to find all of\n"
 "            the standard utilities\n"
 "      -v    print a description of COMMAND similar to the `type' builtin\n"
 "      -V    print a more verbose description of each COMMAND\n"
+=======
+"      -p\tuse a default value for PATH that is guaranteed to find all of\n"
+"    \tthe standard utilities\n"
+"      -v\tprint a description of COMMAND similar to the `type' builtin\n"
+"      -V\tprint a more verbose description of each COMMAND\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns exit status of COMMAND, or failure if COMMAND is not found."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:490
+=======
+#: builtins.c:487
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set variable values and attributes.\n"
 "    \n"
@@ -2788,20 +4618,34 @@ msgid ""
 "    Options:\n"
 "      -f\trestrict action or display to function names and definitions\n"
 "      -F\trestrict display to function names only (plus line number and\n"
+<<<<<<< HEAD
 "    \t\tsource file when debugging)\n"
 "      -g\tcreate global variables when used in a shell function; otherwise\n"
 "    \t\tignored\n"
+=======
+"    \tsource file when debugging)\n"
+"      -g\tcreate global variables when used in a shell function; otherwise\n"
+"    \tignored\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -p\tdisplay the attributes and value of each NAME\n"
 "    \n"
 "    Options which set attributes:\n"
 "      -a\tto make NAMEs indexed arrays (if supported)\n"
 "      -A\tto make NAMEs associative arrays (if supported)\n"
 "      -i\tto make NAMEs have the `integer' attribute\n"
+<<<<<<< HEAD
 "      -l\tto convert the value of each NAME to lower case on assignment\n"
 "      -n\tmake NAME a reference to the variable named by its value\n"
 "      -r\tto make NAMEs readonly\n"
 "      -t\tto make NAMEs have the `trace' attribute\n"
 "      -u\tto convert the value of each NAME to upper case on assignment\n"
+=======
+"      -l\tto convert NAMEs to lower case on assignment\n"
+"      -n\tmake NAME a reference to the variable named by its value\n"
+"      -r\tto make NAMEs readonly\n"
+"      -t\tto make NAMEs have the `trace' attribute\n"
+"      -u\tto convert NAMEs to upper case on assignment\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -x\tto make NAMEs export\n"
 "    \n"
 "    Using `+' instead of `-' turns off the given attribute.\n"
@@ -2818,6 +4662,7 @@ msgid ""
 "    assignment error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:530
 msgid ""
 "Set variable values and attributes.\n"
@@ -2826,6 +4671,16 @@ msgid ""
 msgstr ""
 
 #: builtins.c:538
+=======
+#: builtins.c:527
+msgid ""
+"Set variable values and attributes.\n"
+"    \n"
+"    Obsolete.  See `help declare'."
+msgstr ""
+
+#: builtins.c:535
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Define local variables.\n"
 "    \n"
@@ -2840,7 +4695,11 @@ msgid ""
 "    assignment error occurs, or the shell is not executing a function."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:555
+=======
+#: builtins.c:552
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Write arguments to the standard output.\n"
 "    \n"
@@ -2866,6 +4725,7 @@ msgid ""
 "      \\v\tvertical tab\n"
 "      \\\\\tbackslash\n"
 "      \\0nnn\tthe character whose ASCII code is NNN (octal).  NNN can be\n"
+<<<<<<< HEAD
 "    \t\t0 to 3 octal digits\n"
 "      \\xHH\tthe eight-bit character whose value is HH (hexadecimal).  HH\n"
 "    \t\tcan be one or two hex digits\n"
@@ -2875,12 +4735,21 @@ msgid ""
 "      \\UHHHHHHHH the Unicode character whose value is the hexadecimal "
 "value\n"
 "    \t\tHHHHHHHH. HHHHHHHH can be one to eight hex digits.\n"
+=======
+"    \t0 to 3 octal digits\n"
+"      \\xHH\tthe eight-bit character whose value is HH (hexadecimal).  HH\n"
+"    \tcan be one or two hex digits\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless a write error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:595
+=======
+#: builtins.c:588
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Write arguments to the standard output.\n"
 "    \n"
@@ -2893,7 +4762,11 @@ msgid ""
 "    Returns success unless a write error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:610
+=======
+#: builtins.c:603
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Enable and disable shell builtins.\n"
 "    \n"
@@ -2920,7 +4793,11 @@ msgid ""
 "    Returns success unless NAME is not a shell builtin or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:638
+=======
+#: builtins.c:631
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute arguments as a shell command.\n"
 "    \n"
@@ -2932,7 +4809,11 @@ msgid ""
 "    Returns exit status of command or success if command is null."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:650
+=======
+#: builtins.c:643
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Parse option arguments.\n"
 "    \n"
@@ -2973,7 +4854,11 @@ msgid ""
 "    encountered or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:692
+=======
+#: builtins.c:685
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Replace the shell with the given command.\n"
 "    \n"
@@ -2984,8 +4869,13 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -a name\tpass NAME as the zeroth argument to COMMAND\n"
+<<<<<<< HEAD
 "      -c\texecute COMMAND with an empty environment\n"
 "      -l\tplace a dash in the zeroth argument to COMMAND\n"
+=======
+"      -c\t\texecute COMMAND with an empty environment\n"
+"      -l\t\tplace a dash in the zeroth argument to COMMAND\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    If the command cannot be executed, a non-interactive shell exits, "
 "unless\n"
@@ -2996,7 +4886,11 @@ msgid ""
 "occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:713
+=======
+#: builtins.c:706
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Exit the shell.\n"
 "    \n"
@@ -3004,7 +4898,11 @@ msgid ""
 "    is that of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:722
+=======
+#: builtins.c:715
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Exit a login shell.\n"
 "    \n"
@@ -3013,7 +4911,11 @@ msgid ""
 "    in a login shell."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:732
+=======
+#: builtins.c:725
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display or execute commands from the history list.\n"
 "    \n"
@@ -3043,7 +4945,11 @@ msgid ""
 "occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:762
+=======
+#: builtins.c:755
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Move job to the foreground.\n"
 "    \n"
@@ -3055,7 +4961,11 @@ msgid ""
 "    Status of command placed in foreground, or failure if an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:777
+=======
+#: builtins.c:770
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Move jobs to the background.\n"
 "    \n"
@@ -3069,7 +4979,11 @@ msgid ""
 "    Returns success unless job control is not enabled or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:791
+=======
+#: builtins.c:784
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remember or display program locations.\n"
 "    \n"
@@ -3078,6 +4992,7 @@ msgid ""
 "displayed.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -d\tforget the remembered location of each NAME\n"
 "      -l\tdisplay in a format that may be reused as input\n"
 "      -p pathname\tuse PATHNAME as the full pathname of NAME\n"
@@ -3087,13 +5002,28 @@ msgid ""
 "    \t\tNAMEs are given\n"
 "    Arguments:\n"
 "      NAME\tEach NAME is searched for in $PATH and added to the list\n"
+=======
+"      -d\t\tforget the remembered location of each NAME\n"
+"      -l\t\tdisplay in a format that may be reused as input\n"
+"      -p pathname\tuse PATHNAME as the full pathname of NAME\n"
+"      -r\t\tforget all remembered locations\n"
+"      -t\t\tprint the remembered location of each NAME, preceding\n"
+"    \t\teach location with the corresponding NAME if multiple\n"
+"    \t\tNAMEs are given\n"
+"    Arguments:\n"
+"      NAME\t\tEach NAME is searched for in $PATH and added to the list\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \t\tof remembered commands.\n"
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless NAME is not found or an invalid option is given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:816
+=======
+#: builtins.c:809
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display information about builtin commands.\n"
 "    \n"
@@ -3105,17 +5035,28 @@ msgid ""
 "      -d\toutput short description for each topic\n"
 "      -m\tdisplay usage in pseudo-manpage format\n"
 "      -s\toutput only a short usage synopsis for each topic matching\n"
+<<<<<<< HEAD
 "    \t\tPATTERN\n"
 "    \n"
 "    Arguments:\n"
 "      PATTERN\tPattern specifying a help topic\n"
+=======
+"    \tPATTERN\n"
+"    \n"
+"    Arguments:\n"
+"      PATTERN\tPattern specifiying a help topic\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless PATTERN is not found or an invalid option is "
 "given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:840
+=======
+#: builtins.c:833
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display or manipulate the history list.\n"
 "    \n"
@@ -3124,6 +5065,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -c\tclear the history list by deleting all of the entries\n"
+<<<<<<< HEAD
 "      -d offset\tdelete the history entry at position OFFSET. Negative\n"
 "    \t\toffsets count back from the end of the history list\n"
 "    \n"
@@ -3142,6 +5084,25 @@ msgid ""
 "    if HISTFILE has a value, that is used, else ~/.bash_history.\n"
 "    \n"
 "    If the HISTTIMEFORMAT variable is set and not null, its value is used\n"
+=======
+"      -d offset\tdelete the history entry at offset OFFSET.\n"
+"    \n"
+"      -a\tappend history lines from this session to the history file\n"
+"      -n\tread all history lines not already read from the history file\n"
+"      -r\tread the history file and append the contents to the history\n"
+"    \tlist\n"
+"      -w\twrite the current history to the history file\n"
+"    \tand append them to the history list\n"
+"    \n"
+"      -p\tperform history expansion on each ARG and display the result\n"
+"    \twithout storing it in the history list\n"
+"      -s\tappend the ARGs to the history list as a single entry\n"
+"    \n"
+"    If FILENAME is given, it is used as the history file.  Otherwise,\n"
+"    if $HISTFILE has a value, that is used, else ~/.bash_history.\n"
+"    \n"
+"    If the $HISTTIMEFORMAT variable is set and not null, its value is used\n"
+>>>>>>> orgin/bash-4.3-testing
 "    as a format string for strftime(3) to print the time stamp associated\n"
 "    with each displayed history entry.  No time stamps are printed "
 "otherwise.\n"
@@ -3150,7 +5111,11 @@ msgid ""
 "    Returns success unless an invalid option is given or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:877
+=======
+#: builtins.c:869
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display status of jobs.\n"
 "    \n"
@@ -3159,8 +5124,13 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -l\tlists process IDs in addition to the normal information\n"
+<<<<<<< HEAD
 "      -n\tlists only processes that have changed status since the last\n"
 "    \t\tnotification\n"
+=======
+"      -n\tlist only processes that have changed status since the last\n"
+"    \tnotification\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -p\tlists process IDs only\n"
 "      -r\trestrict output to running jobs\n"
 "      -s\trestrict output to stopped jobs\n"
@@ -3174,7 +5144,11 @@ msgid ""
 "    If -x is used, returns the exit status of COMMAND."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:904
+=======
+#: builtins.c:896
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remove jobs from current shell.\n"
 "    \n"
@@ -3184,14 +5158,22 @@ msgid ""
 "    Options:\n"
 "      -a\tremove all jobs if JOBSPEC is not supplied\n"
 "      -h\tmark each JOBSPEC so that SIGHUP is not sent to the job if the\n"
+<<<<<<< HEAD
 "    \t\tshell receives a SIGHUP\n"
+=======
+"    \tshell receives a SIGHUP\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -r\tremove only running jobs\n"
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless an invalid option or JOBSPEC is given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:923
+=======
+#: builtins.c:915
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Send a signal to a job.\n"
 "    \n"
@@ -3203,8 +5185,12 @@ msgid ""
 "      -s sig\tSIG is a signal name\n"
 "      -n sig\tSIG is a signal number\n"
 "      -l\tlist the signal names; if arguments follow `-l' they are\n"
+<<<<<<< HEAD
 "    \t\tassumed to be signal numbers for which names should be listed\n"
 "      -L\tsynonym for -l\n"
+=======
+"    \tassumed to be signal numbers for which names should be listed\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Kill is a shell builtin for two reasons: it allows job IDs to be used\n"
 "    instead of process IDs, and allows processes to be killed if the limit\n"
@@ -3214,7 +5200,11 @@ msgid ""
 "    Returns success unless an invalid option is given or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:947
+=======
+#: builtins.c:938
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate arithmetic expressions.\n"
 "    \n"
@@ -3259,7 +5249,11 @@ msgid ""
 "    If the last ARG evaluates to 0, let returns 1; let returns 0 otherwise."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:992
+=======
+#: builtins.c:983
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Read a line from the standard input and split it into fields.\n"
 "    \n"
@@ -3280,6 +5274,7 @@ msgid ""
 "    \t\tvariable ARRAY, starting at zero\n"
 "      -d delim\tcontinue until the first character of DELIM is read, rather\n"
 "    \t\tthan newline\n"
+<<<<<<< HEAD
 "      -e\tuse Readline to obtain the line\n"
 "      -i text\tuse TEXT as the initial text for Readline\n"
 "      -n nchars\treturn after reading NCHARS characters rather than waiting\n"
@@ -3302,6 +5297,29 @@ msgid ""
 "    \t\tfile descriptor.  The exit status is greater than 128\n"
 "    \t\tif the timeout is exceeded\n"
 "      -u fd\tread from file descriptor FD instead of the standard input\n"
+=======
+"      -e\t\tuse Readline to obtain the line in an interactive shell\n"
+"      -i text\tUse TEXT as the initial text for Readline\n"
+"      -n nchars\treturn after reading NCHARS characters rather than waiting\n"
+"    \t\tfor a newline, but honor a delimiter if fewer than NCHARS\n"
+"    \t\tcharacters are read before the delimiter\n"
+"      -N nchars\treturn only after reading exactly NCHARS characters, "
+"unless\n"
+"    \t\tEOF is encountered or read times out, ignoring any delimiter\n"
+"      -p prompt\toutput the string PROMPT without a trailing newline before\n"
+"    \t\tattempting to read\n"
+"      -r\t\tdo not allow backslashes to escape any characters\n"
+"      -s\t\tdo not echo input coming from a terminal\n"
+"      -t timeout\ttime out and return failure if a complete line of input "
+"is\n"
+"    \t\tnot read within TIMEOUT seconds.  The value of the TMOUT\n"
+"    \t\tvariable is the default timeout.  TIMEOUT may be a\n"
+"    \t\tfractional number.  If TIMEOUT is 0, read returns immediately,\n"
+"    \t\twithout trying to read any data, returning success only if\n"
+"    \t\tinput is available on the specified file descriptor.  The\n"
+"    \t\texit status is greater than 128 if the timeout is exceeded\n"
+"      -u fd\t\tread from file descriptor FD instead of the standard input\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    The return code is zero, unless end-of-file is encountered, read times "
@@ -3311,7 +5329,11 @@ msgid ""
 "    or an invalid file descriptor is supplied as the argument to -u."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1039
+=======
+#: builtins.c:1028
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return from a shell function.\n"
 "    \n"
@@ -3323,7 +5345,11 @@ msgid ""
 "    Returns N, or failure if the shell is not executing a function or script."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1052
+=======
+#: builtins.c:1041
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set or unset values of shell options and positional parameters.\n"
 "    \n"
@@ -3391,8 +5417,12 @@ msgid ""
 "          by default when the shell is interactive.\n"
 "      -P  If set, do not resolve symbolic links when executing commands\n"
 "          such as cd which change the current directory.\n"
+<<<<<<< HEAD
 "      -T  If set, the DEBUG and RETURN traps are inherited by shell "
 "functions.\n"
+=======
+"      -T  If set, the DEBUG trap is inherited by shell functions.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      --  Assign any remaining arguments to the positional parameters.\n"
 "          If there are no remaining arguments, the positional parameters\n"
 "          are unset.\n"
@@ -3409,7 +5439,11 @@ msgid ""
 "    Returns success unless an invalid option is given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1137
+=======
+#: builtins.c:1126
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Unset values and attributes of shell variables and functions.\n"
 "    \n"
@@ -3419,7 +5453,11 @@ msgid ""
 "      -f\ttreat each NAME as a shell function\n"
 "      -v\ttreat each NAME as a shell variable\n"
 "      -n\ttreat each NAME as a name reference and unset the variable itself\n"
+<<<<<<< HEAD
 "    \t\trather than the variable it references\n"
+=======
+"    \trather than the variable it references\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Without options, unset first tries to unset a variable, and if that "
 "fails,\n"
@@ -3431,7 +5469,11 @@ msgid ""
 "    Returns success unless an invalid option is given or a NAME is read-only."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1159
+=======
+#: builtins.c:1148
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set export attribute for shell variables.\n"
 "    \n"
@@ -3450,7 +5492,11 @@ msgid ""
 "    Returns success unless an invalid option is given or NAME is invalid."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1178
+=======
+#: builtins.c:1167
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Mark shell variables as unchangeable.\n"
 "    \n"
@@ -3462,8 +5508,14 @@ msgid ""
 "      -a\trefer to indexed array variables\n"
 "      -A\trefer to associative array variables\n"
 "      -f\trefer to shell functions\n"
+<<<<<<< HEAD
 "      -p\tdisplay a list of all readonly variables or functions,\n"
 "    \t\tdepending on whether or not the -f option is given\n"
+=======
+"      -p\tdisplay a list of all readonly variables or functions, depending "
+"on\n"
+"            whether or not the -f option is given\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    An argument of `--' disables further option processing.\n"
 "    \n"
@@ -3471,7 +5523,11 @@ msgid ""
 "    Returns success unless an invalid option is given or NAME is invalid."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1200
+=======
+#: builtins.c:1189
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Shift positional parameters.\n"
 "    \n"
@@ -3482,7 +5538,11 @@ msgid ""
 "    Returns success unless N is negative or greater than $#."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1212 builtins.c:1227
+=======
+#: builtins.c:1201 builtins.c:1216
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands from a file in the current shell.\n"
 "    \n"
@@ -3496,7 +5556,11 @@ msgid ""
 "    FILENAME cannot be read."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1243
+=======
+#: builtins.c:1232
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Suspend shell execution.\n"
 "    \n"
@@ -3510,7 +5574,11 @@ msgid ""
 "    Returns success unless job control is not enabled or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1259
+=======
+#: builtins.c:1248
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate conditional expression.\n"
 "    \n"
@@ -3574,9 +5642,15 @@ msgid ""
 "    Other operators:\n"
 "    \n"
 "      -o OPTION      True if the shell option OPTION is enabled.\n"
+<<<<<<< HEAD
 "      -v VAR         True if the shell variable VAR is set.\n"
 "      -R VAR         True if the shell variable VAR is set and is a name\n"
 "                     reference.\n"
+=======
+"      -v VAR\t True if the shell variable VAR is set\n"
+"      -R VAR\t True if the shell variable VAR is set and is a name "
+"reference.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      ! EXPR         True if expr is false.\n"
 "      EXPR1 -a EXPR2 True if both expr1 AND expr2 are true.\n"
 "      EXPR1 -o EXPR2 True if either expr1 OR expr2 is true.\n"
@@ -3593,7 +5667,11 @@ msgid ""
 "    false or an invalid argument is given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1341
+=======
+#: builtins.c:1329
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate conditional expression.\n"
 "    \n"
@@ -3601,7 +5679,11 @@ msgid ""
 "    be a literal `]', to match the opening `['."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1350
+=======
+#: builtins.c:1338
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display process times.\n"
 "    \n"
@@ -3613,7 +5695,11 @@ msgid ""
 "    Always succeeds."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1362
+=======
+#: builtins.c:1350
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Trap signals and other events.\n"
 "    \n"
@@ -3657,7 +5743,11 @@ msgid ""
 "given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1398
+=======
+#: builtins.c:1386
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display information about command type.\n"
 "    \n"
@@ -3666,6 +5756,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -a\tdisplay all locations containing an executable named NAME;\n"
+<<<<<<< HEAD
 "    \t\tincludes aliases, builtins, and functions, if and only if\n"
 "    \t\tthe `-p' option is not also used\n"
 "      -f\tsuppress shell function lookup\n"
@@ -3678,6 +5769,20 @@ msgid ""
 "    \t\t`function', `builtin', `file' or `', if NAME is an alias,\n"
 "    \t\tshell reserved word, shell function, shell builtin, disk file,\n"
 "    \t\tor not found, respectively\n"
+=======
+"    \tincludes aliases, builtins, and functions, if and only if\n"
+"    \tthe `-p' option is not also used\n"
+"      -f\tsuppress shell function lookup\n"
+"      -P\tforce a PATH search for each NAME, even if it is an alias,\n"
+"    \tbuiltin, or function, and returns the name of the disk file\n"
+"    \tthat would be executed\n"
+"      -p\treturns either the name of the disk file that would be executed,\n"
+"    \tor nothing if `type -t NAME' would not return `file'.\n"
+"      -t\toutput a single word which is one of `alias', `keyword',\n"
+"    \t`function', `builtin', `file' or `', if NAME is an alias, shell\n"
+"    \treserved word, shell function, shell builtin, disk file, or not\n"
+"    \tfound, respectively\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Arguments:\n"
 "      NAME\tCommand name to be interpreted.\n"
@@ -3687,7 +5792,11 @@ msgid ""
 "found."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1429
+=======
+#: builtins.c:1417
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Modify shell resource limits.\n"
 "    \n"
@@ -3705,7 +5814,10 @@ msgid ""
 "      -e\tthe maximum scheduling priority (`nice')\n"
 "      -f\tthe maximum size of files written by the shell and its children\n"
 "      -i\tthe maximum number of pending signals\n"
+<<<<<<< HEAD
 "      -k\tthe maximum number of kqueues allocated for this process\n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "      -l\tthe maximum size a process may lock into memory\n"
 "      -m\tthe maximum resident set size\n"
 "      -n\tthe maximum number of open file descriptors\n"
@@ -3717,8 +5829,12 @@ msgid ""
 "      -u\tthe maximum number of user processes\n"
 "      -v\tthe size of virtual memory\n"
 "      -x\tthe maximum number of file locks\n"
+<<<<<<< HEAD
 "      -P\tthe maximum number of pseudoterminals\n"
 "      -T\tthe maximum number of threads\n"
+=======
+"      -T    the maximum number of threads\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Not all options are available on all platforms.\n"
 "    \n"
@@ -3736,7 +5852,11 @@ msgid ""
 "    Returns success unless an invalid option is supplied or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1479
+=======
+#: builtins.c:1465
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display or set file mode mask.\n"
 "    \n"
@@ -3754,7 +5874,11 @@ msgid ""
 "    Returns success unless MODE is invalid or an invalid option is given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1499
+=======
+#: builtins.c:1485
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Wait for job completion and return exit status.\n"
 "    \n"
@@ -3762,21 +5886,33 @@ msgid ""
 "a\n"
 "    job specification, and reports its termination status.  If ID is not\n"
 "    given, waits for all currently active child processes, and the return\n"
+<<<<<<< HEAD
 "    status is zero.  If ID is a job specification, waits for all processes\n"
+=======
+"    status is zero.  If ID is a a job specification, waits for all "
+"processes\n"
+>>>>>>> orgin/bash-4.3-testing
 "    in that job's pipeline.\n"
 "    \n"
 "    If the -n option is supplied, waits for the next job to terminate and\n"
 "    returns its exit status.\n"
 "    \n"
+<<<<<<< HEAD
 "    If the -f option is supplied, and job control is enabled, waits for the\n"
 "    specified ID to terminate, instead of waiting for it to change status.\n"
 "    \n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "    Exit Status:\n"
 "    Returns the status of the last ID; fails if ID is invalid or an invalid\n"
 "    option is given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1523
+=======
+#: builtins.c:1506
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Wait for process completion and return exit status.\n"
 "    \n"
@@ -3791,7 +5927,11 @@ msgid ""
 "    option is given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1538
+=======
+#: builtins.c:1521
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands for each member in a list.\n"
 "    \n"
@@ -3804,7 +5944,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1552
+=======
+#: builtins.c:1535
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Arithmetic for loop.\n"
 "    \n"
@@ -3821,7 +5965,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1570
+=======
+#: builtins.c:1553
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Select words from a list and execute commands.\n"
 "    \n"
@@ -3841,7 +5989,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1591
+=======
+#: builtins.c:1574
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Report time consumed by pipeline's execution.\n"
 "    \n"
@@ -3857,7 +6009,11 @@ msgid ""
 "    The return status is the return status of PIPELINE."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1608
+=======
+#: builtins.c:1591
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands based on pattern matching.\n"
 "    \n"
@@ -3868,7 +6024,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1620
+=======
+#: builtins.c:1603
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands based on conditional.\n"
 "    \n"
@@ -3889,7 +6049,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1637
+=======
+#: builtins.c:1620
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands as long as a test succeeds.\n"
 "    \n"
@@ -3900,7 +6064,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1649
+=======
+#: builtins.c:1632
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands as long as a test does not succeed.\n"
 "    \n"
@@ -3911,7 +6079,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1661
+=======
+#: builtins.c:1644
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Create a coprocess named NAME.\n"
 "    \n"
@@ -3921,10 +6093,17 @@ msgid ""
 "    The default NAME is \"COPROC\".\n"
 "    \n"
 "    Exit Status:\n"
+<<<<<<< HEAD
 "    The coproc command returns an exit status of 0."
 msgstr ""
 
 #: builtins.c:1675
+=======
+"    Returns the exit status of COMMAND."
+msgstr ""
+
+#: builtins.c:1658
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Define shell function.\n"
 "    \n"
@@ -3938,7 +6117,11 @@ msgid ""
 "    Returns success unless NAME is readonly."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1689
+=======
+#: builtins.c:1672
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Group commands as a unit.\n"
 "    \n"
@@ -3949,7 +6132,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1701
+=======
+#: builtins.c:1684
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Resume job in foreground.\n"
 "    \n"
@@ -3963,7 +6150,11 @@ msgid ""
 "    Returns the status of the resumed job."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1716
+=======
+#: builtins.c:1699
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate arithmetic expression.\n"
 "    \n"
@@ -3974,7 +6165,11 @@ msgid ""
 "    Returns 1 if EXPRESSION evaluates to 0; returns 0 otherwise."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1728
+=======
+#: builtins.c:1711
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute conditional command.\n"
 "    \n"
@@ -4002,7 +6197,11 @@ msgid ""
 "    0 or 1 depending on value of EXPRESSION."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1754
+=======
+#: builtins.c:1737
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Common shell variable names and usage.\n"
 "    \n"
@@ -4056,7 +6255,11 @@ msgid ""
 "    \t\tcommands should be saved on the history list.\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1811
+=======
+#: builtins.c:1794
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Add directories to stack.\n"
 "    \n"
@@ -4066,6 +6269,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -n\tSuppresses the normal change of directory when adding\n"
+<<<<<<< HEAD
 "    \t\tdirectories to the stack, so only the stack is manipulated.\n"
 "    \n"
 "    Arguments:\n"
@@ -4079,6 +6283,21 @@ msgid ""
 "    \n"
 "      dir\tAdds DIR to the directory stack at the top, making it the\n"
 "    \t\tnew current working directory.\n"
+=======
+"    \tdirectories to the stack, so only the stack is manipulated.\n"
+"    \n"
+"    Arguments:\n"
+"      +N\tRotates the stack so that the Nth directory (counting\n"
+"    \tfrom the left of the list shown by `dirs', starting with\n"
+"    \tzero) is at the top.\n"
+"    \n"
+"      -N\tRotates the stack so that the Nth directory (counting\n"
+"    \tfrom the right of the list shown by `dirs', starting with\n"
+"    \tzero) is at the top.\n"
+"    \n"
+"      dir\tAdds DIR to the directory stack at the top, making it the\n"
+"    \tnew current working directory.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The `dirs' builtin displays the directory stack.\n"
 "    \n"
@@ -4087,7 +6306,11 @@ msgid ""
 "    change fails."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1845
+=======
+#: builtins.c:1828
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remove directories from stack.\n"
 "    \n"
@@ -4096,6 +6319,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -n\tSuppresses the normal change of directory when removing\n"
+<<<<<<< HEAD
 "    \t\tdirectories from the stack, so only the stack is manipulated.\n"
 "    \n"
 "    Arguments:\n"
@@ -4106,6 +6330,18 @@ msgid ""
 "      -N\tRemoves the Nth entry counting from the right of the list\n"
 "    \t\tshown by `dirs', starting with zero.  For example: `popd -0'\n"
 "    \t\tremoves the last directory, `popd -1' the next to last.\n"
+=======
+"    \tdirectories from the stack, so only the stack is manipulated.\n"
+"    \n"
+"    Arguments:\n"
+"      +N\tRemoves the Nth entry counting from the left of the list\n"
+"    \tshown by `dirs', starting with zero.  For example: `popd +0'\n"
+"    \tremoves the first directory, `popd +1' the second.\n"
+"    \n"
+"      -N\tRemoves the Nth entry counting from the right of the list\n"
+"    \tshown by `dirs', starting with zero.  For example: `popd -0'\n"
+"    \tremoves the last directory, `popd -1' the next to last.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The `dirs' builtin displays the directory stack.\n"
 "    \n"
@@ -4114,7 +6350,11 @@ msgid ""
 "    change fails."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1875
+=======
+#: builtins.c:1858
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display directory stack.\n"
 "    \n"
@@ -4125,6 +6365,7 @@ msgid ""
 "    Options:\n"
 "      -c\tclear the directory stack by deleting all of the elements\n"
 "      -l\tdo not print tilde-prefixed versions of directories relative\n"
+<<<<<<< HEAD
 "    \t\tto your home directory\n"
 "      -p\tprint the directory stack with one entry per line\n"
 "      -v\tprint the directory stack with one entry per line prefixed\n"
@@ -4138,18 +6379,43 @@ msgid ""
 "      -N\tDisplays the Nth entry counting from the right of the list\n"
 "    \t\tshown by dirs when invoked without options, starting with\n"
 "    \t\tzero.\n"
+=======
+"    \tto your home directory\n"
+"      -p\tprint the directory stack with one entry per line\n"
+"      -v\tprint the directory stack with one entry per line prefixed\n"
+"    \twith its position in the stack\n"
+"    \n"
+"    Arguments:\n"
+"      +N\tDisplays the Nth entry counting from the left of the list shown "
+"by\n"
+"    \tdirs when invoked without options, starting with zero.\n"
+"    \n"
+"      -N\tDisplays the Nth entry counting from the right of the list shown "
+"by\n"
+"    \tdirs when invoked without options, starting with zero.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless an invalid option is supplied or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1906
+=======
+#: builtins.c:1887
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set and unset shell options.\n"
 "    \n"
 "    Change the setting of each shell option OPTNAME.  Without any option\n"
+<<<<<<< HEAD
 "    arguments, list each supplied OPTNAME, or all shell options if no\n"
 "    OPTNAMEs are given, with an indication of whether or not each is set.\n"
+=======
+"    arguments, list all shell options with an indication of whether or not "
+"each\n"
+"    is set.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Options:\n"
 "      -o\trestrict OPTNAMEs to those defined for use with `set -o'\n"
@@ -4163,7 +6429,11 @@ msgid ""
 "    given or OPTNAME is disabled."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1927
+=======
+#: builtins.c:1908
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Formats and prints ARGUMENTS under control of the FORMAT.\n"
 "    \n"
@@ -4180,15 +6450,26 @@ msgid ""
 "successive\n"
 "    argument.\n"
 "    \n"
+<<<<<<< HEAD
 "    In addition to the standard format specifications described in printf"
 "(1),\n"
+=======
+"    In addition to the standard format specifications described in "
+"printf(1),\n"
+>>>>>>> orgin/bash-4.3-testing
 "    printf interprets:\n"
 "    \n"
 "      %b\texpand backslash escape sequences in the corresponding argument\n"
 "      %q\tquote the argument in a way that can be reused as shell input\n"
+<<<<<<< HEAD
 "      %(fmt)T\toutput the date-time string resulting from using FMT as a "
 "format\n"
 "    \t        string for strftime(3)\n"
+=======
+"      %(fmt)T output the date-time string resulting from using FMT as a "
+"format\n"
+"            string for strftime(3)\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The format is re-used as necessary to consume all of the arguments.  If\n"
 "    there are fewer arguments than the format requires,  extra format\n"
@@ -4202,7 +6483,11 @@ msgid ""
 "    error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1961
+=======
+#: builtins.c:1942
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Specify how arguments are to be completed by Readline.\n"
 "    \n"
@@ -4215,6 +6500,7 @@ msgid ""
 "    Options:\n"
 "      -p\tprint existing completion specifications in a reusable format\n"
 "      -r\tremove a completion specification for each NAME, or, if no\n"
+<<<<<<< HEAD
 "    \t\tNAMEs are supplied, all completion specifications\n"
 "      -D\tapply the completions and actions as the default for commands\n"
 "    \t\twithout any specific completion defined\n"
@@ -4228,12 +6514,27 @@ msgid ""
 "supplied,\n"
 "    the -D option takes precedence over -E, and both take precedence over -"
 "I.\n"
+=======
+"    \tNAMEs are supplied, all completion specifications\n"
+"      -D\tapply the completions and actions as the default for commands\n"
+"    \twithout any specific completion defined\n"
+"      -E\tapply the completions and actions to \"empty\" commands --\n"
+"    \tcompletion attempted on a blank line\n"
+"    \n"
+"    When completion is attempted, the actions are applied in the order the\n"
+"    uppercase-letter options are listed above.  The -D option takes\n"
+"    precedence over -E.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless an invalid option is supplied or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1991
+=======
+#: builtins.c:1970
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display possible completions depending on the options.\n"
 "    \n"
@@ -4246,7 +6547,11 @@ msgid ""
 "    Returns success unless an invalid option is supplied or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:2006
+=======
+#: builtins.c:1985
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Modify or display completion options.\n"
 "    \n"
@@ -4261,7 +6566,10 @@ msgid ""
 "    \t-o option\tSet completion option OPTION for each NAME\n"
 "    \t-D\t\tChange options for the \"default\" command completion\n"
 "    \t-E\t\tChange options for the \"empty\" command completion\n"
+<<<<<<< HEAD
 "    \t-I\t\tChange options for completion on the initial word\n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Using `+o' instead of `-o' turns off the specified option.\n"
 "    \n"
@@ -4278,7 +6586,11 @@ msgid ""
 "    have a completion specification defined."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:2037
+=======
+#: builtins.c:2015
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Read lines from the standard input into an indexed array variable.\n"
 "    \n"
@@ -4289,6 +6601,7 @@ msgid ""
 "    is the default ARRAY.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -d delim\tUse DELIM to terminate lines, instead of newline\n"
 "      -n count\tCopy at most COUNT lines.  If COUNT is 0, all lines are "
 "copied\n"
@@ -4304,6 +6617,22 @@ msgid ""
 "    \n"
 "    Arguments:\n"
 "      ARRAY\tArray variable name to use for file data\n"
+=======
+"      -n count\tCopy at most COUNT lines.  If COUNT is 0, all lines are "
+"copied.\n"
+"      -O origin\tBegin assigning to ARRAY at index ORIGIN.  The default "
+"index is 0.\n"
+"      -s count \tDiscard the first COUNT lines read.\n"
+"      -t\t\tRemove a trailing newline from each line read.\n"
+"      -u fd\t\tRead lines from file descriptor FD instead of the standard "
+"input.\n"
+"      -C callback\tEvaluate CALLBACK each time QUANTUM lines are read.\n"
+"      -c quantum\tSpecify the number of lines read between each call to "
+"CALLBACK.\n"
+"    \n"
+"    Arguments:\n"
+"      ARRAY\t\tArray variable name to use for file data.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    If -C is supplied without -c, the default quantum is 5000.  When\n"
 "    CALLBACK is evaluated, it is supplied the index of the next array\n"
@@ -4320,13 +6649,39 @@ msgid ""
 "    not an indexed array."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:2073
+=======
+#: builtins.c:2049
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Read lines from a file into an array variable.\n"
 "    \n"
 "    A synonym for `mapfile'."
 msgstr ""
 
+<<<<<<< HEAD
+=======
+#, fuzzy
+#~ msgid "wait [pid]"
+#~ msgstr "Wag:"
+
+#, fuzzy
+#~ msgid "     new current working directory."
+#~ msgstr "Nuutste gebruik word werksaam gids"
+
+#~ msgid "top directory."
+#~ msgstr "boonste lêergids."
+
+#, fuzzy
+#~ msgid "Obsolete.  See `declare'."
+#~ msgstr "Verkeerde verklaring tipe"
+
+#, fuzzy
+#~ msgid "Logout of a login shell."
+#~ msgstr "Begin aanteken tolk"
+
+>>>>>>> orgin/bash-4.3-testing
 #~ msgid "Missing `}'"
 #~ msgstr "Ontbrekende `}'"
 
@@ -4387,6 +6742,7 @@ msgstr ""
 #~ msgstr "Die wagwoord frase jy ingevoerde is ongeldige."
 
 #, fuzzy
+<<<<<<< HEAD
 #~ msgid "slot %3d: "
 #~ msgstr "3d modus"
 
@@ -4395,6 +6751,8 @@ msgstr ""
 #~ msgstr "(onbekend)"
 
 #, fuzzy
+=======
+>>>>>>> orgin/bash-4.3-testing
 #~ msgid "%s: bg background job?"
 #~ msgstr "Druktaak gestuur."
 
@@ -4415,12 +6773,21 @@ msgstr ""
 #~ msgstr "%s: option `%s' requires an argument\n"
 
 #, fuzzy
+<<<<<<< HEAD
 #~ msgid "reading"
 #~ msgstr "besig om te lees"
 
 #, fuzzy
 #~ msgid "writing"
 #~ msgstr "besig om te skryf"
+=======
+#~ msgid "%s: bad array subscript"
+#~ msgstr "Os/2 Biskaart Skikking"
+
+#, fuzzy
+#~ msgid "reading"
+#~ msgstr "besig om te lees"
+>>>>>>> orgin/bash-4.3-testing
 
 #, fuzzy
 #~ msgid "$%c: unbound variable"
@@ -4471,6 +6838,13 @@ msgstr ""
 #~ msgstr "Onbekende direktief"
 
 #, fuzzy
+<<<<<<< HEAD
+=======
+#~ msgid "%s requires an argument"
+#~ msgstr "%s: option `%s' requires an argument\n"
+
+#, fuzzy
+>>>>>>> orgin/bash-4.3-testing
 #~ msgid "%s found before $END"
 #~ msgstr "Nee einde was gevind."
 
@@ -4494,6 +6868,7 @@ msgstr ""
 #~ msgid "mkbuiltins: Out of virtual memory!\n"
 #~ msgstr "GenericName=Virtuele Geheue Statistieke"
 
+<<<<<<< HEAD
 #~ msgid ":"
 #~ msgstr ":"
 
@@ -4501,6 +6876,8 @@ msgstr ""
 #~ msgid "times"
 #~ msgstr "Herhaal %1  times "
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 #~ msgid "%[DIGITS | WORD] [&]"
 #~ msgstr "Woord oorvloei"
@@ -4542,10 +6919,13 @@ msgstr ""
 #~ msgstr "Naam slegs"
 
 #, fuzzy
+<<<<<<< HEAD
 #~ msgid "Obsolete.  See `declare'."
 #~ msgstr "Verkeerde verklaring tipe"
 
 #, fuzzy
+=======
+>>>>>>> orgin/bash-4.3-testing
 #~ msgid "\t\\a\talert (bell)"
 #~ msgstr "stelsel klok"
 
@@ -4582,10 +6962,13 @@ msgstr ""
 #~ msgstr "%s: illegal option -- %c\n"
 
 #, fuzzy
+<<<<<<< HEAD
 #~ msgid "printed."
 #~ msgstr "Gedruk: %s"
 
 #, fuzzy
+=======
+>>>>>>> orgin/bash-4.3-testing
 #~ msgid "is set."
 #~ msgstr "Nie stel"
 

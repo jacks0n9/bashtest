@@ -1,7 +1,11 @@
 This file is alias.def, from which is created alias.c
 It implements the builtins "alias" and "unalias" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -33,7 +37,11 @@ A trailing space in VALUE causes the next word to be checked for
 alias substitution when the alias is expanded.
 
 Options:
+<<<<<<< HEAD
   -p	print all defined aliases in a reusable format
+=======
+  -p	Print all defined aliases in a reusable format
+>>>>>>> orgin/bash-4.3-testing
 
 Exit Status:
 alias returns true unless a NAME is supplied for which no alias has been
@@ -64,6 +72,11 @@ $END
 #define AL_REUSABLE	0x01
 
 static void print_alias __P((alias_t *, int));
+<<<<<<< HEAD
+=======
+
+extern int posixly_correct;
+>>>>>>> orgin/bash-4.3-testing
 
 /* Hack the alias command in a Korn shell way. */
 int
@@ -159,7 +172,11 @@ $SHORT_DOC unalias [-a] name [name ...]
 Remove each NAME from the list of defined aliases.
 
 Options:
+<<<<<<< HEAD
   -a	remove all alias definitions
+=======
+  -a	remove all alias definitions.
+>>>>>>> orgin/bash-4.3-testing
 
 Return success unless a NAME is not an existing alias.
 $END
@@ -232,7 +249,11 @@ print_alias (alias, flags)
 
   value = sh_single_quote (alias->value);
   if (flags & AL_REUSABLE)
+<<<<<<< HEAD
     printf ("alias %s", (alias->name && alias->name[0] == '-') ? "-- " : "");
+=======
+    printf ("alias ");
+>>>>>>> orgin/bash-4.3-testing
   printf ("%s=%s\n", alias->name, value);
   free (value);
 

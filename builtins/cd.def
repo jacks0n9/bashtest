@@ -1,7 +1,11 @@
 This file is cd.def, from which is created cd.c.  It implements the
 builtins "cd" and "pwd" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2016 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -54,6 +58,11 @@ $PRODUCES cd.c
 extern int errno;
 #endif /* !errno */
 
+<<<<<<< HEAD
+=======
+extern int posixly_correct;
+extern int array_needs_making;
+>>>>>>> orgin/bash-4.3-testing
 extern const char * const bash_getcwd_errstr;
 
 static int bindpwd __P((int));
@@ -91,6 +100,7 @@ the word is assumed to be  a variable name.  If that variable has a value,
 its value is used for DIR.
 
 Options:
+<<<<<<< HEAD
   -L	force symbolic links to be followed: resolve symbolic
 		links in DIR after processing instances of `..'
   -P	use the physical directory structure without following
@@ -102,6 +112,18 @@ Options:
 #if defined (O_XATTR)
   -@	on systems that support it, present a file with extended
 		attributes as a directory containing the file attributes
+=======
+    -L	force symbolic links to be followed: resolve symbolic links in
+	DIR after processing instances of `..'
+    -P	use the physical directory structure without following symbolic
+	links: resolve symbolic links in DIR before processing instances
+	of `..'
+    -e	if the -P option is supplied, and the current working directory
+	cannot be determined successfully, exit with a non-zero status
+#if defined (O_XATTR)
+    -@  on systems that support it, present a file with extended attributes
+        as a directory containing the file attributes
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 The default is to follow symbolic links, as if `-L' were specified.
@@ -138,7 +160,11 @@ bindpwd (no_symlinks)
      int no_symlinks;
 {
   char *dirname, *pwdvar;
+<<<<<<< HEAD
   int old_anm, r, canon_failed;
+=======
+  int old_anm, r;
+>>>>>>> orgin/bash-4.3-testing
   SHELL_VAR *tvar;
 
   r = sh_chkwrite (EXECUTION_SUCCESS);
@@ -170,7 +196,11 @@ bindpwd (no_symlinks)
 
   if (setpwd (dirname) == EXECUTION_FAILURE)
     r = EXECUTION_FAILURE;
+<<<<<<< HEAD
   if (canon_failed && eflag)
+=======
+  if (dirname == 0 && eflag)
+>>>>>>> orgin/bash-4.3-testing
     r = EXECUTION_FAILURE;
 
   if (dirname && dirname != the_current_working_directory)
@@ -303,7 +333,10 @@ cd_builtin (list)
 	  xattrflag = 1;
 	  break;
 #endif
+<<<<<<< HEAD
 	CASE_HELPOPT;
+=======
+>>>>>>> orgin/bash-4.3-testing
 	default:
 	  builtin_usage ();
 	  return (EX_USAGE);
@@ -335,6 +368,7 @@ cd_builtin (list)
       return (EXECUTION_FAILURE);
     }
 #endif
+<<<<<<< HEAD
 #if 0
   else if (list->word->word[0] == '\0')
     {
@@ -342,6 +376,8 @@ cd_builtin (list)
       return (EXECUTION_FAILURE);
     }
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
   else if (list->word->word[0] == '-' && list->word->word[1] == '\0')
     {
       /* This is `cd -', equivalent to `cd $OLDPWD' */
@@ -465,7 +501,11 @@ Print the name of the current working directory.
 
 Options:
   -L	print the value of $PWD if it names the current working
+<<<<<<< HEAD
 		directory
+=======
+	directory
+>>>>>>> orgin/bash-4.3-testing
   -P	print the physical directory, without any symbolic links
 
 By default, `pwd' behaves as if `-L' were specified.
@@ -552,7 +592,11 @@ change_to_directory (newdir, nolinks, xattr)
      int nolinks, xattr;
 {
   char *t, *tdir, *ndir;
+<<<<<<< HEAD
   int err, canon_failed, r, ndlen;
+=======
+  int err, canon_failed, r, ndlen, dlen;
+>>>>>>> orgin/bash-4.3-testing
 
   tdir = (char *)NULL;
 
@@ -571,6 +615,10 @@ change_to_directory (newdir, nolinks, xattr)
 		 : sh_canonpath (t, PATH_CHECKDOTDOT|PATH_CHECKEXISTS);
 
   ndlen = strlen (newdir);
+<<<<<<< HEAD
+=======
+  dlen = strlen (t);
+>>>>>>> orgin/bash-4.3-testing
 
   /* Use the canonicalized version of NEWDIR, or, if canonicalization
      failed, use the non-canonical form. */
@@ -587,11 +635,15 @@ change_to_directory (newdir, nolinks, xattr)
   /* In POSIX mode, if we're resolving symlinks logically and sh_canonpath
      returns NULL (because it checks the path, it will return NULL if the
      resolved path doesn't exist), fail immediately. */
+<<<<<<< HEAD
 #if defined (ENAMETOOLONG)
   if (posixly_correct && nolinks == 0 && canon_failed && (errno != ENAMETOOLONG || ndlen > PATH_MAX))
 #else
   if (posixly_correct && nolinks == 0 && canon_failed && ndlen > PATH_MAX)
 #endif
+=======
+  if (posixly_correct && nolinks == 0 && canon_failed && (errno != ENAMETOOLONG || ndlen > PATH_MAX))
+>>>>>>> orgin/bash-4.3-testing
     {
 #if defined ENAMETOOLONG
       if (errno != ENOENT && errno != ENAMETOOLONG)

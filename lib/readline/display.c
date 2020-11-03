@@ -1,6 +1,10 @@
 /* display.c -- readline redisplay facility. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library    
    for reading lines of text with interactive input and history editing.
@@ -74,8 +78,11 @@ static void redraw_prompt PARAMS((char *));
 /* Values for FLAGS */
 #define PMT_MULTILINE	0x01
 
+<<<<<<< HEAD
 static char *expand_prompt PARAMS((char *, int, int *, int *, int *, int *));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* State of visible and invisible lines. */
 struct line_state
   {
@@ -83,8 +90,13 @@ struct line_state
     int *lbreaks;
     int lbsize;
 #if defined (HANDLE_MULTIBYTE)
+<<<<<<< HEAD
     int wbsize;
     int *wrapped_line;
+=======
+    int *wrapped_line;
+    int wbsize;
+>>>>>>> orgin/bash-4.3-testing
 #endif
   };
 
@@ -119,11 +131,18 @@ static int _rl_col_width PARAMS((const char *, int, int, int));
    buffer index in others.  This macro is used when deciding whether the
    current cursor position is in the middle of a prompt string containing
    invisible characters.  XXX - might need to take `modmark' into account. */
+<<<<<<< HEAD
 /* XXX - only valid when tested against _rl_last_c_pos; buffer indices need
    to use prompt_last_invisible directly. */
 #define PROMPT_ENDING_INDEX \
   ((MB_CUR_MAX > 1 && rl_byte_oriented == 0) ? prompt_physical_chars : prompt_last_invisible+1)
   
+=======
+#define PROMPT_ENDING_INDEX \
+  ((MB_CUR_MAX > 1 && rl_byte_oriented == 0) ? prompt_physical_chars : prompt_last_invisible+1)
+  
+
+>>>>>>> orgin/bash-4.3-testing
 /* **************************************************************** */
 /*								    */
 /*			Display stuff				    */
@@ -158,6 +177,12 @@ rl_voidfunc_t *rl_redisplay_function = rl_redisplay;
 /* What YOU turn on when you have handled all redisplay yourself. */
 int rl_display_fixed = 0;
 
+<<<<<<< HEAD
+=======
+int _rl_suppress_redisplay = 0;
+int _rl_want_redisplay = 0;
+
+>>>>>>> orgin/bash-4.3-testing
 /* The stuff that gets printed out before the actual text of the line.
    This is usually pointing to rl_prompt. */
 char *rl_display_prompt = (char *)NULL;
@@ -174,10 +199,13 @@ int _rl_vi_cmd_modestr_len;
 
 /* Pseudo-global variables declared here. */
 
+<<<<<<< HEAD
 /* Hints for other parts of readline to give to the display engine. */
 int _rl_suppress_redisplay = 0;
 int _rl_want_redisplay = 0;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* The visible cursor position.  If you print some text, adjust this. */
 /* NOTE: _rl_last_c_pos is used as a buffer index when not in a locale
    supporting multibyte characters, and an absolute cursor position when
@@ -186,8 +214,17 @@ int _rl_want_redisplay = 0;
 int _rl_last_c_pos = 0;
 int _rl_last_v_pos = 0;
 
+<<<<<<< HEAD
 /* Number of physical lines consumed by the current line buffer currently
   on screen minus 1. */
+=======
+static int cpos_adjusted;
+static int cpos_buffer_position;
+static int displaying_prompt_first_line;
+static int prompt_multibyte_chars;
+
+/* Number of lines currently on screen minus 1. */
+>>>>>>> orgin/bash-4.3-testing
 int _rl_vis_botlin = 0;
 
 /* This is a hint update_line gives to rl_redisplay that it has adjusted the
@@ -226,11 +263,15 @@ static int line_size = 1024;
 
 static char *local_prompt, *local_prompt_prefix;
 static int local_prompt_len;
+<<<<<<< HEAD
 static int prompt_prefix_length;
 /* Number of chars in the buffer that contribute to visible chars on the screen.
    This might be different from the number of physical chars in the presence
    of multibyte characters */
 static int prompt_visible_length;
+=======
+static int prompt_visible_length, prompt_prefix_length;
+>>>>>>> orgin/bash-4.3-testing
 
 /* The number of invisible characters in the line currently being
    displayed on the screen. */
@@ -256,26 +297,35 @@ static int prompt_last_screen_line;
 
 static int prompt_physical_chars;
 
+<<<<<<< HEAD
 /* An array of indexes into the prompt string where we will break physical
    screen lines.  It's easier to compute in expand_prompt and use later in
    rl_redisplay instead of having rl_redisplay try to guess about invisible
    characters in the prompt or use heuristics about where they are. */
 static int *local_prompt_newlines;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* set to a non-zero value by rl_redisplay if we are marking modified history
    lines and the current line is so marked. */
 static int modmark;
 
+<<<<<<< HEAD
 static int line_totbytes;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Variables to save and restore prompt and display information. */
 
 /* These are getting numerous enough that it's time to create a struct. */
 
 static char *saved_local_prompt;
 static char *saved_local_prefix;
+<<<<<<< HEAD
 static int *saved_local_prompt_newlines;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 static int saved_last_invisible;
 static int saved_visible_length;
 static int saved_prefix_length;
@@ -283,6 +333,7 @@ static int saved_local_length;
 static int saved_invis_chars_first_line;
 static int saved_physical_chars;
 
+<<<<<<< HEAD
 /* Return a string indicating the editing mode, for use in the prompt. */
 
 static char *
@@ -306,6 +357,18 @@ prompt_modestr (int *lenp)
 	*lenp = _rl_vi_cmd_mode_str ? _rl_vi_cmd_modestr_len : RL_VI_CMD_MODESTR_DEFLEN;
       return _rl_vi_cmd_mode_str ? _rl_vi_cmd_mode_str : RL_VI_CMD_MODESTR_DEFAULT;		/* vi command mode */
     }
+=======
+/* Return a character indicating the editing mode, for use in the prompt. */
+static int
+prompt_modechar ()
+{
+  if (rl_editing_mode == emacs_mode)
+    return '@';
+  else if (_rl_keymap == vi_insertion_keymap)
+    return '+';		/* vi insert mode */
+  else
+    return ':';		/* vi command mode */
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Expand the prompt string S and return the number of visible
@@ -314,8 +377,12 @@ prompt_modestr (int *lenp)
    index of the last invisible character in the returned string. NIFLP,
    if non-zero, is a place to store the number of invisible characters in
    the first prompt line.  The previous are used as byte counts -- indexes
+<<<<<<< HEAD
    into a character buffer.  *VLP gets the number of physical characters in
    the expanded prompt (visible length) */
+=======
+   into a character buffer. */
+>>>>>>> orgin/bash-4.3-testing
 
 /* Current implementation:
 	\001 (^A) start non-visible characters
@@ -332,6 +399,7 @@ prompt_modestr (int *lenp)
 #define APPROX_DIV(n, d)	(((n) < (d)) ? 1 : ((n) / (d)) + 1)
 
 static char *
+<<<<<<< HEAD
 expand_prompt (char *pmt, int flags, int *lp, int *lip, int *niflp, int *vlp)
 {
   char *r, *ret, *p, *igstart, *nprompt, *ms;
@@ -402,6 +470,54 @@ expand_prompt (char *pmt, int flags, int *lp, int *lip, int *niflp, int *vlp)
   igstart = 0;		/* we're not ignoring any characters yet */
 
   for (ignoring = last = ninvis = 0, p = nprompt; p && *p; p++)
+=======
+expand_prompt (pmt, lp, lip, niflp, vlp)
+     char *pmt;
+     int *lp, *lip, *niflp, *vlp;
+{
+  char *r, *ret, *p, *igstart;
+  int l, rl, last, ignoring, ninvis, invfl, invflset, ind, pind, physchars;
+
+  /* Short-circuit if we can. */
+  if ((MB_CUR_MAX <= 1 || rl_byte_oriented) && strchr (pmt, RL_PROMPT_START_IGNORE) == 0)
+    {
+      if (pmt == rl_prompt && _rl_show_mode_in_prompt)
+        {
+          l = strlen (pmt);
+          r = (char *)xmalloc (l + 2);
+          r[0] = prompt_modechar ();
+          strcpy (r + 1, pmt);
+        }
+      else
+	r = savestring (pmt);
+
+      if (lp)
+	*lp = strlen (r);
+      if (lip)
+	*lip = 0;
+      if (niflp)
+	*niflp = 0;
+      if (vlp)
+	*vlp = lp ? *lp : strlen (r);
+      return r;
+    }
+
+  l = strlen (pmt);
+  r = ret = (char *)xmalloc (l + 2);
+
+  rl = physchars = 0;	/* move up here so mode show can set them */
+  if (pmt == rl_prompt && _rl_show_mode_in_prompt)
+    {
+      *r++ = prompt_modechar ();
+      rl = physchars = 1;
+    }
+
+  invfl = 0;	/* invisible chars in first line of prompt */
+  invflset = 0;	/* we only want to set invfl once */
+
+  igstart = 0;
+  for (ignoring = last = ninvis = 0, p = pmt; p && *p; p++)
+>>>>>>> orgin/bash-4.3-testing
     {
       /* This code strips the invisible character string markers
 	 RL_PROMPT_START_IGNORE and RL_PROMPT_END_IGNORE */
@@ -421,10 +537,17 @@ expand_prompt (char *pmt, int flags, int *lp, int *lip, int *niflp, int *vlp)
       else
 	{
 #if defined (HANDLE_MULTIBYTE)
+<<<<<<< HEAD
 	  if (mb_cur_max > 1 && rl_byte_oriented == 0)
 	    {
 	      pind = p - nprompt;
 	      ind = _rl_find_next_mbchar (nprompt, pind, 1, MB_FIND_NONZERO);
+=======
+	  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+	    {
+	      pind = p - pmt;
+	      ind = _rl_find_next_mbchar (pmt, pind, 1, MB_FIND_NONZERO);
+>>>>>>> orgin/bash-4.3-testing
 	      l = ind - pind;
 	      while (l--)
 	        *r++ = *p++;
@@ -436,7 +559,11 @@ expand_prompt (char *pmt, int flags, int *lp, int *lip, int *niflp, int *vlp)
 		     not be the same as the number of physical characters
 		     on the screen in the presence of multibyte characters */
 		  rl += ind - pind;
+<<<<<<< HEAD
 		  physchars += _rl_col_width (nprompt, pind, ind, 0);
+=======
+		  physchars += _rl_col_width (pmt, pind, ind, 0);
+>>>>>>> orgin/bash-4.3-testing
 		}
 	      else
 		ninvis += ind - pind;
@@ -455,11 +582,16 @@ expand_prompt (char *pmt, int flags, int *lp, int *lip, int *niflp, int *vlp)
 		ninvis++;		/* invisible chars byte counter */
 	    }
 
+<<<<<<< HEAD
 	  if (invflset == 0 && physchars >= _rl_screenwidth)
+=======
+	  if (invflset == 0 && rl >= _rl_screenwidth)
+>>>>>>> orgin/bash-4.3-testing
 	    {
 	      invfl = ninvis;
 	      invflset = 1;
 	    }
+<<<<<<< HEAD
 
 	  if (physchars >= (bound = (newlines + 1) * _rl_screenwidth) && local_prompt_newlines[newlines+1] == -1)
 	    {
@@ -478,6 +610,8 @@ expand_prompt (char *pmt, int flags, int *lp, int *lip, int *niflp, int *vlp)
 	        new = r - ret;
 	      local_prompt_newlines[++newlines] = new;
 	    }
+=======
+>>>>>>> orgin/bash-4.3-testing
 	}
     }
 
@@ -493,10 +627,13 @@ expand_prompt (char *pmt, int flags, int *lp, int *lip, int *niflp, int *vlp)
     *niflp = invfl;
   if  (vlp)
     *vlp = physchars;
+<<<<<<< HEAD
 
   if (nprompt != pmt)
     free (nprompt);
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   return ret;
 }
 
@@ -507,12 +644,20 @@ _rl_strip_prompt (char *pmt)
 {
   char *ret;
 
+<<<<<<< HEAD
   ret = expand_prompt (pmt, 0, (int *)NULL, (int *)NULL, (int *)NULL, (int *)NULL);
+=======
+  ret = expand_prompt (pmt, (int *)NULL, (int *)NULL, (int *)NULL, (int *)NULL);
+>>>>>>> orgin/bash-4.3-testing
   return ret;
 }
 
 void
+<<<<<<< HEAD
 _rl_reset_prompt (void)
+=======
+_rl_reset_prompt ()
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_visible_prompt_length = rl_expand_prompt (rl_prompt);
 }
@@ -562,10 +707,17 @@ rl_expand_prompt (char *prompt)
   if (p == 0)
     {
       /* The prompt is only one logical line, though it might wrap. */
+<<<<<<< HEAD
       local_prompt = expand_prompt (prompt, 0, &prompt_visible_length,
 					       &prompt_last_invisible,
 					       &prompt_invis_chars_first_line,
 					       &prompt_physical_chars);
+=======
+      local_prompt = expand_prompt (prompt, &prompt_visible_length,
+					    &prompt_last_invisible,
+					    &prompt_invis_chars_first_line,
+					    &prompt_physical_chars);
+>>>>>>> orgin/bash-4.3-testing
       local_prompt_prefix = (char *)0;
       local_prompt_len = local_prompt ? strlen (local_prompt) : 0;
       return (prompt_visible_length);
@@ -586,6 +738,10 @@ rl_expand_prompt (char *prompt)
 						   &prompt_prefix_length,
 						   (int *)NULL,
 						   (int *)NULL,
+<<<<<<< HEAD
+=======
+						   (int *)NULL,
+>>>>>>> orgin/bash-4.3-testing
 						   (int *)NULL);
       *t = c;
       local_prompt_len = local_prompt ? strlen (local_prompt) : 0;
@@ -804,7 +960,11 @@ rl_redisplay (void)
 		inv_lbreaks = (int *)xrealloc (inv_lbreaks, inv_lbsize * sizeof (int)); \
 	      } \
 	    inv_lbreaks[++newlines] = out; \
+<<<<<<< HEAD
 	    if (newlines >= (line_state_invisible->wbsize - 2)) \
+=======
+	    if (newlines >= (line_state_invisible->wbsize - 1)) \
+>>>>>>> orgin/bash-4.3-testing
 	      { \
 		line_state_invisible->wbsize *= 2; \
 		line_state_invisible->wrapped_line = (int *)xrealloc (line_state_invisible->wrapped_line, line_state_invisible->wbsize * sizeof(int)); \
@@ -832,11 +992,14 @@ rl_redisplay (void)
 
   /* inv_lbreaks[i] is where line i starts in the buffer. */
   inv_lbreaks[newlines = 0] = 0;
+<<<<<<< HEAD
   /* lpos is a physical cursor position, so it needs to be adjusted by the
      number of invisible characters in the prompt, per line.  We compute
      the line breaks in the prompt string in expand_prompt, taking invisible
      characters into account, and if lpos exceeds the screen width, we copy
      the data in the loop below. */
+=======
+>>>>>>> orgin/bash-4.3-testing
   lpos = prompt_physical_chars + modmark;
 
 #if defined (HANDLE_MULTIBYTE)
@@ -846,14 +1009,20 @@ rl_redisplay (void)
 
   /* prompt_invis_chars_first_line is the number of invisible characters in
      the first physical line of the prompt.
+<<<<<<< HEAD
      wrap_offset - prompt_invis_chars_first_line is usually the number of
      invis chars on the second (or, more generally, last) line. */
+=======
+     wrap_offset - prompt_invis_chars_first_line is the number of invis
+     chars on the second (or, more generally, last) line. */
+>>>>>>> orgin/bash-4.3-testing
 
   /* This is zero-based, used to set the newlines */
   prompt_lines_estimate = lpos / _rl_screenwidth;
 
   /* what if lpos is already >= _rl_screenwidth before we start drawing the
      contents of the command line? */
+<<<<<<< HEAD
   if (lpos >= _rl_screenwidth)
     {
       temp = 0;
@@ -870,14 +1039,67 @@ rl_redisplay (void)
         lpos = _rl_col_width (local_prompt, temp, local_prompt_len, 1) - (wrap_offset - prompt_invis_chars_first_line);
       else
         lpos -= (_rl_screenwidth * newlines);
+=======
+  while (lpos >= _rl_screenwidth)
+    {
+      int z;
+      /* fix from Darin Johnson <darin@acuson.com> for prompt string with
+         invisible characters that is longer than the screen width.  The
+         prompt_invis_chars_first_line variable could be made into an array
+         saying how many invisible characters there are per line, but that's
+         probably too much work for the benefit gained.  How many people have
+         prompts that exceed two physical lines?
+         Additional logic fix from Edward Catmur <ed@catmur.co.uk> */
+#if defined (HANDLE_MULTIBYTE)
+      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0 && prompt_multibyte_chars > 0)
+	{
+	  n0 = num;
+          temp = local_prompt_len;
+          while (num < temp)
+	    {
+	      z = _rl_col_width  (local_prompt, n0, num, 1);
+	      if (z > _rl_screenwidth)
+		{
+	          num = _rl_find_prev_mbchar (local_prompt, num, MB_FIND_ANY);
+	          break;
+		}
+	      else if (z == _rl_screenwidth)
+	        break;
+	      num++;
+	    }
+          temp = num;
+	}
+      else
+#endif /* !HANDLE_MULTIBYTE */
+	temp = ((newlines + 1) * _rl_screenwidth);
+
+      /* Now account for invisible characters in the current line. */
+      /* XXX - this assumes that the invisible characters may be split, but only
+	 between the first and the last lines. */
+      temp += (newlines == 0) ? prompt_invis_chars_first_line
+			      : ((newlines == prompt_lines_estimate) ? wrap_offset : prompt_invis_chars_first_line);
+
+      inv_lbreaks[++newlines] = temp;
+#if defined (HANDLE_MULTIBYTE)
+      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0 && prompt_multibyte_chars > 0)
+	lpos -= _rl_col_width (local_prompt, n0, num, 1);
+      else
+#endif
+	lpos -= _rl_screenwidth;
+>>>>>>> orgin/bash-4.3-testing
     }
 
   prompt_last_screen_line = newlines;
 
   /* Draw the rest of the line (after the prompt) into invisible_line, keeping
+<<<<<<< HEAD
      track of where the cursor is (cpos_buffer_position), the number of the
      line containing the cursor (lb_linenum), the last line number (lb_botlin
      and inv_botlin).
+=======
+     track of where the cursor is (cpos_buffer_position), the number of the line containing
+     the cursor (lb_linenum), the last line number (lb_botlin and inv_botlin).
+>>>>>>> orgin/bash-4.3-testing
      It maintains an array of line breaks for display (inv_lbreaks).
      This handles expanding tabs for display and displaying meta characters. */
   lb_linenum = 0;
@@ -886,6 +1108,7 @@ rl_redisplay (void)
   if (mb_cur_max > 1 && rl_byte_oriented == 0)
     {
       memset (&ps, 0, sizeof (mbstate_t));
+<<<<<<< HEAD
       if (_rl_utf8locale && UTF8_SINGLEBYTE(rl_line_buffer[0]))
 	{
 	  wc = (wchar_t)rl_line_buffer[0];
@@ -893,6 +1116,10 @@ rl_redisplay (void)
 	}
       else
 	wc_bytes = mbrtowc (&wc, rl_line_buffer, rl_end, &ps);
+=======
+      /* XXX - what if wc_bytes ends up <= 0? check for MB_INVALIDCH */
+      wc_bytes = mbrtowc (&wc, rl_line_buffer, rl_end, &ps);
+>>>>>>> orgin/bash-4.3-testing
     }
   else
     wc_bytes = 1;
@@ -1061,6 +1288,7 @@ rl_redisplay (void)
       if (mb_cur_max > 1 && rl_byte_oriented == 0)
 	{
 	  in += wc_bytes;
+<<<<<<< HEAD
 	  if (_rl_utf8locale && UTF8_SINGLEBYTE(rl_line_buffer[in]))
 	    {
 	      wc = (wchar_t)rl_line_buffer[in];
@@ -1069,13 +1297,20 @@ rl_redisplay (void)
 	    }
 	  else
 	    wc_bytes = mbrtowc (&wc, rl_line_buffer + in, rl_end - in, &ps);
+=======
+	  /* XXX - what if wc_bytes ends up <= 0? check for MB_INVALIDCH */
+	  wc_bytes = mbrtowc (&wc, rl_line_buffer + in, rl_end - in, &ps);
+>>>>>>> orgin/bash-4.3-testing
 	}
       else
         in++;
 #endif
     }
   line[out] = '\0';
+<<<<<<< HEAD
   line_totbytes = out;
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (cpos_buffer_position < 0)
     {
       cpos_buffer_position = out;
@@ -1156,8 +1391,13 @@ rl_redisplay (void)
 
 	      /* update_line potentially changes _rl_last_c_pos, but doesn't
 		 take invisible characters into account, since _rl_last_c_pos
+<<<<<<< HEAD
 		 is an absolute cursor position in a multibyte locale.  We
 		 choose to (mostly) compensate for that here, rather than
+=======
+		 is an absolute cursor position in a multibyte locale.  See
+		 if compensating here is the right thing, or if we have to
+>>>>>>> orgin/bash-4.3-testing
 		 change update_line itself.  There are several cases in which
 		 update_line adjusts _rl_last_c_pos itself (so it can pass
 		 _rl_move_cursor_relative accurate values); it communicates
@@ -1166,6 +1406,7 @@ rl_redisplay (void)
 		 time update_line is called, then we can assume in our
 		 calculations that o_cpos does not need to be adjusted by
 		 wrap_offset. */
+<<<<<<< HEAD
 	      if (linenum == 0 && (mb_cur_max > 1 && rl_byte_oriented == 0) && OLD_CPOS_IN_PROMPT())
 		_rl_last_c_pos -= prompt_invis_chars_first_line;	/* XXX - was wrap_offset */
 	      else if (cpos_adjusted == 0 &&
@@ -1180,6 +1421,17 @@ rl_redisplay (void)
 		/* XXX - not sure this is ever executed */
 		_rl_last_c_pos -= (wrap_offset-prompt_invis_chars_first_line);
 
+=======
+	      if (linenum == 0 && (MB_CUR_MAX > 1 && rl_byte_oriented == 0) && OLD_CPOS_IN_PROMPT())
+		_rl_last_c_pos -= prompt_invis_chars_first_line;	/* XXX - was wrap_offset */
+	      else if (linenum == prompt_last_screen_line && prompt_physical_chars > _rl_screenwidth &&
+			(MB_CUR_MAX > 1 && rl_byte_oriented == 0) &&
+			cpos_adjusted == 0 &&
+			_rl_last_c_pos != o_cpos &&
+			_rl_last_c_pos > (prompt_last_invisible - _rl_screenwidth - prompt_invis_chars_first_line))
+		_rl_last_c_pos -= (wrap_offset-prompt_invis_chars_first_line);
+		  
+>>>>>>> orgin/bash-4.3-testing
 	      /* If this is the line with the prompt, we might need to
 		 compensate for invisible characters in the new line. Do
 		 this only if there is not more than one new line (which
@@ -1191,7 +1443,11 @@ rl_redisplay (void)
 		  (wrap_offset > visible_wrap_offset) &&
 		  (_rl_last_c_pos < visible_first_line_len))
 		{
+<<<<<<< HEAD
 		  if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+		  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 		    nleft = _rl_screenwidth - _rl_last_c_pos;
 		  else
 		    nleft = _rl_screenwidth + wrap_offset - _rl_last_c_pos;
@@ -1243,7 +1499,11 @@ rl_redisplay (void)
 		 the physical cursor position on the screen stays the same,
 		 but the buffer position needs to be adjusted to account
 		 for invisible characters. */
+<<<<<<< HEAD
 	      if ((mb_cur_max == 1 || rl_byte_oriented) && cursor_linenum == 0 && wrap_offset)
+=======
+	      if ((MB_CUR_MAX == 1 || rl_byte_oriented) && cursor_linenum == 0 && wrap_offset)
+>>>>>>> orgin/bash-4.3-testing
 		_rl_last_c_pos += wrap_offset;
 	    }
 
@@ -1273,7 +1533,11 @@ rl_redisplay (void)
 		_rl_output_some_chars ("*", 1);
 
 	      _rl_output_some_chars (local_prompt, nleft);
+<<<<<<< HEAD
 	      if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+	      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 		_rl_last_c_pos = _rl_col_width (local_prompt, 0, nleft, 1) - wrap_offset + modmark;
 	      else
 		_rl_last_c_pos = nleft + modmark;
@@ -1291,6 +1555,7 @@ rl_redisplay (void)
 	     position that doesn't take invisible characters in the prompt
 	     into account.  We use a fudge factor to compensate. */
 
+<<<<<<< HEAD
 	  /* Since _rl_backspace() doesn't know about invisible characters in
 	     the prompt, and there's no good way to tell it, we compensate for
 	     those characters here and call _rl_backspace() directly if
@@ -1299,6 +1564,15 @@ rl_redisplay (void)
 	    {
 	      /* TX == new physical cursor position in multibyte locale. */
 	      if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+	  /* Since _rl_backspace() doesn't know about invisible characters in the
+	     prompt, and there's no good way to tell it, we compensate for
+	     those characters here and call _rl_backspace() directly. */
+	  if (wrap_offset && cursor_linenum == 0 && nleft < _rl_last_c_pos)
+	    {
+	      /* TX == new physical cursor position in multibyte locale. */
+	      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 		tx = _rl_col_width (&visible_line[pos], 0, nleft, 1) - visible_wrap_offset;
 	      else
 		tx = nleft;
@@ -1313,7 +1587,11 @@ rl_redisplay (void)
 	     _rl_last_c_pos as an absolute cursor position, but moving to a
 	     point specified by a buffer position (NLEFT) that doesn't take
 	     invisible characters into account. */
+<<<<<<< HEAD
 	  if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+	  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 	    _rl_move_cursor_relative (nleft, &invisible_line[pos]);
 	  else if (nleft != _rl_last_c_pos)
 	    _rl_move_cursor_relative (nleft, &invisible_line[pos]);
@@ -1394,7 +1672,11 @@ rl_redisplay (void)
 		       _rl_screenwidth + (lmargin ? 0 : wrap_offset),
 		       0);
 
+<<<<<<< HEAD
 	  if ((mb_cur_max > 1 && rl_byte_oriented == 0) &&
+=======
+	  if ((MB_CUR_MAX > 1 && rl_byte_oriented == 0) &&
+>>>>>>> orgin/bash-4.3-testing
 		displaying_prompt_first_line && OLD_CPOS_IN_PROMPT())
 	    _rl_last_c_pos -= prompt_invis_chars_first_line;	/* XXX - was wrap_offset */
 
@@ -1464,7 +1746,10 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
   int current_invis_chars;
   int col_lendiff, col_temp;
   int bytes_to_insert;
+<<<<<<< HEAD
   int mb_cur_max = MB_CUR_MAX;
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if defined (HANDLE_MULTIBYTE)
   mbstate_t ps_new, ps_old;
   int new_offset, old_offset;
@@ -1475,7 +1760,11 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
      the exact cursor position and cut-and-paste with certain terminal
      emulators.  In this calculation, TEMP is the physical screen
      position of the cursor. */
+<<<<<<< HEAD
   if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
     temp = _rl_last_c_pos;
   else
     temp = _rl_last_c_pos - WRAP_OFFSET (_rl_last_v_pos, visible_wrap_offset);
@@ -1500,6 +1789,7 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
 	  /* This fixes only double-column characters, but if the wrapped
 	     character consumes more than three columns, spaces will be
 	     inserted in the string buffer. */
+<<<<<<< HEAD
 	  /* XXX remember that we are working on the invisible line right now;
 	     we don't swap visible and invisible until just before rl_redisplay
 	     returns */
@@ -1523,17 +1813,26 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
 	    oldwidth = WCWIDTH (wc);
 	  if (oldwidth < 0)
 	    oldwidth = 1;
+=======
+	  if (current_line < line_state_visible->wbsize && line_state_visible->wrapped_line[current_line] > 0)
+	    _rl_clear_to_eol (line_state_visible->wrapped_line[current_line]);
+>>>>>>> orgin/bash-4.3-testing
 
 	  /* 2. how many screen positions does the first char in new consume? */
 	  memset (&ps, 0, sizeof (mbstate_t));
+<<<<<<< HEAD
 	  ret = mbrtowc (&wc, new, mb_cur_max, &ps);
 	  newbytes = ret;
+=======
+	  ret = mbrtowc (&wc, new, MB_CUR_MAX, &ps);
+>>>>>>> orgin/bash-4.3-testing
 	  if (MB_INVALIDCH (ret))
 	    {
 	      newwidth = 1;
 	      newbytes = 1;
 	    }
 	  else if (MB_NULLWCH (ret))
+<<<<<<< HEAD
 	    newwidth = 0;
 	  else
 	    newwidth = WCWIDTH (wc);
@@ -1568,6 +1867,11 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
 	  while (oldbytes < omax && oldwidth < newwidth)
 	    {
 	      int t;
+=======
+	    tempwidth = 0;
+	  else
+	    tempwidth = WCWIDTH (wc);
+>>>>>>> orgin/bash-4.3-testing
 
 	      ret = mbrtowc (&wc, old+oldbytes, mb_cur_max, &ps);
 	      if (MB_INVALIDCH (ret))
@@ -1591,17 +1895,26 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
 	     _rl_output_some_chars below. */
 	  if (newwidth > 0)
 	    {
+<<<<<<< HEAD
 	      int count, i, j;
 	      char *optr;
 
 	      _rl_output_some_chars (new, newbytes);
 	      _rl_last_c_pos = newwidth;
+=======
+	      int count, i;
+	      bytes = ret;
+	      for (count = 0; count < bytes; count++)
+		putc (new[count], rl_outstream);
+	      _rl_last_c_pos = tempwidth;
+>>>>>>> orgin/bash-4.3-testing
 	      _rl_last_v_pos++;
 
 	      /* 5a. If the number of screen positions doesn't match, punt
 		 and do a dumb update. */
 	      if (newwidth != oldwidth)
 		{
+<<<<<<< HEAD
 		  ne = new + nmax;
 		  nd = newbytes;
 		  nfd = new + nd;
@@ -1621,6 +1934,16 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
 		  /* Fix up indices if we copy data from one line to another */
 		  for (i = current_line+1; i <= inv_botlin+1; i++)
 		    vis_lbreaks[i] += j;
+=======
+		  if (MB_INVALIDCH (ret))
+		    ret = 1;
+		  memmove (old+bytes, old+ret, strlen (old+ret));
+		  memcpy (old, new, bytes);
+		  /* Fix up indices if we copy data from one line to another */
+		  omax += bytes - ret;
+		  for (i = current_line+1; i <= inv_botlin+1; i++)
+		    vis_lbreaks[i] += bytes - ret;
+>>>>>>> orgin/bash-4.3-testing
 		}
 	    }
 	  else
@@ -1664,7 +1987,10 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
 	  memset (&ps_new, 0, sizeof(mbstate_t));
 	  memset (&ps_old, 0, sizeof(mbstate_t));
 
+<<<<<<< HEAD
 	  /* Are the old and new lines the same? */
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  if (omax == nmax && STREQN (new, old, omax))
 	    {
 	      old_offset = omax;
@@ -1674,8 +2000,11 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
 	    }
 	  else
 	    {
+<<<<<<< HEAD
 	      /* Go through the line from the beginning and find the first
 		 difference. */
+=======
+>>>>>>> orgin/bash-4.3-testing
 	      new_offset = old_offset = 0;
 	      for (ofd = old, nfd = new;
 		    (ofd - old < omax) && *ofd &&
@@ -1708,7 +2037,11 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
     return;
 
 #if defined (HANDLE_MULTIBYTE)
+<<<<<<< HEAD
   if (mb_cur_max > 1 && rl_byte_oriented == 0 && _rl_utf8locale)
+=======
+  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0 && _rl_utf8locale)
+>>>>>>> orgin/bash-4.3-testing
     {
       wchar_t wc;
       mbstate_t ps = { 0 };
@@ -1717,7 +2050,11 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
       /* If the first character in the difference is a zero-width character,
 	 assume it's a combining character and back one up so the two base
 	 characters no longer compare equivalently. */
+<<<<<<< HEAD
       t = mbrtowc (&wc, ofd, mb_cur_max, &ps);
+=======
+      t = mbrtowc (&wc, ofd, MB_CUR_MAX, &ps);
+>>>>>>> orgin/bash-4.3-testing
       if (t > 0 && UNICODE_COMBINING_CHAR (wc) && WCWIDTH (wc) == 0)
 	{
 	  old_offset = _rl_find_prev_mbchar (old, ofd - old, MB_FIND_ANY);
@@ -1810,12 +2147,16 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
   if (_rl_last_v_pos != current_line)
     {
       _rl_move_vert (current_line);
+<<<<<<< HEAD
       /* We have moved up to a new screen line.  This line may or may not have
          invisible characters on it, but we do our best to recalculate
          visible_wrap_offset based on what we know. */
       if (current_line == 0)
 	visible_wrap_offset = prompt_invis_chars_first_line;	/* XXX */
       if ((mb_cur_max == 1 || rl_byte_oriented) && current_line == 0 && visible_wrap_offset)
+=======
+      if ((MB_CUR_MAX == 1 || rl_byte_oriented) && current_line == 0 && visible_wrap_offset)
+>>>>>>> orgin/bash-4.3-testing
 	_rl_last_c_pos += visible_wrap_offset;
     }
 
@@ -1843,14 +2184,21 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
      `bold') that manifests itself on certain terminals. */
 
   lendiff = local_prompt_len;
+<<<<<<< HEAD
   if (lendiff > nmax)
     lendiff = nmax;
+=======
+>>>>>>> orgin/bash-4.3-testing
   od = ofd - old;	/* index of first difference in visible line */
   nd = nfd - new;	/* nd, od are buffer indexes */
   if (current_line == 0 && !_rl_horizontal_scroll_mode &&
       _rl_term_cr && lendiff > prompt_visible_length && _rl_last_c_pos > 0 &&
+<<<<<<< HEAD
       (((od > 0 || nd > 0) && (od <= prompt_last_invisible || nd <= prompt_last_invisible)) ||
 		((od >= lendiff) && _rl_last_c_pos < PROMPT_ENDING_INDEX)))
+=======
+      od >= lendiff && _rl_last_c_pos < PROMPT_ENDING_INDEX)
+>>>>>>> orgin/bash-4.3-testing
     {
 #if defined (__MSDOS__)
       putc ('\r', rl_outstream);
@@ -1860,7 +2208,11 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
       if (modmark)
 	_rl_output_some_chars ("*", 1);
       _rl_output_some_chars (local_prompt, lendiff);
+<<<<<<< HEAD
       if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  /* We take wrap_offset into account here so we can pass correct
 	     information to _rl_move_cursor_relative. */
@@ -1869,6 +2221,7 @@ update_line (char *old, char *new, int current_line, int omax, int nmax, int inv
 	}
       else
 	_rl_last_c_pos = lendiff + modmark;
+<<<<<<< HEAD
 
       /* Now if we have printed the prompt string because the first difference
 	 was within the prompt, see if we need to recompute where the lines
@@ -1923,6 +2276,8 @@ dumb_update:
 	  else
 	    return;
 	}
+=======
+>>>>>>> orgin/bash-4.3-testing
     }
 
   o_cpos = _rl_last_c_pos;
@@ -1936,7 +2291,11 @@ dumb_update:
   /* We need to indicate that the cursor position is correct in the presence of
      invisible characters in the prompt string.  Let's see if setting this when
      we make sure we're at the end of the drawn prompt string works. */
+<<<<<<< HEAD
   if (current_line == 0 && mb_cur_max > 1 && rl_byte_oriented == 0 &&
+=======
+  if (current_line == 0 && MB_CUR_MAX > 1 && rl_byte_oriented == 0 &&
+>>>>>>> orgin/bash-4.3-testing
       (_rl_last_c_pos > 0 || o_cpos > 0) &&
       _rl_last_c_pos == prompt_physical_chars)
     cpos_adjusted = 1;
@@ -1947,7 +2306,11 @@ dumb_update:
      col_lendiff == difference on screen (columns)
      When not using multibyte characters, these are equal */
   lendiff = (nls - nfd) - (ols - ofd);
+<<<<<<< HEAD
   if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
     col_lendiff = _rl_col_width (new, nfd - new, nls - new, 1) - _rl_col_width (old, ofd - old, ols - old, 1);
   else
     col_lendiff = lendiff;
@@ -1976,7 +2339,11 @@ dumb_update:
      and writes TEMP bytes. */
   /* Insert (diff (len (old), len (new)) ch. */
   temp = ne - nfd;
+<<<<<<< HEAD
   if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
     col_temp = _rl_col_width (new, nfd - new, ne - new, 1);
   else
     col_temp = temp;
@@ -1989,7 +2356,10 @@ dumb_update:
     {
       /* Non-zero if we're increasing the number of lines. */
       int gl = current_line >= _rl_vis_botlin && inv_botlin > _rl_vis_botlin;
+<<<<<<< HEAD
 
+=======
+>>>>>>> orgin/bash-4.3-testing
       /* If col_lendiff is > 0, implying that the new string takes up more
 	 screen real estate than the old, but lendiff is < 0, meaning that it
 	 takes fewer bytes, we need to just output the characters starting
@@ -2005,7 +2375,11 @@ dumb_update:
 	     cpos_adjusted to let the caller know. */
 	  if (current_line == 0 && displaying_prompt_first_line && wrap_offset && ((nfd - new) <= prompt_last_invisible))
 	    {
+<<<<<<< HEAD
 	      _rl_last_c_pos -= wrap_offset;	/* XXX - prompt_invis_chars_first_line? */
+=======
+	      _rl_last_c_pos -= wrap_offset;
+>>>>>>> orgin/bash-4.3-testing
 	      cpos_adjusted = 1;
 	    }
 	  return;
@@ -2028,7 +2402,11 @@ dumb_update:
 			_rl_last_c_pos == 0 &&
 			lendiff > prompt_visible_length &&
 			current_invis_chars > 0) == 0) &&
+<<<<<<< HEAD
 		      (((mb_cur_max > 1 && rl_byte_oriented == 0) &&
+=======
+		      (((MB_CUR_MAX > 1 && rl_byte_oriented == 0) &&
+>>>>>>> orgin/bash-4.3-testing
 		        current_line == 0 && wrap_offset &&
 		        ((nfd - new) <= prompt_last_invisible) &&
 		        (col_lendiff < prompt_visible_length)) == 0) &&
@@ -2036,12 +2414,20 @@ dumb_update:
 	    {
 	      open_some_spaces (col_lendiff);
 	      _rl_output_some_chars (nfd, bytes_to_insert);
+<<<<<<< HEAD
 	      if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+	      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 		_rl_last_c_pos += _rl_col_width (nfd, 0, bytes_to_insert, 1);
 	      else
 		_rl_last_c_pos += bytes_to_insert;
 	    }
+<<<<<<< HEAD
 	  else if ((mb_cur_max == 1 || rl_byte_oriented != 0) && *ols == 0 && lendiff > 0)
+=======
+	  else if ((MB_CUR_MAX == 1 || rl_byte_oriented != 0) && *ols == 0 && lendiff > 0)
+>>>>>>> orgin/bash-4.3-testing
 	    {
 	      /* At the end of a line the characters do not have to
 		 be "inserted".  They can just be placed on the screen. */
@@ -2056,9 +2442,15 @@ dumb_update:
 	      /* If nfd begins before the last invisible character in the
 		 prompt, adjust _rl_last_c_pos to account for wrap_offset
 		 and set cpos_adjusted to let the caller know. */
+<<<<<<< HEAD
 	      if ((mb_cur_max > 1 && rl_byte_oriented == 0) && current_line == 0 && displaying_prompt_first_line && wrap_offset && ((nfd - new) <= prompt_last_invisible))
 		{
 		  _rl_last_c_pos -= wrap_offset;	/* XXX - prompt_invis_chars_first_line? */
+=======
+	      if ((MB_CUR_MAX > 1 && rl_byte_oriented == 0) && current_line == 0 && displaying_prompt_first_line && wrap_offset && ((nfd - new) <= prompt_last_invisible))
+		{
+		  _rl_last_c_pos -= wrap_offset;
+>>>>>>> orgin/bash-4.3-testing
 		  cpos_adjusted = 1;
 		}
 	      return;
@@ -2069,9 +2461,15 @@ dumb_update:
 	      /* If nfd begins before the last invisible character in the
 		 prompt, adjust _rl_last_c_pos to account for wrap_offset
 		 and set cpos_adjusted to let the caller know. */
+<<<<<<< HEAD
 	      if ((mb_cur_max > 1 && rl_byte_oriented == 0) && current_line == 0 && displaying_prompt_first_line && wrap_offset && ((nfd - new) <= prompt_last_invisible))
 		{
 		  _rl_last_c_pos -= wrap_offset;	/* XXX - prompt_invis_chars_first_line? */
+=======
+	      if ((MB_CUR_MAX > 1 && rl_byte_oriented == 0) && current_line == 0 && displaying_prompt_first_line && wrap_offset && ((nfd - new) <= prompt_last_invisible))
+		{
+		  _rl_last_c_pos -= wrap_offset;
+>>>>>>> orgin/bash-4.3-testing
 		  cpos_adjusted = 1;
 		}
 	    }
@@ -2085,6 +2483,7 @@ dumb_update:
 	     char in the current line (which implies we just output some invisible
 	     characters) we need to adjust _rl_last_c_pos, since it represents
 	     a physical character position. */
+<<<<<<< HEAD
 	  /* The current_line*rl_screenwidth+prompt_invis_chars_first_line is a
 	     crude attempt to compute how far into the new line buffer we are.
 	     It doesn't work well in the face of multibyte characters and needs
@@ -2094,6 +2493,13 @@ dumb_update:
 		displaying_prompt_first_line &&
 		wrap_offset != prompt_invis_chars_first_line &&
 		((nfd-new) < (prompt_last_invisible-(current_line*_rl_screenwidth+prompt_invis_chars_first_line))))
+=======
+	  if ((MB_CUR_MAX > 1 && rl_byte_oriented == 0) &&
+		current_line == prompt_last_screen_line && wrap_offset &&
+		displaying_prompt_first_line &&
+		wrap_offset != prompt_invis_chars_first_line &&
+		((nfd-new) < (prompt_last_invisible-(current_line*_rl_screenwidth))))
+>>>>>>> orgin/bash-4.3-testing
 	    {
 	      _rl_last_c_pos -= wrap_offset - prompt_invis_chars_first_line;
 	      cpos_adjusted = 1;
@@ -2133,11 +2539,16 @@ dumb_update:
 		 in a multibyte locale to account for the wrap offset and
 		 set cpos_adjusted accordingly. */
 	      _rl_output_some_chars (nfd, bytes_to_insert);
+<<<<<<< HEAD
 	      if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+	      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 		{
 		  _rl_last_c_pos += _rl_col_width (nfd, 0, bytes_to_insert, 1);
 		  if (current_line == 0 && wrap_offset &&
 			displaying_prompt_first_line &&
+<<<<<<< HEAD
 			_rl_last_c_pos >= wrap_offset &&	/* XXX was > */
 			((nfd - new) <= prompt_last_invisible))
 		    {
@@ -2158,10 +2569,19 @@ dumb_update:
 		    line_state_invisible->wrapped_line[current_line+1] = 0;
 #endif
 #endif
+=======
+			_rl_last_c_pos > wrap_offset &&
+			((nfd - new) <= prompt_last_invisible))
+		    {
+		      _rl_last_c_pos -= wrap_offset;
+		      cpos_adjusted = 1;
+		    }
+>>>>>>> orgin/bash-4.3-testing
 		}
 	      else
 		_rl_last_c_pos += bytes_to_insert;
 
+<<<<<<< HEAD
 	      /* XXX - we only want to do this if we are at the end of the line
 		 so we move there with _rl_move_cursor_relative */
 	      if (_rl_horizontal_scroll_mode && ((oe-old) > (ne-new)))
@@ -2169,6 +2589,10 @@ dumb_update:
 		  _rl_move_cursor_relative (ne-new, new);
 		  goto clear_rest_of_line;
 		}
+=======
+	      if (_rl_horizontal_scroll_mode && ((oe-old) > (ne-new)))
+		goto clear_rest_of_line;
+>>>>>>> orgin/bash-4.3-testing
 	    }
 	}
       /* Otherwise, print over the existing material. */
@@ -2182,21 +2606,33 @@ dumb_update:
 		 set cpos_adjusted accordingly. */
 	      _rl_output_some_chars (nfd, temp);
 	      _rl_last_c_pos += col_temp;		/* XXX */
+<<<<<<< HEAD
 	      if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+	      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 		{
 		  if (current_line == 0 && wrap_offset &&
 			displaying_prompt_first_line &&
 			_rl_last_c_pos > wrap_offset &&
 			((nfd - new) <= prompt_last_invisible))
 		    {
+<<<<<<< HEAD
 		      _rl_last_c_pos -= wrap_offset;	/* XXX - prompt_invis_chars_first_line? */
+=======
+		      _rl_last_c_pos -= wrap_offset;
+>>>>>>> orgin/bash-4.3-testing
 		      cpos_adjusted = 1;
 		    }
 		}
 	    }
 clear_rest_of_line:
 	  lendiff = (oe - old) - (ne - new);
+<<<<<<< HEAD
 	  if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+	  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 	    col_lendiff = _rl_col_width (old, 0, oe - old, 1) - _rl_col_width (new, 0, ne - new, 1);
 	  else
 	    col_lendiff = lendiff;
@@ -2206,7 +2642,11 @@ clear_rest_of_line:
 	     space_to_eol will insert too many spaces.  XXX - maybe we should
 	     adjust col_lendiff based on the difference between _rl_last_c_pos
 	     and _rl_screenwidth */
+<<<<<<< HEAD
 	  if (col_lendiff && ((mb_cur_max == 1 || rl_byte_oriented) || (_rl_last_c_pos < _rl_screenwidth)))
+=======
+	  if (col_lendiff && ((MB_CUR_MAX == 1 || rl_byte_oriented) || (_rl_last_c_pos < _rl_screenwidth)))
+>>>>>>> orgin/bash-4.3-testing
 	    {	  
 	      if (_rl_term_autowrap && current_line < inv_botlin)
 		space_to_eol (col_lendiff);
@@ -2263,8 +2703,12 @@ rl_clear_visible_line (void)
 /* Tell the update routines that we have moved onto a new line with the
    prompt already displayed.  Code originally from the version of readline
    distributed with CLISP.  rl_expand_prompt must have already been called
+<<<<<<< HEAD
    (explicitly or implicitly).  This still doesn't work exactly right; it
    should use expand_prompt() */
+=======
+   (explicitly or implicitly).  This still doesn't work exactly right. */
+>>>>>>> orgin/bash-4.3-testing
 int
 rl_on_new_line_with_prompt (void)
 {
@@ -2364,8 +2808,11 @@ _rl_move_cursor_relative (int new, const char *data)
   int woff;			/* number of invisible chars on current line */
   int cpos, dpos;		/* current and desired cursor positions */
   int adjust;
+<<<<<<< HEAD
   int in_invisline;
   int mb_cur_max = MB_CUR_MAX;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   woff = WRAP_OFFSET (_rl_last_v_pos, wrap_offset);
   cpos = _rl_last_c_pos;
@@ -2379,7 +2826,11 @@ _rl_move_cursor_relative (int new, const char *data)
      this case, NEW's display position is not obvious and must be
      calculated.  We need to account for invisible characters in this line,
      as long as we are past them and they are counted by _rl_col_width. */
+<<<<<<< HEAD
   if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
     {
       adjust = 1;
       /* Try to short-circuit common cases and eliminate a bunch of multibyte
@@ -2404,6 +2855,7 @@ _rl_move_cursor_relative (int new, const char *data)
       if (displaying_prompt_first_line == 0)
 	adjust = 0;
 
+<<<<<<< HEAD
       /* yet another special case: printing the last line of a prompt with
 	 multibyte characters and invisible characters whose printable length
 	 exceeds the screen width with the last invisible character
@@ -2426,6 +2878,16 @@ _rl_move_cursor_relative (int new, const char *data)
 	   _rl_last_v_pos == prompt_last_screen_line &&
 	   wrap_offset >= woff && dpos >= woff &&
 	   new > (prompt_last_invisible-(vis_lbreaks[_rl_last_v_pos])-wrap_offset))))
+=======
+      /* Use NEW when comparing against the last invisible character in the
+	 prompt string, since they're both buffer indices and DPOS is a
+	 desired display position. */
+      if (adjust && ((new > prompt_last_invisible) ||		/* XXX - don't use woff here */
+	  (prompt_physical_chars >= _rl_screenwidth &&
+	   _rl_last_v_pos == prompt_last_screen_line &&
+	   wrap_offset >= woff && dpos >= woff &&
+	   new > (prompt_last_invisible-(_rl_screenwidth*_rl_last_v_pos)-wrap_offset))))
+>>>>>>> orgin/bash-4.3-testing
 	   /* XXX last comparison might need to be >= */
 	{
 	  dpos -= woff;
@@ -2447,7 +2909,11 @@ _rl_move_cursor_relative (int new, const char *data)
      of moving backwards. */
   /* i == current physical cursor position. */
 #if defined (HANDLE_MULTIBYTE)
+<<<<<<< HEAD
   if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
     i = _rl_last_c_pos;
   else
 #endif
@@ -2482,7 +2948,11 @@ _rl_move_cursor_relative (int new, const char *data)
 	 in the buffer and we have to go back to the beginning of the screen
 	 line.  In this case, we can use the terminal sequence to move forward
 	 if it's available. */
+<<<<<<< HEAD
       if (mb_cur_max > 1 && rl_byte_oriented == 0)
+=======
+      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  if (_rl_term_forward_char)
 	    {
@@ -2637,7 +3107,11 @@ rl_message (va_alist)
     msg_buf = xmalloc (msg_bufsiz = 128);
 
 #if defined (HAVE_VSNPRINTF)
+<<<<<<< HEAD
   bneed = vsnprintf (msg_buf, msg_bufsiz, format, args);
+=======
+  bneed = vsnprintf (msg_buf, msg_bufsiz - 1, format, args);
+>>>>>>> orgin/bash-4.3-testing
   if (bneed >= msg_bufsiz - 1)
     {
       msg_bufsiz = bneed + 1;
@@ -2670,10 +3144,17 @@ rl_message (va_alist)
       local_prompt = (char *)NULL;
     }
   rl_display_prompt = msg_buf;
+<<<<<<< HEAD
   local_prompt = expand_prompt (msg_buf, 0, &prompt_visible_length,
 					    &prompt_last_invisible,
 					    &prompt_invis_chars_first_line,
 					    &prompt_physical_chars);
+=======
+  local_prompt = expand_prompt (msg_buf, &prompt_visible_length,
+					 &prompt_last_invisible,
+					 &prompt_invis_chars_first_line,
+					 &prompt_physical_chars);
+>>>>>>> orgin/bash-4.3-testing
   local_prompt_prefix = (char *)NULL;
   local_prompt_len = local_prompt ? strlen (local_prompt) : 0;
   (*rl_redisplay_function) ();
@@ -2703,10 +3184,17 @@ rl_message (format, arg1, arg2)
       FREE (local_prompt_prefix);
       local_prompt = (char *)NULL;
     }
+<<<<<<< HEAD
   local_prompt = expand_prompt (msg_buf, 0, &prompt_visible_length,
 					    &prompt_last_invisible,
 					    &prompt_invis_chars_first_line,
 					    &prompt_physical_chars);
+=======
+  local_prompt = expand_prompt (msg_buf, &prompt_visible_length,
+					 &prompt_last_invisible,
+					 &prompt_invis_chars_first_line,
+					 &prompt_physical_chars);
+>>>>>>> orgin/bash-4.3-testing
   local_prompt_prefix = (char *)NULL;
   local_prompt_len = local_prompt ? strlen (local_prompt) : 0;
   (*rl_redisplay_function) ();
@@ -2739,10 +3227,13 @@ rl_reset_line_state (void)
   return 0;
 }
 
+<<<<<<< HEAD
 /* Save all of the variables associated with the prompt and its display. Most
    of the complexity is dealing with the invisible characters in the prompt
    string and where they are. There are enough of these that I should consider
    a struct. */
+=======
+>>>>>>> orgin/bash-4.3-testing
 void
 rl_save_prompt (void)
 {
@@ -2754,12 +3245,18 @@ rl_save_prompt (void)
   saved_visible_length = prompt_visible_length;
   saved_invis_chars_first_line = prompt_invis_chars_first_line;
   saved_physical_chars = prompt_physical_chars;
+<<<<<<< HEAD
   saved_local_prompt_newlines = local_prompt_newlines;
 
   local_prompt = local_prompt_prefix = (char *)0;
   local_prompt_len = 0;
   local_prompt_newlines = (int *)0;
 
+=======
+
+  local_prompt = local_prompt_prefix = (char *)0;
+  local_prompt_len = 0;
+>>>>>>> orgin/bash-4.3-testing
   prompt_last_invisible = prompt_visible_length = prompt_prefix_length = 0;
   prompt_invis_chars_first_line = prompt_physical_chars = 0;
 }
@@ -2774,8 +3271,11 @@ rl_restore_prompt (void)
   local_prompt = saved_local_prompt;
   local_prompt_prefix = saved_local_prefix;
   local_prompt_len = saved_local_length;
+<<<<<<< HEAD
   local_prompt_newlines = saved_local_prompt_newlines;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   prompt_prefix_length = saved_prefix_length;
   prompt_last_invisible = saved_last_invisible;
   prompt_visible_length = saved_visible_length;
@@ -2787,7 +3287,10 @@ rl_restore_prompt (void)
   saved_local_length = 0;
   saved_last_invisible = saved_visible_length = saved_prefix_length = 0;
   saved_invis_chars_first_line = saved_physical_chars = 0;
+<<<<<<< HEAD
   saved_local_prompt_newlines = 0;
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
 
 char *
@@ -2873,14 +3376,24 @@ space_to_eol (int count)
 void
 _rl_clear_screen (void)
 {
+<<<<<<< HEAD
 #if defined (__DJGPP__)
   ScreenClear ();
   ScreenSetCursor (0, 0);
 #else
+=======
+#ifndef __DJGPP__
+>>>>>>> orgin/bash-4.3-testing
   if (_rl_term_clrpag)
     tputs (_rl_term_clrpag, 1, _rl_output_character_function);
   else
     rl_crlf ();
+<<<<<<< HEAD
+=======
+#else
+  ScreenClear ();
+  ScreenSetCursor (0, 0);
+>>>>>>> orgin/bash-4.3-testing
 #endif /* __DJGPP__ */
 }
 
@@ -2896,9 +3409,16 @@ insert_some_chars (char *string, int count, int col)
    ncurses documentation and use either im/ei with explicit spaces, or IC/ic
    by itself.  We assume there will either be ei or we don't need to use it. */
 static void
+<<<<<<< HEAD
 open_some_spaces (int col)
 {
 #if !defined (__MSDOS__) && (!defined (__MINGW32__) || defined (NCURSES_VERSION))
+=======
+open_some_spaces (col)
+     int col;
+{
+#if !defined (__MSDOS__) && !defined (__MINGW32__)
+>>>>>>> orgin/bash-4.3-testing
   char *buffer;
   register int i;
 
@@ -2927,7 +3447,11 @@ open_some_spaces (int col)
       for (i = col; i--; )
 	tputs (_rl_term_ic, 1, _rl_output_character_function);
     }
+<<<<<<< HEAD
 #endif /* !__MSDOS__ && (!__MINGW32__ || NCURSES_VERSION)*/
+=======
+#endif /* !__MSDOS__ && !__MINGW32__ */
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Delete COUNT characters from the display line. */
@@ -2937,7 +3461,11 @@ delete_chars (int count)
   if (count > _rl_screenwidth)	/* XXX */
     return;
 
+<<<<<<< HEAD
 #if !defined (__MSDOS__) && (!defined (__MINGW32__) || defined (NCURSES_VERSION))
+=======
+#if !defined (__MSDOS__) && !defined (__MINGW32__)
+>>>>>>> orgin/bash-4.3-testing
   if (_rl_term_DC && *_rl_term_DC)
     {
       char *buffer;
@@ -2950,7 +3478,11 @@ delete_chars (int count)
 	while (count--)
 	  tputs (_rl_term_dc, 1, _rl_output_character_function);
     }
+<<<<<<< HEAD
 #endif /* !__MSDOS__ && (!__MINGW32__ || NCURSES_VERSION)*/
+=======
+#endif /* !__MSDOS__ && !__MINGW32__ */
+>>>>>>> orgin/bash-4.3-testing
 }
 
 void
@@ -2975,6 +3507,7 @@ _rl_update_final (void)
     {
       char *last_line;
 
+<<<<<<< HEAD
       /* LAST_LINE includes invisible characters, so if you want to get the
 	 last character of the first line, you have to take WOFF into account.
 	 This needs to be done for both calls to _rl_move_cursor_relative,
@@ -2983,6 +3516,11 @@ _rl_update_final (void)
       last_line = &visible_line[vis_lbreaks[_rl_vis_botlin]]; /* = VIS_CHARS(_rl_vis_botlin); */
       cpos_buffer_position = -1;	/* don't know where we are in buffer */
       _rl_move_cursor_relative (_rl_screenwidth - 1 + woff, last_line);	/* XXX */
+=======
+      last_line = &visible_line[vis_lbreaks[_rl_vis_botlin]];
+      cpos_buffer_position = -1;	/* don't know where we are in buffer */
+      _rl_move_cursor_relative (_rl_screenwidth - 1, last_line);	/* XXX */
+>>>>>>> orgin/bash-4.3-testing
       _rl_clear_to_eol (0);
       putc (last_line[_rl_screenwidth - 1 + woff], rl_outstream);
     }
@@ -3135,7 +3673,13 @@ _rl_current_display_line (void)
    In the case of multibyte characters with stateful encoding, we have to
    scan from the beginning of the string to take the state into account. */
 static int
+<<<<<<< HEAD
 _rl_col_width (const char *str, int start, int end, int flags)
+=======
+_rl_col_width (str, start, end, flags)
+     const char *str;
+     int start, end, flags;
+>>>>>>> orgin/bash-4.3-testing
 {
   wchar_t wc;
   mbstate_t ps;
@@ -3168,6 +3712,7 @@ _rl_col_width (const char *str, int start, int end, int flags)
 
   while (point < start)
     {
+<<<<<<< HEAD
       if (_rl_utf8locale && UTF8_SINGLEBYTE(str[point]))
 	{
 	  memset (&ps, 0, sizeof (mbstate_t));
@@ -3175,6 +3720,9 @@ _rl_col_width (const char *str, int start, int end, int flags)
 	}
       else
 	tmp = mbrlen (str + point, max, &ps);
+=======
+      tmp = mbrlen (str + point, max, &ps);
+>>>>>>> orgin/bash-4.3-testing
       if (MB_INVALIDCH ((size_t)tmp))
 	{
 	  /* In this case, the bytes are invalid or too short to compose a
@@ -3203,6 +3751,7 @@ _rl_col_width (const char *str, int start, int end, int flags)
 
   while (point < end)
     {
+<<<<<<< HEAD
       if (_rl_utf8locale && UTF8_SINGLEBYTE(str[point]))
 	{
 	  tmp = 1;
@@ -3210,6 +3759,9 @@ _rl_col_width (const char *str, int start, int end, int flags)
 	}
       else
 	tmp = mbrtowc (&wc, str + point, max, &ps);
+=======
+      tmp = mbrtowc (&wc, str + point, max, &ps);
+>>>>>>> orgin/bash-4.3-testing
       if (MB_INVALIDCH ((size_t)tmp))
 	{
 	  /* In this case, the bytes are invalid or too short to compose a

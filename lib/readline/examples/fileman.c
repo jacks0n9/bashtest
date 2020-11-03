@@ -62,12 +62,15 @@
 #endif
 
 extern char *xmalloc PARAMS((size_t));
+<<<<<<< HEAD
 
 void initialize_readline PARAMS((void));
 void too_dangerous PARAMS((char *));
 
 int execute_line PARAMS((char *));
 int valid_argument PARAMS((char *, char *));
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* The names of functions that actually do the manipulation. */
 int com_list PARAMS((char *));

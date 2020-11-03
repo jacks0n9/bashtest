@@ -30,7 +30,10 @@
 #include "builtins.h"
 #include "shell.h"
 #include "common.h"
+<<<<<<< HEAD
 #include "bashgetopt.h"
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 int
 dirname_builtin (list)

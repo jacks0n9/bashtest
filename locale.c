@@ -1,6 +1,10 @@
 /* locale.c - Miscellaneous internationalization functions. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1996-2009,2012,2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1996-2009,2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -43,9 +47,14 @@
 extern int errno;
 #endif
 
+<<<<<<< HEAD
 int locale_utf8locale;
 int locale_mb_cur_max;	/* value of MB_CUR_MAX for current locale (LC_CTYPE) */
 int locale_shiftstates;
+=======
+int locale_utf8locale;	/* unused for now */
+int locale_mb_cur_max;	/* value of MB_CUR_MAX for current locale (LC_CTYPE) */
+>>>>>>> orgin/bash-4.3-testing
 
 extern int dump_translatable_strings, dump_po_strings;
 
@@ -85,8 +94,11 @@ set_default_locale ()
   textdomain (PACKAGE);
 
   locale_mb_cur_max = MB_CUR_MAX;
+<<<<<<< HEAD
   locale_utf8locale = locale_isutf8 (default_locale);
   locale_shiftstates = mblen ((char *)NULL, 0);
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Set default values for LC_CTYPE, LC_COLLATE, LC_MESSAGES, LC_NUMERIC and
@@ -106,8 +118,11 @@ set_default_locale_vars ()
       setlocale (LC_CTYPE, lc_all);
       locale_setblanks ();
       locale_mb_cur_max = MB_CUR_MAX;
+<<<<<<< HEAD
       locale_utf8locale = locale_isutf8 (lc_all);
       locale_shiftstates = mblen ((char *)NULL, 0);
+=======
+>>>>>>> orgin/bash-4.3-testing
       u32reset ();
     }
 #  endif
@@ -208,10 +223,13 @@ set_locale_var (var, value)
 	}
       locale_setblanks ();
       locale_mb_cur_max = MB_CUR_MAX;
+<<<<<<< HEAD
       /* if LC_ALL == "", reset_locale_vars has already called this */
       if (*lc_all && x)
 	locale_utf8locale = locale_isutf8 (lc_all);
       locale_shiftstates = mblen ((char *)NULL, 0);
+=======
+>>>>>>> orgin/bash-4.3-testing
       u32reset ();
       return r;
 #else
@@ -228,10 +246,13 @@ set_locale_var (var, value)
 	  x = setlocale (LC_CTYPE, get_locale_var ("LC_CTYPE"));
 	  locale_setblanks ();
 	  locale_mb_cur_max = MB_CUR_MAX;
+<<<<<<< HEAD
 	  /* if setlocale() returns NULL, the locale is not changed */
 	  if (x)
 	    locale_utf8locale = locale_isutf8 (x);
 	  locale_shiftstates = mblen ((char *)NULL, 0);
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  u32reset ();
 	}
 #  endif
@@ -294,6 +315,7 @@ set_lang (var, value)
     }
 
   return ((lc_all == 0 || *lc_all == 0) ? reset_locale_vars () : 0);
+<<<<<<< HEAD
 }
 
 /* Set default values for LANG and LC_ALL.  Default values for all other
@@ -310,6 +332,24 @@ set_default_lang ()
   set_lang ("LANG", v);
 }
 
+=======
+}
+
+/* Set default values for LANG and LC_ALL.  Default values for all other
+   locale-related variables depend on these. */
+void
+set_default_lang ()
+{
+  char *v;
+
+  v = get_string_value ("LC_ALL");
+  set_locale_var ("LC_ALL", v);
+
+  v = get_string_value ("LANG");
+  set_lang ("LANG", v);
+}
+
+>>>>>>> orgin/bash-4.3-testing
 /* Get the value of one of the locale variables (LC_MESSAGES, LC_CTYPE).
    The precedence is as POSIX.2 specifies:  LC_ALL has precedence over
    the specific locale variables, and LANG, if set, is used as the default. */
@@ -322,7 +362,11 @@ get_locale_var (var)
   locale = lc_all;
 
   if (locale == 0 || *locale == 0)
+<<<<<<< HEAD
     locale = get_string_value (var);	/* XXX - no mem leak */
+=======
+    locale = get_string_value (var);	/* XXX - mem leak? */
+>>>>>>> orgin/bash-4.3-testing
   if (locale == 0 || *locale == 0)
     locale = lang;
   if (locale == 0 || *locale == 0)
@@ -340,16 +384,25 @@ get_locale_var (var)
 static int
 reset_locale_vars ()
 {
+<<<<<<< HEAD
   char *t, *x;
+=======
+  char *t;
+>>>>>>> orgin/bash-4.3-testing
 #if defined (HAVE_SETLOCALE)
   if (lang == 0 || *lang == '\0')
     maybe_make_export_env ();		/* trust that this will change environment for setlocale */
   if (setlocale (LC_ALL, lang ? lang : "") == 0)
     return 0;
 
+<<<<<<< HEAD
   x = 0;
 #  if defined (LC_CTYPE)
   x = setlocale (LC_CTYPE, get_locale_var ("LC_CTYPE"));
+=======
+#  if defined (LC_CTYPE)
+  t = setlocale (LC_CTYPE, get_locale_var ("LC_CTYPE"));
+>>>>>>> orgin/bash-4.3-testing
 #  endif
 #  if defined (LC_COLLATE)
   t = setlocale (LC_COLLATE, get_locale_var ("LC_COLLATE"));
@@ -366,10 +419,15 @@ reset_locale_vars ()
 
   locale_setblanks ();  
   locale_mb_cur_max = MB_CUR_MAX;
+<<<<<<< HEAD
   if (x)
     locale_utf8locale = locale_isutf8 (x);
   locale_shiftstates = mblen ((char *)NULL, 0);
   u32reset ();
+=======
+  u32reset ();
+
+>>>>>>> orgin/bash-4.3-testing
 #endif
   return 1;
 }
@@ -551,7 +609,11 @@ locale_setblanks ()
 
   for (x = 0; x < sh_syntabsiz; x++)
     {
+<<<<<<< HEAD
       if (isblank ((unsigned char)x))
+=======
+      if (isblank (x))
+>>>>>>> orgin/bash-4.3-testing
 	sh_syntaxtab[x] |= CSHBRK|CBLANK;
       else if (member (x, shell_break_chars))
 	{
@@ -563,18 +625,26 @@ locale_setblanks ()
     }
 }
 
+<<<<<<< HEAD
 /* Parse a locale specification
      language[_territory][.codeset][@modifier][+special][,[sponsor][_revision]]
    and return TRUE if the codeset is UTF-8 or utf8 */
+=======
+>>>>>>> orgin/bash-4.3-testing
 static int
 locale_isutf8 (lspec)
      char *lspec;
 {
+<<<<<<< HEAD
   char *cp, *encoding;
+=======
+  char *cp;
+>>>>>>> orgin/bash-4.3-testing
 
 #if HAVE_LANGINFO_CODESET
   cp = nl_langinfo (CODESET);
   return (STREQ (cp, "UTF-8") || STREQ (cp, "utf8"));
+<<<<<<< HEAD
 #elif HAVE_LOCALE_CHARSET
   cp = locale_charset ();
   return (STREQ (cp, "UTF-8") || STREQ (cp, "utf8"));
@@ -615,3 +685,10 @@ locale_decpoint ()
   return '.';
 }
 #endif
+=======
+#else
+  /* Take a shot */
+  return (strstr (lspec, "UTF-8") || strstr (lspec, "utf8"));
+#endif
+}
+>>>>>>> orgin/bash-4.3-testing

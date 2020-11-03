@@ -1,6 +1,10 @@
 /* tilde.c -- Tilde expansion code (~/foo := $HOME/foo). */
 
+<<<<<<< HEAD
 /* Copyright (C) 1988-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1988-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.
@@ -232,11 +236,15 @@ tilde_expand (const char *string)
       string += end;
 
       expansion = tilde_expand_word (tilde_word);
+<<<<<<< HEAD
 
       if (expansion == 0)
 	expansion = tilde_word;
       else
 	xfree (tilde_word);	
+=======
+      xfree (tilde_word);
+>>>>>>> orgin/bash-4.3-testing
 
       len = strlen (expansion);
 #ifdef __CYGWIN__
@@ -287,7 +295,13 @@ isolate_tilde_prefix (const char *fname, int *lenp)
    function.  Right now, it just calls tilde_find_suffix and allocates new
    memory, but it can be expanded to do different things later. */
 char *
+<<<<<<< HEAD
 tilde_find_word (const char *fname, int flags, int *lenp)
+=======
+tilde_find_word (fname, flags, lenp)
+     const char *fname;
+     int flags, *lenp;
+>>>>>>> orgin/bash-4.3-testing
 {
   int x;
   char *r;

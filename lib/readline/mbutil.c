@@ -1,6 +1,10 @@
 /* mbutil.c -- readline multibyte character utility functions */
 
+<<<<<<< HEAD
 /* Copyright (C) 2001-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2001-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -86,6 +90,7 @@ int _rl_utf8locale = 0;
 static int
 _rl_utf8_mblen (const char *s, size_t n)
 {
+<<<<<<< HEAD
   unsigned char c, c1;
 
   if (s == 0)
@@ -129,6 +134,8 @@ _rl_utf8_mblen (const char *s, size_t n)
 static int
 _rl_find_next_mbchar_internal (char *string, int seed, int count, int find_non_zero)
 {
+=======
+>>>>>>> orgin/bash-4.3-testing
   size_t tmp, len;
   mbstate_t ps;
   int point;
@@ -143,11 +150,14 @@ _rl_find_next_mbchar_internal (char *string, int seed, int count, int find_non_z
     return seed;
 
   point = seed + _rl_adjust_point (string, seed, &ps);
+<<<<<<< HEAD
   /* if _rl_adjust_point returns -1, the character or string is invalid.
      treat as a byte. */
   if (point == seed - 1)	/* invalid */
     return seed + 1;
     
+=======
+>>>>>>> orgin/bash-4.3-testing
   /* if this is true, means that seed was not pointing to a byte indicating
      the beginning of a multibyte character.  Correct the point and consume
      one char. */
@@ -159,6 +169,7 @@ _rl_find_next_mbchar_internal (char *string, int seed, int count, int find_non_z
       len = strlen (string + point);
       if (len == 0)
 	break;
+<<<<<<< HEAD
       if (_rl_utf8locale && UTF8_SINGLEBYTE(string[point]))
 	{
 	  tmp = 1;
@@ -169,6 +180,11 @@ _rl_find_next_mbchar_internal (char *string, int seed, int count, int find_non_z
 	tmp = mbrtowc (&wc, string+point, len, &ps);
       if (MB_INVALIDCH ((size_t)tmp))
 	{
+=======
+      tmp = mbrtowc (&wc, string+point, len, &ps);
+      if (MB_INVALIDCH ((size_t)tmp))
+	{
+>>>>>>> orgin/bash-4.3-testing
 	  /* invalid bytes. assume a byte represents a character */
 	  point++;
 	  count--;
@@ -225,7 +241,12 @@ _rl_find_prev_mbchar_internal (char *string, int seed, int find_non_zero)
   prev = non_zero_prev = point = 0;
   while (point < seed)
     {
+<<<<<<< HEAD
       if (_rl_utf8locale && UTF8_SINGLEBYTE(string[point]))
+=======
+      tmp = mbrtowc (&wc, string + point, length - point, &ps);
+      if (MB_INVALIDCH ((size_t)tmp))
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  tmp = 1;
 	  wc = (wchar_t) string[point];
@@ -288,7 +309,11 @@ _rl_get_char_len (char *src, mbstate_t *ps)
     }
   if (tmp == (size_t)(-2))
     {
+<<<<<<< HEAD
       /* too short to compose multibyte char */
+=======
+      /* shorted to compose multibyte char */
+>>>>>>> orgin/bash-4.3-testing
       if (ps)
 	memset (ps, 0, sizeof(mbstate_t));
       return -2;
@@ -310,7 +335,17 @@ _rl_get_char_len (char *src, mbstate_t *ps)
 /* compare the specified two characters. If the characters matched,
    return 1. Otherwise return 0. */
 int
+<<<<<<< HEAD
 _rl_compare_chars (char *buf1, int pos1, mbstate_t *ps1, char *buf2, int pos2, mbstate_t *ps2)
+=======
+_rl_compare_chars (buf1, pos1, ps1, buf2, pos2, ps2)
+     char *buf1;
+     int pos1;
+     mbstate_t *ps1;
+     char *buf2;
+     int pos2;
+     mbstate_t *ps2;
+>>>>>>> orgin/bash-4.3-testing
 {
   int i, w1, w2;
 
@@ -333,7 +368,14 @@ _rl_compare_chars (char *buf1, int pos1, mbstate_t *ps1, char *buf2, int pos2, m
    if point is invalid (point < 0 || more than string length),
    it returns -1 */
 int
+<<<<<<< HEAD
 _rl_adjust_point (char *string, int point, mbstate_t *ps)
+=======
+_rl_adjust_point (string, point, ps)
+     char *string;
+     int point;
+     mbstate_t *ps;
+>>>>>>> orgin/bash-4.3-testing
 {
   size_t tmp;
   int length, pos;
@@ -348,10 +390,14 @@ _rl_adjust_point (char *string, int point, mbstate_t *ps)
   
   while (pos < point)
     {
+<<<<<<< HEAD
       if (_rl_utf8locale && UTF8_SINGLEBYTE(string[pos]))
 	tmp = 1;
       else
 	tmp = mbrlen (string + pos, length - pos, ps);
+=======
+      tmp = mbrlen (string + pos, length - pos, ps);
+>>>>>>> orgin/bash-4.3-testing
       if (MB_INVALIDCH ((size_t)tmp))
 	{
 	  /* in this case, bytes are invalid or too short to compose
@@ -387,7 +433,13 @@ _rl_is_mbchar_matched (char *string, int seed, int end, char *mbchar, int length
 }
 
 wchar_t
+<<<<<<< HEAD
 _rl_char_value (char *buf, int ind)
+=======
+_rl_char_value (buf, ind)
+     char *buf;
+     int ind;
+>>>>>>> orgin/bash-4.3-testing
 {
   size_t tmp;
   wchar_t wc;
@@ -396,6 +448,7 @@ _rl_char_value (char *buf, int ind)
 
   if (MB_LEN_MAX == 1 || rl_byte_oriented)
     return ((wchar_t) buf[ind]);
+<<<<<<< HEAD
   if (_rl_utf8locale && UTF8_SINGLEBYTE(buf[ind]))
     return ((wchar_t) buf[ind]);
   l = strlen (buf);
@@ -403,6 +456,11 @@ _rl_char_value (char *buf, int ind)
     return ((wchar_t) buf[ind]);
   if (l < ind)			/* Sanity check */
     l = strlen (buf+ind);
+=======
+  l = strlen (buf);
+  if (ind >= l - 1)
+    return ((wchar_t) buf[ind]);
+>>>>>>> orgin/bash-4.3-testing
   memset (&ps, 0, sizeof (mbstate_t));
   tmp = mbrtowc (&wc, buf + ind, l - ind, &ps);
   if (MB_INVALIDCH (tmp) || MB_NULLWCH (tmp))  

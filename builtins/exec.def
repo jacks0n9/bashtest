@@ -1,7 +1,11 @@
 This file is exec.def, from which is created exec.c.
 It implements the builtin "exec" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -31,8 +35,13 @@ any redirections take effect in the current shell.
 
 Options:
   -a name	pass NAME as the zeroth argument to COMMAND
+<<<<<<< HEAD
   -c	execute COMMAND with an empty environment
   -l	place a dash in the zeroth argument to COMMAND
+=======
+  -c		execute COMMAND with an empty environment
+  -l		place a dash in the zeroth argument to COMMAND
+>>>>>>> orgin/bash-4.3-testing
 
 If the command cannot be executed, a non-interactive shell exits, unless
 the shell option `execfail' is set.
@@ -222,11 +231,14 @@ exec_builtin (list)
     default_tty_job_signals ();		/* undo initialize_job_signals */
 #endif /* JOB_CONTROL */
 
+<<<<<<< HEAD
 #if defined (BUFFERED_INPUT)
   if (default_buffered_input >= 0)
     sync_buffered_stream (default_buffered_input);
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   exit_value = shell_execve (command, args, env);
 
   /* We have to set this to NULL because shell_execve has called realloc()

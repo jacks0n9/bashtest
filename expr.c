@@ -1,6 +1,10 @@
 /* expr.c -- arithmetic expression evaluation. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1990-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1990-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -82,10 +86,13 @@
 #include "bashintl.h"
 
 #include "shell.h"
+<<<<<<< HEAD
 #include "arrayfunc.h"
 #include "execute_cmd.h"
 #include "flags.h"
 #include "subst.h"
+=======
+>>>>>>> orgin/bash-4.3-testing
 #include "typemax.h"		/* INTMAX_MAX, INTMAX_MIN */
 
 /* Because of the $((...)) construct, expressions may include newlines.
@@ -175,9 +182,12 @@ static intmax_t	tokval;		/* current token value */
 static int	noeval;		/* set to 1 if no assignment to be done */
 static procenv_t evalbuf;
 
+<<<<<<< HEAD
 /* set to 1 if the expression has already been run through word expansion */
 static int	already_expanded;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 static struct lvalue curlval = {0, 0, 0, -1};
 static struct lvalue lastlval = {0, 0, 0, -1};
 
@@ -224,6 +234,12 @@ static EXPR_CONTEXT **expr_stack;
 static int expr_depth;		   /* Location in the stack. */
 static int expr_stack_size;	   /* Number of slots already allocated. */
 
+<<<<<<< HEAD
+=======
+extern char *this_command_name;
+extern int unbound_vars_is_error, last_command_exit_value;
+
+>>>>>>> orgin/bash-4.3-testing
 #if defined (ARRAY_VARS)
 extern const char * const bash_badsub_errmsg;
 #endif
@@ -283,6 +299,7 @@ popexp ()
 {
   EXPR_CONTEXT *context;
 
+<<<<<<< HEAD
   if (expr_depth <= 0)
     {
       /* See the comment at the top of evalexp() for an explanation of why
@@ -290,6 +307,10 @@ popexp ()
       expression = lasttp = 0;
       evalerror (_("recursion stack underflow"));
     }
+=======
+  if (expr_depth == 0)
+    evalerror (_("recursion stack underflow"));
+>>>>>>> orgin/bash-4.3-testing
 
   context = expr_stack[--expr_depth];
 
@@ -312,6 +333,7 @@ expr_unwind ()
 
       free (expr_stack[expr_depth]);
     }
+<<<<<<< HEAD
   if (expr_depth == 0)
     free (expr_stack[expr_depth]);	/* free the allocated EXPR_CONTEXT */
 
@@ -361,6 +383,26 @@ expr_skipsubscript (vp, cp)
   return (skipsubscript (cp, 0, flags));
 }
 
+=======
+  free (expr_stack[expr_depth]);	/* free the allocated EXPR_CONTEXT */
+
+  noeval = 0;	/* XXX */
+}
+
+static void
+expr_bind_variable (lhs, rhs)
+     char *lhs, *rhs;
+{
+  SHELL_VAR *v;
+
+  v = bind_int_variable (lhs, rhs);
+  if (v && (readonly_p (v) || noassign_p (v)))
+    longjmp (evalbuf, 1);	/* variable assignment error */
+  stupidly_hack_special_variables (lhs);
+}
+
+#if defined (ARRAY_VARS)
+>>>>>>> orgin/bash-4.3-testing
 /* Rewrite tok, which is of the form vname[expression], to vname[ind], where
    IND is the already-calculated value of expression. */
 static void
@@ -374,7 +416,11 @@ expr_bind_array_element (tok, ind, rhs)
   char ibuf[INT_STRLEN_BOUND (arrayind_t) + 1], *istr;
 
   istr = fmtumax (ind, 10, ibuf, sizeof (ibuf), 0);
+<<<<<<< HEAD
   vname = array_variable_name (tok, 0, (char **)NULL, (int *)NULL);
+=======
+  vname = array_variable_name (tok, (char **)NULL, (int *)NULL);
+>>>>>>> orgin/bash-4.3-testing
 
   llen = strlen (vname) + sizeof (ibuf) + 3;
   lhs = xmalloc (llen);
@@ -413,12 +459,20 @@ evalexp (expr, flags, validp)
 
   val = 0;
   noeval = 0;
+<<<<<<< HEAD
   already_expanded = (flags&EXP_EXPANDED);
 
   FASTCOPY (evalbuf, oevalbuf, sizeof (evalbuf));
 
   c = setjmp_nosigs (evalbuf);
 
+=======
+
+  FASTCOPY (evalbuf, oevalbuf, sizeof (evalbuf));
+
+  c = setjmp_nosigs (evalbuf);
+
+>>>>>>> orgin/bash-4.3-testing
   if (c)
     {
       FREE (tokstr);
@@ -526,9 +580,12 @@ expassign ()
 	  lvalue = value;
 	}
 
+<<<<<<< HEAD
       if (tokstr == 0)
 	evalerror (_("syntax error in variable assignment"));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
       /* XXX - watch out for pointer aliasing issues here */
       lhs = savestring (tokstr);
       /* save ind in case rhs is string var and evaluation overwrites it */
@@ -627,6 +684,12 @@ expcond ()
   rval = cval = explor ();
   if (curtok == QUES)		/* found conditional expr */
     {
+<<<<<<< HEAD
+=======
+      readtok ();
+      if (curtok == 0 || curtok == COL)
+	evalerror (_("expression expected"));
+>>>>>>> orgin/bash-4.3-testing
       if (cval == 0)
 	{
 	  set_noeval = 1;
@@ -643,7 +706,13 @@ expcond ()
 	noeval--;
       if (curtok != COL)
 	evalerror (_("`:' expected for conditional expression"));
+<<<<<<< HEAD
 
+=======
+      readtok ();
+      if (curtok == 0)
+	evalerror (_("expression expected"));
+>>>>>>> orgin/bash-4.3-testing
       set_noeval = 0;
       if (cval)
  	{
@@ -651,11 +720,15 @@ expcond ()
 	  noeval++;
  	}
 
+<<<<<<< HEAD
       readtok ();
       if (curtok == 0)
 	evalerror (_("expression expected"));
       val2 = expcond ();
 
+=======
+      val2 = expcond ();
+>>>>>>> orgin/bash-4.3-testing
       if (set_noeval)
 	noeval--;
       rval = cval ? val1 : val2;
@@ -1036,8 +1109,12 @@ exp0 ()
 	    expr_bind_array_element (curlval.tokstr, curlval.ind, vincdec);
 	  else
 #endif
+<<<<<<< HEAD
 	    if (tokstr)
 	      expr_bind_variable (tokstr, vincdec);
+=======
+	    expr_bind_variable (tokstr, vincdec);
+>>>>>>> orgin/bash-4.3-testing
 	}
       free (vincdec);
       val = v2;
@@ -1143,6 +1220,7 @@ expr_streval (tok, e, lvalue)
   SHELL_VAR *v;
   char *value;
   intmax_t tval;
+<<<<<<< HEAD
   int initial_depth;
 #if defined (ARRAY_VARS)
   arrayind_t ind;
@@ -1150,16 +1228,26 @@ expr_streval (tok, e, lvalue)
 #endif
 
 /*itrace("expr_streval: %s: noeval = %d expanded=%d", tok, noeval, already_expanded);*/
+=======
+#if defined (ARRAY_VARS)
+  arrayind_t ind;
+#endif
+
+/*itrace("expr_streval: %s: noeval = %d", tok, noeval);*/
+>>>>>>> orgin/bash-4.3-testing
   /* If we are suppressing evaluation, just short-circuit here instead of
      going through the rest of the evaluator. */
   if (noeval)
     return (0);
+<<<<<<< HEAD
 
   initial_depth = expr_depth;
 
 #if defined (ARRAY_VARS)
   tflag = assoc_expand_once && already_expanded;	/* for a start */
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   /* [[[[[ */
 #if defined (ARRAY_VARS)
@@ -1200,12 +1288,20 @@ expr_streval (tok, e, lvalue)
 
 #if defined (ARRAY_VARS)
   ind = -1;
+<<<<<<< HEAD
   /* If the second argument to get_array_value doesn't include AV_ALLOWALL,
      we don't allow references like array[@].  In this case, get_array_value
      is just like get_variable_value in that it does not return newly-allocated
      memory or quote the results.  AFLAG is set above and is either AV_NOEXPAND
      or 0. */
   value = (e == ']') ? get_array_value (tok, aflag, (int *)NULL, &ind) : get_variable_value (v);
+=======
+  /* Second argument of 0 to get_array_value means that we don't allow
+     references like array[@].  In this case, get_array_value is just
+     like get_variable_value in that it does not return newly-allocated
+     memory or quote the results. */
+  value = (e == ']') ? get_array_value (tok, 0, (int *)NULL, &ind) : get_variable_value (v);
+>>>>>>> orgin/bash-4.3-testing
 #else
   value = get_variable_value (v);
 #endif
@@ -1337,7 +1433,11 @@ readtok ()
 #if defined (ARRAY_VARS)
       if (c == '[')
 	{
+<<<<<<< HEAD
 	  e = expr_skipsubscript (tp, cp);		/* XXX - was skipsubscript */
+=======
+	  e = skipsubscript (cp, 0, 0);
+>>>>>>> orgin/bash-4.3-testing
 	  if (cp[e] == ']')
 	    {
 	      cp += e + 1;
@@ -1438,6 +1538,7 @@ readtok ()
 	c = POWER;
       else if ((c == '-' || c == '+') && c1 == c && curtok == STR)
 	c = (c == '-') ? POSTDEC : POSTINC;
+<<<<<<< HEAD
       else if ((c == '-' || c == '+') && c1 == c && curtok == NUM && (lasttok == PREINC || lasttok == PREDEC))
 	{
 	  /* This catches something like --FOO++ */
@@ -1446,6 +1547,8 @@ readtok ()
 	  else
 	    evalerror ("++: assignment requires lvalue");
 	}
+=======
+>>>>>>> orgin/bash-4.3-testing
       else if ((c == '-' || c == '+') && c1 == c)
 	{
 	  /* Quickly scan forward to see if this is followed by optional
@@ -1456,6 +1559,7 @@ readtok ()
 	  if (legal_variable_starter ((unsigned char)*xp))
 	    c = (c == '-') ? PREDEC : PREINC;
 	  else
+<<<<<<< HEAD
 	    /* Could force parsing as preinc or predec and throw an error */
 #if 0
 	    {
@@ -1470,6 +1574,9 @@ readtok ()
 #else
 	    cp--;	/* not preinc or predec, so unget the character */
 #endif
+=======
+	    cp--;	/* not preinc or predec, so unget the character */
+>>>>>>> orgin/bash-4.3-testing
 	}
       else if (c1 == EQ && member (c, "*/%+-&^|"))
 	{
@@ -1508,9 +1615,15 @@ evalerror (msg)
   for (t = expression; t && whitespace (*t); t++)
     ;
   internal_error (_("%s%s%s: %s (error token is \"%s\")"),
+<<<<<<< HEAD
 		   name ? name : "", name ? ": " : "",
 		   t ? t : "", msg, (lasttp && *lasttp) ? lasttp : "");
   sh_longjmp (evalbuf, 1);
+=======
+		   name ? name : "", name ? ": " : "", t,
+		   msg, (lasttp && *lasttp) ? lasttp : "");
+  longjmp (evalbuf, 1);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Convert a string to an intmax_t integer, with an arbitrary base.

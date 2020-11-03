@@ -1,7 +1,11 @@
 This file is echo.def, from which is created echo.c.
 It implements the builtin "echo" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2018 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -59,6 +63,7 @@ Options:
   \v	vertical tab
   \\	backslash
   \0nnn	the character whose ASCII code is NNN (octal).  NNN can be
+<<<<<<< HEAD
 		0 to 3 octal digits
   \xHH	the eight-bit character whose value is HH (hexadecimal).  HH
 		can be one or two hex digits
@@ -66,6 +71,11 @@ Options:
 		HHHH can be one to four hex digits.
   \UHHHHHHHH the Unicode character whose value is the hexadecimal value
 		HHHHHHHH. HHHHHHHH can be one to eight hex digits.
+=======
+	0 to 3 octal digits
+  \xHH	the eight-bit character whose value is HH (hexadecimal).  HH
+	can be one or two hex digits
+>>>>>>> orgin/bash-4.3-testing
 
 Exit Status:
 Returns success unless a write error occurs.
@@ -102,6 +112,8 @@ int xpg_echo = 1;
 #else
 int xpg_echo = 0;
 #endif /* DEFAULT_ECHO_TO_XPG */
+
+extern int posixly_correct;
 
 /* Print the words in LIST to standard output.  If the first word is
    `-n', then don't print a trailing newline.  We also support the
@@ -163,6 +175,10 @@ just_echo:
 
   clearerr (stdout);	/* clear error before writing and testing success */
 
+<<<<<<< HEAD
+=======
+  terminate_immediately++;
+>>>>>>> orgin/bash-4.3-testing
   while (list)
     {
       i = len = 0;
@@ -198,5 +214,9 @@ just_echo:
   if (display_return)
     putchar ('\n');
 
+<<<<<<< HEAD
+=======
+  terminate_immediately--;
+>>>>>>> orgin/bash-4.3-testing
   return (sh_chkwrite (EXECUTION_SUCCESS));
 }

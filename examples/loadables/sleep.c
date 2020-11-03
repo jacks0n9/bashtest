@@ -48,6 +48,16 @@
 #include "builtins.h"
 #include "common.h"
 
+<<<<<<< HEAD
+=======
+#define RETURN(x) \
+	do { \
+		if (sp) *sp = sec; \
+		if (usp) *usp = usec; \
+		return (x); \
+	} while (0)
+
+>>>>>>> orgin/bash-4.3-testing
 int
 sleep_builtin (list)
 WORD_LIST	*list;

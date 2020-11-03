@@ -1,7 +1,11 @@
 @ignore
 This file documents the user interface to the GNU History library.
 
+<<<<<<< HEAD:lib/readline/doc/hsuser.texi
 Copyright (C) 1988--2018 Free Software Foundation, Inc.
+=======
+Copyright (C) 1988--2014 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/hsuser.texinfo
 Authored by Brian Fox and Chet Ramey.
 
 Permission is granted to make and distribute verbatim copies of this manual
@@ -102,7 +106,11 @@ associated with each history entry is written to the history file,
 marked with the history comment character.
 When the history file is read, lines beginning with the history
 comment character followed immediately by a digit are interpreted
+<<<<<<< HEAD:lib/readline/doc/hsuser.texi
 as timestamps for the following history entry.
+=======
+as timestamps for the previous history line.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/hsuser.texinfo
 
 The builtin command @code{fc} may be used to list or edit and re-execute
 a portion of the history list.
@@ -340,12 +348,21 @@ position in the history list.
 
 @item @code{!}
 @ifset BashFeatures
+<<<<<<< HEAD:lib/readline/doc/hsuser.texi
 Start a history substitution, except when followed by a space, tab,
 the end of the line, @samp{=} or @samp{(} (when the
 @code{extglob} shell option is enabled using the @code{shopt} builtin).
 @end ifset
 @ifclear BashFeatures
 Start a history substitution, except when followed by a space, tab,
+=======
+Start a history substitution, except when followed by a space, tab,
+the end of the line, @samp{=} or @samp{(} (when the
+@code{extglob} shell option is enabled using the @code{shopt} builtin).
+@end ifset
+@ifclear BashFeatures
+Start a history substitution, except when followed by a space, tab,
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/hsuser.texinfo
 the end of the line, or @samp{=}.
 @end ifclear
 

@@ -1,6 +1,10 @@
 /* variables.h -- data structures for shell variables. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -125,7 +129,10 @@ typedef struct _vlist {
 #define att_imported	0x0008000	/* came from environment */
 #define att_special	0x0010000	/* requires special handling */
 #define att_nofree	0x0020000	/* do not free value on unset */
+<<<<<<< HEAD
 #define att_regenerate	0x0040000	/* regenerate when exported */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #define	attmask_int	0x00ff000
 
@@ -154,7 +161,10 @@ typedef struct _vlist {
 #define imported_p(var)		((((var)->attributes) & (att_imported)))
 #define specialvar_p(var)	((((var)->attributes) & (att_special)))
 #define nofree_p(var)		((((var)->attributes) & (att_nofree)))
+<<<<<<< HEAD
 #define regen_p(var)		((((var)->attributes) & (att_regenerate)))
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #define tempvar_p(var)		((((var)->attributes) & (att_tempvar)))
 #define propagate_p(var)	((((var)->attributes) & (att_propagate)))
@@ -267,12 +277,19 @@ extern SHELL_VAR *find_function __P((const char *));
 extern FUNCTION_DEF *find_function_def __P((const char *));
 extern SHELL_VAR *find_variable __P((const char *));
 extern SHELL_VAR *find_variable_noref __P((const char *));
+<<<<<<< HEAD
 extern SHELL_VAR *find_variable_last_nameref __P((const char *, int));
 extern SHELL_VAR *find_global_variable_last_nameref __P((const char *, int));
 extern SHELL_VAR *find_variable_nameref __P((SHELL_VAR *));
 extern SHELL_VAR *find_variable_nameref_for_create __P((const char *, int));
 extern SHELL_VAR *find_variable_nameref_for_assignment __P((const char *, int));
 /*extern SHELL_VAR *find_variable_internal __P((const char *, int));*/
+=======
+extern SHELL_VAR *find_variable_last_nameref __P((const char *));
+extern SHELL_VAR *find_global_variable_last_nameref __P((const char *));
+extern SHELL_VAR *find_variable_nameref __P((SHELL_VAR *));
+extern SHELL_VAR *find_variable_internal __P((const char *, int));
+>>>>>>> orgin/bash-4.3-testing
 extern SHELL_VAR *find_variable_tempenv __P((const char *));
 extern SHELL_VAR *find_variable_notempenv __P((const char *));
 extern SHELL_VAR *find_global_variable __P((const char *));
@@ -283,12 +300,20 @@ extern SHELL_VAR *find_variable_no_invisible __P((const char *));
 extern SHELL_VAR *find_variable_for_assignment __P((const char *));
 extern char *nameref_transform_name __P((char *, int));
 extern SHELL_VAR *copy_variable __P((SHELL_VAR *));
+<<<<<<< HEAD
 extern SHELL_VAR *make_local_variable __P((const char *, int));
+=======
+extern SHELL_VAR *make_local_variable __P((const char *));
+>>>>>>> orgin/bash-4.3-testing
 extern SHELL_VAR *bind_variable __P((const char *, char *, int));
 extern SHELL_VAR *bind_global_variable __P((const char *, char *, int));
 extern SHELL_VAR *bind_function __P((const char *, COMMAND *));
 
+<<<<<<< HEAD
 extern void bind_function_def __P((const char *, FUNCTION_DEF *, int));
+=======
+extern void bind_function_def __P((const char *, FUNCTION_DEF *));
+>>>>>>> orgin/bash-4.3-testing
 
 extern SHELL_VAR **map_over __P((sh_var_map_func_t *, VAR_CONTEXT *));
 SHELL_VAR **map_over_funcs __P((sh_var_map_func_t *));
@@ -314,15 +339,23 @@ extern char *sh_get_env_value __P((const char *));
 extern char *make_variable_value __P((SHELL_VAR *, char *, int));
 
 extern SHELL_VAR *bind_variable_value __P((SHELL_VAR *, char *, int));
+<<<<<<< HEAD
 extern SHELL_VAR *bind_int_variable __P((char *, char *, int));
+=======
+extern SHELL_VAR *bind_int_variable __P((char *, char *));
+>>>>>>> orgin/bash-4.3-testing
 extern SHELL_VAR *bind_var_to_int __P((char *, intmax_t));
 
 extern int assign_in_env __P((WORD_DESC *, int));
 
 extern int unbind_variable __P((const char *));
+<<<<<<< HEAD
 extern int check_unbind_variable __P((const char *));
 extern int unbind_nameref __P((const char *));
 extern int unbind_variable_noref __P((const char *));
+=======
+extern int unbind_nameref __P((const char *));
+>>>>>>> orgin/bash-4.3-testing
 extern int unbind_func __P((const char *));
 extern int unbind_function_def __P((const char *));
 extern int delete_var __P((const char *, VAR_CONTEXT *));
@@ -344,8 +377,11 @@ extern void push_dollar_vars __P((void));
 extern void pop_dollar_vars __P((void));
 extern void dispose_saved_dollar_vars __P((void));
 
+<<<<<<< HEAD
 extern void init_bash_argv __P((void));
 extern void save_bash_argv __P((void));
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern void push_args __P((WORD_LIST *));
 extern void pop_args __P((void));
 
@@ -384,7 +420,11 @@ extern SHELL_VAR *make_new_array_variable __P((char *));
 extern SHELL_VAR *make_local_array_variable __P((char *, int));
 
 extern SHELL_VAR *make_new_assoc_variable __P((char *));
+<<<<<<< HEAD
 extern SHELL_VAR *make_local_assoc_variable __P((char *, int));
+=======
+extern SHELL_VAR *make_local_assoc_variable __P((char *));
+>>>>>>> orgin/bash-4.3-testing
 
 extern void set_pipestatus_array __P((int *, int));
 extern ARRAY *save_pipestatus_array __P((void));
@@ -409,7 +449,10 @@ extern void sv_ifs __P((char *));
 extern void sv_path __P((char *));
 extern void sv_mail __P((char *));
 extern void sv_funcnest __P((char *));
+<<<<<<< HEAD
 extern void sv_execignore __P((char *));
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern void sv_globignore __P((char *));
 extern void sv_ignoreeof __P((char *));
 extern void sv_strict_posix __P((char *));

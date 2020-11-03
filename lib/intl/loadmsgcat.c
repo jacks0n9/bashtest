@@ -978,11 +978,15 @@ _nl_load_domain (domain_file, domainbinding)
 
       data = (struct mo_file_header *) malloc (size);
       if (data == NULL)
+<<<<<<< HEAD
 	{
 	  if (use_mmap == 0)
 	    close (fd);
 	  return;
 	}
+=======
+	return;
+>>>>>>> orgin/bash-4.3-testing
 
       to_read = size;
       read_ptr = (char *) data;
@@ -1023,6 +1027,7 @@ _nl_load_domain (domain_file, domainbinding)
 
   domain = (struct loaded_domain *) malloc (sizeof (struct loaded_domain));
   if (domain == NULL)
+<<<<<<< HEAD
     {
 #ifdef HAVE_MMAP
       if (use_mmap)
@@ -1032,6 +1037,9 @@ _nl_load_domain (domain_file, domainbinding)
 	free (data);
       return;
     }
+=======
+    return;
+>>>>>>> orgin/bash-4.3-testing
   domain_file->data = domain;
 
   domain->data = (char *) data;

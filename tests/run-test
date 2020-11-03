@@ -1,4 +1,9 @@
 unset GROUPS UID 2>/dev/null
 
+<<<<<<< HEAD
 ${THIS_SH} ./test.tests >${BASH_TSTOUT} 2>&1
 diff ${BASH_TSTOUT} test.right && rm -f ${BASH_TSTOUT}
+=======
+${THIS_SH} ./test.tests >/tmp/xx 2>&1
+diff /tmp/xx test.right && rm -f /tmp/xx
+>>>>>>> orgin/bash-4.3-testing

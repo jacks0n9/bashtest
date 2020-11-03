@@ -37,7 +37,11 @@
 #include "shell.h"
 #include "pcomplete.h"
 
+<<<<<<< HEAD
 #define COMPLETE_HASH_BUCKETS	256	/* must be power of two */
+=======
+#define COMPLETE_HASH_BUCKETS	128	/* must be power of two */
+>>>>>>> orgin/bash-4.3-testing
 
 #define STRDUP(x)	((x) ? savestring (x) : (char *)NULL)
 

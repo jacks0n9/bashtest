@@ -6,7 +6,11 @@
 /*								    */
 /* **************************************************************** */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -66,6 +70,10 @@ static int rl_search_history PARAMS((int, int));
 
 static _rl_search_cxt *_rl_isearch_init PARAMS((int));
 static void _rl_isearch_fini PARAMS((_rl_search_cxt *));
+<<<<<<< HEAD
+=======
+static int _rl_isearch_cleanup PARAMS((_rl_search_cxt *, int));
+>>>>>>> orgin/bash-4.3-testing
 
 /* Last line found by the current incremental search, so we don't `find'
    identical lines many times in a row.  Now part of isearch context. */
@@ -78,7 +86,12 @@ static int last_isearch_string_len;
 static char * const default_isearch_terminators = "\033\012";
 
 _rl_search_cxt *
+<<<<<<< HEAD
 _rl_scxt_alloc (int type, int flags)
+=======
+_rl_scxt_alloc (type, flags)
+     int type, flags;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_search_cxt *cxt;
 
@@ -119,7 +132,13 @@ _rl_scxt_alloc (int type, int flags)
 }
 
 void
+<<<<<<< HEAD
 _rl_scxt_dispose (_rl_search_cxt *cxt, int flags)
+=======
+_rl_scxt_dispose (cxt, flags)
+     _rl_search_cxt *cxt;
+     int flags;
+>>>>>>> orgin/bash-4.3-testing
 {
   FREE (cxt->search_string);
   FREE (cxt->allocated_line);
@@ -150,7 +169,13 @@ rl_forward_search_history (int sign, int key)
    WHERE is the history list number of the current line.  If it is
    -1, then this line is the starting one. */
 static void
+<<<<<<< HEAD
 rl_display_search (char *search_string, int flags, int where)
+=======
+rl_display_search (search_string, flags, where)
+     char *search_string;
+     int flags, where;
+>>>>>>> orgin/bash-4.3-testing
 {
   char *message;
   int msglen, searchlen;
@@ -199,7 +224,12 @@ rl_display_search (char *search_string, int flags, int where)
 }
 
 static _rl_search_cxt *
+<<<<<<< HEAD
 _rl_isearch_init (int direction)
+=======
+_rl_isearch_init (direction)
+     int direction;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_search_cxt *cxt;
   register int i;
@@ -259,10 +289,18 @@ _rl_isearch_init (int direction)
 }
 
 static void
+<<<<<<< HEAD
 _rl_isearch_fini (_rl_search_cxt *cxt)
 {
   /* First put back the original state. */
   rl_replace_line (cxt->lines[cxt->save_line], 0);
+=======
+_rl_isearch_fini (cxt)
+     _rl_search_cxt *cxt;
+{
+  /* First put back the original state. */
+  strcpy (rl_line_buffer, cxt->lines[cxt->save_line]);
+>>>>>>> orgin/bash-4.3-testing
 
   rl_restore_prompt ();
 
@@ -288,6 +326,7 @@ _rl_isearch_fini (_rl_search_cxt *cxt)
 	cxt->sline_index = strlen (rl_line_buffer);
       rl_mark = cxt->save_mark;
     }
+<<<<<<< HEAD
 
   rl_point = cxt->sline_index;
   /* Don't worry about where to put the mark here; rl_get_previous_history
@@ -302,6 +341,22 @@ _rl_search_getchar (_rl_search_cxt *cxt)
 {
   int c;
 
+=======
+
+  rl_point = cxt->sline_index;
+  /* Don't worry about where to put the mark here; rl_get_previous_history
+     and rl_get_next_history take care of it. */
+
+  rl_clear_message ();
+}
+
+int
+_rl_search_getchar (cxt)
+     _rl_search_cxt *cxt;
+{
+  int c;
+
+>>>>>>> orgin/bash-4.3-testing
   /* Read a key and decide how to proceed. */
   RL_SETSTATE(RL_STATE_MOREINPUT);
   c = cxt->lastc = rl_read_key ();
@@ -325,12 +380,20 @@ _rl_search_getchar (_rl_search_cxt *cxt)
    -1 if the caller should just free the context and return, 0 if we should
    break out of the loop, and 1 if we should continue to read characters. */
 int
+<<<<<<< HEAD
 _rl_isearch_dispatch (_rl_search_cxt *cxt, int c)
 {
   int n, wstart, wlen, limit, cval, incr;
   char *paste;
   size_t pastelen;
   int j;
+=======
+_rl_isearch_dispatch (cxt, c)
+     _rl_search_cxt *cxt;
+     int c;
+{
+  int n, wstart, wlen, limit, cval;
+>>>>>>> orgin/bash-4.3-testing
   rl_command_func_t *f;
 
   f = (rl_command_func_t *)NULL;
@@ -401,8 +464,11 @@ add_character:
 	cxt->lastc = -5;
       else if (c == CTRL ('Y') || f == rl_yank)	/* XXX */
 	cxt->lastc = -6;
+<<<<<<< HEAD
       else if (f == rl_bracketed_paste_begin)
 	cxt->lastc = -7;
+=======
+>>>>>>> orgin/bash-4.3-testing
     }
 
   /* If we changed the keymap earlier while translating a key sequence into
@@ -460,6 +526,7 @@ add_character:
 	  return (0);
 	}
     }
+<<<<<<< HEAD
 
   /* The characters in isearch_terminators (set from the user-settable
      variable isearch-terminators) are used to terminate the search but
@@ -560,6 +627,96 @@ add_character:
       if (cxt->search_string_index == 0)
 	rl_ding ();
 
+=======
+
+  /* The characters in isearch_terminators (set from the user-settable
+     variable isearch-terminators) are used to terminate the search but
+     not subsequently execute the character as a command.  The default
+     value is "\033\012" (ESC and C-J). */
+  if (cxt->lastc > 0 && strchr (cxt->search_terminators, cxt->lastc))
+    {
+      /* ESC still terminates the search, but if there is pending
+	 input or if input arrives within 0.1 seconds (on systems
+	 with select(2)) it is used as a prefix character
+	 with rl_execute_next.  WATCH OUT FOR THIS!  This is intended
+	 to allow the arrow keys to be used like ^F and ^B are used
+	 to terminate the search and execute the movement command.
+	 XXX - since _rl_input_available depends on the application-
+	 settable keyboard timeout value, this could alternatively
+	 use _rl_input_queued(100000) */
+      if (cxt->lastc == ESC && (_rl_pushed_input_available () || _rl_input_available ()))
+	rl_execute_next (ESC);
+      return (0);
+    }
+
+#if defined (HANDLE_MULTIBYTE)
+  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+    {
+      if (cxt->lastc >= 0 && (cxt->mb[0] && cxt->mb[1] == '\0') && ENDSRCH_CHAR (cxt->lastc))
+	{
+	  /* This sets rl_pending_input to LASTC; it will be picked up the next
+	     time rl_read_key is called. */
+	  rl_execute_next (cxt->lastc);
+	  return (0);
+	}
+    }
+  else
+#endif
+    if (cxt->lastc >= 0 && ENDSRCH_CHAR (cxt->lastc))
+      {
+	/* This sets rl_pending_input to LASTC; it will be picked up the next
+	   time rl_read_key is called. */
+	rl_execute_next (cxt->lastc);
+	return (0);
+      }
+
+  /* Now dispatch on the character.  `Opcodes' affect the search string or
+     state.  Other characters are added to the string.  */
+  switch (cxt->lastc)
+    {
+    /* search again */
+    case -1:
+      if (cxt->search_string_index == 0)
+	{
+	  if (last_isearch_string)
+	    {
+	      cxt->search_string_size = 64 + last_isearch_string_len;
+	      cxt->search_string = (char *)xrealloc (cxt->search_string, cxt->search_string_size);
+	      strcpy (cxt->search_string, last_isearch_string);
+	      cxt->search_string_index = last_isearch_string_len;
+	      rl_display_search (cxt->search_string, cxt->sflags, -1);
+	      break;
+	    }
+	  return (1);
+	}
+      else if (cxt->sflags & SF_REVERSE)
+	cxt->sline_index--;
+      else if (cxt->sline_index != cxt->sline_len)
+	cxt->sline_index++;
+      else
+	rl_ding ();
+      break;
+
+    /* switch directions */
+    case -2:
+      cxt->direction = -cxt->direction;
+      if (cxt->direction < 0)
+	cxt->sflags |= SF_REVERSE;
+      else
+	cxt->sflags &= ~SF_REVERSE;
+      break;
+
+    /* delete character from search string. */
+    case -3:	/* C-H, DEL */
+      /* This is tricky.  To do this right, we need to keep a
+	 stack of search positions for the current search, with
+	 sentinels marking the beginning and end.  But this will
+	 do until we have a real isearch-undo. */
+      if (cxt->search_string_index == 0)
+	rl_ding ();
+      else
+	cxt->search_string[--cxt->search_string_index] = '\0';
+>>>>>>> orgin/bash-4.3-testing
       break;
 
     case -4:	/* C-G, abort */
@@ -625,6 +782,7 @@ add_character:
       cxt->search_string[cxt->search_string_index] = '\0';
       break;
 
+<<<<<<< HEAD
     case -7:	/* bracketed paste */
       paste = _rl_bracketed_text (&pastelen);
       if (paste == 0 || *paste == 0)
@@ -678,8 +836,52 @@ add_character:
 	{
 	  cxt->sflags |= SF_FAILED;
 	  break;
+=======
+    /* Add character to search string and continue search. */
+    default:
+      if (cxt->search_string_index + 2 >= cxt->search_string_size)
+	{
+	  cxt->search_string_size += 128;
+	  cxt->search_string = (char *)xrealloc (cxt->search_string, cxt->search_string_size);
 	}
+#if defined (HANDLE_MULTIBYTE)
+      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+	{
+	  int j, l;
 
+	  if (cxt->mb[0] == 0 || cxt->mb[1] == 0)
+	    cxt->search_string[cxt->search_string_index++] = cxt->mb[0];
+	  else
+	    for (j = 0, l = RL_STRLEN (cxt->mb); j < l; )
+	      cxt->search_string[cxt->search_string_index++] = cxt->mb[j++];
+	}
+      else
+#endif
+	cxt->search_string[cxt->search_string_index++] = cxt->lastc;	/* XXX - was c instead of lastc */
+      cxt->search_string[cxt->search_string_index] = '\0';
+      break;
+    }
+
+  for (cxt->sflags &= ~(SF_FOUND|SF_FAILED);; )
+    {
+      limit = cxt->sline_len - cxt->search_string_index + 1;
+
+      /* Search the current line. */
+      while ((cxt->sflags & SF_REVERSE) ? (cxt->sline_index >= 0) : (cxt->sline_index < limit))
+	{
+	  if (STREQN (cxt->search_string, cxt->sline + cxt->sline_index, cxt->search_string_index))
+	    {
+	      cxt->sflags |= SF_FOUND;
+	      break;
+	    }
+	  else
+	    cxt->sline_index += cxt->direction;
+>>>>>>> orgin/bash-4.3-testing
+	}
+      if (cxt->sflags & SF_FOUND)
+	break;
+
+<<<<<<< HEAD
       limit = cxt->sline_len - cxt->search_string_index + 1;
 
       /* Search the current line. */
@@ -788,6 +990,92 @@ rl_search_history (int direction, int invoking_key)
 
   rl_display_search (cxt->search_string, cxt->sflags, -1);
 
+=======
+      /* Move to the next line, but skip new copies of the line
+	 we just found and lines shorter than the string we're
+	 searching for. */
+      do
+	{
+	  /* Move to the next line. */
+	  cxt->history_pos += cxt->direction;
+
+	  /* At limit for direction? */
+	  if ((cxt->sflags & SF_REVERSE) ? (cxt->history_pos < 0) : (cxt->history_pos == cxt->hlen))
+	    {
+	      cxt->sflags |= SF_FAILED;
+	      break;
+	    }
+
+	  /* We will need these later. */
+	  cxt->sline = cxt->lines[cxt->history_pos];
+	  cxt->sline_len = strlen (cxt->sline);
+	}
+      while ((cxt->prev_line_found && STREQ (cxt->prev_line_found, cxt->lines[cxt->history_pos])) ||
+	     (cxt->search_string_index > cxt->sline_len));
+
+      if (cxt->sflags & SF_FAILED)
+	break;
+
+      /* Now set up the line for searching... */
+      cxt->sline_index = (cxt->sflags & SF_REVERSE) ? cxt->sline_len - cxt->search_string_index : 0;
+    }
+
+  if (cxt->sflags & SF_FAILED)
+    {
+      /* We cannot find the search string.  Ding the bell. */
+      rl_ding ();
+      cxt->history_pos = cxt->last_found_line;
+      rl_display_search (cxt->search_string, cxt->sflags, (cxt->history_pos == cxt->save_line) ? -1 : cxt->history_pos);
+      return 1;
+    }
+
+  /* We have found the search string.  Just display it.  But don't
+     actually move there in the history list until the user accepts
+     the location. */
+  if (cxt->sflags & SF_FOUND)
+    {
+      cxt->prev_line_found = cxt->lines[cxt->history_pos];
+      rl_replace_line (cxt->lines[cxt->history_pos], 0);
+      rl_point = cxt->sline_index;
+      cxt->last_found_line = cxt->history_pos;
+      rl_display_search (cxt->search_string, cxt->sflags, (cxt->history_pos == cxt->save_line) ? -1 : cxt->history_pos);
+    }
+
+  return 1;
+}
+
+static int
+_rl_isearch_cleanup (cxt, r)
+     _rl_search_cxt *cxt;
+     int r;
+{
+  if (r >= 0)
+    _rl_isearch_fini (cxt);
+  _rl_scxt_dispose (cxt, 0);
+  _rl_iscxt = 0;
+
+  RL_UNSETSTATE(RL_STATE_ISEARCH);
+
+  return (r != 0);
+}
+
+/* Search through the history looking for an interactively typed string.
+   This is analogous to i-search.  We start the search in the current line.
+   DIRECTION is which direction to search; >= 0 means forward, < 0 means
+   backwards. */
+static int
+rl_search_history (direction, invoking_key)
+     int direction, invoking_key;
+{
+  _rl_search_cxt *cxt;		/* local for now, but saved globally */
+  int c, r;
+
+  RL_SETSTATE(RL_STATE_ISEARCH);
+  cxt = _rl_isearch_init (direction);
+
+  rl_display_search (cxt->search_string, cxt->sflags, -1);
+
+>>>>>>> orgin/bash-4.3-testing
   /* If we are using the callback interface, all we do is set up here and
       return.  The key is that we leave RL_STATE_ISEARCH set. */
   if (RL_ISSTATE (RL_STATE_CALLBACK))
@@ -816,7 +1104,12 @@ rl_search_history (int direction, int invoking_key)
    If _rl_isearch_dispatch finishes searching, this function is responsible
    for turning off RL_STATE_ISEARCH, which it does using _rl_isearch_cleanup. */
 int
+<<<<<<< HEAD
 _rl_isearch_callback (_rl_search_cxt *cxt)
+=======
+_rl_isearch_callback (cxt)
+     _rl_search_cxt *cxt;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c, r;
 

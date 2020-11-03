@@ -10,6 +10,7 @@ OK
 OK
 OK
 OK
+<<<<<<< HEAD
 one
 two
 three
@@ -30,3 +31,5 @@ a b
 a a b
 ok 3
 ok 4
+=======
+>>>>>>> orgin/bash-4.3-testing

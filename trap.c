@@ -1,7 +1,11 @@
 /* trap.c -- Not the trap command, but useful functions for manipulating
    those objects.  The trap command is in builtins/trap.def. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -38,9 +42,13 @@
 #include "trap.h"
 
 #include "shell.h"
+<<<<<<< HEAD
 #include "execute_cmd.h"
 #include "flags.h"
 #include "parser.h"
+=======
+#include "flags.h"
+>>>>>>> orgin/bash-4.3-testing
 #include "input.h"	/* for save_token_state, restore_token_state */
 #include "jobs.h"
 #include "signames.h"
@@ -77,6 +85,7 @@ static int sigmodes[BASH_NSIG];
 static void free_trap_command (int);
 static void change_signal (int, char *);
 
+<<<<<<< HEAD
 static int _run_trap_internal (int, char *);
 
 static void free_trap_string (int);
@@ -91,6 +100,27 @@ extern procenv_t alrmbuf;
 
 extern volatile int from_return_trap;
 
+=======
+static int _run_trap_internal __P((int, char *));
+
+static void free_trap_string __P((int));
+static void reset_signal __P((int));
+static void restore_signal __P((int));
+static void reset_or_restore_signal_handlers __P((sh_resetsig_func_t *));
+
+/* Variables used here but defined in other files. */
+extern int last_command_exit_value;
+extern int line_number;
+
+extern int sigalrm_seen;
+extern procenv_t alrmbuf;
+
+extern char *this_command_name;
+extern sh_builtin_func_t *this_shell_builtin;
+extern procenv_t wait_intr_buf;
+extern int return_catch_flag, return_catch_value;
+extern int subshell_level;
+>>>>>>> orgin/bash-4.3-testing
 extern WORD_LIST *subst_assign_varlist;
 
 /* The list of things to do originally, before we started trapping. */
@@ -293,9 +323,14 @@ void
 run_pending_traps ()
 {
   register int sig;
+<<<<<<< HEAD
   int old_exit_value, x;
   WORD_LIST *save_subst_varlist;
   HASH_TABLE *save_tempenv;
+=======
+  int old_exit_value;
+  WORD_LIST *save_subst_varlist;
+>>>>>>> orgin/bash-4.3-testing
   sh_parser_state_t pstate;
 #if defined (ARRAY_VARS)
   ARRAY *ps;
@@ -309,6 +344,7 @@ run_pending_traps ()
 #if defined (DEBUG)
       internal_warning ("run_pending_traps: recursive invocation while running trap for signal %d", running_trap-1);
 #endif
+<<<<<<< HEAD
 #if defined (SIGWINCH)
       if (running_trap == SIGWINCH+1 && pending_traps[SIGWINCH])
 	return;			/* no recursive SIGWINCH trap invocations */
@@ -321,12 +357,23 @@ run_pending_traps ()
 	  evalnest = 0;
 	  jump_to_top_level (DISCARD);
 	}
+=======
+#if 0
+      return;			/* no recursive trap invocations */
+#else
+      ;
+#endif
+>>>>>>> orgin/bash-4.3-testing
     }
 
   catch_flag = trapped_signal_received = 0;
 
   /* Preserve $? when running trap. */
+<<<<<<< HEAD
   trap_saved_exit_value = old_exit_value = last_command_exit_value;
+=======
+  old_exit_value = last_command_exit_value;
+>>>>>>> orgin/bash-4.3-testing
 #if defined (ARRAY_VARS)
   ps = save_pipestatus_array ();
 #endif
@@ -345,10 +392,15 @@ run_pending_traps ()
 	  if (sig == SIGINT)
 	    {
 	      pending_traps[sig] = 0;	/* XXX */
+<<<<<<< HEAD
 	      /* We don't modify evalnest here, since run_interrupt_trap() calls
 		 _run_trap_internal, which does. */
 	      run_interrupt_trap (0);
 	      CLRINTERRUPT;	/* interrupts don't stack */
+=======
+	      run_interrupt_trap ();
+	      CLRINTERRUPT;
+>>>>>>> orgin/bash-4.3-testing
 	    }
 #if defined (JOB_CONTROL) && defined (SIGCHLD)
 	  else if (sig == SIGCHLD &&
@@ -356,6 +408,7 @@ run_pending_traps ()
 		   (sigmodes[SIGCHLD] & SIG_INPROGRESS) == 0)
 	    {
 	      sigmodes[SIGCHLD] |= SIG_INPROGRESS;
+<<<<<<< HEAD
 	      /* We modify evalnest here even though run_sigchld_trap can run
 		 the trap action more than once */
 	      evalnest++;
@@ -369,6 +422,10 @@ run_pending_traps ()
 		 case there are recursive calls to run_pending_traps and children
 		 have been reaped while run_sigchld_trap was running. */
 	      continue;
+=======
+	      run_sigchld_trap (pending_traps[sig]);	/* use as counter */
+	      sigmodes[SIGCHLD] &= ~SIG_INPROGRESS;
+>>>>>>> orgin/bash-4.3-testing
 	    }
 	  else if (sig == SIGCHLD &&
 		   trap_list[SIGCHLD] == (char *)IMPOSSIBLE_TRAP_HANDLER &&
@@ -419,6 +476,7 @@ run_pending_traps ()
 	      save_parser_state (&pstate);
 	      save_subst_varlist = subst_assign_varlist;
 	      subst_assign_varlist = 0;
+<<<<<<< HEAD
 	      save_tempenv = temporary_env;
 	      temporary_env = 0;	/* traps should not run with temporary env */
 
@@ -439,6 +497,23 @@ run_pending_traps ()
 	      temporary_env = save_tempenv;
 	    }
 
+=======
+
+#if defined (JOB_CONTROL)
+	      save_pipeline (1);	/* XXX only provides one save level */
+#endif
+	      /* XXX - set pending_traps[sig] = 0 here? */
+	      pending_traps[sig] = 0;
+	      evalstring (savestring (trap_list[sig]), "trap", SEVAL_NONINT|SEVAL_NOHIST|SEVAL_RESETLINE);
+#if defined (JOB_CONTROL)
+	      restore_pipeline (1);
+#endif
+
+	      subst_assign_varlist = save_subst_varlist;
+	      restore_parser_state (&pstate);
+	    }
+
+>>>>>>> orgin/bash-4.3-testing
 	  pending_traps[sig] = 0;	/* XXX - move before evalstring? */
 	  running_trap = 0;
 	}
@@ -482,11 +557,21 @@ trap_handler (sig)
       pending_traps[sig]++;
       trapped_signal_received = sig;
 
+<<<<<<< HEAD
       if (this_shell_builtin && (this_shell_builtin == wait_builtin))
 	{
 	  wait_signal_received = sig;
 	  if (interrupt_immediately && wait_intr_flag)
 	    sh_longjmp (wait_intr_buf, 1);
+=======
+      trapped_signal_received = sig;
+
+      if (this_shell_builtin && (this_shell_builtin == wait_builtin))
+	{
+	  wait_signal_received = sig;
+	  if (interrupt_immediately)
+	    longjmp (wait_intr_buf, 1);
+>>>>>>> orgin/bash-4.3-testing
 	}
 
 #if defined (READLINE)
@@ -517,8 +602,11 @@ first_pending_trap ()
   return -1;
 }
 
+<<<<<<< HEAD
 /* Return > 0 if any of the "real" signals (not fake signals like EXIT) are
    trapped. */
+=======
+>>>>>>> orgin/bash-4.3-testing
 int
 any_signals_trapped ()
 {
@@ -636,6 +724,7 @@ set_error_trap (command)
 }
 
 void
+<<<<<<< HEAD
 maybe_set_error_trap (command)
      char *command;
 {
@@ -643,12 +732,15 @@ maybe_set_error_trap (command)
 }
 
 void
+=======
+>>>>>>> orgin/bash-4.3-testing
 set_return_trap (command)
      char *command;
 {
   set_signal (RETURN_TRAP, command);
 }
 
+<<<<<<< HEAD
 void
 maybe_set_return_trap (command)
      char *command;
@@ -656,6 +748,8 @@ maybe_set_return_trap (command)
   trap_if_untrapped (RETURN_TRAP, command);
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #ifdef INCLUDE_UNUSED
 void
 set_sigint_trap (command)
@@ -913,9 +1007,15 @@ run_exit_trap ()
 
       retval = trap_saved_exit_value;
       running_trap = 1;
+<<<<<<< HEAD
 
       code = setjmp_nosigs (top_level);
 
+=======
+
+      code = setjmp_nosigs (top_level);
+
+>>>>>>> orgin/bash-4.3-testing
       /* If we're in a function, make sure return longjmps come here, too. */
       if (return_catch_flag)
 	function_code = setjmp_nosigs (return_catch);
@@ -935,10 +1035,13 @@ run_exit_trap ()
 	retval = trap_saved_exit_value;
 
       running_trap = 0;
+<<<<<<< HEAD
 #if defined (ARRAY_VARS)
       array_dispose (ps);
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
       return retval;
     }
 
@@ -965,19 +1068,30 @@ _run_trap_internal (sig, tag)
      char *tag;
 {
   char *trap_command, *old_trap;
+<<<<<<< HEAD
   int trap_exit_value;
   volatile int save_return_catch_flag, function_code, old_int;
   int flags;
   procenv_t save_return_catch;
   WORD_LIST *save_subst_varlist;
   HASH_TABLE *save_tempenv;
+=======
+  int trap_exit_value, *token_state;
+  volatile int save_return_catch_flag, function_code;
+  int flags;
+  procenv_t save_return_catch;
+  WORD_LIST *save_subst_varlist;
+>>>>>>> orgin/bash-4.3-testing
   sh_parser_state_t pstate;
 #if defined (ARRAY_VARS)
   ARRAY *ps;
 #endif
 
   trap_exit_value = function_code = 0;
+<<<<<<< HEAD
   trap_saved_exit_value = last_command_exit_value;
+=======
+>>>>>>> orgin/bash-4.3-testing
   /* Run the trap only if SIG is trapped and not ignored, and we are not
      currently executing in the trap handler. */
   if ((sigmodes[sig] & SIG_TRAPPED) && ((sigmodes[sig] & SIG_IGNORED) == 0) &&
@@ -997,6 +1111,7 @@ _run_trap_internal (sig, tag)
 
       running_trap = sig + 1;
 
+<<<<<<< HEAD
       old_int = interrupt_state;	/* temporarily suppress pending interrupts */
       CLRINTERRUPT;
 
@@ -1013,6 +1128,18 @@ _run_trap_internal (sig, tag)
 #if defined (JOB_CONTROL)
       if (sig != DEBUG_TRAP)	/* run_debug_trap does this */
 	save_pipeline (1);	/* XXX only provides one save level */
+=======
+#if defined (ARRAY_VARS)
+      ps = save_pipestatus_array ();
+#endif
+
+      save_parser_state (&pstate);
+      save_subst_varlist = subst_assign_varlist;
+      subst_assign_varlist = 0;
+
+#if defined (JOB_CONTROL)
+      save_pipeline (1);	/* XXX only provides one save level */
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
       /* If we're in a function, make sure return longjmps come here, too. */
@@ -1026,6 +1153,7 @@ _run_trap_internal (sig, tag)
       flags = SEVAL_NONINT|SEVAL_NOHIST;
       if (sig != DEBUG_TRAP && sig != RETURN_TRAP && sig != ERROR_TRAP)
 	flags |= SEVAL_RESETLINE;
+<<<<<<< HEAD
       evalnest++;
       if (function_code == 0)
         {
@@ -1039,6 +1167,15 @@ _run_trap_internal (sig, tag)
 #if defined (JOB_CONTROL)
       if (sig != DEBUG_TRAP)	/* run_debug_trap does this */
 	restore_pipeline (1);
+=======
+      if (function_code == 0)
+	parse_and_execute (trap_command, tag, flags);
+
+      trap_exit_value = last_command_exit_value;
+
+#if defined (JOB_CONTROL)
+      restore_pipeline (1);
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
       subst_assign_varlist = save_subst_varlist;
@@ -1047,8 +1184,12 @@ _run_trap_internal (sig, tag)
 #if defined (ARRAY_VARS)
       restore_pipestatus_array (ps);
 #endif
+<<<<<<< HEAD
 
       temporary_env = save_tempenv;
+=======
+      running_trap = 0;
+>>>>>>> orgin/bash-4.3-testing
 
       sigmodes[sig] &= ~SIG_INPROGRESS;
       running_trap = 0;
@@ -1081,6 +1222,15 @@ _run_trap_internal (sig, tag)
 	      sh_longjmp (return_catch, 1);
 	    }
 	}
+
+      if (save_return_catch_flag)
+	{
+	  return_catch_flag = save_return_catch_flag;
+	  return_catch_value = trap_exit_value;
+	  COPY_PROCENV (save_return_catch, return_catch);
+	  if (function_code)
+	    longjmp (return_catch, 1);
+	}
     }
 
   return trap_exit_value;
@@ -1089,11 +1239,17 @@ _run_trap_internal (sig, tag)
 int
 run_debug_trap ()
 {
+<<<<<<< HEAD
   int trap_exit_value, old_verbose;
   pid_t save_pgrp;
 #if defined (PGRP_PIPE)
   int save_pipe[2];
 #endif
+=======
+  int trap_exit_value;
+  pid_t save_pgrp;
+  int save_pipe[2];
+>>>>>>> orgin/bash-4.3-testing
 
   /* XXX - question:  should the DEBUG trap inherit the RETURN trap? */
   trap_exit_value = 0;
@@ -1109,6 +1265,7 @@ run_debug_trap ()
       stop_making_children ();
 #endif
 
+<<<<<<< HEAD
       old_verbose = echo_input_at_read;
 #if 0	/* not yet */
       echo_input_at_read = 0;
@@ -1118,6 +1275,10 @@ run_debug_trap ()
 
       echo_input_at_read = old_verbose;
 
+=======
+      trap_exit_value = _run_trap_internal (DEBUG_TRAP, "debug trap");
+
+>>>>>>> orgin/bash-4.3-testing
 #if defined (JOB_CONTROL)
       pipeline_pgrp = save_pgrp;
       restore_pipeline (1);
@@ -1125,9 +1286,14 @@ run_debug_trap ()
       close_pgrp_pipe ();
       restore_pgrp_pipe (save_pipe);
 #  endif
+<<<<<<< HEAD
       if (pipeline_pgrp > 0 && ((subshell_environment & (SUBSHELL_ASYNC|SUBSHELL_PIPE)) == 0))
 	give_terminal_to (pipeline_pgrp, 1);
 
+=======
+      if (pipeline_pgrp > 0)
+	give_terminal_to (pipeline_pgrp, 1);
+>>>>>>> orgin/bash-4.3-testing
       notify_and_cleanup ();
 #endif
       
@@ -1137,7 +1303,11 @@ run_debug_trap ()
       if (debugging_mode && trap_exit_value == 2 && return_catch_flag)
 	{
 	  return_catch_value = trap_exit_value;
+<<<<<<< HEAD
 	  sh_longjmp (return_catch, 1);
+=======
+	  longjmp (return_catch, 1);
+>>>>>>> orgin/bash-4.3-testing
 	}
 #endif
     }
@@ -1196,6 +1366,7 @@ free_trap_strings ()
     {
       if (trap_list[i] != (char *)IGNORE_SIG)
 	free_trap_string (i);
+<<<<<<< HEAD
     }
   for (i = NSIG; i < BASH_NSIG; i++)
     {
@@ -1206,6 +1377,10 @@ free_trap_strings ()
 	  trap_list[i] = (char *)NULL;
 	}
     }
+=======
+    }
+  trap_list[DEBUG_TRAP] = trap_list[EXIT_TRAP] = trap_list[ERROR_TRAP] = trap_list[RETURN_TRAP] = (char *)NULL;
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Free a trap command string associated with SIG without changing signal
@@ -1215,7 +1390,11 @@ free_trap_string (sig)
      int sig;
 {
   change_signal (sig, (char *)DEFAULT_SIG);
+<<<<<<< HEAD
   sigmodes[sig] &= ~SIG_TRAPPED;		/* XXX - SIG_INPROGRESS? */
+=======
+  sigmodes[sig] &= ~SIG_TRAPPED;
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Reset the handler for SIG to the original value but leave the trap string
@@ -1248,7 +1427,11 @@ reset_or_restore_signal_handlers (reset)
   /* Take care of the exit trap first */
   if (sigmodes[EXIT_TRAP] & SIG_TRAPPED)
     {
+<<<<<<< HEAD
       sigmodes[EXIT_TRAP] &= ~SIG_TRAPPED;	/* XXX - SIG_INPROGRESS? */
+=======
+      sigmodes[EXIT_TRAP] &= ~SIG_TRAPPED;
+>>>>>>> orgin/bash-4.3-testing
       if (reset != reset_signal)
 	{
 	  free_trap_command (EXIT_TRAP);

@@ -1,7 +1,11 @@
 This file is ulimit.def, from which is created ulimit.c.
 It implements the builtin "ulimit" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2010 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -23,7 +27,11 @@ $PRODUCES ulimit.c
 $BUILTIN ulimit
 $FUNCTION ulimit_builtin
 $DEPENDS_ON !_MINIX
+<<<<<<< HEAD
 $SHORT_DOC ulimit [-SHabcdefiklmnpqrstuvxPT] [limit]
+=======
+$SHORT_DOC ulimit [-SHabcdefilmnpqrstuvxT] [limit]
+>>>>>>> orgin/bash-4.3-testing
 Modify shell resource limits.
 
 Provides control over the resources available to the shell and processes
@@ -39,7 +47,10 @@ Options:
   -e	the maximum scheduling priority (`nice')
   -f	the maximum size of files written by the shell and its children
   -i	the maximum number of pending signals
+<<<<<<< HEAD
   -k	the maximum number of kqueues allocated for this process
+=======
+>>>>>>> orgin/bash-4.3-testing
   -l	the maximum size a process may lock into memory
   -m	the maximum resident set size
   -n	the maximum number of open file descriptors
@@ -51,8 +62,12 @@ Options:
   -u	the maximum number of user processes
   -v	the size of virtual memory
   -x	the maximum number of file locks
+<<<<<<< HEAD
   -P	the maximum number of pseudoterminals
   -T	the maximum number of threads
+=======
+  -T    the maximum number of threads
+>>>>>>> orgin/bash-4.3-testing
 
 Not all options are available on all platforms.
 
@@ -203,6 +218,11 @@ extern int errno;
 
 #define BLOCKSIZE(x)	(((x) == POSIXBLK) ? (posixly_correct ? 512 : 1024) : (x))
 
+<<<<<<< HEAD
+=======
+extern int posixly_correct;
+
+>>>>>>> orgin/bash-4.3-testing
 static int _findlim __P((int));
 
 static int ulimit_internal __P((int, char *, int, int));
@@ -229,9 +249,12 @@ typedef struct {
 } RESOURCE_LIMITS;
 
 static RESOURCE_LIMITS limits[] = {
+<<<<<<< HEAD
 #ifdef RLIMIT_NPTS
   { 'P',	RLIMIT_NPTS,  1,	"number of pseudoterminals",	(char *)NULL },
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 #ifdef RLIMIT_PTHREAD
   { 'T',	RLIMIT_PTHREAD,  1,	"number of threads",	(char *)NULL },
 #endif
@@ -251,9 +274,12 @@ static RESOURCE_LIMITS limits[] = {
 #ifdef RLIMIT_SIGPENDING
   { 'i',	RLIMIT_SIGPENDING, 1,	"pending signals",	(char *)NULL },
 #endif
+<<<<<<< HEAD
 #ifdef RLIMIT_KQUEUES
   { 'k',	RLIMIT_KQUEUES, 1,	"max kqueues",		(char *)NULL },
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 #ifdef RLIMIT_MEMLOCK
   { 'l',	RLIMIT_MEMLOCK, 1024,	"max locked memory",	"kbytes" },
 #endif

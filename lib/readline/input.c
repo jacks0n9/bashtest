@@ -1,6 +1,10 @@
 /* input.c -- character input functions for readline. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1994-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1994-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -149,7 +153,11 @@ _rl_any_typein (void)
 }
 
 int
+<<<<<<< HEAD
 _rl_pushed_input_available (void)
+=======
+_rl_pushed_input_available ()
+>>>>>>> orgin/bash-4.3-testing
 {
   return (push_index != pop_index);
 }
@@ -218,7 +226,10 @@ rl_gather_tyi (void)
 #endif
 
   chars_avail = 0;
+<<<<<<< HEAD
   input = 0;
+=======
+>>>>>>> orgin/bash-4.3-testing
   tty = fileno (rl_instream);
 
 #if defined (HAVE_SELECT)
@@ -253,8 +264,11 @@ rl_gather_tyi (void)
       fcntl (tty, F_SETFL, tem);
       if (chars_avail == -1 && errno == EAGAIN)
 	return 0;
+<<<<<<< HEAD
       if (chars_avail == -1 && errno == EIO)
 	return -1;
+=======
+>>>>>>> orgin/bash-4.3-testing
       if (chars_avail == 0)	/* EOF */
 	{
 	  rl_stuff_char (EOF);
@@ -519,6 +533,7 @@ rl_getc (FILE *stream)
 
 #if defined (__MINGW32__)
       if (isatty (fileno (stream)))
+<<<<<<< HEAD
 	return (_getch ());	/* "There is no error return." */
 #endif
       result = 0;
@@ -535,6 +550,11 @@ rl_getc (FILE *stream)
 #endif
       if (result >= 0)
 	result = read (fileno (stream), &c, sizeof (unsigned char));
+=======
+	return (getch ());
+#endif
+      result = read (fileno (stream), &c, sizeof (unsigned char));
+>>>>>>> orgin/bash-4.3-testing
 
       if (result == sizeof (unsigned char))
 	return (c);
@@ -573,15 +593,23 @@ rl_getc (FILE *stream)
 
 /* fprintf(stderr, "rl_getc: result = %d errno = %d\n", result, errno); */
 
+<<<<<<< HEAD
 handle_error:
       /* If the error that we received was EINTR, then try again,
 	 this is simply an interrupted system call to read ().  We allow
 	 the read to be interrupted if we caught SIGHUP, SIGTERM, or any
 	 of the other signals readline treats specially. If the
+=======
+      /* If the error that we received was EINTR, then try again,
+	 this is simply an interrupted system call to read ().  We allow
+	 the read to be interrupted if we caught SIGHUP or SIGTERM (but
+	 not SIGINT; let the signal handler deal with that), but if the
+>>>>>>> orgin/bash-4.3-testing
 	 application sets an event hook, call it for other signals.
 	 Otherwise (not EINTR), some error occurred, also signifying EOF. */
       if (errno != EINTR)
 	return (RL_ISSTATE (RL_STATE_READCMD) ? READERR : EOF);
+<<<<<<< HEAD
       /* fatal signals of interest */
 #if defined (SIGHUP)
       else if (_rl_caught_signal == SIGHUP || _rl_caught_signal == SIGTERM)
@@ -609,6 +637,12 @@ handle_error:
 	      )
         RL_CHECK_SIGNALS ();
 #endif  /* SIGALRM */
+=======
+      else if (_rl_caught_signal == SIGHUP || _rl_caught_signal == SIGTERM)
+	return (RL_ISSTATE (RL_STATE_READCMD) ? READERR : EOF);
+      else if (_rl_caught_signal == SIGINT || _rl_caught_signal == SIGQUIT)
+        RL_CHECK_SIGNALS ();
+>>>>>>> orgin/bash-4.3-testing
 
       if (rl_signal_event_hook)
 	(*rl_signal_event_hook) ();
@@ -667,7 +701,14 @@ _rl_read_mbchar (char *mbchar, int size)
    may be FIRST.  Used by the search functions, among others.  Very similar
    to _rl_read_mbchar. */
 int
+<<<<<<< HEAD
 _rl_read_mbstring (int first, char *mb, int mlen)
+=======
+_rl_read_mbstring (first, mb, mlen)
+     int first;
+     char *mb;
+     int mlen;
+>>>>>>> orgin/bash-4.3-testing
 {
   int i, c, n;
   mbstate_t ps;

@@ -92,10 +92,13 @@
 
 #if !defined (HAVE_POSIX_REGEXP)
 #  undef COND_REGEXP
+<<<<<<< HEAD
 #endif
 
 #if !HAVE_MKSTEMP
 #  undef USE_MKSTEMP
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 /* If the shell is called by this name, it will become restricted. */

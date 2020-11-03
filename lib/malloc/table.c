@@ -180,8 +180,11 @@ mregister_alloc (tag, mem, size, file, line)
       _malloc_block_signals (&set, &oset);
       blocked_sigs = 1;
     }
+<<<<<<< HEAD
 
   mlocation_register_alloc (file, line);
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   tentry = find_entry (mem, FIND_ALLOC);
 

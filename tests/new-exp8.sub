@@ -93,6 +93,7 @@ x="${z/#[^;][^;]}"
 echo $x
 x="${z/%[^;][^;]}"
 echo $x
+<<<<<<< HEAD
 
 # post-bash-4.3 changes to make pattern replacement honor nocasematch variable
 unset string
@@ -114,3 +115,5 @@ echo ${string//[bC]/x}
 echo ${string//?/z}
 
 
+=======
+>>>>>>> orgin/bash-4.3-testing

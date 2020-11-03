@@ -74,8 +74,11 @@ extern int sh_syntabsiz;
 #define shellxquote(c)	(sh_syntaxtab[(unsigned char)(c)] & CXQUOTE)
 
 #define shellblank(c)	(sh_syntaxtab[(unsigned char)(c)] & CBLANK)
+<<<<<<< HEAD
 
 #define parserblank(c)	((c) == ' ' || (c) == '\t')
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #define issyntype(c, t)	((sh_syntaxtab[(unsigned char)(c)] & (t)) != 0)
 #define notsyntype(c,t) ((sh_syntaxtab[(unsigned char)(c)] & (t)) == 0)

@@ -92,8 +92,12 @@ CSOURCES = clktck.c clock.c getcwd.c getenv.c oslib.c setlinebuf.c \
 	   mktime.c strftime.c mbschr.c zcatfd.c zmapfd.c winsize.c eaccess.c \
 	   wcsdup.c fpurge.c zgetline.c mbscmp.c uconvert.c ufuncs.c \
 	   casemod.c dprintf.c input_avail.c mbscasecmp.c fnxform.c \
+<<<<<<< HEAD
 	   strchrnul.c unicode.c wcswidth.c wcsnwidth.c shmbchar.c strdup.c \
 	   utf8.c
+=======
+	   strchrnul.c unicode.c wcswidth.c wcsnwidth.c shmbchar.c strdup.c
+>>>>>>> orgin/bash-4.3-testing
 
 # The header files for this library.
 HSOURCES = 
@@ -108,7 +112,11 @@ OBJECTS = clktck.o clock.o getenv.o oslib.o setlinebuf.o strnlen.o \
 	  fmtullong.o fmtumax.o zcatfd.o zmapfd.o winsize.o wcsdup.o \
 	  fpurge.o zgetline.o mbscmp.o uconvert.o ufuncs.o casemod.o \
 	  input_avail.o mbscasecmp.o fnxform.o unicode.o shmbchar.o \
+<<<<<<< HEAD
 	  utf8.o wcsnwidth.o ${LIBOBJS}
+=======
+	  wcsnwidth.o ${LIBOBJS}
+>>>>>>> orgin/bash-4.3-testing
 
 SUPPORT = Makefile
 
@@ -161,7 +169,10 @@ itos.o: itos.c
 mailstat.o: mailstat.c
 makepath.o: makepath.c
 mbscasecmp.o: mbscasecmp.c
+<<<<<<< HEAD
 mbschr.o: mbschr.c
+=======
+>>>>>>> orgin/bash-4.3-testing
 mbscmp.o: mbscmp.c
 memset.o: memset.c
 mktime.o: mktime.c
@@ -172,7 +183,10 @@ pathcanon.o: pathcanon.c
 pathphys.o: pathphys.c
 rename.o: rename.c
 setlinebuf.o: setlinebuf.c
+<<<<<<< HEAD
 shmatch.o: shmatch.c
+=======
+>>>>>>> orgin/bash-4.3-testing
 shmbchar.o: shmbchar.c
 shquote.o: shquote.c
 shtty.o: shtty.c
@@ -200,13 +214,20 @@ timeval.o: timeval.c
 tmpfile.o: tmpfile.c
 uconvert.o: uconvert.c
 ufuncs.o: ufuncs.c
+<<<<<<< HEAD
 unicode.o: unicode.c
 utf8.o: utf8.c
+=======
+>>>>>>> orgin/bash-4.3-testing
 vprint.o: vprint.c
 wcsdup.o: wcsdup.c
 wcsnwidth.o: wcsnwidth.c
 wcswidth.o: wcswidth.c
+<<<<<<< HEAD
 winsize.o: winsize.c
+=======
+mbschr.o: mbschr.c
+>>>>>>> orgin/bash-4.3-testing
 zcatfd.o: zcatfd.c
 zmapfd.o: zmapfd.c
 zgetline.o: zgetline.c
@@ -239,7 +260,10 @@ itos.o: ${BUILD_DIR}/config.h
 mailstat.o: ${BUILD_DIR}/config.h
 makepath.o: ${BUILD_DIR}/config.h
 mbscasecmp.o: ${BUILD_DIR}/config.h
+<<<<<<< HEAD
 mbschr.o: ${BUILD_DIR}/config.h
+=======
+>>>>>>> orgin/bash-4.3-testing
 mbscmp.o: ${BUILD_DIR}/config.h
 memset.o: ${BUILD_DIR}/config.h
 mktime.o: ${BUILD_DIR}/config.h
@@ -250,8 +274,12 @@ pathcanon.o: ${BUILD_DIR}/config.h
 pathphys.o: ${BUILD_DIR}/config.h
 rename.o: ${BUILD_DIR}/config.h
 setlinebuf.o: ${BUILD_DIR}/config.h
+<<<<<<< HEAD
 shmatch.o: ${BUILD_DIR}/config.h
 shmbchar.o: ${BUILD_DIR}/config.h
+=======
+shmbchare.o: ${BUILD_DIR}/config.h
+>>>>>>> orgin/bash-4.3-testing
 shquote.o: ${BUILD_DIR}/config.h
 shtty.o: ${BUILD_DIR}/config.h
 snprintf.o: ${BUILD_DIR}/config.h
@@ -278,13 +306,20 @@ timeval.o: ${BUILD_DIR}/config.h
 tmpfile.o: ${BUILD_DIR}/config.h
 uconvert.o: ${BUILD_DIR}/config.h
 ufuncs.o: ${BUILD_DIR}/config.h
+<<<<<<< HEAD
 unicode.o: ${BUILD_DIR}/config.h
 utf8.o: ${BUILD_DIR}/config.h
+=======
+>>>>>>> orgin/bash-4.3-testing
 vprint.o: ${BUILD_DIR}/config.h
 wcsdup.o: ${BUILD_DIR}/config.h
 wcsnwidth.o: ${BUILD_DIR}/config.h
 wcswidth.o: ${BUILD_DIR}/config.h
+<<<<<<< HEAD
 winsize.o: ${BUILD_DIR}/config.h
+=======
+mbschr.o: ${BUILD_DIR}/config.h
+>>>>>>> orgin/bash-4.3-testing
 zcatfd.o: ${BUILD_DIR}/config.h
 zgetline.o: ${BUILD_DIR}/config.h
 zmapfd.o: ${BUILD_DIR}/config.h
@@ -400,6 +435,7 @@ eaccess.o: ${topdir}/make_cmd.h ${topdir}/subst.h ${topdir}/sig.h
 eaccess.o: ${BUILD_DIR}/pathnames.h ${topdir}/externs.h
 #eaccess.o: ${BUILD_DIR}/version.h
 
+<<<<<<< HEAD
 shmatch.o: ${BASHINCDIR}/stdc.h ${topdir}/bashansi.h
 shmatch.o: ${BASHINCDIR}/ansi_stdlib.h ${topdir}/xmalloc.h
 shmatch.o: ${topdir}/shell.h ${topdir}/syntax.h ${topdir}/bashjmp.h ${BASHINCDIR}/posixjmp.h
@@ -410,6 +446,8 @@ shmatch.o: ${topdir}/unwind_prot.h ${topdir}/dispose_cmd.h
 shmatch.o: ${topdir}/make_cmd.h ${topdir}/subst.h ${topdir}/sig.h
 shmatch.o: ${BUILD_DIR}/pathnames.h ${topdir}/externs.h
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 shquote.o: ${BASHINCDIR}/stdc.h ${topdir}/bashansi.h
 shquote.o: ${BASHINCDIR}/ansi_stdlib.h ${topdir}/xmalloc.h
 shquote.o: ${BASHINCDIR}/shmbutil.h ${BASHINCDIR}/shmbchar.h
@@ -498,7 +536,10 @@ strtrans.o: ${topdir}/array.h ${topdir}/hashlib.h ${topdir}/quit.h
 strtrans.o: ${topdir}/unwind_prot.h ${topdir}/dispose_cmd.h
 strtrans.o: ${topdir}/make_cmd.h ${topdir}/subst.h ${topdir}/sig.h
 strtrans.o: ${BUILD_DIR}/pathnames.h ${topdir}/externs.h
+<<<<<<< HEAD
 strtrans.o: ${BASHINCDIR}/shmbutil.h ${BASHINCDIR}/shmbchar.h
+=======
+>>>>>>> orgin/bash-4.3-testing
 #strtrans.o: ${BUILD_DIR}/version.h
 
 times.o: ${BASHINCDIR}/systimes.h
@@ -527,6 +568,10 @@ uconvert.o: ${topdir}/array.h ${topdir}/hashlib.h ${topdir}/quit.h
 uconvert.o: ${topdir}/unwind_prot.h ${topdir}/dispose_cmd.h
 uconvert.o: ${topdir}/make_cmd.h ${topdir}/subst.h ${topdir}/sig.h
 uconvert.o: ${BUILD_DIR}/pathnames.h ${topdir}/externs.h
+
+ufuncs.o: ${topdir}/bashtypes.h
+
+uconvert.o: ${topdir}/bashtypes.h
 
 ufuncs.o: ${topdir}/bashtypes.h
 
@@ -607,6 +652,7 @@ fnxform.o: ${topdir}/bashansi.h ${BASHINCDIR}/ansi_stdlib.h
 fnxform.o: ${BASHINCDIR}/stdc.h
 fnxform.o: ${topdir}/bashtypes.h
 fnxform.o: ${topdir}/bashintl.h ${LIBINTL_H} ${BASHINCDIR}/gettext.h
+<<<<<<< HEAD
 
 shmbchar.o: ${BASHINCDIR}/shmbchar.h
 shmbchar.o: ${BASHINCDIR}/shmbutil.h
@@ -628,3 +674,7 @@ zmapfd.o: ${BASHINCDIR}/stdc.h
 zmapfd.o: ${topdir}/command.h
 zmapfd.o: ${topdir}/general.h
 zmapfd.o: ${topdir}/bashtypes.h ${BASHINCDIR}/chartypes.h ${topdir}/xmalloc.h
+=======
+
+shmbchar.o: ${BASHINCDIR}/shmbchar.h
+>>>>>>> orgin/bash-4.3-testing

@@ -582,3 +582,7 @@ bar/foo/e bar/foo/f foo/a foo/b
 <b/b/a/a>
 <b/b/a/b>
 <b/b/b/a>
+<<<<<<< HEAD
+=======
+/tmp/empty
+>>>>>>> orgin/bash-4.3-testing

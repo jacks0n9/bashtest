@@ -30,8 +30,11 @@
 #include "bashansi.h"
 #include <stdio.h>
 
+<<<<<<< HEAD
 #include <signal.h>
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #include "bashintl.h"
 
 #include "shell.h"
@@ -46,6 +49,10 @@
 
 #if defined (HISTORY)
 #  include "bashhist.h"
+#endif
+
+#if defined (HAVE_POSIX_SIGNALS)
+extern sigset_t top_level_mask;
 #endif
 
 #if defined (HAVE_POSIX_SIGNALS)
@@ -82,9 +89,14 @@ reader_loop ()
       unlink_fifo_list ();
 #endif /* PROCESS_SUBSTITUTION */
 
+<<<<<<< HEAD
       /* XXX - why do we set this every time through the loop?  And why do
 	 it if SIGINT is trapped in an interactive shell? */
       if (interactive_shell && signal_is_ignored (SIGINT) == 0 && signal_is_trapped (SIGINT) == 0)
+=======
+      /* XXX - why do we set this every time through the loop? */
+      if (interactive_shell && signal_is_ignored (SIGINT) == 0)
+>>>>>>> orgin/bash-4.3-testing
 	set_signal_handler (SIGINT, sigint_sighandler);
 
       if (code != NOT_JUMPED)
@@ -293,7 +305,13 @@ parse_command ()
      actually printed. */
   if (interactive && bash_input.type != st_string && parser_expanding_alias() == 0)
     {
+<<<<<<< HEAD
       execute_prompt_command ();
+=======
+      command_to_execute = get_string_value ("PROMPT_COMMAND");
+      if (command_to_execute)
+	execute_variable_command (command_to_execute, "PROMPT_COMMAND");
+>>>>>>> orgin/bash-4.3-testing
 
       if (running_under_emacs == 2)
 	send_pwd_to_eterm ();	/* Yuck */

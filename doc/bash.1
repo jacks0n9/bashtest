@@ -5,12 +5,20 @@
 .\"	Case Western Reserve University
 .\"	chet.ramey@case.edu
 .\"
+<<<<<<< HEAD
 .\"	Last Change: Fri Dec  7 09:48:47 EST 2018
+=======
+.\"	Last Change: Mon Jan  6 16:40:31 EST 2014
+>>>>>>> orgin/bash-4.3-testing
 .\"
 .\" bash_builtins, strip all but Built-Ins section
 .if \n(zZ=1 .ig zZ
 .if \n(zY=1 .ig zY
+<<<<<<< HEAD
 .TH BASH 1 "2018 December 7" "GNU Bash 5.0"
+=======
+.TH BASH 1 "2014 January 6" "GNU Bash 4.3"
+>>>>>>> orgin/bash-4.3-testing
 .\"
 .\" There's some problem with having a `@'
 .\" in a tagged paragraph with the BSD man macros.
@@ -50,8 +58,13 @@ bash \- GNU Bourne-Again SHell
 [options]
 [command_string | file]
 .SH COPYRIGHT
+<<<<<<< HEAD
 .if n Bash is Copyright (C) 1989-2018 by the Free Software Foundation, Inc.
 .if t Bash is Copyright \(co 1989-2018 by the Free Software Foundation, Inc.
+=======
+.if n Bash is Copyright (C) 1989-2013 by the Free Software Foundation, Inc.
+.if t Bash is Copyright \(co 1989-2013 by the Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 .SH DESCRIPTION
 .B Bash
 is an \fBsh\fR-compatible command language interpreter that
@@ -67,9 +80,15 @@ Shell and Utilities portion of the IEEE POSIX specification
 .B Bash
 can be configured to be POSIX-conformant by default.
 .SH OPTIONS
+<<<<<<< HEAD
 All of the single-character shell options documented in the
 description of the \fBset\fR builtin command, including \fB\-o\fP,
 can be used as options when the shell is invoked.
+=======
+All of the  single-character shell options documented in the
+description of the \fBset\fR builtin command can be used as options
+when the shell is invoked.
+>>>>>>> orgin/bash-4.3-testing
 In addition, \fBbash\fR
 interprets the following options when it is invoked:
 .PP
@@ -82,12 +101,17 @@ option is present, then commands are read from the first non-option argument
 .IR command_string .
 If there are arguments after the
 .IR command_string ,
+<<<<<<< HEAD
 the first argument is assigned to
 .B $0
 and any remaining arguments are assigned to the positional parameters.
 The assignment to
 .B $0
 sets the name of the shell, which is used in warning and error messages.
+=======
+they are assigned to the positional parameters, starting with
+.BR $0 .
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B \-i
 If the
@@ -488,8 +512,13 @@ A \fItoken\fP that performs a control function.  It is one of the following
 symbols:
 .RS
 .PP
+<<<<<<< HEAD
 .if t \fB||  &  &&  ;  ;;  ;&  ;;&  (  )  |  |&    <newline>\fP
 .if n \fB|| & && ; ;; ;& ;;& ( ) | |& <newline>\fP
+=======
+.if t \fB||  &  &&  ;  ;;  (  )  |  |&    <newline>\fP
+.if n \fB|| & && ; ;; ( ) | |& <newline>\fP
+>>>>>>> orgin/bash-4.3-testing
 .RE
 .PD
 .SH "RESERVED WORDS"
@@ -639,7 +668,11 @@ are executed sequentially; the shell waits for each
 command to terminate in turn.  The return status is the
 exit status of the last command executed.
 .PP
+<<<<<<< HEAD
 AND and OR lists are sequences of one or more pipelines separated by the
+=======
+AND and OR lists are sequences of one of more pipelines separated by the
+>>>>>>> orgin/bash-4.3-testing
 \fB&&\fP and \fB||\fP control operators, respectively.
 AND and OR lists are executed with left associativity.
 An AND list has the form
@@ -729,9 +762,15 @@ right of the operator is considered a pattern and matched according
 to the rules described below under \fBPattern Matching\fP,
 as if the \fBextglob\fP shell option were enabled.
 The \fB=\fP operator is equivalent to \fB==\fP.
+<<<<<<< HEAD
 If the
 .B nocasematch
 shell option is enabled, the match is performed without regard to the case
+=======
+If the shell option
+.B nocasematch
+is enabled, the match is performed without regard to the case
+>>>>>>> orgin/bash-4.3-testing
 of alphabetic characters.
 The return value is 0 if the string matches (\fB==\fP) or does not match
 (\fB!=\fP) the pattern, and 1 otherwise.
@@ -742,14 +781,24 @@ to be matched as a string.
 An additional binary operator, \fB=~\fP, is available, with the same
 precedence as \fB==\fP and \fB!=\fP.
 When it is used, the string to the right of the operator is considered
+<<<<<<< HEAD
 a POSIX extended regular expression and matched accordingly (as in \fIregex\fP(3)).
+=======
+an extended regular expression and matched accordingly (as in \fIregex\fP(3)).  
+>>>>>>> orgin/bash-4.3-testing
 The return value is 0 if the string matches
 the pattern, and 1 otherwise.
 If the regular expression is syntactically incorrect, the conditional
 expression's return value is 2.
+<<<<<<< HEAD
 If the
 .B nocasematch
 shell option is enabled, the match is performed without regard to the case
+=======
+If the shell option
+.B nocasematch
+is enabled, the match is performed without regard to the case
+>>>>>>> orgin/bash-4.3-testing
 of alphabetic characters.
 Any part of the pattern may be quoted to force the quoted portion
 to be matched as a string.
@@ -872,6 +921,7 @@ or zero if no commands were executed.
 \fBcase\fP \fIword\fP \fBin\fP [ [(] \fIpattern\fP [ \fB|\fP \fIpattern\fP ] \
 ... ) \fIlist\fP ;; ] ... \fBesac\fP
 A \fBcase\fP command first expands \fIword\fP, and tries to match
+<<<<<<< HEAD
 it against each \fIpattern\fP in turn, using the matching rules
 described under
 .B Pattern Matching
@@ -885,6 +935,21 @@ command substitution, and process substitution.
 If the
 .B nocasematch
 shell option is enabled, the match is performed without regard to the case
+=======
+it against each \fIpattern\fP in turn, using the same matching rules
+as for pathname expansion (see
+.B Pathname Expansion
+below).
+The \fIword\fP is expanded using tilde
+expansion, parameter and variable expansion, arithmetic substitution,
+command substitution, process substitution and quote removal.
+Each \fIpattern\fP examined is expanded using tilde
+expansion, parameter and variable expansion, arithmetic substitution,
+command substitution, and process substitution.
+If the shell option
+.B nocasematch
+is enabled, the match is performed without regard to the case
+>>>>>>> orgin/bash-4.3-testing
 of alphabetic characters.
 When a match is found, the corresponding \fIlist\fP is executed.
 If the \fB;;\fP operator is used, no subsequent matches are attempted after
@@ -920,7 +985,11 @@ last command executed, or zero if no condition tested true.
 The \fBwhile\fP command continuously executes the list
 \fIlist-2\fP as long as the last command in the list \fIlist-1\fP returns
 an exit status of zero.  The \fBuntil\fP command is identical
+<<<<<<< HEAD
 to the \fBwhile\fP command, except that the test is negated:
+=======
+to the \fBwhile\fP command, except that the test is negated;
+>>>>>>> orgin/bash-4.3-testing
 .I list-2
 is executed as long as the last command in
 .I list-1
@@ -966,8 +1035,12 @@ command (see
 below).
 The file descriptors can be utilized as arguments to shell commands
 and redirections using standard word expansions.
+<<<<<<< HEAD
 Other than those created to execute command and process substitutions,
 the file descriptors are not available in subshells.
+=======
+The file descriptors are not available in subshells.
+>>>>>>> orgin/bash-4.3-testing
 The process ID of the shell spawned to execute the coprocess is
 available as the value of the variable \fINAME\fP_PID.
 The \fBwait\fP
@@ -991,12 +1064,19 @@ This defines a function named \fIname\fP.
 The reserved word \fBfunction\fP is optional.
 If the \fBfunction\fP reserved word is supplied, the parentheses are optional.
 The \fIbody\fP of the function is the compound command
+<<<<<<< HEAD
 .I compound\-command
 (see \fBCompound Commands\fP above).
 That command is usually a \fIlist\fP of commands between { and }, but
 may be any command listed under \fBCompound Commands\fP above,
 with one exception: If the \fBfunction\fP reserved word is used, but the
 parentheses are not supplied, the braces are required.
+=======
+.I compound\-command 
+(see \fBCompound Commands\fP above).
+That command is usually a \fIlist\fP of commands between { and }, but
+may be any command listed under \fBCompound Commands\fP above.
+>>>>>>> orgin/bash-4.3-testing
 \fIcompound\-command\fP is executed whenever \fIname\fP is specified as the
 name of a simple command.
 When in \fIposix mode\fP, \fIname\fP may not be the name of one of the
@@ -1073,8 +1153,11 @@ of all characters within the quotes, with the exception of
 .BR \e ,
 and, when history expansion is enabled,
 .BR ! .
+<<<<<<< HEAD
 When the shell is in \fIposix mode\fP, the \fB!\fP has no special meaning
 within double quotes, even when history expansion is enabled.
+=======
+>>>>>>> orgin/bash-4.3-testing
 The characters
 .B $
 and
@@ -1148,10 +1231,14 @@ single quote
 .TP
 .B \e\(dq
 double quote
+<<<<<<< HEAD
 .TP
 .B \e?
 question mark
 .TP
+=======
+.TP   
+>>>>>>> orgin/bash-4.3-testing
 .B \e\fInnn\fP
 the eight-bit character whose value is the octal value \fInnn\fP
 (one to three octal digits)
@@ -1249,7 +1336,11 @@ Assignment statements may also appear as arguments to the
 .BR readonly ,
 and
 .B local
+<<<<<<< HEAD
 builtin commands (\fIdeclaration\fP commands).
+=======
+builtin commands.
+>>>>>>> orgin/bash-4.3-testing
 When in \fIposix mode\fP, these builtins may appear in a command after
 one or more instances of the \fBcommand\fP builtin and retain these
 assignment statement properties.
@@ -1257,8 +1348,11 @@ assignment statement properties.
 In the context where an assignment statement is assigning a value
 to a shell variable or array index, the += operator can be used to
 append to or add to the variable's previous value.
+<<<<<<< HEAD
 This includes arguments to builtin commands such as \fBdeclare\fP that
 accept assignment statements (\fIdeclaration\fP commands).
+=======
+>>>>>>> orgin/bash-4.3-testing
 When += is applied to a variable for which the \fIinteger\fP attribute has been
 set, \fIvalue\fP is evaluated as an arithmetic expression and added to the
 variable's current value, which is also evaluated.
@@ -1277,11 +1371,17 @@ A variable can be assigned the \fInameref\fP attribute using the
 (see the descriptions of \fBdeclare\fP and \fBlocal\fP below)
 to create a \fInameref\fP, or a reference to another variable.
 This allows variables to be manipulated indirectly.
+<<<<<<< HEAD
 Whenever the nameref variable is referenced, assigned to, unset, or has
 its attributes modified (other than using or changing the \fInameref\fP
 attribute itself), the
 operation is actually performed on the variable specified by the nameref
 variable's value.
+=======
+Whenever the nameref variable is referenced or assigned to, the operation
+is actually performed on the variable specified by the nameref variable's
+value.
+>>>>>>> orgin/bash-4.3-testing
 A nameref is commonly used within shell functions to refer to a variable
 whose name is passed as an argument to the function.
 For instance, if a variable name is passed to a shell function as its first
@@ -1294,14 +1394,23 @@ argument, running
 .sp .5
 inside the function creates a nameref variable \fBref\fP whose value is
 the variable name passed as the first argument.
+<<<<<<< HEAD
 References and assignments to \fBref\fP, and changes to its attributes,
 are treated as references, assignments, and attribute modifications
 to the variable whose name was passed as \fB$1\fP.
+=======
+References and assignments to \fBref\fP are treated as references and
+assignments to the variable whose name was passed as \fB$1\fP.
+>>>>>>> orgin/bash-4.3-testing
 If the control variable in a \fBfor\fP loop has the nameref attribute,
 the list of words can be a list of shell variables, and a name reference
 will be established for each word in the list, in turn, when the loop is
 executed.
+<<<<<<< HEAD
 Array variables cannot be given the \fBnameref\fP attribute.
+=======
+Array variables cannot be given the \fB\-n\fP attribute.
+>>>>>>> orgin/bash-4.3-testing
 However, nameref variables can reference array variables and subscripted
 array variables.
 Namerefs can be unset using the \fB\-n\fP option to the \fBunset\fP builtin.
@@ -1375,7 +1484,11 @@ If the double-quoted expansion occurs within a word, the expansion of
 the first parameter is joined with the beginning part of the original
 word, and the expansion of the last parameter is joined with the last
 part of the original word.
+<<<<<<< HEAD
 When there are no positional parameters, "\fB$@\fP" and
+=======
+When there are no positional parameters, "\fB$@\fP" and 
+>>>>>>> orgin/bash-4.3-testing
 .B $@
 expand to nothing (i.e., they are removed).
 .TP
@@ -1430,8 +1543,13 @@ as given by argument zero.
 At shell startup, set to the absolute pathname used to invoke the
 shell or shell script being executed as passed in the environment
 or argument list.
+<<<<<<< HEAD
 Subsequently, expands to the last argument to the previous simple
 command executed in the foreground, after expansion.
+=======
+Subsequently, expands to the last argument to the previous command,
+after expansion.
+>>>>>>> orgin/bash-4.3-testing
 Also set to the full pathname used to invoke each command executed
 and placed in the environment exported to that command.
 When checking mail, this parameter holds the name of the mail file
@@ -1472,6 +1590,7 @@ This variable is read-only.
 Expands to the process ID of the current \fBbash\fP process.
 This differs from \fB$$\fP under certain circumstances, such as subshells
 that do not require \fBbash\fP to be re-initialized.
+<<<<<<< HEAD
 Assignments to
 .SM
 .B BASHPID
@@ -1480,10 +1599,13 @@ If
 .B BASHPID
 is unset, it loses its special properties, even if it is
 subsequently reset.
+=======
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B BASH_ALIASES
 An associative array variable whose members correspond to the internal
 list of aliases as maintained by the \fBalias\fP builtin.
+<<<<<<< HEAD
 Elements added to this array appear in the alias list; however,
 unsetting array elements currently does not cause aliases to be removed
 from the alias list.
@@ -1491,6 +1613,10 @@ If
 .B BASH_ALIASES
 is unset, it loses its special properties, even if it is
 subsequently reset.
+=======
+Elements added to this array appear in the alias list; unsetting array
+elements cause aliases to be removed from the alias list.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B BASH_ARGC
 An array variable whose values are the number of parameters in each
@@ -1508,10 +1634,14 @@ only when in extended debugging mode (see the description of the
 .B extdebug
 option to the
 .B shopt
+<<<<<<< HEAD
 builtin below).
 Setting \fBextdebug\fP after the shell has started to execute a script,
 or referencing this variable when \fBextdebug\fP is not set,
 may result in inconsistent values.
+=======
+builtin below)
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B BASH_ARGV
 An array variable containing all of the parameters in the current \fBbash\fP
@@ -1529,6 +1659,7 @@ only when in extended debugging mode
 .B extdebug
 option to the
 .B shopt
+<<<<<<< HEAD
 builtin below).
 Setting \fBextdebug\fP after the shell has started to execute a script,
 or referencing this variable when \fBextdebug\fP is not set,
@@ -1546,10 +1677,14 @@ If
 .B BASH_ARGV0
 is unset, it loses its special properties, even if it is
 subsequently reset.
+=======
+builtin below)
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B BASH_CMDS
 An associative array variable whose members correspond to the internal
 hash table of commands as maintained by the \fBhash\fP builtin.
+<<<<<<< HEAD
 Elements added to this array appear in the hash table; however,
 unsetting array elements currently does not cause command names to be removed
 from the hash table.
@@ -1557,6 +1692,10 @@ If
 .B BASH_CMDS
 is unset, it loses its special properties, even if it is
 subsequently reset.
+=======
+Elements added to this array appear in the hash table; unsetting array
+elements cause commands to be removed from the hash table.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B BASH_COMMAND
 The command currently being executed or about to be executed, unless the
@@ -1582,12 +1721,15 @@ Use
 .B LINENO
 to obtain the current line number.
 .TP
+<<<<<<< HEAD
 .B BASH_LOADABLES_PATH
 A colon-separated list of directories in which the shell looks for
 dynamically loadable builtins specified by the
 .B enable
 command.
 .TP
+=======
+>>>>>>> orgin/bash-4.3-testing
 .B BASH_REMATCH
 An array variable whose members are assigned by the \fB=~\fP binary
 operator to the \fB[[\fP conditional command.
@@ -2084,6 +2226,7 @@ line editing.
 Similar to
 .SM
 .BR BASH_ENV ;
+<<<<<<< HEAD
 used when the shell is invoked in \fIposix mode\fP.
 .TP
 .B EXECIGNORE
@@ -2100,6 +2243,9 @@ Use this variable to ignore shared library files that have the executable
 bit set, but are not executable files.
 The pattern matching honors the setting of the \fBextglob\fP shell
 option.
+=======
+used when the shell is invoked in POSIX mode.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B FCEDIT
 The default editor for the
@@ -2142,14 +2288,22 @@ If the list of values includes
 lines which begin with a
 .B space
 character are not saved in the history list.
+<<<<<<< HEAD
 A value of
+=======
+A value of 
+>>>>>>> orgin/bash-4.3-testing
 .I ignoredups
 causes lines matching the previous history entry to not be saved.
 A value of
 .I ignoreboth
 is shorthand for \fIignorespace\fP and \fIignoredups\fP.
 A value of
+<<<<<<< HEAD
 .I erasedups
+=======
+.IR erasedups
+>>>>>>> orgin/bash-4.3-testing
 causes all previous lines matching the current line to be removed from
 the history list before that line is saved.
 Any value not in the above list is ignored.
@@ -2355,7 +2509,11 @@ If this variable is unset, or set to a value that is not a number
 greater than or equal to zero, the shell disables mail checking.
 .TP
 .B MAILPATH
+<<<<<<< HEAD
 A colon-separated list of filenames to be checked for mail.
+=======
+A colon-separated list of filenames to be checked for mail. 
+>>>>>>> orgin/bash-4.3-testing
 The message to be printed when mail arrives in a particular file
 may be specified by separating the filename from the message with a `?'.
 When used in the text of the message, \fB$_\fP expands to the name of
@@ -2403,10 +2561,15 @@ The default path is system-dependent,
 and is set by the administrator who installs
 .BR bash .
 A common value is
+<<<<<<< HEAD
 .na
 .if t \f(CW/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin\fP.
 .if n ``/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin''.
 .ad
+=======
+.if t \f(CW/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin\fP.
+.if n ``/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin''.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B POSIXLY_CORRECT
 If this variable is in the environment when \fBbash\fP starts, the shell
@@ -2432,7 +2595,11 @@ trailing directory components to retain when expanding the \fB\ew\fP and
 .B PROMPTING
 below).  Characters removed are replaced with an ellipsis.
 .TP
+<<<<<<< HEAD
 .B PS0
+=======
+.B PS1
+>>>>>>> orgin/bash-4.3-testing
 The value of this parameter is expanded (see
 .SM
 .B PROMPTING
@@ -2606,7 +2773,11 @@ There is no maximum
 limit on the size of an array, nor any requirement that members
 be indexed or assigned contiguously.
 Indexed arrays are referenced using integers (including arithmetic
+<<<<<<< HEAD
 expressions) and are zero-based; associative arrays are referenced
+=======
+expressions)  and are zero-based; associative arrays are referenced
+>>>>>>> orgin/bash-4.3-testing
 using arbitrary strings.
 Unless otherwise noted, indexed array indices must be non-negative integers.
 .PP
@@ -2689,9 +2860,19 @@ array, and an index of \-1 references the last element.
 .PP
 Referencing an array variable without a subscript is equivalent to
 referencing the array with a subscript of 0.
+<<<<<<< HEAD
 Any reference to a variable using a valid subscript is legal, and
 .B bash
 will create an array if necessary.
+=======
+If the
+.I subscript
+used to reference an element of an indexed array
+evaluates to a number less than zero, it is 
+interpreted as relative to one greater than the maximum index of the array,
+so negative indices count back from the end of the
+array, and an index of \-1 references the last element.
+>>>>>>> orgin/bash-4.3-testing
 .PP
 An array variable is considered set if a subscript has been assigned a
 value.  The null string is a valid value.
@@ -2705,10 +2886,17 @@ special parameters \fI@\fP and \fI*\fP within double quotes.
 The
 .B unset
 builtin is used to destroy arrays.  \fBunset\fP \fIname\fP[\fIsubscript\fP]
+<<<<<<< HEAD
 destroys the array element at index \fIsubscript\fP,
 for both indexed and associative arrays.
 Negative subscripts to indexed arrays are interpreted as described above.
 Unsetting the last element of an array variable does not unset the variable.
+=======
+destroys the array element at index \fIsubscript\fP.
+Negative subscripts to indexed arrays are interpreted as described above.
+Care must be taken to avoid unwanted side effects caused by pathname
+expansion.
+>>>>>>> orgin/bash-4.3-testing
 \fBunset\fP \fIname\fP, where \fIname\fP is an array, or
 \fBunset\fP \fIname\fP[\fIsubscript\fP], where
 \fIsubscript\fP is \fB*\fP or \fB@\fP, removes the entire array.
@@ -2728,7 +2916,11 @@ builtins each accept a
 option to specify an indexed array and a
 .B \-A
 option to specify an associative array.
+<<<<<<< HEAD
 If both options are supplied,
+=======
+If both options are supplied, 
+>>>>>>> orgin/bash-4.3-testing
 .B \-A
 takes precedence.
 The
@@ -2766,10 +2958,13 @@ available: \fIprocess substitution\fP.
 This is performed at the
 same time as tilde, parameter, variable, and arithmetic expansion and
 command substitution.
+<<<<<<< HEAD
 .PP
 After these expansions are performed, quote characters present in the
 original word are removed unless they have been quoted themselves
 (\fIquote removal\fP).
+=======
+>>>>>>> orgin/bash-4.3-testing
 .PP
 Only brace expansion, word splitting, and pathname expansion
 can increase the number of words of the expansion; other expansions
@@ -2817,7 +3012,11 @@ lexicographically between \fIx\fP and \fIy\fP, inclusive,
 using the default C locale.
 Note that both \fIx\fP and \fIy\fP must be of the same type.
 When the increment is supplied, it is used as the difference between
+<<<<<<< HEAD
 each term.  The default increment is 1 or \-1 as appropriate.
+=======
+each term.  The default increment is 1 or -1 as appropriate.
+>>>>>>> orgin/bash-4.3-testing
 .PP
 Brace expansion is performed before any other expansions,
 and any characters special to other expansions are preserved
@@ -2971,6 +3170,7 @@ The \fIparameter\fP is a shell parameter as described above
 .PD
 .PP
 If the first character of \fIparameter\fP is an exclamation point (\fB!\fP),
+<<<<<<< HEAD
 and \fIparameter\fP is not a \fInameref\fP,
 it introduces a level of indirection.
 \fBBash\fP uses the value formed by expanding the rest of
@@ -2983,6 +3183,14 @@ parameter expansion, command substitution, and arithmetic expansion.
 If \fIparameter\fP is a nameref, this expands to the name of the
 parameter referenced by \fIparameter\fP instead of performing the
 complete indirect expansion.
+=======
+it introduces a level of variable indirection.
+\fBBash\fP uses the value of the variable formed from the rest of
+\fIparameter\fP as the name of the variable; this variable is then
+expanded and that value is used in the rest of the substitution, rather
+than the value of \fIparameter\fP itself.
+This is known as \fIindirect expansion\fP.
+>>>>>>> orgin/bash-4.3-testing
 The exceptions to this are the expansions of ${\fB!\fP\fIprefix\fP\fB*\fP} and
 ${\fB!\fP\fIname\fP[\fI@\fP]} described below.
 The exclamation point must immediately follow the left brace in order to
@@ -3073,7 +3281,11 @@ one space to avoid being confused with the \fB:-\fP expansion.
 If \fIparameter\fP is \fB@\fP, the result is \fIlength\fP positional
 parameters beginning at \fIoffset\fP.
 A negative \fIoffset\fP is taken relative to one greater than the greatest
+<<<<<<< HEAD
 positional parameter, so an offset of \-1 evaluates to the last positional
+=======
+positional parameter, so an offset of -1 evaluates to the last positional
+>>>>>>> orgin/bash-4.3-testing
 parameter.
 It is an expansion error if \fIlength\fP evaluates to a number less than
 zero.
@@ -3089,7 +3301,11 @@ zero.
 Substring expansion applied to an associative array produces undefined
 results.
 .sp 1
+<<<<<<< HEAD
 Substring indexing is zero-based unless the positional parameters
+=======
+Substring indexing is zero-based unless the positional parameters 
+>>>>>>> orgin/bash-4.3-testing
 are used, in which case the indexing starts at 1 by default.
 If \fIoffset\fP is 0, and the positional parameters are used, \fB$0\fP is
 prefixed to the list.
@@ -3151,7 +3367,11 @@ ${\fIparameter\fP\fB#\fP\fIword\fP}
 ${\fIparameter\fP\fB##\fP\fIword\fP}
 .PD
 \fBRemove matching prefix pattern\fP.
+<<<<<<< HEAD
 The
+=======
+The 
+>>>>>>> orgin/bash-4.3-testing
 .I word
 is expanded to produce a pattern just as in pathname
 expansion, and matched against the expanded value of
@@ -3224,9 +3444,12 @@ The \fIpattern\fP is expanded to produce a pattern just as in
 pathname expansion,
 \fIParameter\fP is expanded and the longest match of \fIpattern\fP
 against its value is replaced with \fIstring\fP.
+<<<<<<< HEAD
 The match is performed using the rules described under
 .B Pattern Matching
 below.
+=======
+>>>>>>> orgin/bash-4.3-testing
 If \fIpattern\fP begins with \fB/\fP, all matches of \fIpattern\fP are
 replaced with \fIstring\fP.  Normally only the first match is replaced.
 If \fIpattern\fP begins with \fB#\fP, it must match at the beginning
@@ -3296,6 +3519,7 @@ or
 .BR * ,
 the case modification operation is applied to each member of the
 array in turn, and the expansion is the resultant list.
+<<<<<<< HEAD
 .TP
 ${\fIparameter\fP\fB@\fP\fIoperator\fP}
 \fBParameter transformation\fP.
@@ -3348,6 +3572,8 @@ array in turn, and the expansion is the resultant list.
 The result of the expansion is subject to word splitting and pathname
 expansion as described below.
 .RE
+=======
+>>>>>>> orgin/bash-4.3-testing
 .SS Command Substitution
 .PP
 \fICommand substitution\fP allows the output of a command to replace
@@ -3362,8 +3588,13 @@ or
 .RE
 .PP
 .B Bash
+<<<<<<< HEAD
 performs the expansion by executing \fIcommand\fP in a subshell environment
 and replacing the command substitution with the standard output of the
+=======
+performs the expansion by executing \fIcommand\fP and
+replacing the command substitution with the standard output of the
+>>>>>>> orgin/bash-4.3-testing
 command, with any trailing newlines deleted.
 Embedded newlines are not deleted, but they may be removed during
 word splitting.
@@ -3506,8 +3737,12 @@ If the value of
 .B IFS
 is null, no word splitting occurs.
 .PP
+<<<<<<< HEAD
 Explicit null arguments (\^\f3"\^"\fP or \^\f3\(aq\^\(aq\fP\^) are retained
 and passed to commands as empty strings.
+=======
+Explicit null arguments (\^\f3"\^"\fP or \^\f3\(aq\^\(aq\fP\^) are retained.
+>>>>>>> orgin/bash-4.3-testing
 Unquoted implicit null arguments, resulting from the expansion of
 parameters that have no values, are removed.
 If a parameter with no value is expanded within double quotes, a
@@ -3546,7 +3781,11 @@ If no matching filenames are found,
 and the shell option
 .B nullglob
 is not enabled, the word is left unchanged.
+<<<<<<< HEAD
 If the
+=======
+If the 
+>>>>>>> orgin/bash-4.3-testing
 .B nullglob
 option is set, and no matches are found,
 the word is removed.
@@ -3597,19 +3836,22 @@ shell options.
 The
 .SM
 .B GLOBIGNORE
-shell variable may be used to restrict the set of file names matching a
+shell variable may be used to restrict the set of filenames matching a
 .IR pattern .
 If
 .SM
 .B GLOBIGNORE
-is set, each matching file name that also matches one of the patterns in
+is set, each matching filename that also matches one of the patterns in
 .SM
 .B GLOBIGNORE
 is removed from the list of matches.
+<<<<<<< HEAD
 If the \fBnocaseglob\fP option is set, the matching against the patterns in
 .SM
 .B GLOBIGNORE
 is performed without regard to case.
+=======
+>>>>>>> orgin/bash-4.3-testing
 The filenames
 .B ``.''
 and
@@ -3699,7 +3941,11 @@ shell variable to
 or enable the
 .B globasciiranges
 shell option.
+<<<<<<< HEAD
 A
+=======
+A 
+>>>>>>> orgin/bash-4.3-testing
 .B \-
 may be matched by including it as the first or last character
 in the set.
@@ -3816,9 +4062,12 @@ than or equal to 10 and assign it to \fIvarname\fP.
 If >&- or <&- is preceded
 by {\fIvarname\fP}, the value of \fIvarname\fP defines the file
 descriptor to close.
+<<<<<<< HEAD
 If {\fIvarname\fP} is supplied, the redirection persists beyond
 the scope of the command, allowing the shell programmer to manage
 the file descriptor himself.
+=======
+>>>>>>> orgin/bash-4.3-testing
 .PP
 In the following descriptions, if the file descriptor number is
 omitted, and the first character of the redirection operator is
@@ -4082,12 +4331,20 @@ A variant of here documents, the format is:
 .RE
 .PP
 The \fIword\fP undergoes
+<<<<<<< HEAD
 tilde expansion, parameter and variable expansion,
 command substitution, arithmetic expansion, and quote removal.
 Pathname expansion and word splitting are not performed.
 The result is supplied as a single string, with a newline appended,
 to the command on its
 standard input (or file descriptor \fIn\fP if \fIn\fP is specified).
+=======
+brace expansion, tilde expansion, parameter and variable expansion,
+command substitution, arithmetic expansion, and quote removal.
+Pathname expansion and word splitting are not performed.
+The result is supplied as a single string to the command on its
+standard input.
+>>>>>>> orgin/bash-4.3-testing
 .SS "Duplicating File Descriptors"
 .PP
 The redirection operator
@@ -4281,7 +4538,11 @@ is executing.
 .PP
 All other aspects of the shell execution
 environment are identical between a function and its caller
+<<<<<<< HEAD
 with these exceptions: the
+=======
+with these exceptions:  the
+>>>>>>> orgin/bash-4.3-testing
 .SM
 .B DEBUG
 and
@@ -4353,6 +4614,11 @@ than 0, defines a maximum function nesting level.  Function
 invocations that exceed the limit cause the entire command to
 abort.
 .PP
+The \fBFUNCNEST\fP variable, if set to a numeric value greater
+than 0, defines a maximum function nesting level.  Function
+invocations that exceed the limit cause the entire command to
+abort.
+.PP
 If the builtin command
 .B return
 is executed in a function, the function completes and
@@ -4391,6 +4657,13 @@ A function definition may be deleted using the \fB\-f\fP option to
 the
 .B unset
 builtin.
+<<<<<<< HEAD
+=======
+Note that shell functions and variables with the same name may result
+in multiple identically-named entries in the environment passed to the
+shell's children.
+Care should be taken in cases where this may cause a problem.
+>>>>>>> orgin/bash-4.3-testing
 .PP
 Functions may be recursive.
 The \fBFUNCNEST\fP variable may be used to limit the depth of the
@@ -4399,7 +4672,11 @@ By default, no limit is imposed on the number of recursive calls.
 .SH "ARITHMETIC EVALUATION"
 The shell allows arithmetic expressions to be evaluated, under
 certain circumstances (see the \fBlet\fP and \fBdeclare\fP builtin
+<<<<<<< HEAD
 commands, the \fB((\fP compound command, and \fBArithmetic Expansion\fP).
+=======
+commands and \fBArithmetic Expansion\fP).
+>>>>>>> orgin/bash-4.3-testing
 Evaluation is done in fixed-width integers with no check for overflow,
 though division by 0 is trapped and flagged as an error.
 The operators and their precedence, associativity, and values
@@ -4473,7 +4750,11 @@ A shell variable that is null or unset evaluates to 0 when referenced
 by name without using the parameter expansion syntax.
 The value of a variable is evaluated as an arithmetic expression
 when it is referenced, or when a variable which has been given the
+<<<<<<< HEAD
 \fIinteger\fP attribute using \fBdeclare \-i\fP is assigned a value.
+=======
+\fIinteger\fP attribute using \fBdeclare -i\fP is assigned a value.
+>>>>>>> orgin/bash-4.3-testing
 A null value evaluates to 0.
 A shell variable need not have its \fIinteger\fP attribute
 turned on to be used in an expression.
@@ -4485,7 +4766,11 @@ is a decimal number between 2 and 64 representing the arithmetic
 base, and \fIn\fP is a number in that base.
 If \fIbase#\fP is omitted, then base 10 is used.
 When specifying \fIn\fP,
+<<<<<<< HEAD
 the digits greater than 9 are represented by the lowercase letters,
+=======
+the digits greater< than 9 are represented by the lowercase letters,
+>>>>>>> orgin/bash-4.3-testing
 the uppercase letters, @, and _, in that order.
 If \fIbase\fP is less than or equal to 36, lowercase and uppercase
 letters may be used interchangeably to represent numbers between 10
@@ -4750,10 +5035,16 @@ A full search of the directories in
 is performed only if the command is not found in the hash table.
 If the search is unsuccessful, the shell searches for a defined shell
 function named \fBcommand_not_found_handle\fP.
+<<<<<<< HEAD
 If that function exists, it is invoked in a separate execution environment
 with the original command and
 the original command's arguments as its arguments, and the function's
 exit status becomes the exit status of that subshell.
+=======
+If that function exists, it is invoked with the original command and
+the original command's arguments as its arguments, and the function's
+exit status becomes the exit status of the shell.
+>>>>>>> orgin/bash-4.3-testing
 If that function is not defined, the shell prints an error
 message and returns an exit status of 127.
 .PP
@@ -4853,7 +5144,11 @@ subshell environment.  Changes made to the subshell environment
 cannot affect the shell's execution environment.
 .PP
 Subshells spawned to execute command substitutions inherit the value of
+<<<<<<< HEAD
 the \fB\-e\fP option from the parent shell.  When not in \fIposix mode\fP,
+=======
+the \fB\-e\fP option from the parent shell.  When not in \fIposix\fP mode,
+>>>>>>> orgin/bash-4.3-testing
 \fBbash\fP clears the \fB\-e\fP option in such subshells.
 .PP
 If a command is followed by a \fB&\fP and job control is not active, the
@@ -4922,11 +5217,19 @@ The exit status of an executed command is the value returned by the
 \fIwaitpid\fP system call or equivalent function.  Exit statuses
 fall between 0 and 255, though, as explained below, the shell may
 use values above 125 specially.  Exit statuses from shell builtins and
+<<<<<<< HEAD
 compound commands are also limited to this range.  Under certain
 circumstances, the shell will use special values to indicate specific
 failure modes.
 .PP
 For the shell's purposes, a command which exits with a
+=======
+compound commands are also limited to this range. Under certain
+circumstances, the shell will use special values to indicate specific
+failure modes.
+.PP
+For the shell's purposes, a command which exits with a 
+>>>>>>> orgin/bash-4.3-testing
 zero exit status has succeeded.  An exit status of zero
 indicates success.  A non-zero exit status indicates failure.
 When a command terminates on a fatal signal \fIN\fP, \fBbash\fP uses
@@ -5031,7 +5334,11 @@ to all jobs when an interactive login shell exits.
 .PP
 If \fBbash\fP is waiting for a command to complete and receives a signal
 for which a trap has been set, the trap will not be executed until
+<<<<<<< HEAD
 the command completes.
+=======
+the command completes. 
+>>>>>>> orgin/bash-4.3-testing
 When \fBbash\fP is waiting for an asynchronous command via the \fBwait\fP
 builtin, the reception of a signal for which a trap has been set will
 cause the \fBwait\fP builtin to return immediately with an exit status
@@ -5085,7 +5392,11 @@ user so specifies with \f(CWstty tostop\fP, write to the
 terminal.
 Background processes which attempt to read from (write to when
 \f(CWstty tostop\fP is in effect) the
+<<<<<<< HEAD
 terminal are sent a
+=======
+terminal are sent a 
+>>>>>>> orgin/bash-4.3-testing
 .SM
 .B SIGTTIN (SIGTTOU)
 signal by the kernel's terminal driver, 
@@ -5204,7 +5515,7 @@ warning message, and, if the \fBcheckjobs\fP option is enabled, lists the
 jobs and their statuses.
 The
 .B jobs
-command may then be used to inspect their status.
+command may then be used to inspect their status. 
 If a second attempt to exit is made without an intervening command,
 the shell does not print another warning, and any stopped
 jobs are terminated.
@@ -5661,6 +5972,7 @@ If set to \fBOn\fP, readline attempts to bind the control characters
 treated specially by the kernel's terminal driver to their readline
 equivalents.
 .TP
+<<<<<<< HEAD
 .B blink\-matching\-paren (Off)
 If set to \fBOn\fP, readline attempts to briefly move the cursor to an
 opening parenthesis when a closing parenthesis is inserted.
@@ -5674,6 +5986,11 @@ environment variable.
 .B colored\-stats (Off)
 If set to \fBOn\fP, readline displays possible completions using different
 colors to indicate their file type.
+=======
+.B colored\-stats (Off)
+If set to \fBOn\fP, readline displays possible completions using different
+colors to indicate their file type.     
+>>>>>>> orgin/bash-4.3-testing
 The color definitions are taken from the value of the \fBLS_COLORS\fP
 environment variable.
 .TP
@@ -5699,11 +6016,14 @@ The default value is \-1.
 If set to \fBOn\fP, readline performs filename matching and completion
 in a case\-insensitive fashion.
 .TP
+<<<<<<< HEAD
 .B completion\-map\-case (Off)
 If set to \fBOn\fP, and \fBcompletion\-ignore\-case\fP is enabled, readline
 treats hyphens (\fI\-\fP) and underscores (\fI_\fP) as equivalent when
 performing case\-insensitive filename matching and completion.
 .TP
+=======
+>>>>>>> orgin/bash-4.3-testing
 .B completion\-prefix\-display\-length (0)
 The length in characters of the common prefix of a list of possible
 completions that is displayed without modification.  When set to a
@@ -5747,6 +6067,7 @@ can be set to either
 or
 .BR vi .
 .TP
+<<<<<<< HEAD
 .B emacs\-mode\-string (@)
 If the \fIshow\-mode\-in\-prompt\fP variable is enabled,
 this string is displayed immediately before the last line of the primary
@@ -5763,6 +6084,12 @@ that will enable it to insert each paste into the editing buffer as a
 single string of characters, instead of treating each character as if
 it had been read from the keyboard.  This can prevent pasted characters
 from being interpreted as editing commands.
+=======
+.B echo\-control\-characters (On)
+When set to \fBOn\fP, on operating systems that indicate they support it,
+readline echoes a character corresponding to a signal generated from the
+keyboard.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B enable\-keypad (Off)
 When set to \fBOn\fP, readline will try to enable the application
@@ -5783,16 +6110,24 @@ If set to \fBOn\fP, the history code attempts to place point at the
 same location on each history line retrieved with \fBprevious-history\fP
 or \fBnext-history\fP.
 .TP
+<<<<<<< HEAD
 .B history\-size (unset)
+=======
+.B history\-size (0)
+>>>>>>> orgin/bash-4.3-testing
 Set the maximum number of history entries saved in the history list.
 If set to zero, any existing history entries are deleted and no new entries
 are saved.
 If set to a value less than zero, the number of history entries is not
 limited.
+<<<<<<< HEAD
 By default, the number of history entries is set to the value of the
 \fBHISTSIZE\fP shell variable.
 If an attempt is made to set \fIhistory\-size\fP to a non-numeric value,
 the maximum number of history entries will be set to 500.
+=======
+By default, the number of history entries is not limited.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B horizontal\-scroll\-mode (Off)
 When set to \fBOn\fP, makes readline use a single line for display,
@@ -5854,7 +6189,11 @@ have a slash appended (subject to the value of
 .TP
 .B match\-hidden\-files (On)
 This variable, when set to \fBOn\fP, causes readline to match files whose
+<<<<<<< HEAD
 names begin with a `.' (hidden files) when performing filename
+=======
+names begin with a `.' (hidden files) when performing filename 
+>>>>>>> orgin/bash-4.3-testing
 completion.
 If set to \fBOff\fP, the leading `.' must be
 supplied by the user in the filename to be completed.
@@ -5878,6 +6217,12 @@ to display a screenful of possible completions at a time.
 .B print\-completions\-horizontally (Off)
 If set to \fBOn\fP, readline will display completions with matches
 sorted horizontally in alphabetical order, rather than down the screen.
+.TP 
+.B revert\-all\-at\-newline (Off)
+If set to \fBOn\fP, readline will undo all changes to history lines 
+before returning when \fBaccept\-line\fP is executed.  By default,
+history lines may be modified and retain individual undo lists across
+calls to \fBreadline\fP.
 .TP
 .B revert\-all\-at\-newline (Off)
 If set to \fBOn\fP, readline will undo all changes to history lines
@@ -5903,9 +6248,15 @@ a common prefix) cause the matches to be listed immediately instead
 of ringing the bell.
 .TP
 .B show\-mode\-in\-prompt (Off)
+<<<<<<< HEAD
 If set to \fBOn\fP, add a string to the beginning of the prompt
 indicating the editing mode: emacs, vi command, or vi insertion.
 The mode strings are user-settable (e.g., \fIemacs\-mode\-string\fP).
+=======
+If set to \fBOn\fP, add a character to the beginning of the prompt
+indicating the editing mode: emacs (@), vi command (:) or vi
+insertion (+).
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B skip\-completed\-text (Off)
 If set to \fBOn\fP, this alters the default completion behavior when
@@ -5915,6 +6266,7 @@ does not insert characters from the completion that match characters
 after point in the word being completed, so portions of the word
 following the cursor are not duplicated.
 .TP
+<<<<<<< HEAD
 .B vi\-cmd\-mode\-string ((cmd))
 If the \fIshow\-mode\-in\-prompt\fP variable is enabled,
 this string is displayed immediately before the last line of the primary
@@ -5937,6 +6289,8 @@ Use the \e1 and \e2 escapes to begin and end sequences of
 non-printing characters, which can be used to embed a terminal control
 sequence into the mode string.
 .TP
+=======
+>>>>>>> orgin/bash-4.3-testing
 .B visible\-stats (Off)
 If set to \fBOn\fP, a character denoting a file's type as reported
 by \fIstat\fP(2) is appended to the filename when listing possible
@@ -6123,6 +6477,7 @@ Words are delimited by non-quoted shell metacharacters.
 .B shell\-backward\-word
 Move back to the start of the current or previous word.
 Words are delimited by non-quoted shell metacharacters.
+<<<<<<< HEAD
 .TP
 .B previous\-screen\-line
 Attempt to move point to the same physical screen column on the previous
@@ -6136,6 +6491,8 @@ physical screen line. This will not have the desired effect if the current
 Readline line does not take up more than one physical line or if the length
 of the current Readline line is not greater than the length of the prompt
 plus the screen width.
+=======
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B clear\-screen (C\-l)
 Clear the screen leaving the current line at the top of the screen.
@@ -6389,12 +6746,20 @@ Word boundaries are the same as those used by \fBforward\-word\fP.
 Kill the word behind point.
 Word boundaries are the same as those used by \fBbackward\-word\fP.
 .TP
+<<<<<<< HEAD
 .B shell\-kill\-word
+=======
+.B shell\-kill\-word  (M\-d)
+>>>>>>> orgin/bash-4.3-testing
 Kill from point to the end of the current word, or if between
 words, to the end of the next word.
 Word boundaries are the same as those used by \fBshell\-forward\-word\fP.
 .TP
+<<<<<<< HEAD
 .B shell\-backward\-kill\-word
+=======
+.B shell\-backward\-kill\-word (M\-Rubout)
+>>>>>>> orgin/bash-4.3-testing
 Kill the word behind point.
 Word boundaries are the same as those used by \fBshell\-backward\-word\fP.
 .TP
@@ -6648,7 +7013,11 @@ variable is inserted at the beginning of the current line.
 If a numeric argument is supplied, this command acts as a toggle: if
 the characters at the beginning of the line do not match the value
 of \fBcomment\-begin\fP, the value is inserted, otherwise
+<<<<<<< HEAD
 the characters in \fBcomment\-begin\fP are deleted from the beginning of
+=======
+the characters in \fBcomment\-begin\fP are deleted from the beginning of 
+>>>>>>> orgin/bash-4.3-testing
 the line.
 In either case, the line is accepted as if a newline had been typed.
 The default value of
@@ -6718,9 +7087,12 @@ If no compspec is found for the full pathname, an attempt is made to
 find a compspec for the portion following the final slash.
 If those searches do not result in a compspec, any compspec defined with
 the \fB\-D\fP option to \fBcomplete\fP is used as the default.
+<<<<<<< HEAD
 If there is no default compspec, \fBbash\fP attempts alias expansion
 on the command word as a final resort, and attempts to find a compspec
 for the command word from any successful expansion.
+=======
+>>>>>>> orgin/bash-4.3-testing
 .PP
 Once a compspec has been found, it is used to generate the list of
 matching words.
@@ -6762,7 +7134,11 @@ Shell quoting is honored.
 Each word is then expanded using
 brace expansion, tilde expansion, parameter and variable expansion,
 command substitution, and arithmetic expansion,
+<<<<<<< HEAD
 as described above under
+=======
+as described above under 
+>>>>>>> orgin/bash-4.3-testing
 .SM
 .BR EXPANSION .
 The results are split using the rules described above under
@@ -6862,7 +7238,11 @@ of the setting of the \fBmark-symlinked\-directories\fP readline variable.
 .PP
 There is some support for dynamically modifying completions.  This is
 most useful when used in combination with a default completion specified
+<<<<<<< HEAD
 with \fBcomplete \-D\fP.
+=======
+with \fBcomplete -D\fP.
+>>>>>>> orgin/bash-4.3-testing
 It's possible for shell functions executed as completion
 handlers to indicate that completion should be retried by returning an
 exit status of 124.  If a shell function returns 124, and changes
@@ -6933,7 +7313,11 @@ If \fBHISTFILESIZE\fP is unset, or set to null, a non-numeric value,
 or a numeric value less than zero, the history file is not truncated.
 When the history file is read,
 lines beginning with the history comment character followed immediately
+<<<<<<< HEAD
 by a digit are interpreted as timestamps for the following history line.
+=======
+by a digit are interpreted as timestamps for the preceding history line.
+>>>>>>> orgin/bash-4.3-testing
 These timestamps are optionally displayed depending on the value of the
 .SM
 .B HISTTIMEFORMAT
@@ -7058,6 +7442,12 @@ Only backslash (\^\fB\e\fP\^) and single quotes can quote
 the history expansion character, but the history expansion character is
 also treated as quoted if it immediately precedes the closing double quote
 in a double-quoted string.
+.PP
+Several characters inhibit history expansion if found immediately
+following the history expansion character, even if it is unquoted:
+space, tab, newline, carriage return, and \fB=\fP.
+If the \fBextglob\fP shell option is enabled, \fB(\fP will also
+inhibit expansion.
 .PP
 Several characters inhibit history expansion if found immediately
 following the history expansion character, even if it is unquoted:
@@ -7301,10 +7691,16 @@ section as accepting options preceded by
 accepts
 .B \-\-
 to signify the end of the options.
+<<<<<<< HEAD
 The \fB:\fP, \fBtrue\fP, \fBfalse\fP, and \fBtest\fP/\fB[\fP builtins
 do not accept options and do not treat \fB\-\-\fP specially.
 The \fBexit\fP, \fBlogout\fP, \fBreturn\fP,
 \fBbreak\fP, \fBcontinue\fP, \fBlet\fP,
+=======
+The \fB:\fP, \fBtrue\fP, \fBfalse\fP, and \fBtest\fP builtins
+do not accept options and do not treat \fB\-\-\fP specially.
+The \fBexit\fP, \fBlogout\fP, \fBbreak\fP, \fBcontinue\fP, \fBlet\fP,
+>>>>>>> orgin/bash-4.3-testing
 and \fBshift\fP builtins accept and process arguments beginning with
 \fB\-\fP without requiring \fB\-\-\fP.
 Other builtins that accept arguments but are not specified as accepting
@@ -7534,7 +7930,11 @@ Returns the context of any active subroutine call (a shell function or
 a script executed with the \fB.\fP or \fBsource\fP builtins).
 Without \fIexpr\fP, \fBcaller\fP displays the line number and source
 filename of the current subroutine call.
+<<<<<<< HEAD
 If a non-negative integer is supplied as \fIexpr\fP, \fBcaller\fP
+=======
+If a non-negative integer is supplied as \fIexpr\fP, \fBcaller\fP 
+>>>>>>> orgin/bash-4.3-testing
 displays the line number, subroutine name, and source file corresponding
 to that position in the current execution call stack.  This extra
 information may be used, for example, to print a stack trace.  The
@@ -7675,12 +8075,20 @@ will be displayed.
 The return value is true unless an invalid option is supplied, or no
 matches were generated.
 .TP
+<<<<<<< HEAD
 \fBcomplete\fP [\fB\-abcdefgjksuv\fP] [\fB\-o\fP \fIcomp-option\fP] [\fB\-DEI\fP] [\fB\-A\fP \fIaction\fP] [\fB\-G\fP \fIglobpat\fP] [\fB\-W\fP \fIwordlist\fP] [\fB\-F\fP \fIfunction\fP] [\fB\-C\fP \fIcommand\fP]
+=======
+\fBcomplete\fP [\fB\-abcdefgjksuv\fP] [\fB\-o\fP \fIcomp-option\fP] [\fB\-DE\fP] [\fB\-A\fP \fIaction\fP] [\fB\-G\fP \fIglobpat\fP] [\fB\-W\fP \fIwordlist\fP] [\fB\-F\fP \fIfunction\fP] [\fB\-C\fP \fIcommand\fP]
+>>>>>>> orgin/bash-4.3-testing
 .br
 [\fB\-X\fP \fIfilterpat\fP] [\fB\-P\fP \fIprefix\fP] [\fB\-S\fP \fIsuffix\fP] \fIname\fP [\fIname ...\fP]
 .PD 0
 .TP
+<<<<<<< HEAD
 \fBcomplete\fP \fB\-pr\fP [\fB\-DEI\fP] [\fIname\fP ...]
+=======
+\fBcomplete\fP \fB\-pr\fP [\fB\-DE\fP] [\fIname\fP ...]
+>>>>>>> orgin/bash-4.3-testing
 .PD
 Specify how arguments to each \fIname\fP should be completed.
 If the \fB\-p\fP option is supplied, or if no options are supplied,
@@ -7689,6 +8097,7 @@ them to be reused as input.
 The \fB\-r\fP option removes a completion specification for
 each \fIname\fP, or, if no \fIname\fPs are supplied, all
 completion specifications.
+<<<<<<< HEAD
 The \fB\-D\fP option indicates that other supplied options and actions should
 apply to the ``default'' command completion; that is, completion attempted
 on a command for which no completion has previously been defined.
@@ -7704,6 +8113,14 @@ over \fB\-E\fP, and both take precedence over \fB\-I\fP.
 If any of \fB\-D\fP, \fB\-E\fP, or \fB\-I\fP are supplied, any other
 \fIname\fP arguments are ignored; these completions only apply to the case
 specified by the option.
+=======
+The \fB\-D\fP option indicates that the remaining options and actions should
+apply to the ``default'' command completion; that is, completion attempted
+on a command for which no completion has previously been defined.
+The \fB\-E\fP option indicates that the remaining options and actions should
+apply to ``empty'' command completion; that is, completion attempted on a
+blank line.
+>>>>>>> orgin/bash-4.3-testing
 .sp 1
 The process of applying these completion specifications when word completion
 is attempted is described above under \fBProgrammable Completion\fP.
@@ -7743,16 +8160,23 @@ Intended to be used with shell functions.
 .B noquote
 Tell readline not to quote the completed words if they are filenames
 (quoting filenames is the default).
+<<<<<<< HEAD
 .TP 8
 .B nosort
 Tell readline not to sort the list of possible completions alphabetically.
+=======
+>>>>>>> orgin/bash-4.3-testing
 .TP 8
 .B nospace
 Tell readline not to append a space (the default) to words completed at
 the end of the line.
 .TP 8
 .B plusdirs
+<<<<<<< HEAD
 After any matches defined by the compspec are generated,
+=======
+After any matches defined by the compspec are generated, 
+>>>>>>> orgin/bash-4.3-testing
 directory name completion is attempted and any
 matches are added to the results of the other actions.
 .RE
@@ -7874,12 +8298,15 @@ The \fIwordlist\fP is split using the characters in the
 .SM
 .B IFS
 special variable as delimiters, and each resultant word is expanded.
+<<<<<<< HEAD
 Shell quoting is honored within \fIwordlist\fP,
 in order to provide a
 mechanism for the words to contain shell metacharacters or characters
 in the value of
 .SM
 .BR IFS .
+=======
+>>>>>>> orgin/bash-4.3-testing
 The possible completions are the members of the resultant list which
 match the word being completed.
 .TP 8
@@ -7899,7 +8326,11 @@ a \fIname\fP for which no specification exists, or
 an error occurs adding a completion specification.
 .RE
 .TP
+<<<<<<< HEAD
 \fBcompopt\fP [\fB\-o\fP \fIoption\fP] [\fB\-DEI\fP] [\fB+o\fP \fIoption\fP] [\fIname\fP]
+=======
+\fBcompopt\fP [\fB\-o\fP \fIoption\fP] [\fB\-DE\fP] [\fB+o\fP \fIoption\fP] [\fIname\fP]
+>>>>>>> orgin/bash-4.3-testing
 Modify completion options for each \fIname\fP according to the
 \fIoption\fPs, or for the
 currently-executing completion if no \fIname\fPs are supplied.
@@ -7907,6 +8338,7 @@ If no \fIoption\fPs are given, display the completion options for each
 \fIname\fP or the current completion.
 The possible values of \fIoption\fP are those valid for the \fBcomplete\fP
 builtin described above.
+<<<<<<< HEAD
 The \fB\-D\fP option indicates that other supplied options should
 apply to the ``default'' command completion; that is, completion attempted
 on a command for which no completion has previously been defined.
@@ -7917,6 +8349,14 @@ The \fB\-I\fP option indicates that other supplied options should
 apply to completion on the inital non-assignment word on the line,
 or after a command delimiter such as \fB;\fP or \fB|\fP, which is usually
 command name completion.
+=======
+The \fB\-D\fP option indicates that the remaining options should
+apply to the ``default'' command completion; that is, completion attempted
+on a command for which no completion has previously been defined.
+The \fB\-E\fP option indicates that the remaining options should
+apply to ``empty'' command completion; that is, completion attempted on a
+blank line.
+>>>>>>> orgin/bash-4.3-testing
 .sp 1
 The return value is true unless an invalid option is supplied, an attempt
 is made to modify the options for a \fIname\fP for which no completion
@@ -7968,8 +8408,13 @@ The
 option inhibits the display of function definitions; only the
 function name and attributes are printed.
 If the \fBextdebug\fP shell option is enabled using \fBshopt\fP,
+<<<<<<< HEAD
 the source file name and line number where each \fIname\fP
 is defined are displayed as well.  The
+=======
+the source file name and line number where the function is defined
+are displayed as well.  The
+>>>>>>> orgin/bash-4.3-testing
 .B \-F
 option implies
 .BR \-f .
@@ -8012,11 +8457,18 @@ The upper-case attribute is disabled.
 Give each \fIname\fP the \fInameref\fP attribute, making
 it a name reference to another variable.
 That other variable is defined by the value of \fIname\fP.
+<<<<<<< HEAD
 All references, assignments, and attribute modifications
 to \fIname\fP, except those using or changing the
 \fB\-n\fP attribute itself, are performed on the variable referenced by
 \fIname\fP's value.
 The nameref attribute cannot be applied to array variables.
+=======
+All references and assignments to \fIname\fP, except for changing the
+\fB\-n\fP attribute itself, are performed on the variable referenced by
+\fIname\fP's value.
+The \fB\-n\fP attribute cannot be applied to array variables.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B \-r
 Make \fIname\fPs readonly.  These names cannot then be assigned values
@@ -8039,8 +8491,13 @@ Mark \fIname\fPs for export to subsequent commands via the environment.
 .PP
 Using `+' instead of `\-'
 turns off the attribute instead,
+<<<<<<< HEAD
 with the exceptions that \fB+a\fP and \fB+A\fP
 may not be used to destroy array variables and \fB+r\fP will not
+=======
+with the exceptions that \fB+a\fP
+may not be used to destroy an array variable and \fB+r\fP will not
+>>>>>>> orgin/bash-4.3-testing
 remove the readonly attribute.
 When used in a function,
 .B declare
@@ -8053,9 +8510,12 @@ command,
 unless the \fB\-g\fP option is supplied.
 If a variable name is followed by =\fIvalue\fP, the value of
 the variable is set to \fIvalue\fP.
+<<<<<<< HEAD
 When using \fB\-a\fP or \fB\-A\fP and the compound assignment syntax to
 create array variables, additional attributes do not take effect until
 subsequent assignments.
+=======
+>>>>>>> orgin/bash-4.3-testing
 The return value is 0 unless an invalid option is encountered,
 an attempt is made to define a function using
 .if n ``\-f foo=bar'',
@@ -8115,7 +8575,11 @@ invalid option is supplied or \fIn\fP indexes beyond the end
 of the directory stack.
 .RE
 .TP
+<<<<<<< HEAD
 \fBdisown\fP [\fB\-ar\fP] [\fB\-h\fP] [\fIjobspec\fP ... | \fIpid\fP ... ]
+=======
+\fBdisown\fP [\fB\-ar\fP] [\fB\-h\fP] [\fIjobspec\fP ...]
+>>>>>>> orgin/bash-4.3-testing
 Without options, remove each
 .I jobspec
 from the table of active jobs.
@@ -8274,7 +8738,11 @@ become the arguments to \fIcommand\fP.
 If the
 .B \-l
 option is supplied,
+<<<<<<< HEAD
 the shell places a dash at the beginning of the zeroth argument passed to
+=======
+the shell places a dash at the beginning of the zeroth argument passed to 
+>>>>>>> orgin/bash-4.3-testing
 .IR command .
 This is what
 .IR login (1)
@@ -8410,7 +8878,11 @@ echoed and executed.
 .sp 1
 In the second form, \fIcommand\fP is re-executed after each instance
 of \fIpat\fP is replaced by \fIrep\fP.
+<<<<<<< HEAD
 \fICommand\fP is interpreted the same as \fIfirst\fP above.
+=======
+\fICommand\fP is intepreted the same as \fIfirst\fP above.
+>>>>>>> orgin/bash-4.3-testing
 A useful alias to use with this is
 .if n ``r="fc -s"'',
 .if t \f(CWr='fc \-s'\fP,
@@ -8564,7 +9036,11 @@ error occurs.
 .TP
 \fBhash\fP [\fB\-lr\fP] [\fB\-p\fP \fIfilename\fP] [\fB\-dt\fP] [\fIname\fP]
 Each time \fBhash\fP is invoked,
+<<<<<<< HEAD
 the full pathname of the command
+=======
+the full pathname of the command 
+>>>>>>> orgin/bash-4.3-testing
 .I name
 is determined by searching
 the directories in
@@ -8719,7 +9195,11 @@ associated with each history entry is written to the history file,
 marked with the history comment character.
 When the history file is read, lines beginning with the history
 comment character followed immediately by a digit are interpreted
+<<<<<<< HEAD
 as timestamps for the following history entry.
+=======
+as timestamps for the previous history line.
+>>>>>>> orgin/bash-4.3-testing
 The return value is 0 unless an invalid option is encountered, an
 error occurs while reading or writing the history file, an invalid
 \fIoffset\fP is supplied as an argument to \fB\-d\fP, or the
@@ -8870,6 +9350,7 @@ is supplied, or
 .B logout
 Exit a login shell.
 .TP
+<<<<<<< HEAD
 \fBmapfile\fP [\fB\-d\fP \fIdelim\fP] [\fB\-n\fP \fIcount\fP] [\fB\-O\fP \fIorigin\fP] [\fB\-s\fP \fIcount\fP] [\fB\-t\fP] [\fB\-u\fP \fIfd\fP] [\fB\-C\fP \fIcallback\fP] [\fB\-c\fP \fIquantum\fP] [\fIarray\fP]
 .PD 0
 .TP
@@ -8880,6 +9361,18 @@ Read lines from the standard input into the indexed array variable
 or from file descriptor
 .I fd
 if the
+=======
+\fBmapfile\fP [\fB\-n\fP \fIcount\fP] [\fB\-O\fP \fIorigin\fP] [\fB\-s\fP \fIcount\fP] [\fB\-t\fP] [\fB\-u\fP \fIfd\fP] [\fB\-C\fP \fIcallback\fP] [\fB\-c\fP \fIquantum\fP] [\fIarray\fP]
+.PD 0
+.TP
+\fBreadarray\fP [\fB\-n\fP \fIcount\fP] [\fB\-O\fP \fIorigin\fP] [\fB\-s\fP \fIcount\fP] [\fB\-t\fP] [\fB\-u\fP \fIfd\fP] [\fB\-C\fP \fIcallback\fP] [\fB\-c\fP \fIquantum\fP] [\fIarray\fP]
+.PD
+Read lines from the standard input into the indexed array variable
+.IR array ,
+or from file descriptor 
+.IR fd
+if the 
+>>>>>>> orgin/bash-4.3-testing
 .B \-u
 option is supplied.
 The variable
@@ -8890,12 +9383,15 @@ Options, if supplied, have the following meanings:
 .RS
 .PD 0
 .TP
+<<<<<<< HEAD
 .B \-d
 The first character of \fIdelim\fP is used to terminate each input line,
 rather than newline.
 If \fIdelim\fP is the empty string, \fBmapfile\fP will terminate a line
 when it reads a NUL character.
 .TP
+=======
+>>>>>>> orgin/bash-4.3-testing
 .B \-n
 Copy at most
 .I count
@@ -8912,7 +9408,11 @@ The default index is 0.
 Discard the first \fIcount\fP lines read.
 .TP
 .B \-t
+<<<<<<< HEAD
 Remove a trailing \fIdelim\fP (default newline) from each line read.
+=======
+Remove a trailing newline from each line read.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B \-u
 Read lines from file descriptor \fIfd\fP instead of the standard input.
@@ -8930,13 +9430,21 @@ Specify the number of lines read between each call to
 .PP
 If
 .B \-C
+<<<<<<< HEAD
 is specified without
+=======
+is specified without 
+>>>>>>> orgin/bash-4.3-testing
 .BR \-c ,
 the default quantum is 5000.
 When \fIcallback\fP is evaluated, it is supplied the index of the next
 array element to be assigned and the line to be assigned to that element
 as additional arguments.
+<<<<<<< HEAD
 \fIcallback\fP is evaluated after the line is read but before the
+=======
+\fIcallback\fP is evaluated after the line is read but before the 
+>>>>>>> orgin/bash-4.3-testing
 array element is assigned.
 .PP
 If not supplied with an explicit origin, \fBmapfile\fP will clear \fIarray\fP
@@ -9015,8 +9523,14 @@ In addition to the standard \fIprintf\fP(1) format specifications,
 .B %b
 causes
 \fBprintf\fP to expand backslash escape sequences in the corresponding
+<<<<<<< HEAD
 \fIargument\fP
 in the same way as \fBecho \-e\fP.
+=======
+\fIargument\fP (except that \fB\ec\fP terminates output, backslashes in
+\fB\e\(aq\fP, \fB\e"\fP, and \fB\e?\fP are not removed, and octal escapes
+beginning with \fB\e0\fP may contain up to four digits).
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B %q
 causes \fBprintf\fP to output the corresponding
@@ -9027,9 +9541,15 @@ causes \fBprintf\fP to output the date-time string resulting from using
 \fIdatefmt\fP as a format string for \fIstrftime\fP(3).
 The corresponding \fIargument\fP is an integer representing the number of
 seconds since the epoch.
+<<<<<<< HEAD
 Two special argument values may be used: \-1 represents the current
 time, and \-2 represents the time the shell was invoked.
 If no argument is specified, conversion behaves as if \-1 had been given.
+=======
+Two special argument values may be used: -1 represents the current
+time, and -2 represents the time the shell was invoked.
+If no argument is specified, conversion behaves as if -1 had been given.
+>>>>>>> orgin/bash-4.3-testing
 This is an exception to the usual \fBprintf\fP behavior.
 .PD
 .PP
@@ -9059,8 +9579,13 @@ Arguments, if supplied, have the following meanings:
 .PD 0
 .TP
 .B \-n
+<<<<<<< HEAD
 Suppresses the normal change of directory when rotating or
 adding directories to the stack, so that only the stack is manipulated.
+=======
+Suppresses the normal change of directory when adding directories
+to the stack, so that only the stack is manipulated.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 \fB+\fP\fIn\fP
 Rotates the stack so that the \fIn\fPth directory
@@ -9166,7 +9691,11 @@ is coming from a terminal,
 .B READLINE
 above) is used to obtain the line.
 Readline uses the current (or default, if line editing was not previously
+<<<<<<< HEAD
 active) editing settings, but uses Readline's default filename completion.
+=======
+active) editing settings.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B \-i \fItext\fP
 If
@@ -9176,7 +9705,11 @@ buffer before editing begins.
 .TP
 .B \-n \fInchars\fP
 \fBread\fP returns after reading \fInchars\fP characters rather than
+<<<<<<< HEAD
 waiting for a complete line of input, but honors a delimiter if fewer
+=======
+waiting for a complete line of input, but honor a delimiter if fewer
+>>>>>>> orgin/bash-4.3-testing
 than \fInchars\fP characters are read before the delimiter.
 .TP
 .B \-N \fInchars\fP
@@ -9186,9 +9719,12 @@ than waiting for a complete line of input, unless EOF is encountered or
 Delimiter characters encountered in the input are
 not treated specially and do not cause \fBread\fP to return until
 \fInchars\fP characters are read.
+<<<<<<< HEAD
 The result is not split on the characters in \fBIFS\fP; the intent is
 that the variable is assigned exactly the characters read
 (with the exception of backslash; see the \fB\-r\fP option below).
+=======
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B \-p \fIprompt\fP
 Display \fIprompt\fP on standard error, without a
@@ -9230,8 +9766,13 @@ If no
 are supplied, the line read is assigned to the variable
 .SM
 .BR REPLY .
+<<<<<<< HEAD
 The exit status is zero, unless end-of-file is encountered, \fBread\fP
 times out (in which case the status is greater than 128),
+=======
+The return code is zero, unless end-of-file is encountered, \fBread\fP
+times out (in which case the return code is greater than 128),
+>>>>>>> orgin/bash-4.3-testing
 a variable assignment error (such as assigning to a readonly variable) occurs,
 or an invalid file descriptor is supplied as the argument to \fB\-u\fP.
 .RE
@@ -9281,6 +9822,7 @@ that is not a function.
 Causes a function to stop executing and return the value specified by
 .I n
 to its caller.
+<<<<<<< HEAD
 If
 .I n
 is omitted, the return status is that of the last command
@@ -9294,6 +9836,15 @@ If
 .B return
 is used outside a function,
 but during execution of a script by the
+=======
+If 
+.I n
+is omitted, the return status is that of the last command
+executed in the function body.  If
+.B return
+is used outside a function,
+but during execution of a script by the 
+>>>>>>> orgin/bash-4.3-testing
 .B .
 (\fBsource\fP) command, it causes the shell to stop executing
 that script and return either
@@ -9319,11 +9870,19 @@ Without options, the name and value of each shell variable are displayed
 in a format that can be reused as input
 for setting or resetting the currently-set variables.
 Read-only variables cannot be reset.
+<<<<<<< HEAD
 In \fIposix mode\fP, only shell variables are listed.
 The output is sorted according to the current locale.
 When options are specified, they set or unset shell attributes.
 Any arguments remaining after option processing are treated
 as values for the positional parameters and are assigned, in order, to
+=======
+In \fIposix\fP mode, only shell variables are listed.
+The output is sorted according to the current locale.
+When options are specified, they set or unset shell attributes.
+Any arguments remaining after option processing are treated
+as values for the positional parameters and are assigned, in order, to 
+>>>>>>> orgin/bash-4.3-testing
 .BR $1 ,
 .BR $2 ,
 .B ...
@@ -9333,9 +9892,14 @@ Options, if specified, have the following meanings:
 .PD 0
 .TP 8
 .B \-a
+<<<<<<< HEAD
 Each variable or function that is created or modified is given the
 export attribute and marked for export to the environment of
 subsequent commands.
+=======
+Automatically mark variables and functions which are modified or
+created for export to the environment of subsequent commands.
+>>>>>>> orgin/bash-4.3-testing
 .TP 8
 .B \-b
 Report the status of terminated background jobs
@@ -9350,13 +9914,21 @@ or a \fIcompound command\fP
 (see
 .SM
 .B SHELL GRAMMAR
+<<<<<<< HEAD
 above), exits with a non-zero status.
+=======
+above),  exits with a non-zero status.
+>>>>>>> orgin/bash-4.3-testing
 The shell does not exit if the
 command that fails is part of the command list immediately following a
 .B while
 or
 .B until
+<<<<<<< HEAD
 keyword,
+=======
+keyword, 
+>>>>>>> orgin/bash-4.3-testing
 part of the test following the
 .B if
 or
@@ -9767,12 +10339,15 @@ The list of \fBshopt\fP options is:
 .if n .sp 1v
 .PD 0
 .TP 8
+<<<<<<< HEAD
 .B assoc_expand_once
 If set, the shell suppresses multiple evaluation of associative array
 subscripts during arithmetic expression evaluation, while executing
 builtins that can perform variable assignments,
 and while executing builtins that perform array dereferencing.
 .TP 8
+=======
+>>>>>>> orgin/bash-4.3-testing
 .B autocd
 If set, a command name that is the name of a directory is executed as if
 it were the argument to the \fBcd\fP command.
@@ -9932,6 +10507,86 @@ If set,
 attempts spelling correction on directory names during word completion
 if the directory name initially supplied does not exist.
 .TP 8
+.B compat31
+If set,
+.B bash
+changes its behavior to that of version 3.1 with respect to quoted
+arguments to the \fB[[\fP conditional command's \fB=~\fP operator
+and locale-specific string comparison when using the \fB[[\fP
+conditional command's \fB<\fP and \fB>\fP operators.
+Bash versions prior to bash-4.1 use ASCII collation and
+.IR strcmp (3);
+bash-4.1 and later use the current locale's collation sequence and
+.IR strcoll (3).
+.TP 8
+.B compat32
+If set,
+.B bash
+changes its behavior to that of version 3.2 with respect to
+locale-specific string comparison when using the \fB[[\fP
+conditional command's \fB<\fP and \fB>\fP operators (see previous item).
+.TP 8
+.B compat40
+If set,
+.B bash
+changes its behavior to that of version 4.0 with respect to locale-specific
+string comparison when using the \fB[[\fP
+conditional command's \fB<\fP and \fB>\fP operators (see description of
+\fBcompat31\fP)
+and the effect of interrupting a command list.
+Bash versions 4.0 and later interrupt the list as if the shell received the
+interrupt; previous versions continue with the next command in the list.
+.TP 8
+.B compat41
+If set,
+.BR bash ,
+when in \fIposix\fP mode, treats a single quote in a double-quoted
+parameter expansion as a special character.  The single quotes must match
+(an even number) and the characters between the single quotes are considered
+quoted.  This is the behavior of posix mode through version 4.1.
+The default bash behavior remains as in previous versions.
+.TP 8
+.B compat42
+If set,
+.B bash
+does not process the replacement string in the pattern substitution word
+expansion using quote removal.
+.TP 8
+.B complete_fullquote
+If set,
+.B bash
+quotes all shell metacharacters in filenames and directory names when
+performing completion.
+If not set,
+.B bash
+removes metacharacters such as the dollar sign from the set of
+characters that will be quoted in completed filenames
+when these metacharacters appear in shell variable references in words to be
+completed.
+This means that dollar signs in variable names that expand to directories
+will not be quoted;
+however, any dollar signs appearing in filenames will not be quoted, either.
+This is active only when bash is using backslashes to quote completed
+filenames.
+This variable is set by default, which is the default bash behavior in
+versions through 4.2.
+.TP 8
+.B direxpand
+If set,
+.B bash
+replaces directory names with the results of word expansion when performing
+filename completion.  This changes the contents of the readline editing
+buffer.
+If not set,
+.B bash
+attempts to preserve what the user typed.
+.TP 8
+.B dirspell
+If set,
+.B bash
+attempts spelling correction on directory names during word completion
+if the directory name initially supplied does not exist.
+.TP 8
 .B dotglob
 If set,
 .B bash
@@ -9960,9 +10615,13 @@ If set, aliases are expanded as described above under
 This option is enabled by default for interactive shells.
 .TP 8
 .B extdebug
+<<<<<<< HEAD
 If set at shell invocation, arrange to execute the debugger profile
 before the shell starts, identical to the \fB\-\-debugger\fP option.
 If set after invocation, behavior intended for use by debuggers is enabled:
+=======
+If set, behavior intended for use by debuggers is enabled:
+>>>>>>> orgin/bash-4.3-testing
 .RS
 .TP
 .B 1.
@@ -9977,8 +10636,13 @@ next command is skipped and not executed.
 .B 3.
 If the command run by the \fBDEBUG\fP trap returns a value of 2, and the
 shell is executing in a subroutine (a shell function or a shell script
+<<<<<<< HEAD
 executed by the \fB.\fP or \fBsource\fP builtins), the shell simulates
 a call to \fBreturn\fP.
+=======
+executed by the \fB.\fP or \fBsource\fP builtins), a call to
+\fBreturn\fP is simulated.
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B 4.
 .SM
@@ -9989,12 +10653,20 @@ and
 are updated as described in their descriptions above.
 .TP
 .B 5.
+<<<<<<< HEAD
 Function tracing is enabled: command substitution, shell functions, and
+=======
+Function tracing is enabled:  command substitution, shell functions, and
+>>>>>>> orgin/bash-4.3-testing
 subshells invoked with \fB(\fP \fIcommand\fP \fB)\fP inherit the
 \fBDEBUG\fP and \fBRETURN\fP traps.
 .TP
 .B 6.
+<<<<<<< HEAD
 Error tracing is enabled: command substitution, shell functions, and
+=======
+Error tracing is enabled:  command substitution, shell functions, and
+>>>>>>> orgin/bash-4.3-testing
 subshells invoked with \fB(\fP \fIcommand\fP \fB)\fP inherit the
 \fBERR\fP trap.
 .RE
@@ -10159,9 +10831,13 @@ above).
 If set,
 .B bash
 matches patterns in a case\-insensitive fashion when performing matching
+<<<<<<< HEAD
 while executing \fBcase\fP or \fB[[\fP conditional commands,
 when performing pattern substitution word expansions,
 or when filtering possible completions as part of programmable completion.
+=======
+while executing \fBcase\fP or \fB[[\fP conditional commands.
+>>>>>>> orgin/bash-4.3-testing
 .TP 8
 .B nullglob
 If set,
@@ -10309,7 +10985,11 @@ under
 the result of the expression is the result of the binary test using
 the first and third arguments as operands.
 The \fB\-a\fP and \fB\-o\fP operators are considered binary operators
+<<<<<<< HEAD
 when there are three arguments.
+=======
+when there are three arguments.  
+>>>>>>> orgin/bash-4.3-testing
 If the first argument is \fB!\fP, the value is the negation of
 the two-argument test using the second and third arguments.
 If the first argument is exactly \fB(\fP and the third argument is
@@ -10423,9 +11103,15 @@ is
 .BR ERR ,
 the command
 .I arg
+<<<<<<< HEAD
 is executed whenever
 a pipeline (which may consist of a single simple
 command), a list, or a compound command returns a
+=======
+is executed whenever a 
+a pipeline (which may consist of a single simple
+command), a list, or a compound command returns a 
+>>>>>>> orgin/bash-4.3-testing
 non\-zero exit status,
 subject to the following conditions.
 The
@@ -10436,7 +11122,11 @@ command is part of the command list immediately following a
 .B while
 or
 .B until
+<<<<<<< HEAD
 keyword,
+=======
+keyword, 
+>>>>>>> orgin/bash-4.3-testing
 part of the test in an
 .I if
 statement, part of a command executed in a
@@ -10512,7 +11202,11 @@ If a command is hashed,
 and
 .B \-P
 print the hashed value, which is not necessarily the file that appears
+<<<<<<< HEAD
 first in
+=======
+first in 
+>>>>>>> orgin/bash-4.3-testing
 .SM
 .BR PATH .
 If the
@@ -10536,7 +11230,11 @@ option suppresses shell function lookup, as with the \fBcommand\fP builtin.
 returns true if all of the arguments are found, false if
 any are not found.
 .TP
+<<<<<<< HEAD
 \fBulimit\fP [\fB\-HSabcdefiklmnpqrstuvxPT\fP [\fIlimit\fP]]
+=======
+\fBulimit\fP [\fB\-HSTabcdefilmnpqrstuvx\fP [\fIlimit\fP]]
+>>>>>>> orgin/bash-4.3-testing
 Provides control over the resources available to the shell and to
 processes started by it, on systems that allow such control.
 The \fB\-H\fP and \fB\-S\fP options specify that the hard or soft limit is
@@ -10584,9 +11282,12 @@ The maximum size of files written by the shell and its children
 .TP
 .B \-i
 The maximum number of pending signals
+<<<<<<< HEAD
 .TP
 .B \-k
 The maximum number of kqueues that may be allocated
+=======
+>>>>>>> orgin/bash-4.3-testing
 .TP
 .B \-l
 The maximum size that may be locked into memory
@@ -10623,9 +11324,12 @@ some systems, to its children
 .B \-x
 The maximum number of file locks
 .TP
+<<<<<<< HEAD
 .B \-P
 The maximum number of pseudoterminals
 .TP
+=======
+>>>>>>> orgin/bash-4.3-testing
 .B \-T
 The maximum number of threads
 .PD
@@ -10643,10 +11347,16 @@ is assumed.  Values are in 1024-byte increments, except for
 which is in seconds;
 .BR \-p ,
 which is in units of 512-byte blocks;
+<<<<<<< HEAD
 .BR \-P ,
 .BR \-T ,
 .BR \-b ,
 .BR \-k ,
+=======
+and
+.BR \-T ,
+.BR \-b ,
+>>>>>>> orgin/bash-4.3-testing
 .BR \-n ,
 and
 .BR \-u ,
@@ -10743,10 +11453,17 @@ subsequently reset.  The exit status is true unless a
 .I name
 is readonly.
 .TP
+<<<<<<< HEAD
 \fBwait\fP [\fB\-fn\fP] [\fIid ...\fP]
 Wait for each specified child process and return its termination status.
 Each
 .I id
+=======
+\fBwait\fP [\fB\-n\fP] [\fIn ...\fP]
+Wait for each specified child process and return its termination status.
+Each
+.I n
+>>>>>>> orgin/bash-4.3-testing
 may be a process
 ID or a job specification; if a job spec is given, all processes
 in that job's pipeline are waited for.  If
@@ -10755,11 +11472,16 @@ is not given, all currently active child processes
 are waited for, and the return status is zero.
 If the \fB\-n\fP option is supplied, \fBwait\fP waits for any job to
 terminate and returns its exit status.
+<<<<<<< HEAD
 If the \fB\-f\fP option is supplied, and job control is enabled,
 \fBwait\fP forces \fIid\fP to terminate before returning its status,
 instead of returning when it changes status.
 If
 .I id
+=======
+If
+.I n
+>>>>>>> orgin/bash-4.3-testing
 specifies a non-existent process or job, the return status is
 127.  Otherwise, the return status is the exit status of the last
 process or job waited for.

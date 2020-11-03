@@ -14,11 +14,14 @@ case x in
  0) x=i ;;
  *) x=i ;;
 esac
+<<<<<<< HEAD
 
 foo=one
 foo+=two
 echo $foo
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 set +x
 
 # test BASH_XTRACEFD

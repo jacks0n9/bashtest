@@ -12,5 +12,9 @@ echo a!(x)
 echo a*?(x)
 echo a?(x)
 
+<<<<<<< HEAD
 builtin cd $OLDPWD
+=======
+builtin cd /
+>>>>>>> orgin/bash-4.3-testing
 rm -rf $TESTDIR

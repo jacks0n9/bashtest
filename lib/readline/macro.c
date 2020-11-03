@@ -1,6 +1,10 @@
 /* macro.c -- keyboard macros for readline. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1994-2009,2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1994-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -130,13 +134,17 @@ _rl_next_macro_key (void)
       _rl_pop_executing_macro ();
   return c;
 #else
+<<<<<<< HEAD
   /* XXX - consider doing the same as the callback code, just not testing
      whether we're running in callback mode */
+=======
+>>>>>>> orgin/bash-4.3-testing
   return (rl_executing_macro[executing_macro_index++]);
 #endif
 }
 
 int
+<<<<<<< HEAD
 _rl_peek_macro_key (void)
 {
   if (rl_executing_macro == 0)
@@ -150,6 +158,9 @@ _rl_peek_macro_key (void)
 
 int
 _rl_prev_macro_key (void)
+=======
+_rl_prev_macro_key ()
+>>>>>>> orgin/bash-4.3-testing
 {
   if (rl_executing_macro == 0)
     return (0);
@@ -304,7 +315,12 @@ rl_call_last_kbd_macro (int count, int ignore)
 }
 
 int
+<<<<<<< HEAD
 rl_print_last_kbd_macro (int count, int ignore)
+=======
+rl_print_last_kbd_macro (count, ignore)
+     int count, ignore;
+>>>>>>> orgin/bash-4.3-testing
 {
   char *m;
 

@@ -36,6 +36,7 @@
 #  endif
 #endif
 
+<<<<<<< HEAD
 /* New definition to use, moving away from __P since it's part of a reserved
    namespace */
 #if !defined (PARAMS)
@@ -46,6 +47,8 @@
 #  endif
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Fortify, at least, has trouble with this definition */
 #if defined (HAVE_STRINGIZE)
 #  define CPP_STRING(x) #x

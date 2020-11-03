@@ -37,6 +37,9 @@ foo bar
 unalias foo bar baz
 
 ${THIS_SH} ./alias1.sub
+<<<<<<< HEAD
 ${THIS_SH} ./alias2.sub
 ${THIS_SH} ./alias3.sub
 ${THIS_SH} ./alias4.sub
+=======
+>>>>>>> orgin/bash-4.3-testing

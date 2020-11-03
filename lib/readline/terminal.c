@@ -1,6 +1,10 @@
 /* terminal.c -- controlling the terminal with termcap. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1996-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1996-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -50,6 +54,10 @@
 
 /* System-specific feature definitions and include files. */
 #include "rldefs.h"
+
+#ifdef __MSDOS__
+#  include <pc.h>
+#endif
 
 #ifdef __MSDOS__
 #  include <pc.h>
@@ -132,7 +140,10 @@ char *_rl_term_IC;
 char *_rl_term_dc;
 char *_rl_term_DC;
 
+<<<<<<< HEAD
 /* How to move forward a char, non-destructively */
+=======
+>>>>>>> orgin/bash-4.3-testing
 char *_rl_term_forward_char;
 
 /* How to go up a line. */
@@ -205,7 +216,12 @@ _emx_get_screensize (int *swp, int *shp)
 
 #if defined (__MINGW32__)
 static void
+<<<<<<< HEAD
 _win_get_screensize (int *swp, int *shp)
+=======
+_win_get_screensize (swp, shp)
+     int *swp, *shp;
+>>>>>>> orgin/bash-4.3-testing
 {
   HANDLE hConOut;
   CONSOLE_SCREEN_BUFFER_INFO scr;
@@ -351,13 +367,21 @@ rl_get_screen_size (int *rows, int *cols)
 }
 
 void
+<<<<<<< HEAD
 rl_reset_screen_size (void)
+=======
+rl_reset_screen_size ()
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_get_screen_size (fileno (rl_instream), 0);
 }
 
 void
+<<<<<<< HEAD
 _rl_sigwinch_resize_terminal (void)
+=======
+_rl_sigwinch_resize_terminal ()
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_get_screen_size (fileno (rl_instream), 1);
 }
@@ -453,7 +477,11 @@ _rl_init_terminal_io (const char *terminal_name)
   _rl_term_mm = _rl_term_mo = (char *)NULL;
   _rl_terminal_can_insert = term_has_meta = _rl_term_autowrap = 0;
   _rl_term_cr = "\r";
+<<<<<<< HEAD
   _rl_term_backspace = (char *)NULL;
+=======
+  _rl_term_clreol = _rl_term_clrpag = _rl_term_backspace = (char *)NULL;
+>>>>>>> orgin/bash-4.3-testing
   _rl_term_goto = _rl_term_pc = _rl_term_ip = (char *)NULL;
   _rl_term_ks = _rl_term_ke =_rl_term_vs = _rl_term_ve = (char *)NULL;
   _rl_term_kh = _rl_term_kH = _rl_term_at7 = _rl_term_kI = (char *)NULL;
@@ -595,7 +623,10 @@ bind_termcap_arrow_keys (Keymap map)
   rl_bind_keyseq_if_unbound (_rl_term_at7, rl_end_of_line);	/* End */
 
   rl_bind_keyseq_if_unbound (_rl_term_kD, rl_delete);
+<<<<<<< HEAD
   rl_bind_keyseq_if_unbound (_rl_term_kI, rl_overwrite_mode);	/* Insert */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   _rl_keymap = xkeymap;
 }
@@ -725,6 +756,21 @@ _rl_enable_meta_key (void)
       tputs (_rl_term_mm, 1, _rl_output_character_function);
       enabled_meta = 1;
     }
+<<<<<<< HEAD
+=======
+#endif
+}
+
+void
+_rl_disable_meta_key ()
+{
+#if !defined (__DJGPP__)
+  if (term_has_meta && _rl_term_mo && enabled_meta)
+    {
+      tputs (_rl_term_mo, 1, _rl_output_character_function);
+      enabled_meta = 0;
+    }
+>>>>>>> orgin/bash-4.3-testing
 #endif
 }
 

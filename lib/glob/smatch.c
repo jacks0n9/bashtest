@@ -1,7 +1,11 @@
 /* strmatch.c -- ksh-like extended pattern matching for the shell and filename
 		globbing. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1991-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1991-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
    
@@ -288,6 +292,7 @@ is_cclass (c, name)
 
 extern char *mbsmbchar __P((const char *));
 
+<<<<<<< HEAD
 #if FNMATCH_EQUIV_FALLBACK
 /* We don't include <fnmatch.h> in order to avoid namespace collisions; the
    internal strmatch still uses the FNM_ constants. */
@@ -323,6 +328,8 @@ _fnmatch_fallback_wc (c1, c2)
 }
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 static int
 rangecmp_wc (c1, c2, forcecoll)
      wint_t c1, c2;
@@ -330,7 +337,10 @@ rangecmp_wc (c1, c2, forcecoll)
 {
   static wchar_t s1[2] = { L' ', L'\0' };
   static wchar_t s2[2] = { L' ', L'\0' };
+<<<<<<< HEAD
   int r, oerrno;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   if (c1 == c2)
     return 0;
@@ -358,6 +368,7 @@ static int
 collequiv_wc (c, equiv)
      wint_t c, equiv;
 {
+<<<<<<< HEAD
   wchar_t s, p;
 
   if (rangecmp_wc (c, equiv, 1) == 0)
@@ -373,6 +384,9 @@ collequiv_wc (c, equiv)
 #else
   return 0;
 #endif
+=======
+  return (c == equiv);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Helper function for collating symbol. */
@@ -425,8 +439,11 @@ is_wcclass (wc, name)
 
   memset (&state, '\0', sizeof (mbstate_t));
   mbs = (char *) malloc (wcslen(name) * MB_CUR_MAX + 1);
+<<<<<<< HEAD
   if (mbs == 0)
     return -1;
+=======
+>>>>>>> orgin/bash-4.3-testing
   mbslength = wcsrtombs (mbs, (const wchar_t **)&name, (wcslen(name) * MB_CUR_MAX + 1), &state);
 
   if (mbslength == (size_t)-1 || mbslength == (size_t)-2)
@@ -526,10 +543,17 @@ xstrmatch (pattern, string, flags)
   wchar_t *wpattern, *wstring;
   size_t plen, slen, mplen, mslen;
 
+<<<<<<< HEAD
   if (MB_CUR_MAX == 1)
     return (internal_strmatch ((unsigned char *)pattern, (unsigned char *)string, flags));
 
   if (mbsmbchar (string) == 0 && mbsmbchar (pattern) == 0 && posix_cclass_only (pattern) )
+=======
+  if (mbsmbchar (string) == 0 && mbsmbchar (pattern) == 0)
+    return (internal_strmatch ((unsigned char *)pattern, (unsigned char *)string, flags));
+
+  if (MB_CUR_MAX == 1)
+>>>>>>> orgin/bash-4.3-testing
     return (internal_strmatch ((unsigned char *)pattern, (unsigned char *)string, flags));
 
   n = xdupmbstowcs (&wpattern, NULL, pattern);

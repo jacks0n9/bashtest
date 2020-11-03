@@ -28,11 +28,16 @@
 #include "shmbutil.h"
 
 extern int locale_mb_cur_max;
+<<<<<<< HEAD:lib/sh/mbschr.c
 extern int locale_utf8locale;
 
 #undef mbschr
 
 extern char *utf8_mbschr (const char *, int);	/* XXX */
+=======
+
+#undef mbschr
+>>>>>>> orgin/bash-4.3-testing:lib/sh/xstrchr.c
 
 /* In some locales, the non-first byte of some multibyte characters have
    the same value as some ascii character.  Faced with these strings, a

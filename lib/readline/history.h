@@ -1,6 +1,10 @@
 /* history.h -- the names of functions that you can call in history. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1989-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1989-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file contains the GNU History Library (History), a set of
    routines for managing the text of previously typed lines.
@@ -86,6 +90,7 @@ extern void add_history PARAMS((const char *));
    STRING. */
 extern void add_history_time PARAMS((const char *));
 
+<<<<<<< HEAD
 /* Remove an entry from the history list.  WHICH is the magic number that
    tells us which element to delete.  The elements are numbered from 0. */
 extern HIST_ENTRY *remove_history PARAMS((int));
@@ -100,6 +105,13 @@ extern HIST_ENTRY *alloc_history_entry PARAMS((char *, char *));
 /* Copy the history entry H, but not the (opaque) data pointer */
 extern HIST_ENTRY *copy_history_entry PARAMS((HIST_ENTRY *));
 
+=======
+/* A reasonably useless function, only here for completeness.  WHICH
+   is the magic number that tells us which element to delete.  The
+   elements are numbered from 0. */
+extern HIST_ENTRY *remove_history PARAMS((int));
+
+>>>>>>> orgin/bash-4.3-testing
 /* Free the history entry H and return any application-specific data
    associated with it. */
 extern histdata_t free_history_entry PARAMS((HIST_ENTRY *));
@@ -270,6 +282,8 @@ extern int history_write_timestamps;
 /* These two are undocumented; the second is reserved for future use */
 extern int history_multiline_entries;
 extern int history_file_version;
+
+extern int history_write_timestamps;
 
 /* Backwards compatibility */
 extern int max_input_history;

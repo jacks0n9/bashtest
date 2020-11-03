@@ -1,7 +1,11 @@
 This file is read.def, from which is created read.c.
 It implements the builtin "read" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -39,6 +43,7 @@ Options:
 		variable ARRAY, starting at zero
   -d delim	continue until the first character of DELIM is read, rather
 		than newline
+<<<<<<< HEAD
   -e	use Readline to obtain the line
   -i text	use TEXT as the initial text for Readline
   -n nchars	return after reading NCHARS characters rather than waiting
@@ -60,6 +65,27 @@ Options:
 		file descriptor.  The exit status is greater than 128
 		if the timeout is exceeded
   -u fd	read from file descriptor FD instead of the standard input
+=======
+  -e		use Readline to obtain the line in an interactive shell
+  -i text	Use TEXT as the initial text for Readline
+  -n nchars	return after reading NCHARS characters rather than waiting
+		for a newline, but honor a delimiter if fewer than NCHARS
+		characters are read before the delimiter
+  -N nchars	return only after reading exactly NCHARS characters, unless
+		EOF is encountered or read times out, ignoring any delimiter
+  -p prompt	output the string PROMPT without a trailing newline before
+		attempting to read
+  -r		do not allow backslashes to escape any characters
+  -s		do not echo input coming from a terminal
+  -t timeout	time out and return failure if a complete line of input is
+		not read within TIMEOUT seconds.  The value of the TMOUT
+		variable is the default timeout.  TIMEOUT may be a
+		fractional number.  If TIMEOUT is 0, read returns immediately,
+		without trying to read any data, returning success only if
+		input is available on the specified file descriptor.  The
+		exit status is greater than 128 if the timeout is exceeded
+  -u fd		read from file descriptor FD instead of the standard input
+>>>>>>> orgin/bash-4.3-testing
 
 Exit Status:
 The return code is zero, unless end-of-file is encountered, read times out
@@ -112,10 +138,22 @@ $END
 extern int errno;
 #endif
 
+<<<<<<< HEAD
 struct ttsave
 {
   int fd;
   TTYSTRUCT attrs;
+=======
+extern void run_pending_traps __P((void));
+
+extern int posixly_correct;
+extern int trapped_signal_received;
+
+struct ttsave
+{
+  int fd;
+  TTYSTRUCT *attrs;
+>>>>>>> orgin/bash-4.3-testing
 };
 
 #if defined (READLINE)
@@ -138,18 +176,31 @@ static void reset_alarm __P((void));
 procenv_t alrmbuf;
 int sigalrm_seen;
 
+<<<<<<< HEAD
 static int reading, tty_modified;
 static SigHandler *old_alrm;
 static unsigned char delim;
 
 static struct ttsave termsave;
 
+=======
+static int reading;
+static SigHandler *old_alrm;
+static unsigned char delim;
+
+>>>>>>> orgin/bash-4.3-testing
 /* In all cases, SIGALRM just sets a flag that we check periodically.  This
    avoids problems with the semi-tricky stuff we do with the xfree of
    input_string at the top of the unwind-protect list (see below). */
 
+<<<<<<< HEAD
 /* Set a flag that CHECK_ALRM can check.  This relies on zread or read_builtin
    calling trap.c:check_signals(), which knows about sigalrm_seen and alrmbuf. */
+=======
+/* Set a flag that CHECK_ALRM can check.  This relies on zread calling
+   trap.c:check_signals_and_traps(), which knows about sigalrm_seen and
+   alrmbuf. */
+>>>>>>> orgin/bash-4.3-testing
 static sighandler
 sigalrm (s)
      int s;
@@ -163,6 +214,10 @@ reset_alarm ()
   /* Cancel alarm before restoring signal handler. */
   falarm (0, 0);
   set_signal_handler (SIGALRM, old_alrm);
+<<<<<<< HEAD
+=======
+  falarm (0, 0);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Read the value of the shell variables whose names follow.
@@ -176,12 +231,18 @@ read_builtin (list)
      WORD_LIST *list;
 {
   register char *varname;
+<<<<<<< HEAD
   int size, nr, pass_next, saw_escape, eof, opt, retval, code, print_ps2, nflag;
   volatile int i;
   int input_is_tty, input_is_pipe, unbuffered_read, skip_ctlesc, skip_ctlnul;
   int raw, edit, nchars, silent, have_timeout, ignore_delim, fd;
   int lastsig, t_errno;
   int mb_cur_max;
+=======
+  int size, i, nr, pass_next, saw_escape, eof, opt, retval, code, print_ps2;
+  int input_is_tty, input_is_pipe, unbuffered_read, skip_ctlesc, skip_ctlnul;
+  int raw, edit, nchars, silent, have_timeout, ignore_delim, fd, lastsig, t_errno;
+>>>>>>> orgin/bash-4.3-testing
   unsigned int tmsec, tmusec;
   long ival, uval;
   intmax_t intval;
@@ -191,6 +252,10 @@ read_builtin (list)
   struct stat tsb;
   SHELL_VAR *var;
   TTYSTRUCT ttattrs, ttset;
+<<<<<<< HEAD
+=======
+  struct ttsave termsave;
+>>>>>>> orgin/bash-4.3-testing
 #if defined (ARRAY_VARS)
   WORD_LIST *alist;
   int vflags;
@@ -224,7 +289,11 @@ read_builtin (list)
   USE_VAR(ps2);
   USE_VAR(lastsig);
 
+<<<<<<< HEAD
   sigalrm_seen = reading = tty_modified = 0;
+=======
+  sigalrm_seen = reading = 0;
+>>>>>>> orgin/bash-4.3-testing
 
   i = 0;		/* Index into the string that we are reading. */
   raw = edit = 0;	/* Not reading raw input by default. */
@@ -237,11 +306,18 @@ read_builtin (list)
   rlind = 0;
 #endif
 
+<<<<<<< HEAD
   mb_cur_max = MB_CUR_MAX;
   tmsec = tmusec = 0;		/* no timeout */
   nr = nchars = input_is_tty = input_is_pipe = unbuffered_read = have_timeout = 0;
   delim = '\n';		/* read until newline */
   ignore_delim = nflag = 0;
+=======
+  tmsec = tmusec = 0;		/* no timeout */
+  nr = nchars = input_is_tty = input_is_pipe = unbuffered_read = have_timeout = 0;
+  delim = '\n';		/* read until newline */
+  ignore_delim = 0;
+>>>>>>> orgin/bash-4.3-testing
 
   reset_internal_getopt ();
   while ((opt = internal_getopt (list, "ersa:d:i:n:p:t:u:N:")) != -1)
@@ -338,8 +414,12 @@ read_builtin (list)
   /* Convenience: check early whether or not the first of possibly several
      variable names is a valid identifier, and bail early if so. */
 #if defined (ARRAY_VARS)
+<<<<<<< HEAD
   vflags = assoc_expand_once ? (VA_NOEXPAND|VA_ONEWORD) : 0;
   if (list && legal_identifier (list->word->word) == 0 && valid_array_reference (list->word->word, vflags) == 0)
+=======
+  if (list && legal_identifier (list->word->word) == 0 && valid_array_reference (list->word->word) == 0)
+>>>>>>> orgin/bash-4.3-testing
 #else
   if (list && legal_identifier (list->word->word) == 0)
 #endif
@@ -364,6 +444,7 @@ read_builtin (list)
 
   input_string = (char *)xmalloc (size = 112);	/* XXX was 128 */
   input_string[0] = '\0';
+<<<<<<< HEAD
 
   /* More input and options validation */
   if (nflag == 1 && nchars == 0)
@@ -372,6 +453,8 @@ read_builtin (list)
       retval = (retval >= 0) ? EXECUTION_SUCCESS : EXECUTION_FAILURE;
       goto assign_vars;		/* bail early if asked to read 0 chars */
     }
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   /* $TMOUT, if set, is the default timeout for read. */
   if (have_timeout == 0 && (e = get_string_value ("TMOUT")))
@@ -393,7 +476,10 @@ read_builtin (list)
     sync_buffered_stream (default_buffered_input);
 #endif
 
+<<<<<<< HEAD
 #if 1
+=======
+>>>>>>> orgin/bash-4.3-testing
   input_is_tty = isatty (fd);
 #else
   input_is_tty = 1;
@@ -463,10 +549,14 @@ read_builtin (list)
       add_unwind_protect (reset_alarm, (char *)NULL);
 #if defined (READLINE)
       if (edit)
+<<<<<<< HEAD
 	{
 	  add_unwind_protect (reset_attempted_completion_function, (char *)NULL);
 	  add_unwind_protect (bashline_reset_event_hook, (char *)NULL);
 	}
+=======
+	add_unwind_protect (reset_attempted_completion_function, (char *)NULL);
+>>>>>>> orgin/bash-4.3-testing
 #endif
       falarm (tmsec, tmusec);
     }
@@ -497,16 +587,24 @@ read_builtin (list)
 	  /* ttsave() */
 	  termsave.fd = fd;
 	  ttgetattr (fd, &ttattrs);
+<<<<<<< HEAD
 	  termsave.attrs = ttattrs;
+=======
+	  termsave.attrs = &ttattrs;
+>>>>>>> orgin/bash-4.3-testing
 
 	  ttset = ttattrs;	  
 	  i = silent ? ttfd_cbreak (fd, &ttset) : ttfd_onechar (fd, &ttset);
 	  if (i < 0)
 	    sh_ttyerror (1);
+<<<<<<< HEAD
 	  tty_modified = 1;
 	  add_unwind_protect ((Function *)ttyrestore, (char *)&termsave);
 	  if (interactive_shell == 0)
 	    initialize_terminating_signals ();
+=======
+	  add_unwind_protect ((Function *)ttyrestore, (char *)&termsave);
+>>>>>>> orgin/bash-4.3-testing
 	}
     }
   else if (silent)	/* turn off echo but leave term in canonical mode */
@@ -514,17 +612,25 @@ read_builtin (list)
       /* ttsave (); */
       termsave.fd = fd;
       ttgetattr (fd, &ttattrs);
+<<<<<<< HEAD
       termsave.attrs = ttattrs;
+=======
+      termsave.attrs = &ttattrs;
+>>>>>>> orgin/bash-4.3-testing
 
       ttset = ttattrs;
       i = ttfd_noecho (fd, &ttset);			/* ttnoecho (); */
       if (i < 0)
 	sh_ttyerror (1);
 
+<<<<<<< HEAD
       tty_modified = 1;
       add_unwind_protect ((Function *)ttyrestore, (char *)&termsave);
       if (interactive_shell == 0)
 	initialize_terminating_signals ();
+=======
+      add_unwind_protect ((Function *)ttyrestore, (char *)&termsave);
+>>>>>>> orgin/bash-4.3-testing
     }
 
   /* This *must* be the top unwind-protect on the stack, so the manipulation
@@ -587,8 +693,16 @@ read_builtin (list)
 	  print_ps2 = 0;
 	}
 
+<<<<<<< HEAD
       reading = 1;
       CHECK_ALRM;
+=======
+#if 0
+      if (posixly_correct == 0)
+	interrupt_immediately++;
+#endif
+      reading = 1;
+>>>>>>> orgin/bash-4.3-testing
       if (unbuffered_read == 2)
 	retval = posixly_correct ? zreadintr (fd, &c, 1) : zreadn (fd, &c, nchars - nr);
       else if (unbuffered_read)
@@ -596,12 +710,22 @@ read_builtin (list)
       else
 	retval = posixly_correct ? zreadcintr (fd, &c) : zreadc (fd, &c);
       reading = 0;
+<<<<<<< HEAD
+=======
+#if 0
+      if (posixly_correct == 0)
+	interrupt_immediately--;
+#endif
+>>>>>>> orgin/bash-4.3-testing
 
       if (retval <= 0)
 	{
 	  if (retval < 0 && errno == EINTR)
 	    {
+<<<<<<< HEAD
 	      check_signals ();		/* in case we didn't call zread via zreadc */
+=======
+>>>>>>> orgin/bash-4.3-testing
 	      lastsig = LASTSIG();
 	      if (lastsig == 0)
 		lastsig = trapped_signal_received;
@@ -609,23 +733,36 @@ read_builtin (list)
 	    }
 	  else
 	    lastsig = 0;
+<<<<<<< HEAD
 	  if (terminating_signal && tty_modified)
 	    ttyrestore (&termsave);	/* fix terminal before exiting */
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  CHECK_TERMSIG;
 	  eof = 1;
 	  break;
 	}
 
+<<<<<<< HEAD
       QUIT;		/* in case we didn't call check_signals() */
+=======
+      CHECK_ALRM;
+
+>>>>>>> orgin/bash-4.3-testing
 #if defined (READLINE)
 	}
 #endif
 
+<<<<<<< HEAD
       if (retval <= 0)			/* XXX shouldn't happen */
 	CHECK_ALRM;
 
       /* XXX -- use i + mb_cur_max (at least 4) for multibyte/read_mbchar */
       if (i + (mb_cur_max > 4 ? mb_cur_max : 4) >= size)
+=======
+      CHECK_ALRM;
+      if (i + 4 >= size)	/* XXX was i + 2; use i + 4 for multibyte/read_mbchar */
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  char *t;
 	  t = (char *)xrealloc (input_string, size += 128);
@@ -646,8 +783,12 @@ read_builtin (list)
 	  pass_next = 0;
 	  if (c == '\n')
 	    {
+<<<<<<< HEAD
 	      if (skip_ctlesc == 0 && i > 0)
 		i--;		/* back up over the CTLESC */
+=======
+	      i--;		/* back up over the CTLESC */
+>>>>>>> orgin/bash-4.3-testing
 	      if (interactive && input_is_tty && raw == 0)
 		print_ps2 = 1;
 	    }
@@ -683,6 +824,7 @@ read_builtin (list)
 add_char:
       input_string[i++] = c;
       CHECK_ALRM;
+<<<<<<< HEAD
 
 #if defined (HANDLE_MULTIBYTE)
       /* XXX - what if C == 127? Can DEL introduce a multibyte sequence? */
@@ -713,6 +855,17 @@ add_char:
 	}
 #endif
 
+=======
+
+#if defined (HANDLE_MULTIBYTE)
+      if (nchars > 0 && MB_CUR_MAX > 1 && is_basic (c) == 0)
+	{
+	  input_string[i] = '\0';	/* for simplicity and debugging */
+	  i += read_mbchar (fd, input_string, i, c, unbuffered_read);
+	}
+#endif
+
+>>>>>>> orgin/bash-4.3-testing
       nr++;
 
       if (nchars > 0 && nr >= nchars)
@@ -720,11 +873,14 @@ add_char:
     }
   input_string[i] = '\0';
   CHECK_ALRM;
+<<<<<<< HEAD
 
 #if defined (READLINE)
   if (edit)
     free (rlbuf);
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   if (retval < 0)
     {
@@ -773,20 +929,32 @@ assign_vars:
       if (legal_identifier (arrayname) == 0)
 	{
 	  sh_invalidid (arrayname);
+<<<<<<< HEAD
 	  free (input_string);
+=======
+	  xfree (input_string);
+>>>>>>> orgin/bash-4.3-testing
 	  return (EXECUTION_FAILURE);
 	}
 
       var = find_or_make_array_variable (arrayname, 1);
       if (var == 0)
 	{
+<<<<<<< HEAD
 	  free (input_string);
+=======
+	  xfree (input_string);
+>>>>>>> orgin/bash-4.3-testing
 	  return EXECUTION_FAILURE;	/* readonly or noassign */
 	}
       if (assoc_p (var))
 	{
           builtin_error (_("%s: cannot convert associative to indexed array"), arrayname);
+<<<<<<< HEAD
 	  free (input_string);
+=======
+	  xfree (input_string);
+>>>>>>> orgin/bash-4.3-testing
 	  return EXECUTION_FAILURE;	/* existing associative array */
 	}
       else if (invisible_p (var))
@@ -834,12 +1002,16 @@ assign_vars:
 	}
       else
 	var = bind_variable ("REPLY", input_string, 0);
+<<<<<<< HEAD
       if (var == 0 || readonly_p (var) || noassign_p (var))
 	retval = EXECUTION_FAILURE;
       else
 	VUNSETATTR (var, att_invisible);
+=======
+      VUNSETATTR (var, att_invisible);
+>>>>>>> orgin/bash-4.3-testing
 
-      free (input_string);
+      xfree (input_string);
       return (retval);
     }
 
@@ -955,7 +1127,11 @@ assign_vars:
     retval = EXECUTION_FAILURE;
 
   FREE (tofree);
+<<<<<<< HEAD
   free (orig_input_string);
+=======
+  xfree (orig_input_string);
+>>>>>>> orgin/bash-4.3-testing
 
   return (retval);
 }
@@ -967,10 +1143,17 @@ bind_read_variable (name, value)
   SHELL_VAR *v;
 
 #if defined (ARRAY_VARS)
+<<<<<<< HEAD
   if (valid_array_reference (name, assoc_expand_once ? (VA_NOEXPAND|VA_ONEWORD) : 0) == 0)
     v = bind_variable (name, value, 0);
   else
     v = assign_array_element (name, value, assoc_expand_once ? ASS_NOEXPAND : 0);
+=======
+  if (valid_array_reference (name) == 0)
+    v = bind_variable (name, value, 0);
+  else
+    v = assign_array_element (name, value, 0);
+>>>>>>> orgin/bash-4.3-testing
 #else /* !ARRAY_VARS */
   v = bind_variable (name, value, 0);
 #endif /* !ARRAY_VARS */
@@ -1004,6 +1187,7 @@ read_mbchar (fd, string, ind, ch, unbuffered)
       if (ret == (size_t)-2)
 	{
 	  ps = ps_back;
+<<<<<<< HEAD
 
 	  /* We don't want to be interrupted during a multibyte char read */
 	  if (unbuffered == 2)
@@ -1013,6 +1197,14 @@ read_mbchar (fd, string, ind, ch, unbuffered)
 	  else
 	    r = zreadc (fd, &c);
 	  if (r <= 0)
+=======
+	  /* We don't want to be interrupted during a multibyte char read */
+	  if (unbuffered)
+	    r = zread (fd, &c, 1);
+	  else
+	    r = zreadc (fd, &c);
+	  if (r < 0)
+>>>>>>> orgin/bash-4.3-testing
 	    goto mbchar_return;
 	  mbchar[i++] = c;	
 	  continue;
@@ -1035,6 +1227,7 @@ static void
 ttyrestore (ttp)
      struct ttsave *ttp;
 {
+<<<<<<< HEAD
   ttsetattr (ttp->fd, &(ttp->attrs));
   tty_modified = 0;
 }
@@ -1050,6 +1243,9 @@ int
 read_tty_modified ()
 {
   return (tty_modified);
+=======
+  ttsetattr (ttp->fd, ttp->attrs);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 #if defined (READLINE)
@@ -1096,7 +1292,10 @@ edit_line (p, itext)
 
   old_attempted_completion_function = rl_attempted_completion_function;
   rl_attempted_completion_function = (rl_completion_func_t *)NULL;
+<<<<<<< HEAD
   bashline_set_event_hook ();
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (itext)
     {
       old_startup_hook = rl_startup_hook;
@@ -1108,7 +1307,10 @@ edit_line (p, itext)
 
   rl_attempted_completion_function = old_attempted_completion_function;
   old_attempted_completion_function = (rl_completion_func_t *)NULL;
+<<<<<<< HEAD
   bashline_reset_event_hook ();
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   if (ret == 0)
     return ret;

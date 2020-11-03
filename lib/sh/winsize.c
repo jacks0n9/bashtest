@@ -1,6 +1,10 @@
 /* winsize.c - handle window size changes and information. */
 
+<<<<<<< HEAD
 /* Copyright (C) 2005-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2005 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -32,11 +36,17 @@
 
 /* Try to find the definitions of `struct winsize' and TIOGCWINSZ */
 
+<<<<<<< HEAD
 #if 0
 #if defined (GWINSZ_IN_SYS_IOCTL) && !defined (TIOCGWINSZ)
 #  include <sys/ioctl.h>
 #endif /* GWINSZ_IN_SYS_IOCTL && !TIOCGWINSZ */
 #endif
+=======
+#if defined (GWINSZ_IN_SYS_IOCTL) && !defined (TIOCGWINSZ)
+#  include <sys/ioctl.h>
+#endif /* GWINSZ_IN_SYS_IOCTL && !TIOCGWINSZ */
+>>>>>>> orgin/bash-4.3-testing
 
 #if defined (STRUCT_WINSIZE_IN_TERMIOS) && !defined (STRUCT_WINSIZE_IN_SYS_IOCTL)
 #  include <termios.h>

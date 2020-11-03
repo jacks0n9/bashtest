@@ -336,7 +336,12 @@ rl_unix_word_rubout (int count, int key)
 /* This deletes one filename component in a Unix pathname.  That is, it
    deletes backward to directory separator (`/') or whitespace.  */
 int
+<<<<<<< HEAD
 rl_unix_filename_rubout (int count, int key)
+=======
+rl_unix_filename_rubout (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   int orig_point, c;
 
@@ -359,7 +364,11 @@ rl_unix_filename_rubout (int count, int key)
 
 	  while (rl_point && (whitespace (c) == 0) && c != '/')
 	    {
+<<<<<<< HEAD
 	      rl_point--;	/* XXX - multibyte? */
+=======
+	      rl_point--;
+>>>>>>> orgin/bash-4.3-testing
 	      c = rl_line_buffer[rl_point - 1];
 	    }
 	}
@@ -595,7 +604,11 @@ rl_yank_nth_arg_internal (int count, int key, int history_skip)
     {
       rl_ding ();
       FREE (arg);
+<<<<<<< HEAD
       return 1;
+=======
+      return -1;
+>>>>>>> orgin/bash-4.3-testing
     }
 
   rl_begin_undo_group ();

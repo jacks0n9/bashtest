@@ -52,7 +52,11 @@ isnetconn (fd)
   l = sizeof(sa);
   rv = getpeername(fd, &sa, &l);
   /* Posix.2 says getpeername can return these errors. */
+<<<<<<< HEAD
   return ((rv < 0 && (errno == ENOTSOCK || errno == ENOTCONN || errno == EINVAL || errno == EBADF)) ? 0 : 1);
+=======
+  return ((rv < 0 && (errno == ENOTSOCK || errno == ENOTCONN || errno == EINVAL)) ? 0 : 1);
+>>>>>>> orgin/bash-4.3-testing
 #else /* !HAVE_GETPEERNAME || SVR4_2 || __BEOS__ */
 #  if defined (SVR4) || defined (SVR4_2)
   /* Sockets on SVR4 and SVR4.2 are character special (streams) devices. */

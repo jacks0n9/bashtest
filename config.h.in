@@ -184,9 +184,12 @@
 /* Define to make the `globasciiranges' shopt option enabled by default. */
 #undef GLOBASCII_DEFAULT
 
+<<<<<<< HEAD
 /* Define to allow functions to be imported from the environment. */
 #undef FUNCTION_IMPORT
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Define AFS if you are using Transarc's AFS. */
 #undef AFS
 
@@ -452,7 +455,10 @@
 #undef SYS_TIME_H_DEFINES_STRUCT_TIMESPEC
 #undef PTHREAD_H_DEFINES_STRUCT_TIMESPEC
 
+<<<<<<< HEAD
 #undef HAVE_STRUCT_STAT_ST_ATIM_TV_NSEC
+=======
+>>>>>>> orgin/bash-4.3-testing
 #undef TYPEOF_STRUCT_STAT_ST_ATIM_IS_STRUCT_TIMESPEC
 #undef HAVE_STRUCT_STAT_ST_ATIMESPEC_TV_NSEC
 #undef HAVE_STRUCT_STAT_ST_ATIMENSEC
@@ -609,12 +615,15 @@
 /* Define if you have the fcntl function.  */
 #undef HAVE_FCNTL
 
+<<<<<<< HEAD
 /* Define if you have the fnmatch function.  */
 #undef HAVE_FNMATCH
 
 /* Can fnmatch be used as a fallback to match [=equiv=] with collation weights? */
 #undef FNMATCH_EQUIV_FALLBACK
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Define if you have the fpurge/__fpurge function.  */
 #undef HAVE_FPURGE
 #undef HAVE___FPURGE
@@ -764,9 +773,12 @@
 /* Define if you have the raise function. */
 #undef HAVE_RAISE
 
+<<<<<<< HEAD
 /* Define if you have the random function. */
 #undef HAVE_RANDOM
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Define if you have the readlink function. */
 #undef HAVE_READLINK
 
@@ -1109,6 +1121,12 @@
 
 /* Are we running the GNU C library, version 2.1 or later? */
 #undef GLIBC21
+<<<<<<< HEAD
+=======
+
+/* Define if on MINIX.  */
+#undef _MINIX
+>>>>>>> orgin/bash-4.3-testing
 
 /* Are we running SVR5 (UnixWare 7)? */
 #undef SVR5
@@ -1139,8 +1157,11 @@
 
 #undef GETCWD_BROKEN
 
+<<<<<<< HEAD
 #undef DEV_FD_STAT_BROKEN
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Additional defines for configuring lib/intl, maintained by autoscan/autoheader */
 
 /* Define if you have the <argz.h> header file. */
@@ -1173,9 +1194,12 @@
 /* Define if you have a working `mmap' system call. */
 #undef HAVE_MMAP
 
+<<<<<<< HEAD
 /* Define if you have the `mremap' function. */
 #undef HAVE_MREMAP
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Define if you have the `munmap' function. */
 #undef HAVE_MUNMAP
 

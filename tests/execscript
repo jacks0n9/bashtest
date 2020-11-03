@@ -108,6 +108,7 @@ ${THIS_SH} ./exec6.sub
 # checks for properly deciding what constitutes an executable file
 ${THIS_SH} ./exec7.sub
 
+<<<<<<< HEAD
 ${THIS_SH} -i ${PWD}/exec8.sub
 
 ${THIS_SH} ./exec9.sub
@@ -115,6 +116,12 @@ ${THIS_SH} ./exec9.sub
 ${THIS_SH} ./exec10.sub
 ${THIS_SH} ./exec11.sub
 
+=======
+${THIS_SH} -i ./exec8.sub
+
+${THIS_SH} ./exec9.sub
+
+>>>>>>> orgin/bash-4.3-testing
 true | `echo true` &
 
 echo after
@@ -128,6 +135,7 @@ ${THIS_SH} -c 'VAR=0; VAR=1 command exec; exit ${VAR}'
         echo bad
 ) 2>/dev/null
 [ $? = 127 ] || echo FAIL: bad exit status $? at $LINENO
+<<<<<<< HEAD
 
 unset FALSE
 if [ -x /bin/false ]; then
@@ -157,3 +165,5 @@ $THIS_SH -c '/bin/echo c && echo d'
 $THIS_SH -c '/bin/echo c && /bin/echo d && echo e'
 
 ${THIS_SH} ./exec13.sub
+=======
+>>>>>>> orgin/bash-4.3-testing

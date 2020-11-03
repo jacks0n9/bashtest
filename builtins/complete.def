@@ -1,7 +1,11 @@
 This file is complete.def, from which is created complete.c.
 It implements the builtins "complete", "compgen", and "compopt" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1999-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1999-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -23,7 +27,11 @@ $PRODUCES complete.c
 $BUILTIN complete
 $DEPENDS_ON PROGRAMMABLE_COMPLETION
 $FUNCTION complete_builtin
+<<<<<<< HEAD
 $SHORT_DOC complete [-abcdefgjksuv] [-pr] [-DEI] [-o option] [-A action] [-G globpat] [-W wordlist]  [-F function] [-C command] [-X filterpat] [-P prefix] [-S suffix] [name ...]
+=======
+$SHORT_DOC complete [-abcdefgjksuv] [-pr] [-DE] [-o option] [-A action] [-G globpat] [-W wordlist]  [-F function] [-C command] [-X filterpat] [-P prefix] [-S suffix] [name ...]
+>>>>>>> orgin/bash-4.3-testing
 Specify how arguments are to be completed by Readline.
 
 For each NAME, specify how arguments are to be completed.  If no options
@@ -33,6 +41,7 @@ allows them to be reused as input.
 Options:
   -p	print existing completion specifications in a reusable format
   -r	remove a completion specification for each NAME, or, if no
+<<<<<<< HEAD
 		NAMEs are supplied, all completion specifications
   -D	apply the completions and actions as the default for commands
 		without any specific completion defined
@@ -44,6 +53,17 @@ Options:
 When completion is attempted, the actions are applied in the order the
 uppercase-letter options are listed above.  If multiple options are supplied,
 the -D option takes precedence over -E, and both take precedence over -I.
+=======
+	NAMEs are supplied, all completion specifications
+  -D	apply the completions and actions as the default for commands
+	without any specific completion defined
+  -E	apply the completions and actions to "empty" commands --
+	completion attempted on a blank line
+
+When completion is attempted, the actions are applied in the order the
+uppercase-letter options are listed above.  The -D option takes
+precedence over -E.
+>>>>>>> orgin/bash-4.3-testing
 
 Exit Status:
 Returns success unless an invalid option is supplied or an error occurs.
@@ -81,7 +101,10 @@ struct _optflags {
   int rflag;
   int Dflag;
   int Eflag;
+<<<<<<< HEAD
   int Iflag;
+=======
+>>>>>>> orgin/bash-4.3-testing
 };
 
 static int find_compact __P((char *));
@@ -141,7 +164,10 @@ static const struct _compopt {
   { "dirnames", COPT_DIRNAMES },
   { "filenames",COPT_FILENAMES},
   { "noquote", COPT_NOQUOTE },
+<<<<<<< HEAD
   { "nosort", COPT_NOSORT },
+=======
+>>>>>>> orgin/bash-4.3-testing
   { "nospace",	COPT_NOSPACE },
   { "plusdirs", COPT_PLUSDIRS },
   { (char *)NULL, 0 },
@@ -198,7 +224,11 @@ build_actions (list, flagp, actp, optp)
   opt_given = 0;
 
   reset_internal_getopt ();
+<<<<<<< HEAD
   while ((opt = internal_getopt (list, "abcdefgjko:prsuvA:G:W:P:S:X:F:C:DEI")) != -1)
+=======
+  while ((opt = internal_getopt (list, "abcdefgjko:prsuvA:G:W:P:S:X:F:C:DE")) != -1)
+>>>>>>> orgin/bash-4.3-testing
     {
       opt_given = 1;
       switch (opt)
@@ -310,6 +340,7 @@ build_actions (list, flagp, actp, optp)
 	      builtin_usage ();
 	      return (EX_USAGE);
 	    }
+<<<<<<< HEAD
 	case 'I':
 	  if (flagp)
 	    {
@@ -322,6 +353,8 @@ build_actions (list, flagp, actp, optp)
 	      builtin_usage ();
 	      return (EX_USAGE);
 	    }
+=======
+>>>>>>> orgin/bash-4.3-testing
 	case 'F':
 	  Farg = list_optarg;
 	  break;
@@ -370,8 +403,12 @@ complete_builtin (list)
       return (EXECUTION_SUCCESS);
     }
 
+<<<<<<< HEAD
   opt_given = oflags.pflag = oflags.rflag = 0;
   oflags.Dflag = oflags.Eflag = oflags.Iflag = 0;
+=======
+  opt_given = oflags.pflag = oflags.rflag = oflags.Dflag = oflags.Eflag = 0;
+>>>>>>> orgin/bash-4.3-testing
 
   acts = copts = (unsigned long)0L;
   Garg = Warg = Parg = Sarg = Xarg = Farg = Carg = (char *)NULL;
@@ -386,6 +423,7 @@ complete_builtin (list)
 
   list = loptend;
 
+<<<<<<< HEAD
   if (oflags.Dflag)
     wl = make_word_list (make_bare_word (DEFAULTCMD), (WORD_LIST *)NULL);
   else if (oflags.Eflag)
@@ -394,6 +432,10 @@ complete_builtin (list)
     wl = make_word_list (make_bare_word (INITIALWORD), (WORD_LIST *)NULL);
   else
     wl = (WORD_LIST *)NULL;
+=======
+  wl = oflags.Dflag ? make_word_list (make_bare_word (DEFAULTCMD), (WORD_LIST *)NULL)
+  		    : (oflags.Eflag ? make_word_list (make_bare_word (EMPTYCMD), (WORD_LIST *)NULL) : 0);
+>>>>>>> orgin/bash-4.3-testing
 
   /* -p overrides everything else */
   if (oflags.pflag || (list == 0 && opt_given == 0))
@@ -586,12 +628,19 @@ print_one_completion (cmd, cs)
   /* simple arguments that don't require quoting */
   PRINTARG (cs->funcname, "-F");
 
+<<<<<<< HEAD
   if (STREQ (cmd, DEFAULTCMD))
     printf ("-D\n");
   else if (STREQ (cmd, EMPTYCMD))
     printf ("-E\n");
   else if (STREQ (cmd, INITIALWORD))
     printf ("-I\n");
+=======
+  if (STREQ (cmd, EMPTYCMD))
+    printf ("-E\n");
+  else if (STREQ (cmd, DEFAULTCMD))
+    printf ("-D\n");
+>>>>>>> orgin/bash-4.3-testing
   else
     printf ("%s\n", cmd);
 
@@ -615,8 +664,11 @@ print_compopts (cmd, cs, full)
       XPRINTCOMPOPT (COPT_DEFAULT, "default");
       XPRINTCOMPOPT (COPT_DIRNAMES, "dirnames");
       XPRINTCOMPOPT (COPT_FILENAMES, "filenames");
+<<<<<<< HEAD
       XPRINTCOMPOPT (COPT_NOQUOTE, "noquote");
       XPRINTCOMPOPT (COPT_NOSORT, "nosort");
+=======
+>>>>>>> orgin/bash-4.3-testing
       XPRINTCOMPOPT (COPT_NOSPACE, "nospace");
       XPRINTCOMPOPT (COPT_PLUSDIRS, "plusdirs");
     }
@@ -626,18 +678,28 @@ print_compopts (cmd, cs, full)
       PRINTCOMPOPT (COPT_DEFAULT, "default");
       PRINTCOMPOPT (COPT_DIRNAMES, "dirnames");
       PRINTCOMPOPT (COPT_FILENAMES, "filenames");
+<<<<<<< HEAD
       PRINTCOMPOPT (COPT_NOQUOTE, "noquote");
       PRINTCOMPOPT (COPT_NOSORT, "nosort");
+=======
+>>>>>>> orgin/bash-4.3-testing
       PRINTCOMPOPT (COPT_NOSPACE, "nospace");
       PRINTCOMPOPT (COPT_PLUSDIRS, "plusdirs");
     }
 
+<<<<<<< HEAD
   if (STREQ (cmd, DEFAULTCMD))
     printf ("-D\n");
   else if (STREQ (cmd, EMPTYCMD))
     printf ("-E\n");
   else if (STREQ (cmd, INITIALWORD))
     printf ("-I\n");
+=======
+  if (STREQ (cmd, EMPTYCMD))
+    printf ("-E\n");
+  else if (STREQ (cmd, DEFAULTCMD))
+    printf ("-D\n");
+>>>>>>> orgin/bash-4.3-testing
   else
     printf ("%s\n", cmd);
 }
@@ -687,7 +749,11 @@ print_cmd_completions (list)
 $BUILTIN compgen
 $DEPENDS_ON PROGRAMMABLE_COMPLETION
 $FUNCTION compgen_builtin
+<<<<<<< HEAD
 $SHORT_DOC compgen [-abcdefgjksuv] [-o option] [-A action] [-G globpat] [-W wordlist]  [-F function] [-C command] [-X filterpat] [-P prefix] [-S suffix] [word]
+=======
+$SHORT_DOC compgen [-abcdefgjksuv] [-o option]  [-A action] [-G globpat] [-W wordlist]  [-F function] [-C command] [-X filterpat] [-P prefix] [-S suffix] [word]
+>>>>>>> orgin/bash-4.3-testing
 Display possible completions depending on the options.
 
 Intended to be used from within a shell function generating possible
@@ -707,8 +773,11 @@ compgen_builtin (list)
   COMPSPEC *cs;
   STRINGLIST *sl;
   char *word, **matches;
+<<<<<<< HEAD
   char *old_line;
   int old_ind;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   if (list == 0)
     return (EXECUTION_SUCCESS);
@@ -749,6 +818,7 @@ compgen_builtin (list)
   cs->filterpat = STRDUP (Xarg);
 
   rval = EXECUTION_FAILURE;
+<<<<<<< HEAD
 
   /* probably don't have to save these, just being safe */
   old_line = pcomp_line;
@@ -758,6 +828,9 @@ compgen_builtin (list)
   sl = gen_compspec_completions (cs, "compgen", word, 0, 0, 0);
   pcomp_line = old_line;
   pcomp_ind = old_ind;
+=======
+  sl = gen_compspec_completions (cs, "compgen", word, 0, 0, 0);
+>>>>>>> orgin/bash-4.3-testing
 
   /* If the compspec wants the bash default completions, temporarily
      turn off programmable completion and call the bash completion code. */
@@ -795,7 +868,11 @@ compgen_builtin (list)
 $BUILTIN compopt
 $DEPENDS_ON PROGRAMMABLE_COMPLETION
 $FUNCTION compopt_builtin
+<<<<<<< HEAD
 $SHORT_DOC compopt [-o|+o option] [-DEI] [name ...]
+=======
+$SHORT_DOC compopt [-o|+o option] [-DE] [name ...]
+>>>>>>> orgin/bash-4.3-testing
 Modify or display completion options.
 
 Modify the completion options for each NAME, or, if no NAMEs are supplied,
@@ -806,7 +883,10 @@ Options:
 	-o option	Set completion option OPTION for each NAME
 	-D		Change options for the "default" command completion
 	-E		Change options for the "empty" command completion
+<<<<<<< HEAD
 	-I		Change options for completion on the initial word
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 Using `+o' instead of `-o' turns off the specified option.
 
@@ -827,6 +907,7 @@ int
 compopt_builtin (list)
      WORD_LIST *list;
 {
+<<<<<<< HEAD
   int opts_on, opts_off, *opts, opt, oind, ret, Dflag, Eflag, Iflag;
   WORD_LIST *l, *wl;
   COMPSPEC *cs;
@@ -836,6 +917,17 @@ compopt_builtin (list)
 
   reset_internal_getopt ();
   while ((opt = internal_getopt (list, "+o:DEI")) != -1)
+=======
+  int opts_on, opts_off, *opts, opt, oind, ret, Dflag, Eflag;
+  WORD_LIST *l, *wl;
+  COMPSPEC *cs;
+
+  opts_on = opts_off = Eflag = Dflag = 0;
+  ret = EXECUTION_SUCCESS;
+
+  reset_internal_getopt ();
+  while ((opt = internal_getopt (list, "+o:DE")) != EOF)
+>>>>>>> orgin/bash-4.3-testing
     {
       opts = (list_opttype == '-') ? &opts_on : &opts_off;
 
@@ -856,10 +948,13 @@ compopt_builtin (list)
 	case 'E':
 	  Eflag = 1;
 	  break;
+<<<<<<< HEAD
 	case 'I':
 	  Iflag = 1;
 	  break;
 	CASE_HELPOPT;
+=======
+>>>>>>> orgin/bash-4.3-testing
 	default:
 	  builtin_usage ();
 	  return (EX_USAGE);
@@ -867,6 +962,7 @@ compopt_builtin (list)
     }
   list = loptend;
 
+<<<<<<< HEAD
   if (Dflag)
     wl = make_word_list (make_bare_word (DEFAULTCMD), (WORD_LIST *)NULL);
   else if (Eflag)
@@ -875,6 +971,10 @@ compopt_builtin (list)
     wl = make_word_list (make_bare_word (INITIALWORD), (WORD_LIST *)NULL);
   else
     wl = (WORD_LIST *)NULL;
+=======
+  wl = Dflag ? make_word_list (make_bare_word (DEFAULTCMD), (WORD_LIST *)NULL)
+	     : (Eflag ? make_word_list (make_bare_word (EMPTYCMD), (WORD_LIST *)NULL) : 0);
+>>>>>>> orgin/bash-4.3-testing
 
   if (list == 0 && wl == 0)
     {
@@ -922,8 +1022,11 @@ compopt_builtin (list)
       pcomp_set_compspec_options (cs, opts_off, 0);
     }
 
+<<<<<<< HEAD
   if (wl)
     dispose_words (wl);
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   return (ret);
 }

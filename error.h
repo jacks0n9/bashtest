@@ -50,9 +50,12 @@ extern void internal_error __P((const char *, ...))  __attribute__((__format__ (
 /* Report an internal warning. */
 extern void internal_warning __P((const char *, ...))  __attribute__((__format__ (printf, 1, 2)));
 
+<<<<<<< HEAD
 /* Report an internal informational notice. */
 extern void internal_inform __P((const char *, ...))  __attribute__((__format__ (printf, 1, 2)));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Debugging functions, not enabled in released version. */
 extern char *strescape __P((const char *));
 extern void itrace __P((const char *, ...)) __attribute__ ((__format__ (printf, 1, 2)));

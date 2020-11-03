@@ -1,6 +1,10 @@
 /* braces.c -- code for doing word expansion in curly braces. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -61,9 +65,13 @@ extern int errno;
 
 extern int asprintf __P((char **, const char *, ...)) __attribute__((__format__ (printf, 2, 3)));
 
+<<<<<<< HEAD
 #if defined (NOTDEF)
 extern int last_command_exit_value;
 #endif
+=======
+extern int last_command_exit_value;
+>>>>>>> orgin/bash-4.3-testing
 
 /* Basic idea:
 
@@ -321,16 +329,26 @@ expand_amble (text, tlen, flags)
       else
 	{
 	  register int lr, lp, j;
+<<<<<<< HEAD
 
 	  lr = strvec_len (result);
 	  lp = strvec_len (partial);
 
+=======
+
+	  lr = strvec_len (result);
+	  lp = strvec_len (partial);
+
+>>>>>>> orgin/bash-4.3-testing
 	  tresult = strvec_mresize (result, lp + lr + 1);
 	  if (tresult == 0)
 	    {
 	      internal_error (_("brace expansion: cannot allocate memory for %s"), tem);
+<<<<<<< HEAD
 	      free (tem);
 	      strvec_dispose (partial);
+=======
+>>>>>>> orgin/bash-4.3-testing
 	      strvec_dispose (result);
 	      result = (char **)NULL;
 	      return result;
@@ -385,7 +403,11 @@ mkseq (start, end, incr, type, width)
      int type, width;
 {
   intmax_t n, prevn;
+<<<<<<< HEAD
   int i, nelem;
+=======
+  int i, j, nelem;
+>>>>>>> orgin/bash-4.3-testing
   char **result, *t;
 
   if (incr == 0)
@@ -420,6 +442,7 @@ mkseq (start, end, incr, type, width)
   /* Instead of a simple nelem = prevn + 1, something like:
   	nelem = (prevn / imaxabs(incr)) + 1;
      would work */
+<<<<<<< HEAD
   if ((prevn / sh_imaxabs (incr)) > INT_MAX - 3)	/* check int overflow */
     return ((char **)NULL);
   nelem = (prevn / sh_imaxabs(incr)) + 1;
@@ -427,6 +450,15 @@ mkseq (start, end, incr, type, width)
   if (result == 0)
     {
       internal_error (_("brace expansion: failed to allocate memory for %u elements"), (unsigned int)nelem);
+=======
+  nelem = (prevn / sh_imaxabs(incr)) + 1;
+  if (nelem > INT_MAX - 2)		/* Don't overflow int */
+    return ((char **)NULL);
+  result = strvec_mcreate (nelem + 1);
+  if (result == 0)
+    {
+      internal_error (_("brace expansion: failed to allocate memory for %d elements"), nelem);
+>>>>>>> orgin/bash-4.3-testing
       return ((char **)NULL);
     }
 
@@ -436,6 +468,7 @@ mkseq (start, end, incr, type, width)
   do
     {
 #if defined (SHELL)
+<<<<<<< HEAD
       if (ISINTERRUPT)
         {
           result[i] = (char *)NULL;
@@ -443,6 +476,9 @@ mkseq (start, end, incr, type, width)
           result = (char **)NULL;
         }
       QUIT;
+=======
+      QUIT;		/* XXX - memory leak here */
+>>>>>>> orgin/bash-4.3-testing
 #endif
       if (type == ST_INT)
 	result[i++] = t = itos (n);
@@ -497,7 +533,11 @@ expand_seqterm (text, tlen)
      size_t tlen;
 {
   char *t, *lhs, *rhs;
+<<<<<<< HEAD
   int lhs_t, rhs_t, lhs_l, rhs_l, width;
+=======
+  int i, lhs_t, rhs_t, lhs_l, rhs_l, width;
+>>>>>>> orgin/bash-4.3-testing
   intmax_t lhs_v, rhs_v, incr;
   intmax_t tl, tr;
   char **result, *ep, *oep;
@@ -678,7 +718,10 @@ brace_gobbler (text, tlen, indx, satisfy)
 	  if (quoted == '"' && c == '$' && text[i+1] == '(')	/*)*/
 	    goto comsub;
 #endif
+<<<<<<< HEAD
 #if defined (SHELL)
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  ADVANCE_CHAR (text, tlen, i);
 #else
 	  i++;
@@ -744,6 +787,20 @@ comsub:
 
   *indx = i;
   return (c);
+}
+
+/* Return 1 if ARR has any non-empty-string members.  Used to short-circuit
+   in array_concat() below. */
+static int
+degenerate_array (arr)
+     char **arr;
+{
+  register int i;
+
+  for (i = 0; arr[i]; i++)
+    if (arr[i][0] != '\0')
+      return 0;
+  return 1;
 }
 
 /* Return a new array of strings which is the result of appending each

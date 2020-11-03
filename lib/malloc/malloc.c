@@ -628,7 +628,11 @@ morecore (nu)
 
   /* Try to coalesce two adjacent blocks from the free list on nextf[nu - 1],
      if we can, and we're within the range of the block coalescing limits. */
+<<<<<<< HEAD
   if (nu >= COMBINE_MIN && nu < COMBINE_MAX && nu <= malloc_mmap_threshold && busy[nu - 1] == 0 && nextf[nu - 1])
+=======
+  if (nu >= COMBINE_MIN && nu < COMBINE_MAX && busy[nu - 1] == 0 && nextf[nu - 1])
+>>>>>>> orgin/bash-4.3-testing
     {
       bcoalesce (nu);
       if (nextf[nu] != 0)
@@ -959,6 +963,7 @@ internal_free (mem, file, line, flags)
   if (mg.i != p->mh_nbytes)
     xbotch (mem, ERR_ASSERT_FAILED, _("free: start and end chunk sizes differ"), file, line);
 
+<<<<<<< HEAD
 #if defined (USE_MMAP)
   if (nunits > malloc_mmap_threshold)
     {
@@ -970,6 +975,8 @@ internal_free (mem, file, line, flags)
     }
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if GLIBC21
   if (nunits >= LESSCORE_MIN && ((char *)p + binsize(nunits) == sbrk (0)))
 #else

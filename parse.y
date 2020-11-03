@@ -1,6 +1,10 @@
 /* parse.y - Yacc grammar for bash. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1989-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1989-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -45,7 +49,10 @@
 #define NEED_STRFTIME_DECL	/* used in externs.h */
 
 #include "shell.h"
+<<<<<<< HEAD
 #include "execute_cmd.h"
+=======
+>>>>>>> orgin/bash-4.3-testing
 #include "typemax.h"		/* SIZE_MAX if needed */
 #include "trap.h"
 #include "flags.h"
@@ -118,6 +125,19 @@ typedef void *alias_t;
 extern int extended_glob;
 #endif
 
+<<<<<<< HEAD
+=======
+extern int eof_encountered;
+extern int no_line_editing, running_under_emacs;
+extern int current_command_number;
+extern int sourcelevel, parse_and_execute_level;
+extern int posixly_correct;
+extern int last_command_exit_value;
+extern pid_t last_command_subst_pid;
+extern char *shell_name, *current_host_name;
+extern char *dist_version;
+extern int patch_level;
+>>>>>>> orgin/bash-4.3-testing
 extern int dump_translatable_strings, dump_po_strings;
 
 #if !defined (errno)
@@ -308,7 +328,11 @@ static int global_extglob;
    or `for WORD' begins.  This is a nested command maximum, since the array
    index is decremented after a case, select, or for command is parsed. */
 #define MAX_CASE_NEST	128
+<<<<<<< HEAD
 static int word_lineno[MAX_CASE_NEST+1];
+=======
+static int word_lineno[MAX_CASE_NEST];
+>>>>>>> orgin/bash-4.3-testing
 static int word_top = -1;
 
 /* If non-zero, it is the token that we want read_token to return
@@ -405,6 +429,7 @@ inputunit:	simple_list simple_list_terminator
 			  eof_encountered = 0;
 			  /* discard_parser_constructs (1); */
 			  if (interactive && parse_and_execute_level == 0)
+<<<<<<< HEAD
 			    {
 			      YYACCEPT;
 			    }
@@ -422,6 +447,8 @@ inputunit:	simple_list simple_list_terminator
 			    last_command_exit_value = EX_BADUSAGE;	/* force error return */
 			  handle_eof_input_unit ();
 			  if (interactive && parse_and_execute_level == 0)
+=======
+>>>>>>> orgin/bash-4.3-testing
 			    {
 			      YYACCEPT;
 			    }
@@ -541,42 +568,66 @@ redirection:	'>' WORD
 			  source.dest = 0;
 			  redir.filename = $2;
 			  $$ = make_redirection (source, r_reading_until, redir, 0);
+<<<<<<< HEAD
 			  push_heredoc ($$);
+=======
+			  redir_stack[need_here_doc++] = $$;
+>>>>>>> orgin/bash-4.3-testing
 			}
 	|	NUMBER LESS_LESS WORD
 			{
 			  source.dest = $1;
 			  redir.filename = $3;
 			  $$ = make_redirection (source, r_reading_until, redir, 0);
+<<<<<<< HEAD
 			  push_heredoc ($$);
+=======
+			  redir_stack[need_here_doc++] = $$;
+>>>>>>> orgin/bash-4.3-testing
 			}
 	|	REDIR_WORD LESS_LESS WORD
 			{
 			  source.filename = $1;
 			  redir.filename = $3;
 			  $$ = make_redirection (source, r_reading_until, redir, REDIR_VARASSIGN);
+<<<<<<< HEAD
 			  push_heredoc ($$);
+=======
+			  redir_stack[need_here_doc++] = $$;
+>>>>>>> orgin/bash-4.3-testing
 			}
 	|	LESS_LESS_MINUS WORD
 			{
 			  source.dest = 0;
 			  redir.filename = $2;
 			  $$ = make_redirection (source, r_deblank_reading_until, redir, 0);
+<<<<<<< HEAD
 			  push_heredoc ($$);
+=======
+			  redir_stack[need_here_doc++] = $$;
+>>>>>>> orgin/bash-4.3-testing
 			}
 	|	NUMBER LESS_LESS_MINUS WORD
 			{
 			  source.dest = $1;
 			  redir.filename = $3;
 			  $$ = make_redirection (source, r_deblank_reading_until, redir, 0);
+<<<<<<< HEAD
 			  push_heredoc ($$);
+=======
+			  redir_stack[need_here_doc++] = $$;
+>>>>>>> orgin/bash-4.3-testing
 			}
 	|	REDIR_WORD  LESS_LESS_MINUS WORD
 			{
 			  source.filename = $1;
 			  redir.filename = $3;
 			  $$ = make_redirection (source, r_deblank_reading_until, redir, REDIR_VARASSIGN);
+<<<<<<< HEAD
 			  push_heredoc ($$);
+=======
+			  redir_stack[need_here_doc++] = $$;
+>>>>>>> orgin/bash-4.3-testing
 			}
 	|	LESS_LESS_LESS WORD
 			{
@@ -842,25 +893,37 @@ for_command:	FOR WORD newline_list DO compound_list DONE
 arith_for_command:	FOR ARITH_FOR_EXPRS list_terminator newline_list DO compound_list DONE
 				{
 				  $$ = make_arith_for_command ($2, $6, arith_for_lineno);
+<<<<<<< HEAD
 				  if ($$ == 0) YYERROR;
+=======
+>>>>>>> orgin/bash-4.3-testing
 				  if (word_top > 0) word_top--;
 				}
 	|		FOR ARITH_FOR_EXPRS list_terminator newline_list '{' compound_list '}'
 				{
 				  $$ = make_arith_for_command ($2, $6, arith_for_lineno);
+<<<<<<< HEAD
 				  if ($$ == 0) YYERROR;
+=======
+>>>>>>> orgin/bash-4.3-testing
 				  if (word_top > 0) word_top--;
 				}
 	|		FOR ARITH_FOR_EXPRS DO compound_list DONE
 				{
 				  $$ = make_arith_for_command ($2, $4, arith_for_lineno);
+<<<<<<< HEAD
 				  if ($$ == 0) YYERROR;
+=======
+>>>>>>> orgin/bash-4.3-testing
 				  if (word_top > 0) word_top--;
 				}
 	|		FOR ARITH_FOR_EXPRS '{' compound_list '}'
 				{
 				  $$ = make_arith_for_command ($2, $4, arith_for_lineno);
+<<<<<<< HEAD
 				  if ($$ == 0) YYERROR;
+=======
+>>>>>>> orgin/bash-4.3-testing
 				  if (word_top > 0) word_top--;
 				}
 	;
@@ -894,6 +957,7 @@ select_command:	SELECT WORD newline_list DO list DONE
 			{
 			  $$ = make_select_command ($2, REVERSE_LIST ($5, WORD_LIST *), $9, word_lineno[word_top]);
 			  if (word_top > 0) word_top--;
+<<<<<<< HEAD
 			}
 	|	SELECT WORD newline_list IN list_terminator newline_list DO compound_list DONE
 			{
@@ -904,6 +968,8 @@ select_command:	SELECT WORD newline_list DO list DONE
 			{
 			  $$ = make_select_command ($2, (WORD_LIST *)NULL, $8, word_lineno[word_top]);
 			  if (word_top > 0) word_top--;
+=======
+>>>>>>> orgin/bash-4.3-testing
 			}
 	;
 
@@ -984,14 +1050,22 @@ coproc:		COPROC shell_command
 			  COMMAND *tc;
 
 			  tc = $2;
+<<<<<<< HEAD
 			  if (tc && tc->redirects)
+=======
+			  if (tc->redirects)
+>>>>>>> orgin/bash-4.3-testing
 			    {
 			      register REDIRECT *t;
 			      for (t = tc->redirects; t->next; t = t->next)
 				;
 			      t->next = $3;
 			    }
+<<<<<<< HEAD
 			  else if (tc)
+=======
+			  else
+>>>>>>> orgin/bash-4.3-testing
 			    tc->redirects = $3;
 			  $$ = make_coproc_command ("COPROC", $2);
 			  $$->flags |= CMD_WANT_SUBSHELL|CMD_COPROC_SUBSHELL;
@@ -1006,14 +1080,22 @@ coproc:		COPROC shell_command
 			  COMMAND *tc;
 
 			  tc = $3;
+<<<<<<< HEAD
 			  if (tc && tc->redirects)
+=======
+			  if (tc->redirects)
+>>>>>>> orgin/bash-4.3-testing
 			    {
 			      register REDIRECT *t;
 			      for (t = tc->redirects; t->next; t = t->next)
 				;
 			      t->next = $4;
 			    }
+<<<<<<< HEAD
 			  else if (tc)
+=======
+			  else
+>>>>>>> orgin/bash-4.3-testing
 			    tc->redirects = $4;
 			  $$ = make_coproc_command ($2->word, $3);
 			  $$->flags |= CMD_WANT_SUBSHELL|CMD_COPROC_SUBSHELL;
@@ -1254,9 +1336,12 @@ pipeline_command: pipeline
 			  /* XXX - let's cheat and push a newline back */
 			  if ($2 == '\n')
 			    token_to_read = '\n';
+<<<<<<< HEAD
 			  else if ($2 == ';')
 			    token_to_read = ';';
 			  parser_state &= ~PST_REDIRLIST;	/* make_simple_command sets this */
+=======
+>>>>>>> orgin/bash-4.3-testing
 			}
 	|	BANG list_terminator
 			{
@@ -1275,9 +1360,12 @@ pipeline_command: pipeline
 			  /* XXX - let's cheat and push a newline back */
 			  if ($2 == '\n')
 			    token_to_read = '\n';
+<<<<<<< HEAD
 			  if ($2 == ';')
 			    token_to_read = ';';
 			  parser_state &= ~PST_REDIRLIST;	/* make_simple_command sets this */
+=======
+>>>>>>> orgin/bash-4.3-testing
 			}
 	;
 
@@ -1476,7 +1564,11 @@ yy_readline_get ()
 	give_terminal_to (shell_pgrp, 0);
 #endif /* JOB_CONTROL */
 
+<<<<<<< HEAD
       old_sigint = IMPOSSIBLE_TRAP_HANDLER;
+=======
+      old_sigint = (SigHandler *)IMPOSSIBLE_TRAP_HANDLER;
+>>>>>>> orgin/bash-4.3-testing
       if (signal_is_ignored (SIGINT) == 0)
 	{
 	  /* interrupt_immediately++; */
@@ -1646,9 +1738,25 @@ yy_stream_get ()
   result = EOF;
   if (bash_input.location.file)
     {
+<<<<<<< HEAD
       /* XXX - don't need terminate_immediately; getc_with_restart checks
 	 for terminating signals itself if read returns < 0 */
       result = getc_with_restart (bash_input.location.file);
+=======
+#if 0
+      if (interactive)
+	interrupt_immediately++;
+#endif
+
+      /* XXX - don't need terminate_immediately; getc_with_restart checks
+	 for terminating signals itself if read returns < 0 */
+      result = getc_with_restart (bash_input.location.file);
+
+#if 0
+      if (interactive)
+	interrupt_immediately--;
+#endif
+>>>>>>> orgin/bash-4.3-testing
     }
   return (result);
 }
@@ -1948,6 +2056,7 @@ free_string_list ()
 
 void
 free_pushed_string_input ()
+<<<<<<< HEAD
 {
 #if defined (ALIAS) || defined (DPAREN_ARITHMETIC)
   free_string_list ();
@@ -2014,6 +2123,50 @@ static char *
 read_a_line (remove_quoted_newline)
      int remove_quoted_newline;
 {
+=======
+{
+#if defined (ALIAS) || defined (DPAREN_ARITHMETIC)
+  free_string_list ();
+#endif
+}
+
+int
+parser_expanding_alias ()
+{
+  return (expanding_alias ());
+}
+
+void
+parser_save_alias ()
+{
+#if defined (ALIAS) || defined (DPAREN_ARITHMETIC)
+  push_string ((char *)NULL, 0, (alias_t *)NULL);
+  pushed_string_list->flags = PSH_SOURCE;	/* XXX - for now */
+#else
+  ;
+#endif
+}
+
+void
+parser_restore_alias ()
+{
+#if defined (ALIAS) || defined (DPAREN_ARITHMETIC)
+  if (pushed_string_list)
+    pop_string ();
+#else
+  ;
+#endif
+}
+
+/* Return a line of text, taken from wherever yylex () reads input.
+   If there is no more input, then we return NULL.  If REMOVE_QUOTED_NEWLINE
+   is non-zero, we remove unquoted \<newline> pairs.  This is used by
+   read_secondary_line to read here documents. */
+static char *
+read_a_line (remove_quoted_newline)
+     int remove_quoted_newline;
+{
+>>>>>>> orgin/bash-4.3-testing
   static char *line_buffer = (char *)NULL;
   static int buffer_size = 0;
   int indx, c, peekc, pass_next;
@@ -2120,10 +2273,17 @@ read_secondary_line (remove_quoted_newline)
 #if defined (HISTORY)
   if (ret && remember_on_history && (parser_state & PST_HEREDOC))
     {
+<<<<<<< HEAD
       /* To make adding the here-document body right, we need to rely on
 	 history_delimiting_chars() returning \n for the first line of the
 	 here-document body and the null string for the second and subsequent
 	 lines, so we avoid double newlines.
+=======
+      /* To make adding the the here-document body right, we need to rely
+	 on history_delimiting_chars() returning \n for the first line of
+	 the here-document body and the null string for the second and
+	 subsequent lines, so we avoid double newlines.
+>>>>>>> orgin/bash-4.3-testing
 	 current_command_line_count == 2 for the first line of the body. */
 
       current_command_line_count++;
@@ -2265,12 +2425,19 @@ shell_getc (remove_quoted_newline)
      int remove_quoted_newline;
 {
   register int i;
+<<<<<<< HEAD
   int c, truncating, last_was_backslash;
+=======
+  int c, truncating;
+>>>>>>> orgin/bash-4.3-testing
   unsigned char uc;
 
   QUIT;
 
+<<<<<<< HEAD
   last_was_backslash = 0;
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (sigwinch_received)
     {
       sigwinch_received = 0;
@@ -2377,7 +2544,11 @@ shell_getc (remove_quoted_newline)
 	      if (n <= 2)	/* we have to save 1 for the newline added below */
 		{
 		  if (truncating == 0)
+<<<<<<< HEAD
 		    internal_warning(_("shell_getc: shell_input_line_size (%zu) exceeds SIZE_MAX (%lu): line truncated"), shell_input_line_size, (unsigned long)SIZE_MAX);
+=======
+		    internal_warning("shell_getc: shell_input_line_size (%zu) exceeds SIZE_MAX (%llu): line truncated", shell_input_line_size, SIZE_MAX);
+>>>>>>> orgin/bash-4.3-testing
 		  shell_input_line[i] = '\0';
 		  truncating = 1;
 		}
@@ -2506,7 +2677,11 @@ shell_getc (remove_quoted_newline)
 	 not already end in an EOF character.  */
       if (shell_input_line_terminator != EOF)
 	{
+<<<<<<< HEAD
 	  if (shell_input_line_size < SIZE_MAX-3 && (shell_input_line_len+3 > shell_input_line_size))
+=======
+	  if (shell_input_line_size < SIZE_MAX && shell_input_line_len > shell_input_line_size - 3)
+>>>>>>> orgin/bash-4.3-testing
 	    shell_input_line = (char *)xrealloc (shell_input_line,
 					1 + (shell_input_line_size += 2));
 
@@ -2541,6 +2716,7 @@ next_alias_char:
      parsing an alias, we have just saved one (push_string, when called by
      the parse_dparen code) In this case, just go on as well.  The PSH_SOURCE
      case is handled below. */
+<<<<<<< HEAD
 
   /* If we're at the end of an alias expansion add a space to make sure that
      the alias remains marked as being in use while we expand its last word.
@@ -2574,6 +2750,11 @@ pop_alias:
   if (uc == 0 && pushed_string_list && pushed_string_list->flags != PSH_SOURCE)
     {
       parser_state &= ~PST_ENDALIAS;
+=======
+pop_alias:
+  if (uc == 0 && pushed_string_list && pushed_string_list->flags != PSH_SOURCE)
+    {
+>>>>>>> orgin/bash-4.3-testing
       pop_string ();
       uc = shell_input_line[shell_input_line_index];
       if (uc)
@@ -2589,9 +2770,16 @@ pop_alias:
 	/* What do we do here if we're expanding an alias whose definition
 	   includes an escaped newline?  If that's the last character in the
 	   alias expansion, we just pop the pushed string list (recall that
+<<<<<<< HEAD
 	   we inhibit the appending of a space if newline is the last
 	   character).  If it's not the last character, we need to consume the
 	   quoted newline and move to the next character in the expansion. */
+=======
+	   we inhibit the appending of a space in mk_alexpansion() if newline
+	   is the last character).  If it's not the last character, we need
+	   to consume the quoted newline and move to the next character in
+	   the expansion. */
+>>>>>>> orgin/bash-4.3-testing
 #if defined (ALIAS)
 	if (expanding_alias () && shell_input_line[shell_input_line_index+1] == '\0')
 	  {
@@ -2766,7 +2954,11 @@ yylex ()
       if (bash_input.type == st_string)
 	rewind_input_string ();
     }
+<<<<<<< HEAD
   parser_state &= ~PST_EOFTOKEN;	/* ??? */
+=======
+  parser_state &= ~PST_EOFTOKEN;
+>>>>>>> orgin/bash-4.3-testing
 
   return (current_token);
 }
@@ -2800,8 +2992,12 @@ gather_here_documents ()
   int r;
 
   r = 0;
+<<<<<<< HEAD
   here_doc_first_line = 1;
   while (need_here_doc > 0)
+=======
+  while (need_here_doc)
+>>>>>>> orgin/bash-4.3-testing
     {
       parser_state |= PST_HEREDOC;
       make_here_document (redir_stack[r++], line_number);
@@ -2832,11 +3028,17 @@ static int open_brace_count;
    We can read a simple command name on which we should attempt alias expansion
    or we can read an assignment statement. */
 #define command_token_position(token) \
+<<<<<<< HEAD
   (((token) == ASSIGNMENT_WORD) || \
    ((parser_state&PST_REDIRLIST) && parsing_redirection(token) == 0) || \
    ((token) != SEMI_SEMI && (token) != SEMI_AND && (token) != SEMI_SEMI_AND && reserved_word_acceptable(token)))
 
 /* Are we in a position where we can read an assignment statement? */
+=======
+  (((token) == ASSIGNMENT_WORD) || (parser_state&PST_REDIRLIST) || \
+   ((token) != SEMI_SEMI && (token) != SEMI_AND && (token) != SEMI_SEMI_AND && reserved_word_acceptable(token)))
+
+>>>>>>> orgin/bash-4.3-testing
 #define assignment_acceptable(token) \
   (command_token_position(token) && ((parser_state & PST_CASEPAT) == 0))
 
@@ -2899,6 +3101,7 @@ mk_alexpansion (s)
   l = strlen (s);
   r = xmalloc (l + 2);
   strcpy (r, s);
+<<<<<<< HEAD
 #ifdef OLD_ALIAS_HACK
   /* If the last character in the alias is a newline, don't add a trailing
      space to the expansion.  Works with shell_getc above. */
@@ -2908,6 +3111,12 @@ mk_alexpansion (s)
   if (l > 0 && r[l - 1] != ' ' && r[l - 1] != '\n' && shellmeta(r[l - 1]) == 0)
     r[l++] = ' ';
 #endif
+=======
+  /* If the last character in the alias is a newline, don't add a trailing
+     space to the expansion.  Works with shell_getc above. */
+  if (r[l - 1] != ' ' && r[l - 1] != '\n')
+    r[l++] = ' ';
+>>>>>>> orgin/bash-4.3-testing
   r[l] = '\0';
   return r;
 }
@@ -2928,6 +3137,7 @@ alias_expand_token (tokstr)
       if (ap && (ap->flags & AL_BEINGEXPANDED))
 	return (NO_EXPANSION);
 
+<<<<<<< HEAD
 #ifdef OLD_ALIAS_HACK
       /* mk_alexpansion puts an extra space on the end of the alias expansion,
 	 so the lookahead by the parser works right (the alias needs to remain
@@ -2936,6 +3146,12 @@ alias_expand_token (tokstr)
 	 the code in shell_getc that deals with reaching the end of an
 	 expanded alias is changed with it. */
 #endif
+=======
+      /* mk_alexpansion puts an extra space on the end of the alias expansion,
+         so the lookahead by the parser works right.  If this gets changed,
+         make sure the code in shell_getc that deals with reaching the end of
+         an expanded alias is changed with it. */
+>>>>>>> orgin/bash-4.3-testing
       expanded = ap ? mk_alexpansion (ap->value) : (char *)NULL;
 
       if (expanded)
@@ -2988,8 +3204,12 @@ time_command_acceptable ()
     case ELIF:
     case ELSE:
     case '{':		/* } */
+<<<<<<< HEAD
     case '(':		/* )( */
     case ')':		/* only valid in case statement */
+=======
+    case '(':		/* ) */
+>>>>>>> orgin/bash-4.3-testing
     case BANG:		/* ! time pipeline */
     case TIME:		/* time time pipeline */
     case TIMEOPT:	/* time -p time pipeline */
@@ -3182,8 +3402,11 @@ reset_parser ()
   FREE (word_desc_to_read);
   word_desc_to_read = (WORD_DESC *)NULL;
 
+<<<<<<< HEAD
   eol_ungetc_lookahead = 0;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   current_token = '\n';		/* XXX */
   last_read_token = '\n';
   token_to_read = '\n';
@@ -3309,6 +3532,7 @@ itrace("shell_getc: bash_input.location.string = `%s'", bash_input.location.stri
 
       parser_state &= ~PST_ASSIGNOK;
 
+<<<<<<< HEAD
       /* If we are parsing a command substitution and we have read a character
 	 that marks the end of it, don't bother to skip over quoted newlines
 	 when we read the next token. We're just interested in a character
@@ -3319,6 +3543,9 @@ itrace("shell_getc: bash_input.location.string = `%s'", bash_input.location.stri
       else
 	peek_char = shell_getc (1);
 
+=======
+      peek_char = shell_getc (1);
+>>>>>>> orgin/bash-4.3-testing
       if (character == peek_char)
 	{
 	  switch (character)
@@ -3465,6 +3692,7 @@ tokword:
 #define P_DOLBRACE	0x0040	/* parsing a ${...} construct */
 
 /* Lexical state while parsing a grouping construct or $(...). */
+<<<<<<< HEAD
 #define LEX_WASDOL	0x0001
 #define LEX_CKCOMMENT	0x0002
 #define LEX_INCOMMENT	0x0004
@@ -3478,6 +3706,19 @@ tokword:
 #define LEX_QUOTEDDOC	0x0400		/* here doc with quoted delim */
 #define LEX_INWORD	0x0800
 #define LEX_GTLT	0x1000
+=======
+#define LEX_WASDOL	0x001
+#define LEX_CKCOMMENT	0x002
+#define LEX_INCOMMENT	0x004
+#define LEX_PASSNEXT	0x008
+#define LEX_RESWDOK	0x010
+#define LEX_CKCASE	0x020
+#define LEX_INCASE	0x040
+#define LEX_INHEREDOC	0x080
+#define LEX_HEREDELIM	0x100		/* reading here-doc delimiter */
+#define LEX_STRIPDOC	0x200		/* <<- strip tabs from here doc delim */
+#define LEX_INWORD	0x400
+>>>>>>> orgin/bash-4.3-testing
 
 #define COMSUB_META(ch)		((ch) == ';' || (ch) == '&' || (ch) == '|')
 
@@ -3508,14 +3749,24 @@ parse_matched_pair (qc, open, close, lenp, flags)
      int open, close;
      int *lenp, flags;
 {
+<<<<<<< HEAD
   int count, ch, prevch, tflags;
+=======
+  int count, ch, tflags;
+>>>>>>> orgin/bash-4.3-testing
   int nestlen, ttranslen, start_lineno;
   char *ret, *nestret, *ttrans;
   int retind, retsize, rflags;
   int dolbrace_state;
+<<<<<<< HEAD
 
   dolbrace_state = (flags & P_DOLBRACE) ? DOLBRACE_PARAM : 0;
 
+=======
+
+  dolbrace_state = (flags & P_DOLBRACE) ? DOLBRACE_PARAM : 0;
+
+>>>>>>> orgin/bash-4.3-testing
 /*itrace("parse_matched_pair[%d]: open = %c close = %c flags = %d", line_number, open, close, flags);*/
   count = 1;
   tflags = 0;
@@ -3533,7 +3784,10 @@ parse_matched_pair (qc, open, close, lenp, flags)
   ch = EOF;		/* just in case */
   while (count)
     {
+<<<<<<< HEAD
       prevch = ch;
+=======
+>>>>>>> orgin/bash-4.3-testing
       ch = shell_getc (qc != '\'' && (tflags & (LEX_PASSNEXT)) == 0);
 
       if (ch == EOF)
@@ -3623,6 +3877,7 @@ parse_matched_pair (qc, open, close, lenp, flags)
 	    tflags |= LEX_PASSNEXT;
 	  continue;
 	}
+<<<<<<< HEAD
 
       if MBTEST(ch == '\\')			/* backslashes */
 	tflags |= LEX_PASSNEXT;
@@ -4322,6 +4577,568 @@ eof_error:
 		}
 	      else
 		{
+=======
+
+      if MBTEST(ch == '\\')			/* backslashes */
+	tflags |= LEX_PASSNEXT;
+
+      /* Based on which dolstate is currently in (param, op, or word),
+	 decide what the op is.  We're really only concerned if it's % or
+	 #, so we can turn on a flag that says whether or not we should
+	 treat single quotes as special when inside a double-quoted
+	 ${...}. This logic must agree with subst.c:extract_dollar_brace_string
+	 since they share the same defines. */
+      /* FLAG POSIX INTERP 221 */
+      if (flags & P_DOLBRACE)
+        {
+          /* ${param%[%]word} */
+	  if MBTEST(dolbrace_state == DOLBRACE_PARAM && ch == '%' && retind > 1)
+	    dolbrace_state = DOLBRACE_QUOTE;
+          /* ${param#[#]word} */
+	  else if MBTEST(dolbrace_state == DOLBRACE_PARAM && ch == '#' && retind > 1)
+	    dolbrace_state = DOLBRACE_QUOTE;
+          /* ${param/[/]pat/rep} */
+	  else if MBTEST(dolbrace_state == DOLBRACE_PARAM && ch == '/' && retind > 1)
+	    dolbrace_state = DOLBRACE_QUOTE2;	/* XXX */
+          /* ${param^[^]pat} */
+	  else if MBTEST(dolbrace_state == DOLBRACE_PARAM && ch == '^' && retind > 1)
+	    dolbrace_state = DOLBRACE_QUOTE;
+          /* ${param,[,]pat} */
+	  else if MBTEST(dolbrace_state == DOLBRACE_PARAM && ch == ',' && retind > 1)
+	    dolbrace_state = DOLBRACE_QUOTE;
+	  else if MBTEST(dolbrace_state == DOLBRACE_PARAM && strchr ("#%^,~:-=?+/", ch) != 0)
+	    dolbrace_state = DOLBRACE_OP;
+	  else if MBTEST(dolbrace_state == DOLBRACE_OP && strchr ("#%^,~:-=?+/", ch) == 0)
+	    dolbrace_state = DOLBRACE_WORD;
+        }
+
+      /* The big hammer.  Single quotes aren't special in double quotes.  The
+         problem is that Posix used to say the single quotes are semi-special:
+         within a double-quoted ${...} construct "an even number of
+         unescaped double-quotes or single-quotes, if any, shall occur." */
+      /* This was changed in Austin Group Interp 221 */
+      if MBTEST(posixly_correct && shell_compatibility_level > 41 && dolbrace_state != DOLBRACE_QUOTE && (flags & P_DQUOTE) && (flags & P_DOLBRACE) && ch == '\'')
+	continue;
+
+      /* Could also check open == '`' if we want to parse grouping constructs
+	 inside old-style command substitution. */
+      if (open != close)		/* a grouping construct */
+	{
+	  if MBTEST(shellquote (ch))
+	    {
+	      /* '', ``, or "" inside $(...) or other grouping construct. */
+	      push_delimiter (dstack, ch);
+	      if MBTEST((tflags & LEX_WASDOL) && ch == '\'')	/* $'...' inside group */
+		nestret = parse_matched_pair (ch, ch, ch, &nestlen, P_ALLOWESC|rflags);
+	      else
+		nestret = parse_matched_pair (ch, ch, ch, &nestlen, rflags);
+	      pop_delimiter (dstack);
+	      CHECK_NESTRET_ERROR ();
+
+	      if MBTEST((tflags & LEX_WASDOL) && ch == '\'' && (extended_quote || (rflags & P_DQUOTE) == 0))
+		{
+		  /* Translate $'...' here. */
+		  ttrans = ansiexpand (nestret, 0, nestlen - 1, &ttranslen);
+		  xfree (nestret);
+
+		  /* If we're parsing a double-quoted brace expansion and we are
+		     not in a place where single quotes are treated specially,
+		     make sure we single-quote the results of the ansi
+		     expansion because quote removal should remove them later */
+		  /* FLAG POSIX INTERP 221 */
+		  if ((shell_compatibility_level > 42) && (rflags & P_DQUOTE) && (dolbrace_state == DOLBRACE_QUOTE2) && (flags & P_DOLBRACE))
+		    {
+		      nestret = sh_single_quote (ttrans);
+		      free (ttrans);
+		      nestlen = strlen (nestret);
+		    }
+		  else if ((rflags & P_DQUOTE) == 0)
+		    {
+		      nestret = sh_single_quote (ttrans);
+		      free (ttrans);
+		      nestlen = strlen (nestret);
+		    }
+		  else
+		    {
+		      nestret = ttrans;
+		      nestlen = ttranslen;
+		    }
+		  retind -= 2;		/* back up before the $' */
+		}
+	      else if MBTEST((tflags & LEX_WASDOL) && ch == '"' && (extended_quote || (rflags & P_DQUOTE) == 0))
+		{
+		  /* Locale expand $"..." here. */
+		  ttrans = localeexpand (nestret, 0, nestlen - 1, start_lineno, &ttranslen);
+		  xfree (nestret);
+
+		  nestret = sh_mkdoublequoted (ttrans, ttranslen, 0);
+		  free (ttrans);
+		  nestlen = ttranslen + 2;
+		  retind -= 2;		/* back up before the $" */
+		}
+
+	      APPEND_NESTRET ();
+	      FREE (nestret);
+	    }
+	  else if ((flags & P_ARRAYSUB) && (tflags & LEX_WASDOL) && (ch == '(' || ch == '{' || ch == '['))	/* ) } ] */
+	    goto parse_dollar_word;
+	}
+      /* Parse an old-style command substitution within double quotes as a
+	 single word. */
+      /* XXX - sh and ksh93 don't do this - XXX */
+      else if MBTEST(open == '"' && ch == '`')
+	{
+	  nestret = parse_matched_pair (0, '`', '`', &nestlen, rflags);
+
+	  CHECK_NESTRET_ERROR ();
+	  APPEND_NESTRET ();
+
+	  FREE (nestret);
+	}
+      else if MBTEST(open != '`' && (tflags & LEX_WASDOL) && (ch == '(' || ch == '{' || ch == '['))	/* ) } ] */
+	/* check for $(), $[], or ${} inside quoted string. */
+	{
+parse_dollar_word:
+	  if (open == ch)	/* undo previous increment */
+	    count--;
+	  if (ch == '(')		/* ) */
+	    nestret = parse_comsub (0, '(', ')', &nestlen, (rflags|P_COMMAND) & ~P_DQUOTE);
+	  else if (ch == '{')		/* } */
+	    nestret = parse_matched_pair (0, '{', '}', &nestlen, P_FIRSTCLOSE|P_DOLBRACE|rflags);
+	  else if (ch == '[')		/* ] */
+	    nestret = parse_matched_pair (0, '[', ']', &nestlen, rflags);
+
+	  CHECK_NESTRET_ERROR ();
+	  APPEND_NESTRET ();
+
+	  FREE (nestret);
+	}
+      if MBTEST(ch == '$')
+	tflags |= LEX_WASDOL;
+      else
+	tflags &= ~LEX_WASDOL;
+    }
+
+  ret[retind] = '\0';
+  if (lenp)
+    *lenp = retind;
+/*itrace("parse_matched_pair[%d]: returning %s", line_number, ret);*/
+  return ret;
+}
+
+/* Parse a $(...) command substitution.  This is messier than I'd like, and
+   reproduces a lot more of the token-reading code than I'd like. */
+static char *
+parse_comsub (qc, open, close, lenp, flags)
+     int qc;	/* `"' if this construct is within double quotes */
+     int open, close;
+     int *lenp, flags;
+{
+  int count, ch, peekc, tflags, lex_rwlen, lex_wlen, lex_firstind;
+  int nestlen, ttranslen, start_lineno;
+  char *ret, *nestret, *ttrans, *heredelim;
+  int retind, retsize, rflags, hdlen;
+
+  /* Posix interp 217 says arithmetic expressions have precedence, so
+     assume $(( introduces arithmetic expansion and parse accordingly. */
+  peekc = shell_getc (0);
+  shell_ungetc (peekc);
+  if (peekc == '(')
+    return (parse_matched_pair (qc, open, close, lenp, 0));
+
+/*itrace("parse_comsub: qc = `%c' open = %c close = %c", qc, open, close);*/
+  count = 1;
+  tflags = LEX_RESWDOK;
+
+  if ((flags & P_COMMAND) && qc != '\'' && qc != '"' && (flags & P_DQUOTE) == 0)
+    tflags |= LEX_CKCASE;
+  if ((tflags & LEX_CKCASE) && (interactive == 0 || interactive_comments))
+    tflags |= LEX_CKCOMMENT;
+
+  /* RFLAGS is the set of flags we want to pass to recursive calls. */
+  rflags = (flags & P_DQUOTE);
+
+  ret = (char *)xmalloc (retsize = 64);
+  retind = 0;
+
+  start_lineno = line_number;
+  lex_rwlen = lex_wlen = 0;
+
+  heredelim = 0;
+  lex_firstind = -1;
+
+  while (count)
+    {
+comsub_readchar:
+      ch = shell_getc (qc != '\'' && (tflags & (LEX_INCOMMENT|LEX_PASSNEXT)) == 0);
+
+      if (ch == EOF)
+	{
+eof_error:
+	  free (ret);
+	  FREE (heredelim);
+	  parser_error (start_lineno, _("unexpected EOF while looking for matching `%c'"), close);
+	  EOF_Reached = 1;	/* XXX */
+	  return (&matched_pair_error);
+	}
+
+      /* If we hit the end of a line and are reading the contents of a here
+	 document, and it's not the same line that the document starts on,
+	 check for this line being the here doc delimiter.  Otherwise, if
+	 we're in a here document, mark the next character as the beginning
+	 of a line. */
+      if (ch == '\n')
+	{
+	  if ((tflags & LEX_HEREDELIM) && heredelim)
+	    {
+	      tflags &= ~LEX_HEREDELIM;
+	      tflags |= LEX_INHEREDOC;
+	      lex_firstind = retind + 1;
+	    }
+	  else if (tflags & LEX_INHEREDOC)
+	    {
+	      int tind;
+	      tind = lex_firstind;
+	      while ((tflags & LEX_STRIPDOC) && ret[tind] == '\t')
+		tind++;
+	      if (STREQN (ret + tind, heredelim, hdlen))
+		{
+		  tflags &= ~(LEX_STRIPDOC|LEX_INHEREDOC);
+/*itrace("parse_comsub:%d: found here doc end `%s'", line_number, ret + tind);*/
+		  free (heredelim);
+		  heredelim = 0;
+		  lex_firstind = -1;
+		}
+	      else
+		lex_firstind = retind + 1;
+	    }
+	}
+
+      /* Possible reprompting. */
+      if (ch == '\n' && SHOULD_PROMPT ())
+	prompt_again ();
+
+      /* XXX -- possibly allow here doc to be delimited by ending right
+	 paren. */
+      if ((tflags & LEX_INHEREDOC) && ch == close && count == 1)
+	{
+	  int tind;
+/*itrace("parse_comsub: in here doc, ch == close, retind - firstind = %d hdlen = %d retind = %d", retind-lex_firstind, hdlen, retind);*/
+	  tind = lex_firstind;
+	  while ((tflags & LEX_STRIPDOC) && ret[tind] == '\t')
+	    tind++;
+	  if (retind-tind == hdlen && STREQN (ret + tind, heredelim, hdlen))
+	    {
+	      tflags &= ~(LEX_STRIPDOC|LEX_INHEREDOC);
+/*itrace("parse_comsub:%d: found here doc end `%s'", line_number, ret + tind);*/
+	      free (heredelim);
+	      heredelim = 0;
+	      lex_firstind = -1;
+	    }
+	}
+
+      /* Don't bother counting parens or doing anything else if in a comment */
+      if (tflags & (LEX_INCOMMENT|LEX_INHEREDOC))
+	{
+	  /* Add this character. */
+	  RESIZE_MALLOCED_BUFFER (ret, retind, 1, retsize, 64);
+	  ret[retind++] = ch;
+
+	  if ((tflags & LEX_INCOMMENT) && ch == '\n')
+	    {
+/*itrace("parse_comsub:%d: lex_incomment -> 0 ch = `%c'", line_number, ch);*/
+	      tflags &= ~LEX_INCOMMENT;
+	    }
+
+	  continue;
+	}
+
+      if (tflags & LEX_PASSNEXT)		/* last char was backslash */
+	{
+/*itrace("parse_comsub:%d: lex_passnext -> 0 ch = `%c' (%d)", line_number, ch, __LINE__);*/
+	  tflags &= ~LEX_PASSNEXT;
+	  if (qc != '\'' && ch == '\n')	/* double-quoted \<newline> disappears. */
+	    {
+	      if (retind > 0)
+		retind--;	/* swallow previously-added backslash */
+	      continue;
+	    }
+
+	  RESIZE_MALLOCED_BUFFER (ret, retind, 2, retsize, 64);
+	  if MBTEST(ch == CTLESC)
+	    ret[retind++] = CTLESC;
+	  ret[retind++] = ch;
+	  continue;
+	}
+
+      /* If this is a shell break character, we are not in a word.  If not,
+	 we either start or continue a word. */
+      if MBTEST(shellbreak (ch))
+	{
+	  tflags &= ~LEX_INWORD;
+/*itrace("parse_comsub:%d: lex_inword -> 0 ch = `%c' (%d)", line_number, ch, __LINE__);*/
+	}
+      else
+	{
+	  if (tflags & LEX_INWORD)
+	    {
+	      lex_wlen++;
+/*itrace("parse_comsub:%d: lex_inword == 1 ch = `%c' lex_wlen = %d (%d)", line_number, ch, lex_wlen, __LINE__);*/
+	    }	      
+	  else
+	    {
+/*itrace("parse_comsub:%d: lex_inword -> 1 ch = `%c' (%d)", line_number, ch, __LINE__);*/
+	      tflags |= LEX_INWORD;
+	      lex_wlen = 0;
+	    }
+	}
+
+      /* Skip whitespace */
+      if MBTEST(shellblank (ch) && (tflags & LEX_HEREDELIM) == 0 && lex_rwlen == 0)
+        {
+	  /* Add this character. */
+	  RESIZE_MALLOCED_BUFFER (ret, retind, 1, retsize, 64);
+	  ret[retind++] = ch;
+	  continue;
+        }
+
+      /* Either we are looking for the start of the here-doc delimiter
+	 (lex_firstind == -1) or we are reading one (lex_firstind >= 0).
+	 If this character is a shell break character and we are reading
+	 the delimiter, save it and note that we are now reading a here
+	 document.  If we've found the start of the delimiter, note it by
+	 setting lex_firstind.  Backslashes can quote shell metacharacters
+	 in here-doc delimiters. */
+      if (tflags & LEX_HEREDELIM)
+	{
+	  if (lex_firstind == -1 && shellbreak (ch) == 0)
+	    lex_firstind = retind;
+#if 0
+	  else if (heredelim && (tflags & LEX_PASSNEXT) == 0 && ch == '\n')
+	    {
+	      tflags |= LEX_INHEREDOC;
+	      tflags &= ~LEX_HEREDELIM;
+	      lex_firstind = retind + 1;
+	    }
+#endif
+	  else if (lex_firstind >= 0 && (tflags & LEX_PASSNEXT) == 0 && shellbreak (ch))
+	    {
+	      if (heredelim == 0)
+		{
+		  nestret = substring (ret, lex_firstind, retind);
+		  heredelim = string_quote_removal (nestret, 0);
+		  free (nestret);
+		  hdlen = STRLEN(heredelim);
+/*itrace("parse_comsub:%d: found here doc delimiter `%s' (%d)", line_number, heredelim, hdlen);*/
+		}
+	      if (ch == '\n')
+		{
+		  tflags |= LEX_INHEREDOC;
+		  tflags &= ~LEX_HEREDELIM;
+		  lex_firstind = retind + 1;
+		}
+	      else
+		lex_firstind = -1;
+	    }
+	}
+
+      /* Meta-characters that can introduce a reserved word.  Not perfect yet. */
+      if MBTEST((tflags & LEX_RESWDOK) == 0 && (tflags & LEX_CKCASE) && (tflags & LEX_INCOMMENT) == 0 && (shellmeta(ch) || ch == '\n'))
+	{
+	  /* Add this character. */
+	  RESIZE_MALLOCED_BUFFER (ret, retind, 1, retsize, 64);
+	  ret[retind++] = ch;
+	  peekc = shell_getc (1);
+	  if (ch == peekc && (ch == '&' || ch == '|' || ch == ';'))	/* two-character tokens */
+	    {
+	      RESIZE_MALLOCED_BUFFER (ret, retind, 1, retsize, 64);
+	      ret[retind++] = peekc;
+/*itrace("parse_comsub:%d: set lex_reswordok = 1, ch = `%c'", line_number, ch);*/
+	      tflags |= LEX_RESWDOK;
+	      lex_rwlen = 0;
+	      continue;
+	    }
+	  else if (ch == '\n' || COMSUB_META(ch))
+	    {
+	      shell_ungetc (peekc);
+/*itrace("parse_comsub:%d: set lex_reswordok = 1, ch = `%c'", line_number, ch);*/
+	      tflags |= LEX_RESWDOK;
+	      lex_rwlen = 0;
+	      continue;
+	    }
+	  else if (ch == EOF)
+	    goto eof_error;
+	  else
+	    {
+	      /* `unget' the character we just added and fall through */
+	      retind--;
+	      shell_ungetc (peekc);
+	    }
+	}
+
+      /* If we can read a reserved word, try to read one. */
+      if (tflags & LEX_RESWDOK)
+	{
+	  if MBTEST(islower (ch))
+	    {
+	      /* Add this character. */
+	      RESIZE_MALLOCED_BUFFER (ret, retind, 1, retsize, 64);
+	      ret[retind++] = ch;
+	      lex_rwlen++;
+	      continue;
+	    }
+	  else if MBTEST(lex_rwlen == 4 && shellbreak (ch))
+	    {
+	      if (STREQN (ret + retind - 4, "case", 4))
+		{
+		  tflags |= LEX_INCASE;
+/*itrace("parse_comsub:%d: found `case', lex_incase -> 1 lex_reswdok -> 0", line_number);*/
+		}
+	      else if (STREQN (ret + retind - 4, "esac", 4))
+		{
+		  tflags &= ~LEX_INCASE;
+/*itrace("parse_comsub:%d: found `esac', lex_incase -> 0 lex_reswdok -> 0", line_number);*/
+		}
+	      tflags &= ~LEX_RESWDOK;
+	    }
+	  else if MBTEST((tflags & LEX_CKCOMMENT) && ch == '#' && (lex_rwlen == 0 || ((tflags & LEX_INWORD) && lex_wlen == 0)))
+	    ;	/* don't modify LEX_RESWDOK if we're starting a comment */
+	  /* Allow `do' followed by space, tab, or newline to preserve the
+	     RESWDOK flag, but reset the reserved word length counter so we
+	     can read another one. */
+	  else if MBTEST(((tflags & LEX_INCASE) == 0) &&
+			  (isblank(ch) || ch == '\n') &&
+			  lex_rwlen == 2 &&
+			  STREQN (ret + retind - 2, "do", 2))
+	    {
+/*itrace("parse_comsub:%d: lex_incase == 1 found `%c', found \"do\"", line_number, ch);*/
+	      lex_rwlen = 0;
+	    }
+	  else if MBTEST((tflags & LEX_INCASE) && ch != '\n')
+	    /* If we can read a reserved word and we're in case, we're at the
+	       point where we can read a new pattern list or an esac.  We
+	       handle the esac case above.  If we read a newline, we want to
+	       leave LEX_RESWDOK alone.  If we read anything else, we want to
+	       turn off LEX_RESWDOK, since we're going to read a pattern list. */
+	    {
+	      tflags &= ~LEX_RESWDOK;
+/*itrace("parse_comsub:%d: lex_incase == 1 found `%c', lex_reswordok -> 0", line_number, ch);*/
+	    }
+	  else if MBTEST(shellbreak (ch) == 0)
+	    {
+	      tflags &= ~LEX_RESWDOK;
+/*itrace("parse_comsub:%d: found `%c', lex_reswordok -> 0", line_number, ch);*/
+	    }
+#if 0
+	  /* If we find a space or tab but have read something and it's not
+	     `do', turn off the reserved-word-ok flag */
+	  else if MBTEST(isblank (ch) && lex_rwlen > 0)
+	    {
+	      tflags &= ~LEX_RESWDOK;
+/*itrace("parse_comsub:%d: found `%c', lex_reswordok -> 0", line_number, ch);*/
+	    }
+#endif
+	}
+
+      /* Might be the start of a here-doc delimiter */
+      if MBTEST((tflags & LEX_INCOMMENT) == 0 && (tflags & LEX_CKCASE) && ch == '<')
+	{
+	  /* Add this character. */
+	  RESIZE_MALLOCED_BUFFER (ret, retind, 1, retsize, 64);
+	  ret[retind++] = ch;
+	  peekc = shell_getc (1);
+	  if (peekc == EOF)
+	    goto eof_error;
+	  if (peekc == ch)
+	    {
+	      RESIZE_MALLOCED_BUFFER (ret, retind, 1, retsize, 64);
+	      ret[retind++] = peekc;
+	      peekc = shell_getc (1);
+	      if (peekc == EOF)
+		goto eof_error;
+	      if (peekc == '-')
+		{
+		  RESIZE_MALLOCED_BUFFER (ret, retind, 1, retsize, 64);
+		  ret[retind++] = peekc;
+		  tflags |= LEX_STRIPDOC;
+		}
+	      else
+		shell_ungetc (peekc);
+	      if (peekc != '<')
+		{
+		  tflags |= LEX_HEREDELIM;
+		  lex_firstind = -1;
+		}
+	      continue;
+	    }
+	  else
+	    ch = peekc;		/* fall through and continue XXX */
+	}
+      else if MBTEST((tflags & LEX_CKCOMMENT) && (tflags & LEX_INCOMMENT) == 0 && ch == '#' && (((tflags & LEX_RESWDOK) && lex_rwlen == 0) || ((tflags & LEX_INWORD) && lex_wlen == 0)))
+	{
+/*itrace("parse_comsub:%d: lex_incomment -> 1 (%d)", line_number, __LINE__);*/
+	  tflags |= LEX_INCOMMENT;
+	}
+
+      if MBTEST(ch == CTLESC || ch == CTLNUL)	/* special shell escapes */
+	{
+	  RESIZE_MALLOCED_BUFFER (ret, retind, 2, retsize, 64);
+	  ret[retind++] = CTLESC;
+	  ret[retind++] = ch;
+	  continue;
+	}
+#if 0
+      else if MBTEST((tflags & LEX_INCASE) && ch == close && close == ')')
+        tflags &= ~LEX_INCASE;		/* XXX */
+#endif
+      else if MBTEST(ch == close && (tflags & LEX_INCASE) == 0)		/* ending delimiter */
+	{
+	  count--;
+/*itrace("parse_comsub:%d: found close: count = %d", line_number, count);*/
+	}
+      else if MBTEST(((flags & P_FIRSTCLOSE) == 0) && (tflags & LEX_INCASE) == 0 && ch == open)	/* nested begin */
+	{
+	  count++;
+/*itrace("parse_comsub:%d: found open: count = %d", line_number, count);*/
+	}
+
+      /* Add this character. */
+      RESIZE_MALLOCED_BUFFER (ret, retind, 1, retsize, 64);
+      ret[retind++] = ch;
+
+      /* If we just read the ending character, don't bother continuing. */
+      if (count == 0)
+	break;
+
+      if MBTEST(ch == '\\')			/* backslashes */
+	tflags |= LEX_PASSNEXT;
+
+      if MBTEST(shellquote (ch))
+        {
+          /* '', ``, or "" inside $(...). */
+          push_delimiter (dstack, ch);
+          if MBTEST((tflags & LEX_WASDOL) && ch == '\'')	/* $'...' inside group */
+	    nestret = parse_matched_pair (ch, ch, ch, &nestlen, P_ALLOWESC|rflags);
+	  else
+	    nestret = parse_matched_pair (ch, ch, ch, &nestlen, rflags);
+	  pop_delimiter (dstack);
+	  CHECK_NESTRET_ERROR ();
+
+	  if MBTEST((tflags & LEX_WASDOL) && ch == '\'' && (extended_quote || (rflags & P_DQUOTE) == 0))
+	    {
+	      /* Translate $'...' here. */
+	      ttrans = ansiexpand (nestret, 0, nestlen - 1, &ttranslen);
+	      xfree (nestret);
+
+	      if ((rflags & P_DQUOTE) == 0)
+		{
+		  nestret = sh_single_quote (ttrans);
+		  free (ttrans);
+		  nestlen = strlen (nestret);
+		}
+	      else
+		{
+>>>>>>> orgin/bash-4.3-testing
 		  nestret = ttrans;
 		  nestlen = ttranslen;
 		}
@@ -4331,7 +5148,11 @@ eof_error:
 	    {
 	      /* Locale expand $"..." here. */
 	      ttrans = localeexpand (nestret, 0, nestlen - 1, start_lineno, &ttranslen);
+<<<<<<< HEAD
 	      free (nestret);
+=======
+	      xfree (nestret);
+>>>>>>> orgin/bash-4.3-testing
 
 	      nestret = sh_mkdoublequoted (ttrans, ttranslen, 0);
 	      free (ttrans);
@@ -4359,6 +5180,7 @@ eof_error:
 
 	  FREE (nestret);
 	}
+<<<<<<< HEAD
       if MBTEST(ch == '$' && (tflags & LEX_WASDOL) == 0)
 	tflags |= LEX_WASDOL;
       else
@@ -4462,6 +5284,72 @@ xparse_dolparen (base, string, indp, flags)
       while (ep > ostring && ep[-1] == '\n') ep--;
     }
 
+=======
+      if MBTEST(ch == '$')
+	tflags |= LEX_WASDOL;
+      else
+	tflags &= ~LEX_WASDOL;
+    }
+
+  FREE (heredelim);
+  ret[retind] = '\0';
+  if (lenp)
+    *lenp = retind;
+/*itrace("parse_comsub:%d: returning `%s'", line_number, ret);*/
+  return ret;
+}
+
+/* Recursively call the parser to parse a $(...) command substitution. */
+char *
+xparse_dolparen (base, string, indp, flags)
+     char *base;
+     char *string;
+     int *indp;
+     int flags;
+{
+  sh_parser_state_t ps;
+  sh_input_line_state_t ls;
+  int orig_ind, nc, sflags;
+  char *ret, *s, *ep, *ostring;
+
+  /*yydebug = 1;*/
+  orig_ind = *indp;
+  ostring = string;
+
+/*itrace("xparse_dolparen: size = %d shell_input_line = `%s'", shell_input_line_size, shell_input_line);*/
+  sflags = SEVAL_NONINT|SEVAL_NOHIST|SEVAL_NOFREE;
+  if (flags & SX_NOLONGJMP)
+    sflags |= SEVAL_NOLONGJMP;
+  save_parser_state (&ps);
+  save_input_line_state (&ls);
+
+  /*(*/
+  parser_state |= PST_CMDSUBST|PST_EOFTOKEN;	/* allow instant ')' */ /*(*/
+  shell_eof_token = ')';
+  parse_string (string, "command substitution", sflags, &ep);
+
+  restore_parser_state (&ps);
+  reset_parser ();
+  /* reset_parser clears shell_input_line and associated variables */
+  restore_input_line_state (&ls);
+  if (interactive)
+    token_to_read = 0;
+
+  /* Need to find how many characters parse_and_execute consumed, update
+     *indp, if flags != 0, copy the portion of the string parsed into RET
+     and return it.  If flags & 1 (EX_NOALLOC) we can return NULL. */
+
+  /*(*/
+  if (ep[-1] != ')')
+    {
+#if DEBUG
+      if (ep[-1] != '\n')
+	itrace("xparse_dolparen:%d: ep[-1] != RPAREN (%d), ep = `%s'", line_number, ep[-1], ep);
+#endif
+      while (ep > ostring && ep[-1] == '\n') ep--;
+    }
+
+>>>>>>> orgin/bash-4.3-testing
   nc = ep - ostring;
   *indp = ep - base - 1;
 
@@ -4469,8 +5357,11 @@ xparse_dolparen (base, string, indp, flags)
 #if DEBUG
   if (base[*indp] != ')')
     itrace("xparse_dolparen:%d: base[%d] != RPAREN (%d), base = `%s'", line_number, *indp, base[*indp], base);
+<<<<<<< HEAD
   if (*indp < orig_ind)
     itrace("xparse_dolparen:%d: *indp (%d) < orig_ind (%d), orig_string = `%s'", line_number, *indp, orig_ind, ostring);
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
   if (flags & SX_NOALLOC) 
@@ -4714,7 +5605,11 @@ cond_term ()
       if (term)
 	term->flags |= CMD_INVERT_RETURN;
     }
+<<<<<<< HEAD
   else if (tok == WORD && yylval.word->word[0] == '-' && yylval.word->word[1] && yylval.word->word[2] == 0 && test_unop (yylval.word->word))
+=======
+  else if (tok == WORD && yylval.word->word[0] == '-' && yylval.word->word[2] == 0 && test_unop (yylval.word->word))
+>>>>>>> orgin/bash-4.3-testing
     {
       op = yylval.word;
       tok = read_token (READ);
@@ -4859,6 +5754,7 @@ token_is_assignment (t, i)
   int r;
   char *atoken;
 
+<<<<<<< HEAD
   atoken = xmalloc (i + 3);
   memcpy (atoken, t, i);
   atoken[i] = '=';
@@ -4871,6 +5767,13 @@ token_is_assignment (t, i)
   /* XXX - check that r == i to avoid returning false positive for
      t containing `=' before t[i]. */
   return (r > 0 && r == i);
+=======
+  c = t[i]; c1 = t[i+1];
+  t[i] = '='; t[i+1] = '\0';
+  r = assignment (t, (parser_state & PST_COMPASSIGN) != 0);
+  t[i] = c; t[i+1] = c1;
+  return r;
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* XXX - possible changes here for `+=' */
@@ -5213,6 +6116,10 @@ read_token_word (character)
 	}
 
 got_character:
+<<<<<<< HEAD
+=======
+
+>>>>>>> orgin/bash-4.3-testing
       if (character == CTLESC || character == CTLNUL)
 	{
 	  RESIZE_MALLOCED_BUFFER (token, token_index, 2, token_buffer_size,
@@ -5326,19 +6233,27 @@ got_token:
 
   yylval.word = the_word;
 
+<<<<<<< HEAD
   /* should we check that quoted == 0 as well? */
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (token[0] == '{' && token[token_index-1] == '}' &&
       (character == '<' || character == '>'))
     {
       /* can use token; already copied to the_word */
       token[token_index-1] = '\0';
 #if defined (ARRAY_VARS)
+<<<<<<< HEAD
       if (legal_identifier (token+1) || valid_array_reference (token+1, 0))
+=======
+      if (legal_identifier (token+1) || valid_array_reference (token+1))
+>>>>>>> orgin/bash-4.3-testing
 #else
       if (legal_identifier (token+1))
 #endif
 	{
 	  strcpy (the_word->word, token+1);
+<<<<<<< HEAD
 /* itrace("read_token_word: returning REDIR_WORD for %s", the_word->word); */
 	  yylval.word = the_word;	/* accommodate recursive call */
 	  return (REDIR_WORD);
@@ -5348,6 +6263,11 @@ got_token:
 	   make sure that yylval.word doesn't change if we are going to
 	   return WORD or ASSIGNMENT_WORD */
         yylval.word = the_word;
+=======
+/*itrace("read_token_word: returning REDIR_WORD for %s", the_word->word);*/
+	  return (REDIR_WORD);
+	}
+>>>>>>> orgin/bash-4.3-testing
     }
 
   result = ((the_word->flags & (W_ASSIGNMENT|W_NOSPLIT)) == (W_ASSIGNMENT|W_NOSPLIT))
@@ -5365,7 +6285,10 @@ got_token:
       if (word_top < MAX_CASE_NEST)
 	word_top++;
       word_lineno[word_top] = line_number;
+<<<<<<< HEAD
       expecting_in_token++;
+=======
+>>>>>>> orgin/bash-4.3-testing
       break;
     }
 
@@ -5513,7 +6436,11 @@ history_delimiting_chars (line)
 	  last_was_heredoc = 0;
 	  return "\n";
 	}
+<<<<<<< HEAD
       return (here_doc_first_line ? "\n" : "");
+=======
+      return (current_command_line_count == 2 ? "\n" : "");
+>>>>>>> orgin/bash-4.3-testing
     }
 
   if (parser_state & PST_COMPASSIGN)
@@ -5548,8 +6475,12 @@ history_delimiting_chars (line)
       last_was_heredoc = 1;
       return "\n";
     }
+<<<<<<< HEAD
   else if ((parser_state & PST_HEREDOC) == 0 && current_command_line_count > 1 && need_here_doc > 0)
     return "\n";
+=======
+
+>>>>>>> orgin/bash-4.3-testing
   else if (token_before_that == WORD && two_tokens_ago == FOR)
     {
       /* Tricky.  `for i\nin ...' should not have a semicolon, but
@@ -5708,10 +6639,16 @@ decode_prompt_string (string)
   struct dstack save_dstack;
   int last_exit_value, last_comsub_pid;
 #if defined (PROMPT_STRING_DECODE)
+<<<<<<< HEAD
   size_t result_size;
   int result_index;
   int c, n, i;
   char *temp, *t_host, octal_string[4];
+=======
+  int result_size, result_index;
+  int c, n, i;
+  char *temp, octal_string[4];
+>>>>>>> orgin/bash-4.3-testing
   struct tm *tm;  
   time_t the_time;
   char timebuf[128];
@@ -6589,6 +7526,7 @@ save_parser_state (ps)
 
   ps->expand_aliases = expand_aliases;
   ps->echo_input_at_read = echo_input_at_read;
+<<<<<<< HEAD
   ps->need_here_doc = need_here_doc;
   ps->here_doc_first_line = here_doc_first_line;
 
@@ -6596,6 +7534,8 @@ save_parser_state (ps)
     ps->redir_stack[0] = 0;
   else
     memcpy (ps->redir_stack, redir_stack, sizeof (redir_stack[0]) * HEREDOC_MAX);
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   ps->token = token;
   ps->token_buffer_size = token_buffer_size;
@@ -6610,8 +7550,11 @@ void
 restore_parser_state (ps)
      sh_parser_state_t *ps;
 {
+<<<<<<< HEAD
   int i;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (ps == 0)
     return;
 
@@ -6646,6 +7589,7 @@ restore_parser_state (ps)
 
   expand_aliases = ps->expand_aliases;
   echo_input_at_read = ps->echo_input_at_read;
+<<<<<<< HEAD
   need_here_doc = ps->need_here_doc;
   here_doc_first_line = ps->here_doc_first_line;
 
@@ -6658,6 +7602,8 @@ restore_parser_state (ps)
   else
     memcpy (redir_stack, ps->redir_stack, sizeof (redir_stack[0]) * HEREDOC_MAX);
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   FREE (token);
   token = ps->token;

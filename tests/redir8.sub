@@ -56,6 +56,9 @@ exec 0<&7
 exec 7<&-
 
 rm -f infile
+<<<<<<< HEAD
 
 cd $OLDPWD
+=======
+>>>>>>> orgin/bash-4.3-testing
 exit 0

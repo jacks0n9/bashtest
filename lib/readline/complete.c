@@ -1,6 +1,10 @@
 /* complete.c -- filename completion for readline. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.
@@ -111,10 +115,15 @@ static int stat_char PARAMS((char *));
 #endif
 
 #if defined (COLOR_SUPPORT)
+<<<<<<< HEAD
 static int colored_stat_start PARAMS((const char *));
 static void colored_stat_end PARAMS((void));
 static int colored_prefix_start PARAMS((void));
 static void colored_prefix_end PARAMS((void));
+=======
+static int colored_stat_start PARAMS((char *));
+static void colored_stat_end PARAMS((void));
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 static int path_isdir PARAMS((const char *));
@@ -128,7 +137,11 @@ static int get_y_or_n PARAMS((int));
 static int _rl_internal_pager PARAMS((int));
 static char *printable_part PARAMS((char *));
 static int fnwidth PARAMS((const char *));
+<<<<<<< HEAD
 static int fnprint PARAMS((const char *, int, const char *));
+=======
+static int fnprint PARAMS((const char *, int));
+>>>>>>> orgin/bash-4.3-testing
 static int print_filename PARAMS((char *, char *, int));
 
 static char **gen_completion_matches PARAMS((char *, int, int, rl_compentry_func_t *, int, int));
@@ -198,6 +211,7 @@ int _rl_completion_prefix_display_length = 0;
    matches.  If < 0 or > _rl_screenwidth, it is ignored. */
 int _rl_completion_columns = -1;
 
+<<<<<<< HEAD
 #if defined (COLOR_SUPPORT)
 /* Non-zero means to use colors to indicate file type when listing possible
    completions.  The colors used are taken from $LS_COLORS, if set. */
@@ -218,6 +232,8 @@ int _rl_skip_completed_text = 0;
    cycle of possible completions instead of the last. */
 int _rl_menu_complete_prefix_first = 0;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Global variables available to applications using readline. */
 
 #if defined (VISIBLE_STATS)
@@ -226,6 +242,22 @@ int _rl_menu_complete_prefix_first = 0;
    to indicate the type of file being listed. */
 int rl_visible_stats = 0;
 #endif /* VISIBLE_STATS */
+
+#if defined (COLOR_SUPPORT)
+/* Non-zero means to use colors to indicate file type when listing possible
+   completions.  The colors used are taken from $LS_COLORS, if set. */
+int _rl_colored_stats = 0;
+#endif
+
+/* If non-zero, when completing in the middle of a word, don't insert
+   characters from the match that match characters following point in
+   the word.  This means, for instance, completing when the cursor is
+   after the `e' in `Makefile' won't result in `Makefilefile'. */
+int _rl_skip_completed_text = 0;
+
+/* If non-zero, menu completion displays the common prefix first in the
+   cycle of possible completions instead of the last. */
+int _rl_menu_complete_prefix_first = 0;
 
 /* If non-zero, then this is the address of a function to call when
    completing on a directory name.  The function is called with
@@ -410,8 +442,11 @@ static int completion_changed_buffer;
 /* The result of the query to the user about displaying completion matches */
 static int completion_y_or_n;
 
+<<<<<<< HEAD
 static int _rl_complete_display_matches_interrupt = 0;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /*************************************/
 /*				     */
 /*    Bindable completion functions  */
@@ -479,13 +514,18 @@ rl_completion_mode (rl_command_func_t *cfunc)
 
 /* Reset readline state on a signal or other event. */
 void
+<<<<<<< HEAD
 _rl_reset_completion_state (void)
+=======
+_rl_reset_completion_state ()
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_completion_found_quote = 0;
   rl_completion_quote_character = 0;
 }
 
 static void
+<<<<<<< HEAD
 _rl_complete_sigcleanup (int sig, void *ptr)
 {
   if (sig == SIGINT)	/* XXX - for now */
@@ -493,6 +533,14 @@ _rl_complete_sigcleanup (int sig, void *ptr)
       _rl_free_match_list ((char **)ptr);
       _rl_complete_display_matches_interrupt = 1;
     }
+=======
+_rl_complete_sigcleanup (sig, ptr)
+     int sig;
+     void *ptr;
+{
+  if (sig == SIGINT)	/* XXX - for now */
+    _rl_free_match_list ((char **)ptr);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Set default values for readline word completion.  These are the variables
@@ -566,7 +614,12 @@ _rl_internal_pager (int lines)
 }
 
 static int
+<<<<<<< HEAD
 path_isdir (const char *filename)
+=======
+path_isdir (filename)
+     const char *filename;
+>>>>>>> orgin/bash-4.3-testing
 {
   struct stat finfo;
 
@@ -660,25 +713,39 @@ stat_char (char *filename)
 #endif
     }
 
+<<<<<<< HEAD
   xfree (f);
+=======
+  free (f);
+>>>>>>> orgin/bash-4.3-testing
   return (character);
 }
 #endif /* VISIBLE_STATS */
 
 #if defined (COLOR_SUPPORT)
 static int
+<<<<<<< HEAD
 colored_stat_start (const char *filename)
+=======
+colored_stat_start (filename)
+     char *filename;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_set_normal_color ();
   return (_rl_print_color_indicator (filename));
 }
 
 static void
+<<<<<<< HEAD
 colored_stat_end (void)
+=======
+colored_stat_end ()
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_prep_non_filename_text ();
   _rl_put_indicator (&_rl_color_indicator[C_CLR_TO_EOL]);
 }
+<<<<<<< HEAD
 
 static int
 colored_prefix_start (void)
@@ -692,6 +759,8 @@ colored_prefix_end (void)
 {
   colored_stat_end ();		/* for now */
 }
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 /* Return the portion of PATHNAME that should be output when listing
@@ -737,7 +806,12 @@ printable_part (char *pathname)
 
 /* Compute width of STRING when displayed on screen by print_filename */
 static int
+<<<<<<< HEAD
 fnwidth (const char *string)
+=======
+fnwidth (string)
+     const char *string;
+>>>>>>> orgin/bash-4.3-testing
 {
   int width, pos;
 #if defined (HANDLE_MULTIBYTE)
@@ -745,6 +819,7 @@ fnwidth (const char *string)
   int left, w;
   size_t clen;
   wchar_t wc;
+<<<<<<< HEAD
 
   left = strlen (string) + 1;
   memset (&ps, 0, sizeof (mbstate_t));
@@ -794,6 +869,58 @@ fnprint (const char *to_print, int prefix_bytes, const char *real_pathname)
   int printed_len, w;
   const char *s;
   int common_prefix_len, print_len;
+=======
+
+  left = strlen (string) + 1;
+  memset (&ps, 0, sizeof (mbstate_t));
+#endif
+
+  width = pos = 0;
+  while (string[pos])
+    {
+      if (CTRL_CHAR (string[pos]) || string[pos] == RUBOUT)
+	{
+	  width += 2;
+	  pos++;
+	}
+      else
+	{
+#if defined (HANDLE_MULTIBYTE)
+	  clen = mbrtowc (&wc, string + pos, left - pos, &ps);
+	  if (MB_INVALIDCH (clen))
+	    {
+	      width++;
+	      pos++;
+	      memset (&ps, 0, sizeof (mbstate_t));
+	    }
+	  else if (MB_NULLWCH (clen))
+	    break;
+	  else
+	    {
+	      pos += clen;
+	      w = WCWIDTH (wc);
+	      width += (w >= 0) ? w : 1;
+	    }
+#else
+	  width++;
+	  pos++;
+#endif
+	}
+    }
+
+  return width;
+}
+
+#define ELLIPSIS_LEN	3
+
+static int
+fnprint (to_print, prefix_bytes)
+     const char *to_print;
+     int prefix_bytes;
+{
+  int printed_len, w;
+  const char *s;
+>>>>>>> orgin/bash-4.3-testing
 #if defined (HANDLE_MULTIBYTE)
   mbstate_t ps;
   const char *end;
@@ -801,6 +928,7 @@ fnprint (const char *to_print, int prefix_bytes, const char *real_pathname)
   int width;
   wchar_t wc;
 
+<<<<<<< HEAD
   print_len = strlen (to_print);
   end = to_print + print_len + 1;
   memset (&ps, 0, sizeof (mbstate_t));
@@ -823,6 +951,20 @@ fnprint (const char *to_print, int prefix_bytes, const char *real_pathname)
 #endif
 
   if (prefix_bytes && _rl_completion_prefix_display_length > 0)
+=======
+  end = to_print + strlen (to_print) + 1;
+  memset (&ps, 0, sizeof (mbstate_t));
+#endif
+
+  printed_len = 0;
+
+  /* Don't print only the ellipsis if the common prefix is one of the
+     possible completions */
+  if (to_print[prefix_bytes] == '\0')
+    prefix_bytes = 0;
+
+  if (prefix_bytes)
+>>>>>>> orgin/bash-4.3-testing
     {
       char ellipsis;
 
@@ -831,6 +973,7 @@ fnprint (const char *to_print, int prefix_bytes, const char *real_pathname)
 	putc (ellipsis, rl_outstream);
       printed_len = ELLIPSIS_LEN;
     }
+<<<<<<< HEAD
 #if defined (COLOR_SUPPORT)
   else if (prefix_bytes && _rl_colored_completion_prefix > 0)
     {
@@ -840,6 +983,8 @@ fnprint (const char *to_print, int prefix_bytes, const char *real_pathname)
       colored_prefix_start ();
     }
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   s = to_print + prefix_bytes;
   while (*s)
@@ -890,6 +1035,7 @@ fnprint (const char *to_print, int prefix_bytes, const char *real_pathname)
 	  printed_len++;
 #endif
 	}
+<<<<<<< HEAD
       if (common_prefix_len > 0 && (s - to_print) >= common_prefix_len)
 	{
 #if defined (COLOR_SUPPORT)
@@ -909,6 +1055,10 @@ fnprint (const char *to_print, int prefix_bytes, const char *real_pathname)
     colored_stat_end ();
 #endif
 
+=======
+    }
+
+>>>>>>> orgin/bash-4.3-testing
   return printed_len;
 }
 
@@ -917,7 +1067,13 @@ fnprint (const char *to_print, int prefix_bytes, const char *real_pathname)
    filenames.  Return the number of characters we output. */
 
 static int
+<<<<<<< HEAD
 print_filename (char *to_print, char *full_pathname, int prefix_bytes)
+=======
+print_filename (to_print, full_pathname, prefix_bytes)
+     char *to_print, *full_pathname;
+     int prefix_bytes;
+>>>>>>> orgin/bash-4.3-testing
 {
   int printed_len, extension_char, slen, tlen;
   char *s, c, *new_full_pathname, *dn;
@@ -927,7 +1083,11 @@ print_filename (char *to_print, char *full_pathname, int prefix_bytes)
   /* Defer printing if we want to prefix with a color indicator */
   if (_rl_colored_stats == 0 || rl_filename_completion_desired == 0)
 #endif
+<<<<<<< HEAD
     printed_len = fnprint (to_print, prefix_bytes, to_print);
+=======
+    printed_len = fnprint (to_print, prefix_bytes);
+>>>>>>> orgin/bash-4.3-testing
 
   if (rl_filename_completion_desired && (
 #if defined (VISIBLE_STATS)
@@ -974,6 +1134,10 @@ print_filename (char *to_print, char *full_pathname, int prefix_bytes)
 	    slen--;
 	  else
 	    new_full_pathname[slen] = '/';
+<<<<<<< HEAD
+=======
+	  new_full_pathname[slen] = '/';
+>>>>>>> orgin/bash-4.3-testing
 	  strcpy (new_full_pathname + slen + 1, to_print);
 
 #if defined (VISIBLE_STATS)
@@ -988,17 +1152,31 @@ print_filename (char *to_print, char *full_pathname, int prefix_bytes)
 		{
 		  dn = savestring (new_full_pathname);
 		  (*rl_filename_stat_hook) (&dn);
+<<<<<<< HEAD
 		  xfree (new_full_pathname);
+=======
+		  free (new_full_pathname);
+>>>>>>> orgin/bash-4.3-testing
 		  new_full_pathname = dn;
 		}
 	      if (path_isdir (new_full_pathname))
 		extension_char = '/';
 	    }
 
+<<<<<<< HEAD
 	  /* Move colored-stats code inside fnprint() */
 #if defined (COLOR_SUPPORT)
 	  if (_rl_colored_stats)
 	    printed_len = fnprint (to_print, prefix_bytes, new_full_pathname);
+=======
+#if defined (COLOR_SUPPORT)
+	  if (_rl_colored_stats)
+	    {
+	      colored_stat_start (new_full_pathname);
+	      printed_len = fnprint (to_print, prefix_bytes);
+	      colored_stat_end ();
+	    }
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 	  xfree (new_full_pathname);
@@ -1015,11 +1193,23 @@ print_filename (char *to_print, char *full_pathname, int prefix_bytes)
 	    if (_rl_complete_mark_directories && path_isdir (s))
 	      extension_char = '/';
 
+<<<<<<< HEAD
 	  /* Move colored-stats code inside fnprint() */
 #if defined (COLOR_SUPPORT)
 	  if (_rl_colored_stats)
 	    printed_len = fnprint (to_print, prefix_bytes, s);
 #endif
+=======
+#if defined (COLOR_SUPPORT)
+	  if (_rl_colored_stats)
+	    {
+	      colored_stat_start (s);
+	      printed_len = fnprint (to_print, prefix_bytes);
+	      colored_stat_end ();
+	    }
+#endif
+
+>>>>>>> orgin/bash-4.3-testing
 	}
 
       xfree (s);
@@ -1509,7 +1699,11 @@ postprocess_matches (char ***matchesp, int matching_filenames)
 }
 
 static int
+<<<<<<< HEAD
 complete_get_screenwidth (void)
+=======
+complete_get_screenwidth ()
+>>>>>>> orgin/bash-4.3-testing
 {
   int cols;
   char *envcols;
@@ -1542,18 +1736,25 @@ rl_display_match_list (char **matches, int len, int max)
   if (_rl_completion_prefix_display_length > 0)
     {
       t = printable_part (matches[0]);
+<<<<<<< HEAD
       /* check again in case of /usr/src/ */
       temp = rl_filename_completion_desired ? strrchr (t, '/') : 0;
       common_length = temp ? fnwidth (temp) : fnwidth (t);
       sind = temp ? strlen (temp) : strlen (t);
       if (common_length > max || sind > max)
 	common_length = sind = 0;
+=======
+      temp = strrchr (t, '/');
+      common_length = temp ? fnwidth (temp) : fnwidth (t);
+      sind = temp ? strlen (temp) : strlen (t);
+>>>>>>> orgin/bash-4.3-testing
 
       if (common_length > _rl_completion_prefix_display_length && common_length > ELLIPSIS_LEN)
 	max -= common_length - ELLIPSIS_LEN;
       else
 	common_length = sind = 0;
     }
+<<<<<<< HEAD
 #if defined (COLOR_SUPPORT)
   else if (_rl_colored_completion_prefix > 0)
     {
@@ -1565,6 +1766,8 @@ rl_display_match_list (char **matches, int len, int max)
 	common_length = sind = 0;
     }
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   /* How many items of MAX length can we fit in the screen window? */
   cols = complete_get_screenwidth ();
@@ -1986,7 +2189,13 @@ rl_complete_internal (int what_to_do)
   int start, end, delimiter, found_quote, i, nontrivial_lcd;
   char *text, *saved_line_buffer;
   char quote_char;
+<<<<<<< HEAD
   int tlen, mlen;
+=======
+#if 1
+  int tlen, mlen;
+#endif
+>>>>>>> orgin/bash-4.3-testing
 
   RL_SETSTATE(RL_STATE_COMPLETING);
 
@@ -2102,6 +2311,7 @@ rl_complete_internal (int what_to_do)
 	{
 	  _rl_sigcleanup = _rl_complete_sigcleanup;
 	  _rl_sigcleanarg = matches;
+<<<<<<< HEAD
 	  _rl_complete_display_matches_interrupt = 0;
 	}
       display_matches (matches);
@@ -2112,6 +2322,10 @@ rl_complete_internal (int what_to_do)
 	  if (rl_signal_event_hook)
 	    (*rl_signal_event_hook) ();		/* XXX */
         }
+=======
+	}
+      display_matches (matches);
+>>>>>>> orgin/bash-4.3-testing
       _rl_sigcleanup = 0;
       _rl_sigcleanarg = 0;
       break;
@@ -2137,8 +2351,11 @@ rl_complete_internal (int what_to_do)
 
   RL_UNSETSTATE(RL_STATE_COMPLETING);
   _rl_reset_completion_state ();
+<<<<<<< HEAD
 
   RL_CHECK_SIGNALS ();
+=======
+>>>>>>> orgin/bash-4.3-testing
   return 0;
 }
 
@@ -2291,7 +2508,15 @@ rl_username_completion_function (const char *text, int state)
    _rl_completion_case_map is set, make `-' and `_' equivalent.  CONVFN is
    the possibly-converted directory entry; FILENAME is what the user typed. */
 static int
+<<<<<<< HEAD
 complete_fncmp (const char *convfn, int convlen, const char *filename, int filename_len)
+=======
+complete_fncmp (convfn, convlen, filename, filename_len)
+     const char *convfn;
+     int convlen;
+     const char *filename;
+     int filename_len;
+>>>>>>> orgin/bash-4.3-testing
 {
   register char *s1, *s2;
   int d, len;
@@ -2428,7 +2653,10 @@ rl_filename_completion_function (const char *text, int state)
   static int filename_len;
   char *temp, *dentry, *convfn;
   int dirlen, dentlen, convlen;
+<<<<<<< HEAD
   int tilde_dirname;
+=======
+>>>>>>> orgin/bash-4.3-testing
   struct dirent *entry;
 
   /* If we don't have any state, then do some initialization. */
@@ -2511,7 +2739,11 @@ rl_filename_completion_function (const char *text, int state)
 	  xfree (users_dirname);
 	  users_dirname = savestring (dirname);
 	}
+<<<<<<< HEAD
       else if (tilde_dirname == 0 && rl_completion_found_quote && rl_filename_dequoting_function)
+=======
+      else if (rl_completion_found_quote && rl_filename_dequoting_function)
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  /* delete single and double quotes */
 	  xfree (dirname);
@@ -2647,7 +2879,12 @@ rl_filename_completion_function (const char *text, int state)
    hit the end of the match list, we restore the original unmatched text,
    ring the bell, and reset the counter to zero. */
 int
+<<<<<<< HEAD
 rl_old_menu_complete (int count, int invoking_key)
+=======
+rl_old_menu_complete (count, invoking_key)
+     int count, invoking_key;
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_compentry_func_t *our_func;
   int matching_filenames, found_quote;
@@ -2768,6 +3005,7 @@ rl_old_menu_complete (int count, int invoking_key)
   return (0);
 }
 
+<<<<<<< HEAD
 /* The current version of menu completion.
    The differences between this function and the original are:
 
@@ -2779,6 +3017,11 @@ rl_old_menu_complete (int count, int invoking_key)
  
 int
 rl_menu_complete (int count, int ignore)
+=======
+int
+rl_menu_complete (count, ignore)
+     int count, ignore;
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_compentry_func_t *our_func;
   int matching_filenames, found_quote;
@@ -2950,7 +3193,12 @@ rl_menu_complete (int count, int ignore)
 }
 
 int
+<<<<<<< HEAD
 rl_backward_menu_complete (int count, int key)
+=======
+rl_backward_menu_complete (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   /* Positive arguments to backward-menu-complete translate into negative
      arguments for menu-complete, and vice versa. */

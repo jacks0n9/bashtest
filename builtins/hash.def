@@ -1,7 +1,11 @@
 This file is hash.def, from which is created hash.c.
 It implements the builtin "hash" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -29,6 +33,7 @@ Determine and remember the full pathname of each command NAME.  If
 no arguments are given, information about remembered commands is displayed.
 
 Options:
+<<<<<<< HEAD
   -d	forget the remembered location of each NAME
   -l	display in a format that may be reused as input
   -p pathname	use PATHNAME as the full pathname of NAME
@@ -38,6 +43,17 @@ Options:
 		NAMEs are given
 Arguments:
   NAME	Each NAME is searched for in $PATH and added to the list
+=======
+  -d		forget the remembered location of each NAME
+  -l		display in a format that may be reused as input
+  -p pathname	use PATHNAME as the full pathname of NAME
+  -r		forget all remembered locations
+  -t		print the remembered location of each NAME, preceding
+		each location with the corresponding NAME if multiple
+		NAMEs are given
+Arguments:
+  NAME		Each NAME is searched for in $PATH and added to the list
+>>>>>>> orgin/bash-4.3-testing
 		of remembered commands.
 
 Exit Status:
@@ -68,6 +84,7 @@ $END
 #include "common.h"
 #include "bashgetopt.h"
 
+extern int posixly_correct;
 extern int dot_found_in_search;
 
 static int add_hashed_command __P((char *, int));

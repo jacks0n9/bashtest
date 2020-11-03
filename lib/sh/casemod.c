@@ -1,6 +1,10 @@
 /* casemod.c -- functions to change case of strings */
 
+<<<<<<< HEAD
 /* Copyright (C) 2008,2009,2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2008,2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -49,7 +53,11 @@
 #if !defined (HANDLE_MULTIBYTE)
 #  define cval(s, i)	((s)[(i)])
 #  define iswalnum(c)	(isalnum(c))
+<<<<<<< HEAD
 #  define TOGGLE(x)	(ISUPPER (x) ? tolower ((unsigned char)x) : (TOUPPER (x)))
+=======
+#  define TOGGLE(x)	(ISUPPER (x) ? tolower (x) : (TOUPPER (x)))
+>>>>>>> orgin/bash-4.3-testing
 #else
 #  define TOGGLE(x)	(iswupper (x) ? towlower (x) : (_to_wupper(x)))
 #endif
@@ -105,11 +113,18 @@ sh_modcase (string, pat, flags)
      char *pat;
      int flags;
 {
+<<<<<<< HEAD
   int start, next, end, retind;
   int inword, c, nc, nop, match, usewords;
   char *ret, *s;
   wchar_t wc;
   int mb_cur_max;
+=======
+  int start, next, end;
+  int inword, c, nc, nop, match, usewords;
+  char *ret, *s;
+  wchar_t wc;
+>>>>>>> orgin/bash-4.3-testing
 #if defined (HANDLE_MULTIBYTE)
   wchar_t nwc;
   char mb[MB_LEN_MAX+1];
@@ -131,10 +146,16 @@ sh_modcase (string, pat, flags)
 
   start = 0;
   end = strlen (string);
+<<<<<<< HEAD
   mb_cur_max = MB_CUR_MAX;
 
   ret = (char *)xmalloc (2*end + 1);
   retind = 0;
+=======
+
+  ret = (char *)xmalloc (end + 1);
+  strcpy (ret, string);
+>>>>>>> orgin/bash-4.3-testing
 
   /* See if we are supposed to split on alphanumerics and operate on each word */
   usewords = (flags & CASE_USEWORDS);
@@ -143,23 +164,44 @@ sh_modcase (string, pat, flags)
   inword = 0;
   while (start < end)
     {
+<<<<<<< HEAD
       wc = cval ((char *)string, start);
 
       if (iswalnum (wc) == 0)
 	inword = 0;
+=======
+      wc = cval (ret, start);
+
+      if (iswalnum (wc) == 0)
+	{
+	  inword = 0;
+#if 0
+	  ADVANCE_CHAR (ret, end, start);
+	  continue;
+#endif
+	}
+>>>>>>> orgin/bash-4.3-testing
 
       if (pat)
 	{
 	  next = start;
+<<<<<<< HEAD
 	  ADVANCE_CHAR (string, end, next);
 	  s = substring ((char *)string, start, next);
+=======
+	  ADVANCE_CHAR (ret, end, next);
+	  s = substring (ret, start, next);
+>>>>>>> orgin/bash-4.3-testing
 	  match = strmatch (pat, s, FNM_EXTMATCH) != FNM_NOMATCH;
 	  free (s);
 	  if (match == 0)
             {
+<<<<<<< HEAD
               /* copy unmatched portion */
               memcpy (ret + retind, string + start, next - start);
               retind += next - start;
+=======
+>>>>>>> orgin/bash-4.3-testing
               start = next;
               inword = 1;
               continue;
@@ -209,6 +251,7 @@ sh_modcase (string, pat, flags)
       else
 	nop = flags;
 
+<<<<<<< HEAD
       /* Can't short-circuit, some locales have multibyte upper and lower
 	 case equivalents of single-byte ascii characters (e.g., Turkish) */
       if (mb_cur_max == 1)
@@ -224,14 +267,34 @@ singlebyte:
 	    case CASE_TOGGLE: nc = TOGGLE (wc); break;
 	    }
 	  ret[retind++] = nc;
+=======
+      /* Need to check UCHAR_MAX since wc may have already been converted to a
+	 wide character by cval() */
+      if (MB_CUR_MAX == 1 || (wc <= UCHAR_MAX && is_basic ((int)wc)))
+	{
+singlebyte:
+	  switch (nop)
+	  {
+	  default:
+	  case CASE_NOOP:  nc = wc; break;
+	  case CASE_UPPER:  nc = TOUPPER (wc); break;
+	  case CASE_LOWER:  nc = TOLOWER (wc); break;
+	  case CASE_TOGGLEALL:
+	  case CASE_TOGGLE: nc = TOGGLE (wc); break;
+	  }
+	  ret[start] = nc;
+>>>>>>> orgin/bash-4.3-testing
 	}
 #if defined (HANDLE_MULTIBYTE)
       else
 	{
 	  m = mbrtowc (&wc, string + start, end - start, &state);
+<<<<<<< HEAD
 	  /* Have to go through wide case conversion even for single-byte
 	     chars, to accommodate single-byte characters where the
 	     corresponding upper or lower case equivalent is multibyte. */
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  if (MB_INVALIDCH (m))
 	    {
 	      wc = (unsigned char)string[start];
@@ -240,6 +303,7 @@ singlebyte:
 	  else if (MB_NULLWCH (m))
 	    wc = L'\0';
 	  switch (nop)
+<<<<<<< HEAD
 	    {
 	    default:
 	    case CASE_NOOP:  nwc = wc; break;
@@ -254,20 +318,43 @@ singlebyte:
 	  if ((int)nwc <= UCHAR_MAX && is_basic ((int)nwc))
 	    ret[retind++] = nwc;
 	  else
+=======
+	  {
+	  default:
+	  case CASE_NOOP:  nwc = wc; break;
+	  case CASE_UPPER:  nwc = _to_wupper (wc); break;
+	  case CASE_LOWER:  nwc = _to_wlower (wc); break;
+	  case CASE_TOGGLEALL:
+	  case CASE_TOGGLE: nwc = TOGGLE (wc); break;
+	  }
+	  if  (nwc != wc)	/*  just skip unchanged characters */
+>>>>>>> orgin/bash-4.3-testing
 	    {
 	      mlen = wcrtomb (mb, nwc, &state);
 	      if (mlen > 0)
 		mb[mlen] = '\0';
+<<<<<<< HEAD
 	      /* Don't assume the same width */
 	      strncpy (ret + retind, mb, mlen);
 	      retind += mlen;
+=======
+	      /* Assume the same width */
+	      strncpy (ret + start, mb, mlen);
+>>>>>>> orgin/bash-4.3-testing
 	    }
 	}
 #endif
 
+<<<<<<< HEAD
       ADVANCE_CHAR (string, end, start);
     }
 
   ret[retind] = '\0';
+=======
+      /*  This assumes that the upper and lower case versions are the same width. */
+      ADVANCE_CHAR (ret, end, start);
+    }
+
+>>>>>>> orgin/bash-4.3-testing
   return ret;
 }

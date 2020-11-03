@@ -1,7 +1,11 @@
 /* alias.c -- Not a full alias, but just the kind that we use in the
    shell.  Csh style alias is somewhere else (`over there, in a box'). */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 

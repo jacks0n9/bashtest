@@ -32,7 +32,10 @@ extern void remove_unwind_protect __P((void));
 extern void run_unwind_protects __P((void));
 extern void clear_unwind_protect_list __P((int));
 extern int have_unwind_protects __P((void));
+<<<<<<< HEAD
 extern int unwind_protect_tag_on_stack __P((const char *));
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern void uwp_init __P((void));
 
 /* Define for people who like their code to look a certain way. */

@@ -1,5 +1,6 @@
 # don't push out -i
 -i
+<<<<<<< HEAD
 
 *.save
 .DS_Store
@@ -79,3 +80,5 @@ tests/printenv
 tests/recho
 tests/xcase
 tests/zecho
+=======
+>>>>>>> orgin/bash-4.3-testing

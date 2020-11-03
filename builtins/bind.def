@@ -1,7 +1,11 @@
 This file is bind.def, from which is created bind.c.
 It implements the builtin "bind" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -54,7 +58,11 @@ Options:
   -f  filename       Read key bindings from FILENAME.
   -x  keyseq:shell-command	Cause SHELL-COMMAND to be executed when
 				KEYSEQ is entered.
+<<<<<<< HEAD
   -X                 List key sequences bound with -x and associated commands
+=======
+  -X		     List key sequences bound with -x and associated commands
+>>>>>>> orgin/bash-4.3-testing
                      in a form that can be reused as input.
 
 Exit Status:
@@ -140,7 +148,11 @@ bind_builtin (list)
   rl_outstream = stdout;
 
   reset_internal_getopt ();  
+<<<<<<< HEAD
   while ((opt = internal_getopt (list, "lvpVPsSXf:q:u:m:r:x:")) != -1)
+=======
+  while ((opt = internal_getopt (list, "lvpVPsSXf:q:u:m:r:x:")) != EOF)
+>>>>>>> orgin/bash-4.3-testing
     {
       switch (opt)
 	{
@@ -192,7 +204,10 @@ bind_builtin (list)
 	case 'X':
 	  flags |= XXFLAG;
 	  break;
+<<<<<<< HEAD
 	CASE_HELPOPT;
+=======
+>>>>>>> orgin/bash-4.3-testing
 	default:
 	  builtin_usage ();
 	  BIND_RETURN (EX_USAGE);
@@ -248,10 +263,14 @@ bind_builtin (list)
     {
       if (rl_read_init_file (initfile) != 0)
 	{
+<<<<<<< HEAD
 	  t = printable_filename (initfile, 0);
 	  builtin_error (_("%s: cannot read: %s"), t, strerror (errno));
 	  if (t != initfile)
 	    free (t);
+=======
+	  builtin_error (_("%s: cannot read: %s"), initfile, strerror (errno));
+>>>>>>> orgin/bash-4.3-testing
 	  BIND_RETURN (EXECUTION_FAILURE);
 	}
     }
@@ -264,8 +283,16 @@ bind_builtin (list)
 
   if ((flags & RFLAG) && remove_seq)
     {
+<<<<<<< HEAD
       opt = unbind_keyseq (remove_seq);
       BIND_RETURN (opt);
+=======
+      if (rl_bind_keyseq (remove_seq, (rl_command_func_t *)NULL) != 0)
+	{
+	  builtin_error (_("`%s': cannot unbind"), remove_seq);
+	  BIND_RETURN (EXECUTION_FAILURE);
+	}
+>>>>>>> orgin/bash-4.3-testing
     }
 
   if (flags & XFLAG)

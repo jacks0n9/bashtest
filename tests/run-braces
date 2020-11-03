@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ${THIS_SH} ./braces.tests > ${BASH_TSTOUT}
 diff ${BASH_TSTOUT} braces.right && rm -f ${BASH_TSTOUT}
+=======
+${THIS_SH} ./braces.tests > /tmp/xx
+diff /tmp/xx braces.right && rm -f /tmp/xx
+>>>>>>> orgin/bash-4.3-testing

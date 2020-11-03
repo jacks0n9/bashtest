@@ -1,6 +1,10 @@
 /* histsearch.c -- searching the history list. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1989, 1992-2009,2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1989, 1992-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file contains the GNU History Library (History), a set of
    routines for managing the text of previously typed lines.

@@ -1,6 +1,10 @@
 /* common.h -- extern declarations for functions defined in common.c. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1993-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1993-2010 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -48,9 +52,12 @@ do { \
 #define SEVAL_RESETLINE	0x010
 #define SEVAL_PARSEONLY	0x020
 #define SEVAL_NOLONGJMP 0x040
+<<<<<<< HEAD
 #define SEVAL_FUNCDEF	0x080		/* only allow function definitions */
 #define SEVAL_ONECMD	0x100		/* only allow a single command */
 #define SEVAL_NOHISTEXP	0x200		/* inhibit history expansion */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* Flags for describe_command, shared between type.def and command.def */
 #define CDESC_ALL		0x001	/* type -a */
@@ -61,7 +68,10 @@ do { \
 #define CDESC_FORCE_PATH	0x020	/* type -ap or type -P */
 #define CDESC_NOFUNCS		0x040	/* type -f */
 #define CDESC_ABSPATH		0x080	/* convert to absolute path, no ./ */
+<<<<<<< HEAD
 #define CDESC_STDPATH		0x100	/* command -p */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* Flags for get_job_by_name */
 #define JM_PREFIX		0x01	/* prefix of job name */
@@ -200,6 +210,7 @@ extern WORD_LIST *get_directory_stack __P((int));
 /* Functions from evalstring.c */
 extern int parse_and_execute __P((char *, const char *, int));
 extern int evalstring __P((char *, const char *, int));
+<<<<<<< HEAD
 extern void parse_and_execute_cleanup __P((int));
 extern int parse_string __P((char *, const char *, int, char **));
 extern int should_suppress_fork __P((COMMAND *));
@@ -209,6 +220,13 @@ extern void optimize_subshell_command __P((COMMAND *));
 /* Functions from evalfile.c */
 extern int maybe_execute_file __P((const char *, int));
 extern int force_execute_file __P((const char *, int));
+=======
+extern void parse_and_execute_cleanup __P((void));
+extern int parse_string __P((char *, const char *, int, char **));
+
+/* Functions from evalfile.c */
+extern int maybe_execute_file __P((const char *, int));
+>>>>>>> orgin/bash-4.3-testing
 extern int source_file __P((const char *, int));
 extern int fc_execute_file __P((const char *));
 

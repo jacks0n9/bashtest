@@ -436,5 +436,8 @@ t -t /dev/tty4444444...
 
 # fixed in bash-4.0-beta
 t -t ' '
+<<<<<<< HEAD
 
 ${THIS_SH} ./test1.sub
+=======
+>>>>>>> orgin/bash-4.3-testing

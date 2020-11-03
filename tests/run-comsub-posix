@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ${THIS_SH} ./comsub-posix.tests > ${BASH_TSTOUT} 2>&1
 diff ${BASH_TSTOUT} comsub-posix.right && rm -f ${BASH_TSTOUT}
+=======
+${THIS_SH} ./comsub-posix.tests > /tmp/xx 2>&1
+diff /tmp/xx comsub-posix.right && rm -f /tmp/xx
+>>>>>>> orgin/bash-4.3-testing

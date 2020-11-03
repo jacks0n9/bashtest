@@ -2,7 +2,11 @@ This file is mapfile.def, from which is created mapfile.c.
 It implements the builtin "mapfile" in Bash.
 
 Copyright (C) 2005-2006 Rocky Bernstein for Free Software Foundation, Inc.
+<<<<<<< HEAD
 Copyright (C) 2008-2016 Free Software Foundation, Inc.
+=======
+Copyright (C) 2008-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -23,7 +27,11 @@ $PRODUCES mapfile.c
 
 $BUILTIN mapfile
 $FUNCTION mapfile_builtin
+<<<<<<< HEAD
 $SHORT_DOC mapfile [-d delim] [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c quantum] [array]
+=======
+$SHORT_DOC mapfile [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c quantum] [array]
+>>>>>>> orgin/bash-4.3-testing
 Read lines from the standard input into an indexed array variable.
 
 Read lines from the standard input into the indexed array variable ARRAY, or
@@ -31,6 +39,7 @@ from file descriptor FD if the -u option is supplied.  The variable MAPFILE
 is the default ARRAY.
 
 Options:
+<<<<<<< HEAD
   -d delim	Use DELIM to terminate lines, instead of newline
   -n count	Copy at most COUNT lines.  If COUNT is 0, all lines are copied
   -O origin	Begin assigning to ARRAY at index ORIGIN.  The default index is 0
@@ -43,6 +52,18 @@ Options:
 
 Arguments:
   ARRAY	Array variable name to use for file data
+=======
+  -n count	Copy at most COUNT lines.  If COUNT is 0, all lines are copied.
+  -O origin	Begin assigning to ARRAY at index ORIGIN.  The default index is 0.
+  -s count 	Discard the first COUNT lines read.
+  -t		Remove a trailing newline from each line read.
+  -u fd		Read lines from file descriptor FD instead of the standard input.
+  -C callback	Evaluate CALLBACK each time QUANTUM lines are read.
+  -c quantum	Specify the number of lines read between each call to CALLBACK.
+
+Arguments:
+  ARRAY		Array variable name to use for file data.
+>>>>>>> orgin/bash-4.3-testing
 
 If -C is supplied without -c, the default quantum is 5000.  When
 CALLBACK is evaluated, it is supplied the index of the next array
@@ -59,7 +80,11 @@ $END
 
 $BUILTIN readarray
 $FUNCTION mapfile_builtin
+<<<<<<< HEAD
 $SHORT_DOC readarray [-d delim] [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c quantum] [array]
+=======
+$SHORT_DOC readarray [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c quantum] [array]
+>>>>>>> orgin/bash-4.3-testing
 Read lines from a file into an array variable.
 
 A synonym for `mapfile'.
@@ -103,8 +128,11 @@ static int run_callback __P((const char *, unsigned int, const char *));
 #define MAPF_CLEARARRAY	0x01
 #define MAPF_CHOP	0x02
 
+<<<<<<< HEAD
 static int delim;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 static int
 run_callback (callback, curindex, curline)
      const char *callback;
@@ -133,23 +161,39 @@ run_callback (callback, curindex, curline)
 }
 
 static void
+<<<<<<< HEAD
 do_chop(line, delim)
      char *line;
      unsigned char delim;
+=======
+do_chop(line)
+     char * line;
+>>>>>>> orgin/bash-4.3-testing
 {
   int length;
 
   length = strlen (line);
+<<<<<<< HEAD
   if (length && line[length-1] == delim) 
+=======
+  if (length && line[length-1] == '\n') 
+>>>>>>> orgin/bash-4.3-testing
     line[length-1] = '\0';
 }
 
 static int
+<<<<<<< HEAD
 mapfile (fd, line_count_goal, origin, nskip, callback_quantum, callback, array_name, delim, flags)
      int fd;
      long line_count_goal, origin, nskip, callback_quantum;
      char *callback, *array_name;
      int delim;
+=======
+mapfile (fd, line_count_goal, origin, nskip, callback_quantum, callback, array_name, flags)
+     int fd;
+     long line_count_goal, origin, nskip, callback_quantum;
+     char *callback, *array_name;
+>>>>>>> orgin/bash-4.3-testing
      int flags;
 {
   char *line;
@@ -190,14 +234,21 @@ mapfile (fd, line_count_goal, origin, nskip, callback_quantum, callback, array_n
   unbuffered_read = 1;
 #endif
 
+<<<<<<< HEAD
   if (delim != '\n')
     unbuffered_read = 1;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   zreset ();
 
   /* Skip any lines at beginning of file? */
   for (line_count = 0; line_count < nskip; line_count++)
+<<<<<<< HEAD
     if (zgetline (fd, &line, &line_length, delim, unbuffered_read) < 0)
+=======
+    if (zgetline (fd, &line, &line_length, unbuffered_read) < 0)
+>>>>>>> orgin/bash-4.3-testing
       break;
 
   line = 0;
@@ -205,12 +256,20 @@ mapfile (fd, line_count_goal, origin, nskip, callback_quantum, callback, array_n
 
   /* Reset the buffer for bash own stream */
   for (array_index = origin, line_count = 1; 
+<<<<<<< HEAD
  	zgetline (fd, &line, &line_length, delim, unbuffered_read) != -1;
+=======
+ 	zgetline (fd, &line, &line_length, unbuffered_read) != -1;
+>>>>>>> orgin/bash-4.3-testing
 	array_index++) 
     {
       /* Remove trailing newlines? */
       if (flags & MAPF_CHOP)
+<<<<<<< HEAD
 	do_chop (line, delim);
+=======
+	do_chop (line);
+>>>>>>> orgin/bash-4.3-testing
 	  
       /* Has a callback been registered and if so is it time to call it? */
       if (callback && line_count && (line_count % callback_quantum) == 0) 
@@ -232,7 +291,11 @@ mapfile (fd, line_count_goal, origin, nskip, callback_quantum, callback, array_n
 	break;
     }
 
+<<<<<<< HEAD
   free (line);
+=======
+  xfree (line);
+>>>>>>> orgin/bash-4.3-testing
 
   if (unbuffered_read == 0)
     zsyncfd (fd);
@@ -244,16 +307,25 @@ int
 mapfile_builtin (list)
      WORD_LIST *list;
 {
+<<<<<<< HEAD
   int opt, code, fd, flags;
+=======
+  int opt, code, fd, clear_array, flags;
+>>>>>>> orgin/bash-4.3-testing
   intmax_t intval;
   long lines, origin, nskip, callback_quantum;
   char *array_name, *callback;
 
+<<<<<<< HEAD
+=======
+  clear_array = 1;
+>>>>>>> orgin/bash-4.3-testing
   fd = 0;
   lines = origin = nskip = 0;
   flags = MAPF_CLEARARRAY;
   callback_quantum = DEFAULT_QUANTUM;
   callback = 0;
+<<<<<<< HEAD
   delim = '\n';
 
   reset_internal_getopt ();
@@ -264,6 +336,14 @@ mapfile_builtin (list)
 	case 'd':
 	  delim = *list_optarg;
 	  break;
+=======
+
+  reset_internal_getopt ();
+  while ((opt = internal_getopt (list, "u:n:O:tC:c:s:")) != -1)
+    {
+      switch (opt)
+	{
+>>>>>>> orgin/bash-4.3-testing
 	case 'u':
 	  code = legal_number (list_optarg, &intval);
 	  if (code == 0 || intval < 0 || intval != (int)intval)
@@ -329,7 +409,10 @@ mapfile_builtin (list)
 	  else
 	    nskip = intval;
 	  break;
+<<<<<<< HEAD
 	CASE_HELPOPT;
+=======
+>>>>>>> orgin/bash-4.3-testing
 	default:
 	  builtin_usage ();
 	  return (EX_USAGE);
@@ -352,13 +435,21 @@ mapfile_builtin (list)
   else
     array_name = list->word->word;
   
+<<<<<<< HEAD
   if (legal_identifier (array_name) == 0)
+=======
+  if (legal_identifier (array_name) == 0 && valid_array_reference (array_name) == 0)
+>>>>>>> orgin/bash-4.3-testing
     {
       sh_invalidid (array_name);
       return (EXECUTION_FAILURE);
     }
 
+<<<<<<< HEAD
   return mapfile (fd, lines, origin, nskip, callback_quantum, callback, array_name, delim, flags);
+=======
+  return mapfile (fd, lines, origin, nskip, callback_quantum, callback, array_name, flags);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 #else

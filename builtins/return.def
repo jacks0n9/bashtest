@@ -1,7 +1,11 @@
 This file is return.def, from which is created return.c.
 It implements the builtin "return" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -49,6 +53,13 @@ $END
 #include "../execute_cmd.h"
 #include "common.h"
 #include "bashgetopt.h"
+<<<<<<< HEAD
+=======
+
+extern int last_command_exit_value;
+extern int subshell_environment;
+extern int return_catch_flag, return_catch_value;
+>>>>>>> orgin/bash-4.3-testing
 
 /* If we are executing a user-defined function then exit with the value
    specified as an argument.  if no argument is given, then the last
@@ -57,7 +68,15 @@ int
 return_builtin (list)
      WORD_LIST *list;
 {
+<<<<<<< HEAD
   CHECK_HELPOPT (list);
+=======
+#if 0
+  if (no_options (list))
+    return (EX_USAGE);
+  list = loptend;	/* skip over possible `--' */
+#endif
+>>>>>>> orgin/bash-4.3-testing
 
   return_catch_value = get_exitstat (list);
 

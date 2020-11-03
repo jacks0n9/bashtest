@@ -1,6 +1,10 @@
 /* undo.c - manage list of changes to lines, offering opportunity to undo them */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -49,9 +53,13 @@
 #include "rlprivate.h"
 #include "xmalloc.h"
 
+<<<<<<< HEAD
 extern void _hs_replace_history_data PARAMS((int, histdata_t *, histdata_t *));
 
 extern HIST_ENTRY *_rl_saved_line_for_history;
+=======
+extern void replace_history_data PARAMS((int, histdata_t *, histdata_t *));
+>>>>>>> orgin/bash-4.3-testing
 
 /* Non-zero tells rl_delete_text and rl_insert_text to not add to
    the undo list. */
@@ -70,7 +78,14 @@ UNDO_LIST *rl_undo_list = (UNDO_LIST *)NULL;
 /* **************************************************************** */
 
 static UNDO_LIST *
+<<<<<<< HEAD
 alloc_undo_entry (enum undo_code what, int start, int end, char *text)
+=======
+alloc_undo_entry (what, start, end, text)
+     enum undo_code what;
+     int start, end;
+     char *text;
+>>>>>>> orgin/bash-4.3-testing
 {
   UNDO_LIST *temp;
 
@@ -87,7 +102,14 @@ alloc_undo_entry (enum undo_code what, int start, int end, char *text)
 /* Remember how to undo something.  Concatenate some undos if that
    seems right. */
 void
+<<<<<<< HEAD
 rl_add_undo (enum undo_code what, int start, int end, char *text)
+=======
+rl_add_undo (what, start, end, text)
+     enum undo_code what;
+     int start, end;
+     char *text;
+>>>>>>> orgin/bash-4.3-testing
 {
   UNDO_LIST *temp;
 
@@ -98,7 +120,12 @@ rl_add_undo (enum undo_code what, int start, int end, char *text)
 
 /* Free an UNDO_LIST */
 void
+<<<<<<< HEAD
 _rl_free_undo_list (UNDO_LIST *ul)
+=======
+_rl_free_undo_list (ul)
+     UNDO_LIST *ul;
+>>>>>>> orgin/bash-4.3-testing
 {
   UNDO_LIST *release;
 
@@ -116,18 +143,31 @@ _rl_free_undo_list (UNDO_LIST *ul)
 
 /* Free the existing undo list. */
 void
+<<<<<<< HEAD
 rl_free_undo_list (void)
+=======
+rl_free_undo_list ()
+>>>>>>> orgin/bash-4.3-testing
 {
   UNDO_LIST *release, *orig_list;
 
   orig_list = rl_undo_list;
   _rl_free_undo_list (rl_undo_list);
   rl_undo_list = (UNDO_LIST *)NULL;
+<<<<<<< HEAD
   _hs_replace_history_data (-1, (histdata_t *)orig_list, (histdata_t *)NULL);
 }
 
 UNDO_LIST *
 _rl_copy_undo_entry (UNDO_LIST *entry)
+=======
+  replace_history_data (-1, (histdata_t *)orig_list, (histdata_t *)NULL);
+}
+
+UNDO_LIST *
+_rl_copy_undo_entry (entry)
+     UNDO_LIST *entry;
+>>>>>>> orgin/bash-4.3-testing
 {
   UNDO_LIST *new;
 
@@ -137,7 +177,12 @@ _rl_copy_undo_entry (UNDO_LIST *entry)
 }
 
 UNDO_LIST *
+<<<<<<< HEAD
 _rl_copy_undo_list (UNDO_LIST *head)
+=======
+_rl_copy_undo_list (head)
+     UNDO_LIST *head;
+>>>>>>> orgin/bash-4.3-testing
 {
   UNDO_LIST *list, *new, *roving, *c;
 
@@ -225,12 +270,19 @@ rl_do_undo (void)
 
       release = rl_undo_list;
       rl_undo_list = rl_undo_list->next;
+<<<<<<< HEAD
       release->next = 0;	/* XXX */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
       /* If we are editing a history entry, make sure the change is replicated
 	 in the history entry's line */
       cur = current_history ();
+<<<<<<< HEAD
       if (cur && cur->data && (UNDO_LIST *)cur->data == release)
+=======
+      if ((UNDO_LIST *)cur->data == release)
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  temp = replace_history_entry (where_history (), rl_line_buffer, (histdata_t)rl_undo_list);
 	  xfree (temp->line);
@@ -238,6 +290,7 @@ rl_do_undo (void)
 	  xfree (temp);
 	}
 
+<<<<<<< HEAD
       /* Make sure there aren't any history entries with that undo list */
       _hs_replace_history_data (-1, (histdata_t *)release, (histdata_t *)rl_undo_list);
 
@@ -261,6 +314,9 @@ rl_do_undo (void)
 		}
 	    }
 	}
+=======
+      replace_history_data (-1, (histdata_t *)release, (histdata_t *)rl_undo_list);
+>>>>>>> orgin/bash-4.3-testing
 
       xfree (release);
     }

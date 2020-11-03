@@ -1,6 +1,10 @@
 /* signals.c -- signal handling support for readline. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -138,7 +142,12 @@ void *_rl_sigcleanarg;
 
 /* Called from RL_CHECK_SIGNALS() macro */
 RETSIGTYPE
+<<<<<<< HEAD
 _rl_signal_handler (int sig)
+=======
+_rl_signal_handler (sig)
+     int sig;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_caught_signal = 0;	/* XXX */
 
@@ -176,6 +185,21 @@ rl_signal_handler (int sig)
 
 static RETSIGTYPE
 _rl_handle_signal (int sig)
+{
+  if (_rl_interrupt_immediately)
+    {
+      _rl_interrupt_immediately = 0;
+      _rl_handle_signal (sig);
+    }
+  else
+    _rl_caught_signal = sig;
+
+  SIGHANDLER_RETURN;
+}
+
+static RETSIGTYPE
+_rl_handle_signal (sig)
+     int sig;
 {
 #if defined (HAVE_POSIX_SIGNALS)
   sigset_t set;
@@ -220,6 +244,8 @@ _rl_handle_signal (int sig)
 
       /* FALLTHROUGH */
 
+    case SIGTERM:
+    case SIGHUP:
 #if defined (SIGTSTP)
     case SIGTSTP:
     case SIGTTIN:
@@ -235,10 +261,13 @@ _rl_handle_signal (int sig)
 #  endif
     case SIGTTOU:
 #endif /* SIGTSTP */
+<<<<<<< HEAD
     case SIGTERM:
 #if defined (SIGHUP)
     case SIGHUP:
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if defined (SIGALRM)
     case SIGALRM:
 #endif
@@ -249,12 +278,15 @@ _rl_handle_signal (int sig)
       rl_cleanup_after_signal ();
 
 #if defined (HAVE_POSIX_SIGNALS)
+<<<<<<< HEAD
 #  if defined (SIGTSTP)
       /* Unblock SIGTTOU blocked above */
       if (sig == SIGTTIN || sig == SIGTSTP)
 	sigprocmask (SIG_UNBLOCK, &set, (sigset_t *)NULL);
 #  endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
       sigemptyset (&set);
       sigprocmask (SIG_BLOCK, (sigset_t *)NULL, &set);
       sigdelset (&set, sig);
@@ -382,7 +414,13 @@ rl_maybe_set_sighandler (int sig, SigHandler *handler, sighandler_cxt *ohandler)
    disposition was changed using rl_maybe_set_sighandler or for which the
    SIG_IGN check was performed inline (e.g., SIGALRM below). */
 static void
+<<<<<<< HEAD
 rl_maybe_restore_sighandler (int sig, sighandler_cxt *handler)
+=======
+rl_maybe_restore_sighandler (sig, handler)
+     int sig;
+     sighandler_cxt *handler;
+>>>>>>> orgin/bash-4.3-testing
 {
   sighandler_cxt dummy;
 
@@ -409,9 +447,13 @@ rl_set_signals (void)
 
       sigaddset (&bset, SIGINT);
       sigaddset (&bset, SIGTERM);
+<<<<<<< HEAD
 #if defined (SIGHUP)
       sigaddset (&bset, SIGHUP);
 #endif
+=======
+      sigaddset (&bset, SIGHUP);
+>>>>>>> orgin/bash-4.3-testing
 #if defined (SIGQUIT)
       sigaddset (&bset, SIGQUIT);
 #endif
@@ -434,15 +476,24 @@ rl_set_signals (void)
   if (rl_catch_signals && signals_set_flag == 0)
     {
 #if defined (HAVE_POSIX_SIGNALS)
+<<<<<<< HEAD
       sigemptyset (&_rl_orig_sigset);
       sigprocmask (SIG_BLOCK, &bset, &_rl_orig_sigset);
+=======
+      sigemptyset (&oset);
+      sigprocmask (SIG_BLOCK, &bset, &oset);
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
       rl_maybe_set_sighandler (SIGINT, rl_signal_handler, &old_int);
       rl_maybe_set_sighandler (SIGTERM, rl_signal_handler, &old_term);
+<<<<<<< HEAD
 #if defined (SIGHUP)
       rl_maybe_set_sighandler (SIGHUP, rl_signal_handler, &old_hup);
 #endif
+=======
+      rl_maybe_set_sighandler (SIGHUP, rl_signal_handler, &old_hup);
+>>>>>>> orgin/bash-4.3-testing
 #if defined (SIGQUIT)
       rl_maybe_set_sighandler (SIGQUIT, rl_signal_handler, &old_quit);
 #endif
@@ -476,6 +527,7 @@ rl_set_signals (void)
       signals_set_flag = 1;
 
 #if defined (HAVE_POSIX_SIGNALS)
+<<<<<<< HEAD
       sigprocmask (SIG_SETMASK, &_rl_orig_sigset, (sigset_t *)NULL);
 #endif
     }
@@ -484,6 +536,9 @@ rl_set_signals (void)
 #if defined (HAVE_POSIX_SIGNALS)
       sigemptyset (&_rl_orig_sigset);
       sigprocmask (SIG_BLOCK, (sigset_t *)NULL, &_rl_orig_sigset);
+=======
+      sigprocmask (SIG_SETMASK, &oset, (sigset_t *)NULL);
+>>>>>>> orgin/bash-4.3-testing
 #endif
     }
 
@@ -505,6 +560,11 @@ rl_clear_signals (void)
 
   if (rl_catch_signals && signals_set_flag == 1)
     {
+<<<<<<< HEAD
+=======
+      sigemptyset (&dummy.sa_mask);
+
+>>>>>>> orgin/bash-4.3-testing
       /* Since rl_maybe_set_sighandler doesn't override a SIG_IGN handler,
 	 we should in theory not have to restore a handler where
 	 old_xxx.sa_handler == SIG_IGN.  That's what rl_maybe_restore_sighandler
@@ -512,9 +572,13 @@ rl_clear_signals (void)
 	 overhead */
       rl_maybe_restore_sighandler (SIGINT, &old_int);
       rl_maybe_restore_sighandler (SIGTERM, &old_term);
+<<<<<<< HEAD
 #if defined (SIGHUP)
       rl_maybe_restore_sighandler (SIGHUP, &old_hup);
 #endif
+=======
+      rl_maybe_restore_sighandler (SIGHUP, &old_hup);
+>>>>>>> orgin/bash-4.3-testing
 #if defined (SIGQUIT)
       rl_maybe_restore_sighandler (SIGQUIT, &old_quit);
 #endif
@@ -625,7 +689,11 @@ static int sigwinch_blocked;
 /* Cause SIGINT to not be delivered until the corresponding call to
    release_sigint(). */
 void
+<<<<<<< HEAD
 _rl_block_sigint (void)
+=======
+_rl_block_sigint ()
+>>>>>>> orgin/bash-4.3-testing
 {
   if (sigint_blocked)
     return;
@@ -635,7 +703,11 @@ _rl_block_sigint (void)
 
 /* Allow SIGINT to be delivered. */
 void
+<<<<<<< HEAD
 _rl_release_sigint (void)
+=======
+_rl_release_sigint ()
+>>>>>>> orgin/bash-4.3-testing
 {
   if (sigint_blocked == 0)
     return;
@@ -647,7 +719,11 @@ _rl_release_sigint (void)
 /* Cause SIGWINCH to not be delivered until the corresponding call to
    release_sigwinch(). */
 void
+<<<<<<< HEAD
 _rl_block_sigwinch (void)
+=======
+_rl_block_sigwinch ()
+>>>>>>> orgin/bash-4.3-testing
 {
   if (sigwinch_blocked)
     return;
@@ -676,7 +752,11 @@ _rl_block_sigwinch (void)
 
 /* Allow SIGWINCH to be delivered. */
 void
+<<<<<<< HEAD
 _rl_release_sigwinch (void)
+=======
+_rl_release_sigwinch ()
+>>>>>>> orgin/bash-4.3-testing
 {
   if (sigwinch_blocked == 0)
     return;
@@ -706,7 +786,12 @@ _rl_release_sigwinch (void)
 /*								    */
 /* **************************************************************** */
 void
+<<<<<<< HEAD
 rl_echo_signal_char (int sig)
+=======
+rl_echo_signal_char (sig)
+     int sig;
+>>>>>>> orgin/bash-4.3-testing
 {
   char cstr[3];
   int cslen, c;

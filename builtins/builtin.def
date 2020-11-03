@@ -1,7 +1,11 @@
 This file is builtin.def, from which is created builtin.c.
 It implements the builtin "builtin" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -31,7 +35,11 @@ as a shell function, but need to execute the builtin within the function.
 
 Exit Status:
 Returns the exit status of SHELL-BUILTIN, or false if SHELL-BUILTIN is
+<<<<<<< HEAD
 not a shell builtin.
+=======
+not a shell builtin..
+>>>>>>> orgin/bash-4.3-testing
 $END
 #include <config.h>
 

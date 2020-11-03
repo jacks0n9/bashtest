@@ -70,6 +70,9 @@ esac
 
 USER=root		# should exist just about everywhere
 echo ~$USER
+<<<<<<< HEAD:tests/tilde.tests
 
 cd "$wdir"
 exit 0
+=======
+>>>>>>> orgin/bash-4.3-testing:tests/tilde-tests

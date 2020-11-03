@@ -1,7 +1,11 @@
 This file is shopt.def, from which is created shopt.c.
 It implements the Bash `shopt' builtin.
 
+<<<<<<< HEAD
 Copyright (C) 1994-2018 Free Software Foundation, Inc.
+=======
+Copyright (C) 1994-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -26,8 +30,13 @@ $SHORT_DOC shopt [-pqsu] [-o] [optname ...]
 Set and unset shell options.
 
 Change the setting of each shell option OPTNAME.  Without any option
+<<<<<<< HEAD
 arguments, list each supplied OPTNAME, or all shell options if no
 OPTNAMEs are given, with an indication of whether or not each is set.
+=======
+arguments, list all shell options with an indication of whether or not each
+is set. 
+>>>>>>> orgin/bash-4.3-testing
 
 Options:
   -o	restrict OPTNAMEs to those defined for use with `set -o'
@@ -90,9 +99,12 @@ extern int autocd;
 extern int glob_star;
 extern int glob_asciirange;
 extern int lastpipe_opt;
+<<<<<<< HEAD
 extern int inherit_errexit;
 extern int localvar_inherit;
 extern int localvar_unset;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #if defined (EXTENDED_GLOB)
 extern int extended_glob;
@@ -126,13 +138,28 @@ extern int array_expand_once;
 extern int syslog_history;
 #endif
 
+#if defined (DEBUGGER)
+extern int debugging_mode;
+#endif
+
 static void shopt_error __P((char *));
 
 static int set_shellopts_after_change __P((char *, int));
+<<<<<<< HEAD
+=======
+static int shopt_enable_hostname_completion __P((char *, int));
+>>>>>>> orgin/bash-4.3-testing
 static int set_compatibility_level __P((char *, int));
 
 #if defined (RESTRICTED_SHELL)
 static int set_restricted_shell __P((char *, int));
+<<<<<<< HEAD
+=======
+#endif
+
+#if defined (READLINE)
+static int shopt_set_complete_direxpand __P((char *, int));
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 #if defined (READLINE)
@@ -148,6 +175,7 @@ static int shopt_compat32;
 static int shopt_compat40;
 static int shopt_compat41;
 static int shopt_compat42;
+<<<<<<< HEAD
 static int shopt_compat43;
 static int shopt_compat44;
 
@@ -155,6 +183,10 @@ typedef int shopt_set_func_t __P((char *, int));
 
 /* If you add a new variable name here, make sure to set the default value
    appropriately in reset_shopt_options. */
+=======
+
+typedef int shopt_set_func_t __P((char *, int));
+>>>>>>> orgin/bash-4.3-testing
 
 static struct {
   char *name;
@@ -162,9 +194,12 @@ static struct {
   shopt_set_func_t *set_func;
 } shopt_vars[] = {
   { "autocd", &autocd, (shopt_set_func_t *)NULL },
+<<<<<<< HEAD
 #if defined (ARRAY_VARS)
   { "assoc_expand_once", &assoc_expand_once, (shopt_set_func_t *)NULL },
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
   { "cdable_vars", &cdable_vars, (shopt_set_func_t *)NULL },
   { "cdspell", &cdspelling, (shopt_set_func_t *)NULL },
   { "checkhash", &check_hashed_filenames, (shopt_set_func_t *)NULL },
@@ -179,9 +214,13 @@ static struct {
   { "compat32", &shopt_compat32, set_compatibility_level },
   { "compat40", &shopt_compat40, set_compatibility_level },
   { "compat41", &shopt_compat41, set_compatibility_level },
+<<<<<<< HEAD
   { "compat42", &shopt_compat42, set_compatibility_level },
   { "compat43", &shopt_compat43, set_compatibility_level },
   { "compat44", &shopt_compat44, set_compatibility_level },
+=======
+  { "compat42", &shopt_compat41, set_compatibility_level },
+>>>>>>> orgin/bash-4.3-testing
 #if defined (READLINE)
   { "complete_fullquote", &complete_fullquote, (shopt_set_func_t *)NULL},
   { "direxpand", &dircomplete_expand, shopt_set_complete_direxpand },
@@ -191,7 +230,11 @@ static struct {
   { "execfail", &no_exit_on_failed_exec, (shopt_set_func_t *)NULL },
   { "expand_aliases", &expand_aliases, (shopt_set_func_t *)NULL },
 #if defined (DEBUGGER)
+<<<<<<< HEAD
   { "extdebug", &debugging_mode, shopt_set_debug_mode },
+=======
+  { "extdebug", &debugging_mode, (shopt_set_func_t *)NULL },
+>>>>>>> orgin/bash-4.3-testing
 #endif
 #if defined (EXTENDED_GLOB)
   { "extglob", &extended_glob, (shopt_set_func_t *)NULL },
@@ -201,8 +244,13 @@ static struct {
 #if defined (READLINE)
   { "force_fignore", &force_fignore, (shopt_set_func_t *)NULL },
 #endif
+<<<<<<< HEAD
   { "globasciiranges", &glob_asciirange, (shopt_set_func_t *)NULL },
   { "globstar", &glob_star, (shopt_set_func_t *)NULL },
+=======
+  { "globstar", &glob_star, (shopt_set_func_t *)NULL },
+  { "globasciiranges", &glob_asciirange, (shopt_set_func_t *)NULL },
+>>>>>>> orgin/bash-4.3-testing
   { "gnu_errfmt", &gnu_error_format, (shopt_set_func_t *)NULL },
 #if defined (HISTORY)
   { "histappend", &force_append_history, (shopt_set_func_t *)NULL },
@@ -213,7 +261,10 @@ static struct {
   { "hostcomplete", &perform_hostname_completion, shopt_enable_hostname_completion },
 #endif
   { "huponexit", &hup_on_exit, (shopt_set_func_t *)NULL },
+<<<<<<< HEAD
   { "inherit_errexit", &inherit_errexit, (shopt_set_func_t *)NULL },
+=======
+>>>>>>> orgin/bash-4.3-testing
   { "interactive_comments", &interactive_comments, set_shellopts_after_change },
   { "lastpipe", &lastpipe_opt, (shopt_set_func_t *)NULL },
 #if defined (HISTORY)
@@ -336,6 +387,7 @@ reset_shopt_options ()
   check_hashed_filenames = CHECKHASH_DEFAULT;
   check_window_size = CHECKWINSIZE_DEFAULT;
   allow_null_glob_expansion = glob_dot_filenames = 0;
+<<<<<<< HEAD
   no_exit_on_failed_exec = 0;
   expand_aliases = 0;
   extended_quote = 1;
@@ -355,6 +407,15 @@ reset_shopt_options ()
 #if defined (JOB_CONTROL)
   check_jobs_at_exit = 0;
 #endif
+=======
+  cdable_vars = mail_warning = 0;
+  no_exit_on_failed_exec = print_shift_error = 0;
+  check_hashed_filenames = cdspelling = expand_aliases = 0;
+
+  source_uses_path = promptvars = 1;
+
+  check_window_size = CHECKWINSIZE_DEFAULT;
+>>>>>>> orgin/bash-4.3-testing
 
 #if defined (EXTENDED_GLOB)
   extended_glob = EXTGLOB_DEFAULT;
@@ -446,9 +507,13 @@ toggle_shopts (mode, list, quiet)
 	}
     }
 
+<<<<<<< HEAD
   /* Don't set $BASHOPTS here if it hasn't already been initialized */
   if (v = find_variable ("BASHOPTS"))
     set_bashopts ();
+=======
+  set_bashopts ();
+>>>>>>> orgin/bash-4.3-testing
   return (rval);
 }
 
@@ -587,6 +652,7 @@ set_shopt_o_options (mode, list, quiet)
 static int
 set_shellopts_after_change (option_name, mode)
      char *option_name;
+<<<<<<< HEAD
      int mode;
 {
   set_shellopts ();
@@ -596,6 +662,8 @@ set_shellopts_after_change (option_name, mode)
 static int
 shopt_set_debug_mode (option_name, mode)
      char *option_name;
+=======
+>>>>>>> orgin/bash-4.3-testing
      int mode;
 {
 #if defined (DEBUGGER)
@@ -607,7 +675,10 @@ shopt_set_debug_mode (option_name, mode)
   return (0);
 }
 
+<<<<<<< HEAD
 #if defined (READLINE)
+=======
+>>>>>>> orgin/bash-4.3-testing
 static int
 shopt_enable_hostname_completion (option_name, mode)
      char *option_name;
@@ -615,7 +686,10 @@ shopt_enable_hostname_completion (option_name, mode)
 {
   return (enable_hostname_completion (mode));
 }
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 static int
 set_compatibility_level (option_name, mode)
@@ -623,7 +697,10 @@ set_compatibility_level (option_name, mode)
      int mode;
 {
   int ind;
+<<<<<<< HEAD
   char *rhs;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   /* If we're setting something, redo some of the work we did above in
      toggle_shopt().  Unset everything and reset the appropriate option
@@ -631,8 +708,12 @@ set_compatibility_level (option_name, mode)
   if (mode)
     {
       shopt_compat31 = shopt_compat32 = 0;
+<<<<<<< HEAD
       shopt_compat40 = shopt_compat41 = shopt_compat42 = shopt_compat43 = 0;
       shopt_compat44 = 0;
+=======
+      shopt_compat40 = shopt_compat41 = shopt_compat42 = 0;
+>>>>>>> orgin/bash-4.3-testing
       ind = find_shopt (option_name);
       *shopt_vars[ind].value = mode;
     }
@@ -648,6 +729,7 @@ set_compatibility_level (option_name, mode)
     shell_compatibility_level = 41;
   else if (shopt_compat42)
     shell_compatibility_level = 42;
+<<<<<<< HEAD
   else if (shopt_compat43)
     shell_compatibility_level = 43;
   else if (shopt_compat44)
@@ -660,6 +742,11 @@ set_compatibility_level (option_name, mode)
   bind_variable ("BASH_COMPAT", rhs, 0);
   free (rhs);
 
+=======
+  else
+    shell_compatibility_level = DEFAULT_COMPAT_LEVEL;
+
+>>>>>>> orgin/bash-4.3-testing
   return 0;
 }
 
@@ -668,17 +755,24 @@ set_compatibility_level (option_name, mode)
 void
 set_compatibility_opts ()
 {
+<<<<<<< HEAD
   shopt_compat31 = shopt_compat32 = 0;
   shopt_compat40 = shopt_compat41 = shopt_compat42 = shopt_compat43 = 0;
   shopt_compat44 = 0;
+=======
+  shopt_compat31 = shopt_compat32 = shopt_compat40 = shopt_compat41 = shopt_compat42 = 0;
+>>>>>>> orgin/bash-4.3-testing
   switch (shell_compatibility_level)
     {
       case DEFAULT_COMPAT_LEVEL:
 	break;
+<<<<<<< HEAD
       case 44:
 	shopt_compat44 = 1; break;
       case 43:
 	shopt_compat43 = 1; break;
+=======
+>>>>>>> orgin/bash-4.3-testing
       case 42:
 	shopt_compat42 = 1; break;
       case 41:
@@ -855,11 +949,15 @@ parse_bashopts (value)
     {
       ind = find_shopt (vname);
       if (ind >= 0)
+<<<<<<< HEAD
 	{
           *shopt_vars[ind].value = 1;
 	  if (shopt_vars[ind].set_func)
 	    (*shopt_vars[ind].set_func) (shopt_vars[ind].name, 1);
 	}
+=======
+        *shopt_vars[ind].value = 1;
+>>>>>>> orgin/bash-4.3-testing
       free (vname);
     }
 }

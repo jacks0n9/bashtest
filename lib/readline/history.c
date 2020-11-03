@@ -1,6 +1,10 @@
 /* history.c -- standalone history library */
 
+<<<<<<< HEAD
 /* Copyright (C) 1989-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1989-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file contains the GNU History Library (History), a set of
    routines for managing the text of previously typed lines.
@@ -217,7 +221,13 @@ history_get (int offset)
 }
 
 HIST_ENTRY *
+<<<<<<< HEAD
 alloc_history_entry (char *string, char *ts)
+=======
+alloc_history_entry (string, ts)
+     char *string;
+     char *ts;
+>>>>>>> orgin/bash-4.3-testing
 {
   HIST_ENTRY *temp;
 
@@ -231,7 +241,12 @@ alloc_history_entry (char *string, char *ts)
 }
 
 time_t
+<<<<<<< HEAD
 history_get_time (HIST_ENTRY *hist)
+=======
+history_get_time (hist)
+     HIST_ENTRY *hist;
+>>>>>>> orgin/bash-4.3-testing
 {
   char *ts;
   time_t t;
@@ -241,15 +256,23 @@ history_get_time (HIST_ENTRY *hist)
   ts = hist->timestamp;
   if (ts[0] != history_comment_char)
     return 0;
+<<<<<<< HEAD
   errno = 0;
   t = (time_t) strtol (ts + 1, (char **)NULL, 10);		/* XXX - should use strtol() here */
   if (errno == ERANGE)
     return (time_t)0;
+=======
+  t = (time_t) strtol (ts + 1, (char **)NULL, 10);		/* XXX - should use strtol() here */
+>>>>>>> orgin/bash-4.3-testing
   return t;
 }
 
 static char *
+<<<<<<< HEAD
 hist_inittime (void)
+=======
+hist_inittime ()
+>>>>>>> orgin/bash-4.3-testing
 {
   time_t t;
   char ts[64], *ret;
@@ -319,7 +342,11 @@ add_history (const char *string)
 	}
     }
 
+<<<<<<< HEAD
   temp = alloc_history_entry ((char *)string, hist_inittime ());
+=======
+  temp = alloc_history_entry (string, hist_inittime ());
+>>>>>>> orgin/bash-4.3-testing
 
   the_history[new_length] = (HIST_ENTRY *)NULL;
   the_history[new_length - 1] = temp;
@@ -328,7 +355,12 @@ add_history (const char *string)
 
 /* Change the time stamp of the most recent history entry to STRING. */
 void
+<<<<<<< HEAD
 add_history_time (const char *string)
+=======
+add_history_time (string)
+     const char *string;
+>>>>>>> orgin/bash-4.3-testing
 {
   HIST_ENTRY *hs;
 
@@ -342,7 +374,12 @@ add_history_time (const char *string)
 /* Free HIST and return the data so the calling application can free it
    if necessary and desired. */
 histdata_t
+<<<<<<< HEAD
 free_history_entry (HIST_ENTRY *hist)
+=======
+free_history_entry (hist)
+     HIST_ENTRY *hist;
+>>>>>>> orgin/bash-4.3-testing
 {
   histdata_t x;
 
@@ -356,7 +393,12 @@ free_history_entry (HIST_ENTRY *hist)
 }
 
 HIST_ENTRY *
+<<<<<<< HEAD
 copy_history_entry (HIST_ENTRY *hist)
+=======
+copy_history_entry (hist)
+     HIST_ENTRY *hist;
+>>>>>>> orgin/bash-4.3-testing
 {
   HIST_ENTRY *ret;
   char *ts;
@@ -396,6 +438,7 @@ replace_history_entry (int which, const char *line, histdata_t data)
   return (old_value);
 }
 
+<<<<<<< HEAD
 /* Append LINE to the history line at offset WHICH, adding a newline to the
    end of the current line first.  This can be used to construct multi-line
    history entries while reading lines from the history file. */
@@ -429,6 +472,8 @@ _hs_append_history_line (int which, const char *line)
     }
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Replace the DATA in the specified history entries, replacing OLD with
    NEW.  WHICH says which one(s) to replace:  WHICH == -1 means to replace
    all of the history entries where entry->data == OLD; WHICH == -2 means
@@ -436,7 +481,13 @@ _hs_append_history_line (int which, const char *line)
    WHICH >= 0 means to replace that particular history entry's data, as
    long as it matches OLD. */
 void
+<<<<<<< HEAD
 _hs_replace_history_data (int which, histdata_t *old, histdata_t *new)
+=======
+replace_history_data (which, old, new)
+     int which;
+     histdata_t *old, *new;
+>>>>>>> orgin/bash-4.3-testing
 {
   HIST_ENTRY *entry;
   register int i, last;
@@ -490,6 +541,7 @@ remove_history (int which)
 
   return_value = the_history[which];
 
+<<<<<<< HEAD
 #if 1
   /* Copy the rest of the entries, moving down one slot.  Copy includes
      trailing NULL.  */
@@ -539,6 +591,12 @@ remove_history_range (int first, int last)
   memmove (start, end, (history_length - last) * sizeof (HIST_ENTRY *));
 
   history_length -= nentries;
+=======
+  for (i = which; i < history_length; i++)
+    the_history[i] = the_history[i + 1];
+
+  history_length--;
+>>>>>>> orgin/bash-4.3-testing
 
   return (return_value);
 }

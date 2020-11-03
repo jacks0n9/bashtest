@@ -109,6 +109,7 @@ recho `echo "(\\")"`
 # ultimate workaround
 recho `echo "(\")"`
 
+<<<<<<< HEAD
 # various strings ending in backslashes
 
 echo 'string \'
@@ -122,3 +123,6 @@ echo ${foo:-string \\\}}
 
 ${THIS_SH} ./quote1.sub
 ${THIS_SH} ./quote2.sub
+=======
+${THIS_SH} ./quote1.sub
+>>>>>>> orgin/bash-4.3-testing

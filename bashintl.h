@@ -47,8 +47,11 @@
 #  define setlocale(cat, loc)
 #endif
 
+<<<<<<< HEAD
 #if !defined (HAVE_LOCALE_H) || !defined (HAVE_LOCALECONV)
 #  define locale_decpoint()	'.'
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif /* !_BASHINTL_H_ */

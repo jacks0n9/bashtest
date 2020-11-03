@@ -46,8 +46,12 @@
 #define PST_HEREDOC	0x020000	/* reading body of here-document */
 #define PST_REPARSE	0x040000	/* re-parsing in parse_string_to_word_list */
 #define PST_REDIRLIST	0x080000	/* parsing a list of redirections preceding a simple command name */
+<<<<<<< HEAD
 #define PST_COMMENT	0x100000	/* parsing a shell comment; used by aliases */
 #define PST_ENDALIAS	0x200000	/* just finished expanding and consuming an alias */
+=======
+
+>>>>>>> orgin/bash-4.3-testing
 
 /* Definition of the delimiter stack.  Needed by parse.y and bashhist.c. */
 struct dstack {
@@ -71,6 +75,7 @@ struct dstack {
 #define DOLBRACE_QUOTE	0x40	/* single quote is special in double quotes */
 #define DOLBRACE_QUOTE2	0x80	/* single quote is semi-special in double quotes */
 
+<<<<<<< HEAD
 /* variable declarations from parse.y */
 extern struct dstack dstack;
 
@@ -97,4 +102,6 @@ extern int eof_encountered_limit;
 
 extern int line_number, line_number_base;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif /* _PARSER_H_ */

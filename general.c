@@ -1,6 +1,10 @@
 /* general.c -- Stuff that is used by all files. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -39,6 +43,7 @@
 #include "bashintl.h"
 
 #include "shell.h"
+<<<<<<< HEAD
 #include "parser.h"
 #include "flags.h"
 #include "findcmd.h"
@@ -50,6 +55,9 @@
 #if defined (HAVE_MBSTR_H) && defined (HAVE_MBSCHR)
 #  include <mbstr.h>		/* mbschr */
 #endif
+=======
+#include "test.h"
+>>>>>>> orgin/bash-4.3-testing
 
 #include <tilde/tilde.h>
 
@@ -57,9 +65,17 @@
 extern int errno;
 #endif /* !errno */
 
+<<<<<<< HEAD
 #ifdef __CYGWIN__
 #  include <sys/cygwin.h>
 #endif
+=======
+extern int expand_aliases;
+extern int interactive_comments;
+extern int check_hashed_filenames;
+extern int source_uses_path;
+extern int source_searches_cwd;
+>>>>>>> orgin/bash-4.3-testing
 
 static char *bash_special_tilde_expansions __P((char *));
 static int unquoted_tilde_word __P((const char *));
@@ -67,6 +83,7 @@ static void initialize_group_array __P((void));
 
 /* A standard error message to use when getcwd() returns NULL. */
 const char * const bash_getcwd_errstr = N_("getcwd: cannot access parent directories");
+<<<<<<< HEAD
 
 /* Do whatever is necessary to initialize `Posix mode'.  This currently
    modifies the following variables which are controlled via shopt:
@@ -94,6 +111,8 @@ static struct {
   &print_shift_error,
   0
 };
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 void
 posix_initialize (on)
@@ -103,10 +122,14 @@ posix_initialize (on)
   if (on != 0)
     {
       interactive_comments = source_uses_path = expand_aliases = 1;
+<<<<<<< HEAD
       inherit_errexit = 1;
       source_searches_cwd = 0;
       print_shift_error = 1;
 
+=======
+      source_searches_cwd = 0;
+>>>>>>> orgin/bash-4.3-testing
     }
 
   /* Things that should be turned on when posix mode is disabled. */
@@ -361,6 +384,7 @@ check_identifier (word, check_word)
     return (1);
 }
 
+<<<<<<< HEAD
 /* Return 1 if STRING is a function name that the shell will import from
    the environment.  Currently we reject attempts to import shell functions
    containing slashes, beginning with newlines or containing blanks.  In
@@ -391,15 +415,24 @@ exportable_function_name (string)
   return 1;
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Return 1 if STRING comprises a valid alias name.  The shell accepts
    essentially all characters except those which must be quoted to the
    parser (which disqualifies them from alias expansion anyway) and `/'. */
 int
 legal_alias_name (string, flags)
+<<<<<<< HEAD
      const char *string;
      int flags;
 {
   register const char *s;
+=======
+     char *string;
+     int flags;
+{
+  register char *s;
+>>>>>>> orgin/bash-4.3-testing
 
   for (s = string; *s; s++)
     if (shellbreak (*s) || shellxquote (*s) || shellexp (*s) || (*s == '/'))
@@ -421,7 +454,11 @@ assignment (string, flags)
   c = string[indx = 0];
 
 #if defined (ARRAY_VARS)
+<<<<<<< HEAD
   if ((legal_variable_starter (c) == 0) && ((flags&1) == 0 || c != '[')) /* ] */
+=======
+  if ((legal_variable_starter (c) == 0) && (flags == 0 || c != '[')) /* ] */
+>>>>>>> orgin/bash-4.3-testing
 #else
   if (legal_variable_starter (c) == 0)
 #endif
@@ -437,9 +474,13 @@ assignment (string, flags)
 #if defined (ARRAY_VARS)
       if (c == '[')
 	{
+<<<<<<< HEAD
 	  newi = skipsubscript (string, indx, (flags & 2) ? 1 : 0);
 	  /* XXX - why not check for blank subscripts here, if we do in
 	     valid_array_reference? */
+=======
+	  newi = skipsubscript (string, indx, 0);
+>>>>>>> orgin/bash-4.3-testing
 	  if (string[newi++] != ']')
 	    return (0);
 	  if (string[newi] == '+' && string[newi+1] == '=')
@@ -544,7 +585,13 @@ fd_ispipe (fd)
      int fd;
 {
   errno = 0;
+<<<<<<< HEAD
   return ((lseek (fd, 0L, SEEK_CUR) < 0) && (errno == ESPIPE));
+=======
+  if (lseek ((fd), 0L, SEEK_CUR) < 0)
+    return (errno == ESPIPE);
+  return 0;
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* There is a bug in the NeXT 2.1 rlogind that causes opens
@@ -711,7 +758,11 @@ sh_closepipe (pv)
 
 int
 file_exists (fn)
+<<<<<<< HEAD
      const char *fn;
+=======
+     char *fn;
+>>>>>>> orgin/bash-4.3-testing
 {
   struct stat sb;
 
@@ -720,7 +771,11 @@ file_exists (fn)
 
 int
 file_isdir (fn)
+<<<<<<< HEAD
      const char *fn;
+=======
+     char *fn;
+>>>>>>> orgin/bash-4.3-testing
 {
   struct stat sb;
 
@@ -729,7 +784,11 @@ file_isdir (fn)
 
 int
 file_iswdir (fn)
+<<<<<<< HEAD
      const char *fn;
+=======
+     char *fn;
+>>>>>>> orgin/bash-4.3-testing
 {
   return (file_isdir (fn) && sh_eaccess (fn, W_OK) == 0);
 }
@@ -793,7 +852,11 @@ absolute_program (string)
    begin with. */
 char *
 make_absolute (string, dot_path)
+<<<<<<< HEAD
      const char *string, *dot_path;
+=======
+     char *string, *dot_path;
+>>>>>>> orgin/bash-4.3-testing
 {
   char *result;
 
@@ -802,8 +865,12 @@ make_absolute (string, dot_path)
     {
       char pathbuf[PATH_MAX + 1];
 
+<<<<<<< HEAD
       /* WAS cygwin_conv_to_full_posix_path (string, pathbuf); */
       cygwin_conv_path (CCP_WIN_A_TO_POSIX, string, pathbuf, PATH_MAX);
+=======
+      cygwin_conv_to_full_posix_path (string, pathbuf);
+>>>>>>> orgin/bash-4.3-testing
       result = savestring (pathbuf);
     }
 #else
@@ -948,6 +1015,7 @@ trim_pathname (name, maxlen)
   return name;
 }
 
+<<<<<<< HEAD
 /* Return a printable representation of FN without special characters.  The
    caller is responsible for freeing memory if this returns something other
    than its argument.  If FLAGS is non-zero, we are printing for portable
@@ -969,6 +1037,8 @@ printable_filename (fn, flags)
   return newf;
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Given a string containing units of information separated by colons,
    return the next one pointed to by (P_INDEX), or NULL if there are no more.
    Advance (P_INDEX) to the character after the colon. */
@@ -1185,7 +1255,10 @@ bash_tilde_expand (s, assign_p)
   if (any_signals_trapped () < 0)
     interrupt_immediately = 1;
   terminate_immediately = 1;
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   tilde_additional_prefixes = assign_p == 0 ? (char **)0
   					    : (assign_p == 2 ? bash_tilde_prefixes2 : bash_tilde_prefixes);
@@ -1195,10 +1268,15 @@ bash_tilde_expand (s, assign_p)
   r = (*s == '~') ? unquoted_tilde_word (s) : 1;
   ret = r ? tilde_expand (s) : savestring (s);
 
+<<<<<<< HEAD
 #if 0
   interrupt_immediately = old_immed;
   terminate_immediately = old_term;
 #endif
+=======
+  interrupt_immediately = old_immed;
+  terminate_immediately = old_term;
+>>>>>>> orgin/bash-4.3-testing
 
   QUIT;
 

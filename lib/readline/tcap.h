@@ -1,6 +1,10 @@
 /* tcap.h -- termcap library functions and variables. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1996-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1996-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      

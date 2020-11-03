@@ -1,7 +1,11 @@
 This file is history.def, from which is created history.c.
 It implements the builtin "history" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2018 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -31,6 +35,7 @@ entry with a `*'.  An argument of N lists only the last N entries.
 
 Options:
   -c	clear the history list by deleting all of the entries
+<<<<<<< HEAD
   -d offset	delete the history entry at position OFFSET. Negative
 		offsets count back from the end of the history list
 
@@ -49,6 +54,25 @@ If FILENAME is given, it is used as the history file.  Otherwise,
 if HISTFILE has a value, that is used, else ~/.bash_history.
 
 If the HISTTIMEFORMAT variable is set and not null, its value is used
+=======
+  -d offset	delete the history entry at offset OFFSET.
+
+  -a	append history lines from this session to the history file
+  -n	read all history lines not already read from the history file
+  -r	read the history file and append the contents to the history
+	list
+  -w	write the current history to the history file
+	and append them to the history list
+
+  -p	perform history expansion on each ARG and display the result
+	without storing it in the history list
+  -s	append the ARGs to the history list as a single entry
+
+If FILENAME is given, it is used as the history file.  Otherwise,
+if $HISTFILE has a value, that is used, else ~/.bash_history.
+
+If the $HISTTIMEFORMAT variable is set and not null, its value is used
+>>>>>>> orgin/bash-4.3-testing
 as a format string for strftime(3) to print the time stamp associated
 with each displayed history entry.  No time stamps are printed otherwise.
 
@@ -85,6 +109,12 @@ $END
 extern int errno;
 #endif
 
+<<<<<<< HEAD
+=======
+extern int current_command_line_count;
+extern int force_append_history;	/* shopt -s histappend */
+
+>>>>>>> orgin/bash-4.3-testing
 static char *histtime __P((HIST_ENTRY *, const char *));
 static int display_history __P((WORD_LIST *));
 static void push_history __P((WORD_LIST *));
@@ -103,8 +133,13 @@ int
 history_builtin (list)
      WORD_LIST *list;
 {
+<<<<<<< HEAD
   int flags, opt, result, old_history_lines, obase, ind;
   char *filename, *delete_arg, *range;
+=======
+  int flags, opt, result, old_history_lines, obase;
+  char *filename, *delete_arg;
+>>>>>>> orgin/bash-4.3-testing
   intmax_t delete_offset;
 
   flags = 0;
@@ -248,11 +283,15 @@ range_error:
 	  sh_erange (delete_arg, _("history position"));
 	  return (EXECUTION_FAILURE);
 	}
+<<<<<<< HEAD
       else
 	opt = delete_offset;
 
       /* Positive arguments from numbers as displayed by display_history need
 	 to be offset by history_base */
+=======
+      opt = delete_offset;
+>>>>>>> orgin/bash-4.3-testing
       result = bash_delete_histent (opt - history_base);
       /* Since remove_history changes history_length, this can happen if
 	 we delete the last history entry. */
@@ -289,8 +328,12 @@ range_error:
       result = read_history_range (filename, history_lines_in_file, -1);
       using_history ();
 
+<<<<<<< HEAD
       history_lines_in_file = history_lines_read_from_file;
       /* history_lines_in_file = where_history () + history_base - 1; */
+=======
+      history_lines_in_file = where_history ();
+>>>>>>> orgin/bash-4.3-testing
 
       /* If we're rewriting the history file at shell exit rather than just
 	 appending the lines from this session to it, the question is whether
@@ -321,6 +364,7 @@ histtime (hlist, histtimefmt)
 {
   static char timestr[128];
   time_t t;
+<<<<<<< HEAD
   struct tm *tm;
 
   t = history_get_time (hlist);
@@ -330,6 +374,12 @@ histtime (hlist, histtimefmt)
   else if (hlist->timestamp && hlist->timestamp[0])
     snprintf (timestr, sizeof (timestr), _("%s: invalid timestamp"),
 	(hlist->timestamp[0] == '#') ? hlist->timestamp + 1: hlist->timestamp);
+=======
+
+  t = history_get_time (hlist);
+  if (t)
+    strftime (timestr, sizeof (timestr), histtimefmt, localtime (&t));
+>>>>>>> orgin/bash-4.3-testing
   else
     strcpy (timestr, "??");
   return timestr;

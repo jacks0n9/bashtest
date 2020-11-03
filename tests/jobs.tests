@@ -15,9 +15,12 @@ ${THIS_SH} ./jobs4.sub
 # test out wait -n framework
 ${THIS_SH} ./jobs5.sub
 
+<<<<<<< HEAD
 # test out wait -f framework
 ${THIS_SH} ./jobs6.sub
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 jobs
 echo $?
 

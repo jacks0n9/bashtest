@@ -1,6 +1,10 @@
 /* zread - read data from file descriptor into buffer with retries */
 
+<<<<<<< HEAD
 /* Copyright (C) 1999-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1999-2002 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -37,11 +41,15 @@ extern int errno;
 #  define SEEK_CUR 1
 #endif
 
+<<<<<<< HEAD
 extern int executing_builtin;
 
 extern void check_signals_and_traps (void);
 extern void check_signals (void);
 extern int signal_is_trapped (int);
+=======
+extern void check_signals_and_traps (void);
+>>>>>>> orgin/bash-4.3-testing
 
 /* Read LEN bytes from FD into BUF.  Retry the read on EINTR.  Any other
    error causes the loop to break. */
@@ -55,6 +63,7 @@ zread (fd, buf, len)
 
   check_signals ();	/* check for signals before a blocking read */
   while ((r = read (fd, buf, len)) < 0 && errno == EINTR)
+<<<<<<< HEAD
     /* XXX - bash-5.0 */
     /* We check executing_builtin and run traps here for backwards compatibility */
     if (executing_builtin)
@@ -62,6 +71,9 @@ zread (fd, buf, len)
     else
       check_signals ();
 
+=======
+    check_signals_and_traps ();	/* XXX - should it be check_signals()? */
+>>>>>>> orgin/bash-4.3-testing
   return r;
 }
 
@@ -104,7 +116,10 @@ zreadintr (fd, buf, len)
      char *buf;
      size_t len;
 {
+<<<<<<< HEAD
   check_signals ();
+=======
+>>>>>>> orgin/bash-4.3-testing
   return (read (fd, buf, len));
 }
 

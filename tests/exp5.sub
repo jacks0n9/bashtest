@@ -1,14 +1,26 @@
 # expansions involving patterns
+<<<<<<< HEAD
+=======
+
+>>>>>>> orgin/bash-4.3-testing
 var='[hello'
 echo "${var//[/}"
 
 red='\[\e[0;31m\]'
+<<<<<<< HEAD
 printf "%s\n" "${red//\\[\\e/}"
+=======
+echo "${red//\\[\\e/}"
+>>>>>>> orgin/bash-4.3-testing
 
 foo="${red//\\[\\e/}"
 
 # foo == [0;31m\]
+<<<<<<< HEAD
 printf "%s\n" "${foo//[0;31m\\/}"
+=======
+echo "${foo//[0;31m\\/}"
+>>>>>>> orgin/bash-4.3-testing
 
 echo "${var//[]/}"
 echo "${red//[]/}"

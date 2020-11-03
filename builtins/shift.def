@@ -61,8 +61,11 @@ shift_builtin (list)
   register int count;
   WORD_LIST *temp;
 
+<<<<<<< HEAD
   CHECK_HELPOPT (list);
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (get_numeric_arg (list, 0, &times) == 0)
     return (EXECUTION_FAILURE);
 

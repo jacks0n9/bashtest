@@ -19,6 +19,7 @@ echo $?
 echo $?
 
 # pipe
+<<<<<<< HEAD
 if [ -e /dev/stdin ]; then
 echo "echo three - OK" | . /dev/stdin
 echo $?
@@ -26,6 +27,10 @@ else
 # no /dev/stdin, just fake it
 echo "three - OK" ; echo 0
 fi
+=======
+echo "echo three - OK" | . /dev/stdin
+echo $?
+>>>>>>> orgin/bash-4.3-testing
 
 # FIFO
 mkfifo $TMPDIR/fifo-$$

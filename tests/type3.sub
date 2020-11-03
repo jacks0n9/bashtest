@@ -16,6 +16,9 @@ eval "$(type foo | sed 1d)"
 foo
 
 rm -f a b c
+<<<<<<< HEAD
 
 cd $OLDPWD
 exit 0
+=======
+>>>>>>> orgin/bash-4.3-testing

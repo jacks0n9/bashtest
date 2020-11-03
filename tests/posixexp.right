@@ -37,6 +37,7 @@ argv[1] = <'bar>
 argv[1] = <foo 'bar baz>
 argv[1] = <}z>
 argv[1] = <''z}>
+<<<<<<< HEAD
 argv[1] = <1>
 argv[2] = <2>
 argv[1] = <1>
@@ -281,3 +282,7 @@ OK
 5: $'not\ttoo\nbad'
 ./posixexp.tests: line 83: unexpected EOF while looking for matching `}'
 ./posixexp.tests: line 84: syntax error: unexpected end of file
+=======
+./posixexp.tests: line 77: unexpected EOF while looking for matching `}'
+./posixexp.tests: line 78: syntax error: unexpected end of file
+>>>>>>> orgin/bash-4.3-testing

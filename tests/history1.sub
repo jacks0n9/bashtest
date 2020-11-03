@@ -1,6 +1,10 @@
 trap 'rm -f $HISTFILE' 0 1 2 3 6 15
 
+<<<<<<< HEAD
 HISTFILE=$TMPDIR/foohist-$$
+=======
+HISTFILE=foohist-$$
+>>>>>>> orgin/bash-4.3-testing
 unset HISTIGNORE HISTCONTROL
 set -o history
 

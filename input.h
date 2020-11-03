@@ -1,6 +1,10 @@
 /* input.h -- Structures and unions used for reading input. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1993-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1993-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -49,7 +53,10 @@ enum stream_type {st_none, st_stdin, st_stream, st_string, st_bstream};
 #define B_UNBUFF	0x04
 #define B_WASBASHINPUT	0x08
 #define B_TEXT		0x10
+<<<<<<< HEAD
 #define B_SHAREDBUF	0x20	/* shared input buffer */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* A buffered stream.  Like a FILE *, but with our own buffering and
    synchronization.  Look in input.c for the implementation. */

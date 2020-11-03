@@ -1,6 +1,10 @@
 /* pcomplete.c - functions to generate lists of matches for programmable completion. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1999-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1999-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -71,6 +75,8 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 
+#define PCOMP_RETRYFAIL	256
+
 #ifdef STRDUP
 #  undef STRDUP
 #endif
@@ -84,6 +90,7 @@ extern char *strpbrk __P((char *, char *));
 
 extern STRING_INT_ALIST word_token_alist[];
 extern char *signal_names[];
+extern sh_builtin_func_t *last_shell_builtin, *this_shell_builtin;
 
 #if defined (DEBUG)
 #if defined (PREFER_STDARG)
@@ -183,10 +190,13 @@ ITEMLIST it_variables = { LIST_DYNAMIC, it_init_variables, (STRINGLIST *)0 };
 
 COMPSPEC *pcomp_curcs;
 const char *pcomp_curcmd;
+<<<<<<< HEAD
 const char *pcomp_curtxt;
 
 char *pcomp_line;
 int pcomp_ind;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #ifdef DEBUG
 /* Debugging code */
@@ -731,6 +741,10 @@ pcomp_filename_completion_function (text, state)
      int state;
 {
   static char *dfn;	/* dequoted filename */
+<<<<<<< HEAD
+=======
+  int qc;
+>>>>>>> orgin/bash-4.3-testing
   int iscompgen, iscompleting;
 
   if (state == 0)
@@ -990,6 +1004,7 @@ bind_compfunc_variables (line, ind, lwords, cw, exported)
   /* Set the variables that the function expects while it executes.  Maybe
      these should be in the function environment (temporary_env). */
   v = bind_variable ("COMP_LINE", line, 0);
+<<<<<<< HEAD
   if (v && exported)
     VSETATTR(v, att_exported);
 
@@ -1010,6 +1025,28 @@ bind_compfunc_variables (line, ind, lwords, cw, exported)
 
   value = inttostr (rl_completion_invoking_key, ibuf, sizeof (ibuf));
   v = bind_int_variable ("COMP_KEY", value, 0);
+=======
+  if (v && exported)
+    VSETATTR(v, att_exported);
+
+  /* Post bash-4.2: COMP_POINT is characters instead of bytes. */
+  c = line[ind];
+  line[ind] = '\0';
+  llen = MB_STRLEN (line);
+  line[ind] = c;
+  value = inttostr (llen, ibuf, sizeof(ibuf));
+  v = bind_int_variable ("COMP_POINT", value);
+>>>>>>> orgin/bash-4.3-testing
+  if (v && exported)
+    VSETATTR(v, att_exported);
+
+  value = inttostr (rl_completion_type, ibuf, sizeof (ibuf));
+  v = bind_int_variable ("COMP_TYPE", value);
+  if (v && exported)
+    VSETATTR(v, att_exported);
+
+  value = inttostr (rl_completion_invoking_key, ibuf, sizeof (ibuf));
+  v = bind_int_variable ("COMP_KEY", value);
   if (v && exported)
     VSETATTR(v, att_exported);
 
@@ -1031,10 +1068,17 @@ static void
 unbind_compfunc_variables (exported)
      int exported;
 {
+<<<<<<< HEAD
   unbind_variable_noref ("COMP_LINE");
   unbind_variable_noref ("COMP_POINT");
   unbind_variable_noref ("COMP_TYPE");
   unbind_variable_noref ("COMP_KEY");
+=======
+  unbind_variable ("COMP_LINE");
+  unbind_variable ("COMP_POINT");
+  unbind_variable ("COMP_TYPE");
+  unbind_variable ("COMP_KEY");
+>>>>>>> orgin/bash-4.3-testing
 #ifdef ARRAY_VARS
   unbind_variable_noref ("COMP_WORDS");
   unbind_variable_noref ("COMP_CWORD");
@@ -1177,7 +1221,11 @@ gen_shell_function_matches (cs, cmd, text, line, ind, lwords, nw, cw, foundp)
   VUNSETATTR (v, att_invisible);
 
   a = array_cell (v);
+<<<<<<< HEAD
   if (found == 0 || (found & PCOMP_RETRYFAIL) || a == 0 || array_p (v) == 0 || array_empty (a))
+=======
+  if (found == 0 || (found & PCOMP_RETRYFAIL) || a == 0 || array_empty (a))
+>>>>>>> orgin/bash-4.3-testing
     sl = (STRINGLIST *)NULL;
   else
     {
@@ -1249,7 +1297,11 @@ gen_command_matches (cs, cmd, text, line, ind, lwords, nw, cw)
     }
   cscmd[cmdlen] = '\0';
 
+<<<<<<< HEAD
   tw = command_substitute (cscmd, 0, 0);
+=======
+  tw = command_substitute (cscmd, 0);
+>>>>>>> orgin/bash-4.3-testing
   csbuf = tw ? tw->word : (char *)NULL;
   if (tw)
     dispose_word_desc (tw);
@@ -1303,7 +1355,11 @@ command_line_to_word_list (line, llen, sentinel, nwp, cwp)
 #else
   delims = rl_completer_word_break_characters;
 #endif
+<<<<<<< HEAD
   ret = split_at_delims (line, llen, delims, sentinel, SD_NOQUOTEDELIM|SD_COMPLETE, nwp, cwp);
+=======
+  ret = split_at_delims (line, llen, delims, sentinel, SD_NOQUOTEDELIM, nwp, cwp);
+>>>>>>> orgin/bash-4.3-testing
   return (ret);
 }
 
@@ -1392,7 +1448,11 @@ gen_compspec_completions (cs, cmd, word, start, end, foundp)
       debug_printf ("command_line_to_word_list (%s, %d, %d, %p, %p)",
 		line, llen, pcomp_ind - start, &nw, &cw);
 #endif
+<<<<<<< HEAD
       lwords = command_line_to_word_list (line, llen, pcomp_ind - start, &nw, &cw);
+=======
+      lwords = command_line_to_word_list (line, llen, rl_point - start, &nw, &cw);
+>>>>>>> orgin/bash-4.3-testing
       /* If we skipped a NULL word at the beginning of the line, add it back */
       if (lwords && lwords->word && cmd[0] == 0 && lwords->word->word[0] != 0)
 	{
@@ -1419,7 +1479,11 @@ gen_compspec_completions (cs, cmd, word, start, end, foundp)
   if (cs->funcname)
     {
       foundf = 0;
+<<<<<<< HEAD
       tmatches = gen_shell_function_matches (cs, cmd, word, line, pcomp_ind - start, lwords, nw, cw, &foundf);
+=======
+      tmatches = gen_shell_function_matches (cs, cmd, word, line, rl_point - start, lwords, nw, cw, &foundf);
+>>>>>>> orgin/bash-4.3-testing
       if (foundf != 0)
 	found = foundf;
       if (tmatches)
@@ -1439,7 +1503,11 @@ gen_compspec_completions (cs, cmd, word, start, end, foundp)
 
   if (cs->command)
     {
+<<<<<<< HEAD
       tmatches = gen_command_matches (cs, cmd, word, line, pcomp_ind - start, lwords, nw, cw);
+=======
+      tmatches = gen_command_matches (cs, cmd, word, line, rl_point - start, lwords, nw, cw);
+>>>>>>> orgin/bash-4.3-testing
       if (tmatches)
 	{
 #ifdef DEBUG
@@ -1533,8 +1601,11 @@ pcomp_set_readline_variables (flags, nval)
      option is supposed to turn it off */
   if (flags & COPT_NOQUOTE)
     rl_filename_quoting_desired = 1 - nval;
+<<<<<<< HEAD
   if (flags & COPT_NOSORT)
     rl_sort_completion_matches = 1 - nval;
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Set or unset FLAGS in the options word of the current compspec.
@@ -1562,7 +1633,11 @@ gen_progcomp_completions (ocmd, cmd, word, start, end, foundp, retryp, lastcs)
      COMPSPEC **lastcs;
 {
   COMPSPEC *cs, *oldcs;
+<<<<<<< HEAD
   const char *oldcmd, *oldtxt;
+=======
+  const char *oldcmd;
+>>>>>>> orgin/bash-4.3-testing
   STRINGLIST *ret;
 
   cs = progcomp_search (ocmd);
@@ -1585,17 +1660,26 @@ gen_progcomp_completions (ocmd, cmd, word, start, end, foundp, retryp, lastcs)
 
   oldcs = pcomp_curcs;
   oldcmd = pcomp_curcmd;
+<<<<<<< HEAD
   oldtxt = pcomp_curtxt;
 
   pcomp_curcs = cs;
   pcomp_curcmd = cmd;
   pcomp_curtxt = word;
+=======
+
+  pcomp_curcs = cs;
+  pcomp_curcmd = cmd;
+>>>>>>> orgin/bash-4.3-testing
 
   ret = gen_compspec_completions (cs, cmd, word, start, end, foundp);
 
   pcomp_curcs = oldcs;
   pcomp_curcmd = oldcmd;
+<<<<<<< HEAD
   pcomp_curtxt = oldtxt;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   /* We need to conditionally handle setting *retryp here */
   if (retryp)
@@ -1621,6 +1705,7 @@ programmable_completions (cmd, word, start, end, foundp)
      const char *word;
      int start, end, *foundp;
 {
+<<<<<<< HEAD
   COMPSPEC *lastcs;
   STRINGLIST *ret;
   char **rmatches, *t;
@@ -1630,22 +1715,32 @@ programmable_completions (cmd, word, start, end, foundp)
 #if defined (ALIAS)
   alias_t *al;
 #endif
+=======
+  COMPSPEC *cs, *lastcs;
+  STRINGLIST *ret;
+  char **rmatches, *t;
+  int found, retry, count;
+>>>>>>> orgin/bash-4.3-testing
 
   lastcs = 0;
   found = count = 0;
 
+<<<<<<< HEAD
   pcomp_line = rl_line_buffer;
   pcomp_ind = rl_point;
 
   ocmd = (char *)cmd;
   oend = end;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   do
     {
       retry = 0;
 
       /* We look at the basename of CMD if the full command does not have
 	 an associated COMPSPEC. */
+<<<<<<< HEAD
       ret = gen_progcomp_completions (ocmd, ocmd, word, start, oend, &found, &retry, &lastcs);
       if (found == 0)
 	{
@@ -1715,20 +1810,40 @@ programmable_completions (cmd, word, start, end, foundp)
 	}
 #endif /* ALIAS */
 
+=======
+      ret = gen_progcomp_completions (cmd, cmd, word, start, end, &found, &retry, &lastcs);
+      if (found == 0)
+	{
+	  t = strrchr (cmd, '/');
+	  if (t && *(++t))
+	    ret = gen_progcomp_completions (t, cmd, word, start, end, &found, &retry, &lastcs);
+	}
+
+      if (found == 0)
+	ret = gen_progcomp_completions (DEFAULTCMD, cmd, word, start, end, &found, &retry, &lastcs);
+
+>>>>>>> orgin/bash-4.3-testing
       count++;
 
       if (count > 32)
 	{
+<<<<<<< HEAD
 	  internal_warning (_("programmable_completion: %s: possible retry loop"), cmd);
+=======
+	  internal_warning ("programmable_completion: %s: possible retry loop", cmd);
+>>>>>>> orgin/bash-4.3-testing
 	  break;
 	}
     }
   while (retry);
+<<<<<<< HEAD
 
   if (pcomp_line != rl_line_buffer)
     free (pcomp_line);
   if (ocmd != cmd)
     free (ocmd);
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   if (ret)
     {
@@ -1744,10 +1859,13 @@ programmable_completions (cmd, word, start, end, foundp)
   if (lastcs)	/* XXX - should be while? */
     compspec_dispose (lastcs);
 
+<<<<<<< HEAD
   /* XXX restore pcomp_line and pcomp_ind? */
   pcomp_line = rl_line_buffer;
   pcomp_ind = rl_point;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   return (rmatches);
 }
 

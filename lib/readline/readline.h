@@ -1,6 +1,10 @@
 /* Readline.h -- the names of functions callable from within readline. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -39,9 +43,15 @@ extern "C" {
 #endif
 
 /* Hex-encoded Readline version number. */
+<<<<<<< HEAD
 #define RL_READLINE_VERSION	0x0800		/* Readline 8.0 */
 #define RL_VERSION_MAJOR	8
 #define RL_VERSION_MINOR	0
+=======
+#define RL_READLINE_VERSION	0x0603		/* Readline 6.3 */
+#define RL_VERSION_MAJOR	6
+#define RL_VERSION_MINOR	3
+>>>>>>> orgin/bash-4.3-testing
 
 /* Readline data structures. */
 
@@ -252,7 +262,10 @@ extern int rl_vi_column PARAMS((int, int));
 extern int rl_vi_delete_to PARAMS((int, int));
 extern int rl_vi_change_to PARAMS((int, int));
 extern int rl_vi_yank_to PARAMS((int, int));
+<<<<<<< HEAD
 extern int rl_vi_yank_pop PARAMS((int, int));
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern int rl_vi_rubout PARAMS((int, int));
 extern int rl_vi_delete PARAMS((int, int));
 extern int rl_vi_back_to_indent PARAMS((int, int));
@@ -451,9 +464,12 @@ extern void rl_cleanup_after_signal PARAMS((void));
 extern void rl_reset_after_signal PARAMS((void));
 extern void rl_free_line_state PARAMS((void));
 
+<<<<<<< HEAD
 extern int rl_pending_signal PARAMS((void));
 extern void rl_check_signals PARAMS((void));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern void rl_echo_signal_char PARAMS((int)); 
 
 extern int rl_set_paren_blink_timeout PARAMS((int));
@@ -652,7 +668,11 @@ extern rl_compentry_func_t *rl_completion_entry_function;
 
 /* Optional generator for menu completion.  Default is
    rl_completion_entry_function (rl_filename_completion_function). */
+<<<<<<< HEAD
 extern rl_compentry_func_t *rl_menu_completion_entry_function;
+=======
+ extern rl_compentry_func_t *rl_menu_completion_entry_function;
+>>>>>>> orgin/bash-4.3-testing
 
 /* If rl_ignore_some_completions_function is non-NULL it is the address
    of a function to call after all of the possible matches have been
@@ -844,6 +864,7 @@ extern int rl_ignore_completion_duplicates;
    completion character will be inserted as any other. */
 extern int rl_inhibit_completion;
 
+<<<<<<< HEAD
 /* Applications can set this to non-zero to have readline's signal handlers
    installed during the entire duration of reading a complete line, as in
    readline-6.2.  This should be used with care, because it can result in
@@ -852,6 +873,8 @@ extern int rl_inhibit_completion;
    By default, signal handlers are only active while readline is active. */   
 extern int rl_persistent_signal_handlers;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Input error; can be returned by (*rl_getc_function) if readline is reading
    a top-level command (RL_ISSTATE (RL_STATE_READCMD)). */
 #define READERR			(-2)
@@ -892,10 +915,16 @@ extern int rl_persistent_signal_handlers;
 #define RL_STATE_VIMOTION	0x0100000	/* reading vi motion arg */
 #define RL_STATE_MULTIKEY	0x0200000	/* reading multiple-key command */
 #define RL_STATE_VICMDONCE	0x0400000	/* entered vi command mode at least once */
+<<<<<<< HEAD
 #define RL_STATE_CHARSEARCH	0x0800000	/* vi mode char search */
 #define RL_STATE_REDISPLAYING	0x1000000	/* updating terminal display */
 
 #define RL_STATE_DONE		0x2000000	/* done; accepted line */
+=======
+#define RL_STATE_REDISPLAYING	0x0800000	/* updating terminal display */
+
+#define RL_STATE_DONE		0x1000000	/* done; accepted line */
+>>>>>>> orgin/bash-4.3-testing
 
 #define RL_SETSTATE(x)		(rl_readline_state |= (x))
 #define RL_UNSETSTATE(x)	(rl_readline_state &= ~(x))
@@ -935,6 +964,7 @@ struct readline_state {
   /* search state */
 
   /* completion state */
+<<<<<<< HEAD
   rl_compentry_func_t *entryfunc;
   rl_compentry_func_t *menuentryfunc;
   rl_compignore_func_t *ignorefunc;
@@ -945,6 +975,11 @@ struct readline_state {
 
   /* hook state */
   
+=======
+
+  /* options state */
+
+>>>>>>> orgin/bash-4.3-testing
   /* reserved for future expansion, so the struct size doesn't change */
   char reserved[64];
 };

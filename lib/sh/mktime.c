@@ -50,7 +50,11 @@
 
 #include "bashansi.h"
 
+<<<<<<< HEAD
 #if DEBUG_MKTIME
+=======
+#if DEBUG
+>>>>>>> orgin/bash-4.3-testing
 #include <stdio.h>
 /* Make it work even if the system's libc has its own mktime routine.  */
 #define mktime my_mktime

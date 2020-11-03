@@ -1,7 +1,11 @@
 /* rlprivate.h -- functions and variables global to the readline library,
 		  but not intended for use by applications. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1999-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1999-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -172,6 +176,145 @@ typedef void _rl_sigcleanup_func_t PARAMS((int, void *));
 
 /*************************************************************************
  *									 *
+ * Convenience definitions						 *
+ *									 *
+ *************************************************************************/
+
+#define EMACS_MODE()		(rl_editing_mode == emacs_mode)
+#define VI_COMMAND_MODE()	(rl_editing_mode == vi_mode && _rl_keymap == vi_movement_keymap)
+#define VI_INSERT_MODE()	(rl_editing_mode == vi_mode && _rl_keymap == vi_insertion_keymap)
+
+#define RL_CHECK_SIGNALS() \
+	do { \
+	  if (_rl_caught_signal) _rl_signal_handler (_rl_caught_signal); \
+	} while (0)
+
+#define RL_SIG_RECEIVED() (_rl_caught_signal != 0)
+#define RL_SIGINT_RECEIVED() (_rl_caught_signal == SIGINT)
+
+#define CUSTOM_REDISPLAY_FUNC() (rl_redisplay_function != rl_redisplay)
+#define CUSTOM_INPUT_FUNC() (rl_getc_function != rl_getc)
+
+/*************************************************************************
+ *									 *
+ * Global structs undocumented in texinfo manual and not in readline.h   *
+ *									 *
+ *************************************************************************/
+/* search types */
+#define RL_SEARCH_ISEARCH	0x01		/* incremental search */
+#define RL_SEARCH_NSEARCH	0x02		/* non-incremental search */
+#define RL_SEARCH_CSEARCH	0x04		/* intra-line char search */
+
+/* search flags */
+#define SF_REVERSE		0x01
+#define SF_FOUND		0x02
+#define SF_FAILED		0x04
+#define SF_CHGKMAP		0x08
+
+typedef struct  __rl_search_context
+{
+  int type;
+  int sflags;
+
+  char *search_string;
+  int search_string_index;
+  int search_string_size;
+
+  char **lines;
+  char *allocated_line;    
+  int hlen;
+  int hindex;
+
+  int save_point;
+  int save_mark;
+  int save_line;
+  int last_found_line;
+  char *prev_line_found;
+
+  UNDO_LIST *save_undo_list;
+
+  Keymap keymap;	/* used when dispatching commands in search string */
+  Keymap okeymap;	/* original keymap */
+
+  int history_pos;
+  int direction;
+
+  int prevc;
+  int lastc;
+#if defined (HANDLE_MULTIBYTE)
+  char mb[MB_LEN_MAX];
+  char pmb[MB_LEN_MAX];
+#endif
+
+  char *sline;
+  int sline_len;
+  int sline_index;
+
+  char  *search_terminators;
+} _rl_search_cxt;
+
+/* Callback data for reading numeric arguments */
+#define NUM_SAWMINUS	0x01
+#define NUM_SAWDIGITS	0x02
+#define NUM_READONE	0x04
+
+typedef int _rl_arg_cxt;
+
+/* A context for reading key sequences longer than a single character when
+   using the callback interface. */
+#define KSEQ_DISPATCHED	0x01
+#define KSEQ_SUBSEQ	0x02
+#define KSEQ_RECURSIVE	0x04
+
+typedef struct __rl_keyseq_context
+{
+  int flags;
+  int subseq_arg;
+  int subseq_retval;		/* XXX */
+  Keymap dmap;
+
+  Keymap oldmap;
+  int okey;
+  struct __rl_keyseq_context *ocxt;
+  int childval;
+} _rl_keyseq_cxt;
+
+/* vi-mode commands that use result of motion command to define boundaries */
+#define VIM_DELETE	0x01
+#define VIM_CHANGE	0x02
+#define VIM_YANK	0x04
+
+/* various states for vi-mode commands that use motion commands.  reflects
+   RL_READLINE_STATE */
+#define VMSTATE_READ	0x01
+#define VMSTATE_NUMARG	0x02
+
+typedef struct __rl_vimotion_context
+{
+  int op;
+  int state;
+  int flags;		/* reserved */
+  _rl_arg_cxt ncxt;
+  int numeric_arg;
+  int start, end;	/* rl_point, rl_end */
+  int key, motion;	/* initial key, motion command */
+} _rl_vimotion_cxt;
+
+/* fill in more as needed */
+/* `Generic' callback data and functions */
+typedef struct __rl_callback_generic_arg 
+{
+  int count;
+  int i1, i2;
+  /* add here as needed */
+} _rl_callback_generic_arg;
+
+typedef int _rl_callback_func_t PARAMS((_rl_callback_generic_arg *));
+
+typedef void _rl_sigcleanup_func_t PARAMS((int, void *));
+
+/*************************************************************************
+ *									 *
  * Global functions undocumented in texinfo manual and not in readline.h *
  *									 *
  *************************************************************************/
@@ -189,7 +332,10 @@ extern int rl_visible_stats;
 #endif /* VISIBLE_STATS */
 #if defined (COLOR_SUPPORT)
 extern int _rl_colored_stats;
+<<<<<<< HEAD
 extern int _rl_colored_completion_prefix;
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 /* readline.c */
@@ -295,6 +441,7 @@ extern void _rl_scxt_dispose PARAMS((_rl_search_cxt *, int));
 
 extern int _rl_isearch_dispatch PARAMS((_rl_search_cxt *, int));
 extern int _rl_isearch_callback PARAMS((_rl_search_cxt *));
+<<<<<<< HEAD
 extern int _rl_isearch_cleanup PARAMS((_rl_search_cxt *, int));
 
 extern int _rl_search_getchar PARAMS((_rl_search_cxt *));
@@ -310,6 +457,10 @@ extern int _rl_search_getchar PARAMS((_rl_search_cxt *));
 #define BRACK_PASTE_FINI	"\033[?2004l\r"
 
 extern char *_rl_bracketed_text PARAMS((size_t *));
+=======
+
+extern int _rl_search_getchar PARAMS((_rl_search_cxt *));
+>>>>>>> orgin/bash-4.3-testing
 
 /* macro.c */
 extern void _rl_with_macro_input PARAMS((char *));
@@ -354,7 +505,10 @@ extern int _rl_restore_tty_signals PARAMS((void));
 
 /* search.c */
 extern int _rl_nsearch_callback PARAMS((_rl_search_cxt *));
+<<<<<<< HEAD
 extern int _rl_nsearch_cleanup PARAMS((_rl_search_cxt *, int));
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* signals.c */
 extern void _rl_signal_handler PARAMS((int));
@@ -384,7 +538,10 @@ extern void _rl_set_cursor PARAMS((int, int));
 extern void _rl_fix_point PARAMS((int));
 extern int _rl_replace_text PARAMS((const char *, int, int));
 extern int _rl_forward_char_internal PARAMS((int));
+<<<<<<< HEAD
 extern int _rl_backward_char_internal PARAMS((int));
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern int _rl_insert_char PARAMS((int, int));
 extern int _rl_overwrite_char PARAMS((int, int));
 extern int _rl_overwrite_rubout PARAMS((int, int));
@@ -435,7 +592,10 @@ extern int _rl_vi_textmod_command PARAMS((int));
 extern int _rl_vi_motion_command PARAMS((int));
 extern void _rl_vi_done_inserting PARAMS((void));
 extern int _rl_vi_domove_callback PARAMS((_rl_vimotion_cxt *));
+<<<<<<< HEAD
 extern int _rl_vi_domove_motion_cleanup PARAMS((int, _rl_vimotion_cxt *));
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /*************************************************************************
  * Undocumented private variables					 *
@@ -469,6 +629,7 @@ extern int _rl_vis_botlin;
 extern int _rl_last_c_pos;
 extern int _rl_suppress_redisplay;
 extern int _rl_want_redisplay;
+<<<<<<< HEAD
 
 extern char *_rl_emacs_mode_str;
 extern int _rl_emacs_modestr_len;
@@ -476,6 +637,8 @@ extern char *_rl_vi_ins_mode_str;
 extern int _rl_vi_ins_modestr_len;
 extern char *_rl_vi_cmd_mode_str;
 extern int _rl_vi_cmd_modestr_len;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* isearch.c */
 extern char *_rl_isearch_terminators;
@@ -506,7 +669,10 @@ extern int _rl_bind_stty_chars;
 extern int _rl_revert_all_at_newline;
 extern int _rl_echo_control_chars;
 extern int _rl_show_mode_in_prompt;
+<<<<<<< HEAD
 extern int _rl_enable_bracketed_paste;
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern char *_rl_comment_begin;
 extern unsigned char _rl_parsing_conditionalized_out;
 extern Keymap _rl_keymap;
@@ -514,7 +680,10 @@ extern FILE *_rl_in_stream;
 extern FILE *_rl_out_stream;
 extern int _rl_last_command_was_kill;
 extern int _rl_eof_char;
+<<<<<<< HEAD
 extern int _rl_eof_found;
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern procenv_t _rl_top_level;
 extern _rl_keyseq_cxt *_rl_kscxt;
 extern int _rl_keyseq_timeout;
@@ -567,7 +736,10 @@ extern int _rl_undo_group_level;
 
 /* vi_mode.c */
 extern int _rl_vi_last_command;
+<<<<<<< HEAD
 extern int _rl_vi_redoing;
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern _rl_vimotion_cxt *_rl_vimvcxt;
 
 #endif /* _RL_PRIVATE_H_ */

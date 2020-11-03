@@ -1,7 +1,11 @@
 This file is setattr.def, from which is created setattr.c.
 It implements the builtins "export" and "readonly", in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -92,8 +96,13 @@ Options:
   -a	refer to indexed array variables
   -A	refer to associative array variables
   -f	refer to shell functions
+<<<<<<< HEAD
   -p	display a list of all readonly variables or functions,
 		depending on whether or not the -f option is given
+=======
+  -p	display a list of all readonly variables or functions, depending on
+        whether or not the -f option is given
+>>>>>>> orgin/bash-4.3-testing
 
 An argument of `--' disables further option processing.
 
@@ -187,11 +196,14 @@ set_or_show_attributes (list, attribute, nodefs)
 	      if (var == 0)
 		{
 		  builtin_error (_("%s: not a function"), name);
+<<<<<<< HEAD
 		  any_failed++;
 		}
 	      else if ((attribute & att_exported) && undo == 0 && exportable_function_name (name) == 0)
 		{
 		  builtin_error (_("%s: cannot export"), name);
+=======
+>>>>>>> orgin/bash-4.3-testing
 		  any_failed++;
 		}
 	      else
@@ -238,6 +250,7 @@ set_or_show_attributes (list, attribute, nodefs)
 		{
 		  tlist = list->next;
 		  list->next = (WORD_LIST *)NULL;
+<<<<<<< HEAD
 		  /* Add -g to avoid readonly/export creating local variables:
 		     only local/declare/typeset create local variables */
 		  opti = 0;
@@ -254,6 +267,9 @@ set_or_show_attributes (list, attribute, nodefs)
 		  optw[opti] = '\0';
 
 		  w = make_word (optw);
+=======
+		  w = arrays_only ? make_word ("-ra") : make_word ("-rA");
+>>>>>>> orgin/bash-4.3-testing
 		  nlist = make_word_list (w, list);
 
 		  opt = declare_builtin (nlist);
@@ -349,6 +365,37 @@ set_or_show_attributes (list, attribute, nodefs)
 
 /* Show all variable variables (v == 1) or functions (v == 0) with
    attributes. */
+<<<<<<< HEAD
+=======
+int
+show_all_var_attributes (v, nodefs)
+     int v, nodefs;
+{
+  SHELL_VAR **variable_list, *var;
+  int any_failed;
+  register int i;
+
+  variable_list = v ? all_shell_variables () : all_shell_functions ();
+  if (variable_list == 0)  
+    return (EXECUTION_SUCCESS);
+
+  for (i = any_failed = 0; var = variable_list[i]; i++)
+    {
+      show_var_attributes (var, READONLY_OR_EXPORT, nodefs);
+      if (any_failed = sh_chkwrite (any_failed))
+        break;
+    }
+  free (variable_list);
+  return (any_failed == 0 ? EXECUTION_SUCCESS : EXECUTION_FAILURE);
+}
+
+/* Show the attributes for shell variable VAR.  If NODEFS is non-zero,
+   don't show function definitions along with the name.  If PATTR is
+   non-zero, it indicates we're being called from `export' or `readonly'.
+   In POSIX mode, this prints the name of the calling builtin (`export'
+   or `readonly') instead of `declare', and doesn't print function defs
+   when called by `export' or `readonly'. */
+>>>>>>> orgin/bash-4.3-testing
 int
 show_all_var_attributes (v, nodefs)
      int v, nodefs;
@@ -377,6 +424,10 @@ var_attribute_string (var, pattr, flags)
      int pattr;
      char *flags;	/* filled in with attributes */
 {
+<<<<<<< HEAD
+=======
+  char flags[16], *x;
+>>>>>>> orgin/bash-4.3-testing
   int i;
 
   i = 0;
@@ -472,12 +523,19 @@ show_var_attributes (var, pattr, nodefs)
     printf ("%s ", this_command_name);
 
 #if defined (ARRAY_VARS)
+<<<<<<< HEAD
   if (invisible_p (var) && (array_p (var) || assoc_p (var)))
     printf ("%s\n", var->name);
   else if (array_p (var))
     print_array_assignment (var, 0);
   else if (assoc_p (var))
     print_assoc_assignment (var, 0);
+=======
+  if (array_p (var))
+    print_array_assignment (var, 1);
+  else if (assoc_p (var))
+    print_assoc_assignment (var, 1);
+>>>>>>> orgin/bash-4.3-testing
   else
 #endif
   /* force `readonly' and `export' to not print out function definitions
@@ -509,8 +567,29 @@ show_name_attributes (name, nodefs)
 #else
   var = find_variable_noref (name);
 #endif
+<<<<<<< HEAD
 
   if (var /* && invisible_p (var) == 0 */)
+    {
+      show_var_attributes (var, READONLY_OR_EXPORT, nodefs);
+      return (0);
+    }
+  else
+    return (1);
+}
+
+int
+show_func_attributes (name, nodefs)
+     char *name;
+     int nodefs;
+{
+  SHELL_VAR *var;
+
+  var = find_function (name);
+=======
+>>>>>>> orgin/bash-4.3-testing
+
+  if (var)
     {
       show_var_attributes (var, READONLY_OR_EXPORT, nodefs);
       return (0);
@@ -542,7 +621,11 @@ set_var_attribute (name, attribute, undo)
      char *name;
      int attribute, undo;
 {
+<<<<<<< HEAD
   SHELL_VAR *var, *tv, *v, *refvar;
+=======
+  SHELL_VAR *var, *tv, *v;
+>>>>>>> orgin/bash-4.3-testing
   char *tvalue;
 
   if (undo)
@@ -558,6 +641,7 @@ set_var_attribute (name, attribute, undo)
 	  tvalue = var_isset (tv) ? savestring (value_cell (tv)) : savestring ("");
 
 	  var = bind_variable (tv->name, tvalue, 0);
+<<<<<<< HEAD
 	  if (var == 0)
 	    {
 	      free (tvalue);
@@ -583,6 +667,23 @@ set_var_attribute (name, attribute, undo)
 		VSETATTR (var, att_propagate);
 	    }
 
+=======
+	  var->attributes |= tv->attributes & ~att_tempvar;
+	  /* This avoids an error message when propagating a read-only var
+	     later on. */
+	  if (var->context == 0 && (attribute & att_readonly))
+	    {
+	      /* Don't bother to set the `propagate to the global variables
+		 table' flag if we've just bound the variable in that table */
+	      v = find_global_variable (tv->name);
+	      if (v != var)
+		VSETATTR (tv, att_propagate);
+	    }
+	  else
+	    VSETATTR (tv, att_propagate);
+	  if (var->context != 0)
+	    VSETATTR (var, att_propagate);
+>>>>>>> orgin/bash-4.3-testing
 	  SETVARATTR (tv, attribute, undo);	/* XXX */
 
 	  stupidly_hack_special_variables (tv->name);
@@ -592,6 +693,7 @@ set_var_attribute (name, attribute, undo)
       else
 	{
 	  var = find_variable_notempenv (name);
+<<<<<<< HEAD
 	  if (var == 0)
 	    {
 	      /* We might have a nameref pointing to something that we can't
@@ -609,6 +711,12 @@ set_var_attribute (name, attribute, undo)
 	      var = bind_variable (name, (char *)NULL, 0);
 	      if (var && no_invisible_vars == 0)
 		VSETATTR (var, att_invisible);
+=======
+	  if (var == 0)
+	    {
+	      var = bind_variable (name, (char *)NULL, 0);
+	      VSETATTR (var, att_invisible);
+>>>>>>> orgin/bash-4.3-testing
 	    }
 	  else if (var->context != 0)
 	    VSETATTR (var, att_propagate);

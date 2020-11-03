@@ -1,6 +1,10 @@
 /* patchlevel.h -- current bash patch level */
 
+<<<<<<< HEAD
 /* Copyright (C) 2001-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2001-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 

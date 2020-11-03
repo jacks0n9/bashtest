@@ -1,6 +1,10 @@
 /* histexpand.c -- history expansion. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1989-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1989-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file contains the GNU History Library (History), a set of
    routines for managing the text of previously typed lines.
@@ -55,8 +59,11 @@
 
 #define slashify_in_quotes "\\`\"$"
 
+<<<<<<< HEAD
 #define fielddelim(c)	(whitespace(c) || (c) == '\n')
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 typedef int _hist_search_func_t PARAMS((const char *, int));
 
 static char error_pointer;
@@ -317,7 +324,13 @@ get_history_event (const char *string, int *caller_index, int delimiting_quote)
    to the closing single quote.  FLAGS currently used to allow backslash
    to escape a single quote (e.g., for bash $'...'). */
 static void
+<<<<<<< HEAD
 hist_string_extract_single_quoted (char *string, int *sindex, int flags)
+=======
+hist_string_extract_single_quoted (string, sindex, flags)
+     char *string;
+     int *sindex, flags;
+>>>>>>> orgin/bash-4.3-testing
 {
   register int i;
 
@@ -522,7 +535,15 @@ postproc_subst_rhs (void)
    *END_INDEX_PTR, and the expanded specifier in *RET_STRING. */
 /* need current line for !# */
 static int
+<<<<<<< HEAD
 history_expand_internal (char *string, int start, int qc, int *end_index_ptr, char **ret_string, char *current_line)
+=======
+history_expand_internal (string, start, qc, end_index_ptr, ret_string, current_line)
+     char *string;
+     int start, qc, *end_index_ptr;
+     char **ret_string;
+     char *current_line;	/* for !# */
+>>>>>>> orgin/bash-4.3-testing
 {
   int i, n, starting_index;
   int substitute_globally, subst_bywords, want_quotes, print_only;
@@ -771,7 +792,11 @@ history_expand_internal (char *string, int start, int qc, int *end_index_ptr, ch
 		   the last time. */
 		if (subst_bywords && si > we)
 		  {
+<<<<<<< HEAD
 		    for (; temp[si] && fielddelim (temp[si]); si++)
+=======
+		    for (; temp[si] && whitespace (temp[si]); si++)
+>>>>>>> orgin/bash-4.3-testing
 		      ;
 		    ws = si;
 		    we = history_tokenize_word (temp, si);
@@ -965,6 +990,7 @@ history_expand (char *hstring, char **output)
 
       /* `!' followed by one of the characters in history_no_expand_chars
 	 is NOT an expansion. */
+<<<<<<< HEAD
       dquote = history_quoting_state == '"';
       squote = history_quoting_state == '\'';
 
@@ -981,6 +1007,9 @@ history_expand (char *hstring, char **output)
 	}
 
       for ( ; string[i]; i++)
+=======
+      for (i = dquote = squote = 0; string[i]; i++)
+>>>>>>> orgin/bash-4.3-testing
 	{
 #if defined (HANDLE_MULTIBYTE)
 	  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
@@ -1068,6 +1097,7 @@ history_expand (char *hstring, char **output)
     }
 
   /* Extract and perform the substitution. */
+<<<<<<< HEAD
   dquote = history_quoting_state == '"';
   squote = history_quoting_state == '\'';
 
@@ -1091,6 +1121,9 @@ history_expand (char *hstring, char **output)
     }
 
   for (passc = 0; i < l; i++)
+=======
+  for (passc = dquote = squote = i = j = 0; i < l; i++)
+>>>>>>> orgin/bash-4.3-testing
     {
       int qc, tchar = string[i];
 
@@ -1440,20 +1473,33 @@ history_arg_extract (int first, int last, const char *string)
 }
 
 static int
+<<<<<<< HEAD
 history_tokenize_word (const char *string, int ind)
 {
   register int i, j;
+=======
+history_tokenize_word (string, ind)
+     const char *string;
+     int ind;
+{
+  register int i;
+>>>>>>> orgin/bash-4.3-testing
   int delimiter, nestdelim, delimopen;
 
   i = ind;
   delimiter = nestdelim = 0;
 
+<<<<<<< HEAD
   if (member (string[i], "()\n"))	/* XXX - included \n, but why? been here forever */
+=======
+  if (member (string[i], "()\n"))
+>>>>>>> orgin/bash-4.3-testing
     {
       i++;
       return i;
     }
 
+<<<<<<< HEAD
   if (ISDIGIT (string[i]))
     {
       j = i;
@@ -1475,6 +1521,13 @@ history_tokenize_word (const char *string, int ind)
       int peek = string[i + 1];
 
       if (peek == string[i])
+=======
+  if (member (string[i], "<>;&|$"))
+    {
+      int peek = string[i + 1];
+
+      if (peek == string[i] && peek != '$')
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  if (peek == '<' && string[i + 2] == '-')
 	    i++;
@@ -1483,6 +1536,7 @@ history_tokenize_word (const char *string, int ind)
 	  i += 2;
 	  return i;
 	}
+<<<<<<< HEAD
       else if (peek == '&' && (string[i] == '>' || string[i] == '<'))
 	{
 	  j = i + 2;
@@ -1493,12 +1547,22 @@ history_tokenize_word (const char *string, int ind)
 	  return j;
 	}
       else if ((peek == '>' && string[i] == '&') || (peek == '|' && string[i] == '>'))
+=======
+      else if ((peek == '&' && (string[i] == '>' || string[i] == '<')) ||
+		(peek == '>' && string[i] == '&'))
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  i += 2;
 	  return i;
 	}
+<<<<<<< HEAD
       /* XXX - process substitution -- separated out for later -- bash-4.2 */
       else if (peek == '(' && (string[i] == '>' || string[i] == '<')) /*)*/
+=======
+      /* XXX - separated out for later -- bash-4.2 */
+      else if ((peek == '(' && (string[i] == '>' || string[i] == '<')) || /* ) */
+	       (peek == '(' && string[i] == '$')) /*)*/
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  i += 2;
 	  delimopen = '(';
@@ -1506,9 +1570,40 @@ history_tokenize_word (const char *string, int ind)
 	  nestdelim = 1;
 	  goto get_word;
 	}
+<<<<<<< HEAD
 
       i++;
       return i;
+=======
+#if 0
+      else if (peek == '\'' && string[i] == '$')
+        {
+	  i += 2;	/* XXX */
+	  return i;
+        }
+#endif
+
+      if (string[i] != '$')
+	{
+	  i++;
+	  return i;
+	}
+    }
+
+  /* same code also used for $(...)/<(...)/>(...) above */
+  if (member (string[i], "!@?+*"))
+    {
+      int peek = string[i + 1];
+
+      if (peek == '(')		/*)*/
+	{
+	  /* Shell extended globbing patterns */
+	  i += 2;
+	  delimopen = '(';
+	  delimiter = ')';	/* XXX - not perfect */
+	  nestdelim = 1;
+	}
+>>>>>>> orgin/bash-4.3-testing
     }
 
 get_word:
@@ -1553,6 +1648,7 @@ get_word:
 	  continue;
 	}
 
+<<<<<<< HEAD
       /* Command and process substitution; shell extended globbing patterns */
       if (nestdelim == 0 && delimiter == 0 && member (string[i], "<>$!@?+*") && string[i+1] == '(') /*)*/
 	{
@@ -1563,6 +1659,8 @@ get_word:
 	  continue;
 	}
       
+=======
+>>>>>>> orgin/bash-4.3-testing
       if (delimiter == 0 && (member (string[i], history_word_delimiters)))
 	break;
 
@@ -1574,7 +1672,13 @@ get_word:
 }
 
 static char *
+<<<<<<< HEAD
 history_substring (const char *string, int start, int end)
+=======
+history_substring (string, start, end)
+     const char *string;
+     int start, end;
+>>>>>>> orgin/bash-4.3-testing
 {
   register int len;
   register char *result;
@@ -1612,9 +1716,15 @@ history_tokenize_internal (const char *string, int wind, int *indp)
 	return (result);
 
       start = i;
+<<<<<<< HEAD
 
       i = history_tokenize_word (string, start);
 
+=======
+
+      i = history_tokenize_word (string, start);
+
+>>>>>>> orgin/bash-4.3-testing
       /* If we have a non-whitespace delimiter character (which would not be
 	 skipped by the loop above), use it and any adjacent delimiters to
 	 make a separate field.  Any adjacent white space will be skipped the
@@ -1651,7 +1761,13 @@ history_tokenize (const char *string)
 
 /* Free members of WORDS from START to an empty string */
 static void
+<<<<<<< HEAD
 freewords (char **words, int start)
+=======
+freewords (words, start)
+     char **words;
+     int start;
+>>>>>>> orgin/bash-4.3-testing
 {
   register int i;
 

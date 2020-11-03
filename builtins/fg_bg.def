@@ -106,8 +106,11 @@ bg_builtin (list)
 {
   int r;
 
+<<<<<<< HEAD
   CHECK_HELPOPT (list);
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (job_control == 0)
     {
       sh_nojobs ((char *)NULL);

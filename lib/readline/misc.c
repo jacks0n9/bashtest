@@ -1,6 +1,10 @@
 /* misc.c -- miscellaneous bindable readline functions. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -56,6 +60,8 @@
 static int rl_digit_loop PARAMS((void));
 static void _rl_history_set_point PARAMS((void));
 
+extern int history_offset;
+
 /* Forward declarations used in this file */
 void _rl_free_history_entry PARAMS((HIST_ENTRY *));
 
@@ -76,7 +82,11 @@ int _rl_history_saved_point = -1;
 /* **************************************************************** */
 
 int
+<<<<<<< HEAD
 _rl_arg_overflow (void)
+=======
+_rl_arg_overflow ()
+>>>>>>> orgin/bash-4.3-testing
 {
   if (rl_numeric_arg > 1000000)
     {
@@ -92,7 +102,11 @@ _rl_arg_overflow (void)
 }
 
 void
+<<<<<<< HEAD
 _rl_arg_init (void)
+=======
+_rl_arg_init ()
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_save_prompt ();
   _rl_argcxt = 0;
@@ -100,7 +114,11 @@ _rl_arg_init (void)
 }
 
 int
+<<<<<<< HEAD
 _rl_arg_getchar (void)
+=======
+_rl_arg_getchar ()
+>>>>>>> orgin/bash-4.3-testing
 {
   int c;
 
@@ -116,7 +134,13 @@ _rl_arg_getchar (void)
    argument should be aborted, 0 if we should not read any more chars, and
    1 if we should continue to read chars. */
 int
+<<<<<<< HEAD
 _rl_arg_dispatch (_rl_arg_cxt cxt, int c)
+=======
+_rl_arg_dispatch (cxt, c)
+     _rl_arg_cxt cxt;
+     int c;
+>>>>>>> orgin/bash-4.3-testing
 {
   int key, r;
 
@@ -124,7 +148,11 @@ _rl_arg_dispatch (_rl_arg_cxt cxt, int c)
 
   /* If we see a key bound to `universal-argument' after seeing digits,
       it ends the argument but is otherwise ignored. */
+<<<<<<< HEAD
   if (c >= 0 && _rl_keymap[c].type == ISFUNC && _rl_keymap[c].function == rl_universal_argument)
+=======
+  if (_rl_keymap[c].type == ISFUNC && _rl_keymap[c].function == rl_universal_argument)
+>>>>>>> orgin/bash-4.3-testing
     {
       if ((cxt & NUM_SAWDIGITS) == 0)
 	{
@@ -191,7 +219,11 @@ _rl_arg_dispatch (_rl_arg_cxt cxt, int c)
 
 /* Handle C-u style numeric args, as well as M--, and M-digits. */
 static int
+<<<<<<< HEAD
 rl_digit_loop (void)
+=======
+rl_digit_loop ()
+>>>>>>> orgin/bash-4.3-testing
 {
   int c, r;
 
@@ -218,7 +250,11 @@ rl_digit_loop (void)
 
 /* Create a default argument. */
 void
+<<<<<<< HEAD
 _rl_reset_argument (void)
+=======
+_rl_reset_argument ()
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_numeric_arg = rl_arg_sign = 1;
   rl_explicit_arg = 0;
@@ -227,7 +263,12 @@ _rl_reset_argument (void)
 
 /* Start a numeric argument with initial value KEY */
 int
+<<<<<<< HEAD
 rl_digit_argument (int ignore, int key)
+=======
+rl_digit_argument (ignore, key)
+     int ignore, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_arg_init ();
   if (RL_ISSTATE (RL_STATE_CALLBACK))
@@ -256,13 +297,21 @@ rl_universal_argument (int count, int key)
 }
 
 int
+<<<<<<< HEAD
 _rl_arg_callback (_rl_arg_cxt cxt)
+=======
+_rl_arg_callback (cxt)
+     _rl_arg_cxt cxt;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c, r;
 
   c = _rl_arg_getchar ();
+<<<<<<< HEAD
   if (c < 0)
     return (1);		/* EOF */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   if (_rl_argcxt & NUM_READONE)
     {
@@ -275,14 +324,21 @@ _rl_arg_callback (_rl_arg_cxt cxt)
     }
 
   r = _rl_arg_dispatch (cxt, c);
+<<<<<<< HEAD
   if (r > 0)
     rl_message ("(arg: %d) ", rl_arg_sign * rl_numeric_arg);
+=======
+>>>>>>> orgin/bash-4.3-testing
   return (r != 1);
 }
 
 /* What to do when you abort reading an argument. */
 int
+<<<<<<< HEAD
 rl_discard_argument (void)
+=======
+rl_discard_argument ()
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_ding ();
   rl_clear_message ();
@@ -435,7 +491,11 @@ rl_replace_from_history (HIST_ENTRY *entry, int flags)
    intended to be called while actively editing, and the current line is
    not assumed to have been added to the history list. */
 void
+<<<<<<< HEAD
 _rl_revert_all_lines (void)
+=======
+_rl_revert_all_lines ()
+>>>>>>> orgin/bash-4.3-testing
 {
   int hpos;
   HIST_ENTRY *entry;
@@ -455,7 +515,10 @@ _rl_revert_all_lines (void)
 	    saved_undo_list = 0;
 	  /* Set up rl_line_buffer and other variables from history entry */
 	  rl_replace_from_history (entry, 0);	/* entry->line is now current */
+<<<<<<< HEAD
 	  entry->data = 0;			/* entry->data is now current undo list */
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  /* Undo all changes to this history entry */
 	  while (rl_undo_list)
 	    rl_do_undo ();
@@ -463,6 +526,10 @@ _rl_revert_all_lines (void)
 	     the timestamp. */
 	  FREE (entry->line);
 	  entry->line = savestring (rl_line_buffer);
+<<<<<<< HEAD
+=======
+	  entry->data = 0;
+>>>>>>> orgin/bash-4.3-testing
 	}
       entry = previous_history ();
     }
@@ -484,7 +551,11 @@ _rl_revert_all_lines (void)
    to an UNDO_LIST * saved as some history entry's data member.  This
    should not be called while editing is active. */
 void
+<<<<<<< HEAD
 rl_clear_history (void)
+=======
+rl_clear_history ()
+>>>>>>> orgin/bash-4.3-testing
 {
   HIST_ENTRY **hlist, *hent;
   register int i;

@@ -162,8 +162,11 @@ foo 3 4
 
 foo 4 5
 
+<<<<<<< HEAD
 0 abc
 1 def
 2 ghi
 3 jkl
 abc def ghi jkl
+=======
+>>>>>>> orgin/bash-4.3-testing

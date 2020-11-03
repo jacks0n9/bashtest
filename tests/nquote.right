@@ -56,9 +56,12 @@ $'\''
 $'\'abcd\''
 '
 1
+<<<<<<< HEAD
 argv[1] = <^?>
 0000000 del nl
 0000002
 0000000 esc fs gs rs us del nl
 0000007
 \q
+=======
+>>>>>>> orgin/bash-4.3-testing

@@ -65,11 +65,19 @@ foo is a function
 foo () 
 { 
     echo;
+<<<<<<< HEAD
     cat <<END
 bar
 END
 
     cat <<EOF
+=======
+    cat  <<END
+bar
+END
+
+    cat  <<EOF
+>>>>>>> orgin/bash-4.3-testing
 qux
 EOF
 
@@ -86,7 +94,11 @@ foo ()
     rm -f a b c;
     for f in a b c;
     do
+<<<<<<< HEAD
         cat <<-EOF >> ${f}
+=======
+        cat  >> ${f} <<-EOF
+>>>>>>> orgin/bash-4.3-testing
 file
 EOF
 
@@ -99,7 +111,11 @@ c:file
 bb is a function
 bb () 
 { 
+<<<<<<< HEAD
     ( cat <<EOF
+=======
+    ( cat  <<EOF
+>>>>>>> orgin/bash-4.3-testing
 foo
 bar
 EOF
@@ -110,13 +126,21 @@ mkcoprocs is a function
 mkcoprocs () 
 { 
     coproc a { 
+<<<<<<< HEAD
         cat <<EOF1
+=======
+        cat  <<EOF1
+>>>>>>> orgin/bash-4.3-testing
 producer 1
 EOF1
 
     }
     coproc b { 
+<<<<<<< HEAD
         cat <<EOF2
+=======
+        cat  <<EOF2
+>>>>>>> orgin/bash-4.3-testing
 producer 2
 EOF2
 
@@ -126,7 +150,11 @@ EOF2
 mkcoprocs is a function
 mkcoprocs () 
 { 
+<<<<<<< HEAD
     coproc COPROC ( b cat <<EOF
+=======
+    coproc COPROC ( b cat  <<EOF
+>>>>>>> orgin/bash-4.3-testing
 heredoc
 body
 EOF

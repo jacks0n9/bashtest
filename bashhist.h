@@ -30,6 +30,7 @@
 
 #define HC_IGNBOTH	(HC_IGNSPACE|HC_IGNDUPS)
 
+<<<<<<< HEAD
 #if defined (STRICT_POSIX)
 #  undef HISTEXPAND_DEFAULT
 #  define HISTEXPAND_DEFAULT	0
@@ -39,6 +40,8 @@
 #  endif /* !HISTEXPAND_DEFAULT */
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern int remember_on_history;
 extern int enable_history_list;		/* value for `set -o history' */
 extern int literal_history;		/* controlled by `shopt lithist' */
@@ -52,12 +55,15 @@ extern int current_command_first_line_saved;
 extern int current_command_first_line_comment;
 extern int hist_last_line_added;
 extern int hist_last_line_pushed;
+<<<<<<< HEAD
 
 extern int dont_save_function_defs;
 
 #  if defined (READLINE)
 extern int hist_verify;
 #  endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #  if defined (BANG_HISTORY)
 extern int history_expansion_inhibited;
@@ -70,7 +76,10 @@ extern void bash_history_disable __P((void));
 extern void bash_history_enable __P((void));
 extern void bash_clear_history __P((void));
 extern int bash_delete_histent __P((int));
+<<<<<<< HEAD
 extern int bash_delete_history_range __P((int, int));
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern int bash_delete_last_history __P((void));
 extern void load_history __P((void));
 extern void save_history __P((void));

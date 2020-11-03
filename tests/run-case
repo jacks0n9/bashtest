@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ${THIS_SH} ./case.tests > ${BASH_TSTOUT} 2>&1
 diff ${BASH_TSTOUT} case.right && rm -f ${BASH_TSTOUT}
+=======
+${THIS_SH} ./case.tests > /tmp/xx 2>&1
+diff /tmp/xx case.right && rm -f /tmp/xx
+>>>>>>> orgin/bash-4.3-testing

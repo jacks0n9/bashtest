@@ -1,6 +1,10 @@
 /* nls.c -- skeletal internationalization code. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1996-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1996-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -86,7 +90,12 @@ static char *find_codeset PARAMS((char *, size_t *));
 static char *_rl_get_locale_var PARAMS((const char *));
 
 static char *
+<<<<<<< HEAD
 _rl_get_locale_var (const char *v)
+=======
+_rl_get_locale_var (v)
+     const char *v;
+>>>>>>> orgin/bash-4.3-testing
 {
   char *lspec;
 
@@ -100,7 +109,12 @@ _rl_get_locale_var (const char *v)
 }
 
 static int
+<<<<<<< HEAD
 utf8locale (char *lspec)
+=======
+utf8locale (lspec)
+     char *lspec;
+>>>>>>> orgin/bash-4.3-testing
 {
   char *cp;
   size_t len;
@@ -117,6 +131,7 @@ utf8locale (char *lspec)
 #endif
 }
 
+<<<<<<< HEAD
 /* Query the right environment variables and call setlocale() to initialize
    the C library locale settings. */
 char *
@@ -142,6 +157,8 @@ _rl_init_locale (void)
   return ret;
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Check for LC_ALL, LC_CTYPE, and LANG and use the first with a value
    to decide the defaults for 8-bit character input and output.  Returns
    1 if we set eight-bit mode. */
@@ -152,9 +169,29 @@ _rl_init_eightbit (void)
    value, and go into eight-bit mode if it's not C or POSIX. */
 #if defined (HAVE_SETLOCALE)
   char *lspec, *t;
+<<<<<<< HEAD
 
   t = _rl_init_locale ();	/* returns static pointer */
 
+=======
+
+  /* Set the LC_CTYPE locale category from environment variables. */
+  lspec = _rl_get_locale_var ("LC_CTYPE");
+  /* Since _rl_get_locale_var queries the right environment variables,
+     we query the current locale settings with setlocale(), and, if
+     that doesn't return anything, we set lspec to the empty string to
+     force the subsequent call to setlocale() to define the `native'
+     environment. */
+  if (lspec == 0 || *lspec == 0)
+    lspec = setlocale (LC_CTYPE, (char *)NULL);
+  if (lspec == 0)
+    lspec = "";
+  t = setlocale (LC_CTYPE, lspec);
+
+  if (t && *t)
+    _rl_utf8locale = utf8locale (t);
+
+>>>>>>> orgin/bash-4.3-testing
   if (t && *t && (t[0] != 'C' || t[1]) && (STREQ (t, "POSIX") == 0))
     {
       _rl_meta_flag = 1;
@@ -184,6 +221,11 @@ _rl_init_eightbit (void)
 	_rl_output_meta_chars = 1;
 	break;
       }
+<<<<<<< HEAD
+=======
+  xfree (t);
+  return (legal_lang_values[i] ? 1 : 0);
+>>>>>>> orgin/bash-4.3-testing
 
   _rl_utf8locale = *t ? STREQ (t, "utf8") : 0;
 

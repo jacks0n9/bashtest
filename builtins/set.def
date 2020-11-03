@@ -1,7 +1,11 @@
 This file is set.def, from which is created set.c.
 It implements the "set" and "unset" builtins in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2018 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -84,6 +88,7 @@ Options:
 #endif /* BANG_HISTORY */
 #if defined (HISTORY)
           history      enable command history
+<<<<<<< HEAD
 #endif
           ignoreeof    the shell will not exit upon reading EOF
           interactive-comments
@@ -92,6 +97,16 @@ Options:
 #if defined (JOB_CONTROL)
           monitor      same as -m
 #endif
+=======
+#endif
+          ignoreeof    the shell will not exit upon reading EOF
+          interactive-comments
+                       allow comments to appear in interactive commands
+          keyword      same as -k
+#if defined (JOB_CONTROL)
+          monitor      same as -m
+#endif
+>>>>>>> orgin/bash-4.3-testing
           noclobber    same as -C
           noexec       same as -n
           noglob       same as -f
@@ -134,7 +149,11 @@ Options:
 #endif /* BANG_HISTORY */
   -P  If set, do not resolve symbolic links when executing commands
       such as cd which change the current directory.
+<<<<<<< HEAD
   -T  If set, the DEBUG and RETURN traps are inherited by shell functions.
+=======
+  -T  If set, the DEBUG trap is inherited by shell functions.
+>>>>>>> orgin/bash-4.3-testing
   --  Assign any remaining arguments to the positional parameters.
       If there are no remaining arguments, the positional parameters
       are unset.
@@ -173,6 +192,7 @@ static int bash_set_history __P((int, char *));
 
 static const char * const on = "on";
 static const char * const off = "off";
+<<<<<<< HEAD
 
 static int previous_option_value;
 
@@ -181,6 +201,12 @@ static int previous_option_value;
    dynamically generate values.  If you add a new variable name here
    that doesn't have a corresponding single-character option letter, make
    sure to set the value appropriately in reset_shell_options. */
+=======
+
+/* A struct used to match long options for set -o to the corresponding
+   option letter or internal variable.  The functions can be called to
+   dynamically generate values. */
+>>>>>>> orgin/bash-4.3-testing
 const struct {
   char *name;
   int letter;
@@ -495,6 +521,12 @@ set_minus_o_option (on_or_off, option_name)
       else
 	return (EXECUTION_SUCCESS);
     }
+<<<<<<< HEAD
+=======
+
+  sh_invalidoptname (option_name);
+  return (EX_USAGE);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 static void
@@ -645,7 +677,10 @@ reset_shell_options ()
   posixly_correct = 0;
 #endif
 #if defined (HISTORY)
+<<<<<<< HEAD
   dont_save_function_defs = 0;
+=======
+>>>>>>> orgin/bash-4.3-testing
   remember_on_history = enable_history_list = 1;
 #endif
 }
@@ -800,7 +835,11 @@ Options:
   -f	treat each NAME as a shell function
   -v	treat each NAME as a shell variable
   -n	treat each NAME as a name reference and unset the variable itself
+<<<<<<< HEAD
 		rather than the variable it references
+=======
+	rather than the variable it references
+>>>>>>> orgin/bash-4.3-testing
 
 Without options, unset first tries to unset a variable, and if that fails,
 tries to unset a function.
@@ -818,11 +857,17 @@ unset_builtin (list)
   WORD_LIST *list;
 {
   int unset_function, unset_variable, unset_array, opt, nameref, any_failed;
+<<<<<<< HEAD
   int global_unset_func, global_unset_var, vflags;
   char *name, *tname;
 
   unset_function = unset_variable = unset_array = nameref = any_failed = 0;
   global_unset_func = global_unset_var = 0;
+=======
+  char *name;
+
+  unset_function = unset_variable = unset_array = nameref = any_failed = 0;
+>>>>>>> orgin/bash-4.3-testing
 
   reset_internal_getopt ();
   while ((opt = internal_getopt (list, "fnv")) != -1)
@@ -838,7 +883,13 @@ unset_builtin (list)
 	case 'n':
 	  nameref = 1;
 	  break;
+<<<<<<< HEAD
 	CASE_HELPOPT;
+=======
+	case 'n':
+	  nameref = 1;
+	  break;
+>>>>>>> orgin/bash-4.3-testing
 	default:
 	  builtin_usage ();
 	  return (EX_USAGE);
@@ -854,10 +905,13 @@ unset_builtin (list)
     }
   else if (unset_function && nameref)
     nameref = 0;
+<<<<<<< HEAD
 
 #if defined (ARRAY_VARS)
   vflags = assoc_expand_once ? (VA_NOEXPAND|VA_ONEWORD) : 0;
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   while (list)
     {
@@ -896,7 +950,11 @@ unset_builtin (list)
 
       /* Only search for functions here if -f supplied. */
       var = unset_function ? find_function (name)
+<<<<<<< HEAD
 			   : (nameref ? find_variable_last_nameref (name, 0) : find_variable (name));
+=======
+			   : (nameref ? find_variable_last_nameref (name) : find_variable (name));
+>>>>>>> orgin/bash-4.3-testing
 
       /* Some variables (but not functions yet) cannot be unset, period. */
       if (var && unset_function == 0 && non_unsettable_p (var))
@@ -905,15 +963,22 @@ unset_builtin (list)
 	  NEXT_VARIABLE ();
 	}
 
+<<<<<<< HEAD
       /* if we have a nameref we want to use it */
       if (var && unset_function == 0 && nameref == 0 && STREQ (name, name_cell(var)) == 0)
 	name = name_cell (var);
 
+=======
+>>>>>>> orgin/bash-4.3-testing
       /* Posix.2 says try variables first, then functions.  If we would
 	 find a function after unsuccessfully searching for a variable,
 	 note that we're acting on a function now as if -f were
 	 supplied.  The readonly check below takes care of it. */
+<<<<<<< HEAD
       if (var == 0 && nameref == 0 &&  unset_variable == 0 && unset_function == 0)
+=======
+      if (var == 0 && unset_variable == 0 && unset_function == 0)
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  if (var = find_function (name))
 	    unset_function = 1;
@@ -931,9 +996,13 @@ unset_builtin (list)
 #if defined (ARRAY_VARS)
       if (var && unset_array)
 	{
+<<<<<<< HEAD
 	  /* Let unbind_array_element decide what to do with non-array vars */
 	  tem = unbind_array_element (var, t, vflags);	/* XXX new third arg */
 	  if (tem == -2 && array_p (var) == 0 && assoc_p (var) == 0)
+=======
+	  if (array_p (var) == 0 && assoc_p (var) == 0)
+>>>>>>> orgin/bash-4.3-testing
 	    {
 	      builtin_error (_("%s: not an array variable"), var->name);
 	      NEXT_VARIABLE ();
@@ -966,13 +1035,22 @@ unset_builtin (list)
 	    tem = unbind_variable (name);
 	}
       else
+<<<<<<< HEAD
 	tem = unset_function ? unbind_func (name) : (nameref ? unbind_nameref (name) : unbind_variable (name));
+=======
+#endif /* ARRAY_VARS */
+      tem = unset_function ? unbind_func (name) : (nameref ? unbind_nameref (name) : unbind_variable (name));
+>>>>>>> orgin/bash-4.3-testing
 
       /* This is what Posix.2 says:  ``If neither -f nor -v
 	 is specified, the name refers to a variable; if a variable by
 	 that name does not exist, a function by that name, if any,
 	 shall be unset.'' */
+<<<<<<< HEAD
       if (tem == -1 && nameref == 0 && unset_function == 0 && unset_variable == 0)
+=======
+      if (tem == -1 && unset_function == 0 && unset_variable == 0)
+>>>>>>> orgin/bash-4.3-testing
 	tem = unbind_func (name);
 
       name = list->word->word;		/* reset above for namerefs */

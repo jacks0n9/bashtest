@@ -1,7 +1,11 @@
 /* flags.h -- a list of all the flags that the shell knows about.  You add
    a flag to this program by adding the name here, and in flags.c. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1993-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1993-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -49,9 +53,12 @@ extern int
   hashing_enabled, forced_interactive, privileged_mode, jobs_m_flag,
   asynchronous_notification, interactive_comments, no_symbolic_links,
   function_trace_mode, error_trace_mode, pipefail_opt;
+<<<<<<< HEAD
 
 /* -c, -s invocation options -- not really flags, but they show up in $- */
 extern int want_pending_command, read_from_stdin;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #if 0
 extern int lexical_scoping;

@@ -277,7 +277,11 @@ mostlyclean:
 clean: mostlyclean
 
 distclean: clean
+<<<<<<< HEAD
 	rm -f Makefile Makefile.in POTFILES *.mo stamp-po
+=======
+	rm -f Makefile Makefile.in POTFILES *.mo
+>>>>>>> orgin/bash-4.3-testing
 
 maintainer-clean: distclean
 	@echo "This command is intended for maintainers to use;"

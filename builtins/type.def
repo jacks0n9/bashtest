@@ -1,7 +1,11 @@
 This file is type.def, from which is created type.c.
 It implements the builtin "type" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -30,6 +34,7 @@ command name.
 
 Options:
   -a	display all locations containing an executable named NAME;
+<<<<<<< HEAD
 		includes aliases, builtins, and functions, if and only if
 		the `-p' option is not also used
   -f	suppress shell function lookup
@@ -42,6 +47,20 @@ Options:
 		`function', `builtin', `file' or `', if NAME is an alias,
 		shell reserved word, shell function, shell builtin, disk file,
 		or not found, respectively
+=======
+	includes aliases, builtins, and functions, if and only if
+	the `-p' option is not also used
+  -f	suppress shell function lookup
+  -P	force a PATH search for each NAME, even if it is an alias,
+	builtin, or function, and returns the name of the disk file
+	that would be executed
+  -p	returns either the name of the disk file that would be executed,
+	or nothing if `type -t NAME' would not return `file'.
+  -t	output a single word which is one of `alias', `keyword',
+	`function', `builtin', `file' or `', if NAME is an alias, shell
+	reserved word, shell function, shell builtin, disk file, or not 
+	found, respectively
+>>>>>>> orgin/bash-4.3-testing
 
 Arguments:
   NAME	Command name to be interpreted.
@@ -78,6 +97,12 @@ $END
 
 extern int find_reserved_word __P((char *));
 
+<<<<<<< HEAD
+=======
+extern char *this_command_name;
+extern int expand_aliases, posixly_correct;
+
+>>>>>>> orgin/bash-4.3-testing
 /* For each word in LIST, find out what the shell is going to do with
    it as a simple command. i.e., which file would this shell use to
    execve, or if it is a builtin command, or an alias.  Possible flag
@@ -204,7 +229,10 @@ type_builtin (list)
  *	CDESC_FORCE_PATH	force a path search for type -P
  *	CDESC_NOFUNCS	skip function lookup for type -f
  *	CDESC_ABSPATH	convert to absolute path, no ./ prefix
+<<<<<<< HEAD
  *	CDESC_STDPATH	command -p standard path list
+=======
+>>>>>>> orgin/bash-4.3-testing
  *
  * CDESC_ALL says whether or not to look for all occurrences of COMMAND, or
  * return after finding it once.
@@ -294,12 +322,16 @@ describe_command (command, dflags)
       if (dflags & CDESC_TYPE)
 	puts ("builtin");
       else if (dflags & CDESC_SHORTDESC)
+<<<<<<< HEAD
 	{
 	  if (posixly_correct && find_special_builtin (command) != 0)
 	    printf (_("%s is a special shell builtin\n"), command);
 	  else
 	    printf (_("%s is a shell builtin\n"), command);
 	}
+=======
+	printf (_("%s is a shell builtin\n"), command);
+>>>>>>> orgin/bash-4.3-testing
       else if (dflags & CDESC_REUSABLE)
 	printf ("%s\n", command);
 
@@ -390,6 +422,7 @@ describe_command (command, dflags)
 	      free (full_path);
 	      full_path = x;
 	    }
+<<<<<<< HEAD
 	}
       /* If we require a full path and don't have one, make one */
       else if ((dflags & CDESC_ABSPATH) && ABSPATH (full_path) == 0)
@@ -397,7 +430,12 @@ describe_command (command, dflags)
 	  x = sh_makepath ((char *)NULL, full_path, MP_DOCWD|MP_RMDOT);
 	  free (full_path);
 	  full_path = x;
+=======
+>>>>>>> orgin/bash-4.3-testing
 	}
+      /* If we require a full path and don't have one, make one */
+      else if ((dflags & CDESC_ABSPATH) && ABSPATH (full_path) == 0)
+	full_path = sh_makepath ((char *)NULL, full_path, MP_DOCWD|MP_RMDOT);
 
       found_file++;
       found = 1;

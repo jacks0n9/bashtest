@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* Copyright (C) 1991-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1991-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
    
@@ -16,6 +20,7 @@
    along with Bash.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+<<<<<<< HEAD
 struct STRUCT
 {
   CHAR *pattern;
@@ -25,6 +30,11 @@ struct STRUCT
 int FCT __P((CHAR *, CHAR *, int));
 
 static int GMATCH __P((CHAR *, CHAR *, CHAR *, CHAR *, struct STRUCT *, int));
+=======
+int FCT __P((CHAR *, CHAR *, int));
+
+static int GMATCH __P((CHAR *, CHAR *, CHAR *, CHAR *, int));
+>>>>>>> orgin/bash-4.3-testing
 static CHAR *PARSE_COLLSYM __P((CHAR *, INT *));
 static CHAR *BRACKMATCH __P((CHAR *, U_CHAR, int));
 static int EXTMATCH __P((INT, CHAR *, CHAR *, CHAR *, CHAR *, int));
@@ -159,6 +169,7 @@ fprintf(stderr, "gmatch: pattern = %s; pe = %s\n", pattern, pe);
 	      else if ((flags & FNM_EXTMATCH) && c == L('?') && *p == L('(')) /* ) */
 		{
 		  CHAR *newn;
+<<<<<<< HEAD
 
 		  /* We can match 0 or 1 times.  If we match, return success */
 		  if (EXTMATCH (c, n, se, p, pe, flags) == 0)
@@ -171,6 +182,16 @@ fprintf(stderr, "gmatch: pattern = %s; pe = %s\n", pattern, pe);
 		  newn = PATSCAN (p + 1, pe, 0);
 		  /* If NEWN is 0, we have an ill-formed pattern. */
 		  p = newn ? newn : pe;
+=======
+		  for (newn = n; newn < se; ++newn)
+		    {
+		      if (EXTMATCH (c, newn, se, p, pe, flags) == 0)
+			return (0);
+		    }
+		  /* We didn't match.  If we have a `?(...)', we can match 0
+		     or 1 times. */
+		  return 0;
+>>>>>>> orgin/bash-4.3-testing
 		}
 #endif
 	      else if (c == L('?'))
@@ -244,6 +265,7 @@ fprintf(stderr, "gmatch: pattern = %s; pe = %s\n", pattern, pe);
 	    }
 #endif
 
+<<<<<<< HEAD
 	  /* If we stop at a slash in the pattern and we are looking for a
 	     pathname ([star]/foo), then consume enough of the string to stop
 	     at any slash and then try to match the rest of the pattern.  If
@@ -257,6 +279,8 @@ fprintf(stderr, "gmatch: pattern = %s; pe = %s\n", pattern, pe);
 	      return FNM_NOMATCH;	/* XXX */
 	    }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  /* General case, use recursion. */
 	  {
 	    U_CHAR c1;
@@ -384,7 +408,11 @@ BRACKMATCH (p, test, flags)
 {
   register CHAR cstart, cend, c;
   register int not;    /* Nonzero if the sense of the character class is inverted.  */
+<<<<<<< HEAD
   int brcnt, brchr, forcecoll, isrange;
+=======
+  int brcnt, forcecoll;
+>>>>>>> orgin/bash-4.3-testing
   INT pc;
   CHAR *savep;
   U_CHAR orig_test;
@@ -455,7 +483,11 @@ BRACKMATCH (p, test, flags)
 		{
 		  bcopy (p + 1, ccname, (close - p - 1) * sizeof (CHAR));
 		  *(ccname + (close - p - 1)) = L('\0');
+<<<<<<< HEAD
 		  pc = IS_CCLASS (orig_test, (XCHAR *)ccname);
+=======
+		  pc = IS_CCLASS (test, (XCHAR *)ccname);
+>>>>>>> orgin/bash-4.3-testing
 		}
 	      if (pc == -1)
 		{
@@ -577,10 +609,14 @@ BRACKMATCH (p, test, flags)
 	  isrange = 1;
 	}
 
+<<<<<<< HEAD
 #if 0		/* TAG: bash-5.1 */
       if (isrange == 0 && test == cstart)
         goto matched;
       if (isrange && RANGECMP (test, cstart, forcecoll) >= 0 && RANGECMP (test, cend, forcecoll) <= 0)
+=======
+      if (RANGECMP (test, cstart, forcecoll) >= 0 && RANGECMP (test, cend, forcecoll) <= 0)
+>>>>>>> orgin/bash-4.3-testing
 	goto matched;
 #else
       if (RANGECMP (test, cstart, forcecoll) >= 0 && RANGECMP (test, cend, forcecoll) <= 0)
@@ -648,8 +684,12 @@ matched:
    embedded () and [].  If DELIM is 0, we scan until a matching `)'
    because we're scanning a `patlist'.  Otherwise, we scan until we see
    DELIM.  In all cases, we never scan past END.  The return value is the
+<<<<<<< HEAD
    first character after the matching DELIM or NULL if the pattern is
    empty or invalid. */
+=======
+   first character after the matching DELIM. */
+>>>>>>> orgin/bash-4.3-testing
 /*static*/ CHAR *
 PATSCAN (string, end, delim)
      CHAR *string, *end;
@@ -830,8 +870,13 @@ fprintf(stderr, "extmatch: flags = %d\n", flags);
 		{
 		  /* if srest > s, we are not at start of string */
 		  xflags = (srest > s) ? (flags & ~FNM_PERIOD) : flags;
+<<<<<<< HEAD
 		  m2 = (GMATCH (srest, se, prest, pe, NULL, xflags) == 0) ||
 			(s != srest && GMATCH (srest, se, p - 1, pe, NULL, xflags) == 0);
+=======
+		  m2 = (GMATCH (srest, se, prest, pe, xflags) == 0) ||
+			(s != srest && GMATCH (srest, se, p - 1, pe, xflags) == 0);
+>>>>>>> orgin/bash-4.3-testing
 		}
 	      if (m1 && m2)
 		return (0);
@@ -860,8 +905,13 @@ fprintf(stderr, "extmatch: flags = %d\n", flags);
 	    {
 	      /* if srest > s, we are not at start of string */
 	      xflags = (srest > s) ? (flags & ~FNM_PERIOD) : flags;
+<<<<<<< HEAD
 	      if (GMATCH (s, srest, psub, pnext - 1, NULL, flags) == 0 &&
 		  GMATCH (srest, se, prest, pe, NULL, xflags) == 0)
+=======
+	      if (GMATCH (s, srest, psub, pnext - 1, flags) == 0 &&
+		  GMATCH (srest, se, prest, pe, xflags) == 0)
+>>>>>>> orgin/bash-4.3-testing
 		return (0);
 	    }
 	  if (pnext == prest)
@@ -882,6 +932,7 @@ fprintf(stderr, "extmatch: flags = %d\n", flags);
 	      if (pnext == prest)
 		break;
 	    }
+<<<<<<< HEAD
 
 	  /* If nothing matched, but the string starts with a period and we
 	     need to match periods explicitly, don't return this as a match,
@@ -892,6 +943,11 @@ fprintf(stderr, "extmatch: flags = %d\n", flags);
 	  /* if srest > s, we are not at start of string */
 	  xflags = (srest > s) ? (flags & ~FNM_PERIOD) : flags;
 	  if (m1 == 0 && GMATCH (srest, se, prest, pe, NULL, xflags) == 0)
+=======
+	  /* if srest > s, we are not at start of string */
+	  xflags = (srest > s) ? (flags & ~FNM_PERIOD) : flags;
+	  if (m1 == 0 && GMATCH (srest, se, prest, pe, xflags) == 0)
+>>>>>>> orgin/bash-4.3-testing
 	    return (0);
 	}
       return (FNM_NOMATCH);

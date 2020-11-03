@@ -1,7 +1,11 @@
 @ignore
 This file documents the user interface to the GNU History library.
 
+<<<<<<< HEAD:lib/readline/doc/hstech.texi
 Copyright (C) 1988-2016 Free Software Foundation, Inc.
+=======
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/hstech.texinfo
 Authored by Brian Fox and Chet Ramey.
 
 Permission is granted to make and distribute verbatim copies of this manual
@@ -176,6 +180,11 @@ Change the time stamp associated with the most recent history entry to
 @var{string}.
 @end deftypefun
 
+@deftypefun void add_history_time (const char *string)
+Change the time stamp associated with the most recent history entry to
+@var{string}.
+@end deftypefun
+
 @deftypefun {HIST_ENTRY *} remove_history (int which)
 Remove history entry at offset @var{which} from the history.  The
 removed element is returned so you can free the line, data,
@@ -249,6 +258,10 @@ range, return a @code{NULL} pointer.
 @deftypefun time_t history_get_time (HIST_ENTRY *entry)
 Return the time stamp associated with the history entry @var{entry}.
 If the timestamp is missing or invalid, return 0.
+@end deftypefun
+
+@deftypefun time_t history_get_time (HIST_ENTRY *entry)
+Return the time stamp associated with the history entry @var{entry}.
 @end deftypefun
 
 @deftypefun int history_total_bytes (void)
@@ -467,6 +480,7 @@ The default value is @code{" \t\n()<>;&|"}.
 The list of additional characters which can delimit a history search
 string, in addition to space, TAB, @samp{:} and @samp{?} in the case of
 a substring search.  The default is empty.
+<<<<<<< HEAD:lib/readline/doc/hstech.texi
 @end deftypevar
 
 @deftypevar {char *} history_no_expand_chars
@@ -494,6 +508,19 @@ it reads an unquoted closing double quote. If set to zero, the default,
 the history expansion function will assume the line is not quoted and
 treat quote characters within the line as described above.
 This is only effective if @var{history_quotes_inhibit_expansion} is set.
+=======
+@end deftypevar
+
+@deftypevar {char *} history_no_expand_chars
+The list of characters which inhibit history expansion if found immediately
+following @var{history_expansion_char}.  The default is space, tab, newline,
+carriage return, and @samp{=}.
+@end deftypevar
+
+@deftypevar int history_quotes_inhibit_expansion
+If non-zero, single-quoted words are not scanned for the history expansion
+character.  The default value is 0.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/hstech.texinfo
 @end deftypevar
 
 @deftypevar {rl_linebuf_func_t *} history_inhibit_expansion_function

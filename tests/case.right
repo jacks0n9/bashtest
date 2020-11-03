@@ -7,6 +7,7 @@ no more clauses
 1.0
 ./case.tests: line 29: xx: readonly variable
 1.1
+<<<<<<< HEAD
 matches 1
 no
 no
@@ -14,6 +15,8 @@ no
 no
 no
 ok
+=======
+>>>>>>> orgin/bash-4.3-testing
 ok 1
 ok 2
 ok 3
@@ -25,6 +28,7 @@ ok 8
 ok 9
 mysterious 1
 mysterious 2
+<<<<<<< HEAD
 argv[1] = <\a\b\c\^A\d\e\f>
 argv[1] = <\a\b\c\^A\d\e\f>
 argv[1] = <abc^Adef>
@@ -60,3 +64,5 @@ ok1ok2ok3ok4ok5
 ok1ok2ok3ok4ok5
 ok1ok2ok3ok4ok5
 ok1ok2ok3ok4ok5
+=======
+>>>>>>> orgin/bash-4.3-testing

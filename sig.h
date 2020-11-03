@@ -25,7 +25,13 @@
 
 #include "stdc.h"
 
+<<<<<<< HEAD
 #include <signal.h>		/* for sig_atomic_t */
+=======
+#if !defined (SIG_DFL)
+#  include <signal.h>		/* for sig_atomic_t */
+#endif
+>>>>>>> orgin/bash-4.3-testing
 
 #if !defined (SIGABRT) && defined (SIGIOT)
 #  define SIGABRT SIGIOT

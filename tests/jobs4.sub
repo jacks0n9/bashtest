@@ -1,12 +1,21 @@
 # test being able to use job control notation in jobs/kill/wait without
 # job control active, as the SUS requires
 
+<<<<<<< HEAD
 sleep 2 &
 
 sleep 2 &
 sleep 2 &
 sleep 2 &
 (sleep 2 ; exit 4) &
+=======
+sleep 5 &
+
+sleep 5 &
+sleep 5 &
+sleep 5 &
+(sleep 5 ; exit 4) &
+>>>>>>> orgin/bash-4.3-testing
 
 jobs
 

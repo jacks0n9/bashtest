@@ -1,6 +1,10 @@
 /* general.h -- defines that everybody likes to use. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1993-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1993-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -143,7 +147,11 @@ typedef struct {
   int token;
 } STRING_INT_ALIST;
 
+<<<<<<< HEAD
 /* A macro to avoid making an unnecessary function call. */
+=======
+/* A macro to avoid making an unneccessary function call. */
+>>>>>>> orgin/bash-4.3-testing
 #define REVERSE_LIST(list, type) \
   ((list && list->next) ? (type)list_reverse ((GENERIC_LIST *)list) \
 			: (type)(list))
@@ -237,9 +245,12 @@ typedef int sh_ignore_func_t __P((const char *));	/* sh_icpfunc_t */
 
 typedef int sh_assign_func_t __P((const char *));
 typedef int sh_wassign_func_t __P((WORD_DESC *, int));
+<<<<<<< HEAD
 
 typedef int sh_load_func_t __P((char *));
 typedef void sh_unload_func_t __P((char *));
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 typedef int sh_builtin_func_t __P((WORD_LIST *)); /* sh_wlist_func_t */
 
@@ -306,6 +317,7 @@ extern RLIMTYPE string_to_rlimtype __P((char *));
 extern void print_rlimtype __P((RLIMTYPE, int));
 #endif
 
+<<<<<<< HEAD
 extern int all_digits __P((const char *));
 extern int legal_number __P((const char *, intmax_t *));
 extern int legal_identifier __P((const char *));
@@ -316,6 +328,13 @@ extern int valid_nameref_value __P((const char *, int));
 extern int check_selfref __P((const char *, char *, int));
 extern int legal_alias_name __P((const char *, int));
 extern int line_isblank __P((const char *));
+=======
+extern int all_digits __P((char *));
+extern int legal_number __P((const char *, intmax_t *));
+extern int legal_identifier __P((char *));
+extern int check_identifier __P((WORD_DESC *, int));
+extern int legal_alias_name __P((char *, int));
+>>>>>>> orgin/bash-4.3-testing
 extern int assignment __P((const char *, int));
 
 extern int sh_unset_nodelay_mode __P((int));
@@ -333,19 +352,32 @@ extern int same_file __P((const char *, const char *, struct stat *, struct stat
 extern int sh_openpipe __P((int *));
 extern int sh_closepipe __P((int *));
 
+<<<<<<< HEAD
 extern int file_exists __P((const char *));
 extern int file_isdir __P((const char  *));
 extern int file_iswdir __P((const char  *));
+=======
+extern int file_exists __P((char *));
+extern int file_isdir __P((char  *));
+extern int file_iswdir __P((char  *));
+>>>>>>> orgin/bash-4.3-testing
 extern int path_dot_or_dotdot __P((const char *));
 extern int absolute_pathname __P((const char *));
 extern int absolute_program __P((const char *));
 
+<<<<<<< HEAD
 extern char *make_absolute __P((const char *, const char *));
+=======
+extern char *make_absolute __P((char *, char *));
+>>>>>>> orgin/bash-4.3-testing
 extern char *base_pathname __P((char *));
 extern char *full_pathname __P((char *));
 extern char *polite_directory_format __P((char *));
 extern char *trim_pathname __P((char *, int));
+<<<<<<< HEAD
 extern char *printable_filename __P((char *, int));
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 extern char *extract_colon_unit __P((char *, int *));
 

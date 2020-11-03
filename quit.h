@@ -41,7 +41,11 @@ extern volatile sig_atomic_t terminating_signal;
 #define CHECK_ALRM \
   do { \
     if (sigalrm_seen) \
+<<<<<<< HEAD
       sh_longjmp (alrmbuf, 1); \
+=======
+      longjmp (alrmbuf, 1); \
+>>>>>>> orgin/bash-4.3-testing
   } while (0)
 
 #define SETINTERRUPT interrupt_state = 1
@@ -50,8 +54,11 @@ extern volatile sig_atomic_t terminating_signal;
 #define ADDINTERRUPT interrupt_state++
 #define DELINTERRUPT interrupt_state--
 
+<<<<<<< HEAD
 #define ISINTERRUPT interrupt_state != 0
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* The same sort of thing, this time just for signals that would ordinarily
    cause the shell to terminate. */
 
@@ -65,8 +72,13 @@ extern volatile sig_atomic_t terminating_signal;
 
 #define CHECK_WAIT_INTR \
   do { \
+<<<<<<< HEAD
     if (wait_intr_flag && wait_signal_received && this_shell_builtin && (this_shell_builtin == wait_builtin)) \
       sh_longjmp (wait_intr_buf, 1); \
+=======
+    if (wait_signal_received && this_shell_builtin && (this_shell_builtin == wait_builtin)) \
+      longjmp (wait_intr_buf, 1); \
+>>>>>>> orgin/bash-4.3-testing
   } while (0)
 
 #define RESET_SIGTERM \

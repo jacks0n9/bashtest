@@ -1,6 +1,10 @@
 /* execute_cmd.h - functions from execute_cmd.c. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1993-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1993-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -94,7 +98,10 @@ extern void coproc_flush __P((void));
 extern void coproc_close __P((struct coproc *));
 extern void coproc_closeall __P((void));
 extern void coproc_reap __P((void));
+<<<<<<< HEAD
 extern pid_t coproc_active __P((void));
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 extern void coproc_rclose __P((struct coproc *, int));
 extern void coproc_wclose __P((struct coproc *, int));

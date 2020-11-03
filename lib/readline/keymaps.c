@@ -1,6 +1,10 @@
 /* keymaps.c -- Functions and keymaps for the GNU Readline library. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1988,1989-2009,2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1988,1989-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -77,6 +81,7 @@ rl_make_bare_keymap (void)
   return (keymap);
 }
 
+<<<<<<< HEAD
 /* A convenience function that returns 1 if there are no keys bound to
    functions in KEYMAP */
 int
@@ -92,6 +97,8 @@ rl_empty_keymap (Keymap keymap)
   return 1;
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Return a new keymap which is a copy of MAP.  Just copies pointers, does
    not copy text of macros or descend into child keymaps. */
 Keymap
@@ -167,7 +174,12 @@ rl_discard_keymap (Keymap map)
 
 /* Convenience function that discards, then frees, MAP. */
 void
+<<<<<<< HEAD
 rl_free_keymap (Keymap map)
+=======
+rl_free_keymap (map)
+     Keymap map;
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_discard_keymap (map);
   xfree ((char *)map);

@@ -64,6 +64,7 @@ after while
 before false in trap2a.sub
 after false in trap2a.sub
 command substitution
+<<<<<<< HEAD
 ERRTRAP
 ERRTRAP
 bar
@@ -72,6 +73,8 @@ ERRTRAP
 ERRTRAP
 ERRTRAP
 ERRTRAP
+=======
+>>>>>>> orgin/bash-4.3-testing
 +[6] echo 1
 1
 +[7] echo 2
@@ -101,10 +104,13 @@ sleep 2
 wait $!
 exit
 in trap EXIT
+<<<<<<< HEAD
 fn
 after 1
 fn
 after 2
+=======
+>>>>>>> orgin/bash-4.3-testing
 caught a child death
 caught a child death
 caught a child death

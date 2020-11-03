@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 63 60
 a b c
 63 60
 flop
 coproc.tests: REFLECT: status 143
+=======
+84575
+63 60
+a b c
+84577
+63 60
+flop
+./coproc.tests: line 22: 84577 Terminated              coproc REFLECT { cat -; }
+84579
+>>>>>>> orgin/bash-4.3-testing
 63 60
 FOO
 63 60

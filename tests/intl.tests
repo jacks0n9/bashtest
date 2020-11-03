@@ -35,10 +35,15 @@ esac
 set a b
 
 printf '%s\n' "$*"
+<<<<<<< HEAD
 
 . ./test-glue-functions
 
 printf '%s' "$*" | od -b | _intl_normalize_spaces
+=======
+# squeeze out blanks to avoid white space differences in od implementations
+printf '%s' "$*" | od -b | ( IFS=$' \t\n' ;  while read line; do echo $line; done; )
+>>>>>>> orgin/bash-4.3-testing
 
 # display differences make this problematic
 ${THIS_SH} ./intl1.sub
@@ -46,6 +51,7 @@ ${THIS_SH} ./intl1.sub
 # this tests both international handling in printf and temporary environments
 ${THIS_SH} ./intl2.sub
 
+<<<<<<< HEAD
 # test splitting on characters instead of bytes
 ${THIS_SH} ./intl3.sub
 
@@ -53,3 +59,7 @@ ${THIS_SH} ./unicode1.sub 2>/dev/null
 ${THIS_SH} ./unicode2.sub
 
 ${THIS_SH} ./unicode3.sub 2>&1
+=======
+${THIS_SH} ./unicode1.sub 2>/dev/null
+${THIS_SH} ./unicode2.sub
+>>>>>>> orgin/bash-4.3-testing

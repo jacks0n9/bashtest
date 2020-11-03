@@ -1,6 +1,10 @@
 /* util.c -- readline utility functions */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -110,8 +114,16 @@ _rl_abort_internal (void)
   RL_UNSETSTATE (RL_STATE_MULTIKEY);	/* XXX */
 
   rl_last_func = (rl_command_func_t *)NULL;
+<<<<<<< HEAD
 
   _rl_longjmp (_rl_top_level, 1);
+=======
+#if defined (HAVE_POSIX_SIGSETJMP)
+  siglongjmp (_rl_top_level, 1);
+#else
+  longjmp (_rl_top_level, 1);
+#endif
+>>>>>>> orgin/bash-4.3-testing
   return (0);
 }
 
@@ -122,13 +134,23 @@ rl_abort (int count, int key)
 }
 
 int
+<<<<<<< HEAD
 _rl_null_function (int count, int key)
+=======
+_rl_null_function (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   return 0;
 }
 
 int
+<<<<<<< HEAD
 rl_tty_status (int count, int key)
+=======
+rl_tty_status (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
 #if defined (TIOCSTAT)
   ioctl (1, TIOCSTAT, (char *)0);
@@ -365,7 +387,14 @@ _rl_strpbrk (const char *string1, const char *string2)
 /* Compare at most COUNT characters from string1 to string2.  Case
    doesn't matter (strncasecmp). */
 int
+<<<<<<< HEAD
 _rl_strnicmp (const char *string1, const char *string2, int count)
+=======
+_rl_strnicmp (string1, string2, count)
+     const char *string1;
+     const char *string2;
+     int count;
+>>>>>>> orgin/bash-4.3-testing
 {
   register const char *s1;
   register const char *s2;
@@ -392,7 +421,13 @@ _rl_strnicmp (const char *string1, const char *string2, int count)
 
 /* strcmp (), but caseless (strcasecmp). */
 int
+<<<<<<< HEAD
 _rl_stricmp (const char *string1, const char *string2)
+=======
+_rl_stricmp (string1, string2)
+     const char *string1;
+     const char *string2;
+>>>>>>> orgin/bash-4.3-testing
 {
   register const char *s1;
   register const char *s2;
@@ -400,10 +435,17 @@ _rl_stricmp (const char *string1, const char *string2)
 
   s1 = string1;
   s2 = string2;
+<<<<<<< HEAD
 
   if (s1 == s2)
     return 0;
 
+=======
+
+  if (s1 == s2)
+    return 0;
+
+>>>>>>> orgin/bash-4.3-testing
   while ((d = _rl_to_lower (*s1) - _rl_to_lower (*s2)) == 0)
     {
       if (*s1++ == '\0')
@@ -446,7 +488,12 @@ FUNCTION_FOR_MACRO (_rl_uppercase_p)
 /* A convenience function, to force memory deallocation to be performed
    by readline.  DLLs on Windows apparently require this. */
 void
+<<<<<<< HEAD
 rl_free (void *mem)
+=======
+rl_free (mem)
+     void *mem;
+>>>>>>> orgin/bash-4.3-testing
 {
   if (mem)
     free (mem);
@@ -461,7 +508,10 @@ _rl_savestring (const char *s)
   return (strcpy ((char *)xmalloc (1 + (int)strlen (s)), (s)));
 }
 
+<<<<<<< HEAD
 #if defined (DEBUG)
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if defined (USE_VARARGS)
 static FILE *_rl_tracefp;
 
@@ -495,6 +545,7 @@ _rl_trace (va_alist)
 }
 
 int
+<<<<<<< HEAD
 _rl_tropen (void)
 {
   char fnbuf[128], *x;
@@ -509,13 +560,26 @@ _rl_tropen (void)
   x = "/var/tmp";
 #endif
   snprintf (fnbuf, sizeof (fnbuf), "%s/rltrace.%ld", x, (long)getpid());
+=======
+_rl_tropen ()
+{
+  char fnbuf[128];
+
+  if (_rl_tracefp)
+    fclose (_rl_tracefp);
+  sprintf (fnbuf, "/var/tmp/rltrace.%ld", (long)getpid());
+>>>>>>> orgin/bash-4.3-testing
   unlink(fnbuf);
   _rl_tracefp = fopen (fnbuf, "w+");
   return _rl_tracefp != 0;
 }
 
 int
+<<<<<<< HEAD
 _rl_trclose (void)
+=======
+_rl_trclose ()
+>>>>>>> orgin/bash-4.3-testing
 {
   int r;
 
@@ -525,22 +589,35 @@ _rl_trclose (void)
 }
 
 void
+<<<<<<< HEAD
 _rl_settracefp (FILE *fp)
+=======
+_rl_settracefp (fp)
+     FILE *fp;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_tracefp = fp;
 }
 #endif
+<<<<<<< HEAD
 #endif /* DEBUG */
 
 
 #if HAVE_DECL_AUDIT_USER_TTY && defined (HAVE_LIBAUDIT_H) && defined (ENABLE_TTY_AUDIT_SUPPORT)
 #include <sys/socket.h>
 #include <libaudit.h>
+=======
+
+
+#if HAVE_DECL_AUDIT_USER_TTY && defined (ENABLE_TTY_AUDIT_SUPPORT)
+#include <sys/socket.h>
+>>>>>>> orgin/bash-4.3-testing
 #include <linux/audit.h>
 #include <linux/netlink.h>
 
 /* Report STRING to the audit system. */
 void
+<<<<<<< HEAD
 _rl_audit_tty (char *string)
 {
   struct audit_message req;
@@ -549,10 +626,24 @@ _rl_audit_tty (char *string)
   int fd;
 
   fd = socket (PF_NETLINK, SOCK_RAW, NETLINK_AUDIT);
+=======
+_rl_audit_tty (string)
+     char *string;
+{
+  struct sockaddr_nl addr;
+  struct msghdr msg;
+  struct nlmsghdr nlm;
+  struct iovec iov[2];
+  size_t size;
+  int fd;
+
+  fd = socket (AF_NETLINK, SOCK_RAW, NETLINK_AUDIT);
+>>>>>>> orgin/bash-4.3-testing
   if (fd < 0)
     return;
   size = strlen (string) + 1;
 
+<<<<<<< HEAD
   if (NLMSG_SPACE (size) > MAX_AUDIT_MESSAGE_LENGTH)
     return;
 
@@ -564,12 +655,36 @@ _rl_audit_tty (char *string)
   if (size && string)
     memcpy (NLMSG_DATA(&req.nlh), string, size);
   memset (&addr, 0, sizeof(addr));
+=======
+  nlm.nlmsg_len = NLMSG_LENGTH (size);
+  nlm.nlmsg_type = AUDIT_USER_TTY;
+  nlm.nlmsg_flags = NLM_F_REQUEST;
+  nlm.nlmsg_seq = 0;
+  nlm.nlmsg_pid = 0;
+
+  iov[0].iov_base = &nlm;
+  iov[0].iov_len = sizeof (nlm);
+  iov[1].iov_base = string;
+  iov[1].iov_len = size;
+>>>>>>> orgin/bash-4.3-testing
 
   addr.nl_family = AF_NETLINK;
   addr.nl_pid = 0;
   addr.nl_groups = 0;
 
+<<<<<<< HEAD
   sendto (fd, &req, req.nlh.nlmsg_len, 0, (struct sockaddr*)&addr, sizeof(addr));
+=======
+  msg.msg_name = &addr;
+  msg.msg_namelen = sizeof (addr);
+  msg.msg_iov = iov;
+  msg.msg_iovlen = 2;
+  msg.msg_control = NULL;
+  msg.msg_controllen = 0;
+  msg.msg_flags = 0;
+
+  (void)sendmsg (fd, &msg, 0);
+>>>>>>> orgin/bash-4.3-testing
   close (fd);
 }
 #endif

@@ -9,7 +9,11 @@ use these features.  There is a document entitled "readline.texinfo"
 which contains both end-user and programmer documentation for the
 GNU Readline Library.
 
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 Copyright (C) 1988--2016 Free Software Foundation, Inc.
+=======
+Copyright (C) 1988--2014 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 Authored by Brian Fox and Chet Ramey.
 
@@ -423,6 +427,7 @@ the terminal's bell.
 
 @item bind-tty-special-chars
 @vindex bind-tty-special-chars
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 If set to @samp{on} (the default), Readline attempts to bind the control
 characters   treated specially by the kernel's terminal driver to their
 Readline equivalents.
@@ -440,6 +445,11 @@ common prefix of the set of possible completions using a different color.
 The color definitions are taken from the value of the @env{LS_COLORS}
 environment variable.
 The default is @samp{off}.
+=======
+If set to @samp{on}, Readline attempts to bind the control characters  
+treated specially by the kernel's terminal driver to their Readline
+equivalents.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 @item colored-stats
 @vindex colored-stats
@@ -475,7 +485,10 @@ The default value is @samp{off}.
 If set to @samp{on}, and @var{completion-ignore-case} is enabled, Readline
 treats hyphens (@samp{-}) and underscores (@samp{_}) as equivalent when
 performing case-insensitive filename matching and completion.
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 The default value is @samp{off}.
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 @item completion-prefix-display-length
 @vindex completion-prefix-display-length
@@ -523,6 +536,7 @@ key bindings is used.  By default, Readline starts up in Emacs editing
 mode, where the keystrokes are most similar to Emacs.  This variable can be
 set to either @samp{emacs} or @samp{vi}.
 
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 @item emacs-mode-string
 @vindex emacs-mode-string
 If the @var{show-mode-in-prompt} variable is enabled,
@@ -542,6 +556,12 @@ that will enable it to insert each paste into the editing buffer as a
 single string of characters, instead of treating each character as if
 it had been read from the keyboard.  This can prevent pasted characters
 from being interpreted as editing commands.  The default is @samp{off}.
+=======
+@item echo-control-characters
+When set to @samp{on}, on operating systems that indicate they support it,
+readline echoes a character corresponding to a signal generated from the
+keyboard.  The default is @samp{on}.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 @item enable-keypad
 @vindex enable-keypad
@@ -575,8 +595,11 @@ are saved.
 If set to a value less than zero, the number of history entries is not
 limited.
 By default, the number of history entries is not limited.
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 If an attempt is made to set @var{history-size} to a non-numeric value,
 the maximum number of history entries will be set to 500.
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 @item horizontal-scroll-mode
 @vindex horizontal-scroll-mode
@@ -629,8 +652,11 @@ the input read so far, or can take additional input to complete a longer
 key sequence).
 If no input is received within the timeout, Readline will use the shorter
 but complete key sequence.
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 Readline uses this value to determine whether or not input is
 available on the current input source (@code{rl_instream} by default).
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 The value is specified in milliseconds, so a value of 1000 means that
 Readline will wait one second for additional input.
 If this variable is set to a value less than or equal to zero, or to a
@@ -717,9 +743,15 @@ The default value is @samp{off}.
 
 @item show-mode-in-prompt
 @vindex show-mode-in-prompt
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 If set to @samp{on}, add a string to the beginning of the prompt
 indicating the editing mode: emacs, vi command, or vi insertion.
 The mode strings are user-settable (e.g., @var{emacs-mode-string}).
+=======
+If set to @samp{on}, add a character to the beginning of the prompt
+indicating the editing mode: emacs (@samp{@@}), vi command (@samp{:}),
+or vi insertion (@samp{+}).
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 The default value is @samp{off}.
 
 @item skip-completed-text
@@ -736,6 +768,7 @@ rather than @samp{Makefilefile}, assuming there is a single possible
 completion.
 The default value is @samp{off}.
 
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 @item vi-cmd-mode-string
 @vindex vi-cmd-mode-string
 If the @var{show-mode-in-prompt} variable is enabled,
@@ -762,6 +795,8 @@ non-printing characters, which can be used to embed a terminal control
 sequence into the mode string.
 The default is @samp{(ins)}.
 
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 @item visible-stats
 @vindex visible-stats
 If set to @samp{on}, a character denoting a file's type
@@ -1181,6 +1216,7 @@ Words are delimited by non-quoted shell metacharacters.
 Move back to the start of the current or previous word.
 Words are delimited by non-quoted shell metacharacters.
 @end ifset
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 
 @item previous-screen-line ()
 Attempt to move point to the same physical screen column on the previous
@@ -1194,6 +1230,8 @@ physical screen line. This will not have the desired effect if the current
 Readline line does not take up more than one physical line or if the length
 of the current Readline line is not greater than the length of the prompt
 plus the screen width.
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 @item clear-screen (C-l)
 Clear the screen and redraw the current line,
@@ -1273,14 +1311,22 @@ The search string must match at the beginning of a history line.
 This is a non-incremental search.
 By default, this command is unbound.
 
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 @item history-substring-search-forward ()
+=======
+@item history-substr-search-forward ()
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 Search forward through the history for the string of characters
 between the start of the current line and the point.
 The search string may match anywhere in a history line.
 This is a non-incremental search.
 By default, this command is unbound.
 
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 @item history-substring-search-backward ()
+=======
+@item history-substr-search-backward ()
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 Search backward through the history for the string of characters
 between the start of the current line and the point.
 The search string may match anywhere in a history line.
@@ -1851,9 +1897,12 @@ If no compspec is found for the full pathname, an attempt is made to
 find a compspec for the portion following the final slash.
 If those searches do not result in a compspec, any compspec defined with
 the @option{-D} option to @code{complete} is used as the default.
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 If there is no default compspec, Bash attempts alias expansion
 on the command word as a final resort, and attempts to find a compspec
 for the command word from any successful expansion 
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 Once a compspec has been found, it is used to generate the list of
 matching words.
@@ -2024,10 +2073,17 @@ matches were generated.
 @item complete
 @btindex complete
 @example
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 @code{complete [-abcdefgjksuv] [-o @var{comp-option}] [-DEI] [-A @var{action}] [-G @var{globpat}]
 [-W @var{wordlist}] [-F @var{function}] [-C @var{command}] [-X @var{filterpat}]
 [-P @var{prefix}] [-S @var{suffix}] @var{name} [@var{name} @dots{}]}
 @code{complete -pr [-DEI] [@var{name} @dots{}]}
+=======
+@code{complete [-abcdefgjksuv] [-o @var{comp-option}] [-DE] [-A @var{action}] [-G @var{globpat}] [-W @var{wordlist}]
+[-F @var{function}] [-C @var{command}] [-X @var{filterpat}]
+[-P @var{prefix}] [-S @var{suffix}] @var{name} [@var{name} @dots{}]}
+@code{complete -pr [-DE] [@var{name} @dots{}]}
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 @end example
 
 Specify how arguments to each @var{name} should be completed.
@@ -2037,6 +2093,7 @@ reused as input.
 The @option{-r} option removes a completion specification for
 each @var{name}, or, if no @var{name}s are supplied, all
 completion specifications.
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 The @option{-D} option indicates that other supplied options and actions should
 apply to the ``default'' command completion; that is, completion attempted
 on a command for which no completion has previously been defined.
@@ -2052,9 +2109,18 @@ over @option{-E}, and both take precedence over @option{-I}.
 If any of @option{-D}, @option{-E}, or @option{-I} are supplied, any other
 @var{name} arguments are ignored; these completions only apply to the case
 specified by the option.
+=======
+The @option{-D} option indicates that the remaining options and actions should
+apply to the ``default'' command completion; that is, completion attempted
+on a command for which no completion has previously been defined.
+The @option{-E} option indicates that the remaining options and actions should
+apply to ``empty'' command completion; that is, completion attempted on a 
+blank line.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 The process of applying these completion specifications when word completion
-is attempted is described above (@pxref{Programmable Completion}).
+is attempted is described above (@pxref{Programmable Completion}).  The
+@option{-D} option takes precedence over @option{-E}.
 
 Other options, if specified, have the following meanings.
 The arguments to the @option{-G}, @option{-W}, and @option{-X} options
@@ -2084,7 +2150,11 @@ Perform directory name completion if the compspec generates no matches.
 
 @item filenames
 Tell Readline that the compspec generates filenames, so it can perform any
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 filename-specific processing (like adding a slash to directory names,
+=======
+filename-specific processing (like adding a slash to directory names
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 quoting special characters, or suppressing trailing spaces).
 This option is intended to be used with shell functions specified
 with @option{-F}.
@@ -2092,9 +2162,12 @@ with @option{-F}.
 @item noquote
 Tell Readline not to quote the completed words if they are filenames
 (quoting filenames is the default).
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 
 @item nosort
 Tell Readline not to sort the list of possible completions alphabetically.
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 @item nospace
 Tell Readline not to append a space (the default) to words completed at
@@ -2239,7 +2312,11 @@ an error occurs adding a completion specification.
 @item compopt
 @btindex compopt
 @example
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 @code{compopt} [-o @var{option}] [-DEI] [+o @var{option}] [@var{name}]
+=======
+@code{compopt} [-o @var{option}] [-DE] [+o @var{option}] [@var{name}]
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 @end example
 Modify completion options for each @var{name} according to the
 @var{option}s, or for the currently-executing completion if no @var{name}s
@@ -2248,6 +2325,7 @@ If no @var{option}s are given, display the completion options for each
 @var{name} or the current completion.
 The possible values of @var{option} are those valid for the @code{complete}
 builtin described above.
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 The @option{-D} option indicates that other supplied options should
 apply to the ``default'' command completion; that is, completion attempted
 on a command for which no completion has previously been defined.
@@ -2261,6 +2339,16 @@ name completion.
 
 If multiple options are supplied, the @option{-D} option takes precedence
 over @option{-E}, and both take precedence over @option{-I}
+=======
+The @option{-D} option indicates that the remaining options should
+apply to the ``default'' command completion; that is, completion attempted
+on a command for which no completion has previously been defined.
+The @option{-E} option indicates that the remaining options should
+apply to ``empty'' command completion; that is, completion attempted on a 
+blank line.
+
+The @option{-D} option takes precedence over @option{-E}.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 
 The return value is true unless an invalid option is supplied, an attempt
 is made to modify the options for a @var{name} for which no completion
@@ -2277,7 +2365,11 @@ a shell function and bind it to a particular command using @code{complete -F}.
 
 The following function provides completions for the @code{cd} builtin.
 It is a reasonably good example of what shell functions must do when
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
 used for completion.  This function uses the word passed as @code{$2}
+=======
+used for completion.  This function uses the word passsed as @code{$2}
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
 to determine the directory name to complete.  You can also use the
 @code{COMP_WORDS} array variable; the current word is indexed by the
 @code{COMP_CWORD} variable.
@@ -2307,7 +2399,11 @@ _comp_cd()
     local cur _skipdot _cdpath
     local i j k
 
+<<<<<<< HEAD:lib/readline/doc/rluser.texi
     # Tilde expansion, which also expands tilde to full pathname
+=======
+    # Tilde expansion, with side effect of expanding tilde to full pathname
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rluser.texinfo
     case "$2" in
     \~*)    eval cur="$2" ;;
     *)      cur=$2 ;;

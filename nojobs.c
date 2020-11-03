@@ -46,7 +46,10 @@
 #include "shell.h"
 #include "jobs.h"
 #include "execute_cmd.h"
+<<<<<<< HEAD
 #include "trap.h"
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #include "builtins/builtext.h"	/* for wait_builtin */
 #include "builtins/common.h"
@@ -74,16 +77,29 @@
 extern int errno;
 #endif /* !errno */
 
+<<<<<<< HEAD
+=======
+extern int interactive, interactive_shell, login_shell;
+extern int subshell_environment;
+extern int last_command_exit_value, last_command_exit_signal;
+extern int interrupt_immediately;
+extern sh_builtin_func_t *this_shell_builtin;
+>>>>>>> orgin/bash-4.3-testing
 #if defined (HAVE_POSIX_SIGNALS)
 extern sigset_t top_level_mask;
 #endif
 
+<<<<<<< HEAD
 extern void set_original_signal __P((int, SigHandler *));
 
 volatile pid_t last_made_pid = NO_PID;
 volatile pid_t last_asynchronous_pid = NO_PID;
 
 static int queue_sigchld, waiting_for_child;	/* dummy declarations */
+=======
+volatile pid_t last_made_pid = NO_PID;
+volatile pid_t last_asynchronous_pid = NO_PID;
+>>>>>>> orgin/bash-4.3-testing
 
 /* Call this when you start making children. */
 int already_making_children = 0;
@@ -97,8 +113,11 @@ int check_window_size = CHECKWINSIZE_DEFAULT;
 
 /* We don't have job control. */
 int job_control = 0;
+<<<<<<< HEAD
 
 int running_in_background = 0;	/* can't tell without job control */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* STATUS and FLAGS are only valid if pid != NO_PID
    STATUS is only valid if (flags & PROC_RUNNING) == 0 */
@@ -269,12 +288,15 @@ set_pid_status (pid, status)
   coproc_pidchk (pid, status);
 #endif
 
+<<<<<<< HEAD
 #if defined (PROCESS_SUBSTITUTION)
   if ((slot = find_procsub_child (pid)) >= 0)
     set_procsub_status (slot, pid, WSTATUS (status));
     /* XXX - also saving in list below */
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   slot = find_index_by_pid (pid);
   if (slot == NO_PID)
     return;
@@ -430,7 +452,10 @@ initialize_job_control (force)
 
   if (interactive)
     get_tty_state ();
+<<<<<<< HEAD
   return 0;
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Setup this shell to handle C-C, etc. */
@@ -648,7 +673,7 @@ wait_for_single_pid (pid, flags)
 {
   pid_t got_pid;
   WAIT status;
-  int pstatus;
+  int pstatus, flags;
 
   pstatus = find_status_by_pid (pid);
 
@@ -1030,6 +1055,11 @@ int
 freeze_jobs_list ()
 {
   return 0;
+}
+
+void
+freeze_jobs_list ()
+{
 }
 
 void

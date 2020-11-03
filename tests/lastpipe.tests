@@ -56,6 +56,9 @@ set +o pipefail
 
 ${THIS_SH} ./lastpipe1.sub
 echo lastpipe1.sub returns $?
+<<<<<<< HEAD
 
 ${THIS_SH} ./lastpipe2.sub
 
+=======
+>>>>>>> orgin/bash-4.3-testing

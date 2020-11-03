@@ -71,4 +71,7 @@ swap32_posix ()
     done
 }
 yes
+<<<<<<< HEAD
 ab cde
+=======
+>>>>>>> orgin/bash-4.3-testing

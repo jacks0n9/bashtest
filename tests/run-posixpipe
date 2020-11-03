@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ${THIS_SH} ./posixpipe.tests > ${BASH_TSTOUT} 2>&1
 diff ${BASH_TSTOUT} posixpipe.right && rm -f ${BASH_TSTOUT}
+=======
+${THIS_SH} ./posixpipe.tests > /tmp/xx 2>&1
+diff /tmp/xx posixpipe.right && rm -f /tmp/xx
+>>>>>>> orgin/bash-4.3-testing

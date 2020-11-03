@@ -1,6 +1,10 @@
 /* input.c -- functions to perform buffered input with synchronization. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1992-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1992-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -36,9 +40,18 @@
 #include "bashansi.h"
 #include "bashintl.h"
 
+<<<<<<< HEAD
 #include "shell.h"
+=======
+#include "command.h"
+#include "general.h"
+>>>>>>> orgin/bash-4.3-testing
 #include "input.h"
 #include "externs.h"
+<<<<<<< HEAD
+=======
+#include "quit.h"
+>>>>>>> orgin/bash-4.3-testing
 #include "trap.h"
 
 #if !defined (errno)
@@ -107,8 +120,11 @@ getc_with_restart (stream)
 	      local_index = local_bufused = 0;
 	      return EOF;
 	    }
+<<<<<<< HEAD
 	  else if (interrupt_state || terminating_signal)	/* QUIT; */
 	    local_index = local_bufused = 0;
+=======
+>>>>>>> orgin/bash-4.3-testing
 	}
       local_index = 0;
     }
@@ -200,7 +216,11 @@ make_buffered_stream (fd, buffer, bufsize)
   if (bufsize == 1)
     bp->b_flag |= B_UNBUFF;
   if (O_TEXT && (fcntl (fd, F_GETFL) & O_TEXT) != 0)
+<<<<<<< HEAD
     bp->b_flag |= B_TEXT;
+=======
+    bp->b_flag |= O_TEXT;
+>>>>>>> orgin/bash-4.3-testing
   return (bp);
 }
 
@@ -272,8 +292,11 @@ save_bash_input (fd, new_fd)
       /* What's this?  A stray buffer without an associated open file
 	 descriptor?  Free up the buffer and report the error. */
       internal_error (_("save_bash_input: buffer already exists for new fd %d"), nfd);
+<<<<<<< HEAD
       if (buffers[nfd]->b_flag & B_SHAREDBUF)
 	buffers[nfd]->b_buffer = (char *)NULL;
+=======
+>>>>>>> orgin/bash-4.3-testing
       free_buffered_stream (buffers[nfd]);
     }
 
@@ -353,12 +376,15 @@ duplicate_buffered_stream (fd1, fd2)
       /* If the two objects share the same b_buffer, don't free it. */
       if (buffers[fd1] && buffers[fd1]->b_buffer && buffers[fd1]->b_buffer == buffers[fd2]->b_buffer)
 	buffers[fd2] = (BUFFERED_STREAM *)NULL;
+<<<<<<< HEAD
       /* If this buffer is shared with another fd, don't free the buffer */
       else if (buffers[fd2]->b_flag & B_SHAREDBUF)
 	{
 	  buffers[fd2]->b_buffer = (char *)NULL;
 	  free_buffered_stream (buffers[fd2]);
 	}
+=======
+>>>>>>> orgin/bash-4.3-testing
       else
 	free_buffered_stream (buffers[fd2]);
     }
@@ -569,9 +595,12 @@ buffered_getchar ()
 {
   CHECK_TERMSIG;
 
+<<<<<<< HEAD
   if (bash_input.location.buffered_fd < 0 || buffers[bash_input.location.buffered_fd] == 0)
     return EOF;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if !defined (DJGPP)
   return (bufstream_getc (buffers[bash_input.location.buffered_fd]));
 #else

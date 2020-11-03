@@ -1,6 +1,10 @@
 /* unicode.c - functions to convert unicode characters */
 
+<<<<<<< HEAD
 /* Copyright (C) 2010-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2010-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -28,7 +32,10 @@
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
+<<<<<<< HEAD
 #include <stdio.h>
+=======
+>>>>>>> orgin/bash-4.3-testing
 #include <limits.h>
 
 #if HAVE_ICONV
@@ -55,8 +62,11 @@ extern const char *locale_charset __P((void));
 extern char *get_locale_var __P((char *));
 #endif
 
+<<<<<<< HEAD
 extern int locale_utf8locale;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 static int u32init = 0;
 static int utf8locale = 0;
 #if defined (HAVE_ICONV)
@@ -80,15 +90,23 @@ stub_charset ()
   s = strrchr (locale, '.');
   if (s)
     {
+<<<<<<< HEAD
       strncpy (charsetbuf, s+1, sizeof (charsetbuf) - 1);
       charsetbuf[sizeof (charsetbuf) - 1] = '\0';
+=======
+      strcpy (charsetbuf, s+1);
+>>>>>>> orgin/bash-4.3-testing
       t = strchr (charsetbuf, '@');
       if (t)
 	*t = 0;
       return charsetbuf;
     }
+<<<<<<< HEAD
   strncpy (charsetbuf, locale, sizeof (charsetbuf) - 1);
   charsetbuf[sizeof (charsetbuf) - 1] = '\0';
+=======
+  strcpy (charsetbuf, locale);
+>>>>>>> orgin/bash-4.3-testing
   return charsetbuf;
 }
 #endif
@@ -221,12 +239,20 @@ u32toutf16 (c, s)
   int l;
 
   l = 0;
+<<<<<<< HEAD
   if (c < 0x0d800 || (c >= 0x0e000 && c <= 0x0ffff))
+=======
+  if (c < 0x0d800)
+>>>>>>> orgin/bash-4.3-testing
     {
       s[0] = (unsigned short) (c & 0xFFFF);
       l = 1;
     }
+<<<<<<< HEAD
   else if (c >= 0x10000 && c <= 0x010ffff)
+=======
+  else if (c >= 0x0e000 && c <= 0x010ffff)
+>>>>>>> orgin/bash-4.3-testing
     {
       c -= 0x010000;
       s[0] = (unsigned short)((c >> 10) + 0xd800);
@@ -238,7 +264,11 @@ u32toutf16 (c, s)
 }
 
 /* convert a single unicode-32 character into a multibyte string and put the
+<<<<<<< HEAD
    result in S, which must be large enough (at least max(10,MB_LEN_MAX) bytes) */
+=======
+   result in S, which must be large enough (at least MB_LEN_MAX bytes) */
+>>>>>>> orgin/bash-4.3-testing
 int
 u32cconv (c, s)
      unsigned long c;
@@ -267,10 +297,23 @@ u32cconv (c, s)
     return n;
 #endif
 
+<<<<<<< HEAD
+=======
+#if HAVE_NL_LANGINFO
+  codeset = nl_langinfo (CODESET);
+  if (STREQ (codeset, "UTF-8"))
+    {
+      n = u32toutf8 (c, s);
+      return n;
+    }
+#endif
+
+>>>>>>> orgin/bash-4.3-testing
 #if HAVE_ICONV
   /* this is mostly from coreutils-8.5/lib/unicodeio.c */
   if (u32init == 0)
     {
+<<<<<<< HEAD
       utf8locale = locale_utf8locale;
       localconv = (iconv_t)-1;
       if (utf8locale == 0)
@@ -282,6 +325,17 @@ u32cconv (c, s)
 #else
 	  charset = stub_charset ();
 #endif
+=======
+#  if HAVE_LOCALE_CHARSET
+      charset = locale_charset ();	/* XXX - fix later */
+#  else
+      charset = stub_charset ();
+#  endif
+      if (STREQ (charset, "UTF-8"))
+	utf8locale = 1;
+      else
+	{
+>>>>>>> orgin/bash-4.3-testing
 	  localconv = iconv_open (charset, "UTF-8");
 	  if (localconv == (iconv_t)-1)
 	    /* We assume ASCII when presented with an unknown encoding. */
@@ -290,8 +344,11 @@ u32cconv (c, s)
       u32init = 1;
     }
 
+<<<<<<< HEAD
   /* NL_LANGINFO and locale_charset used when setting locale_utf8locale */
   
+=======
+>>>>>>> orgin/bash-4.3-testing
   /* If we have a UTF-8 locale, convert to UTF-8 and return converted value. */
   n = u32toutf8 (c, s);
   if (utf8locale)
@@ -312,8 +369,17 @@ u32cconv (c, s)
 
   if (iconv (localconv, (ICONV_CONST char **)&iptr, &sn, &optr, &obytesleft) == (size_t)-1)
     {
+<<<<<<< HEAD
       /* You get ISO C99 escape sequences if iconv fails */      
       n = u32tocesc (c, s);
+=======
+#if 1
+      /* You get ISO C99 escape sequences if iconv fails */      
+      n = u32tocesc (c, s);
+#else
+      /* You get UTF-8 if iconv fails */
+#endif
+>>>>>>> orgin/bash-4.3-testing
       return n;
     }
 
@@ -325,10 +391,14 @@ u32cconv (c, s)
   return (optr - obuf);
 #endif	/* HAVE_ICONV */
 
+<<<<<<< HEAD
   if (locale_utf8locale)
     n = u32toutf8 (c, s);
   else
     n = u32tocesc (c, s);	/* fallback is ISO C99 escape sequences */
+=======
+  n = u32tocesc (c, s);	/* fallback is ISO C99 escape sequences */
+>>>>>>> orgin/bash-4.3-testing
   return n;
 }
 #else

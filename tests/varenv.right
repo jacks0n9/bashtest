@@ -60,6 +60,7 @@ FIN: asdf fdsa, asdf fdsa
 g: v = , w =
 f: v = , w =
 FIN: v = two, w = one
+<<<<<<< HEAD
 ./varenv4.sub: line 54: bbb: unique: cannot convert indexed to associative array
 after bbb: 1
 declare -Ar FOOBAR=([foo]="bar" )
@@ -207,6 +208,12 @@ after source 1: a b c d e f g h i j k l m n o p q r s t u v w x y z
 varenv15.in: before set: one two three four five six seven eight nine ten
 varenv15.in: after set: a b c d e f g h i j k l m n o p q r s t u v w x y z
 after source 2: a b c d e f g h i j k l m n o p q r s t u v w x y z
+=======
+declare -Ar FOOBAR='([foo]="bar" )'
+declare -Ar FOOBAR='([foo]="bar" )'
+declare -ar FOOBAR2='([0]="bar")'
+declare -ar FOOBAR2='([0]="bar")'
+>>>>>>> orgin/bash-4.3-testing
 a=z
 a=b
 a=z

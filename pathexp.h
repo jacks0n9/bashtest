@@ -1,6 +1,10 @@
 /* pathexp.h -- The shell interface to the globbing library. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -33,8 +37,11 @@ extern char *glob_error_return;
 #define QGLOB_CVTNULL	0x01	/* convert QUOTED_NULL strings to '\0' */
 #define QGLOB_FILENAME	0x02	/* do correct quoting for matching filenames */
 #define QGLOB_REGEXP	0x04	/* quote an ERE for regcomp/regexec */
+<<<<<<< HEAD
 #define QGLOB_CTLESC	0x08	/* turn CTLESC CTLESC into CTLESC for BREs */
 #define QGLOB_DEQUOTE	0x10	/* like dequote_string but quote glob chars */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #if defined (EXTENDED_GLOB)
 /* Flags to OR with other flag args to strmatch() to enabled the extended
@@ -45,7 +52,10 @@ extern char *glob_error_return;
 #endif /* !EXTENDED_GLOB */
 
 #define FNMATCH_IGNCASE		(match_ignore_case ? FNM_CASEFOLD : 0)
+<<<<<<< HEAD
 #define FNMATCH_NOCASEGLOB	(glob_ignore_case ? FNM_CASEFOLD : 0)
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 extern int glob_dot_filenames;
 extern int extended_glob;
@@ -67,7 +77,11 @@ extern int unquoted_glob_pattern_p __P((char *));
 extern char *quote_string_for_globbing __P((const char *, int));
 
 extern int glob_char_p __P((const char *));
+<<<<<<< HEAD
 extern char *quote_globbing_chars __P((const char *));
+=======
+extern char *quote_globbing_chars __P((char *));
+>>>>>>> orgin/bash-4.3-testing
 
 /* Call the glob library to do globbing on PATHNAME. */
 extern char **shell_glob_filename __P((const char *));

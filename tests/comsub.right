@@ -27,6 +27,7 @@ ok 3
 ok 4
 ok 5
 ok 6
+<<<<<<< HEAD
 xyz
 ok 7
 \/tmp\/foo\/bar
@@ -55,3 +56,5 @@ d \
 g
 d \
 g
+=======
+>>>>>>> orgin/bash-4.3-testing

@@ -1,6 +1,10 @@
 /* print_command -- A way to make readable commands from a command tree. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1989-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1989-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -37,13 +41,19 @@
 
 #include "bashansi.h"
 #include "bashintl.h"
+<<<<<<< HEAD
 
 #define NEED_XTRACE_SET_DECL
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #include "shell.h"
 #include "flags.h"
 #include <y.tab.h>	/* use <...> so we pick it up from the build directory */
+<<<<<<< HEAD
 #include "input.h"
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #include "shmbutil.h"
 
@@ -82,7 +92,10 @@ static void print_redirection __P((REDIRECT *));
 static void print_heredoc_header __P((REDIRECT *));
 static void print_heredoc_body __P((REDIRECT *));
 static void print_heredocs __P((REDIRECT *));
+<<<<<<< HEAD
 static void print_heredoc_bodies __P((REDIRECT *));
+=======
+>>>>>>> orgin/bash-4.3-testing
 static void print_deferred_heredocs __P((const char *));
 
 static void print_for_command __P((FOR_COM *));
@@ -438,6 +451,7 @@ indirection_level_string ()
   ps4 = decode_prompt_string (ps4);
   if (old)
     change_flag ('x', FLAG_ON);
+<<<<<<< HEAD
 
   if (ps4 == 0 || *ps4 == '\0')
     return (indirection_string);
@@ -474,6 +488,44 @@ indirection_level_string ()
 	memcpy (indirection_string+i, ps4_firstc, ps4_firstc_len);
     }      
 
+=======
+
+  if (ps4 == 0 || *ps4 == '\0')
+    return (indirection_string);
+
+#if defined (HANDLE_MULTIBYTE)
+  ps4_len = strnlen (ps4, MB_CUR_MAX);
+  ps4_firstc_len = MBLEN (ps4, ps4_len);
+  if (ps4_firstc_len == 1 || ps4_firstc_len == 0 || ps4_firstc_len < 0)
+    {
+      ps4_firstc[0] = ps4[0];
+      ps4_firstc[ps4_firstc_len = 1] = '\0';
+    }
+  else
+    memcpy (ps4_firstc, ps4, ps4_firstc_len);
+#else
+  ps4_firstc[0] = ps4[0];
+  ps4_firstc[ps4_firstc_len = 1] = '\0';
+#endif
+
+  /* Dynamically resize indirection_string so we have room for everything
+     and we don't have to truncate ps4 */
+  ineed = (ps4_firstc_len * indirection_level) + strlen (ps4);
+  if (ineed > indirection_stringsiz - 1)
+    {
+      indirection_stringsiz = ineed + 1;
+      indirection_string = xrealloc (indirection_string, indirection_stringsiz);
+    }
+
+  for (i = j = 0; ps4_firstc[0] && j < indirection_level && i < indirection_stringsiz - 1; i += ps4_firstc_len, j++)
+    {
+      if (ps4_firstc_len == 1)
+	indirection_string[i] = ps4_firstc[0];
+      else
+	memcpy (indirection_string+i, ps4_firstc, ps4_firstc_len);
+    }      
+
+>>>>>>> orgin/bash-4.3-testing
   for (j = ps4_firstc_len; *ps4 && ps4[j] && i < indirection_stringsiz - 1; i++, j++)
     indirection_string[i] = ps4[j];
 
@@ -482,6 +534,7 @@ indirection_level_string ()
   return (indirection_string);
 }
 
+<<<<<<< HEAD
 void
 xtrace_print_assignment (name, value, assign_list, xflags)
      char *name, *value;
@@ -520,6 +573,43 @@ xtrace_print_assignment (name, value, assign_list, xflags)
    quoting the words because they haven't been expanded yet.  XTFLAGS&1 means to
    print $PS4; XTFLAGS&2 means to suppress quoting the words in LIST. */
 void
+=======
+void
+xtrace_print_assignment (name, value, assign_list, xflags)
+     char *name, *value;
+     int assign_list, xflags;
+{
+  char *nval;
+
+  CHECK_XTRACE_FP;
+
+  if (xflags)
+    fprintf (xtrace_fp, "%s", indirection_level_string ());
+
+  /* VALUE should not be NULL when this is called. */
+  if (*value == '\0' || assign_list)
+    nval = value;
+  else if (sh_contains_shell_metas (value))
+    nval = sh_single_quote (value);
+  else if (ansic_shouldquote (value))
+    nval = ansic_quote (value, 0, (int *)0);
+  else
+    nval = value;
+
+  if (assign_list)
+    fprintf (xtrace_fp, "%s=(%s)\n", name, nval);
+  else
+    fprintf (xtrace_fp, "%s=%s\n", name, nval);
+
+  if (nval != value)
+    FREE (nval);
+
+  fflush (xtrace_fp);
+}
+
+/* A function to print the words of a simple command when set -x is on. */
+void
+>>>>>>> orgin/bash-4.3-testing
 xtrace_print_word_list (list, xtflags)
      WORD_LIST *list;
      int xtflags;
@@ -529,7 +619,11 @@ xtrace_print_word_list (list, xtflags)
 
   CHECK_XTRACE_FP;
 
+<<<<<<< HEAD
   if (xtflags&1)
+=======
+  if (xtflags)
+>>>>>>> orgin/bash-4.3-testing
     fprintf (xtrace_fp, "%s", indirection_level_string ());
 
   for (w = list; w; w = w->next)
@@ -537,8 +631,11 @@ xtrace_print_word_list (list, xtflags)
       t = w->word->word;
       if (t == 0 || *t == '\0')
 	fprintf (xtrace_fp, "''%s", w->next ? " " : "");
+<<<<<<< HEAD
       else if (xtflags & 2)
 	fprintf (xtrace_fp, "%s%s", t, w->next ? " " : "");
+=======
+>>>>>>> orgin/bash-4.3-testing
       else if (sh_contains_shell_metas (t))
 	{
 	  x = sh_single_quote (t);
@@ -581,7 +678,11 @@ xtrace_print_for_command_head (for_command)
   CHECK_XTRACE_FP;
   fprintf (xtrace_fp, "%s", indirection_level_string ());
   fprintf (xtrace_fp, "for %s in ", for_command->name->word);
+<<<<<<< HEAD
   xtrace_print_word_list (for_command->map_list, 2);
+=======
+  xtrace_print_word_list (for_command->map_list, 0);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 static void
@@ -639,7 +740,11 @@ xtrace_print_select_command_head (select_command)
   CHECK_XTRACE_FP;
   fprintf (xtrace_fp, "%s", indirection_level_string ());
   fprintf (xtrace_fp, "select %s in ", select_command->name->word);
+<<<<<<< HEAD
   xtrace_print_word_list (select_command->map_list, 2);
+=======
+  xtrace_print_word_list (select_command->map_list, 0);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 static void
@@ -809,7 +914,11 @@ print_if_command (if_command)
   newline ("fi");
 }
 
+<<<<<<< HEAD
 #if defined (DPAREN_ARITHMETIC) || defined (ARITH_FOR_COMMAND)
+=======
+#if defined (DPAREN_ARITHMETIC)
+>>>>>>> orgin/bash-4.3-testing
 void
 print_arith_command (arith_cmd_list)
      WORD_LIST *arith_cmd_list;
@@ -980,6 +1089,7 @@ print_heredocs (heredocs)
   was_heredoc = 1;
 }
 
+<<<<<<< HEAD
 static void
 print_heredoc_bodies (heredocs)
      REDIRECT *heredocs;
@@ -1002,16 +1112,45 @@ print_heredoc_bodies (heredocs)
    and print the connector and the bodies here. We don't print the connector
    if it's a `;', but we use it to note not to print an extra space after the
    last heredoc body and newline. */
+=======
+/* Print heredocs that are attached to the command before the connector
+   represented by CSTRING.  The parsing semantics require us to print the
+   here-doc delimiters, then the connector (CSTRING), then the here-doc
+   bodies.  We don't print the connector if it's a `;', but we use it to
+   note not to print an extra space after the last heredoc body and
+   newline. */
+>>>>>>> orgin/bash-4.3-testing
 static void
 print_deferred_heredocs (cstring)
      const char *cstring;
 {
+<<<<<<< HEAD
   /* We now print the heredoc headers in print_redirection_list */
   if (cstring && cstring[0] && (cstring[0] != ';' || cstring[1]))
     cprintf ("%s", cstring); 
   if (deferred_heredocs)
     {
       print_heredoc_bodies (deferred_heredocs);
+=======
+  REDIRECT *hdtail;	
+
+  for (hdtail = deferred_heredocs; hdtail; hdtail = hdtail->next)
+    {
+      cprintf (" ");
+      print_heredoc_header (hdtail);
+    }
+  if (cstring && cstring[0] && (cstring[0] != ';' || cstring[1]))
+    cprintf ("%s", cstring); 
+  if (deferred_heredocs)
+    cprintf ("\n");
+  for (hdtail = deferred_heredocs; hdtail; hdtail = hdtail->next)
+    {
+      print_heredoc_body (hdtail);
+      cprintf ("\n");
+    }
+  if (deferred_heredocs)
+    {
+>>>>>>> orgin/bash-4.3-testing
       if (cstring && cstring[0] && (cstring[0] != ';' || cstring[1]))
 	cprintf (" ");	/* make sure there's at least one space */
       dispose_redirects (deferred_heredocs);
@@ -1068,13 +1207,21 @@ print_redirection_list (redirects)
     }
 
   /* Now that we've printed all the other redirections (on one line),
+<<<<<<< HEAD
      print the here documents.  If we're printing a connection, we wait until
      we print the connector symbol, then we print the here document bodies */
+=======
+     print the here documents. */
+>>>>>>> orgin/bash-4.3-testing
   if (heredocs && printing_connection)
     deferred_heredocs = heredocs;
   else if (heredocs)
     {
+<<<<<<< HEAD
       print_heredoc_bodies (heredocs);
+=======
+      print_heredocs (heredocs);
+>>>>>>> orgin/bash-4.3-testing
       dispose_redirects (heredocs);
     }
 }
@@ -1160,6 +1307,7 @@ print_redirection (redirect)
       if (redirect->rflags & REDIR_VARASSIGN)
 	cprintf ("{%s}", redir_word->word);
       else if (redirector != 1)
+<<<<<<< HEAD
 	cprintf ("%d", redirector);
       cprintf (">> %s", redirectee->word);
       break;
@@ -1169,6 +1317,17 @@ print_redirection (redirect)
 	cprintf ("{%s}", redir_word->word);
       else if (redirector != 1)
 	cprintf ("%d", redirector);
+=======
+	cprintf ("%d", redirector);
+      cprintf (">> %s", redirectee->word);
+      break;
+
+    case r_input_output:
+      if (redirect->rflags & REDIR_VARASSIGN)
+	cprintf ("{%s}", redir_word->word);
+      else if (redirector != 1)
+	cprintf ("%d", redirector);
+>>>>>>> orgin/bash-4.3-testing
       cprintf ("<> %s", redirectee->word);
       break;
 
@@ -1417,7 +1576,12 @@ named_function_string (name, command, flags)
 	  }
 #else
       if (result[2] == '\n')	/* XXX -- experimental */
+<<<<<<< HEAD
 	memmove (result + 2, result + 3, strlen (result) - 2);	
+=======
+	memmove (result + 2, result + 3, strlen (result) - 2);
+	
+>>>>>>> orgin/bash-4.3-testing
 #endif
     }
 

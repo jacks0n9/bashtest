@@ -40,5 +40,8 @@ for (( i = 0 ; i < ${#E[@]} ; i++ )); do
 done
 
 ${THIS_SH} ./mapfile1.sub
+<<<<<<< HEAD
 
 ${THIS_SH} ./mapfile2.sub
+=======
+>>>>>>> orgin/bash-4.3-testing

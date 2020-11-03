@@ -304,7 +304,10 @@ netopen (path)
   if (t == 0)
     {
       internal_error (_("%s: bad network path specification"), path);
+<<<<<<< HEAD
       free (np);
+=======
+>>>>>>> orgin/bash-4.3-testing
       return -1;
     }
   *t++ = '\0';

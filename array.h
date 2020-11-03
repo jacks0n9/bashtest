@@ -33,7 +33,10 @@ typedef struct array {
 	enum atype	type;
 	arrayind_t	max_index;
 	int		num_elements;
+<<<<<<< HEAD
 	struct array_element *lastref;
+=======
+>>>>>>> orgin/bash-4.3-testing
 	struct array_element *head;
 } ARRAY;
 
@@ -104,8 +107,11 @@ extern ARRAY *array_from_string __P((char *, char *));
 #define element_forw(ae)	((ae)->next)
 #define element_back(ae)	((ae)->prev)
 
+<<<<<<< HEAD
 #define set_element_value(ae, val)	((ae)->value = (val))
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Convenience */
 #define array_push(a,v)	\
   do { array_rshift ((a), 1, (v)); } while (0)

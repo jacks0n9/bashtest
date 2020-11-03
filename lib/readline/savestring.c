@@ -1,6 +1,10 @@
 /* savestring.c - function version of savestring for backwards compatibility */
 
+<<<<<<< HEAD
 /* Copyright (C) 1998,2003,2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1998,2003 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      

@@ -75,6 +75,7 @@ typedef struct compspec {
 #define COPT_NOSPACE	(1<<5)
 #define COPT_BASHDEFAULT (1<<6)
 #define COPT_PLUSDIRS	(1<<7)
+<<<<<<< HEAD
 #define COPT_NOSORT	(1<<8)
 
 #define COPT_LASTUSER	COPT_NOSORT
@@ -82,6 +83,8 @@ typedef struct compspec {
 #define PCOMP_RETRYFAIL (COPT_LASTUSER << 1)
 #define PCOMP_NOTFOUND	(COPT_LASTUSER << 2)
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* List of items is used by the code that implements the programmable
    completions. */
@@ -107,7 +110,10 @@ typedef struct _list_of_items {
 
 #define EMPTYCMD	"_EmptycmD_"
 #define DEFAULTCMD	"_DefaultCmD_"
+<<<<<<< HEAD
 #define INITIALWORD	"_InitialWorD_"
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 extern HASH_TABLE *prog_completes;
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 : ${TMPDIR:=/tmp}
 TMPOUT=${TMPDIR}/coproc-wait-$BASHPID
 
@@ -8,6 +9,11 @@ case $COPROC_PID in
 *)	echo COPROC_PID not integer ;;
 esac
 
+=======
+coproc { echo a b c; sleep 2; }
+
+echo $COPROC_PID
+>>>>>>> orgin/bash-4.3-testing
 echo ${COPROC[@]}
 
 read LINE <&${COPROC[0]}
@@ -17,11 +23,15 @@ wait $COPROC_PID
 
 coproc REFLECT { cat - ; }
 
+<<<<<<< HEAD
 case $REFLECT_PID in
 [0-9]*)	;;
 *)	echo REFLECT_PID not integer ;;
 esac
 
+=======
+echo $REFLECT_PID
+>>>>>>> orgin/bash-4.3-testing
 echo ${REFLECT[@]}
 
 echo flop >&${REFLECT[1]}
@@ -29,6 +39,7 @@ read LINE <&${REFLECT[0]}
 
 echo $LINE
 
+<<<<<<< HEAD
 { sleep 1; kill $REFLECT_PID; } &
 wait $REFLECT_PID >$TMPOUT 2>&1 || { status=$? ; echo "coproc.tests: REFLECT: status $status" ; }
 [[ $status < 128 || $status == 143 ]] || {
@@ -44,6 +55,14 @@ case $COPROC_PID in
 *)	echo COPROC_PID not integer ;;
 esac
 
+=======
+kill $REFLECT_PID
+wait $REFLECT_PID
+
+coproc xcase -n -u
+
+echo $COPROC_PID
+>>>>>>> orgin/bash-4.3-testing
 echo ${COPROC[@]}
 
 echo foo >&${COPROC[1]}

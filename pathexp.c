@@ -155,6 +155,36 @@ ere_char (c)
   return (0);
 }
 
+<<<<<<< HEAD
+=======
+/* Return 1 if C is a character that is `special' in a POSIX ERE and needs to
+   be quoted to match itself. */
+static inline int
+ere_char (c)
+     int c;
+{
+  switch (c)
+    {
+    case '.':
+    case '[':
+    case '\\':
+    case '(':
+    case ')':
+    case '*':
+    case '+':
+    case '?':
+    case '{':
+    case '|':
+    case '^':
+    case '$':
+      return 1;
+    default: 
+      return 0;
+    }
+  return (0);
+}
+
+>>>>>>> orgin/bash-4.3-testing
 int
 glob_char_p (s)
      const char *s;
@@ -185,11 +215,18 @@ glob_char_p (s)
    is performed, (flags & QGLOB_CVTNULL) should be 0; if called when quote
    removal has not been done (for example, before attempting to match a
    pattern while executing a case statement), flags should include
+<<<<<<< HEAD
    QGLOB_CVTNULL.  If flags includes QGLOB_CTLESC, we need to remove CTLESC
    quoting CTLESC or CTLNUL (as if dequote_string were called).  If flags
    includes QGLOB_FILENAME, appropriate quoting to match a filename should be
    performed.  QGLOB_REGEXP means we're quoting for a Posix ERE (for
    [[ string =~ pat ]]) and that requires some special handling. */
+=======
+   QGLOB_CVTNULL.  If flags includes QGLOB_FILENAME, appropriate quoting
+   to match a filename should be performed.  QGLOB_REGEXP means we're
+   quoting for a Posix ERE (for [[ string =~ pat ]]) and that requires
+   some special handling. */
+>>>>>>> orgin/bash-4.3-testing
 char *
 quote_string_for_globbing (pathname, qflags)
      const char *pathname;
@@ -197,8 +234,12 @@ quote_string_for_globbing (pathname, qflags)
 {
   char *temp;
   register int i, j;
+<<<<<<< HEAD
   int cclass, collsym, equiv, c, last_was_backslash;
   int savei, savej;
+=======
+  int brack, cclass, collsym, equiv, c;
+>>>>>>> orgin/bash-4.3-testing
 
   temp = (char *)xmalloc (2 * strlen (pathname) + 1);
 
@@ -208,7 +249,11 @@ quote_string_for_globbing (pathname, qflags)
       return temp;
     }
 
+<<<<<<< HEAD
   cclass = collsym = equiv = last_was_backslash = 0;
+=======
+  brack = cclass = collsym = equiv = 0;
+>>>>>>> orgin/bash-4.3-testing
   for (i = j = 0; pathname[i]; i++)
     {
       /* Fix for CTLESC at the end of the string? */
@@ -217,6 +262,7 @@ quote_string_for_globbing (pathname, qflags)
 	  temp[j++] = pathname[i++];
 	  break;
 	}
+<<<<<<< HEAD
       /* If we are parsing regexp, turn CTLESC CTLESC into CTLESC. It's not an
 	 ERE special character, so we should just be able to pass it through. */
       else if ((qflags & (QGLOB_REGEXP|QGLOB_CTLESC)) && pathname[i] == CTLESC && (pathname[i+1] == CTLESC || pathname[i+1] == CTLNUL))
@@ -225,11 +271,16 @@ quote_string_for_globbing (pathname, qflags)
 	  temp[j++] = pathname[i];
 	  continue;
 	}
+=======
+>>>>>>> orgin/bash-4.3-testing
       else if (pathname[i] == CTLESC)
 	{
 	  if ((qflags & QGLOB_FILENAME) && pathname[i+1] == '/')
 	    continue;
+<<<<<<< HEAD
 	  /* What to do if preceding char is backslash? */
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  if (pathname[i+1] != CTLESC && (qflags & QGLOB_REGEXP) && ere_char (pathname[i+1]) == 0)
 	    continue;
 	  temp[j++] = '\\';
@@ -239,6 +290,7 @@ quote_string_for_globbing (pathname, qflags)
 	}
       else if ((qflags & QGLOB_REGEXP) && (i == 0 || pathname[i-1] != CTLESC) && pathname[i] == '[')	/*]*/
 	{
+<<<<<<< HEAD
 	  temp[j++] = pathname[i++];	/* open bracket */
 	  savej = j;
 	  savei = i;
@@ -253,6 +305,11 @@ quote_string_for_globbing (pathname, qflags)
 	      temp[j++] = c;
 	      c = pathname[i++];
 	    }
+=======
+	  brack = 1;
+	  temp[j++] = pathname[i++];	/* open bracket */
+	  c = pathname[i++];	/* c == char after open bracket */
+>>>>>>> orgin/bash-4.3-testing
 	  do
 	    {
 	      if (c == 0)
@@ -308,6 +365,7 @@ quote_string_for_globbing (pathname, qflags)
 	      else
 		temp[j++] = c;
 	    }
+<<<<<<< HEAD
 	  while (((c = pathname[i++]) != ']') && c != 0);
 
 	  /* If we don't find the closing bracket before we hit the end of
@@ -321,10 +379,14 @@ quote_string_for_globbing (pathname, qflags)
 	      continue;
 	    }
 
+=======
+	  while ((c = pathname[i++]) != ']');
+>>>>>>> orgin/bash-4.3-testing
 	  temp[j++] = c;	/* closing right bracket */
 	  i--;			/* increment will happen above in loop */
 	  continue;		/* skip double assignment below */
 	}
+<<<<<<< HEAD
       else if (pathname[i] == '\\' && (qflags & QGLOB_REGEXP) == 0)
 	{
 	  /* XXX - if not quoting regexp, use backslash as quote char. Should
@@ -345,6 +407,23 @@ quote_string_for_globbing (pathname, qflags)
 	}
       else if (pathname[i] == '\\' && (qflags & QGLOB_REGEXP))
         last_was_backslash = 1;
+=======
+      else if (pathname[i] == '\\')
+	{
+	  /* If we want to pass through backslash unaltered, comment out these
+	     lines. */
+	  temp[j++] = '\\';
+	  /* XXX - if not quoting regexp, use backslash as quote char. Should
+	     we just pass it through without treating it as special? That is
+	     what ksh93 seems to do. */
+	  if ((qflags & QGLOB_REGEXP) == 0)
+	    {
+	      i++;
+	      if (pathname[i] == '\0')
+		break;
+	    }
+	}
+>>>>>>> orgin/bash-4.3-testing
       temp[j++] = pathname[i];
     }
 endpat:
@@ -438,8 +517,12 @@ shell_glob_filename (pathname)
   noglob_dot_filenames = glob_dot_filenames == 0;
 
   temp = quote_string_for_globbing (pathname, QGLOB_FILENAME);
+<<<<<<< HEAD
   gflags = glob_star ? GX_GLOBSTAR : 0;
   results = glob_filename (temp, gflags);
+=======
+  results = glob_filename (temp, glob_star ? GX_GLOBSTAR : 0);
+>>>>>>> orgin/bash-4.3-testing
   free (temp);
 
   if (results && ((GLOB_FAILED (results)) == 0))
@@ -583,7 +666,11 @@ split_ignorespec (s, ip)
   if (s[i] == 0)
     return 0;
 
+<<<<<<< HEAD
   n = skip_to_delim (s, i, ":", SD_NOJMP|SD_EXTGLOB|SD_GLOB);
+=======
+  n = skip_to_delim (s, i, ":", SD_NOJMP|SD_EXTGLOB);
+>>>>>>> orgin/bash-4.3-testing
   t = substring (s, i, n);
 
   if (s[n] == ':')

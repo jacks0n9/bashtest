@@ -42,6 +42,7 @@ g()
 
 f
 echo FIN: v = $v, w = $w
+<<<<<<< HEAD
 
 # problem with error return propagation through bash-4.3
 unset -f aaa bbb
@@ -56,3 +57,5 @@ bbb() {
 aaa
 bbb
 echo after bbb: $?
+=======
+>>>>>>> orgin/bash-4.3-testing

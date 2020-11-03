@@ -1,6 +1,10 @@
 /* findcmd.c -- Functions to search for commands by name. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1997-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1997-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -45,11 +49,20 @@
 #include "hashcmd.h"
 #include "findcmd.h"	/* matching prototypes and declarations */
 
+<<<<<<< HEAD
 #include <glob/strmatch.h>
 
 #if !defined (errno)
 extern int errno;
 #endif
+=======
+#if !defined (errno)
+extern int errno;
+#endif
+
+extern int posixly_correct;
+extern int last_command_exit_value;
+>>>>>>> orgin/bash-4.3-testing
 
 /* Static functions defined and used in this file. */
 static char *_find_user_command_internal __P((const char *, int));
@@ -77,6 +90,7 @@ int check_hashed_filenames = CHECKHASH_DEFAULT;
    containing the file of interest. */
 int dot_found_in_search = 0;
 
+<<<<<<< HEAD
 /* Set up EXECIGNORE; a blacklist of patterns that executable files should not
    match. */
 static struct ignorevar execignore =
@@ -107,6 +121,8 @@ exec_name_should_ignore (name)
   return 0;
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Return some flags based on information about this file.
    The EXISTS bit is non-zero if the file is found.
    The EXECABLE bit is non-zero the file is executble.
@@ -134,7 +150,11 @@ file_status (name)
      file access mechanisms into account.  eaccess uses the effective
      user and group IDs, not the real ones.  We could use sh_eaccess,
      but we don't want any special treatment for /dev/fd. */
+<<<<<<< HEAD
   if (exec_name_should_ignore (name) == 0 && eaccess (name, X_OK) == 0)
+=======
+  if (eaccess (name, X_OK) == 0)
+>>>>>>> orgin/bash-4.3-testing
     r |= FS_EXECABLE;
   if (eaccess (name, R_OK) == 0)
     r |= FS_READABLE;
@@ -144,7 +164,11 @@ file_status (name)
   /* We have to use access(2) to determine access because AFS does not
      support Unix file system semantics.  This may produce wrong
      answers for non-AFS files when ruid != euid.  I hate AFS. */
+<<<<<<< HEAD
   if (exec_name_should_ignore (name) == 0 && access (name, X_OK) == 0)
+=======
+  if (access (name, X_OK) == 0)
+>>>>>>> orgin/bash-4.3-testing
     r |= FS_EXECABLE;
   if (access (name, R_OK) == 0)
     r |= FS_READABLE;
@@ -161,7 +185,11 @@ file_status (name)
   if (current_user.euid == (uid_t)0)
     {
       r |= FS_READABLE;
+<<<<<<< HEAD
       if (exec_name_should_ignore (name) == 0 && (finfo.st_mode & S_IXUGO))
+=======
+      if (finfo.st_mode & S_IXUGO)
+>>>>>>> orgin/bash-4.3-testing
 	r |= FS_EXECABLE;
       return r;
     }
@@ -169,7 +197,11 @@ file_status (name)
   /* If we are the owner of the file, the owner bits apply. */
   if (current_user.euid == finfo.st_uid)
     {
+<<<<<<< HEAD
       if (exec_name_should_ignore (name) == 0 && (finfo.st_mode & S_IXUSR))
+=======
+      if (finfo.st_mode & S_IXUSR)
+>>>>>>> orgin/bash-4.3-testing
 	r |= FS_EXECABLE;
       if (finfo.st_mode & S_IRUSR)
 	r |= FS_READABLE;
@@ -178,7 +210,11 @@ file_status (name)
   /* If we are in the owning group, the group permissions apply. */
   else if (group_member (finfo.st_gid))
     {
+<<<<<<< HEAD
       if (exec_name_should_ignore (name) == 0 && (finfo.st_mode & S_IXGRP))
+=======
+      if (finfo.st_mode & S_IXGRP)
+>>>>>>> orgin/bash-4.3-testing
 	r |= FS_EXECABLE;
       if (finfo.st_mode & S_IRGRP)
 	r |= FS_READABLE;
@@ -187,7 +223,11 @@ file_status (name)
   /* Else we check whether `others' have permission to execute the file */
   else
     {
+<<<<<<< HEAD
       if (exec_name_should_ignore (name) == 0 && finfo.st_mode & S_IXOTH)
+=======
+      if (finfo.st_mode & S_IXOTH)
+>>>>>>> orgin/bash-4.3-testing
 	r |= FS_EXECABLE;
       if (finfo.st_mode & S_IROTH)
 	r |= FS_READABLE;
@@ -208,7 +248,11 @@ executable_file (file)
   int s;
 
   s = file_status (file);
+<<<<<<< HEAD
 #if defined (EISDIR)
+=======
+#if defined EISDIR
+>>>>>>> orgin/bash-4.3-testing
   if (s & FS_DIRECTORY)
     errno = EISDIR;	/* let's see if we can improve error messages */
 #endif
@@ -327,11 +371,17 @@ get_next_path_element (path_list, path_index_pointer)
 
 /* Look for PATHNAME in $PATH.  Returns either the hashed command
    corresponding to PATHNAME or the first instance of PATHNAME found
+<<<<<<< HEAD
    in $PATH.  If (FLAGS&CMDSRCH_HASH) is non-zero, insert the instance of
    PATHNAME found in $PATH into the command hash table.  If (FLAGS&CMDSRCH_STDPATH)
    is non-zero, we are running in a `command -p' environment and should use
    the Posix standard path.
    Returns a newly-allocated string. */
+=======
+   in $PATH.  If (FLAGS&1) is non-zero, insert the instance of PATHNAME
+   found in $PATH into the command hash table.  Returns a newly-allocated
+   string. */
+>>>>>>> orgin/bash-4.3-testing
 char *
 search_for_command (pathname, flags)
      const char *pathname;
@@ -400,9 +450,16 @@ search_for_command (pathname, flags)
 	  else
 	    phash_insert ((char *)pathname, command, dot_found_in_search, 1);
 	}
+<<<<<<< HEAD
 
       if (flags & CMDSRCH_STDPATH)
 	free (path_list);
+=======
+      else
+	command = find_user_command (pathname);
+      if (command && hashing_enabled && temp_path == 0 && (flags & 1))
+	phash_insert ((char *)pathname, command, dot_found_in_search, 1);	/* XXX fix const later */
+>>>>>>> orgin/bash-4.3-testing
     }
 
   return (command);

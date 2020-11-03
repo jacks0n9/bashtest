@@ -18,6 +18,9 @@ chmod 755 testb/foo
 PATH=$TMPDIR/testa:$TMPDIR/testb $THIS_SH -c foo
 
 rm -rf testa testb
+<<<<<<< HEAD
 
 cd $OLDPWD
 exit 0
+=======
+>>>>>>> orgin/bash-4.3-testing

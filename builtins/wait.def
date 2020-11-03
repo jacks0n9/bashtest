@@ -1,7 +1,11 @@
 This file is wait.def, from which is created wait.c.
 It implements the builtin "wait" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -22,21 +26,32 @@ $BUILTIN wait
 $FUNCTION wait_builtin
 $DEPENDS_ON JOB_CONTROL
 $PRODUCES wait.c
+<<<<<<< HEAD
 $SHORT_DOC wait [-fn] [id ...]
+=======
+$SHORT_DOC wait [-n] [id ...]
+>>>>>>> orgin/bash-4.3-testing
 Wait for job completion and return exit status.
 
 Waits for each process identified by an ID, which may be a process ID or a
 job specification, and reports its termination status.  If ID is not
 given, waits for all currently active child processes, and the return
+<<<<<<< HEAD
 status is zero.  If ID is a job specification, waits for all processes
+=======
+status is zero.  If ID is a a job specification, waits for all processes
+>>>>>>> orgin/bash-4.3-testing
 in that job's pipeline.
 
 If the -n option is supplied, waits for the next job to terminate and
 returns its exit status.
 
+<<<<<<< HEAD
 If the -f option is supplied, and job control is enabled, waits for the
 specified ID to terminate, instead of waiting for it to change status.
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 Exit Status:
 Returns the status of the last ID; fails if ID is invalid or an invalid
 option is given.
@@ -91,7 +106,10 @@ int wait_intr_flag;
     { \
       interrupt_immediately = old_interrupt_immediately;\
       wait_signal_received = 0; \
+<<<<<<< HEAD
       wait_intr_flag = 0; \
+=======
+>>>>>>> orgin/bash-4.3-testing
       return (s);\
     } \
   while (0)
@@ -100,14 +118,24 @@ int
 wait_builtin (list)
      WORD_LIST *list;
 {
+<<<<<<< HEAD
   int status, code, opt, nflag, wflags;
+=======
+  int status, code, opt, nflag;
+>>>>>>> orgin/bash-4.3-testing
   volatile int old_interrupt_immediately;
 
   USE_VAR(list);
 
+<<<<<<< HEAD
   nflag = wflags = 0;
   reset_internal_getopt ();
   while ((opt = internal_getopt (list, "nf")) != -1)
+=======
+  nflag = 0;
+  reset_internal_getopt ();
+  while ((opt = internal_getopt (list, "n")) != -1)
+>>>>>>> orgin/bash-4.3-testing
     {
       switch (opt)
 	{
@@ -115,11 +143,15 @@ wait_builtin (list)
 	case 'n':
 	  nflag = 1;
 	  break;
+<<<<<<< HEAD
 	case 'f':
 	  wflags |= JWAIT_FORCE;
 	  break;
 #endif
 	CASE_HELPOPT;
+=======
+#endif
+>>>>>>> orgin/bash-4.3-testing
 	default:
 	  builtin_usage ();
 	  return (EX_USAGE);
@@ -157,7 +189,11 @@ wait_builtin (list)
 #if defined (JOB_CONTROL)
   if (nflag)
     {
+<<<<<<< HEAD
       status = wait_for_any_job (wflags);
+=======
+      status = wait_for_any_job ();
+>>>>>>> orgin/bash-4.3-testing
       if (status < 0)
 	status = 127;
       WAIT_RETURN (status);
@@ -215,7 +251,11 @@ wait_builtin (list)
 
 	  /* Job spec used.  Wait for the last pid in the pipeline. */
 	  UNBLOCK_CHILD (oset);
+<<<<<<< HEAD
 	  status = wait_for_job (job, wflags);
+=======
+	  status = wait_for_job (job);
+>>>>>>> orgin/bash-4.3-testing
 	}
 #endif /* JOB_CONTROL */
       else

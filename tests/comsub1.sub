@@ -46,6 +46,7 @@ esac)
 echo $(case a in (a) echo ok 6 # comment
 ;;
 esac)
+<<<<<<< HEAD
 
 echo $( # we just took and pasted in some
 # code from another script inside a
@@ -58,3 +59,5 @@ case $(echo $$'x\nx') in
 x*)	echo bad 7;;
 *)	echo ok 7;;
 esac
+=======
+>>>>>>> orgin/bash-4.3-testing

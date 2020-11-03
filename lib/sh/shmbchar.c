@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* Copyright (C) 2001, 2006, 2009, 2010, 2012, 2015-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2001, 2006, 2009, 2010, 2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -20,6 +24,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
+<<<<<<< HEAD
 #include <errno.h>
 
 #include <shmbutil.h>
@@ -29,6 +34,11 @@
 extern int errno;
 #endif
 
+=======
+#include <shmbutil.h>
+#include <shmbchar.h>
+
+>>>>>>> orgin/bash-4.3-testing
 #if IS_BASIC_ASCII
 
 /* Bit table of characters in the ISO C "basic character set".  */
@@ -43,6 +53,7 @@ const unsigned int is_basic_table [UCHAR_MAX / 32 + 1] =
 
 #endif /* IS_BASIC_ASCII */
 
+<<<<<<< HEAD
 extern int locale_utf8locale;
 
 extern char *utf8_mbsmbchar (const char *);
@@ -50,17 +61,26 @@ extern int utf8_mblen (const char *, size_t);
 
 /* Count the number of characters in S, counting multi-byte characters as a
    single character. */
+=======
+>>>>>>> orgin/bash-4.3-testing
 size_t
 mbstrlen (s)
      const char *s;
 {
   size_t clen, nc;
   mbstate_t mbs = { 0 }, mbsbak = { 0 };
+<<<<<<< HEAD
   int f, mb_cur_max;
 
   nc = 0;
   mb_cur_max = MB_CUR_MAX;
   while (*s && (clen = (f = is_basic (*s)) ? 1 : mbrlen(s, mb_cur_max, &mbs)) != 0)
+=======
+  int f;
+
+  nc = 0;
+  while (*s && (clen = (f = is_basic (*s)) ? 1 : mbrlen(s, MB_CUR_MAX, &mbs)) != 0)
+>>>>>>> orgin/bash-4.3-testing
     {
       if (MB_INVALIDCH(clen))
 	{
@@ -78,8 +98,11 @@ mbstrlen (s)
 }
 
 /* Return pointer to first multibyte char in S, or NULL if none. */
+<<<<<<< HEAD
 /* XXX - if we know that the locale is UTF-8, we can just check whether or
    not any byte has the eighth bit turned on */
+=======
+>>>>>>> orgin/bash-4.3-testing
 char *
 mbsmbchar (s)
      const char *s;
@@ -87,21 +110,29 @@ mbsmbchar (s)
   char *t;
   size_t clen;
   mbstate_t mbs = { 0 };
+<<<<<<< HEAD
   int mb_cur_max;
 
   if (locale_utf8locale)
     return (utf8_mbsmbchar (s));	/* XXX */
 
   mb_cur_max = MB_CUR_MAX;
+=======
+
+>>>>>>> orgin/bash-4.3-testing
   for (t = (char *)s; *t; t++)
     {
       if (is_basic (*t))
 	continue;
 
+<<<<<<< HEAD
       if (locale_utf8locale)		/* not used if above code active */
 	clen = utf8_mblen (t, mb_cur_max);
       else
 	clen = mbrlen (t, mb_cur_max, &mbs);
+=======
+      clen = mbrlen (t, MB_CUR_MAX, &mbs);
+>>>>>>> orgin/bash-4.3-testing
 
       if (clen == 0)
         return 0;

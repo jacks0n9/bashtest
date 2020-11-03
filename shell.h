@@ -83,20 +83,28 @@ extern int EOF_Reached;
 
 #define MATCH_GLOBREP	0x010
 #define MATCH_QUOTED	0x020
+<<<<<<< HEAD
 #define MATCH_ASSIGNRHS	0x040
 #define MATCH_STARSUB	0x080
+=======
+#define MATCH_STARSUB	0x040
+>>>>>>> orgin/bash-4.3-testing
 
 /* Some needed external declarations. */
 extern char **shell_environment;
 extern WORD_LIST *rest_of_args;
 
 /* Generalized global variables. */
+<<<<<<< HEAD
 extern char *command_execution_string;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern int debugging_mode;
 extern int executing, login_shell;
 extern int interactive, interactive_shell;
 extern int startup_state;
+<<<<<<< HEAD
 extern int reading_shell_script;
 extern int shell_initialized;
 extern int bash_argv_initialized;
@@ -128,6 +136,12 @@ extern char *dist_version, *release_status;
 
 extern int locale_mb_cur_max;
 extern int locale_utf8locale;
+=======
+extern int subshell_environment;
+extern int shell_compatibility_level;
+
+extern int locale_mb_cur_max;
+>>>>>>> orgin/bash-4.3-testing
 
 /* Structure to pass around that holds a bitmap of file descriptors
    to close, and the size of that structure.  Used in execute_cmd.c. */
@@ -160,8 +174,11 @@ extern struct user_info current_user;
 #  define USE_VAR(x)
 #endif
 
+<<<<<<< HEAD
 #define HEREDOC_MAX 16
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Structure in which to save partial parsing state when doing things like
    PROMPT_COMMAND and bash_execute_unix_command execution. */
 
@@ -201,11 +218,15 @@ typedef struct _sh_parser_state_t {
   /* flags state affecting the parser */
   int expand_aliases;
   int echo_input_at_read;
+<<<<<<< HEAD
   int need_here_doc;
   int here_doc_first_line;
 
   /* structures affecting the parser */
   REDIRECT *redir_stack[HEREDOC_MAX];
+=======
+  
+>>>>>>> orgin/bash-4.3-testing
 } sh_parser_state_t;
 
 typedef struct _sh_input_line_state_t {
@@ -216,8 +237,11 @@ typedef struct _sh_input_line_state_t {
 } sh_input_line_state_t;
 
 /* Let's try declaring these here. */
+<<<<<<< HEAD
 extern char *parser_remaining_input __P((void));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern sh_parser_state_t *save_parser_state __P((sh_parser_state_t *));
 extern void restore_parser_state __P((sh_parser_state_t *));
 

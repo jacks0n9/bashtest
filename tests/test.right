@@ -289,7 +289,10 @@ t -t /dev/tty4
 t -t /dev/tty4444444...
 1
 1
+<<<<<<< HEAD
 t -p /dev/fd/6
 1
 t -p /dev/fd/6
 0
+=======
+>>>>>>> orgin/bash-4.3-testing

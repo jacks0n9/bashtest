@@ -106,10 +106,15 @@ extern char **brace_expand __P((char *));
 /* Miscellaneous functions from parse.y */
 extern int yyparse __P((void));
 extern int return_EOF __P((void));
+<<<<<<< HEAD
 extern void push_token __P((int));
 extern char *xparse_dolparen __P((char *, char *, int *, int));
 extern void reset_parser __P((void));
 extern void reset_readahead_token __P((void));
+=======
+extern char *xparse_dolparen __P((char *, char *, int *, int));
+extern void reset_parser __P((void));
+>>>>>>> orgin/bash-4.3-testing
 extern WORD_LIST *parse_string_to_word_list __P((char *, int, const char *));
 
 extern int parser_in_command_position __P((void));
@@ -119,8 +124,11 @@ extern void free_pushed_string_input __P((void));
 extern int parser_expanding_alias __P((void));
 extern void parser_save_alias __P((void));
 extern void parser_restore_alias __P((void));
+<<<<<<< HEAD
 
 extern void clear_shell_input_line __P((void));
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 extern char *decode_prompt_string __P((char *));
 
@@ -312,7 +320,11 @@ extern int sh_setlinebuf __P((FILE *));
 #endif
 
 /* declarations for functions defined in lib/sh/shaccess.c */
+<<<<<<< HEAD
 extern int sh_eaccess __P((const char *, int));
+=======
+extern int sh_eaccess __P((char *, int));
+>>>>>>> orgin/bash-4.3-testing
 
 /* declarations for functions defined in lib/sh/shmatch.c */
 extern int sh_regmatch __P((const char *, const char *, int));
@@ -486,6 +498,7 @@ extern unsigned int fsleep __P((unsigned int, unsigned int));
 extern int u32cconv __P((unsigned long, char *));
 extern void u32reset __P((void));
 
+<<<<<<< HEAD
 /* declarations for functions defined in lib/sh/utf8.c */
 extern char *utf8_mbschr __P((const char *, int));
 extern int utf8_mbscmp __P((const char *, const char *));
@@ -494,6 +507,8 @@ extern int utf8_mbsnlen __P((const char *, size_t, int));
 extern int utf8_mblen __P((const char *, size_t));
 extern size_t utf8_mbstrlen __P((const char *));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* declarations for functions defined in lib/sh/wcsnwidth.c */
 #if defined (HANDLE_MULTIBYTE)
 extern int wcsnwidth __P((const wchar_t *, size_t, int));
@@ -506,7 +521,11 @@ extern void get_new_window_size __P((int, int *, int *));
 extern int zcatfd __P((int, int, char *));
 
 /* declarations for functions defined in lib/sh/zgetline.c */
+<<<<<<< HEAD
 extern ssize_t zgetline __P((int, char **, size_t *, int, int));
+=======
+extern ssize_t zgetline __P((int, char **, size_t *, int));
+>>>>>>> orgin/bash-4.3-testing
 
 /* declarations for functions defined in lib/sh/zmapfd.c */
 extern int zmapfd __P((int, char **, char *));
@@ -525,11 +544,19 @@ extern void zsyncfd __P((int));
 extern int zwrite __P((int, char *, size_t));
 
 /* declarations for functions defined in lib/glob/gmisc.c */
+<<<<<<< HEAD
 extern int match_pattern_char __P((char *, char *, int));
 extern int umatchlen __P((char *, size_t));
 
 #if defined (HANDLE_MULTIBYTE)
 extern int match_pattern_wchar __P((wchar_t *, wchar_t *, int));
+=======
+extern int match_pattern_char __P((char *, char *));
+extern int umatchlen __P((char *, size_t));
+
+#if defined (HANDLE_MULTIBYTE)
+extern int match_pattern_wchar __P((wchar_t *, wchar_t *));
+>>>>>>> orgin/bash-4.3-testing
 extern int wmatchlen __P((wchar_t *, size_t));
 #endif
 

@@ -1,6 +1,10 @@
 /* text.c -- text handling commands for readline. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2010 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -71,8 +75,11 @@ static int _rl_char_search_callback PARAMS((_rl_callback_generic_arg *));
    rl_insert_text.  Text blocks larger than this are divided. */
 #define TEXT_COUNT_MAX	1024
 
+<<<<<<< HEAD
 int _rl_optimize_typeahead = 1;	/* rl_insert tries to read typeahead */
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* **************************************************************** */
 /*								    */
 /*			Insert and Delete			    */
@@ -284,7 +291,12 @@ rl_forward_byte (int count, int key)
 }
 
 int
+<<<<<<< HEAD
 _rl_forward_char_internal (int count)
+=======
+_rl_forward_char_internal (count)
+     int count;
+>>>>>>> orgin/bash-4.3-testing
 {
   int point;
 
@@ -297,6 +309,7 @@ _rl_forward_char_internal (int count)
 #endif
 
     if (rl_end < 0)
+<<<<<<< HEAD
       rl_end = 0;
 #else
   point = rl_point + count;
@@ -331,6 +344,15 @@ _rl_backward_char_internal (int count)
 
   if (point < 0)
     point = 0;
+=======
+	rl_end = 0;
+#else
+  point = rl_point + count;
+  if (point > rl_end)
+    point = rl_end;
+#endif
+
+>>>>>>> orgin/bash-4.3-testing
   return (point);
 }
 
@@ -604,6 +626,7 @@ rl_clear_screen (int count, int key)
 }
 
 int
+<<<<<<< HEAD
 rl_previous_screen_line (int count, int key)
 {
   int c;
@@ -623,6 +646,10 @@ rl_next_screen_line (int count, int key)
 
 int
 rl_skip_csi_sequence (int count, int key)
+=======
+rl_skip_csi_sequence (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   int ch;
 
@@ -632,11 +659,20 @@ rl_skip_csi_sequence (int count, int key)
   while (ch >= 0x20 && ch < 0x40);
   RL_UNSETSTATE (RL_STATE_MOREINPUT);
 
+<<<<<<< HEAD
   return (ch < 0);
 }
 
 int
 rl_arrow_keys (int count, int key)
+=======
+  return 0;
+}
+
+int
+rl_arrow_keys (count, c)
+     int count, c;
+>>>>>>> orgin/bash-4.3-testing
 {
   int ch;
 
@@ -982,7 +1018,12 @@ rl_insert (int count, int c)
 
 /* Insert the next typed character verbatim. */
 static int
+<<<<<<< HEAD
 _rl_insert_next (int count)
+=======
+_rl_insert_next (count)
+     int count;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c;
 
@@ -991,7 +1032,11 @@ _rl_insert_next (int count)
   RL_UNSETSTATE(RL_STATE_MOREINPUT);
 
   if (c < 0)
+<<<<<<< HEAD
     return 1;
+=======
+    return -1;
+>>>>>>> orgin/bash-4.3-testing
 
   if (RL_ISSTATE (RL_STATE_MACRODEF))
     _rl_add_macro_char (c);
@@ -1006,6 +1051,7 @@ _rl_insert_next (int count)
 
 #if defined (READLINE_CALLBACKS)
 static int
+<<<<<<< HEAD
 _rl_insert_next_callback (_rl_callback_generic_arg *data)
 {
   int count, r;
@@ -1023,20 +1069,37 @@ _rl_insert_next_callback (_rl_callback_generic_arg *data)
 	return r;
       count = 0;	/* data->count == 0 || r != 0; force break below */
     }
+=======
+_rl_insert_next_callback (data)
+     _rl_callback_generic_arg *data;
+{
+  int count;
+
+  count = data->count;
+>>>>>>> orgin/bash-4.3-testing
 
   /* Deregister function, let rl_callback_read_char deallocate data */
   _rl_callback_func = 0;
   _rl_want_redisplay = 1;
+<<<<<<< HEAD
 
   if (count == 0)
     return r;
 
+=======
+ 
+>>>>>>> orgin/bash-4.3-testing
   return _rl_insert_next (count);
 }
 #endif
   
 int
+<<<<<<< HEAD
 rl_quoted_insert (int count, int key)
+=======
+rl_quoted_insert (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   /* Let's see...should the callback interface futz with signal handling? */
 #if defined (HANDLE_SIGNALS)
@@ -1052,6 +1115,7 @@ rl_quoted_insert (int count, int key)
       return (0);
     }
 #endif
+<<<<<<< HEAD
 
   /* A negative count means to quote the next -COUNT characters. */
   if (count < 0)
@@ -1064,6 +1128,9 @@ rl_quoted_insert (int count, int key)
       return r;
     }
 
+=======
+      
+>>>>>>> orgin/bash-4.3-testing
   return _rl_insert_next (count);
 }
 
@@ -1206,7 +1273,11 @@ _rl_rubout_char (int count, int key)
       c = rl_line_buffer[--rl_point];
       rl_delete_text (rl_point, orig_point);
       /* The erase-at-end-of-line hack is of questionable merit now. */
+<<<<<<< HEAD
       if (rl_point == rl_end && ISPRINT ((unsigned char)c) && _rl_last_c_pos)
+=======
+      if (rl_point == rl_end && ISPRINT (c) && _rl_last_c_pos)
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  int l;
 	  l = rl_character_len (c, rl_point);
@@ -1381,8 +1452,12 @@ static int
 rl_change_case (int count, int op)
 {
   int start, next, end;
+<<<<<<< HEAD
   int inword, nc, nop;
   wchar_t c;
+=======
+  int inword, c, nc, nop;
+>>>>>>> orgin/bash-4.3-testing
 #if defined (HANDLE_MULTIBYTE)
   wchar_t wc, nwc;
   char mb[MB_LEN_MAX+1];
@@ -1398,7 +1473,11 @@ rl_change_case (int count, int op)
   if (op != UpCase && op != DownCase && op != CapCase)
     {
       rl_ding ();
+<<<<<<< HEAD
       return 1;
+=======
+      return -1;
+>>>>>>> orgin/bash-4.3-testing
     }
 
   if (count < 0)
@@ -1432,6 +1511,7 @@ rl_change_case (int count, int op)
 	}
       else
 	nop = op;
+<<<<<<< HEAD
       /* Can't check isascii here; some languages (e.g, Turkish) have
 	 multibyte upper and lower case equivalents of single-byte ascii
 	 characters */
@@ -1482,6 +1562,31 @@ rl_change_case (int count, int op)
 		}
 	    }
 	}
+=======
+      if (MB_CUR_MAX == 1 || rl_byte_oriented || isascii (c))
+	{
+	  nc = (nop == UpCase) ? _rl_to_upper (c) : _rl_to_lower (c);
+	  rl_line_buffer[start] = nc;
+	}
+#if defined (HANDLE_MULTIBYTE)
+      else
+	{
+	  m = mbrtowc (&wc, rl_line_buffer + start, end - start, &mps);
+	  if (MB_INVALIDCH (m))
+	    wc = (wchar_t)rl_line_buffer[start];
+	  else if (MB_NULLWCH (m))
+	    wc = L'\0';
+	  nwc = (nop == UpCase) ? _rl_to_wupper (wc) : _rl_to_wlower (wc);
+	  if  (nwc != wc)	/*  just skip unchanged characters */
+	    {
+	      mlen = wcrtomb (mb, nwc, &mps);
+	      if (mlen > 0)
+		mb[mlen] = '\0';
+	      /* Assume the same width */
+	      strncpy (rl_line_buffer + start, mb, mlen);
+	    }
+	}
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
       start = next;
@@ -1635,7 +1740,11 @@ _rl_char_search_internal (int count, int dir, int schar)
 #endif
 
   if (dir == 0)
+<<<<<<< HEAD
     return 1;
+=======
+    return -1;
+>>>>>>> orgin/bash-4.3-testing
 
   pos = rl_point;
   inc = (dir < 0) ? -1 : 1;
@@ -1698,7 +1807,11 @@ _rl_char_search (int count, int fdir, int bdir)
   mb_len = _rl_read_mbchar (mbchar, MB_LEN_MAX);
 
   if (mb_len <= 0)
+<<<<<<< HEAD
     return 1;
+=======
+    return -1;
+>>>>>>> orgin/bash-4.3-testing
 
   if (count < 0)
     return (_rl_char_search_internal (-count, bdir, mbchar, mb_len));
@@ -1716,7 +1829,11 @@ _rl_char_search (int count, int fdir, int bdir)
   RL_UNSETSTATE(RL_STATE_MOREINPUT);
 
   if (c < 0)
+<<<<<<< HEAD
     return 1;
+=======
+    return -1;
+>>>>>>> orgin/bash-4.3-testing
 
   if (count < 0)
     return (_rl_char_search_internal (-count, bdir, c));

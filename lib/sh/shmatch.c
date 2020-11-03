@@ -2,7 +2,11 @@
  * shmatch.c -- shell interface to posix regular expression matching.
  */
 
+<<<<<<< HEAD
 /* Copyright (C) 2003-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2003 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -79,8 +83,12 @@ sh_regmatch (string, pattern, flags)
   matches = NULL;
 #endif
 
+<<<<<<< HEAD
   /* man regexec: NULL PMATCH ignored if NMATCH == 0 */
   if (regexec (&regex, string, matches ? regex.re_nsub + 1 : 0, matches, 0))
+=======
+  if (regexec (&regex, string, regex.re_nsub + 1, matches, 0))
+>>>>>>> orgin/bash-4.3-testing
     result = EXECUTION_FAILURE;
   else
     result = EXECUTION_SUCCESS;		/* match */
@@ -92,11 +100,19 @@ sh_regmatch (string, pattern, flags)
   /* Store the parenthesized subexpressions in the array BASH_REMATCH.
      Element 0 is the portion that matched the entire regexp.  Element 1
      is the part that matched the first subexpression, and so on. */
+<<<<<<< HEAD
   unbind_variable_noref ("BASH_REMATCH");
   rematch = make_new_array_variable ("BASH_REMATCH");
   amatch = array_cell (rematch);
 
   if (matches && (flags & SHMAT_SUBEXP) && result == EXECUTION_SUCCESS && subexp_str)
+=======
+  unbind_variable ("BASH_REMATCH");
+  rematch = make_new_array_variable ("BASH_REMATCH");
+  amatch = array_cell (rematch);
+
+  if ((flags & SHMAT_SUBEXP) && result == EXECUTION_SUCCESS && subexp_str)
+>>>>>>> orgin/bash-4.3-testing
     {
       for (subexp_ind = 0; subexp_ind <= regex.re_nsub; subexp_ind++)
 	{

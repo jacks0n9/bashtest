@@ -1,6 +1,10 @@
 /* redir.c -- Functions to perform input and output redirection. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1997-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1997-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -62,6 +66,12 @@ extern int errno;
 
 int expanding_redir;
 
+<<<<<<< HEAD
+=======
+extern int posixly_correct;
+extern int last_command_exit_value;
+extern int executing_builtin;
+>>>>>>> orgin/bash-4.3-testing
 extern REDIRECT *redirection_undo_list;
 extern REDIRECT *exec_redirection_undo_list;
 
@@ -113,9 +123,15 @@ redirection_error (temp, error)
   int oflags;
 
   allocname = 0;
+<<<<<<< HEAD
   if ((temp->rflags & REDIR_VARASSIGN) && error < 0)
     filename = allocname = savestring (temp->redirector.filename->word);
   else if ((temp->rflags & REDIR_VARASSIGN) == 0 && temp->redirector.dest < 0)
+=======
+  if (temp->rflags & REDIR_VARASSIGN)
+    filename = allocname = savestring (temp->redirector.filename->word);
+  else if (temp->redirector.dest < 0)
+>>>>>>> orgin/bash-4.3-testing
     /* This can happen when read_token_word encounters overflow, like in
        exec 4294967297>x */
     filename = _("file descriptor out of range");
@@ -154,6 +170,10 @@ redirection_error (temp, error)
 #endif
   else if (expandable_redirection_filename (temp))
     {
+<<<<<<< HEAD
+=======
+expandable_filename:
+>>>>>>> orgin/bash-4.3-testing
       oflags = temp->redirectee.filename->flags;
       if (posixly_correct && interactive_shell == 0)
 	temp->redirectee.filename->flags |= W_NOGLOB;
@@ -321,7 +341,11 @@ write_here_string (fd, redirectee)
   /* Now that we've changed the variable search order to ignore the temp
      environment, see if we need to change the cached IFS values. */
   sv_ifs ("IFS");
+<<<<<<< HEAD
   herestr = expand_string_unsplit_to_string (redirectee->word, 0);
+=======
+  herestr = expand_string_to_string (redirectee->word, 0);
+>>>>>>> orgin/bash-4.3-testing
   expanding_redir = 0;
   /* Now we need to change the variable search order back to include the temp
      environment.  We force the temp environment search by forcing
@@ -680,10 +704,14 @@ redir_open (filename, flags, mode, ri)
 	  fd = open (filename, flags, mode);
 	  e = errno;
 	  if (fd < 0 && e == EINTR)
+<<<<<<< HEAD
 	    {
 	      QUIT;
 	      run_pending_traps ();
 	    }
+=======
+	    QUIT;
+>>>>>>> orgin/bash-4.3-testing
 	  errno = e;
 	}
       while (fd < 0 && errno == EINTR);
@@ -916,10 +944,14 @@ do_redirection_internal (redirect, flags)
 		}
 	    }
 	  else if ((fd != redirector) && (dup2 (fd, redirector) < 0))
+<<<<<<< HEAD
 	    {
 	      close (fd);	/* dup2 failed? must be fd limit issue */
 	      return (errno);
 	    }
+=======
+	    return (errno);
+>>>>>>> orgin/bash-4.3-testing
 
 #if defined (BUFFERED_INPUT)
 	  /* Do not change the buffered stream for an implicit redirection
@@ -983,6 +1015,7 @@ do_redirection_internal (redirect, flags)
 	    }
 
 	  if (redirect->rflags & REDIR_VARASSIGN)
+<<<<<<< HEAD
 	    {
 	      redirector = fcntl (fd, F_DUPFD, SHELL_FD_BASE);		/* XXX try this for now */
 	      r = errno;
@@ -993,6 +1026,18 @@ do_redirection_internal (redirect, flags)
 
 	  if (flags & RX_ACTIVE)
 	    {
+=======
+	    {
+	      redirector = fcntl (fd, F_DUPFD, SHELL_FD_BASE);		/* XXX try this for now */
+	      r = errno;
+	      if (redirector < 0)
+		sys_error (_("redirection error: cannot duplicate fd"));
+	      REDIRECTION_ERROR (redirector, r, fd);
+	    }
+
+	  if (flags & RX_ACTIVE)
+	    {
+>>>>>>> orgin/bash-4.3-testing
 	      if ((flags & RX_UNDOABLE) && (redirect->rflags & REDIR_VARASSIGN) == 0)
 	        {
 		  /* Only setup to undo it if the thing to undo is active. */
@@ -1108,10 +1153,17 @@ do_redirection_internal (redirect, flags)
 		set_it () */
 #if 0
 	  if (((fcntl (redir_fd, F_GETFD, 0) == 1) || redir_fd < 2 || (flags & RX_CLEXEC)) &&
+<<<<<<< HEAD
 	       (redirector > 2))
 #else
 	  if (((fcntl (redir_fd, F_GETFD, 0) == 1) || (redir_fd < 2 && (flags & RX_INTERNAL)) || (flags & RX_CLEXEC)) &&
 	       (redirector > 2))
+=======
+	       (redirector > 2))
+#else
+	  if (((fcntl (redir_fd, F_GETFD, 0) == 1) || (redir_fd < 2 && (flags & RX_INTERNAL)) || (flags & RX_CLEXEC)) &&
+	       (redirector > 2))
+>>>>>>> orgin/bash-4.3-testing
 #endif
 	    SET_CLOSE_ON_EXEC (redirector);
 
@@ -1147,12 +1199,18 @@ do_redirection_internal (redirect, flags)
 
 	  r = 0;
 	  /* XXX - only if REDIR_VARASSIGN not set? */
+<<<<<<< HEAD
 	  if (flags & RX_UNDOABLE)
 	    {
 	      if (fcntl (redirector, F_GETFD, 0) != -1)
 		r = add_undo_redirect (redirector, ri, -1);
 	      else
 		r = add_undo_close_redirect (redirector);
+=======
+	  if ((flags & RX_UNDOABLE) && (fcntl (redirector, F_GETFD, 0) != -1))
+	    {
+	      r = add_undo_redirect (redirector, ri, -1);
+>>>>>>> orgin/bash-4.3-testing
 	      REDIRECTION_ERROR (r, errno, redirector);
 	    }
 
@@ -1396,6 +1454,7 @@ redir_varvalue (redir)
   w = redir->redirector.filename->word;		/* shorthand */
   /* XXX - handle set -u here? */
 #if defined (ARRAY_VARS)
+<<<<<<< HEAD
   if (vr = valid_array_reference (w, 0))
     {
       v = array_variable_part (w, 0, &sub, &len);
@@ -1420,6 +1479,13 @@ redir_varvalue (redir)
 #endif
     }
 	
+=======
+  if (vr = valid_array_reference (w))
+    v = array_variable_part (w, &sub, &len);
+  else
+#endif
+  v = find_variable (w);
+>>>>>>> orgin/bash-4.3-testing
   if (v == 0 || invisible_p (v))
     return -1;
 

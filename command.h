@@ -1,7 +1,11 @@
 /* command.h -- The structures used internally to represent commands, and
    the extern declarations of the functions used to create them. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1993-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1993-2010 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -94,12 +98,17 @@ enum command_type { cm_for, cm_case, cm_while, cm_if, cm_simple, cm_select,
 #define W_HASQUOTEDNULL	0x040000	/* word contains a quoted null character */
 #define W_DQUOTE	0x080000	/* word should be treated as if double-quoted */
 #define W_NOPROCSUB	0x100000	/* don't perform process substitution */
+<<<<<<< HEAD
 #define W_SAWQUOTEDNULL	0x200000	/* word contained a quoted null that was removed */
+=======
+#define W_HASCTLESC	0x200000	/* word contains literal CTLESC characters */
+>>>>>>> orgin/bash-4.3-testing
 #define W_ASSIGNASSOC	0x400000	/* word looks like associative array assignment */
 #define W_ASSIGNARRAY	0x800000	/* word looks like a compound indexed array assignment */
 #define W_ARRAYIND	0x1000000	/* word is an array index being expanded */
 #define W_ASSNGLOBAL	0x2000000	/* word is a global assignment to declare (declare/typeset -g) */
 #define W_NOBRACE	0x4000000	/* Don't perform brace expansion */
+<<<<<<< HEAD
 #define W_COMPLETE	0x8000000	/* word is being expanded for completion */
 #define W_CHKLOCAL	0x10000000	/* check for local vars on assignment */
 #define W_NOASSNTILDE	0x20000000	/* don't do tilde expansion like an assignment statement */
@@ -111,6 +120,9 @@ enum command_type { cm_for, cm_case, cm_while, cm_if, cm_simple, cm_select,
 #define PF_NOSPLIT2	0x04	/* same as W_NOSPLIT2 */
 #define PF_ASSIGNRHS	0x08	/* same as W_ASSIGNRHS */
 #define PF_COMPLETE	0x10	/* same as W_COMPLETE, sets SX_COMPLETE */
+=======
+#define W_ASSIGNINT	0x8000000	/* word is an integer assignment to declare */
+>>>>>>> orgin/bash-4.3-testing
 
 /* Possible values for subshell_environment */
 #define SUBSHELL_ASYNC	0x01	/* subshell caused by `command &' */
@@ -185,8 +197,11 @@ typedef struct element {
 #define CMD_COMMAND_BUILTIN 0x0800 /* command executed by `command' builtin */
 #define CMD_COPROC_SUBSHELL 0x1000
 #define CMD_LASTPIPE	    0x2000
+<<<<<<< HEAD
 #define CMD_STDPATH	    0x4000	/* use standard path for command lookup */
 #define CMD_TRY_OPTIMIZING  0x8000	/* try to optimize this simple command */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* What a command looks like. */
 typedef struct command {

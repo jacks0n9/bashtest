@@ -1,7 +1,11 @@
 This file is getopts.def, from which is created getopts.c.
 It implements the builtin "getopts" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2004 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -265,7 +269,11 @@ dogetopts (argc, argv)
 	    
   if (ret == G_EOF)
     {
+<<<<<<< HEAD
       getopts_unbind_variable ("OPTARG");
+=======
+      unbind_variable ("OPTARG");
+>>>>>>> orgin/bash-4.3-testing
       getopts_bind_variable (name, "?");
       return (EXECUTION_FAILURE);
     }

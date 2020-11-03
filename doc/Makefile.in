@@ -1,6 +1,10 @@
 # This Makefile is for the Bash/documentation directory -*- text -*-.
 #
+<<<<<<< HEAD
 # Copyright (C) 2003-2015 Free Software Foundation, Inc.
+=======
+# Copyright (C) 2003-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -79,8 +83,11 @@ QUIETPS	    = #set this to -q to shut up dvips
 PAPERSIZE   = letter	# change to a4 for A4-size paper
 PSDPI       = 600	# could be 300 if you like
 DVIPS	    = dvips -D ${PSDPI} $(QUIETPS) -t ${PAPERSIZE} -o $@	# tricky
+<<<<<<< HEAD
 # experimental; uses external texi2dvi for now; this needs pdftex to be present
 TEXI2PDF    = texi2dvi --pdf
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 TEXINPUTDIR = $(RL_LIBDIR)/doc
 SET_TEXINPUTS = TEXINPUTS=.:$(TEXINPUTDIR):$$TEXINPUTS
@@ -150,11 +157,15 @@ BASHREF_FILES = $(srcdir)/bashref.texi $(srcdir)/fdl.texi $(srcdir)/version.texi
 	${RM} $@
 	-${DVIPS} $<
 
+<<<<<<< HEAD
 #.texi.pdf:
 #	$(RM) $@
 #	-${TEXI2PDF} $<
 
 all: ps info dvi text html $(MAN2HTML)
+=======
+all: ps info dvi text html
+>>>>>>> orgin/bash-4.3-testing
 nodvi: ps info text html
 everything: all pdf
 
@@ -178,6 +189,7 @@ bashref.dvi: $(BASHREF_FILES) $(HSUSER) $(RLUSER)
 bashref.info: $(BASHREF_FILES) $(HSUSER) $(RLUSER)
 	$(MAKEINFO) --no-split -I$(TEXINPUTDIR) $(srcdir)/bashref.texi
 
+<<<<<<< HEAD
 # experimental
 bashref.pdf: $(BASHREF_FILES) $(HSUSER) $(RLUSER)
 	${SET_TEXINPUTS} $(TEXI2PDF) $(srcdir)/bashref.texi || { ${RM} $@ ; exit 1; }
@@ -188,6 +200,13 @@ bashref.pdf: $(BASHREF_FILES) $(HSUSER) $(RLUSER)
 bashref.html: $(BASHREF_FILES) $(HSUSER) $(RLUSER)
 	$(MAKEINFO) --html --no-split -I$(TEXINPUTDIR) $(srcdir)/bashref.texi
 
+=======
+# can also use:
+#	$(MAKEINFO) --html --no-split -I$(TEXINPUTDIR) $(srcdir)/bashref.texi
+bashref.html: $(BASHREF_FILES) $(HSUSER) $(RLUSER)
+	$(TEXI2HTML) -menu -monolithic -I $(TEXINPUTDIR) $(srcdir)/bashref.texi
+
+>>>>>>> orgin/bash-4.3-testing
 bash.info: bashref.info
 	${SHELL} ${INFOPOST} < $(srcdir)/bashref.info > $@ ; \
 
@@ -247,7 +266,7 @@ installdirs:
 		$(SHELL) $(SUPPORT_SRCDIR)/mkinstalldirs $(DESTDIR)$(htmldir) ; \
 	fi
 	
-install: info installdirs
+install: info installdirs bash.info
 	-$(INSTALL_DATA) $(srcdir)/bash.1 $(DESTDIR)$(man1dir)/bash${man1ext}
 	-$(INSTALL_DATA) $(srcdir)/bashbug.1 $(DESTDIR)$(man1dir)/bashbug${man1ext}
 	-$(INSTALL_DATA) $(OTHER_DOCS) $(DESTDIR)$(docdir)
@@ -274,20 +293,26 @@ install_builtins:	installdirs
 
 install_everything:	install install_builtins
 
+<<<<<<< HEAD
 install-html:	html
 	-if test -n "${htmldir}" ; then \
 		$(INSTALL_DATA) $(srcdir)/bash.html $(DESTDIR)$(htmldir) ; \
 		$(INSTALL_DATA) $(srcdir)/bashref.html $(DESTDIR)$(htmldir) ; \
 	fi
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 uninstall:
 	-$(RM) $(DESTDIR)$(man1dir)/bash${man1ext} $(DESTDIR)$(man1dir)/bashbug${man1ext}
 	-$(RM) $(DESTDIR)$(man1dir)/bash_builtins${man1ext}
 	$(RM) $(DESTDIR)$(infodir)/bash.info
+<<<<<<< HEAD
 # run install-info if it is present to update the info directory
 	if $(SHELL) -c 'install-info --version' >/dev/null 2>&1; then \
 		install-info --delete --dir-file=$(DESTDIR)$(infodir)/dir $(DESTDIR)$(infodir)/bash.info; \
 	else true; fi
+=======
+>>>>>>> orgin/bash-4.3-testing
 	-( cd $(DESTDIR)$(docdir) && $(RM) $(OTHER_INSTALLED_DOCS) )
 	-if test -n "$(htmldir)" ; then \
 		$(RM) $(DESTDIR)$(htmldir)/bash.html ; \
@@ -338,4 +363,8 @@ rbash:	bashref.texi
 	cmp -s RBASH ../RBASH || mv RBASH ../RBASH
 	$(RM) RBASH
 
+<<<<<<< HEAD
 xdist: everything inst posix rbash
+=======
+xdist: pdf inst posix rbash
+>>>>>>> orgin/bash-4.3-testing

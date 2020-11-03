@@ -387,6 +387,7 @@ ${THIS_SH} ./array6.sub
 ${THIS_SH} ./array7.sub
 
 ${THIS_SH} ./array8.sub
+<<<<<<< HEAD
 ${THIS_SH} ./array9.sub
 ${THIS_SH} ./array10.sub
 ${THIS_SH} ./array11.sub
@@ -406,3 +407,19 @@ ${THIS_SH} ./array24.sub
 ${THIS_SH} ./array25.sub
 ${THIS_SH} ./array26.sub
 ${THIS_SH} ./array27.sub
+=======
+
+${THIS_SH} ./array9.sub
+
+${THIS_SH} ./array10.sub
+
+${THIS_SH} ./array11.sub
+
+${THIS_SH} ./array12.sub
+
+${THIS_SH} ./array13.sub
+
+${THIS_SH} ./array14.sub
+
+${THIS_SH} ./array15.sub
+>>>>>>> orgin/bash-4.3-testing

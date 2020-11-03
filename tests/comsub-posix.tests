@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 : ${HOME:=/}
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 # works right
 echo ab$(echo mnop)yz
@@ -218,6 +221,7 @@ unset x
 # fixed after bash-4.0 released
 : $(case a in a) echo ;; # comment
 esac)
+<<<<<<< HEAD
 
 # fixed after bash-4.3 released
 testing=$(
@@ -231,3 +235,5 @@ testing=$(
 
 # recommended to be parsed as a nested comsub instead of arithsub
 echo $(( echo ab cde ) )
+=======
+>>>>>>> orgin/bash-4.3-testing

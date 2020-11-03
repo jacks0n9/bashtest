@@ -1,7 +1,11 @@
 /* make_cmd.c -- Functions for making instances of the various
    parser constructs. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1989-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1989-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -34,9 +38,17 @@
 
 #include "bashintl.h"
 
+<<<<<<< HEAD
 #include "shell.h"
 #include "execute_cmd.h"
 #include "parser.h"
+=======
+#include "parser.h"
+#include "syntax.h"
+#include "command.h"
+#include "general.h"
+#include "error.h"
+>>>>>>> orgin/bash-4.3-testing
 #include "flags.h"
 #include "input.h"
 
@@ -46,7 +58,12 @@
 
 #include "shmbutil.h"
 
+<<<<<<< HEAD
 int here_doc_first_line = 0;
+=======
+extern int line_number, current_command_line_count, parser_state;
+extern int last_command_exit_value;
+>>>>>>> orgin/bash-4.3-testing
 
 /* Object caching */
 sh_obj_cache_t wdcache = {0, 0, 0};
@@ -252,9 +269,12 @@ make_arith_for_expr (s)
     return ((WORD_LIST *)NULL);
   wd = make_word (s);
   wd->flags |= W_NOGLOB|W_NOSPLIT|W_QUOTED|W_DQUOTE;	/* no word splitting or globbing */
+<<<<<<< HEAD
 #if defined (PROCESS_SUBSTITUTION)
   wd->flags |= W_NOPROCSUB;	/* no process substitution */
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
   result = make_word_list (wd, (WORD_LIST *)NULL);
   return result;
 }
@@ -286,7 +306,11 @@ make_arith_for_command (exprs, action, lineno)
 	s++;
       start = s;
       /* skip to the semicolon or EOS */
+<<<<<<< HEAD
       i = skip_to_delim (start, 0, ";", SD_NOJMP|SD_NOPROCSUB);
+=======
+      i = skip_to_delim (start, 0, ";", SD_NOJMP);
+>>>>>>> orgin/bash-4.3-testing
       s = start + i;
 
       t = (i > 0) ? substring (start, 0, i) : (char *)NULL;
@@ -786,6 +810,7 @@ make_function_def (name, command, lineno, lstart)
   if (bash_source_a && array_num_elements (bash_source_a) > 0)
     temp->source_file = array_reference (bash_source_a, 0);
 #endif
+<<<<<<< HEAD
   /* Assume that shell functions without a source file before the shell is
      initialized come from the environment.  Otherwise default to "main"
      (usually functions being defined interactively) */
@@ -798,6 +823,13 @@ make_function_def (name, command, lineno, lstart)
 
   temp->source_file = temp->source_file ? savestring (temp->source_file) : 0;
 
+=======
+#if defined (DEBUGGER)
+  bind_function_def (name->word, temp);
+#endif
+
+  temp->source_file = temp->source_file ? savestring (temp->source_file) : 0;
+>>>>>>> orgin/bash-4.3-testing
   return (make_command (cm_function_def, (SIMPLE_COM *)temp));
 }
 

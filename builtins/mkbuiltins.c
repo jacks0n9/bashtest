@@ -1,7 +1,11 @@
 /* mkbuiltins.c - Create builtins.c, builtext.h, and builtdoc.c from
    a single source file called builtins.def. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -71,8 +75,12 @@ extern char *strcpy ();
 /* Flag values that builtins can have. */
 #define BUILTIN_FLAG_SPECIAL	0x01
 #define BUILTIN_FLAG_ASSIGNMENT 0x02
+<<<<<<< HEAD
 #define BUILTIN_FLAG_LOCALVAR	0x04
 #define BUILTIN_FLAG_POSIX_BUILTIN 0x08
+=======
+#define BUILTIN_FLAG_POSIX_BUILTIN 0x04
+>>>>>>> orgin/bash-4.3-testing
 
 #define BASE_INDENT	4
 
@@ -160,11 +168,14 @@ char *assignment_builtins[] =
   (char *)NULL
 };
 
+<<<<<<< HEAD
 char *localvar_builtins[] =
 {
   "declare", "local", "typeset", (char *)NULL
 };
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* The builtin commands that are special to the POSIX search order. */
 char *posix_builtins[] =
 {
@@ -176,7 +187,10 @@ char *posix_builtins[] =
 /* Forward declarations. */
 static int is_special_builtin ();
 static int is_assignment_builtin ();
+<<<<<<< HEAD
 static int is_localvar_builtin ();
+=======
+>>>>>>> orgin/bash-4.3-testing
 static int is_posix_builtin ();
 
 #if !defined (HAVE_RENAME)
@@ -827,8 +841,11 @@ builtin_handler (self, defs, arg)
     new->flags |= BUILTIN_FLAG_SPECIAL;
   if (is_assignment_builtin (name))
     new->flags |= BUILTIN_FLAG_ASSIGNMENT;
+<<<<<<< HEAD
   if (is_localvar_builtin (name))
     new->flags |= BUILTIN_FLAG_LOCALVAR;
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (is_posix_builtin (name))
     new->flags |= BUILTIN_FLAG_POSIX_BUILTIN;
 
@@ -1111,7 +1128,11 @@ char *structfile_header[] = {
   "/* This file is manufactured by ./mkbuiltins, and should not be",
   "   edited by hand.  See the source to mkbuiltins for details. */",
   "",
+<<<<<<< HEAD
   "/* Copyright (C) 1987-2015 Free Software Foundation, Inc.",
+=======
+  "/* Copyright (C) 1987-2012 Free Software Foundation, Inc.",
+>>>>>>> orgin/bash-4.3-testing
   "",
   "   This file is part of GNU Bash, the Bourne Again SHell.",
   "",
@@ -1250,6 +1271,7 @@ write_builtins (defs, structfile, externfile)
 		  else
 		    fprintf (structfile, "(sh_builtin_func_t *)0x0, ");
 
+<<<<<<< HEAD
 		  fprintf (structfile, "%s%s%s%s%s, %s_doc,\n",
 		    "BUILTIN_ENABLED | STATIC_BUILTIN",
 		    (builtin->flags & BUILTIN_FLAG_SPECIAL) ? " | SPECIAL_BUILTIN" : "",
@@ -1280,6 +1302,25 @@ write_builtins (defs, structfile, externfile)
 			fprintf (structfile, "     N_(\"%s\"), (char *)NULL },\n",
 			  builtin->shortdoc ? builtin->shortdoc : builtin->name);
 		    }
+=======
+		  fprintf (structfile, "%s%s%s%s, %s_doc,\n",
+		    "BUILTIN_ENABLED | STATIC_BUILTIN",
+		    (builtin->flags & BUILTIN_FLAG_SPECIAL) ? " | SPECIAL_BUILTIN" : "",
+		    (builtin->flags & BUILTIN_FLAG_ASSIGNMENT) ? " | ASSIGNMENT_BUILTIN" : "",
+		    (builtin->flags & BUILTIN_FLAG_POSIX_BUILTIN) ? " | POSIX_BUILTIN" : "",
+		    document_name (builtin));
+
+		  if (inhibit_functions)
+		    fprintf
+		      (structfile, "     N_(\"%s\"), \"%s\" },\n",
+		       builtin->shortdoc ? builtin->shortdoc : builtin->name,
+		       document_name (builtin));
+		  else
+		    fprintf
+		      (structfile, "     N_(\"%s\"), (char *)NULL },\n",
+		       builtin->shortdoc ? builtin->shortdoc : builtin->name);
+
+>>>>>>> orgin/bash-4.3-testing
 		}
 
 	      if (structfile || separate_helpfiles)
@@ -1632,6 +1673,7 @@ is_assignment_builtin (name)
 }
 
 static int
+<<<<<<< HEAD
 is_localvar_builtin (name)
      char *name;
 {
@@ -1639,6 +1681,8 @@ is_localvar_builtin (name)
 }
 
 static int
+=======
+>>>>>>> orgin/bash-4.3-testing
 is_posix_builtin (name)
      char *name;
 {

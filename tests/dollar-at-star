@@ -228,6 +228,7 @@ esac
 # arrays) -- bugs through bash 4.2
 ${THIS_SH} ./dollar-at-star1.sub
 
+<<<<<<< HEAD
 # more tests for expanding $@ and $* in a context where there is no word
 # splitting
 ${THIS_SH} ./dollar-at-star2.sub
@@ -242,6 +243,8 @@ ${THIS_SH} ./dollar-at-star7.sub
 # members separated by spaces
 ${THIS_SH} ./dollar-at-star8.sub
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 # tests for special expansion of "$*" and "${array[*]}" when used with other
 # expansions -- bugs through bash-2.05b
 ${THIS_SH} ./dollar-star1.sub
@@ -288,6 +291,7 @@ ${THIS_SH} ./dollar-star6.sub
 # problem through bash-4.2
 ${THIS_SH} ./dollar-star7.sub
 
+<<<<<<< HEAD
 # tests for expansions of $* (unquoted) when IFS is null and word splitting is
 # not going to be performed.
 # problem through bash-4.4 in some parameter expansion contexts
@@ -302,4 +306,6 @@ ${THIS_SH} ./dollar-at7.sub
 # IFS is null
 ${THIS_SH} ./dollar-star9.sub
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 exit 0

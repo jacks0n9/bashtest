@@ -260,10 +260,13 @@ echo $(( -7 ))
 echo $(( ++7 ))
 echo $(( --7 ))
 
+<<<<<<< HEAD
 # combinations of expansions
 echo $(( "`echo 1+1`" ))
 echo $(( `echo 1+1` ))
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 ${THIS_SH} ./arith1.sub
 ${THIS_SH} ./arith2.sub
 ${THIS_SH} ./arith3.sub
@@ -279,6 +282,7 @@ ${THIS_SH} ./arith5.sub
 # problems with suppressing evaluation present through bash-4.2
 ${THIS_SH} ./arith6.sub
 
+<<<<<<< HEAD
 # problems with parsing arithmetic expressions containing colons that are
 # part of word expansions such as substring extraction
 ${THIS_SH} ./arith7.sub
@@ -286,6 +290,8 @@ ${THIS_SH} ./arith7.sub
 # problems with evaluation of conditional expressions
 ${THIS_SH} ./arith8.sub
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 x=4
 y=7
 
@@ -309,10 +315,13 @@ printf "%u\n" $n
 echo $(( 16#$(printf "%x\n" $n) ))
 echo $(( 16#$(printf "%X\n" $n) ))
 
+<<<<<<< HEAD
 # these are errors
 foo=1
 echo $(( 'foo' ))
 
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 # causes longjmp botches through bash-2.05b
 a[b[c]d]=e

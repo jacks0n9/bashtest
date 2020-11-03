@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This document details the changes between this version, bash-5.0-release, and
 the previous version, bash-5.0-rc1.
 
@@ -1890,6 +1891,8 @@ a.  The [[ -v ]] option now understands array references (foo[1]) and returns
     success if the referenced element has a value.
 
 ------------------------------------------------------------------------------
+=======
+>>>>>>> orgin/bash-4.3-testing
 This document details the changes between this version, bash-4.3-rc2, and the
 previous version, bash-4.3-rc1.
 
@@ -2618,7 +2621,11 @@ y.  The {x}<word redirection feature now allows words like {array[ind]} and
     can use variables with special meanings to the shell (e.g., BASH_XTRACEFD).
 
 z.  There is a new CHILD_MAX special shell variable; its value controls the
+<<<<<<< HEAD
     number of exited child statuses the shell remembers.
+=======
+    number of exited child statues the shell remembers.
+>>>>>>> orgin/bash-4.3-testing
 
 aa. There is a new configuration option (--enable-direxpand-default) that
     causes the `direxpand' shell option to be enabled by default.
@@ -2682,8 +2689,13 @@ j.  New user-settable variable, show-mode-in-prompt, adds a characters to the
     beginning of the prompt indicating the current editing mode.
 
 k.  New application-settable variable: rl_input_available_hook; function to be
+<<<<<<< HEAD
     called when readline needs to check whether there is data available on its
     input source.  The default hook checks rl_instream.
+=======
+    called when readline detects there is data available on its input file
+    descriptor.
+>>>>>>> orgin/bash-4.3-testing
 
 l.  Readline calls an application-set event hook (rl_signal_event_hook) after
     it gets a signal while reading input (read returns -1/EINTR but readline

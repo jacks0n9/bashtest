@@ -27,6 +27,7 @@
 
 #if defined (HAVE_POSIX_SIGSETJMP)
 #  define procenv_t	sigjmp_buf
+<<<<<<< HEAD
 
 #  define setjmp_nosigs(x)	sigsetjmp((x), 0)
 #  define setjmp_sigs(x)	sigsetjmp((x), 1)
@@ -41,6 +42,18 @@
 
 #  define _rl_longjmp(x, n)	longjmp((x), (n))
 #  define sh_longjmp(x, n)	longjmp((x), (n))
+=======
+#  if !defined (__OPENNT)
+#    undef setjmp
+#    define setjmp(x)	sigsetjmp((x), 1)
+#    define setjmp_nosigs(x)	sigsetjmp((x), 0)
+#    undef longjmp
+#    define longjmp(x, n)	siglongjmp((x), (n))
+#  endif /* !__OPENNT */
+#else
+#  define procenv_t	jmp_buf
+#  define setjmp_nosigs	setjmp
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 #endif /* _POSIXJMP_H_ */

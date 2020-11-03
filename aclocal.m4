@@ -962,8 +962,12 @@ AC_CACHE_VAL(bash_cv_termcap_lib,
     [AC_CHECK_LIB(tinfo, tgetent, bash_cv_termcap_lib=libtinfo,
         [AC_CHECK_LIB(curses, tgetent, bash_cv_termcap_lib=libcurses,
 	    [AC_CHECK_LIB(ncurses, tgetent, bash_cv_termcap_lib=libncurses,
+<<<<<<< HEAD
                 [AC_CHECK_LIB(ncursesw, tgetent, bash_cv_termcap_lib=libncursesw,
 	            bash_cv_termcap_lib=gnutermcap)])])])])])])
+=======
+	        bash_cv_termcap_lib=gnutermcap)])])])])])
+>>>>>>> orgin/bash-4.3-testing
 if test "X$_bash_needmsg" = "Xyes"; then
 AC_MSG_CHECKING(which library has the termcap functions)
 fi
@@ -1582,7 +1586,13 @@ fi
 AC_DEFUN(BASH_CHECK_DEV_STDIN,
 [AC_MSG_CHECKING(whether /dev/stdin stdout stderr are available)
 AC_CACHE_VAL(bash_cv_dev_stdin,
+<<<<<<< HEAD
 [if (exec test -r /dev/stdin < /dev/null) ; then
+=======
+[if test -d /dev/fd && (exec test -r /dev/stdin < /dev/null) ; then
+   bash_cv_dev_stdin=present
+ elif test -d /proc/self/fd && (exec test -r /dev/stdin < /dev/null) ; then
+>>>>>>> orgin/bash-4.3-testing
    bash_cv_dev_stdin=present
  else
    bash_cv_dev_stdin=absent
@@ -1687,8 +1697,11 @@ AC_CHECK_HEADERS(wctype.h)
 AC_CHECK_HEADERS(wchar.h)
 AC_CHECK_HEADERS(langinfo.h)
 
+<<<<<<< HEAD
 AC_CHECK_HEADERS(mbstr.h)
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 AC_CHECK_FUNC(mbrlen, AC_DEFINE(HAVE_MBRLEN))
 AC_CHECK_FUNC(mbscasecmp, AC_DEFINE(HAVE_MBSCMP))
 AC_CHECK_FUNC(mbscmp, AC_DEFINE(HAVE_MBSCMP))
@@ -1781,20 +1794,31 @@ char    **v;
         exit (w == 0);  /* exit 0 if wcwidth broken */
 }
 ],
+<<<<<<< HEAD
 bash_cv_wcwidth_broken=yes, bash_cv_wcwidth_broken=no, bash_cv_wcwidth_broken=no)])
+=======
+bash_cv_wcwidth_broken=yes, bash_cv_wcwdith_broken=no, bash_cv_wcwidth_broken=no)])
+>>>>>>> orgin/bash-4.3-testing
 if test "$bash_cv_wcwidth_broken" = yes; then
         AC_DEFINE(WCWIDTH_BROKEN, 1, [wcwidth is usually not broken])
 fi
 
 if test "$am_cv_func_iconv" = yes; then
 	OLDLIBS="$LIBS"
+<<<<<<< HEAD
 	LIBS="$LIBS $LIBINTL $LIBICONV"
+=======
+	LIBS="$LIBS $LIBICONV"
+>>>>>>> orgin/bash-4.3-testing
 	AC_CHECK_FUNCS(locale_charset)
 	LIBS="$OLDLIBS"
 fi
 
+<<<<<<< HEAD
 AC_CHECK_SIZEOF(wchar_t, 4)
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 ])
 
 dnl need: prefix exec_prefix libdir includedir CC TERMCAP_LIB
@@ -1853,7 +1877,11 @@ main()
 ],
 ac_cv_rl_version=`cat conftest.rlv`,
 ac_cv_rl_version='0.0',
+<<<<<<< HEAD
 ac_cv_rl_version='8.0')])
+=======
+ac_cv_rl_version='4.2')])
+>>>>>>> orgin/bash-4.3-testing
 
 CFLAGS="$_save_CFLAGS"
 LDFLAGS="$_save_LDFLAGS"
@@ -4192,6 +4220,7 @@ fi
 AC_MSG_RESULT($bash_cv_wexitstatus_offset)
 AC_DEFINE_UNQUOTED([WEXITSTATUS_OFFSET], [$bash_cv_wexitstatus_offset], [Offset of exit status in wait status word])
 ])
+<<<<<<< HEAD
 
 AC_DEFUN([BASH_FUNC_SBRK],
 [
@@ -4260,3 +4289,5 @@ else
 fi
 AC_DEFINE_UNQUOTED([FNMATCH_EQUIV_FALLBACK], [$bash_cv_fnmatch_equiv_value], [Whether fnmatch can be used for bracket equivalence classes])
 ])
+=======
+>>>>>>> orgin/bash-4.3-testing

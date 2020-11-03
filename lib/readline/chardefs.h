@@ -1,6 +1,10 @@
 /* chardefs.h -- Character definitions for readline. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1994-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1994-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.
@@ -73,7 +77,11 @@
 #endif
 
 #if !defined (isxdigit) && !defined (HAVE_ISXDIGIT) && !defined (__cplusplus)
+<<<<<<< HEAD
 #  define isxdigit(c)   (isdigit((unsigned char)(c)) || ((c) >= 'a' && (c) <= 'f') || ((c) >= 'A' && (c) <= 'F'))
+=======
+#  define isxdigit(c)   (isdigit((c)) || ((c) >= 'a' && (c) <= 'f') || ((c) >= 'A' && (c) <= 'F'))
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 #if defined (CTYPE_NON_ASCII)
@@ -87,6 +95,7 @@
 
 /* Beware:  these only work with single-byte ASCII characters. */
 
+<<<<<<< HEAD
 #define ISALNUM(c)	(IN_CTYPE_DOMAIN (c) && isalnum ((unsigned char)c))
 #define ISALPHA(c)	(IN_CTYPE_DOMAIN (c) && isalpha ((unsigned char)c))
 #define ISDIGIT(c)	(IN_CTYPE_DOMAIN (c) && isdigit ((unsigned char)c))
@@ -94,6 +103,15 @@
 #define ISPRINT(c)	(IN_CTYPE_DOMAIN (c) && isprint ((unsigned char)c))
 #define ISUPPER(c)	(IN_CTYPE_DOMAIN (c) && isupper ((unsigned char)c))
 #define ISXDIGIT(c)	(IN_CTYPE_DOMAIN (c) && isxdigit ((unsigned char)c))
+=======
+#define ISALNUM(c)	(IN_CTYPE_DOMAIN (c) && isalnum (c))
+#define ISALPHA(c)	(IN_CTYPE_DOMAIN (c) && isalpha (c))
+#define ISDIGIT(c)	(IN_CTYPE_DOMAIN (c) && isdigit (c))
+#define ISLOWER(c)	(IN_CTYPE_DOMAIN (c) && islower (c))
+#define ISPRINT(c)	(IN_CTYPE_DOMAIN (c) && isprint (c))
+#define ISUPPER(c)	(IN_CTYPE_DOMAIN (c) && isupper (c))
+#define ISXDIGIT(c)	(IN_CTYPE_DOMAIN (c) && isxdigit (c))
+>>>>>>> orgin/bash-4.3-testing
 
 #define _rl_lowercase_p(c)	(NON_NEGATIVE(c) && ISLOWER(c))
 #define _rl_uppercase_p(c)	(NON_NEGATIVE(c) && ISUPPER(c))

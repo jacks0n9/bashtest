@@ -1,6 +1,10 @@
 /* rlmbutil.h -- utility functions for multibyte characters. */
 
+<<<<<<< HEAD
 /* Copyright (C) 2001-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2001-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -123,6 +127,7 @@ extern int _rl_walphabetic PARAMS((wchar_t));
 #define MB_INVALIDCH(x)		((x) == (size_t)-1 || (x) == (size_t)-2)
 #define MB_NULLWCH(x)		((x) == 0)
 
+<<<<<<< HEAD
 /* Try and shortcut the printable ascii characters to cut down the number of
    calls to a libc wcwidth() */
 static inline int
@@ -157,10 +162,13 @@ _rl_wcwidth (wc)
     }
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Unicode combining characters range from U+0300 to U+036F */
 #define UNICODE_COMBINING_CHAR(x) ((x) >= 768 && (x) <= 879)
 
 #if defined (WCWIDTH_BROKEN)
+<<<<<<< HEAD
 #  define WCWIDTH(wc)	((_rl_utf8locale && UNICODE_COMBINING_CHAR(wc)) ? 0 : _rl_wcwidth(wc))
 #else
 #  define WCWIDTH(wc)	_rl_wcwidth(wc)
@@ -176,6 +184,13 @@ _rl_wcwidth (wc)
 #define UTF8_MBFIRSTCHAR(c)	(((c) & 0xc0) == 0xc0)
 #define UTF8_MBCHAR(c)		(((c) & 0xc0) == 0x80)
 
+=======
+#  define WCWIDTH(wc)	((_rl_utf8locale && UNICODE_COMBINING_CHAR(wc)) ? 0 : wcwidth(wc))
+#else
+#  define WCWIDTH(wc)	wcwidth(wc)
+#endif
+
+>>>>>>> orgin/bash-4.3-testing
 #else /* !HANDLE_MULTIBYTE */
 
 #undef MB_LEN_MAX
@@ -200,12 +215,15 @@ _rl_wcwidth (wc)
 #define MB_INVALIDCH(x)		(0)
 #define MB_NULLWCH(x)		(0)
 
+<<<<<<< HEAD
 #define UTF8_SINGLEBYTE(c)	(1)
 
 #if !defined (HAVE_WCHAR_T) && !defined (wchar_t)
 #  define wchar_t int
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif /* !HANDLE_MULTIBYTE */
 
 extern int rl_byte_oriented;

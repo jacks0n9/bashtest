@@ -37,6 +37,7 @@
 #include <unistd.h>
 #endif
 
+<<<<<<< HEAD
 #include <errno.h>
 #if !defined (errno)
 extern int errno;
@@ -49,6 +50,8 @@ extern int errno;
 #  include "stat-time.h"
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* A version of `alarm' using setitimer if it's available. */
 
 #if defined (HAVE_SETITIMER)
@@ -92,11 +95,16 @@ falarm (secs, usecs)
 /* A version of sleep using fractional seconds and select.  I'd like to use
    `usleep', but it's already taken */
 
+<<<<<<< HEAD
 #if defined (HAVE_TIMEVAL) && (defined (HAVE_SELECT) || defined (HAVE_PSELECT))
+=======
+#if defined (HAVE_TIMEVAL) && defined (HAVE_SELECT)
+>>>>>>> orgin/bash-4.3-testing
 int
 fsleep(sec, usec)
      unsigned int sec, usec;
 {
+<<<<<<< HEAD
   int e, r;
   sigset_t blocked_sigs, prevmask;
 #if defined (HAVE_PSELECT)
@@ -136,6 +144,14 @@ fsleep(sec, usec)
   while (r < 0 && errno == EINTR);
 
   return r;
+=======
+  struct timeval tv;
+
+  tv.tv_sec = sec;
+  tv.tv_usec = usec;
+
+  return select(0, (fd_set *)0, (fd_set *)0, (fd_set *)0, &tv);
+>>>>>>> orgin/bash-4.3-testing
 }
 #else /* !HAVE_TIMEVAL || !HAVE_SELECT */
 int

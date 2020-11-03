@@ -89,16 +89,24 @@ WORD_LIST	*list;
 		CASE_HELPOPT;
 		default:
 			builtin_usage();
+<<<<<<< HEAD
 			return (EX_USAGE);
+=======
+>>>>>>> orgin/bash-4.3-testing
 		}
 	}
 
 	list = loptend;
 
+<<<<<<< HEAD
 	if (list == 0) {
 		builtin_usage();
 		return (EX_USAGE);
 	}
+=======
+	if (list == 0)
+		builtin_usage();
+>>>>>>> orgin/bash-4.3-testing
 
 	for (es = EXECUTION_SUCCESS; list; list = list->next) {
 		p = list->word->word;

@@ -9,7 +9,11 @@
  * chet@ins.cwru.edu
  */
 
+<<<<<<< HEAD
 /* Copyright (C) 1997-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1997-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -63,6 +67,7 @@
 
 static char *array_to_string_internal __P((ARRAY_ELEMENT *, ARRAY_ELEMENT *, char *, int));
 
+<<<<<<< HEAD
 static char *spacesep = " ";
 
 #define IS_LASTREF(a)	(a->lastref)
@@ -76,6 +81,36 @@ static char *spacesep = " ";
 #define INVALIDATE_LASTREF(a)	a->lastref = 0
 #define SET_LASTREF(a, e)	a->lastref = (e)
 #define UNSET_LASTREF(a)	a->lastref = 0;
+=======
+static ARRAY *lastarray = 0;
+static ARRAY_ELEMENT *lastref = 0;
+
+#define IS_LASTREF(a)	(lastarray && (a) == lastarray)
+
+#define LASTREF_START(a, i) \
+	(IS_LASTREF(a) && i >= element_index(lastref)) ? lastref \
+						       : element_forw(a->head)
+
+#define INVALIDATE_LASTREF(a) \
+do { \
+	if ((a) == lastarray) { \
+		lastarray = 0; \
+		lastref = 0; \
+	} \
+} while (0)
+
+#define SET_LASTREF(a, e) \
+do { \
+	lastarray = (a); \
+	lastref = (e); \
+} while (0)
+
+#define UNSET_LASTREF() \
+do { \
+	lastarray = 0; \
+	lastref = 0; \
+} while (0)
+>>>>>>> orgin/bash-4.3-testing
 
 ARRAY *
 array_create()
@@ -384,6 +419,10 @@ array_remove_quoted_nulls(array)
 ARRAY	*array;
 {
 	ARRAY_ELEMENT	*a;
+<<<<<<< HEAD
+=======
+	char	*t;
+>>>>>>> orgin/bash-4.3-testing
 
 	if (array == 0 || array_head(array) == 0 || array_empty(array))
 		return (ARRAY *)NULL;
@@ -406,8 +445,13 @@ int	starsub, quoted;
 	ARRAY		*a2;
 	ARRAY_ELEMENT	*h, *p;
 	arrayind_t	i;
+<<<<<<< HEAD
 	char		*t;
 	WORD_LIST	*wl;
+=======
+	char		*ifs, *sifs, *t;
+	int		slen;
+>>>>>>> orgin/bash-4.3-testing
 
 	p = a ? array_head (a) : 0;
 	if (p == 0 || array_empty (a) || start > array_max_index(a))
@@ -432,12 +476,41 @@ int	starsub, quoted;
 
 	a2 = array_slice(a, h, p);
 
+<<<<<<< HEAD
 	wl = array_to_word_list(a2);
 	array_dispose(a2);
 	if (wl == 0)
 		return (char *)NULL;
 	t = string_list_pos_params(starsub ? '*' : '@', wl, quoted);
 	dispose_words(wl);
+=======
+	if (quoted & (Q_DOUBLE_QUOTES|Q_HERE_DOCUMENT))
+		array_quote(a2);
+	else
+		array_quote_escapes(a2);
+
+	if (starsub && (quoted & (Q_DOUBLE_QUOTES|Q_HERE_DOCUMENT))) {
+		/* ${array[*]} */
+		array_remove_quoted_nulls (a2);
+		sifs = ifs_firstchar ((int *)NULL);
+		t = array_to_string (a2, sifs, 0);
+		free (sifs);
+	} else if (quoted & (Q_DOUBLE_QUOTES|Q_HERE_DOCUMENT)) {
+		/* ${array[@]} */
+		sifs = ifs_firstchar (&slen);
+		ifs = getifs ();
+		if (ifs == 0 || *ifs == 0) {
+			if (slen < 2)
+				sifs = xrealloc(sifs, 2);
+			sifs[0] = ' ';
+			sifs[1] = '\0';
+		}
+		t = array_to_string (a2, sifs, 0);
+		free (sifs);
+	} else
+		t = array_to_string (a2, " ", 0);
+	array_dispose(a2);
+>>>>>>> orgin/bash-4.3-testing
 
 	return t;
 }
@@ -448,13 +521,21 @@ ARRAY	*a;
 char	*pat, *rep;
 int	mflags;
 {
+<<<<<<< HEAD
 	char	*t;
 	int	pchar, qflags;
 	WORD_LIST	*wl, *save;
+=======
+	ARRAY		*a2;
+	ARRAY_ELEMENT	*e;
+	char	*t, *sifs, *ifs;
+	int	slen;
+>>>>>>> orgin/bash-4.3-testing
 
 	if (a == 0 || array_head(a) == 0 || array_empty(a))
 		return ((char *)NULL);
 
+<<<<<<< HEAD
 	wl = array_to_word_list(a);
 	if (wl == 0)
 		return (char *)NULL;
@@ -503,10 +584,94 @@ int	mflags;
 
 	t = string_list_pos_params (pchar, save, qflags);
 	dispose_words(save);
+=======
+	a2 = array_copy(a);
+	for (e = element_forw(a2->head); e != a2->head; e = element_forw(e)) {
+		t = pat_subst(element_value(e), pat, rep, mflags);
+		FREE(element_value(e));
+		e->value = t;
+	}
+
+	if (mflags & MATCH_QUOTED)
+		array_quote(a2);
+	else
+		array_quote_escapes(a2);
+
+	if (mflags & MATCH_STARSUB) {
+		array_remove_quoted_nulls (a2);
+		sifs = ifs_firstchar((int *)NULL);
+		t = array_to_string (a2, sifs, 0);
+		free(sifs);
+	} else if (mflags & MATCH_QUOTED) {
+		/* ${array[@]} */
+		sifs = ifs_firstchar (&slen);
+		ifs = getifs ();
+		if (ifs == 0 || *ifs == 0) {
+			if (slen < 2)
+				sifs = xrealloc (sifs, 2);
+			sifs[0] = ' ';
+			sifs[1] = '\0';
+		}
+		t = array_to_string (a2, sifs, 0);
+		free(sifs);
+	} else
+		t = array_to_string (a2, " ", 0);
+	array_dispose (a2);
+>>>>>>> orgin/bash-4.3-testing
 
 	return t;
 }
 
+char *
+array_modcase (a, pat, modop, mflags)
+ARRAY	*a;
+char	*pat;
+int	modop;
+int	mflags;
+{
+	ARRAY		*a2;
+	ARRAY_ELEMENT	*e;
+	char	*t, *sifs, *ifs;
+	int	slen;
+
+	if (a == 0 || array_head(a) == 0 || array_empty(a))
+		return ((char *)NULL);
+
+	a2 = array_copy(a);
+	for (e = element_forw(a2->head); e != a2->head; e = element_forw(e)) {
+		t = sh_modcase(element_value(e), pat, modop);
+		FREE(element_value(e));
+		e->value = t;
+	}
+
+	if (mflags & MATCH_QUOTED)
+		array_quote(a2);
+	else
+		array_quote_escapes(a2);
+
+	if (mflags & MATCH_STARSUB) {
+		array_remove_quoted_nulls (a2);
+		sifs = ifs_firstchar((int *)NULL);
+		t = array_to_string (a2, sifs, 0);
+		free(sifs);
+	} else if (mflags & MATCH_QUOTED) {
+		/* ${array[@]} */
+		sifs = ifs_firstchar (&slen);
+		ifs = getifs ();
+		if (ifs == 0 || *ifs == 0) {
+			if (slen < 2)
+				sifs = xrealloc (sifs, 2);
+			sifs[0] = ' ';
+			sifs[1] = '\0';
+		}
+		t = array_to_string (a2, sifs, 0);
+		free(sifs);
+	} else
+		t = array_to_string (a2, " ", 0);
+	array_dispose (a2);
+
+	return t;
+}
 /*
  * Allocate and return a new array element with index INDEX and value
  * VALUE.
@@ -555,8 +720,11 @@ arrayind_t	i;
 char	*v;
 {
 	register ARRAY_ELEMENT *new, *ae, *start;
+<<<<<<< HEAD
 	arrayind_t startind;
 	int direction;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 	if (a == 0)
 		return(-1);
@@ -571,12 +739,15 @@ char	*v;
 		a->max_index = i;
 		a->num_elements++;
 		SET_LASTREF(a, new);
+<<<<<<< HEAD
 		return(0);
 	} else if (i < array_first_index(a)) {
 		/* Hook at the beginning */
 		ADD_AFTER(a->head, new);
 		a->num_elements++;
 		SET_LASTREF(a, new);
+=======
+>>>>>>> orgin/bash-4.3-testing
 		return(0);
 	}
 #if OPTIMIZE_SEQUENTIAL_ARRAY_ASSIGNMENT
@@ -585,6 +756,7 @@ char	*v;
 	 * handle optimizes the case of sequential or almost-sequential
 	 * assignments that are not at the end of the array.
 	 */
+<<<<<<< HEAD
 	start = LASTREF(a);
 	/* Use same strategy as array_reference to avoid paying large penalty
 	   for semi-random assignment pattern. */
@@ -604,26 +776,40 @@ char	*v;
 	direction = 1;
 #endif
 	for (ae = start; ae != a->head; ) {
+=======
+	start = LASTREF_START(a, i);
+#else
+	start = element_forw(ae->head);
+#endif
+	for (ae = start; ae != a->head; ae = element_forw(ae)) {
+>>>>>>> orgin/bash-4.3-testing
 		if (element_index(ae) == i) {
 			/*
 			 * Replacing an existing element.
 			 */
 			free(element_value(ae));
+<<<<<<< HEAD
 			/* Just swap in the new value */
 			ae->value = new->value;
 			new->value = 0;
 			array_dispose_element(new);
+=======
+			ae->value = v ? savestring(v) : (char *)NULL;
+>>>>>>> orgin/bash-4.3-testing
 			SET_LASTREF(a, ae);
 			return(0);
 		} else if (direction == 1 && element_index(ae) > i) {
 			ADD_BEFORE(ae, new);
 			a->num_elements++;
 			SET_LASTREF(a, new);
+<<<<<<< HEAD
 			return(0);
 		} else if (direction == -1 && element_index(ae) < i) {
 			ADD_AFTER(ae, new);
 			a->num_elements++;
 			SET_LASTREF(a, new);
+=======
+>>>>>>> orgin/bash-4.3-testing
 			return(0);
 		}
 		ae = direction == 1 ? element_forw(ae) : element_back(ae);
@@ -643,6 +829,7 @@ ARRAY	*a;
 arrayind_t	i;
 {
 	register ARRAY_ELEMENT *ae, *start;
+<<<<<<< HEAD
 	arrayind_t startind;
 	int direction;
 
@@ -664,6 +851,13 @@ arrayind_t	i;
 		direction = -1;
 	}
 	for (ae = start; ae != a->head; ) {
+=======
+
+	if (a == 0 || array_empty(a))
+		return((ARRAY_ELEMENT *) NULL);
+	start = LASTREF_START(a, i);
+	for (ae = start; ae != a->head; ae = element_forw(ae))
+>>>>>>> orgin/bash-4.3-testing
 		if (element_index(ae) == i) {
 			ae->next->prev = ae->prev;
 			ae->prev->next = ae->next;
@@ -700,6 +894,7 @@ ARRAY	*a;
 arrayind_t	i;
 {
 	register ARRAY_ELEMENT *ae, *start;
+<<<<<<< HEAD
 	arrayind_t startind;
 	int direction;
 
@@ -719,10 +914,20 @@ arrayind_t	i;
 		direction = -1;
 	}
 	for (ae = start; ae != a->head; ) {
+=======
+
+	if (a == 0 || array_empty(a))
+		return((char *) NULL);
+	if (i > array_max_index(a))
+		return((char *)NULL);	/* Keep roving pointer into array to optimize sequential access */
+	start = LASTREF_START(a, i);
+	for (ae = start; ae != a->head; ae = element_forw(ae))
+>>>>>>> orgin/bash-4.3-testing
 		if (element_index(ae) == i) {
 			SET_LASTREF(a, ae);
 			return(element_value(ae));
 		}
+<<<<<<< HEAD
 		ae = (direction == 1) ? element_forw(ae) : element_back(ae);
 		/* Take advantage of index ordering to short-circuit */
 		/* If we don't find it, set the lastref pointer to the element
@@ -742,6 +947,9 @@ arrayind_t	i;
 #else
 	SET_LASTREF(a, start);
 #endif
+=======
+	UNSET_LASTREF();
+>>>>>>> orgin/bash-4.3-testing
 	return((char *) NULL);
 }
 

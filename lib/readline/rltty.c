@@ -1,10 +1,17 @@
 /* rltty.c -- functions to prepare and restore the terminal for readline's
    use. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1992-2017 Free Software Foundation, Inc.
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.
+=======
+/* Copyright (C) 1992-2005 Free Software Foundation, Inc.
+
+   This file is part of the GNU Readline Library (Readline), a library
+   for reading lines of text with interactive input and history editing.      
+>>>>>>> orgin/bash-4.3-testing
 
    Readline is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -502,9 +509,12 @@ set_tty_settings (int tty, TIOTYPE *tiop)
 static void
 prepare_terminal_settings (int meta_flag, TIOTYPE oldtio, TIOTYPE *tiop)
 {
+<<<<<<< HEAD
   int sc;
   Keymap kmap;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   _rl_echoing_p = (oldtio.c_lflag & ECHO);
 #if defined (ECHOCTL)
   _rl_echoctl = (oldtio.c_lflag & ECHOCTL);
@@ -581,6 +591,22 @@ prepare_terminal_settings (int meta_flag, TIOTYPE oldtio, TIOTYPE *tiop)
 
 /* Put the terminal in CBREAK mode so that we can detect key presses. */
 #if defined (NO_TTY_DRIVER)
+<<<<<<< HEAD
+=======
+void
+rl_prep_terminal (meta_flag)
+     int meta_flag;
+{
+  _rl_echoing_p = 1;
+}
+
+void
+rl_deprep_terminal ()
+{
+}
+
+#else /* ! NO_TTY_DRIVER */
+>>>>>>> orgin/bash-4.3-testing
 void
 rl_prep_terminal (int meta_flag)
 {
@@ -643,7 +669,11 @@ rl_prep_terminal (int meta_flag)
       /* If editing in vi mode, make sure we set the bindings in the
 	 insertion keymap no matter what keymap we ended up in. */
       if (rl_editing_mode == vi_mode)
+<<<<<<< HEAD
 	_rl_bind_tty_special_chars (vi_insertion_keymap, tio);
+=======
+	_rl_bind_tty_special_chars (vi_insertion_keymap, tio);	
+>>>>>>> orgin/bash-4.3-testing
       else
 #endif
 	_rl_bind_tty_special_chars (_rl_keymap, tio);
@@ -688,6 +718,7 @@ rl_deprep_terminal (void)
   _rl_block_sigint ();
 
   tty = rl_instream ? fileno (rl_instream) : fileno (stdin);
+<<<<<<< HEAD
 
   if (terminal_prepped & TPX_BRACKPASTE)
     {
@@ -695,6 +726,8 @@ rl_deprep_terminal (void)
       if (_rl_eof_found)
  	fprintf (rl_outstream, "\n");
     }
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   if (_rl_enable_keypad)
     _rl_control_keypad (0);
@@ -711,6 +744,7 @@ rl_deprep_terminal (void)
   RL_UNSETSTATE(RL_STATE_TERMPREPPED);
 
   _rl_release_sigint ();
+<<<<<<< HEAD
 }
 #endif /* !NO_TTY_DRIVER */
 
@@ -724,7 +758,10 @@ rl_tty_set_echoing (int u)
   o = _rl_echoing_p;
   _rl_echoing_p = u;
   return o;
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
+#endif /* !NO_TTY_DRIVER */
 
 /* **************************************************************** */
 /*								    */
@@ -812,6 +849,7 @@ rl_stop_output (int count, int key)
 #endif
 
 #if defined (NO_TTY_DRIVER)
+<<<<<<< HEAD
 
 #define SET_SPECIAL(sc, func)
 #define RESET_SPECIAL(c)
@@ -830,6 +868,32 @@ set_special_char (Keymap kmap, TIOTYPE *tiop, int sc, rl_command_func_t *func)
 
 static void
 _rl_bind_tty_special_chars (Keymap kmap, TIOTYPE ttybuff)
+=======
+
+#define SET_SPECIAL(sc, func)
+#define RESET_SPECIAL(c)
+
+#elif defined (NEW_TTY_DRIVER)
+static void
+set_special_char (kmap, tiop, sc, func)
+     Keymap kmap;
+     TIOTYPE *tiop;
+     int sc;
+     rl_command_func_t *func;
+{
+  if (sc != -1 && kmap[(unsigned char)sc].type == ISFUNC)
+    kmap[(unsigned char)sc].function = func;
+}
+
+#define RESET_SPECIAL(c) \
+  if (c != -1 && kmap[(unsigned char)c].type == ISFUNC) \
+    kmap[(unsigned char)c].function = rl_insert;
+
+static void
+_rl_bind_tty_special_chars (kmap, ttybuff)
+     Keymap kmap;
+     TIOTYPE ttybuff;
+>>>>>>> orgin/bash-4.3-testing
 {
   if (ttybuff.flags & SGTTY_SET)
     {
@@ -848,7 +912,15 @@ _rl_bind_tty_special_chars (Keymap kmap, TIOTYPE ttybuff)
 
 #else /* !NEW_TTY_DRIVER */
 static void
+<<<<<<< HEAD
 set_special_char (Keymap kmap, TIOTYPE *tiop, int sc, rl_command_func_t *func)
+=======
+set_special_char (kmap, tiop, sc, func)
+     Keymap kmap;
+     TIOTYPE *tiop;
+     int sc;
+     rl_command_func_t *func;
+>>>>>>> orgin/bash-4.3-testing
 {
   unsigned char uc;
 
@@ -863,7 +935,13 @@ set_special_char (Keymap kmap, TIOTYPE *tiop, int sc, rl_command_func_t *func)
     kmap[uc].function = rl_insert;
 
 static void
+<<<<<<< HEAD
 _rl_bind_tty_special_chars (Keymap kmap, TIOTYPE ttybuff)
+=======
+_rl_bind_tty_special_chars (kmap, ttybuff)
+     Keymap kmap;
+     TIOTYPE ttybuff;
+>>>>>>> orgin/bash-4.3-testing
 {
   SET_SPECIAL (VERASE, rl_rubout);
   SET_SPECIAL (VKILL, rl_unix_line_discard);
@@ -873,11 +951,14 @@ _rl_bind_tty_special_chars (Keymap kmap, TIOTYPE ttybuff)
 #  endif /* VLNEXT && TERMIOS_TTY_DRIVER */
 
 #  if defined (VWERASE) && defined (TERMIOS_TTY_DRIVER)
+<<<<<<< HEAD
 #    if defined (VI_MODE)
   if (rl_editing_mode == vi_mode)
     SET_SPECIAL (VWERASE, rl_vi_unix_word_rubout);
   else
 #    endif
+=======
+>>>>>>> orgin/bash-4.3-testing
   SET_SPECIAL (VWERASE, rl_unix_word_rubout);
 #  endif /* VWERASE && TERMIOS_TTY_DRIVER */
 }
@@ -887,7 +968,12 @@ _rl_bind_tty_special_chars (Keymap kmap, TIOTYPE ttybuff)
 /* Set the system's default editing characters to their readline equivalents
    in KMAP.  Should be static, now that we have rl_tty_set_default_bindings. */
 void
+<<<<<<< HEAD
 rltty_set_default_bindings (Keymap kmap)
+=======
+rltty_set_default_bindings (kmap)
+     Keymap kmap;
+>>>>>>> orgin/bash-4.3-testing
 {
 #if !defined (NO_TTY_DRIVER)
   TIOTYPE ttybuff;
@@ -913,7 +999,12 @@ rl_tty_set_default_bindings (Keymap kmap)
    chars with save_tty_chars().  This only works on POSIX termios or termio
    systems. */
 void
+<<<<<<< HEAD
 rl_tty_unset_default_bindings (Keymap kmap)
+=======
+rl_tty_unset_default_bindings (kmap)
+     Keymap kmap;
+>>>>>>> orgin/bash-4.3-testing
 {
   /* Don't bother before we've saved the tty special chars at least once. */
   if (RL_ISSTATE(RL_STATE_TTYCSAVED) == 0)

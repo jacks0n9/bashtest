@@ -38,7 +38,11 @@ WORD_LIST *list;
 char *necho_doc[] = {
 	"Display arguments.",
 	"",
+<<<<<<< HEAD
 	"Print the arguments to the standard output separated",
+=======
+	"Print the arguments to the standard ouput separated",
+>>>>>>> orgin/bash-4.3-testing
 	"by space characters and terminated with a newline.",
 	(char *)NULL
 };

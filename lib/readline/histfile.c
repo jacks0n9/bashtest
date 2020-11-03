@@ -1,6 +1,10 @@
 /* histfile.c - functions to manipulate the history file. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1989-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1989-2010 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file contains the GNU History Library (History), a set of
    routines for managing the text of previously typed lines.
@@ -103,6 +107,7 @@ extern int errno;
 #include "rlshell.h"
 #include "xmalloc.h"
 
+<<<<<<< HEAD
 #if !defined (PATH_MAX)
 #  define PATH_MAX	1024	/* default */
 #endif
@@ -138,6 +143,14 @@ static char *history_backupfile PARAMS((const char *));
 static char *history_tempfile PARAMS((const char *));
 static int histfile_backup PARAMS((const char *, const char *));
 static int histfile_restore PARAMS((const char *, const char *));
+=======
+/* If non-zero, we write timestamps to the history file in history_do_write() */
+int history_write_timestamps = 0;
+
+/* Does S look like the beginning of a history timestamp entry?  Placeholder
+   for more extensive tests. */
+#define HIST_TIMESTAMP_START(s)		(*(s) == history_comment_char && isdigit ((s)[1]) )
+>>>>>>> orgin/bash-4.3-testing
 
 /* Return the string that should be used in the place of this
    filename.  This only matters when you don't specify the
@@ -178,6 +191,7 @@ history_filename (const char *filename)
 }
 
 static char *
+<<<<<<< HEAD
 history_backupfile (const char *filename)
 {
   const char *fn;
@@ -200,11 +214,23 @@ history_backupfile (const char *filename)
   len = strlen (fn);
   ret = xmalloc (len + 2);
   strcpy (ret, fn);
+=======
+history_backupfile (filename)
+     const char *filename;
+{
+  char *ret;
+  size_t len;
+
+  len = strlen (filename);
+  ret = xmalloc (len + 2);
+  strcpy (ret, filename);
+>>>>>>> orgin/bash-4.3-testing
   ret[len] = '-';
   ret[len+1] = '\0';
   return ret;
 }
   
+<<<<<<< HEAD
 static char *
 history_tempfile (const char *filename)
 {
@@ -244,6 +270,8 @@ history_tempfile (const char *filename)
   return ret;
 }
   
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Add the contents of FILENAME to the history list, a line at a time.
    If FILENAME is NULL, then read from ~/.history.  Returns 0 if
    successful, or errno if not. */
@@ -263,7 +291,11 @@ read_history_range (const char *filename, int from, int to)
 {
   register char *line_start, *line_end, *p;
   char *input, *buffer, *bufend, *last_ts;
+<<<<<<< HEAD
   int file, current_line, chars_read, has_timestamps, reset_comment_char;
+=======
+  int file, current_line, chars_read;
+>>>>>>> orgin/bash-4.3-testing
   struct stat finfo;
   size_t file_size;
 #if defined (EFBIG)
@@ -274,8 +306,11 @@ read_history_range (const char *filename, int from, int to)
   int overflow_errno = EIO;
 #endif
 
+<<<<<<< HEAD
   history_lines_read_from_file = 0;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   buffer = last_ts = (char *)NULL;
   input = history_filename (filename);
   file = input ? open (input, O_RDONLY|O_BINARY, 0666) : -1;
@@ -302,6 +337,7 @@ read_history_range (const char *filename, int from, int to)
       goto error_and_exit;
     }
 
+<<<<<<< HEAD
   if (file_size == 0)
     {
       free (input);
@@ -309,6 +345,8 @@ read_history_range (const char *filename, int from, int to)
       return 0;	/* don't waste time if we don't have to */
     }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #ifdef HISTORY_USE_MMAP
   /* We map read/write and private so we can change newlines to NULs without
      affecting the underlying object. */
@@ -382,6 +420,7 @@ read_history_range (const char *filename, int from, int to)
 	   line.  We should check more extensively here... */
 	if (HIST_TIMESTAMP_START(p) == 0)
 	  current_line++;
+<<<<<<< HEAD
 	else
 	  last_ts = p;
 	line_start = p;
@@ -394,6 +433,9 @@ read_history_range (const char *filename, int from, int to)
 	      ;
 	    line_start = (*line_end == '\n') ? line_end + 1 : line_end;
 	  }
+=======
+	line_start = p;
+>>>>>>> orgin/bash-4.3-testing
       }
 
   /* If there are lines left to gobble, then gobble them now. */
@@ -410,10 +452,14 @@ read_history_range (const char *filename, int from, int to)
 	  {
 	    if (HIST_TIMESTAMP_START(line_start) == 0)
 	      {
+<<<<<<< HEAD
 	      	if (last_ts == NULL && history_length > 0 && history_multiline_entries)
 		  _hs_append_history_line (history_length - 1, line_start);
 		else
 		  add_history (line_start);
+=======
+		add_history (line_start);
+>>>>>>> orgin/bash-4.3-testing
 		if (last_ts)
 		  {
 		    add_history_time (last_ts);
@@ -493,8 +539,13 @@ histfile_restore (const char *backup, const char *orig)
 int
 history_truncate_file (const char *fname, int lines)
 {
+<<<<<<< HEAD
   char *buffer, *filename, *tempname, *bp, *bp1;		/* bp1 == bp+1 */
   int file, chars_read, rv, orig_lines, exists, r;
+=======
+  char *buffer, *filename, *bp, *bp1;		/* bp1 == bp+1 */
+  int file, chars_read, rv;
+>>>>>>> orgin/bash-4.3-testing
   struct stat finfo;
   size_t file_size;
 
@@ -502,9 +553,14 @@ history_truncate_file (const char *fname, int lines)
 
   buffer = (char *)NULL;
   filename = history_filename (fname);
+<<<<<<< HEAD
   tempname = 0;
   file = filename ? open (filename, O_RDONLY|O_BINARY, 0666) : -1;
   rv = exists = 0;
+=======
+  file = filename ? open (filename, O_RDONLY|O_BINARY, 0666) : -1;
+  rv = 0;
+>>>>>>> orgin/bash-4.3-testing
 
   /* Don't try to truncate non-regular files. */
   if (file == -1 || fstat (file, &finfo) == -1)
@@ -591,19 +647,27 @@ history_truncate_file (const char *fname, int lines)
      truncate to. */
   if (bp <= buffer)
     {
+<<<<<<< HEAD
       rv = 0;
       /* No-op if LINES == 0 at this point */
       history_lines_written_to_file = orig_lines - lines;
       goto truncate_exit;
     }
+=======
+      if (write (file, bp, chars_read - (bp - buffer)) < 0)
+	rv = errno;
+>>>>>>> orgin/bash-4.3-testing
 
   tempname = history_tempfile (filename);
 
+<<<<<<< HEAD
   if ((file = open (tempname, O_WRONLY|O_CREAT|O_TRUNC|O_BINARY, 0600)) != -1)
     {
       if (write (file, bp, chars_read - (bp - buffer)) < 0)
 	rv = errno;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
       if (close (file) < 0 && rv == 0)
 	rv = errno;
     }
@@ -613,6 +677,7 @@ history_truncate_file (const char *fname, int lines)
  truncate_exit:
   FREE (buffer);
 
+<<<<<<< HEAD
   history_lines_written_to_file = orig_lines - lines;
 
   if (rv == 0 && filename && tempname)
@@ -637,6 +702,9 @@ history_truncate_file (const char *fname, int lines)
   xfree (filename);
   FREE (tempname);
 
+=======
+  xfree (filename);
+>>>>>>> orgin/bash-4.3-testing
   return rv;
 }
 
@@ -647,6 +715,7 @@ static int
 history_do_write (const char *filename, int nelements, int overwrite)
 {
   register int i;
+<<<<<<< HEAD
   char *output, *tempname, *histname;
   int file, mode, rv, exists;
   struct stat finfo;
@@ -655,15 +724,30 @@ history_do_write (const char *filename, int nelements, int overwrite)
 
   history_lines_written_to_file = 0;
 
+=======
+  char *output, *bakname;
+  int file, mode, rv;
+#ifdef HISTORY_USE_MMAP
+  size_t cursize;
+
+>>>>>>> orgin/bash-4.3-testing
   mode = overwrite ? O_RDWR|O_CREAT|O_TRUNC|O_BINARY : O_RDWR|O_APPEND|O_BINARY;
 #else
   mode = overwrite ? O_WRONLY|O_CREAT|O_TRUNC|O_BINARY : O_WRONLY|O_APPEND|O_BINARY;
 #endif
+<<<<<<< HEAD
   histname = history_filename (filename);
   exists = histname ? (stat (histname, &finfo) == 0) : 0;
 
   tempname = (overwrite && exists && S_ISREG (finfo.st_mode)) ? history_tempfile (histname) : 0;
   output = tempname ? tempname : histname;
+=======
+  output = history_filename (filename);
+  bakname = (overwrite && output) ? history_backupfile (output) : 0;
+
+  if (output && bakname)
+    rename (output, bakname);
+>>>>>>> orgin/bash-4.3-testing
 
   file = output ? open (output, mode, 0600) : -1;
   rv = 0;
@@ -671,8 +755,15 @@ history_do_write (const char *filename, int nelements, int overwrite)
   if (file == -1)
     {
       rv = errno;
+<<<<<<< HEAD
       FREE (histname);
       FREE (tempname);
+=======
+      if (output && bakname)
+        rename (bakname, output);
+      FREE (output);
+      FREE (bakname);
+>>>>>>> orgin/bash-4.3-testing
       return (rv);
     }
 
@@ -714,10 +805,17 @@ history_do_write (const char *filename, int nelements, int overwrite)
 mmap_error:
 	rv = errno;
 	close (file);
+<<<<<<< HEAD
 	if (tempname)
 	  unlink (tempname);
 	FREE (histname);
 	FREE (tempname);
+=======
+	if (output && bakname)
+	  rename (bakname, output);
+	FREE (output);
+	FREE (bakname);
+>>>>>>> orgin/bash-4.3-testing
 	return rv;
       }
 #else    
@@ -726,10 +824,17 @@ mmap_error:
       {
       	rv = errno;
 	close (file);
+<<<<<<< HEAD
 	if (tempname)
 	  unlink (tempname);
 	FREE (histname);
 	FREE (tempname);
+=======
+	if (output && bakname)
+	  rename (bakname, output);
+	FREE (output);
+	FREE (bakname);
+>>>>>>> orgin/bash-4.3-testing
 	return rv;
       }
 #endif
@@ -748,7 +853,11 @@ mmap_error:
       }
 
 #ifdef HISTORY_USE_MMAP
+<<<<<<< HEAD
     if (msync (buffer, buffer_size, MS_ASYNC) != 0 || munmap (buffer, buffer_size) != 0)
+=======
+    if (msync (buffer, buffer_size, 0) != 0 || munmap (buffer, buffer_size) != 0)
+>>>>>>> orgin/bash-4.3-testing
       rv = errno;
 #else
     if (write (file, buffer, buffer_size) < 0)
@@ -757,6 +866,7 @@ mmap_error:
 #endif
   }
 
+<<<<<<< HEAD
   history_lines_written_to_file = nelements;
 
   if (close (file) < 0 && rv == 0)
@@ -783,6 +893,18 @@ mmap_error:
 
   FREE (histname);
   FREE (tempname);
+=======
+  if (close (file) < 0 && rv == 0)
+    rv = errno;
+
+  if (rv != 0 && output && bakname)
+    rename (bakname, output);
+  else if (rv == 0 && bakname)
+    unlink (bakname);
+
+  FREE (output);
+  FREE (bakname);
+>>>>>>> orgin/bash-4.3-testing
 
   return (rv);
 }

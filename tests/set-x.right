@@ -26,10 +26,13 @@
 + x=i
 + case x in
 + x=i
+<<<<<<< HEAD
 + foo=one
 + foo+=two
 + echo onetwo
 onetwo
+=======
+>>>>>>> orgin/bash-4.3-testing
 + set +x
 1
 2

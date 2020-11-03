@@ -1,12 +1,16 @@
 /* Standard include files. stdio.h is required. */
 #include <stdlib.h>
 #include <unistd.h>
+<<<<<<< HEAD
 #include <string.h>
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 /* Used for select(2) */
 #include <sys/types.h>
 #include <sys/select.h>
 
+<<<<<<< HEAD
 #include <errno.h>
 #include <stdio.h>
 
@@ -20,6 +24,13 @@
 #endif
 
 extern int errno;
+=======
+#include <stdio.h>
+
+/* Standard readline include files. */
+#include <readline/readline.h>
+#include <readline/history.h>
+>>>>>>> orgin/bash-4.3-testing
 
 static void cb_linehandler (char *);
 
@@ -74,7 +85,11 @@ main (int c, char **v)
       FD_SET (fileno (rl_instream), &fds);    
 
       r = select (FD_SETSIZE, &fds, NULL, NULL, NULL);
+<<<<<<< HEAD
       if (r < 0 && errno != EINTR)
+=======
+      if (r < 0)
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  perror ("rltest: select");
 	  rl_callback_handler_remove ();

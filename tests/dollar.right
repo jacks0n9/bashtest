@@ -103,6 +103,7 @@ var=${a[@]}   ... one:::two three:::four
 var="${a[@]}" ... one:::two three:::four
 var=$@        ... one:::two three:::four
 var="$@"      ... one:::two three:::four
+<<<<<<< HEAD
 ok 1
 ok 2
 ok 3
@@ -301,6 +302,8 @@ a1=a b c a,b,c a b c a,b,c a b c a,b,c
 a2=a b c a,b,c a b c a,b,c a b c a,b,c
 a3=a b c a,b,c a b c a,b,c a b c a,b,c
 a4=a b c a,b,c a b c a,b,c a b c a,b,c
+=======
+>>>>>>> orgin/bash-4.3-testing
 xa|xb|xc
 xa|xb|xc
 a|b|c
@@ -420,17 +423,29 @@ third set:
 "${@:2}a3 a2" a$1    #works as long as $1 and 3 are swapped
 set y za3 a2 ax
 0
+<<<<<<< HEAD
 declare -a a=([0]="y" [1]="za3 a2" [2]="ax")
+=======
+declare -a a='([0]="y" [1]="za3 a2" [2]="ax")'
+>>>>>>> orgin/bash-4.3-testing
 
 "${@:2}b$1 b2" b3    #fails!  why?
 set y zbx b2 b3
 0
+<<<<<<< HEAD
 declare -a b=([0]="y" [1]="zbx b2" [2]="b3")
+=======
+declare -a b='([0]="y" [1]="zbx b2" [2]="b3")'
+>>>>>>> orgin/bash-4.3-testing
 
 ${@:2}c$1 c2 c3     #works as long as quoting omitted
 set y zcx c2 c3
 0
+<<<<<<< HEAD
 declare -a c=([0]="y" [1]="zcx" [2]="c2" [3]="c3")
+=======
+declare -a c='([0]="y" [1]="zcx" [2]="c2" [3]="c3")'
+>>>>>>> orgin/bash-4.3-testing
 argv[1] = <>
 argv[2] = <x>
 argv[1] = <>
@@ -480,6 +495,7 @@ argv[2] = <b>
 argv[3] = <c>
 argv[4] = <d>
 argv[1] = <a b c d>
+<<<<<<< HEAD
 <3>
 <abc>
 <def ghi>
@@ -577,3 +593,5 @@ argv[2] = <2>
 var=1 2
 argv[1] = <1 2>
 argv[1] = <1 2>
+=======
+>>>>>>> orgin/bash-4.3-testing

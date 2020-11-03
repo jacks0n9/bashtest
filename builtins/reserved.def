@@ -145,7 +145,11 @@ to indices 0 and 1 of an array variable NAME in the executing shell.
 The default NAME is "COPROC".
 
 Exit Status:
+<<<<<<< HEAD
 The coproc command returns an exit status of 0.
+=======
+Returns the exit status of COMMAND.
+>>>>>>> orgin/bash-4.3-testing
 $END
 
 $BUILTIN function

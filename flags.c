@@ -1,7 +1,11 @@
 /* flags.c -- Everything about flags except the `set' command.  That
    is in builtins.c */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -36,6 +40,19 @@
 extern int set_job_control __P((int));
 #endif
 
+<<<<<<< HEAD
+=======
+#if defined (RESTRICTED_SHELL)
+extern char *shell_name;
+#endif
+
+extern int shell_initialized;
+extern int builtin_ignoring_errexit;
+
+/* -c, -s invocation options -- not really flags, but they show up in $- */
+extern int want_pending_command, read_from_stdin;
+
+>>>>>>> orgin/bash-4.3-testing
 /* **************************************************************** */
 /*								    */
 /*			The Standard sh Flags.			    */
@@ -121,8 +138,16 @@ int hashing_enabled = 1;
 #if defined (BANG_HISTORY)
 /* Non-zero means that we are doing history expansion.  The default.
    This means !22 gets the 22nd line of history. */
+<<<<<<< HEAD
 int history_expansion = HISTEXPAND_DEFAULT;
 int histexp_flag = 0;
+=======
+#  if defined (STRICT_POSIX)
+int history_expansion = 0;
+#  else
+int history_expansion = 1;
+#  endif
+>>>>>>> orgin/bash-4.3-testing
 #endif /* BANG_HISTORY */
 
 /* Non-zero means that we allow comments to appear in interactive commands. */
@@ -349,6 +374,7 @@ reset_shell_flags ()
   place_keywords_in_env = read_but_dont_execute = just_one_command = 0;
   noclobber = unbound_vars_is_error = 0;
   echo_command_at_execute = jobs_m_flag = forced_interactive = 0;
+<<<<<<< HEAD
   no_symbolic_links = no_invisible_vars = 0;
   privileged_mode = pipefail_opt = 0;
 
@@ -356,6 +382,9 @@ reset_shell_flags ()
 
   exit_immediately_on_error = errexit_flag = 0;
   echo_input_at_read = verbose_flag = 0;
+=======
+  no_symbolic_links = no_invisible_vars = privileged_mode = pipefail_opt = 0;
+>>>>>>> orgin/bash-4.3-testing
 
   hashing_enabled = interactive_comments = 1;
 

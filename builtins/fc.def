@@ -1,7 +1,11 @@
 This file is fc.def, from which is created fc.c.
 It implements the builtin "fc" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -86,6 +90,14 @@ $END
 extern int errno;
 #endif /* !errno */
 
+<<<<<<< HEAD
+=======
+extern int current_command_line_count;
+extern int literal_history;
+extern int posixly_correct;
+extern int subshell_environment, interactive_shell;
+
+>>>>>>> orgin/bash-4.3-testing
 extern int unlink __P((const char *));
 
 extern FILE *sh_mktmpfp __P((char *, int, char **));
@@ -419,7 +431,10 @@ fc_builtin (list)
     {
       sh_wrerror ();
       fclose (stream);
+<<<<<<< HEAD
       FREE (fn);
+=======
+>>>>>>> orgin/bash-4.3-testing
       return (EXECUTION_FAILURE);
     }
   fclose (stream);

@@ -53,7 +53,11 @@
 /* Define DONT_REPORT_SIGTERM if you don't want to see `Terminates' message
    when a job exits due to SIGTERM, since that's the default signal sent
    by the kill builtin. */
+<<<<<<< HEAD
 #define DONT_REPORT_SIGTERM
+=======
+/* #define DONT_REPORT_SIGTERM */
+>>>>>>> orgin/bash-4.3-testing
 
 /* Define DONT_REPORT_BROKEN_PIPE_WRITE_ERRORS if you don't want builtins
    like `echo' and `printf' to report errors when output does not succeed
@@ -121,6 +125,7 @@
 #if defined (SYSLOG_HISTORY)
 #  define SYSLOG_FACILITY LOG_USER
 #  define SYSLOG_LEVEL LOG_INFO
+<<<<<<< HEAD
 #  define OPENLOG_OPTS LOG_PID
 #endif
 
@@ -129,20 +134,30 @@
    shopt option */
 #if defined (SYSLOG_HISTORY)
 /* #define SYSLOG_SHOPT 1 */
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 /* Define if you want to include code in shell.c to support wordexp(3) */
 /* #define WORDEXP_OPTION */
 
+<<<<<<< HEAD
 /* Define as 1 if you want to enable code that implements multiple coprocs
    executing simultaneously */
+=======
+/* Define as 1 if you want to enable code that implements multiple coprocs */
+>>>>>>> orgin/bash-4.3-testing
 #ifndef MULTIPLE_COPROCS
 #  define MULTIPLE_COPROCS 0
 #endif
 
 /* Define to 0 if you want the checkwinsize option off by default, 1 if you
    want it on. */
+<<<<<<< HEAD
 #define CHECKWINSIZE_DEFAULT	1
+=======
+#define CHECKWINSIZE_DEFAULT	0
+>>>>>>> orgin/bash-4.3-testing
 
 /* Define to 1 if you want to optimize for sequential array assignment when
    using indexed arrays, 0 if you want bash-4.2 behavior, which favors
@@ -152,6 +167,7 @@
 /* Define to 1 if you want to be able to export indexed arrays to processes
    using the foo=([0]=one [1]=two) and so on */
 /* #define ARRAY_EXPORT 1 */
+<<<<<<< HEAD
 
 /* Define to 1 if you want the shell to exit if it is running setuid and its
    attempt to drop privilege using setuid(getuid()) fails with errno == EAGAIN */
@@ -186,3 +202,5 @@
    interactive shells; define to 1 for the historical behavior of enabling
    when the shell is interactive. */
 #define HISTEXPAND_DEFAULT	1
+=======
+>>>>>>> orgin/bash-4.3-testing

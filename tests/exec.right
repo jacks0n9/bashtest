@@ -13,7 +13,11 @@ after exec1.sub: one two three
 126
 ./execscript: line 40: /: Is a directory
 126
+<<<<<<< HEAD
 /: /: Is a directory
+=======
+/: /: is a directory
+>>>>>>> orgin/bash-4.3-testing
 126
 ./execscript: line 47: .: /: is a directory
 1
@@ -60,6 +64,7 @@ expand_aliases 	on
 0
 0
 0
+<<<<<<< HEAD
 /usr/local/bin:/usr/GNU/bin:/usr/bin:/bin:.
 cannot find cat in $TMPDIR
 cannot find cat with empty $PATH
@@ -105,3 +110,6 @@ x2b
 x3
 x3a
 x3b
+=======
+after
+>>>>>>> orgin/bash-4.3-testing

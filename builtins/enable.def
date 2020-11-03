@@ -1,7 +1,11 @@
 This file is enable.def, from which is created enable.c.
 It implements the builtin "enable" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2016 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -339,10 +343,14 @@ dyn_load_builtin (list, flags, filename)
 
   if (handle == 0)
     {
+<<<<<<< HEAD
       name = printable_filename (filename, 0);
       builtin_error (_("cannot open shared object %s: %s"), name, dlerror ());
       if (name != filename)
 	free (name);
+=======
+      builtin_error (_("cannot open shared object %s: %s"), filename, dlerror ());
+>>>>>>> orgin/bash-4.3-testing
       return (EXECUTION_FAILURE);
     }
 
@@ -365,11 +373,16 @@ dyn_load_builtin (list, flags, filename)
       b = (struct builtin *)dlsym (handle, struct_name);
       if (b == 0)
 	{
+<<<<<<< HEAD
 	  name = printable_filename (filename, 0);
 	  builtin_error (_("cannot find %s in shared object %s: %s"),
 			  struct_name, name, dlerror ());
 	  if (name != filename)
 	    free (name);
+=======
+	  builtin_error (_("cannot find %s in shared object %s: %s"),
+			  struct_name, filename, dlerror ());
+>>>>>>> orgin/bash-4.3-testing
 	  free (struct_name);
 	  continue;
 	}

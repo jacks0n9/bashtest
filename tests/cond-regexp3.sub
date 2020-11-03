@@ -50,6 +50,7 @@ bs='\'
 [[ x =~ $'\\'x ]] ; echo $?
 [[ x =~ '\'x ]] ; echo $?
 
+<<<<<<< HEAD
 v='a\-b'
 [[ a-b =~ ${v} ]] ; echo $?
 [[ a-b =~ a\-b ]]; echo $?
@@ -57,6 +58,8 @@ v='a\-b'
 [[ a-b =~ a\\-b ]] ; echo $?
 [[ a-b =~ "a\-b" ]] ; echo $?
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 c=$'\001'
 
 recho $c "$c"

@@ -1,6 +1,10 @@
 /* sig.c - interface for shell signal handlers and signal initialization. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1994-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1994-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -55,11 +59,29 @@
 #  include "bashhist.h"
 #endif
 
+<<<<<<< HEAD
 extern void initialize_siglist ();
 
 #if !defined (JOB_CONTROL)
 extern void initialize_job_signals __P((void));
 #endif
+=======
+extern int last_command_exit_value;
+extern int last_command_exit_signal;
+extern int return_catch_flag;
+extern int loop_level, continuing, breaking, funcnest;
+extern int executing_list;
+extern int comsub_ignore_return;
+extern int parse_and_execute_level, shell_initialized;
+#if defined (HISTORY)
+extern int history_lines_this_session;
+#endif
+extern int no_line_editing;
+extern int wait_signal_received;
+extern sh_builtin_func_t *this_shell_builtin;
+
+extern void initialize_siglist ();
+>>>>>>> orgin/bash-4.3-testing
 
 /* Non-zero after SIGINT. */
 volatile sig_atomic_t interrupt_state = 0;
@@ -113,7 +135,10 @@ struct termsig {
      int signum;
      SigHandler *orig_handler;
      int orig_flags;
+<<<<<<< HEAD
      int core_dump;
+=======
+>>>>>>> orgin/bash-4.3-testing
 };
 
 #define NULL_HANDLER (SigHandler *)SIG_DFL
@@ -131,6 +156,7 @@ static struct termsig terminating_signals[] = {
 #endif
 
 #ifdef SIGILL
+<<<<<<< HEAD
 {  SIGILL, NULL_HANDLER, 0, 1},
 #endif
 
@@ -140,6 +166,17 @@ static struct termsig terminating_signals[] = {
 
 #ifdef SIGIOT
 {  SIGIOT, NULL_HANDLER, 0, 1 },
+=======
+{  SIGILL, NULL_HANDLER, 0 },
+#endif
+
+#ifdef SIGTRAP
+{  SIGTRAP, NULL_HANDLER, 0 },
+#endif
+
+#ifdef SIGIOT
+{  SIGIOT, NULL_HANDLER, 0 },
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 #ifdef SIGDANGER
@@ -151,6 +188,7 @@ static struct termsig terminating_signals[] = {
 #endif
 
 #ifdef SIGFPE
+<<<<<<< HEAD
 {  SIGFPE, NULL_HANDLER, 0, 1 },
 #endif
 
@@ -164,6 +202,21 @@ static struct termsig terminating_signals[] = {
 
 #ifdef SIGSYS
 {  SIGSYS, NULL_HANDLER, 0, 1 },
+=======
+{  SIGFPE, NULL_HANDLER, 0 },
+#endif
+
+#ifdef SIGBUS
+{  SIGBUS, NULL_HANDLER, 0 },
+#endif
+
+#ifdef SIGSEGV
+{  SIGSEGV, NULL_HANDLER, 0 },
+#endif
+
+#ifdef SIGSYS
+{  SIGSYS, NULL_HANDLER, 0 },
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 #ifdef SIGPIPE
@@ -181,11 +234,19 @@ static struct termsig terminating_signals[] = {
 /* These don't generate core dumps on anything but Linux, but we're doing
    this just for Linux anyway. */
 #ifdef SIGXCPU
+<<<<<<< HEAD
 {  SIGXCPU, NULL_HANDLER, 0, 1 },
 #endif
 
 #ifdef SIGXFSZ
 {  SIGXFSZ, NULL_HANDLER, 0, 1 },
+=======
+{  SIGXCPU, NULL_HANDLER, 0 },
+#endif
+
+#ifdef SIGXFSZ
+{  SIGXFSZ, NULL_HANDLER, 0 },
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 #ifdef SIGVTALRM
@@ -216,7 +277,10 @@ static struct termsig terminating_signals[] = {
 #define XSIG(x) (terminating_signals[x].signum)
 #define XHANDLER(x) (terminating_signals[x].orig_handler)
 #define XSAFLAGS(x) (terminating_signals[x].orig_flags)
+<<<<<<< HEAD
 #define XCOREDUMP(x) (terminating_signals[x].core_dump)
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 static int termsigs_initialized = 0;
 
@@ -373,7 +437,11 @@ top_level_cleanup ()
 {
   /* Clean up string parser environment. */
   while (parse_and_execute_level)
+<<<<<<< HEAD
     parse_and_execute_cleanup (-1);
+=======
+    parse_and_execute_cleanup ();
+>>>>>>> orgin/bash-4.3-testing
 
 #if defined (PROCESS_SUBSTITUTION)
   unlink_fifo_list ();
@@ -381,7 +449,11 @@ top_level_cleanup ()
 
   run_unwind_protects ();
   loop_level = continuing = breaking = funcnest = 0;
+<<<<<<< HEAD
   executing_list = comsub_ignore_return = return_catch_flag = wait_intr_flag = 0;
+=======
+  executing_list = comsub_ignore_return = return_catch_flag = 0;
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* What to do when we've been interrupted, and it is safe to handle it. */
@@ -439,7 +511,11 @@ throw_to_top_level ()
 
   run_unwind_protects ();
   loop_level = continuing = breaking = funcnest = 0;
+<<<<<<< HEAD
   executing_list = comsub_ignore_return = return_catch_flag = wait_intr_flag = 0;
+=======
+  executing_list = comsub_ignore_return = return_catch_flag = 0;
+>>>>>>> orgin/bash-4.3-testing
 
   if (interactive && print_newline)
     {
@@ -529,10 +605,15 @@ termsig_sighandler (sig)
 #if defined (READLINE)
   /* Set the event hook so readline will call it after the signal handlers
      finish executing, so if this interrupted character input we can get
+<<<<<<< HEAD
      quick response.  If readline is active or has modified the terminal we
      need to set this no matter what the signal is, though the check for
      RL_STATE_TERMPREPPED is possibly redundant. */
   if (RL_ISSTATE (RL_STATE_SIGHANDLER) || RL_ISSTATE (RL_STATE_TERMPREPPED))
+=======
+     quick response. */
+  if (interactive_shell && interactive && no_line_editing == 0)
+>>>>>>> orgin/bash-4.3-testing
     bashline_set_event_hook ();
 #endif
 
@@ -544,8 +625,11 @@ termsig_handler (sig)
      int sig;
 {
   static int handling_termsig = 0;
+<<<<<<< HEAD
   int i, core;
   sigset_t mask;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   /* Simple semaphore to keep this function from being executed multiple
      times.  Since we no longer are running as a signal handler, we don't
@@ -585,6 +669,7 @@ termsig_handler (sig)
 
   /* Reset execution context */
   loop_level = continuing = breaking = funcnest = 0;
+<<<<<<< HEAD
   executing_list = comsub_ignore_return = return_catch_flag = wait_intr_flag = 0;
 
   run_exit_trap ();	/* XXX - run exit trap possibly in signal context? */
@@ -592,9 +677,15 @@ termsig_handler (sig)
   /* We don't change the set of blocked signals. If a user starts the shell
      with a terminating signal blocked, we won't get here (and if by some
      magic chance we do, we'll exit below). */
+=======
+  executing_list = comsub_ignore_return = return_catch_flag = 0;
+
+  run_exit_trap ();	/* XXX - run exit trap possibly in signal context? */
+>>>>>>> orgin/bash-4.3-testing
   set_signal_handler (sig, SIG_DFL);
 
   kill (getpid (), sig);
+<<<<<<< HEAD
 
   if (dollar_dollar_pid != 1)
     exit (128+sig);		/* just in case the kill fails? */
@@ -621,6 +712,8 @@ termsig_handler (sig)
     *((volatile unsigned long *) NULL) = 0xdead0000 + sig;	/* SIGSEGV */
 
   exit (128+sig);
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
 #undef XSIG
 
@@ -639,9 +732,14 @@ sigint_sighandler (sig)
     ADDINTERRUPT;
 
   /* We will get here in interactive shells with job control active; allow
+<<<<<<< HEAD
      an interactive wait to be interrupted.  wait_intr_flag is only set during
      the execution of the wait builtin and when wait_intr_buf is valid. */
   if (wait_intr_flag)
+=======
+     an interactive wait to be interrupted. */
+  if (this_shell_builtin && this_shell_builtin == wait_builtin)
+>>>>>>> orgin/bash-4.3-testing
     {
       last_command_exit_value = 128 + sig;
       wait_signal_received = sig;
@@ -677,6 +775,7 @@ sigwinch_sighandler (sig)
   SIGRETURN (0);
 }
 #endif /* SIGWINCH */
+<<<<<<< HEAD
 
 void
 set_sigwinch_handler ()
@@ -694,6 +793,25 @@ unset_sigwinch_handler ()
 #endif
 }
 
+=======
+
+void
+set_sigwinch_handler ()
+{
+#if defined (SIGWINCH)
+ old_winch = set_signal_handler (SIGWINCH, sigwinch_sighandler);
+#endif
+}
+
+void
+unset_sigwinch_handler ()
+{
+#if defined (SIGWINCH)
+  set_signal_handler (SIGWINCH, old_winch);
+#endif
+}
+
+>>>>>>> orgin/bash-4.3-testing
 sighandler
 sigterm_sighandler (sig)
      int sig;
@@ -759,12 +877,15 @@ set_signal_handler (sig, handler)
      if we take the time to reap children */
 #if defined (SIGCHLD)
   if (sig == SIGCHLD)
+<<<<<<< HEAD
     act.sa_flags |= SA_RESTART;		/* XXX */
 #endif
   /* Let's see if we can keep SIGWINCH from interrupting interruptible system
      calls, like open(2)/read(2)/write(2) */
 #if defined (SIGWINCH)
   if (sig == SIGWINCH)
+=======
+>>>>>>> orgin/bash-4.3-testing
     act.sa_flags |= SA_RESTART;		/* XXX */
 #endif
   /* If we're installing a SIGTERM handler for interactive shells, we want

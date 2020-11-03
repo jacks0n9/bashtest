@@ -1,6 +1,10 @@
 /* evalstring.c - evaluate a string as one or more shell commands. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1996-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1996-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -61,6 +65,22 @@ extern int errno;
 
 #define IS_BUILTIN(s)	(builtin_address_internal(s, 0) != (struct builtin *)NULL)
 
+<<<<<<< HEAD
+=======
+extern int indirection_level, subshell_environment;
+extern int line_number, line_number_for_err_trap;
+extern int current_token, shell_eof_token;
+extern int last_command_exit_value;
+extern int running_trap;
+extern int loop_level;
+extern int executing_list;
+extern int comsub_ignore_return;
+extern int posixly_correct;
+extern int return_catch_flag, return_catch_value;
+extern sh_builtin_func_t *this_shell_builtin;
+extern char *the_printed_command_except_trap;
+
+>>>>>>> orgin/bash-4.3-testing
 int parse_and_execute_level = 0;
 
 static int cat_file __P((REDIRECT *));
@@ -84,6 +104,7 @@ restore_lastcom (x)
   the_printed_command_except_trap = x;
 }
 
+<<<<<<< HEAD
 int
 should_suppress_fork (command)
      COMMAND *command;
@@ -146,6 +167,8 @@ optimize_subshell_command (command)
     optimize_subshell_command (command->value.Connection->second);
 }
      
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* How to force parse_and_execute () to clean up after itself. */
 void
 parse_and_execute_cleanup (old_running_trap)
@@ -197,7 +220,12 @@ parse_prologue (string, flags, tag)
   else
     unwind_protect_int (remember_on_history);	/* can be used in scripts */
 #  if defined (BANG_HISTORY)
+<<<<<<< HEAD
   unwind_protect_int (history_expansion_inhibited);
+=======
+  if (interactive_shell)
+    unwind_protect_int (history_expansion_inhibited);
+>>>>>>> orgin/bash-4.3-testing
 #  endif /* BANG_HISTORY */
 #endif /* HISTORY */
 
@@ -243,7 +271,10 @@ parse_prologue (string, flags, tag)
    	(flags & SEVAL_NOHIST) -> call bash_history_disable ()
    	(flags & SEVAL_NOFREE) -> don't free STRING when finished
    	(flags & SEVAL_RESETLINE) -> reset line_number to 1
+<<<<<<< HEAD
    	(flags & SEVAL_NOHISTEXP) -> history_expansion_inhibited -> 1
+=======
+>>>>>>> orgin/bash-4.3-testing
 */
 
 int
@@ -265,8 +296,13 @@ parse_and_execute (string, from_file, flags)
 
 #if defined (HAVE_POSIX_SIGNALS)
   /* If we longjmp and are going to go on, use this to restore signal mask */
+<<<<<<< HEAD
   sigemptyset ((sigset_t *)&pe_sigmask);
   sigprocmask (SIG_BLOCK, (sigset_t *)NULL, (sigset_t *)&pe_sigmask);
+=======
+  sigemptyset (&pe_sigmask);
+  sigprocmask (SIG_BLOCK, (sigset_t *)NULL, &pe_sigmask);
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
   /* Reset the line number if the caller wants us to.  If we don't reset the
@@ -285,10 +321,13 @@ parse_and_execute (string, from_file, flags)
 
   code = should_jump_to_top_level = 0;
   last_result = EXECUTION_SUCCESS;
+<<<<<<< HEAD
 
   /* We need to reset enough of the token state so we can start fresh. */
   if (current_token == yacc_EOF)
     current_token = '\n';		/* reset_parser() ? */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   with_input_from_string (string, from_file);
   clear_shell_input_line ();
@@ -350,7 +389,11 @@ parse_and_execute (string, from_file, flags)
 		  dispose_command (command);	/* pe_dispose does this */
 #endif
 #if defined (HAVE_POSIX_SIGNALS)
+<<<<<<< HEAD
 		  sigprocmask (SIG_SETMASK, (sigset_t *)&pe_sigmask, (sigset_t *)NULL);
+=======
+		  sigprocmask (SIG_SETMASK, &pe_sigmask, (sigset_t *)NULL);
+>>>>>>> orgin/bash-4.3-testing
 #endif
 		  continue;
 		}
@@ -414,12 +457,27 @@ parse_and_execute (string, from_file, flags)
 	       *   we're not going to run the exit trap AND
 	       *   we have a simple command without redirections AND
 	       *   the command is not being timed AND
+<<<<<<< HEAD
 	       *   the command's return status is not being inverted AND
 	       *   there aren't any traps in effect
 	       * THEN
 	       *   tell the execution code that we don't need to fork
 	       */
 	      if (should_suppress_fork (command))
+=======
+	       *   the command's return status is not being inverted
+	       * THEN
+	       *   tell the execution code that we don't need to fork
+	       */
+	      if (startup_state == 2 && parse_and_execute_level == 1 &&
+		  running_trap == 0 &&
+		  *bash_input.location.string == '\0' &&
+		  command->type == cm_simple &&
+		  signal_is_trapped (EXIT_TRAP) == 0 &&
+		  command->redirects == 0 && command->value.Simple->redirects == 0 &&
+		  ((command->flags & CMD_TIME_PIPELINE) == 0) &&
+		  ((command->flags & CMD_INVERT_RETURN) == 0))
+>>>>>>> orgin/bash-4.3-testing
 		{
 		  command->flags |= CMD_NO_FORK;
 		  command->value.Simple->flags |= CMD_NO_FORK;
@@ -481,6 +539,15 @@ parse_and_execute (string, from_file, flags)
 	      last_command_exit_value = EX_BADUSAGE;
 	    }
 
+	  if (interactive_shell == 0 && this_shell_builtin &&
+	      (this_shell_builtin == source_builtin || this_shell_builtin == eval_builtin) &&
+	      last_command_exit_value == EX_BADSYNTAX && posixly_correct)
+	    {
+	      should_jump_to_top_level = 1;
+	      code = ERREXIT;
+	      last_command_exit_value = EX_BADUSAGE;
+	    }
+
 	  /* Since we are shell compatible, syntax errors in a script
 	     abort the execution of the script.  Right? */
 	  break;
@@ -528,11 +595,18 @@ parse_string (string, from_file, flags, endp)
 
 #if defined (HAVE_POSIX_SIGNALS)
   /* If we longjmp and are going to go on, use this to restore signal mask */
+<<<<<<< HEAD
   sigemptyset ((sigset_t *)&ps_sigmask);
   sigprocmask (SIG_BLOCK, (sigset_t *)NULL, (sigset_t *)&ps_sigmask);
 #endif
 
 /*itrace("parse_string: `%s'", string);*/
+=======
+  sigemptyset (&ps_sigmask);
+  sigprocmask (SIG_BLOCK, (sigset_t *)NULL, &ps_sigmask);
+#endif
+
+>>>>>>> orgin/bash-4.3-testing
   /* Reset the line number if the caller wants us to.  If we don't reset the
      line number, we have to subtract one, because we will add one just
      before executing the next command (resetting the line number sets it to
@@ -547,7 +621,11 @@ parse_string (string, from_file, flags, endp)
   ostring = string;
 
   with_input_from_string (string, from_file);
+<<<<<<< HEAD
   while (*(bash_input.location.string))		/* XXX - parser_expanding_alias () ? */
+=======
+  while (*(bash_input.location.string))
+>>>>>>> orgin/bash-4.3-testing
     {
       command = (COMMAND *)NULL;
 
@@ -581,7 +659,11 @@ itrace("parse_string: longjmp executed: code = %d", code);
 
 	    default:
 #if defined (HAVE_POSIX_SIGNALS)
+<<<<<<< HEAD
 	      sigprocmask (SIG_SETMASK, (sigset_t *)&ps_sigmask, (sigset_t *)NULL);
+=======
+	      sigprocmask (SIG_SETMASK, &ps_sigmask, (sigset_t *)NULL);
+>>>>>>> orgin/bash-4.3-testing
 #endif
 	      command_error ("parse_string", CMDERR_BADJUMP, code, 0);
 	      break;
@@ -618,6 +700,7 @@ itrace("parse_string: longjmp executed: code = %d", code);
 
   run_unwind_frame (PS_TAG);
 
+<<<<<<< HEAD
   /* If we return < 0, the caller (xparse_dolparen) will jump_to_top_level for
      us, after doing cleanup */
   if (should_jump_to_top_level)
@@ -628,6 +711,10 @@ itrace("parse_string: longjmp executed: code = %d", code);
 	return -DISCARD;
       jump_to_top_level (code);
     }
+=======
+  if (should_jump_to_top_level)
+    jump_to_top_level (code);
+>>>>>>> orgin/bash-4.3-testing
 
   return (nc);
 }
@@ -681,10 +768,13 @@ evalstring (string, from_file, flags)
      int flags;
 {
   volatile int r, rflag, rcatch;
+<<<<<<< HEAD
   volatile int was_trap;
 
   /* Are we running a trap when we execute this function? */
   was_trap = running_trap;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   rcatch = 0;
   rflag = return_catch_flag;
@@ -704,9 +794,13 @@ evalstring (string, from_file, flags)
 
   if (rcatch)
     {
+<<<<<<< HEAD
       /* We care about whether or not we are running the same trap we were
 	 when we entered this function. */
       parse_and_execute_cleanup (was_trap);
+=======
+      parse_and_execute_cleanup ();
+>>>>>>> orgin/bash-4.3-testing
       r = return_catch_value;
     }
   else
@@ -719,7 +813,11 @@ evalstring (string, from_file, flags)
       if (rcatch && return_catch_flag)
 	{
 	  return_catch_value = r;
+<<<<<<< HEAD
 	  sh_longjmp (return_catch, 1);
+=======
+	  longjmp (return_catch, 1);
+>>>>>>> orgin/bash-4.3-testing
 	}
     }
     

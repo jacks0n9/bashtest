@@ -4,7 +4,11 @@
 mkdir $TMPDIR/bash-test-$$
 cd $TMPDIR/bash-test-$$
 
+<<<<<<< HEAD
 trap "cd $OLDPWD ; rm -rf $TMPDIR/bash-test-$$" 0 1 2 3 6 15
+=======
+trap "cd / ; rm -rf $TMPDIR/bash-test-$$" 0 1 2 3 6 15
+>>>>>>> orgin/bash-4.3-testing
 
 touch '[3]=abcde'
 

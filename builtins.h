@@ -17,9 +17,12 @@
    You should have received a copy of the GNU General Public License
    along with Bash.  If not, see <http://www.gnu.org/licenses/>.
 */
+<<<<<<< HEAD
 
 #ifndef BUILTINS_H
 #define BUILTINS_H
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #include "config.h"
 
@@ -44,7 +47,10 @@
 #define SPECIAL_BUILTIN 0x08	/* This is a Posix `special' builtin. */
 #define ASSIGNMENT_BUILTIN 0x10	/* This builtin takes assignment statements. */
 #define POSIX_BUILTIN	0x20	/* This builtins is special in the Posix command search order. */
+<<<<<<< HEAD
 #define LOCALVAR_BUILTIN   0x40	/* This builtin creates local variables */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #define BASE_INDENT	4
 

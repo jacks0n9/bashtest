@@ -14,7 +14,11 @@ echo "'${test//"'"/}'"
 
 echo "'${test//"'"/"'\\''"}'"
 
+<<<<<<< HEAD
 printf "%s\n" "'${test//"'"/\'\\'\'}'"
+=======
+echo "'${test//"'"/\'\\'\'}'"
+>>>>>>> orgin/bash-4.3-testing
 
 #echo "'${test//'/}'"   # hangs waiting for '
 #echo "'${test//"'"/'\\''}'" # hangs waiting for '

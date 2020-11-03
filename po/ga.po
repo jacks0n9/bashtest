@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # translation of bash.po to Irish
 # Copyright (C) 2017 Free Software Foundation, Inc.
 # This file is distributed under the same license as the bash package.
@@ -31,37 +32,85 @@ msgid "%s: removing nameref attribute"
 msgstr "%s: aitreabúid nameref (tagairt athróga) á baint"
 
 #: arrayfunc.c:402 builtins/declare.def:851
+=======
+# translation of bash4.po to Irish
+# Copyright (C) 2009 Free Software Foundation, Inc.
+# This file is distributed under the same license as the bash package.
+#
+# Séamus Ó Ciardhuáin <seoc(at)iolfree.ie>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: bash 4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-23 16:04-0500\n"
+"PO-Revision-Date: 2009-09-24 23:08+0100\n"
+"Last-Translator: Séamus Ó Ciardhuáin <seoc@iolfree.ie>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n==2 ? 1 : 2;\n"
+
+#: arrayfunc.c:51
+msgid "bad array subscript"
+msgstr "droch-fhoscript eagair"
+
+#: arrayfunc.c:356 builtins/declare.def:566
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot convert indexed to associative array"
 msgstr ""
 "%s: ní féidir eagar innéacsaithe a thiontú go heagar comhthiomsaitheach"
 
+<<<<<<< HEAD
 #: arrayfunc.c:586
+=======
+#: arrayfunc.c:539
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid associative array key"
 msgstr "%s: eochair neamhbhailí eagair chomhthiomsaithigh"
 
+<<<<<<< HEAD
 #: arrayfunc.c:588
+=======
+#: arrayfunc.c:541
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot assign to non-numeric index"
 msgstr "%s: ní féidir sannadh go hinnéacs neamhuimhriúil."
 
+<<<<<<< HEAD
 #: arrayfunc.c:633
+=======
+#: arrayfunc.c:586
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: must use subscript when assigning associative array"
 msgstr ""
 "%s: %s: caithfear foscript a úsáid le sannadh chuig eagar comhthiomsaitheach"
 
+<<<<<<< HEAD
 #: bashhist.c:451
+=======
+#: bashhist.c:388
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot create: %s"
 msgstr "%s: ní féidir cruthú: %s"
 
+<<<<<<< HEAD
 #: bashline.c:4144
+=======
+#: bashline.c:3971
+>>>>>>> orgin/bash-4.3-testing
 msgid "bash_execute_unix_command: cannot find keymap for command"
 msgstr ""
 "bash_execute_unix_command: ní féidir mapa eochrach an ordaithe a aimsiú"
 
+<<<<<<< HEAD
 #: bashline.c:4254
 #, c-format
 msgid "%s: first non-whitespace character is not `\"'"
@@ -73,10 +122,24 @@ msgid "no closing `%c' in %s"
 msgstr "Níl '%c' dúnta i %s"
 
 #: bashline.c:4317
+=======
+#: bashline.c:4058
+#, c-format
+msgid "%s: first non-whitespace character is not `\"'"
+msgstr "%s: ní \" é an chéad charachtar nach spás bán é."
+
+#: bashline.c:4087
+#, c-format
+msgid "no closing `%c' in %s"
+msgstr "Níl \"%c\" dúnta i %s"
+
+#: bashline.c:4121
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: missing colon separator"
 msgstr "%s: deighilteoir idirstaid ar iarraidh"
 
+<<<<<<< HEAD
 #: braces.c:331
 #, c-format
 msgid "brace expansion: cannot allocate memory for %s"
@@ -99,23 +162,64 @@ msgid "`%s': invalid alias name"
 msgstr "'%s': ainm neamhbhailí ar mhapa eochrach"
 
 #: builtins/bind.def:122 builtins/bind.def:125
+=======
+#: braces.c:321
+#, c-format
+msgid "brace expansion: cannot allocate memory for %s"
+msgstr ""
+
+#: braces.c:413
+#, c-format
+msgid "brace expansion: failed to allocate memory for %d elements"
+msgstr ""
+
+#: braces.c:452
+#, c-format
+msgid "brace expansion: failed to allocate memory for `%s'"
+msgstr ""
+
+#: builtins/alias.def:132
+#, fuzzy, c-format
+msgid "`%s': invalid alias name"
+msgstr "\"%s\": ainm neamhbhailí ar mhapa eochrach "
+
+#: builtins/bind.def:123 builtins/bind.def:126
+>>>>>>> orgin/bash-4.3-testing
 msgid "line editing not enabled"
 msgstr "níl eagarthóireacht líne cumasaithe"
 
 #: builtins/bind.def:212
 #, c-format
 msgid "`%s': invalid keymap name"
+<<<<<<< HEAD
 msgstr "'%s': ainm neamhbhailí ar mhapa eochrach "
 
 #: builtins/bind.def:252
+=======
+msgstr "\"%s\": ainm neamhbhailí ar mhapa eochrach "
+
+#: builtins/bind.def:251
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot read: %s"
 msgstr "%s: ní féidir léamh: %s"
 
+<<<<<<< HEAD
 #: builtins/bind.def:304 builtins/bind.def:334
 #, c-format
 msgid "`%s': unknown function name"
 msgstr "'%s': ainm feidhme neamhaithnid"
+=======
+#: builtins/bind.def:266
+#, c-format
+msgid "`%s': cannot unbind"
+msgstr "\"%s\": ní féidir dícheangail"
+
+#: builtins/bind.def:304 builtins/bind.def:334
+#, c-format
+msgid "`%s': unknown function name"
+msgstr "\"%s\": ainm feidhme neamhaithnid"
+>>>>>>> orgin/bash-4.3-testing
 
 #: builtins/bind.def:312
 #, c-format
@@ -127,6 +231,7 @@ msgstr "Níl %s ceangailte le heochair ar bith.\n"
 msgid "%s can be invoked via "
 msgstr "Is féidir %s a ghlaoigh trí "
 
+<<<<<<< HEAD
 #: builtins/bind.def:353 builtins/bind.def:368
 #, c-format
 msgid "`%s': cannot unbind"
@@ -141,6 +246,17 @@ msgid "only meaningful in a `for', `while', or `until' loop"
 msgstr "Gan chiall ach i lúb 'for', 'while' nó 'until'"
 
 #: builtins/caller.def:136
+=======
+#: builtins/break.def:77 builtins/break.def:117
+msgid "loop count"
+msgstr "comhaireamh lúibe"
+
+#: builtins/break.def:137
+msgid "only meaningful in a `for', `while', or `until' loop"
+msgstr "Gan chiall ach i lúb \"for\", \"while\" nó \"until\""
+
+#: builtins/caller.def:134
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Returns the context of the current subroutine call.\n"
 "    \n"
@@ -150,6 +266,7 @@ msgstr ""
 "    \n"
 "    Gan SLONN, aischuirtear "
 
+<<<<<<< HEAD
 #: builtins/cd.def:326
 msgid "HOME not set"
 msgstr "Níl HOME socruithe"
@@ -167,45 +284,89 @@ msgid "OLDPWD not set"
 msgstr "Níl OLDPWD socruithe"
 
 #: builtins/common.c:96
+=======
+#: builtins/cd.def:319
+msgid "HOME not set"
+msgstr "Níl HOME socruithe"
+
+#: builtins/cd.def:327 builtins/common.c:166 test.c:855
+msgid "too many arguments"
+msgstr "An iomarca argóintí"
+
+#: builtins/cd.def:338
+msgid "OLDPWD not set"
+msgstr "Níl OLDPWD socruithe"
+
+#: builtins/common.c:101
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "line %d: "
 msgstr "líne %d: "
 
+<<<<<<< HEAD
 #: builtins/common.c:134 error.c:264
+=======
+#: builtins/common.c:139 error.c:265
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "warning: "
 msgstr "rabhadh: "
 
+<<<<<<< HEAD
 #: builtins/common.c:148
+=======
+#: builtins/common.c:153
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: usage: "
 msgstr "%s: úsáid: "
 
+<<<<<<< HEAD
 #: builtins/common.c:193 shell.c:510 shell.c:838
+=======
+#: builtins/common.c:191 shell.c:506 shell.c:788
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: option requires an argument"
 msgstr "%s: tá argóint riachtanach don rogha"
 
+<<<<<<< HEAD
 #: builtins/common.c:200
+=======
+#: builtins/common.c:198
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: numeric argument required"
 msgstr "%s: argóint uimhriúil de dhíth"
 
+<<<<<<< HEAD
 #: builtins/common.c:207
+=======
+#: builtins/common.c:205
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not found"
 msgstr "%s: gan aimsiú"
 
+<<<<<<< HEAD
 #: builtins/common.c:216 shell.c:851
+=======
+#: builtins/common.c:214 shell.c:801
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid option"
 msgstr "%s: rogha neamhbhailí"
 
+<<<<<<< HEAD
 #: builtins/common.c:223
+=======
+#: builtins/common.c:221
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid option name"
 msgstr "%s: ainm neamhbhailí rogha"
 
+<<<<<<< HEAD
 #: builtins/common.c:230 execute_cmd.c:2372 general.c:352 general.c:357
 #, c-format
 msgid "`%s': not a valid identifier"
@@ -224,34 +385,76 @@ msgid "invalid number"
 msgstr "uimhir neamhbhailí"
 
 #: builtins/common.c:252
+=======
+#: builtins/common.c:228 general.c:234 general.c:239
+#, c-format
+msgid "`%s': not a valid identifier"
+msgstr "\"%s\": ní aitheantóir bailí é"
+
+#: builtins/common.c:238
+msgid "invalid octal number"
+msgstr "uimhir ochtnártha neamhbhailí"
+
+#: builtins/common.c:240
+msgid "invalid hex number"
+msgstr "uimhir heicsidheachúlach neamhbhailí"
+
+#: builtins/common.c:242 expr.c:1470
+msgid "invalid number"
+msgstr "uimhir neamhbhailí"
+
+#: builtins/common.c:250
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid signal specification"
 msgstr "%s: sonrú neamhbhailí comhartha"
 
+<<<<<<< HEAD
 #: builtins/common.c:259
 #, c-format
 msgid "`%s': not a pid or valid job spec"
 msgstr "'%s': ní aitheantas próisis nó sonrú taisc bailí é"
 
 #: builtins/common.c:266 error.c:510
+=======
+#: builtins/common.c:257
+#, c-format
+msgid "`%s': not a pid or valid job spec"
+msgstr "\"%s\": ní aitheantas próisis nó sonrú jab bailí é"
+
+#: builtins/common.c:264 error.c:488
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: readonly variable"
 msgstr "%s: athróg inléite amháin"
 
+<<<<<<< HEAD
 #: builtins/common.c:274
+=======
+#: builtins/common.c:272
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s out of range"
 msgstr "%s: %s as raon"
 
+<<<<<<< HEAD
 #: builtins/common.c:274 builtins/common.c:276
 msgid "argument"
 msgstr "argóint"
 
 #: builtins/common.c:276
+=======
+#: builtins/common.c:272 builtins/common.c:274
+msgid "argument"
+msgstr "argóint"
+
+#: builtins/common.c:274
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s out of range"
 msgstr "%s as raon"
 
+<<<<<<< HEAD
 #: builtins/common.c:284
 #, c-format
 msgid "%s: no such job"
@@ -267,39 +470,81 @@ msgid "no job control"
 msgstr "Gan rialú tascanna."
 
 #: builtins/common.c:304
+=======
+#: builtins/common.c:282
+#, c-format
+msgid "%s: no such job"
+msgstr "%s: níl a léithéid de jab ann."
+
+#: builtins/common.c:290
+#, c-format
+msgid "%s: no job control"
+msgstr "%s: gan rialú jabanna."
+
+#: builtins/common.c:292
+msgid "no job control"
+msgstr "Gan rialú jabanna."
+
+#: builtins/common.c:302
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: restricted"
 msgstr "%s: srianta"
 
+<<<<<<< HEAD
 #: builtins/common.c:306
 msgid "restricted"
 msgstr "srianta"
 
 #: builtins/common.c:314
+=======
+#: builtins/common.c:304
+msgid "restricted"
+msgstr "srianta"
+
+#: builtins/common.c:312
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not a shell builtin"
 msgstr "%s: ní ordú ionsuite blaoisce é."
 
+<<<<<<< HEAD
 #: builtins/common.c:323
+=======
+#: builtins/common.c:321
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "write error: %s"
 msgstr "earráid scríofa: %s"
 
+<<<<<<< HEAD
 #: builtins/common.c:331
+=======
+#: builtins/common.c:329
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "error setting terminal attributes: %s"
 msgstr "earráid agus airíonna teirminéil á socrú: %s"
 
+<<<<<<< HEAD
 #: builtins/common.c:333
+=======
+#: builtins/common.c:331
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "error getting terminal attributes: %s"
 msgstr "earráid agus airíonna teirminéil á fáil: %s"
 
+<<<<<<< HEAD
 #: builtins/common.c:579
+=======
+#: builtins/common.c:563
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: error retrieving current directory: %s: %s\n"
 msgstr "%s: earráid ag fáil na comhadlainne reatha: %s: %s\n"
 
+<<<<<<< HEAD
 #: builtins/common.c:645 builtins/common.c:647
 #, c-format
 msgid "%s: ambiguous job spec"
@@ -310,26 +555,48 @@ msgid "help not available in this version"
 msgstr "Níl cabhair ar fáil sa leagan seo."
 
 #: builtins/complete.def:281
+=======
+#: builtins/common.c:629 builtins/common.c:631
+#, c-format
+msgid "%s: ambiguous job spec"
+msgstr "%s: sonrú jab athbhríoch"
+
+#: builtins/complete.def:277
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid action name"
 msgstr "%s: ainm neamhbhailí gnímh"
 
+<<<<<<< HEAD
 #: builtins/complete.def:474 builtins/complete.def:679
 #: builtins/complete.def:910
+=======
+#: builtins/complete.def:450 builtins/complete.def:645
+#: builtins/complete.def:855
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: no completion specification"
 msgstr "%s: níl sonrú iomlánaithe ann."
 
+<<<<<<< HEAD
 #: builtins/complete.def:733
+=======
+#: builtins/complete.def:697
+>>>>>>> orgin/bash-4.3-testing
 msgid "warning: -F option may not work as you expect"
 msgstr ""
 "Rabhadh: b'fhéidir nach n-oibríonn an rogha -F mar a bheifeá ag súil leis."
 
+<<<<<<< HEAD
 #: builtins/complete.def:735
+=======
+#: builtins/complete.def:699
+>>>>>>> orgin/bash-4.3-testing
 msgid "warning: -C option may not work as you expect"
 msgstr ""
 "Rabhadh: b'fhéidir nach n-oibríonn an rogha -C mar a bheifeá ag súil leis."
 
+<<<<<<< HEAD
 #: builtins/complete.def:883
 msgid "not currently executing completion function"
 msgstr "níl an fheidhm chomhlánaithe á rith faoi láthair"
@@ -365,40 +632,86 @@ msgid "cannot use `-f' to make functions"
 msgstr "Ní féidir '-f' a úsáid chun feidhmeanna a dhéanamh"
 
 #: builtins/declare.def:532 execute_cmd.c:5852
+=======
+#: builtins/complete.def:828
+msgid "not currently executing completion function"
+msgstr "níl an fheidhm chomhlánaithe á rith faoi láthair"
+
+#: builtins/declare.def:126
+msgid "can only be used in a function"
+msgstr "Inúsáidte i bhfeidhmeanna amháin. "
+
+#: builtins/declare.def:315 builtins/declare.def:509
+#, c-format
+msgid "%s: reference variable cannot be an array"
+msgstr ""
+
+#: builtins/declare.def:324
+#, c-format
+msgid "%s: nameref variable self references not allowed"
+msgstr ""
+
+#: builtins/declare.def:398
+msgid "cannot use `-f' to make functions"
+msgstr "Ní féidir \"-f\" a úsáid chun feidhmeanna a dhéanamh"
+
+#: builtins/declare.def:410 execute_cmd.c:5349
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: readonly function"
 msgstr "%s: feidhm inléite amháin"
 
+<<<<<<< HEAD
 #: builtins/declare.def:824
 #, c-format
 msgid "%s: quoted compound array assignment deprecated"
 msgstr "%s: cáintear sannadh na gcomheagar athfhriotail"
 
 #: builtins/declare.def:838
+=======
+#: builtins/declare.def:553
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot destroy array variables in this way"
 msgstr "%s: ní féidir athróga eagair a scrios mar seo."
 
+<<<<<<< HEAD
 #: builtins/declare.def:845 builtins/read.def:788
+=======
+#: builtins/declare.def:560 builtins/read.def:733
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot convert associative to indexed array"
 msgstr ""
 "%s: ní féidir eagar comhthiomsaitheach a thiontú go heagar innéacsaithe"
 
+<<<<<<< HEAD
 #: builtins/enable.def:143 builtins/enable.def:151
 msgid "dynamic loading not available"
 msgstr "Níl luchtú dinimiciúil ar fáil"
 
 #: builtins/enable.def:343
+=======
+#: builtins/enable.def:137 builtins/enable.def:145
+msgid "dynamic loading not available"
+msgstr "Níl luchtú dinimiciúil ar fáil"
+
+#: builtins/enable.def:312
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot open shared object %s: %s"
 msgstr "Ní féidir an réad comhroinnte %s a oscailt: %s"
 
+<<<<<<< HEAD
 #: builtins/enable.def:369
+=======
+#: builtins/enable.def:335
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot find %s in shared object %s: %s"
 msgstr "Ní féidir %s a aimsiú sa réad comhroinnte %s: %s"
 
+<<<<<<< HEAD
 #: builtins/enable.def:387
 #, c-format
 msgid "load function for %s returns failure (%d): not loaded"
@@ -407,45 +720,78 @@ msgstr ""
 "luchtáladh é"
 
 #: builtins/enable.def:512
+=======
+#: builtins/enable.def:459
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not dynamically loaded"
 msgstr "%s: níl sé luchtaithe go dinimiciúil"
 
+<<<<<<< HEAD
 #: builtins/enable.def:538
+=======
+#: builtins/enable.def:474
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot delete: %s"
 msgstr "%s: ní féidir scrios: %s"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:138 builtins/hash.def:184 execute_cmd.c:5684
+=======
+#: builtins/evalfile.c:140 builtins/hash.def:171 execute_cmd.c:5196
+#: shell.c:1481
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: is a directory"
 msgstr "%s: is comhadlann é"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:144
+=======
+#: builtins/evalfile.c:146
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not a regular file"
 msgstr "%s: ní gnáthchomhad é"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:153
+=======
+#: builtins/evalfile.c:155
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: file is too large"
 msgstr "%s: tá an comhad ró-mhór"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:188 builtins/evalfile.c:206 shell.c:1623
+=======
+#: builtins/evalfile.c:190 builtins/evalfile.c:208 shell.c:1491
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot execute binary file"
 msgstr "%s: ní féidir comhad dénártha a rith"
 
+<<<<<<< HEAD
 #: builtins/exec.def:156 builtins/exec.def:158 builtins/exec.def:243
+=======
+#: builtins/exec.def:154 builtins/exec.def:156 builtins/exec.def:228
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot execute: %s"
 msgstr "%s: ní féidir rith: %s"
 
+<<<<<<< HEAD
 #: builtins/exit.def:64
+=======
+#: builtins/exit.def:65
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "logout\n"
 msgstr "logout\n"
 
+<<<<<<< HEAD
 #: builtins/exit.def:89
 msgid "not login shell: use `exit'"
 msgstr "Ní blaosc logála isteach é seo: úsáid 'exit'"
@@ -469,10 +815,36 @@ msgid "history specification"
 msgstr "Sonrú staire"
 
 #: builtins/fc.def:393
+=======
+#: builtins/exit.def:88
+msgid "not login shell: use `exit'"
+msgstr "Ní blaosc logála isteach é seo: úsáid \"exit\""
+
+#: builtins/exit.def:120
+#, c-format
+msgid "There are stopped jobs.\n"
+msgstr "Tá jabanna stoptha ann.\n"
+
+#: builtins/exit.def:122
+#, c-format
+msgid "There are running jobs.\n"
+msgstr "Tá jabanna ag rith.\n"
+
+#: builtins/fc.def:262
+msgid "no command found"
+msgstr "Níor aimsíodh ordú"
+
+#: builtins/fc.def:320 builtins/fc.def:369
+msgid "history specification"
+msgstr "Sonrú staire"
+
+#: builtins/fc.def:390
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot open temp file: %s"
 msgstr "%s: ní féidir comhad sealadach a oscailt: %s"
 
+<<<<<<< HEAD
 #: builtins/fg_bg.def:152 builtins/jobs.def:284
 msgid "current"
 msgstr "reatha"
@@ -481,6 +853,16 @@ msgstr "reatha"
 #, c-format
 msgid "job %d started without job control"
 msgstr "Tosaíodh tasc %d gan rialú tascanna."
+=======
+#: builtins/fg_bg.def:149 builtins/jobs.def:282
+msgid "current"
+msgstr "reatha"
+
+#: builtins/fg_bg.def:158
+#, c-format
+msgid "job %d started without job control"
+msgstr "Thosaigh jab %d gan rialú jabanna."
+>>>>>>> orgin/bash-4.3-testing
 
 #: builtins/getopt.c:110
 #, c-format
@@ -492,7 +874,11 @@ msgstr "%s: rogha neamhdhleathach -- %c\n"
 msgid "%s: option requires an argument -- %c\n"
 msgstr "%s: tá argóint riachtanach don rogha -- %c\n"
 
+<<<<<<< HEAD
 #: builtins/hash.def:91
+=======
+#: builtins/hash.def:92
+>>>>>>> orgin/bash-4.3-testing
 msgid "hashing disabled"
 msgstr "Tá haiseáil díchumasaithe."
 
@@ -501,11 +887,16 @@ msgstr "Tá haiseáil díchumasaithe."
 msgid "%s: hash table empty\n"
 msgstr "%s: tá an tábla haiseála folamh.\n"
 
+<<<<<<< HEAD
 #: builtins/hash.def:266
+=======
+#: builtins/hash.def:245
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "hits\tcommand\n"
 msgstr "amais\tordú\n"
 
+<<<<<<< HEAD
 #: builtins/help.def:133
 msgid "Shell commands matching keyword `"
 msgid_plural "Shell commands matching keywords `"
@@ -516,6 +907,17 @@ msgstr[3] "Ordaithe blaoisce a mheaitseálann na lorgfhocail '"
 msgstr[4] "Ordaithe blaoisce a mheaitseálann na lorgfhocail '"
 
 #: builtins/help.def:185
+=======
+#: builtins/help.def:130
+#, c-format
+msgid "Shell commands matching keyword `"
+msgid_plural "Shell commands matching keywords `"
+msgstr[0] "Ordaithe blaoisce a mheaitseálann an lorgfhocal \""
+msgstr[1] "Ordaithe blaoisce a mheaitseálann na lorgfhocail \""
+msgstr[2] "Ordaithe blaoisce a mheaitseálann na lorgfhocail '"
+
+#: builtins/help.def:182
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "no help topics match `%s'.  Try `help help' or `man -k %s' or `info %s'."
@@ -523,12 +925,20 @@ msgstr ""
 "Ní mheaitseálann ábhar cabhrach ar bith \"%s\". Bain triail as \"help help\" "
 "nó \"man -k %s\" nó \"info %s\"."
 
+<<<<<<< HEAD
 #: builtins/help.def:224
+=======
+#: builtins/help.def:199
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot open: %s"
 msgstr "%s: ní féidir oscailt: %s"
 
+<<<<<<< HEAD
 #: builtins/help.def:524
+=======
+#: builtins/help.def:485
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "These shell commands are defined internally.  Type `help' to see this list.\n"
@@ -552,6 +962,7 @@ msgstr ""
 msgid "cannot use more than one of -anrw"
 msgstr "Ní féidir níos mó ná ceann amháin as -anrw a úsáid."
 
+<<<<<<< HEAD
 #: builtins/history.def:187 builtins/history.def:197 builtins/history.def:212
 #: builtins/history.def:229 builtins/history.def:241 builtins/history.def:248
 msgid "history position"
@@ -563,6 +974,13 @@ msgid "%s: invalid timestamp"
 msgstr "%s: stampa ama neamhbhailí"
 
 #: builtins/history.def:442
+=======
+#: builtins/history.def:186
+msgid "history position"
+msgstr "suíomh staire"
+
+#: builtins/history.def:366
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: history expansion failed"
 msgstr "%s: theip ar fhairsingiú staire."
@@ -574,6 +992,7 @@ msgstr "%s: theip ar inlib"
 
 #: builtins/jobs.def:109
 msgid "no other options allowed with `-x'"
+<<<<<<< HEAD
 msgstr "Níl roghanna eile ceadaithe le '-x'"
 
 #: builtins/kill.def:211
@@ -595,30 +1014,70 @@ msgid "%s: not an indexed array"
 msgstr "%s: ní eagar innéacsaithe é"
 
 #: builtins/mapfile.def:271 builtins/read.def:307
+=======
+msgstr "Níl roghanna eile ceadaithe le \"-x\""
+
+#: builtins/kill.def:200
+#, c-format
+msgid "%s: arguments must be process or job IDs"
+msgstr "%s: is gá le argóintí bheith ina aitheantais phróisis nó jab"
+
+#: builtins/kill.def:263
+msgid "Unknown error"
+msgstr "Earráid neamhaithnid"
+
+#: builtins/let.def:95 builtins/let.def:120 expr.c:583 expr.c:598
+msgid "expression expected"
+msgstr "Ag súil le slonn"
+
+#: builtins/mapfile.def:172
+#, fuzzy, c-format
+msgid "%s: not an indexed array"
+msgstr "%s: ní athróg eagair é"
+
+#: builtins/mapfile.def:259 builtins/read.def:302
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid file descriptor specification"
 msgstr "%s: sonrú neamhbhailí tuairisceora comhaid"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:279 builtins/read.def:314
+=======
+#: builtins/mapfile.def:267 builtins/read.def:309
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%d: invalid file descriptor: %s"
 msgstr "%d: tuairisceoir comhaid neamhbhailí: %s"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:288 builtins/mapfile.def:326
+=======
+#: builtins/mapfile.def:276 builtins/mapfile.def:314
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid line count"
 msgstr "%s: comhaireamh neamhbhailí línte"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:299
+=======
+#: builtins/mapfile.def:287
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid array origin"
 msgstr "%s: bunphointe neamhbhailí eagair"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:316
+=======
+#: builtins/mapfile.def:304
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid callback quantum"
 msgstr "%s: candam neamhbhailí aisghlaoigh"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:349
 msgid "empty array variable name"
 msgstr "ainm folamh athróga eagair"
@@ -643,10 +1102,37 @@ msgid "`%c': invalid format character"
 msgstr "'%c': carachtar formáide neamhbhailí."
 
 #: builtins/printf.def:703
+=======
+#: builtins/mapfile.def:336
+msgid "empty array variable name"
+msgstr "ainm folamh athróga eagair"
+
+#: builtins/mapfile.def:357
+msgid "array variable support required"
+msgstr "tacaíocht le hathróga eagair de dhíth"
+
+#: builtins/printf.def:402
+#, c-format
+msgid "`%s': missing format character"
+msgstr "\"%s\": carachtar formáide ar iarraidh."
+
+#: builtins/printf.def:456
+#, fuzzy, c-format
+msgid "`%c': invalid time format specification"
+msgstr "%s: sonrú neamhbhailí teorann ama"
+
+#: builtins/printf.def:658
+#, c-format
+msgid "`%c': invalid format character"
+msgstr "\"%c\": carachtar formáide neamhbhailí."
+
+#: builtins/printf.def:684
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "warning: %s: %s"
 msgstr "rabhadh: %s: %s"
 
+<<<<<<< HEAD
 #: builtins/printf.def:789
 #, c-format
 msgid "format parsing problem: %s"
@@ -683,6 +1169,44 @@ msgid "directory stack index"
 msgstr "innéacs chruach na gcomhadlann"
 
 #: builtins/pushd.def:701
+=======
+#: builtins/printf.def:768
+#, c-format
+msgid "format parsing problem: %s"
+msgstr ""
+
+#: builtins/printf.def:865
+msgid "missing hex digit for \\x"
+msgstr "digit heicsidheachúlach ar iarraidh le haghaidh \\x"
+
+#: builtins/printf.def:880
+#, fuzzy, c-format
+msgid "missing unicode digit for \\%c"
+msgstr "digit heicsidheachúlach ar iarraidh le haghaidh \\x"
+
+#: builtins/pushd.def:195
+msgid "no other directory"
+msgstr "Níl comhadlann eile ann"
+
+#: builtins/pushd.def:354
+#, fuzzy, c-format
+msgid "%s: invalid argument"
+msgstr "%s: argóint teorann neamhbhailí"
+
+#: builtins/pushd.def:468
+msgid "<no current directory>"
+msgstr "<níl comhadlann reatha ann>"
+
+#: builtins/pushd.def:512
+msgid "directory stack empty"
+msgstr "cruach fholamh chomhadlainne"
+
+#: builtins/pushd.def:514
+msgid "directory stack index"
+msgstr "innéacs cruaiche comhadlainne"
+
+#: builtins/pushd.def:689
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display the list of currently remembered directories.  Directories\n"
 "    find their way onto the list with the `pushd' command; you can get\n"
@@ -705,6 +1229,7 @@ msgid ""
 "by\n"
 "\tdirs when invoked without options, starting with zero."
 msgstr ""
+<<<<<<< HEAD
 "Taispeáin liosta na gcomhadlann a bhfuil cuimhne orthu faoi láthair.\n"
 "    Cuirtear comhadlanna ar an liosta leis an ordú \"pushd\". Is féidir dul\n"
 "    siar trín liosta leis an ordú \"popd\".\n"
@@ -728,6 +1253,10 @@ msgstr ""
 "náid."
 
 #: builtins/pushd.def:723
+=======
+
+#: builtins/pushd.def:711
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Adds a directory to the top of the directory stack, or rotates\n"
 "    the stack, making the new top of the stack the current working\n"
@@ -751,6 +1280,7 @@ msgid ""
 "    \n"
 "    The `dirs' builtin displays the directory stack."
 msgstr ""
+<<<<<<< HEAD
 "Cuireann \"pushd\" comhadlann ar bharr na cruaiche comhadlanna, nó "
 "rothlaíonn\n"
 "    sé an chruach, ag cur barr nua na cruaiche mar an chomhadlann oibrithe\n"
@@ -777,6 +1307,10 @@ msgstr ""
 "    Taispeánann an t-ordú ionsuite \"dirs\" cruach na gcomhadlann."
 
 #: builtins/pushd.def:748
+=======
+
+#: builtins/pushd.def:736
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Removes entries from the directory stack.  With no arguments, removes\n"
 "    the top directory from the stack, and changes to the new top directory.\n"
@@ -796,6 +1330,7 @@ msgid ""
 "    \n"
 "    The `dirs' builtin displays the directory stack."
 msgstr ""
+<<<<<<< HEAD
 "Baineann \"popd\" comhadlanna ón gcruach comhadlanna. Gan argóintí, baintear "
 "an\n"
 "    chomhadlann ó bharr na cruaiche, agus téann sé go dtí an chomhadlann\n"
@@ -818,10 +1353,15 @@ msgstr ""
 "    Taispeánann an t-ordú ionsuite \"dirs\" cruach na gcomhadlann."
 
 #: builtins/read.def:279
+=======
+
+#: builtins/read.def:275
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid timeout specification"
 msgstr "%s: sonrú neamhbhailí teorann ama"
 
+<<<<<<< HEAD
 #: builtins/read.def:733
 #, c-format
 msgid "read error: %d: %s"
@@ -837,25 +1377,55 @@ msgid "cannot simultaneously unset a function and a variable"
 msgstr "Ní féidir feidhm agus athróg a dhíshocrú ag an am céanna."
 
 #: builtins/set.def:904
+=======
+#: builtins/read.def:678
+#, c-format
+msgid "read error: %d: %s"
+msgstr "earráid léite: %d: %s"
+
+#: builtins/return.def:75
+msgid "can only `return' from a function or sourced script"
+msgstr ""
+"ní féidir \"return\" a dhéanamh ach ó fheidhm nó ó script rite le \"source\""
+
+#: builtins/set.def:782
+msgid "cannot simultaneously unset a function and a variable"
+msgstr "Ní féidir feidhm agus athróg a dhíshocrú ag an am céanna."
+
+#: builtins/set.def:826
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot unset"
 msgstr "%s: ní féidir díshocrú"
 
+<<<<<<< HEAD
 #: builtins/set.def:925 variables.c:3813
+=======
+#: builtins/set.def:843
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot unset: readonly %s"
 msgstr "%s: ní féidir díshocrú: %s inléite amháin"
 
+<<<<<<< HEAD
 #: builtins/set.def:938
+=======
+#: builtins/set.def:854
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not an array variable"
 msgstr "%s: ní athróg eagair é"
 
+<<<<<<< HEAD
 #: builtins/setattr.def:189
+=======
+#: builtins/setattr.def:187
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not a function"
 msgstr "%s: ní feidhm é."
 
+<<<<<<< HEAD
 #: builtins/setattr.def:194
 #, c-format
 msgid "%s: cannot export"
@@ -870,19 +1440,39 @@ msgid "cannot set and unset shell options simultaneously"
 msgstr "Ní féidir roghanna blaoisce a shocrú agus a dhíshocrú ag an am céanna."
 
 #: builtins/shopt.def:420
+=======
+#: builtins/shift.def:71 builtins/shift.def:77
+msgid "shift count"
+msgstr "comhaireamh iomlaoide"
+
+#: builtins/shopt.def:279
+msgid "cannot set and unset shell options simultaneously"
+msgstr "Ní féidir roghanna blaoisce a shocrú agus a dhíshocrú ag an am céanna."
+
+#: builtins/shopt.def:346
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid shell option name"
 msgstr "%s: ainm neamhbhailí ar rogha blaoisce"
 
+<<<<<<< HEAD
 #: builtins/source.def:128
 msgid "filename argument required"
 msgstr "Is gá don argóint bheith ina ainm comhaid."
 
 #: builtins/source.def:154
+=======
+#: builtins/source.def:130
+msgid "filename argument required"
+msgstr "Is gá don argóint bheith ina ainm comhaid."
+
+#: builtins/source.def:155
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: file not found"
 msgstr "%s: níor aimsíodh an comhad"
 
+<<<<<<< HEAD
 #: builtins/suspend.def:102
 msgid "cannot suspend"
 msgstr "Ní féidir cur ar fionraí."
@@ -897,59 +1487,113 @@ msgid "%s is aliased to `%s'\n"
 msgstr "Tá %s ailiasáilte go '%s'.\n"
 
 #: builtins/type.def:256
+=======
+#: builtins/suspend.def:101
+msgid "cannot suspend"
+msgstr "Ní féidir cur ar fionraí."
+
+#: builtins/suspend.def:111
+msgid "cannot suspend a login shell"
+msgstr "Ní féidir blaosc logála isteach a chur ar fionraí."
+
+#: builtins/type.def:234
+#, c-format
+msgid "%s is aliased to `%s'\n"
+msgstr "Tá %s ailiasáilte go \"%s\".\n"
+
+#: builtins/type.def:255
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is a shell keyword\n"
 msgstr "Is eochairfhocal blaoisce é %s.\n"
 
+<<<<<<< HEAD
 #: builtins/type.def:275
+=======
+#: builtins/type.def:274
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is a function\n"
 msgstr "Is feidhm é %s.\n"
 
+<<<<<<< HEAD
 #: builtins/type.def:299
 #, c-format
 msgid "%s is a special shell builtin\n"
 msgstr "Is ordú ionsuite blaoisce speisialta é %s\n"
 
 #: builtins/type.def:301
+=======
+#: builtins/type.def:296
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is a shell builtin\n"
 msgstr "Is ordú ionsuite blaoisce é %s\n"
 
+<<<<<<< HEAD
 #: builtins/type.def:323 builtins/type.def:408
+=======
+#: builtins/type.def:317 builtins/type.def:393
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is %s\n"
 msgstr "Tá %s %s\n"
 
+<<<<<<< HEAD
 #: builtins/type.def:343
+=======
+#: builtins/type.def:337
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is hashed (%s)\n"
 msgstr "Tá %s haiseáilte (%s)\n"
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:396
+=======
+#: builtins/ulimit.def:383
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid limit argument"
 msgstr "%s: argóint teorann neamhbhailí"
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:422
 #, c-format
 msgid "`%c': bad command"
 msgstr "'%c': droch-ordú"
 
 #: builtins/ulimit.def:451
+=======
+#: builtins/ulimit.def:409
+#, c-format
+msgid "`%c': bad command"
+msgstr "\"%c\": droch-ordú"
+
+#: builtins/ulimit.def:438
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot get limit: %s"
 msgstr "%s: ní féidir teorainn a fháil: %s"
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:477
 msgid "limit"
 msgstr "teorainn"
 
 #: builtins/ulimit.def:489 builtins/ulimit.def:789
+=======
+#: builtins/ulimit.def:464
+msgid "limit"
+msgstr "teorainn"
+
+#: builtins/ulimit.def:476 builtins/ulimit.def:776
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot modify limit: %s"
 msgstr "%s: ní féidir teorainn a athrú: %s"
 
+<<<<<<< HEAD
 #: builtins/umask.def:115
 msgid "octal number"
 msgstr "uimhir ochtnártha"
@@ -969,15 +1613,41 @@ msgid " line "
 msgstr " líne "
 
 #: error.c:164
+=======
+#: builtins/umask.def:114
+msgid "octal number"
+msgstr "uimhir ochtnártha"
+
+#: builtins/umask.def:227
+#, c-format
+msgid "`%c': invalid symbolic mode operator"
+msgstr "\"%c\": oibreoir neamhbhailí móid shiombalaigh"
+
+#: builtins/umask.def:282
+#, c-format
+msgid "`%c': invalid symbolic mode character"
+msgstr "\"%c\": carachtar neamhbhailí móid shiombalaigh"
+
+#: error.c:90 error.c:325 error.c:327 error.c:329
+msgid " line "
+msgstr " líne "
+
+#: error.c:165
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "last command: %s\n"
 msgstr "Ordú deireanach: %s\n"
 
+<<<<<<< HEAD
 #: error.c:172
+=======
+#: error.c:173
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Aborting..."
 msgstr "Ag tobscor..."
 
+<<<<<<< HEAD
 #. TRANSLATORS: this is a prefix for informational messages.
 #: error.c:287
 #, c-format
@@ -1001,20 +1671,49 @@ msgid "bad jump"
 msgstr "drochléim"
 
 #: error.c:503
+=======
+#: error.c:440
+msgid "unknown command error"
+msgstr "earráid ordaithe neamhaithnid"
+
+#: error.c:441
+msgid "bad command type"
+msgstr "droch-chineál ordaithe"
+
+#: error.c:442
+msgid "bad connector"
+msgstr "drochnascóir"
+
+#: error.c:443
+msgid "bad jump"
+msgstr "drochléim"
+
+#: error.c:481
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: unbound variable"
 msgstr "%s: athróg neamhcheangailte"
 
+<<<<<<< HEAD
 #: eval.c:245
 #, c-format
 msgid "\atimed out waiting for input: auto-logout\n"
 msgstr "\aImithe thar am ag feitheamh le hionchur: logáil amach uathoibríoch\n"
 
 #: execute_cmd.c:536
+=======
+#: eval.c:189
+#, c-format
+msgid "\atimed out waiting for input: auto-logout\n"
+msgstr "\aimithe thar am ag feitheamh le hionchur: logáil amach uathoibríoch\n"
+
+#: execute_cmd.c:512
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot redirect standard input from /dev/null: %s"
 msgstr "Ní féidir an ionchur caighdeánach a atreorú ó /dev/null: %s"
 
+<<<<<<< HEAD
 #: execute_cmd.c:1306
 #, c-format
 msgid "TIMEFORMAT: `%c': invalid format character"
@@ -1045,25 +1744,56 @@ msgid "%s: maximum function nesting level exceeded (%d)"
 msgstr "%s: imithe thar uasleibhéal neadaithe feidhme (%d)"
 
 #: execute_cmd.c:5340
+=======
+#: execute_cmd.c:1233
+#, c-format
+msgid "TIMEFORMAT: `%c': invalid format character"
+msgstr "FORMÁID_AMA: \"%c\": carachtar formáide neamhbhaií."
+
+#: execute_cmd.c:2287
+msgid "pipe error"
+msgstr "earráid phíopa"
+
+#: execute_cmd.c:4374
+#, c-format
+msgid "%s: maximum function nesting level exceeded (%d)"
+msgstr ""
+
+#: execute_cmd.c:4872
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: restricted: cannot specify `/' in command names"
 msgstr "%s: srianta: ní féidir \"/\" a shonrú in ainmneacha ordaithe"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5438
+=======
+#: execute_cmd.c:4961
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: command not found"
 msgstr "%s: níor aimsíodh an t-ordú"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5682
 #, c-format
 msgid "%s: %s"
 msgstr "%s: %s"
 
 #: execute_cmd.c:5720
+=======
+#: execute_cmd.c:5194
+#, fuzzy, c-format
+msgid "%s: %s"
+msgstr "Tá %s %s\n"
+
+#: execute_cmd.c:5231
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: bad interpreter"
 msgstr "%s: %s: drochléirmhínitheoir"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5757
 #, c-format
 msgid "%s: cannot execute binary file: %s"
@@ -1075,11 +1805,25 @@ msgid "`%s': is a special builtin"
 msgstr "Is ordú ionsuite speisialta é '%s'"
 
 #: execute_cmd.c:5895
+=======
+#: execute_cmd.c:5268
+#, fuzzy, c-format
+msgid "%s: cannot execute binary file: %s"
+msgstr "%s: ní féidir comhad dénártha a rith"
+
+#: execute_cmd.c:5340
+#, fuzzy, c-format
+msgid "`%s': is a special builtin"
+msgstr "Is ordú ionsuite blaoisce é %s\n"
+
+#: execute_cmd.c:5392
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot duplicate fd %d to fd %d"
 msgstr ""
 "Ní féidir an tuairisceoir comhaid %d a dhúbailt mar thuairisceoir comhaid %d."
 
+<<<<<<< HEAD
 #: expr.c:263
 msgid "expression recursion level exceeded"
 msgstr "Imithe thar leibhéal athchursála sloinn"
@@ -1146,10 +1890,75 @@ msgid "value too great for base"
 msgstr "Tá an luach rómhór don bhonnuimhir."
 
 #: expr.c:1637
+=======
+#: expr.c:259
+msgid "expression recursion level exceeded"
+msgstr "imithe thar leibhéal athchursála sloinn"
+
+#: expr.c:283
+msgid "recursion stack underflow"
+msgstr "gannsreabhadh na cruaiche athchúrsála"
+
+#: expr.c:431
+msgid "syntax error in expression"
+msgstr "Earráid chomhréire sa slonn."
+
+#: expr.c:475
+msgid "attempted assignment to non-variable"
+msgstr "Deineadh iarracht sannadh go rud nach athróg é."
+
+#: expr.c:495 expr.c:858
+msgid "division by 0"
+msgstr "roinnt ar 0"
+
+#: expr.c:542
+msgid "bug: bad expassign token"
+msgstr "fabht: droch-chomhartha expassign"
+
+#: expr.c:595
+msgid "`:' expected for conditional expression"
+msgstr "Bhíothas ag súil le \":\" le haghaidh sloinn choinníollaigh."
+
+#: expr.c:919
+msgid "exponent less than 0"
+msgstr "Easpónant níos lú ná 0."
+
+#: expr.c:976
+msgid "identifier expected after pre-increment or pre-decrement"
+msgstr "ag súil le aitheantóir tar éis réamhincriminte nó réamhdeicriminte"
+
+#: expr.c:1002
+msgid "missing `)'"
+msgstr "\")\" ar iarraidh"
+
+#: expr.c:1053 expr.c:1390
+msgid "syntax error: operand expected"
+msgstr "Earráid chomhréire: bhíothas ag súil le hoibreann."
+
+#: expr.c:1392
+msgid "syntax error: invalid arithmetic operator"
+msgstr "earráid chomhréire: oibreoir neamhbhailí uimhríochta"
+
+#: expr.c:1416
+#, c-format
+msgid "%s%s%s: %s (error token is \"%s\")"
+msgstr "%s%s%s: %s (comhartha earráide \"%s\")"
+
+#: expr.c:1474
+msgid "invalid arithmetic base"
+msgstr "Bonnuimhir uimhríochtúil neamhbhailí."
+
+#: expr.c:1494
+msgid "value too great for base"
+msgstr "Tá an luach rómhór don bhonnuimhir."
+
+#: expr.c:1543
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: expression error\n"
 msgstr "%s: earráid sloinn\n"
 
+<<<<<<< HEAD
 #: general.c:69
 msgid "getcwd: cannot access parent directories"
 msgstr "getcwd: ní féidir na máthairchomhadlanna a rochtain."
@@ -1162,19 +1971,38 @@ msgstr ""
 "%d"
 
 #: input.c:266
+=======
+#: general.c:61
+msgid "getcwd: cannot access parent directories"
+msgstr "getcwd: ní féidir na máthairchomhadlanna a rochtain."
+
+#: input.c:102 subst.c:5168
+#, c-format
+msgid "cannot reset nodelay mode for fd %d"
+msgstr ""
+"ní féidir an mód gan mhoill a athshocrú le haghaidh an tuairisceora chomhaid "
+"%d"
+
+#: input.c:269
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot allocate new file descriptor for bash input from fd %d"
 msgstr ""
 "Ní féidir tuairisceoir comhaid nua a leithdháileadh le haghaidh ionchur bash "
 "ón tuairisceoir comhaid %d."
 
+<<<<<<< HEAD
 #: input.c:274
+=======
+#: input.c:277
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "save_bash_input: buffer already exists for new fd %d"
 msgstr ""
 "save_bash_input: tá an maolán ann cheana le haghaidh an tuairisceoir comhaid "
 "nua %d"
 
+<<<<<<< HEAD
 #: jobs.c:529
 msgid "start_pipeline: pgrp pipe"
 msgstr "start_pipeline: pgrp píopa"
@@ -1190,25 +2018,55 @@ msgid "deleting stopped job %d with process group %ld"
 msgstr "Tá an tasc stoptha %d leis an ngrúpa próisis %ld á scrios."
 
 #: jobs.c:1307
+=======
+#: jobs.c:471
+msgid "start_pipeline: pgrp pipe"
+msgstr "start_pipeline: pgrp píopa"
+
+#: jobs.c:893
+#, c-format
+msgid "forked pid %d appears in running job %d"
+msgstr "tá an aitheantas an phróisis ghabhlaithe %d sa jab %d atá ag rith"
+
+#: jobs.c:1012
+#, c-format
+msgid "deleting stopped job %d with process group %ld"
+msgstr "Tá an jab stoptha %d leis an ngrúpa próisis %ld á scrios."
+
+#: jobs.c:1117
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "add_process: process %5ld (%s) in the_pipeline"
 msgstr "add_process: próiseas %5ld (%s) sa phíblíne"
 
+<<<<<<< HEAD
 #: jobs.c:1310
+=======
+#: jobs.c:1120
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "add_process: pid %5ld (%s) marked as still alive"
 msgstr "add_process: próiseas %5ld (%s) marcáilte mar fós beo"
 
+<<<<<<< HEAD
 #: jobs.c:1639
+=======
+#: jobs.c:1435
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "describe_pid: %ld: no such pid"
 msgstr "describe_pid: %ld: níl an aitheantóir próisis sin ann."
 
+<<<<<<< HEAD
 #: jobs.c:1654
+=======
+#: jobs.c:1450
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Signal %d"
 msgstr "Comhartha %d"
 
+<<<<<<< HEAD
 #: jobs.c:1668 jobs.c:1694
 msgid "Done"
 msgstr "Déanta"
@@ -1218,53 +2076,101 @@ msgid "Stopped"
 msgstr "Stoptha"
 
 #: jobs.c:1677
+=======
+#: jobs.c:1464 jobs.c:1489
+msgid "Done"
+msgstr "Déanta"
+
+#: jobs.c:1469 siglist.c:123
+msgid "Stopped"
+msgstr "Stoptha"
+
+#: jobs.c:1473
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Stopped(%s)"
 msgstr "Stoptha(%s)"
 
+<<<<<<< HEAD
 #: jobs.c:1681
 msgid "Running"
 msgstr "Ag Rith"
 
 #: jobs.c:1698
+=======
+#: jobs.c:1477
+msgid "Running"
+msgstr "Ag Rith"
+
+#: jobs.c:1491
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Done(%d)"
 msgstr "Déanta(%d)"
 
+<<<<<<< HEAD
 #: jobs.c:1700
+=======
+#: jobs.c:1493
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Exit %d"
 msgstr "Scoir %d"
 
+<<<<<<< HEAD
 #: jobs.c:1703
 msgid "Unknown status"
 msgstr "Stádas neamhaithnid"
 
 #: jobs.c:1790
+=======
+#: jobs.c:1496
+msgid "Unknown status"
+msgstr "Stádas neamhaithnid"
+
+#: jobs.c:1583
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "(core dumped) "
 msgstr "(cuimhne dumpáilte)"
 
+<<<<<<< HEAD
 #: jobs.c:1809
+=======
+#: jobs.c:1602
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "  (wd: %s)"
 msgstr "  (comhadlann oibre: %s)"
 
+<<<<<<< HEAD
 #: jobs.c:2037
+=======
+#: jobs.c:1819
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "child setpgid (%ld to %ld)"
 msgstr "setpgid macphróisis (%ld go %ld)"
 
+<<<<<<< HEAD
 #: jobs.c:2399 nojobs.c:657
+=======
+#: jobs.c:2138 nojobs.c:605
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "wait: pid %ld is not a child of this shell"
 msgstr "wait: níl an próiseas %ld ina mhacphróiseas den bhlaosc seo."
 
+<<<<<<< HEAD
 #: jobs.c:2695
+=======
+#: jobs.c:2385
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "wait_for: No record of process %ld"
 msgstr "wait_for: níl taifead den phróiseas %ld"
 
+<<<<<<< HEAD
 #: jobs.c:3055
 #, c-format
 msgid "wait_for_job: job %d is stopped"
@@ -1285,20 +2191,51 @@ msgid "waitchld: turning on WNOHANG to avoid indefinite block"
 msgstr "waitchld: ag cumasú WNOHANG chun stad éiginnte a sheachaint"
 
 #: jobs.c:4120
+=======
+#: jobs.c:2694
+#, c-format
+msgid "wait_for_job: job %d is stopped"
+msgstr "wait_for_job: tá an jab %d stoptha."
+
+#: jobs.c:2986
+#, c-format
+msgid "%s: job has terminated"
+msgstr "%s: tá an jab críochnaithe."
+
+#: jobs.c:2995
+#, c-format
+msgid "%s: job %d already in background"
+msgstr "%s: tá an jab %d sa chúlra cheana."
+
+#: jobs.c:3220
+msgid "waitchld: turning on WNOHANG to avoid indefinite block"
+msgstr ""
+
+#: jobs.c:3711
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: line %d: "
 msgstr "%s: líne %d: "
 
+<<<<<<< HEAD
 #: jobs.c:4134 nojobs.c:900
+=======
+#: jobs.c:3725 nojobs.c:843
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid " (core dumped)"
 msgstr " (cuimhne dumpáilte)"
 
+<<<<<<< HEAD
 #: jobs.c:4146 jobs.c:4159
+=======
+#: jobs.c:3737 jobs.c:3750
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "(wd now: %s)\n"
 msgstr "(comhadlann oibre anois: %s)\n"
 
+<<<<<<< HEAD
 #: jobs.c:4191
 msgid "initialize_job_control: getpgrp failed"
 msgstr "initialize_job_control: theip ar getpgrp"
@@ -1325,11 +2262,39 @@ msgid "no job control in this shell"
 msgstr "Níl rialú tascanna sa bhlaosc seo."
 
 #: lib/malloc/malloc.c:331
+=======
+#: jobs.c:3782
+msgid "initialize_job_control: getpgrp failed"
+msgstr "initialize_job_control: theip ar getpgrp"
+
+#: jobs.c:3843
+msgid "initialize_job_control: line discipline"
+msgstr "initialize_job_control: araíonacht líne"
+
+#: jobs.c:3853
+msgid "initialize_job_control: setpgid"
+msgstr "initialize_job_control: setpgid"
+
+#: jobs.c:3874 jobs.c:3883
+#, c-format
+msgid "cannot set terminal process group (%d)"
+msgstr "ní féidir grúpa próisis teirminéil a shocrú (%d)"
+
+#: jobs.c:3888
+msgid "no job control in this shell"
+msgstr "Níl rialú jabanna sa bhlaosc seo."
+
+#: lib/malloc/malloc.c:296
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "malloc: failed assertion: %s\n"
 msgstr "malloc: dearbhú teipthe: %s\n"
 
+<<<<<<< HEAD
 #: lib/malloc/malloc.c:347
+=======
+#: lib/malloc/malloc.c:312
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "\r\n"
@@ -1338,6 +2303,7 @@ msgstr ""
 "\r\n"
 "malloc: %s:%d: dearbhú ina phraiseach\r\n"
 
+<<<<<<< HEAD
 #: lib/malloc/malloc.c:348
 msgid "unknown"
 msgstr "neamhaithnid"
@@ -1375,17 +2341,64 @@ msgid "realloc: start and end chunk sizes differ"
 msgstr "realloc: ní ionann méideanna na smután túis agus deiridh"
 
 #: lib/malloc/table.c:191
+=======
+#: lib/malloc/malloc.c:313
+msgid "unknown"
+msgstr "neamhaithnid"
+
+#: lib/malloc/malloc.c:801
+msgid "malloc: block on free list clobbered"
+msgstr "malloc: bloc ar an liosta saor scriosta"
+
+#: lib/malloc/malloc.c:878
+msgid "free: called with already freed block argument"
+msgstr "free: glaoite le argóint bhloic á saoradh cheana"
+
+#: lib/malloc/malloc.c:881
+msgid "free: called with unallocated block argument"
+msgstr "free: glaoite le argóint bhloic nár leithdháileadh"
+
+#: lib/malloc/malloc.c:900
+msgid "free: underflow detected; mh_nbytes out of range"
+msgstr "free: gannsreabhadh; tá mh_nbytes as raon"
+
+#: lib/malloc/malloc.c:906
+msgid "free: start and end chunk sizes differ"
+msgstr "free: ní ionann méid na smután túis agus deiridh"
+
+#: lib/malloc/malloc.c:1005
+msgid "realloc: called with unallocated block argument"
+msgstr "realloc: glaoite le argóint bhloic nár leithdháileadh"
+
+#: lib/malloc/malloc.c:1020
+msgid "realloc: underflow detected; mh_nbytes out of range"
+msgstr "realloc: gannsreabhadh; tá mh_nbytes as raon"
+
+#: lib/malloc/malloc.c:1026
+msgid "realloc: start and end chunk sizes differ"
+msgstr "realloc: ní ionann méideanna na smután túis agus deiridh"
+
+#: lib/malloc/table.c:194
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "register_alloc: alloc table is full with FIND_ALLOC?\n"
 msgstr "register_alloc: an bhfuil an tábla leithdháilte lán le FIND_ALLOC?\n"
 
+<<<<<<< HEAD
 #: lib/malloc/table.c:200
+=======
+#: lib/malloc/table.c:203
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "register_alloc: %p already in table as allocated?\n"
 msgstr ""
 "register_alloc: an bhfuil %p sa tábla mar atá sé leithdháilte cheana?\n"
 
+<<<<<<< HEAD
 #: lib/malloc/table.c:253
+=======
+#: lib/malloc/table.c:256
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "register_free: %p already in table as free?\n"
 msgstr "register_free: an bhfuil %p sa tábla cheana mar ceann saor?\n"
@@ -1409,6 +2422,7 @@ msgstr "%s: seirbhís neamhbhailí"
 msgid "%s: bad network path specification"
 msgstr "%s: drochshonrú conaire líonra"
 
+<<<<<<< HEAD
 #: lib/sh/netopen.c:347
 msgid "network operations not supported"
 msgstr "Ní thacaítear le oibríochtaí líonra."
@@ -1432,6 +2446,31 @@ msgstr "setlocale: %s: ní féidir an logchaighdeán a athrú (%s)"
 #, c-format
 msgid "setlocale: %s: cannot change locale (%s): %s"
 msgstr "setlocale: %s: ní féidir an logchaighdeán a athrú (%s): %s"
+=======
+#: lib/sh/netopen.c:346
+msgid "network operations not supported"
+msgstr "Ní thacaítear le oibríochtaí líonra."
+
+#: locale.c:200
+#, c-format
+msgid "setlocale: LC_ALL: cannot change locale (%s)"
+msgstr ""
+
+#: locale.c:202
+#, c-format
+msgid "setlocale: LC_ALL: cannot change locale (%s): %s"
+msgstr ""
+
+#: locale.c:259
+#, fuzzy, c-format
+msgid "setlocale: %s: cannot change locale (%s)"
+msgstr "xrealloc: %s:%d: ní féidir %lu beart a leithdháileadh"
+
+#: locale.c:261
+#, fuzzy, c-format
+msgid "setlocale: %s: cannot change locale (%s): %s"
+msgstr "xrealloc: %s:%d: ní féidir %lu beart a leithdháileadh"
+>>>>>>> orgin/bash-4.3-testing
 
 #: mailcheck.c:439
 msgid "You have mail in $_"
@@ -1446,6 +2485,7 @@ msgstr "Tá ríomhphost nua agat i $_"
 msgid "The mail in %s has been read\n"
 msgstr "Tá an ríomhphost i %s léite\n"
 
+<<<<<<< HEAD
 #: make_cmd.c:317
 msgid "syntax error: arithmetic expression required"
 msgstr "Earráid chomhréire: tá slonn uimhríochtúil de dhith."
@@ -1460,10 +2500,27 @@ msgid "syntax error: `((%s))'"
 msgstr "Earráid chomhréire: '((%s))'"
 
 #: make_cmd.c:572
+=======
+#: make_cmd.c:323
+msgid "syntax error: arithmetic expression required"
+msgstr "Earráid chomhréire: tá slonn uimhríochtúil de dhith."
+
+#: make_cmd.c:325
+msgid "syntax error: `;' unexpected"
+msgstr "Earráid chomhréire: \";\" gan súil leis."
+
+#: make_cmd.c:326
+#, c-format
+msgid "syntax error: `((%s))'"
+msgstr "Earráid chomhréire: \"((%s))\""
+
+#: make_cmd.c:578
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "make_here_document: bad instruction type %d"
 msgstr "make_here_document: drochchineál ordaithe %d"
 
+<<<<<<< HEAD
 #: make_cmd.c:657
 #, c-format
 msgid "here-document at line %d delimited by end-of-file (wanted `%s')"
@@ -1472,10 +2529,21 @@ msgstr ""
 "lorg)"
 
 #: make_cmd.c:756
+=======
+#: make_cmd.c:662
+#, c-format
+msgid "here-document at line %d delimited by end-of-file (wanted `%s')"
+msgstr ""
+"cáipéis leabaithe ag líne %d teormharcáilte le deireadh comhaid (\"%s\" á "
+"lorg)"
+
+#: make_cmd.c:759
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "make_redirection: redirection instruction `%d' out of range"
 msgstr "make_redirection: ordú atreoraithe \"%d\" as raon."
 
+<<<<<<< HEAD
 #: parse.y:2380
 #, c-format
 msgid ""
@@ -1490,20 +2558,32 @@ msgid "maximum here-document count exceeded"
 msgstr "Imithe thar uasfhad na cáipéise-anseo"
 
 #: parse.y:3536 parse.y:3906
+=======
+#: parse.y:3273 parse.y:3556
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected EOF while looking for matching `%c'"
 msgstr "Deireadh comhaid gan súil leis agus \"%c\" a mheaitseálann á lorg."
 
+<<<<<<< HEAD
 #: parse.y:4606
 msgid "unexpected EOF while looking for `]]'"
 msgstr "Deireadh comhaid gan súil leis agus \"]]\" á lorg."
 
 #: parse.y:4611
+=======
+#: parse.y:4163
+msgid "unexpected EOF while looking for `]]'"
+msgstr "Deireadh comhaid gan súil leis agus \"]]\" á lorg."
+
+#: parse.y:4168
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "syntax error in conditional expression: unexpected token `%s'"
 msgstr ""
 "Earráid chomhréire i slonn coinníollach: comhartha \"%s\" gan suil leis."
 
+<<<<<<< HEAD
 #: parse.y:4615
 msgid "syntax error in conditional expression"
 msgstr "Earráid chomhréire i slonn coinníollach."
@@ -1518,21 +2598,46 @@ msgid "expected `)'"
 msgstr "Ag súil le \")\""
 
 #: parse.y:4725
+=======
+#: parse.y:4172
+msgid "syntax error in conditional expression"
+msgstr "Earráid chomhréire i slonn coinníollach."
+
+#: parse.y:4250
+#, c-format
+msgid "unexpected token `%s', expected `)'"
+msgstr "Comhartha \"%s\" gan súil leis; ag súil le \")\"."
+
+#: parse.y:4254
+msgid "expected `)'"
+msgstr "Ag súil le \")\""
+
+#: parse.y:4282
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected argument `%s' to conditional unary operator"
 msgstr "Argóint \"%s\" gan súil lei go hoibreoir aonártha coinníollach."
 
+<<<<<<< HEAD
 #: parse.y:4729
 msgid "unexpected argument to conditional unary operator"
 msgstr "Argóint gan súil lei go hoibreoir coinníollach aonártha ."
 
 #: parse.y:4775
+=======
+#: parse.y:4286
+msgid "unexpected argument to conditional unary operator"
+msgstr "Argóint gan súil lei go hoibreoir coinníollach aonártha ."
+
+#: parse.y:4332
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected token `%s', conditional binary operator expected"
 msgstr ""
 "Comhartha \"%s\" gan súil leis. Bhíothas ag súil le hoibreoir coinníollach "
 "dénártha."
 
+<<<<<<< HEAD
 #: parse.y:4779
 msgid "conditional binary operator expected"
 msgstr "Bhíothas ag súil le hoibreoir coinníollach dénártha."
@@ -1552,15 +2657,41 @@ msgid "unexpected token `%c' in conditional command"
 msgstr "Comhartha '%c' gan súil leis in ordú coinníollach."
 
 #: parse.y:4819
+=======
+#: parse.y:4336
+msgid "conditional binary operator expected"
+msgstr "Bhíothas ag súil le hoibreoir coinníollach dénártha."
+
+#: parse.y:4358
+#, c-format
+msgid "unexpected argument `%s' to conditional binary operator"
+msgstr "Argóint \"%s\" gan súil lei go hoibreoir dénártha coinníollach."
+
+#: parse.y:4362
+msgid "unexpected argument to conditional binary operator"
+msgstr "Argóint gan súil lei go hoibreoir dénártha coinníollach."
+
+#: parse.y:4373
+#, c-format
+msgid "unexpected token `%c' in conditional command"
+msgstr "Comhartha \"%c\" gan súil leis in ordú coinníollach."
+
+#: parse.y:4376
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected token `%s' in conditional command"
 msgstr "Comhartha \"%s\" gan súil leis in ordú coinníollach."
 
+<<<<<<< HEAD
 #: parse.y:4823
+=======
+#: parse.y:4380
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected token %d in conditional command"
 msgstr "Comhartha %d gan súil leis in ordú coinníollach."
 
+<<<<<<< HEAD
 #: parse.y:6245
 #, c-format
 msgid "syntax error near unexpected token `%s'"
@@ -1597,12 +2728,47 @@ msgstr "Iomlánú: níor aimsíodh an fheidhm '%s'."
 #, c-format
 msgid "programmable_completion: %s: possible retry loop"
 msgstr "críochnú in-ríomhchláraithe: %s: d'fhéadfadh lúb atriail a bheith ann"
+=======
+#: parse.y:5730
+#, c-format
+msgid "syntax error near unexpected token `%s'"
+msgstr ""
+"Earráid chomhréire in aice comhartha \"%s\" nach rabhthas ag súil leis."
+
+#: parse.y:5748
+#, c-format
+msgid "syntax error near `%s'"
+msgstr "Earráid chomhréire in aice \"%s\""
+
+#: parse.y:5758
+msgid "syntax error: unexpected end of file"
+msgstr "Earráid chomhréire: deireadh comhaid gan súil leis."
+
+#: parse.y:5758
+msgid "syntax error"
+msgstr "Earráid chomhréire"
+
+#: parse.y:5820
+#, c-format
+msgid "Use \"%s\" to leave the shell.\n"
+msgstr "Úsáid \"%s\" le scoir den mblaosc.\n"
+
+#: parse.y:5982
+msgid "unexpected EOF while looking for matching `)'"
+msgstr "Deireadh comhaid gan súil leis agus \")\" á lorg le meaitseáil."
+
+#: pcomplete.c:1094
+#, c-format
+msgid "completion: function `%s' not found"
+msgstr "Iomlánú: níor aimsíodh an fheidhm \"%s\"."
+>>>>>>> orgin/bash-4.3-testing
 
 #: pcomplib.c:182
 #, c-format
 msgid "progcomp_insert: %s: NULL COMPSPEC"
 msgstr "progcomp_insert: %s: tá COMPSPEC neamhnitheach"
 
+<<<<<<< HEAD
 #: print_cmd.c:302
 #, c-format
 msgid "print_command: bad connector `%d'"
@@ -1632,25 +2798,69 @@ msgid "file descriptor out of range"
 msgstr "tuairisceoir comhaid as raon"
 
 #: redir.c:174
+=======
+#: print_cmd.c:300
+#, c-format
+msgid "print_command: bad connector `%d'"
+msgstr "print_command: drochnascóir \"%d\""
+
+#: print_cmd.c:373
+#, fuzzy, c-format
+msgid "xtrace_set: %d: invalid file descriptor"
+msgstr "%d: tuairisceoir comhaid neamhbhailí: %s"
+
+#: print_cmd.c:378
+msgid "xtrace_set: NULL file pointer"
+msgstr ""
+
+#: print_cmd.c:382
+#, c-format
+msgid "xtrace fd (%d) != fileno xtrace fp (%d)"
+msgstr ""
+
+#: print_cmd.c:1518
+#, c-format
+msgid "cprintf: `%c': invalid format character"
+msgstr "cprintf: \"%c\": carachtar formáide neamhbhailí"
+
+#: redir.c:123 redir.c:170
+msgid "file descriptor out of range"
+msgstr "tuairisceoir comhaid as raon"
+
+#: redir.c:177
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: ambiguous redirect"
 msgstr "%s: atreorú athbhríoch"
 
+<<<<<<< HEAD
 #: redir.c:178
+=======
+#: redir.c:181
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot overwrite existing file"
 msgstr "%s: ní féidir comhad atá ann cheana a fhorscríobh."
 
+<<<<<<< HEAD
 #: redir.c:183
+=======
+#: redir.c:186
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: restricted: cannot redirect output"
 msgstr "%s: srianta: ní féidir aschur a atreorú."
 
+<<<<<<< HEAD
 #: redir.c:188
+=======
+#: redir.c:191
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot create temp file for here-document: %s"
 msgstr "ní féidir cáipéis shealadach a chruthú don cháipéis leabaithe: %s"
 
+<<<<<<< HEAD
 #: redir.c:192
 #, c-format
 msgid "%s: cannot assign fd to variable"
@@ -1677,10 +2887,35 @@ msgid "pretty-printing mode ignored in interactive shells"
 msgstr ""
 
 #: shell.c:940
+=======
+#: redir.c:195
+#, fuzzy, c-format
+msgid "%s: cannot assign fd to variable"
+msgstr "%s: ní féidir liosta a shannadh go ball eagair."
+
+#: redir.c:582
+msgid "/dev/(tcp|udp)/host/port not supported without networking"
+msgstr "Ní thacaítear le /dev/(tcp|udp)/óstríomhaire/port gan líonrú."
+
+#: redir.c:861 redir.c:973 redir.c:1034 redir.c:1199
+msgid "redirection error: cannot duplicate fd"
+msgstr "Earráid atreoraithe: ní féidir an tuairisceoir comhaid a dhúbailt."
+
+#: shell.c:339
+msgid "could not find /tmp, please create!"
+msgstr "Níorbh fhéidir /tmp a aimsiú. Cruthaigh é le do thoil!"
+
+#: shell.c:343
+msgid "/tmp must be a valid directory name"
+msgstr "Caithfidh /tmp bheith ina ainm comhadlainne bailí."
+
+#: shell.c:890
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%c%c: invalid option"
 msgstr "%c%c: rogha neamhbhailí"
 
+<<<<<<< HEAD
 #: shell.c:1299
 #, c-format
 msgid "cannot set uid to %d: effective uid %d"
@@ -1710,11 +2945,22 @@ msgid "I have no name!"
 msgstr "Níl ainm orm!"
 
 #: shell.c:1980
+=======
+#: shell.c:1682
+msgid "I have no name!"
+msgstr "Níl ainm orm!"
+
+#: shell.c:1827
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "GNU bash, version %s-(%s)\n"
 msgstr "GNU bash, leagan %s-(%s)\n"
 
+<<<<<<< HEAD
 #: shell.c:1981
+=======
+#: shell.c:1828
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "Usage:\t%s [GNU long option] [option] ...\n"
@@ -1723,6 +2969,7 @@ msgstr ""
 "Úsáid:\t%s [rogha fada GNU] [rogha] ...\n"
 "\t%s [rogha fada GNU] [rogha] comhad_scripte ...\n"
 
+<<<<<<< HEAD
 #: shell.c:1983
 msgid "GNU long options:\n"
 msgstr "Roghanna fada GNU:\n"
@@ -1736,10 +2983,27 @@ msgid "\t-ilrsD or -c command or -O shopt_option\t\t(invocation only)\n"
 msgstr "\t-ilrsD nó -c ordú nó -O rogha_shopt\t\t(glaoch amháin)\n"
 
 #: shell.c:2007
+=======
+#: shell.c:1830
+msgid "GNU long options:\n"
+msgstr "Roghanna fada GNU:\n"
+
+#: shell.c:1834
+msgid "Shell options:\n"
+msgstr "Roghanna blaoisce:\n"
+
+#: shell.c:1835
+#, fuzzy
+msgid "\t-ilrsD or -c command or -O shopt_option\t\t(invocation only)\n"
+msgstr "\t-irsD nó -c ordú nó -O rogha_shopt\t\t(glaoch amháin)\n"
+
+#: shell.c:1850
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "\t-%s or -o option\n"
 msgstr "\t-%s nó -o rogha\n"
 
+<<<<<<< HEAD
 #: shell.c:2013
 #, c-format
 msgid "Type `%s -c \"help set\"' for more information about shell options.\n"
@@ -1769,6 +3033,28 @@ msgid "General help using GNU software: <http://www.gnu.org/gethelp/>\n"
 msgstr "Cabhair ghinearálta le bogearraí GNU: <http://www.gnu.org/gethelp/>\n"
 
 #: sig.c:730
+=======
+#: shell.c:1856
+#, c-format
+msgid "Type `%s -c \"help set\"' for more information about shell options.\n"
+msgstr ""
+"Úsáid %s -c \"help set\" le haghaidh tuilleadh eolais faoi roghanna "
+"blaoisce.\n"
+
+#: shell.c:1857
+#, c-format
+msgid "Type `%s -c help' for more information about shell builtin commands.\n"
+msgstr ""
+"Úsáid \"%s -c help\" le haghaidh tuilleadh eolais faoi orduithe ionsuite "
+"blaoisce.\n"
+
+#: shell.c:1858
+#, c-format
+msgid "Use the `bashbug' command to report bugs.\n"
+msgstr "Úsáid an t-ordú \"bashbug\" le tuarascáil a sheoladh faoi fhabht.\n"
+
+#: sig.c:691
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "sigprocmask: %d: invalid operation"
 msgstr "sigprocmask: %d: oibríocht neamhbhailí"
@@ -1942,16 +3228,26 @@ msgstr "Comhartha neamhaithnid #"
 msgid "Unknown Signal #%d"
 msgstr "Comhartha neamhaithnid #%d"
 
+<<<<<<< HEAD
 #: subst.c:1454 subst.c:1644
 #, c-format
 msgid "bad substitution: no closing `%s' in %s"
 msgstr "Drochionadú: níl '%s' dúnta i %s"
 
 #: subst.c:3231
+=======
+#: subst.c:1362 subst.c:1520
+#, c-format
+msgid "bad substitution: no closing `%s' in %s"
+msgstr "Drochionadú: níl \"%s\" dúnta i %s"
+
+#: subst.c:2847
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot assign list to array member"
 msgstr "%s: ní féidir liosta a shannadh go ball eagair."
 
+<<<<<<< HEAD
 #: subst.c:5789 subst.c:5805
 msgid "cannot make pipe for process substitution"
 msgstr "Ní féidir píopa a dhéanamh le haghaidh ionadaíocht próisis."
@@ -1961,21 +3257,41 @@ msgid "cannot make child for process substitution"
 msgstr "Ní féidir macphróiseas a dhéanamh le haghaidh ionadaíocht próisis."
 
 #: subst.c:5920
+=======
+#: subst.c:5065 subst.c:5081
+msgid "cannot make pipe for process substitution"
+msgstr "Ní féidir píopa a dhéanamh le haghaidh ionadaíocht próisis."
+
+#: subst.c:5113
+msgid "cannot make child for process substitution"
+msgstr "Ní féidir macphróiseas a dhéanamh le haghaidh ionadaíocht próisis."
+
+#: subst.c:5158
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot open named pipe %s for reading"
 msgstr "Ní féidir píopa ainmnithe %s a oscailt le haghaidh léamh."
 
+<<<<<<< HEAD
 #: subst.c:5922
+=======
+#: subst.c:5160
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot open named pipe %s for writing"
 msgstr "Ní féidir píopa ainmnithe %s a oscailt le haghaidh scríofa."
 
+<<<<<<< HEAD
 #: subst.c:5945
+=======
+#: subst.c:5178
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot duplicate named pipe %s as fd %d"
 msgstr ""
 "Ní féidir an píopa ainmnithe %s a dhúbailt mar thuairisceoir comhaid %d."
 
+<<<<<<< HEAD
 #: subst.c:6062
 msgid "command substitution: ignored null byte in input"
 msgstr "ionadú orduithe: tugadh neamhaird ar ghiotán neamhnitheach san ionchur"
@@ -1989,11 +3305,23 @@ msgid "cannot make child for command substitution"
 msgstr "Ní féidir macphróiseas a dhéanamh le haghaidh ionadú ordaithe."
 
 #: subst.c:6259
+=======
+#: subst.c:5376
+msgid "cannot make pipe for command substitution"
+msgstr "Ní féidir píopa a dhéanamh le haghaidh ionadú ordaithe."
+
+#: subst.c:5414
+msgid "cannot make child for command substitution"
+msgstr "Ní féidir macphróiseas a dhéanamh le haghaidh ionadú ordaithe."
+
+#: subst.c:5433
+>>>>>>> orgin/bash-4.3-testing
 msgid "command_substitute: cannot duplicate pipe as fd 1"
 msgstr ""
 "command_substitute: ní feidir an píopa a dhúbailt mar thuairisceoir comhaid "
 "1."
 
+<<<<<<< HEAD
 #: subst.c:6710 subst.c:9623
 #, c-format
 msgid "%s: invalid variable name for name reference"
@@ -2015,30 +3343,55 @@ msgid "%s: parameter not set"
 msgstr "%s: paraiméadar gan socrú."
 
 #: subst.c:7058
+=======
+#: subst.c:5837 subst.c:8050
+#, fuzzy, c-format
+msgid "%s: invalid variable name for name reference"
+msgstr "%d: tuairisceoir comhaid neamhbhailí: %s"
+
+#: subst.c:6048
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: parameter null or not set"
 msgstr "%s: paraiméadar neamhnitheach nó gan socrú."
 
+<<<<<<< HEAD
 #: subst.c:7295 subst.c:7310
+=======
+#: subst.c:6320 subst.c:6335
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: substring expression < 0"
 msgstr "%s: slonn fotheaghráin < 0"
 
+<<<<<<< HEAD
 #: subst.c:8973 subst.c:8994
+=======
+#: subst.c:7506
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: bad substitution"
 msgstr "%s: drochionadú"
 
+<<<<<<< HEAD
 #: subst.c:9082
+=======
+#: subst.c:7583
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "$%s: cannot assign in this way"
 msgstr "$%s: ní féidir sannadh mar seo."
 
+<<<<<<< HEAD
 #: subst.c:9485
+=======
+#: subst.c:7917
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "future versions of the shell will force evaluation as an arithmetic "
 "substitution"
 msgstr ""
+<<<<<<< HEAD
 "i leaganacha den bhlaosc amach anseo, beidh luachálú mar ionadú uimhríochta "
 "éigeantach"
 
@@ -2048,6 +3401,15 @@ msgid "bad substitution: no closing \"`\" in %s"
 msgstr "drochionadú: níl  '`' dúnta i %s"
 
 #: subst.c:11070
+=======
+
+#: subst.c:8421
+#, c-format
+msgid "bad substitution: no closing \"`\" in %s"
+msgstr "drochionadú: níl  \"`\" dúnta i %s"
+
+#: subst.c:9322
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "no match: %s"
 msgstr "gan meaitseáil: %s"
@@ -2061,6 +3423,7 @@ msgstr "Bhíothas ag súil le hargóint."
 msgid "%s: integer expression expected"
 msgstr "%s: ag súil le slonn slánuimhreach."
 
+<<<<<<< HEAD
 #: test.c:265
 msgid "`)' expected"
 msgstr "Ag súil le ')'"
@@ -2071,15 +3434,32 @@ msgid "`)' expected, found %s"
 msgstr "Ag súil le ')', ach fuarthas %s."
 
 #: test.c:282 test.c:750 test.c:753
+=======
+#: test.c:264
+msgid "`)' expected"
+msgstr "Ag súil le \")\""
+
+#: test.c:266
+#, c-format
+msgid "`)' expected, found %s"
+msgstr "Ag súil le \")\", ach fuarthas %s."
+
+#: test.c:281 test.c:721 test.c:724
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: unary operator expected"
 msgstr "%s: ag súil le hoibreoir aonártha."
 
+<<<<<<< HEAD
 #: test.c:469 test.c:793
+=======
+#: test.c:468 test.c:764
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: binary operator expected"
 msgstr "%s: ag súil le hoibreoir dénártha."
 
+<<<<<<< HEAD
 #: test.c:875
 msgid "missing `]'"
 msgstr "']' ar iarraidh"
@@ -2094,11 +3474,26 @@ msgid "trap handler: maximum trap handler level exceeded (%d)"
 msgstr "eval: imithe thar uasleibhéal na láimhseálaithe gaistí (%d)"
 
 #: trap.c:408
+=======
+#: test.c:839
+msgid "missing `]'"
+msgstr "\"]\" ar iarraidh"
+
+#: trap.c:217
+msgid "invalid signal number"
+msgstr "Uimhir chomhartha neamhbhailí"
+
+#: trap.c:371
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "run_pending_traps: bad value in trap_list[%d]: %p"
 msgstr "run_pending_traps: drochluach sa liosta_gaistí[%d]: %p"
 
+<<<<<<< HEAD
 #: trap.c:412
+=======
+#: trap.c:375
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "run_pending_traps: signal handler is SIG_DFL, resending %d (%s) to myself"
@@ -2106,21 +3501,35 @@ msgstr ""
 "run_pending_traps: is SIG_DFL an láimhseálaí comharthaí; %d (%s) á "
 "athsheoladh chugam féin."
 
+<<<<<<< HEAD
 #: trap.c:470
+=======
+#: trap.c:428
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "trap_handler: bad signal %d"
 msgstr "trap_handler: droch-chomhartha %d"
 
+<<<<<<< HEAD
 #: variables.c:412
 #, c-format
 msgid "error importing function definition for `%s'"
 msgstr "Earráid agus sainmhíniú na feidhme '%s' á iompórtáil."
 
 #: variables.c:821
+=======
+#: variables.c:382
+#, c-format
+msgid "error importing function definition for `%s'"
+msgstr "Earráid agus sainmhíniú na feidhme \"%s\" á iompórtáil."
+
+#: variables.c:780
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "shell level (%d) too high, resetting to 1"
 msgstr "Tá an leibhéal blaoisce (%d) ró-ard; á athshocrú go 1."
 
+<<<<<<< HEAD
 #: variables.c:2655
 msgid "make_local_variable: no function context at current scope"
 msgstr "make_local_variable: níl comhthéacs feidhme sa scóip reatha."
@@ -2145,10 +3554,37 @@ msgid "%s has null exportstr"
 msgstr "Tá teaghrán easpórtála neamhnitheach ag %s"
 
 #: variables.c:4703 variables.c:4712
+=======
+#: variables.c:1865
+#, fuzzy, c-format
+msgid "%s: circular name reference"
+msgstr "%d: tuairisceoir comhaid neamhbhailí: %s"
+
+#: variables.c:2228
+msgid "make_local_variable: no function context at current scope"
+msgstr "make_local_variable: níl comhthéacs feidhme sa scóip reatha."
+
+#: variables.c:2247
+#, fuzzy, c-format
+msgid "%s: variable may not be assigned value"
+msgstr "%s: ní féidir liosta a shannadh go ball eagair."
+
+#: variables.c:3646
+msgid "all_local_variables: no function context at current scope"
+msgstr "all_local_variables: níl comhthéacs feidhme sa scóip reatha"
+
+#: variables.c:3891
+#, fuzzy, c-format
+msgid "%s has null exportstr"
+msgstr "%s: paraiméadar neamhnitheach nó gan socrú."
+
+#: variables.c:3896 variables.c:3905
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "invalid character %d in exportstr for %s"
 msgstr "Carachtar neamhbhailí %d sa teaghrán easpórtála le haghaidh %s."
 
+<<<<<<< HEAD
 #: variables.c:4718
 #, c-format
 msgid "no `=' in exportstr for %s"
@@ -2184,6 +3620,44 @@ msgstr "%s: %s: luach comhoiriúnachta as raon"
 #: version.c:46 version2.c:46
 msgid "Copyright (C) 2018 Free Software Foundation, Inc."
 msgstr "Cóipcheart © 2018 Free Software Foundation, Inc."
+=======
+#: variables.c:3911
+#, c-format
+msgid "no `=' in exportstr for %s"
+msgstr "Níl \"=\" sa teaghrán easpórtála le haghaidh %s."
+
+#: variables.c:4344
+msgid "pop_var_context: head of shell_variables not a function context"
+msgstr "pop_var_context: ní comhthéacs feidhme é ceann shell_variables"
+
+#: variables.c:4357
+msgid "pop_var_context: no global_variables context"
+msgstr "pop_var_context: níl comhthéacs global_variables ann"
+
+#: variables.c:4431
+msgid "pop_scope: head of shell_variables not a temporary environment scope"
+msgstr "pop_scope: ní scóip shealadach thimpeallachta é ceann shell_variables"
+
+#: variables.c:5257
+#, fuzzy, c-format
+msgid "%s: %s: cannot open as FILE"
+msgstr "%s: ní féidir oscailt: %s"
+
+#: variables.c:5262
+#, fuzzy, c-format
+msgid "%s: %s: invalid value for trace file descriptor"
+msgstr "%d: tuairisceoir comhaid neamhbhailí: %s"
+
+#: variables.c:5307
+#, fuzzy, c-format
+msgid "%s: %s: compatibility value out of range"
+msgstr "%s: %s as raon"
+
+#: version.c:46
+#, fuzzy
+msgid "Copyright (C) 2013 Free Software Foundation, Inc."
+msgstr "Cóipcheart © 2009 Free Software Foundation, Inc."
+>>>>>>> orgin/bash-4.3-testing
 
 #: version.c:47 version2.c:47
 msgid ""
@@ -2199,6 +3673,7 @@ msgid "GNU bash, version %s (%s)\n"
 msgstr "GNU bash, leagan %s (%s)\n"
 
 #: version.c:91 version2.c:91
+<<<<<<< HEAD
 msgid "This is free software; you are free to change and redistribute it."
 msgstr "Is saorbhogearra é seo; tá cead agat é a athrú agus  é a athdháileadh."
 
@@ -2237,10 +3712,59 @@ msgid "unalias [-a] name [name ...]"
 msgstr "unalias [-a] ainm [ainm ...]"
 
 #: builtins.c:53
+=======
+#, fuzzy
+msgid "This is free software; you are free to change and redistribute it."
+msgstr "Is saorbhogearra é seo; tá cead agat é a athrú agus a dháileadh.\n"
+
+#: version.c:92 version2.c:92
+#, fuzzy
+msgid "There is NO WARRANTY, to the extent permitted by law."
+msgstr ""
+"Ní ghabhann baránta ar bith leis, sa mhéid is atá sin ceadaithe de réir "
+"dlí.\n"
+
+#: version2.c:46
+#, fuzzy
+msgid "Copyright (C) 2012 Free Software Foundation, Inc."
+msgstr "Cóipcheart © 2009 Free Software Foundation, Inc."
+
+#: xmalloc.c:91
+#, fuzzy, c-format
+msgid "%s: cannot allocate %lu bytes (%lu bytes allocated)"
+msgstr "xmalloc: ní féidir %lu beart a leithdháileadh (%lu beart leithdháilte)"
+
+#: xmalloc.c:93
+#, fuzzy, c-format
+msgid "%s: cannot allocate %lu bytes"
+msgstr "xmalloc: ní féidir %lu beart a leithdháileadh"
+
+#: xmalloc.c:163
+#, fuzzy, c-format
+msgid "%s: %s:%d: cannot allocate %lu bytes (%lu bytes allocated)"
+msgstr ""
+"xmalloc: %s:%d: ní féidir %lu beart a leithdháileadh (%lu beart leithdháilte)"
+
+#: xmalloc.c:165
+#, fuzzy, c-format
+msgid "%s: %s:%d: cannot allocate %lu bytes"
+msgstr "xmalloc: %s:%d: ní féidir %lu beart a leithdháileadh"
+
+#: builtins.c:43
+msgid "alias [-p] [name[=value] ... ]"
+msgstr "alias [-p] [ainm[=luach] ... ]"
+
+#: builtins.c:47
+msgid "unalias [-a] name [name ...]"
+msgstr "unalias [-a] ainm [ainm ...]"
+
+#: builtins.c:51
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "bind [-lpsvPSVX] [-m keymap] [-f filename] [-q name] [-u name] [-r keyseq] [-"
 "x keyseq:shell-command] [keyseq:readline-function or readline-command]"
 msgstr ""
+<<<<<<< HEAD
 "bind [-lpsvPSVX] [-m MAPA_EOCHRACH] [-f AINM_CHOMHAID] [-q AINM] [-u AINM] [-"
 "r SRAITH_EOCHRACHA] [-x SRAITH_EOCHRACHA:ORDÚ_BLAOISCE] [SRAITH_EOCHRACHA:"
 "GNÍOMH_readline nó ORDÚ_readline]"
@@ -2318,10 +3842,102 @@ msgid "logout [n]"
 msgstr "logout [n]"
 
 #: builtins.c:105
+=======
+
+#: builtins.c:54
+msgid "break [n]"
+msgstr "break [N]"
+
+#: builtins.c:56
+msgid "continue [n]"
+msgstr "continue [N]"
+
+#: builtins.c:58
+msgid "builtin [shell-builtin [arg ...]]"
+msgstr "builtin [ORDÚ-IONSUITE-BLAOISCE [ARGÓINT ...]]"
+
+#: builtins.c:61
+msgid "caller [expr]"
+msgstr "caller [SLONN]"
+
+#: builtins.c:64
+#, fuzzy
+msgid "cd [-L|[-P [-e]] [-@]] [dir]"
+msgstr "cd [-L|-P] [comhadlann]"
+
+#: builtins.c:66
+msgid "pwd [-LP]"
+msgstr "pwd [-LP]"
+
+#: builtins.c:68
+msgid ":"
+msgstr ":"
+
+#: builtins.c:70
+msgid "true"
+msgstr "true"
+
+#: builtins.c:72
+msgid "false"
+msgstr "false"
+
+#: builtins.c:74
+msgid "command [-pVv] command [arg ...]"
+msgstr "command [-pVv] ORDÚ [ARGÓINT ...]"
+
+#: builtins.c:76
+#, fuzzy
+msgid "declare [-aAfFgilnrtux] [-p] [name[=value] ...]"
+msgstr "declare [-aAfFilrtux] [-p] [ainm[=luach] ...]"
+
+#: builtins.c:78
+#, fuzzy
+msgid "typeset [-aAfFgilrtux] [-p] name[=value] ..."
+msgstr "typeset [-aAfFilrtux] [-p] ainm[=luach] ..."
+
+#: builtins.c:80
+msgid "local [option] name[=value] ..."
+msgstr "local [ROGHA] AINM[=LUACH] ..."
+
+#: builtins.c:83
+msgid "echo [-neE] [arg ...]"
+msgstr "echo [-neE] [ARGÓINT ...]"
+
+#: builtins.c:87
+msgid "echo [-n] [arg ...]"
+msgstr "echo [-n] [ARGÓINT ...]"
+
+#: builtins.c:90
+msgid "enable [-a] [-dnps] [-f filename] [name ...]"
+msgstr "enable [-a] [-dnps] [-f comhadainm] [ainm ...]"
+
+#: builtins.c:92
+msgid "eval [arg ...]"
+msgstr "eval [argóint ...]"
+
+#: builtins.c:94
+msgid "getopts optstring name [arg]"
+msgstr "getopts teaghrán_roghanna ainm [argóint]"
+
+#: builtins.c:96
+msgid "exec [-cl] [-a name] [command [arguments ...]] [redirection ...]"
+msgstr "exec [-cl] [-a ainm] [ordú [argóintí ...]] [atreorú ...]"
+
+#: builtins.c:98
+msgid "exit [n]"
+msgstr "exit [N]"
+
+#: builtins.c:100
+msgid "logout [n]"
+msgstr "logout [n]"
+
+#: builtins.c:103
+>>>>>>> orgin/bash-4.3-testing
 msgid "fc [-e ename] [-lnr] [first] [last] or fc -s [pat=rep] [command]"
 msgstr ""
 "fc [-e AINM_E] [-lnr] [CÉAD] [DEIREANACH] nó fc -s [PATRÚN=IONADAÍ] [ORDÚ]"
 
+<<<<<<< HEAD
 #: builtins.c:109
 msgid "fg [job_spec]"
 msgstr "fg [SONRÚ_TAISC]"
@@ -2339,6 +3955,26 @@ msgid "help [-dms] [pattern ...]"
 msgstr "help [-dms] [PATRÚN ...]"
 
 #: builtins.c:123
+=======
+#: builtins.c:107
+msgid "fg [job_spec]"
+msgstr "fg [SONRÚ_JAB]"
+
+#: builtins.c:111
+msgid "bg [job_spec ...]"
+msgstr "bg [SONRÚ_JAB ...]"
+
+#: builtins.c:114
+msgid "hash [-lr] [-p pathname] [-dt] [name ...]"
+msgstr "hash [-lr] [-p CONAIR] [-dt] [AINM ...]"
+
+#: builtins.c:117
+#, fuzzy
+msgid "help [-dms] [pattern ...]"
+msgstr "help [-ds] [PATRÚN ...]"
+
+#: builtins.c:121
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "history [-c] [-d offset] [n] or history -anrw [filename] or history -ps arg "
 "[arg...]"
@@ -2346,6 +3982,7 @@ msgstr ""
 "history [-c] [-d SEACH_CHUR] [n] nó history -anrw [COMHADAINM] nó history -"
 "ps ARGÓINT [ARGÓINT...]"
 
+<<<<<<< HEAD
 #: builtins.c:127
 msgid "jobs [-lnprs] [jobspec ...] or jobs -x command [args]"
 msgstr "jobs [-lnprs] [SONRÚ_TAISC ...] nó jobs -x ORDÚ [ARGÓINTÍ]"
@@ -2355,10 +3992,22 @@ msgid "disown [-h] [-ar] [jobspec ... | pid ...]"
 msgstr "disown [-h] [-ar] [SONRÚ_TAISC ... | AITHEANTAS_PRÓISIS ...]"
 
 #: builtins.c:134
+=======
+#: builtins.c:125
+msgid "jobs [-lnprs] [jobspec ...] or jobs -x command [args]"
+msgstr "jobs [-lnprs] [SONRÚ_JAB ...] nó jobs -x ORDÚ [ARGÓINTÍ]"
+
+#: builtins.c:129
+msgid "disown [-h] [-ar] [jobspec ...]"
+msgstr "disown [-h] [-ar] [SONRÚ_JAB ...]"
+
+#: builtins.c:132
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l "
 "[sigspec]"
 msgstr ""
+<<<<<<< HEAD
 "kill [-s SONRÚ_COMHARTHA | -n UIMHIR_CHOMHARTHA | -SONRÚ_COMHARTHA] "
 "AITHEANTAS_PRÓISIS | SONRÚ_TAISC ... nó kill -l [SONRÚ_COMHARTHA]"
 
@@ -2367,10 +4016,22 @@ msgid "let arg [arg ...]"
 msgstr "let argóint [argóint ...]"
 
 #: builtins.c:138
+=======
+"kill [-s sonrú_comhartha | -n uimhir_chomhartha | -sonrú_comhartha] "
+"aitheantóir_próisis | sonrú_jab ... nó kill -l [sonrú_comhartha]"
+
+#: builtins.c:134
+msgid "let arg [arg ...]"
+msgstr "let argóint [argóint ...]"
+
+#: builtins.c:136
+#, fuzzy
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars] [-p "
 "prompt] [-t timeout] [-u fd] [name ...]"
 msgstr ""
+<<<<<<< HEAD
 "read [-ers] [-a eagar] [-d teormharcóir] [-i téacs] [-n líon_carachtar] [-N "
 "líon_carachtar] [-p leid] [-t teorainn_ama] [-u tuairisceoir_comhaid] "
 "[ainm ...]"
@@ -2464,6 +4125,110 @@ msgid "case WORD in [PATTERN [| PATTERN]...) COMMANDS ;;]... esac"
 msgstr "case FOCAL in [PATRÚN [| PATRÚN]...) ORDUITHE ;;]... esac"
 
 #: builtins.c:194
+=======
+"read [-ers] [-a eagar] [-d teormharcóir] [-i téacs] [-n líon_carachtar] [-p "
+"leid] [-t teorainn_ama] [-u tuairisceoir_comhaid] [ainm ...]"
+
+#: builtins.c:138
+msgid "return [n]"
+msgstr "return [n]"
+
+#: builtins.c:140
+#, fuzzy
+msgid "set [-abefhkmnptuvxBCHP] [-o option-name] [--] [arg ...]"
+msgstr "set [--abefhkmnptuvxBCHP] [-o ainm-rogha] [argóint ...]"
+
+#: builtins.c:142
+#, fuzzy
+msgid "unset [-f] [-v] [-n] [name ...]"
+msgstr "unset [-f] [-v] [ainm ...]"
+
+#: builtins.c:144
+msgid "export [-fn] [name[=value] ...] or export -p"
+msgstr "export [-fn] [ainm[=luach] ...] nó export -p"
+
+#: builtins.c:146
+#, fuzzy
+msgid "readonly [-aAf] [name[=value] ...] or readonly -p"
+msgstr "readonly [-af] [ainm[=luach] ...] nó readonly -p"
+
+#: builtins.c:148
+msgid "shift [n]"
+msgstr "shift [n]"
+
+#: builtins.c:150
+msgid "source filename [arguments]"
+msgstr "source comhadainm [argóintí]"
+
+#: builtins.c:152
+msgid ". filename [arguments]"
+msgstr ". comhadainm [argóintí]"
+
+#: builtins.c:155
+msgid "suspend [-f]"
+msgstr "suspend [-f]"
+
+#: builtins.c:158
+msgid "test [expr]"
+msgstr "test [slonn]"
+
+#: builtins.c:160
+msgid "[ arg... ]"
+msgstr "[ argóint... ]"
+
+#: builtins.c:162
+msgid "times"
+msgstr "times"
+
+#: builtins.c:164
+msgid "trap [-lp] [[arg] signal_spec ...]"
+msgstr "trap [-lp] [[argóint] sonrú_comhartha ...]"
+
+#: builtins.c:166
+msgid "type [-afptP] name [name ...]"
+msgstr "type [-afptP] ainm [ainm ...]"
+
+#: builtins.c:169
+#, fuzzy
+msgid "ulimit [-SHabcdefilmnpqrstuvxT] [limit]"
+msgstr "ulimit [-SHacdefilmnpqrstuvx] [teorainn]"
+
+#: builtins.c:172
+msgid "umask [-p] [-S] [mode]"
+msgstr "umask [-p] [-S] [mód]"
+
+#: builtins.c:175
+#, fuzzy
+msgid "wait [-n] [id ...]"
+msgstr "wait [aitheantas]"
+
+#: builtins.c:179
+#, fuzzy
+msgid "wait [pid ...]"
+msgstr "wait [aitheantas]"
+
+#: builtins.c:182
+msgid "for NAME [in WORDS ... ] ; do COMMANDS; done"
+msgstr "for AINM [in FOCAIL ... ] ; do ORDUITHE; done"
+
+#: builtins.c:184
+msgid "for (( exp1; exp2; exp3 )); do COMMANDS; done"
+msgstr "for (( slonn1; slonn2; slonn3 )); do ORDUITHE; done"
+
+#: builtins.c:186
+msgid "select NAME [in WORDS ... ;] do COMMANDS; done"
+msgstr "select AINM [in FOCAIL ... ;] do ORDUITHE; done"
+
+#: builtins.c:188
+msgid "time [-p] pipeline"
+msgstr "time [-p] píblíne"
+
+#: builtins.c:190
+msgid "case WORD in [PATTERN [| PATTERN]...) COMMANDS ;;]... esac"
+msgstr "case FOCAL in [PATRÚN [| PATRÚN]...) ORDUITHE ;;]... esac"
+
+#: builtins.c:192
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "if COMMANDS; then COMMANDS; [ elif COMMANDS; then COMMANDS; ]... [ else "
 "COMMANDS; ] fi"
@@ -2471,6 +4236,7 @@ msgstr ""
 "if ORDUITHE; then ORDUITHE; [ elif ORDUITHE; then ORDUITHE; ]... [ else "
 "ORDUITHE; ] fi"
 
+<<<<<<< HEAD
 #: builtins.c:196
 msgid "while COMMANDS; do COMMANDS; done"
 msgstr "while ORDUITHE1; do ORDUITHE2; done"
@@ -2540,10 +4306,83 @@ msgstr ""
 #: builtins.c:235
 msgid ""
 "compgen [-abcdefgjksuv] [-o option] [-A action] [-G globpat] [-W wordlist]  "
+=======
+#: builtins.c:194
+msgid "while COMMANDS; do COMMANDS; done"
+msgstr "while ORDUITHE; do ORDUITHE; done"
+
+#: builtins.c:196
+msgid "until COMMANDS; do COMMANDS; done"
+msgstr "until ORDUITHE; do ORDUITHE; done"
+
+#: builtins.c:198
+msgid "coproc [NAME] command [redirections]"
+msgstr "coproc [AINM] ordú [atreoruithe]"
+
+#: builtins.c:200
+msgid "function name { COMMANDS ; } or name () { COMMANDS ; }"
+msgstr "function AINM { ORDUITHE ; } nó AINM () { ORDUITHE ; }"
+
+#: builtins.c:202
+msgid "{ COMMANDS ; }"
+msgstr "{ ORDUITHE ; }"
+
+#: builtins.c:204
+msgid "job_spec [&]"
+msgstr "sonrú_jab [&]"
+
+#: builtins.c:206
+msgid "(( expression ))"
+msgstr "(( slonn ))"
+
+#: builtins.c:208
+msgid "[[ expression ]]"
+msgstr "[[ slonn ]]"
+
+#: builtins.c:210
+msgid "variables - Names and meanings of some shell variables"
+msgstr "Athróga - ainmneacha agus mínithe ar fathróga áirithe blaoisce"
+
+#: builtins.c:213
+msgid "pushd [-n] [+N | -N | dir]"
+msgstr "pushd [-n] [+N | -N | comhadlann]"
+
+#: builtins.c:217
+msgid "popd [-n] [+N | -N]"
+msgstr "popd [-n] [+N | -N]"
+
+#: builtins.c:221
+msgid "dirs [-clpv] [+N] [-N]"
+msgstr "dirs [-clpv] [+N] [-N]"
+
+#: builtins.c:224
+msgid "shopt [-pqsu] [-o] [optname ...]"
+msgstr "shopt [-pqsu] [-o] [ainm_rogha ...]"
+
+#: builtins.c:226
+msgid "printf [-v var] format [arguments]"
+msgstr "printf [-v athróg] formáid [argóintí]"
+
+#: builtins.c:229
+#, fuzzy
+msgid ""
+"complete [-abcdefgjksuv] [-pr] [-DE] [-o option] [-A action] [-G globpat] [-"
+"W wordlist]  [-F function] [-C command] [-X filterpat] [-P prefix] [-S "
+"suffix] [name ...]"
+msgstr ""
+"complete [-abcdefgjksuv] [-pr] [-o rogha] [-A gníomh] [-G patrún] [-W "
+"liosta_focal]  [-F feidhm] [-C ordú] [-X patrún_scagaire] [-P réimír] [-S "
+"iarmhír] [ainm ...]"
+
+#: builtins.c:233
+msgid ""
+"compgen [-abcdefgjksuv] [-o option]  [-A action] [-G globpat] [-W wordlist]  "
+>>>>>>> orgin/bash-4.3-testing
 "[-F function] [-C command] [-X filterpat] [-P prefix] [-S suffix] [word]"
 msgstr ""
 "compgen [-abcdefgjksuv] [-o rogha]  [-A gníomh] [-G patrún] [-W "
 "liosta_focal]  [-F feidhm] [-C ordú] [-X patrún_scagaire] [-P réimír] [-S "
+<<<<<<< HEAD
 "iarmhír] [focal]"
 
 #: builtins.c:239
@@ -2567,6 +4406,28 @@ msgstr ""
 "t] [-u TUAIRISCEOIR_COMHAID] [-C AISGHLAOCH] [-c CANDAM] [EAGAR]"
 
 #: builtins.c:256
+=======
+"iarmhír] [FOCAL]"
+
+#: builtins.c:237
+#, fuzzy
+msgid "compopt [-o|+o option] [-DE] [name ...]"
+msgstr "compopt [-o|+o rogha] [ainm ...]"
+
+#: builtins.c:240
+msgid ""
+"mapfile [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c "
+"quantum] [array]"
+msgstr "a"
+
+#: builtins.c:242
+msgid ""
+"readarray [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c "
+"quantum] [array]"
+msgstr "t"
+
+#: builtins.c:254
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Define or display aliases.\n"
 "    \n"
@@ -2578,7 +4439,11 @@ msgid ""
 "    alias substitution when the alias is expanded.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -p\tprint all defined aliases in a reusable format\n"
+=======
+"      -p\tPrint all defined aliases in a reusable format\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    alias returns true unless a NAME is supplied for which no alias has "
@@ -2587,36 +4452,63 @@ msgid ""
 msgstr ""
 "Sainigh nó taispeáin ailiasanna.\n"
 "    \n"
+<<<<<<< HEAD
 "    Gan argóintí, priontáiltear an liosta ailiasanna san fhoirm\n"
 "    ath-inúsáidte 'alias AINM=LUACH' ar an ngnáth-aschur.\n"
+=======
+"    Gan argóintí, priontálann \"alias\" an liosta ailiasanna san fhoirm\n"
+"    \"alias LUACH=VALUE\" ar an ngnáth-aschur.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    I ngach cás eile, sainítear ailias do gach AINM a thugtar LUACH dó.\n"
 "    Má tá spás chun deiridh LUACH, déantar an chéad fhocal eile a sheiceáil\n"
 "    le haghaidh ionadú ailias nuair a fhairsingítear an ailias.\n"
 "    \n"
 "    Roghanna:\n"
+<<<<<<< HEAD
 "      -p\tPriontáiltear gach ailias sainithe i bhfoirm ath-inúsáidte.\n"
 "    \n"
 "    Stádas Scortha:\n"
 "    Aischuirtear fíor mura dtugtar AINM nach bhfuil ailias sainithe dó."
 
 #: builtins.c:278
+=======
+"      -p\tPriontáil gach ailias sainithe i bhfoirm inathúsáidte.\n"
+"    \n"
+"    Stádas Scortha:\n"
+"    Aischuirtear an luach true mura thugtar AINM nach bhfuil\n"
+"    ailias sainithe dó."
+
+#: builtins.c:276
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remove each NAME from the list of defined aliases.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -a\tremove all alias definitions\n"
+=======
+"      -a\tremove all alias definitions.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Return success unless a NAME is not an existing alias."
 msgstr ""
 "Bain gach AINM de liosta na n-ailiasanna sainithe.\n"
 "    \n"
 "    Roghanna:\n"
+<<<<<<< HEAD
 "      -a\tbaintear gach sainiú ailias.\n"
 "     \n"
 "    Aischuirtear rath ach sa chás nach bhfuil AINM ann."
 
 #: builtins.c:291
+=======
+"      -a\tbain gach sainiú ailias.\n"
+"     \n"
+"    Aischuirtear rath ach sa chás nach bhfuil AINM ann."
+
+#: builtins.c:289
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set Readline key bindings and variables.\n"
 "    \n"
@@ -2650,15 +4542,23 @@ msgid ""
 "      -f  filename       Read key bindings from FILENAME.\n"
 "      -x  keyseq:shell-command\tCause SHELL-COMMAND to be executed when\n"
 "    \t\t\t\tKEYSEQ is entered.\n"
+<<<<<<< HEAD
 "      -X                 List key sequences bound with -x and associated "
 "commands\n"
+=======
+"      -X\t\t     List key sequences bound with -x and associated commands\n"
+>>>>>>> orgin/bash-4.3-testing
 "                         in a form that can be reused as input.\n"
 "    \n"
 "    Exit Status:\n"
 "    bind returns 0 unless an unrecognized option is given or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:330
+=======
+#: builtins.c:328
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Exit for, while, or until loops.\n"
 "    \n"
@@ -2670,13 +4570,21 @@ msgid ""
 msgstr ""
 "Scoir de lúba for, while nó until.\n"
 "    \n"
+<<<<<<< HEAD
 "    Scoir de lúb 'for', 'while' nó 'until'. Má shonraítear N, scoir\n"
+=======
+"    Scoir de lúb \"for\", \"while\" \"nó \"until\". Má shonraítear N, scoir\n"
+>>>>>>> orgin/bash-4.3-testing
 "    de N lúb mhórthimpeall.\n"
 "    \n"
 "    Stádas Scortha:\n"
 "    Is é 0 an stádas scortha mura bhfuil N níos lú ná 1."
 
+<<<<<<< HEAD
 #: builtins.c:342
+=======
+#: builtins.c:340
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Resume for, while, or until loops.\n"
 "    \n"
@@ -2688,14 +4596,23 @@ msgid ""
 msgstr ""
 "Lean ar aghaidh le lúba for, while nó until.\n"
 "    \n"
+<<<<<<< HEAD
 "    Tosaigh an chéad atriall eile den lúb mhórthimpeall 'for', 'while' nó "
 "'until'.\n"
+=======
+"    Tosaigh an chéad atriall eile den lúb mhórthimpeall \"for\", \"while\" "
+"nó \"until\".\n"
+>>>>>>> orgin/bash-4.3-testing
 "    Má shonraítear N, tosaigh an Nú lúb mhórthimpeall.\n"
 "    \n"
 "    Stádas Scortha:\n"
 "    Is é 0 an stádas scortha mura bhfuil N níos lú ná 1."
 
+<<<<<<< HEAD
 #: builtins.c:354
+=======
+#: builtins.c:352
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute shell builtins.\n"
 "    \n"
@@ -2706,21 +4623,38 @@ msgid ""
 "    \n"
 "    Exit Status:\n"
 "    Returns the exit status of SHELL-BUILTIN, or false if SHELL-BUILTIN is\n"
+<<<<<<< HEAD
 "    not a shell builtin."
 msgstr ""
 "Rith orduithe ionsuite na blaoisce.\n"
 "    \n"
 "    Ritear ORDÚ-IONSUITE-BLAOISCE leis na hargóintí ARGÓINTÍ gan cuardach\n"
 "    ordaithe a dhéanamh. Tá sé seo úsáideach más mian ordú blaoisce a\n"
+=======
+"    not a shell builtin.."
+msgstr ""
+"Rith orduithe ionsuite na blaoisce.\n"
+"    \n"
+"    Rith ORDÚ-IONSUITE-BLAOISCE leis na hargóintí ARGÓINTÍ gan cuardach\n"
+"    ordaithe a dhéanamh. Tá sé seo úsáideach más mian leat ordú blaoisce a\n"
+>>>>>>> orgin/bash-4.3-testing
 "    athshainiú mar fheidhm bhlaoisce agus gur ghá an t-ordú ionsuite a rith\n"
 "    laistigh den fheidhm.\n"
 "    \n"
 "    Stádas Scortha:\n"
+<<<<<<< HEAD
 "    Aischuirtear stádas scortha ORDÚ-IONSUITE-BLAOISCE, nó falsa sa chás "
 "nach\n"
 "    bhfuil ORDÚ-IONSUITE-BLAOISCE ina ordú ionsuite blaoisce."
 
 #: builtins.c:369
+=======
+"    Aischuirtear stádas scortha ORDÚ-IONSUITE-BLAOISCE, nó falsa mura "
+"bhfuil\n"
+"    ORDÚ-IONSUITE-BLAOISCE ina ordú ionsuite blaoisce."
+
+#: builtins.c:367
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return the context of the current subroutine call.\n"
 "    \n"
@@ -2737,12 +4671,21 @@ msgid ""
 msgstr ""
 "Aischuir comhthéacs an ghlaoigh reatha fhoghnáthaimh.\n"
 "    \n"
+<<<<<<< HEAD
 "    Gan SLONN, aischuirtear '$líne $ainm_comhaid'. Le SLONN, aischuirtear\n"
 "    '$líne $foghnáthamh $ainm_comhaid'; is féidir lorg cruaiche a sholáthar "
 "leis an\n"
 "    fhaisnéis bhreise seo.\n"
 "    \n"
 "    Taispeánann an luach atá ag SLONN líon na bhfrámaí glaoigh le dul siar\n"
+=======
+"    Gan SLONN, aischuirtear \"$line $filename\". Le SLONN, aischuirtear\n"
+"    \"$line $subroutine $filename\"; is féidir lorg cruaiche a sholáthar "
+"leis an\n"
+"    fhaisnéis bhreise seo.\n"
+"    \n"
+"    Taispeánann an luach atá ag SLONN an méis frámaí glaoigh le dul siar\n"
+>>>>>>> orgin/bash-4.3-testing
 "    roimh an ceann reatha; fráma 0 an ceann atá ar barr.\n"
 "    \n"
 "    Stádas Scortha:\n"
@@ -2750,7 +4693,11 @@ msgstr ""
 "blaoisce, nó\n"
 "    sa chás go bhfuil SLONN neamhbhailí."
 
+<<<<<<< HEAD
 #: builtins.c:387
+=======
+#: builtins.c:385
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Change the shell working directory.\n"
 "    \n"
@@ -2773,6 +4720,7 @@ msgid ""
 "    its value is used for DIR.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -L\tforce symbolic links to be followed: resolve symbolic\n"
 "    \t\tlinks in DIR after processing instances of `..'\n"
 "      -P\tuse the physical directory structure without following\n"
@@ -2783,6 +4731,18 @@ msgid ""
 "    \t\ta non-zero status\n"
 "      -@\ton systems that support it, present a file with extended\n"
 "    \t\tattributes as a directory containing the file attributes\n"
+=======
+"        -L\tforce symbolic links to be followed: resolve symbolic links in\n"
+"    \tDIR after processing instances of `..'\n"
+"        -P\tuse the physical directory structure without following symbolic\n"
+"    \tlinks: resolve symbolic links in DIR before processing instances\n"
+"    \tof `..'\n"
+"        -e\tif the -P option is supplied, and the current working directory\n"
+"    \tcannot be determined successfully, exit with a non-zero status\n"
+"        -@  on systems that support it, present a file with extended "
+"attributes\n"
+"            as a directory containing the file attributes\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The default is to follow symbolic links, as if `-L' were specified.\n"
 "    `..' is processed by removing the immediately previous pathname "
@@ -2794,6 +4754,7 @@ msgid ""
 "when\n"
 "    -P is used; non-zero otherwise."
 msgstr ""
+<<<<<<< HEAD
 "Athraigh comhadlann oibre na blaoisce.\n"
 "    \n"
 "    Athraíonn \"cd\" an chomhadlann reatha go COMHADLANN. Is é luach na "
@@ -2838,12 +4799,20 @@ msgstr ""
 "    nuair a úsáidtear -P; i gcásanna eile aischuirtear luach nach náid é."
 
 #: builtins.c:425
+=======
+
+#: builtins.c:422
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Print the name of the current working directory.\n"
 "    \n"
 "    Options:\n"
 "      -L\tprint the value of $PWD if it names the current working\n"
+<<<<<<< HEAD
 "    \t\tdirectory\n"
+=======
+"    \tdirectory\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -P\tprint the physical directory, without any symbolic links\n"
 "    \n"
 "    By default, `pwd' behaves as if `-L' were specified.\n"
@@ -2856,6 +4825,7 @@ msgstr ""
 "    \n"
 "    Roghanna:\n"
 "      -L\tpriontáil luach $PWD má thugann sé ainm na comhadlainne\n"
+<<<<<<< HEAD
 "        \toibre reatha.\n"
 "       -P\tpriontáil an chomhadlann fhisiciúil, gan naisc shiombalacha\n"
 "    \n"
@@ -2867,6 +4837,18 @@ msgstr ""
 "    an chomhadlann reatha a léamh."
 
 #: builtins.c:442
+=======
+"    \toibre reatha.      -P\tpriontáil an chomhadlann fhisiciúil, gan naisc "
+"shiombalacha\n"
+"    \n"
+"    Mar réamhshocrú, oibríonn \"pwd\" faoi mar a bheadh \"-L\" sonraithe.\n"
+"    \n"
+"    Stádas Scortha:\n"
+"    Aischuirtear luach de 0 mura thugtar rogha neamhbhailí nó mura féidir\n"
+"    an chomhadlann reatha a léamh."
+
+#: builtins.c:439
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Null command.\n"
 "    \n"
@@ -2882,7 +4864,11 @@ msgstr ""
 "    Stadas Scortha:\n"
 "    Éiríonn leis i gcónaí."
 
+<<<<<<< HEAD
 #: builtins.c:453
+=======
+#: builtins.c:450
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return a successful result.\n"
 "    \n"
@@ -2894,7 +4880,11 @@ msgstr ""
 "    Stádas Scortha:\n"
 "    Éiríonn leis i gcónaí."
 
+<<<<<<< HEAD
 #: builtins.c:462
+=======
+#: builtins.c:459
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return an unsuccessful result.\n"
 "    \n"
@@ -2906,7 +4896,11 @@ msgstr ""
 "    Stádas Scortha:\n"
 "    Teipeann air i gcónaí."
 
+<<<<<<< HEAD
 #: builtins.c:471
+=======
+#: builtins.c:468
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute a simple command or display information about commands.\n"
 "    \n"
@@ -2916,22 +4910,37 @@ msgid ""
 "    on disk when a function with the same name exists.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -p    use a default value for PATH that is guaranteed to find all of\n"
 "            the standard utilities\n"
 "      -v    print a description of COMMAND similar to the `type' builtin\n"
 "      -V    print a more verbose description of each COMMAND\n"
+=======
+"      -p\tuse a default value for PATH that is guaranteed to find all of\n"
+"    \tthe standard utilities\n"
+"      -v\tprint a description of COMMAND similar to the `type' builtin\n"
+"      -V\tprint a more verbose description of each COMMAND\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns exit status of COMMAND, or failure if COMMAND is not found."
 msgstr ""
+<<<<<<< HEAD
 "Ritheann \"command\" ordú simplí nó taispeánann eolas maidir le horduithe.\n"
 "    \n"
 "    Ritear ORDÚ le hARGÓINTÍ gan cuardach feidhme blaoisce, nó taispeántar\n"
+=======
+"Rith ordú simplí nó taispeáin eolas maidir le horduithe.\n"
+"    \n"
+"    Ritheann ORDÚ le hARGÓINTÍ gan cuardach feidhme blaoisce, nó "
+"taispeánann\n"
+>>>>>>> orgin/bash-4.3-testing
 "    eolas maidir leis na horduithe sonraithe. Is féidir é seo a úsáid chun "
 "orduithe ar\n"
 "    diosca a rith má tá feidhm leis an ainm céanna ann.\n"
 "    \n"
 "    Roghanna:\n"
+<<<<<<< HEAD
 "      -p\túsáidtear luach réamhshocraithe le haghaidh CONAIR a aimseoidh go "
 "cinnte\n"
 "        \tgach ceann de na gnáthríomhchláir áirge.\n"
@@ -2943,6 +4952,18 @@ msgstr ""
 "ORDÚ."
 
 #: builtins.c:490
+=======
+"      -p\túsáid luach réamhshocraithe le haghaidh CONAIR a aimseoidh go "
+"cinnte\n"
+"        \tgach ceann de na gnáthríomhchláir áirge.\n"
+"      -v\ttaispeáin cur síos ar ORDÚ cosúil leis an ordú ionsuite \"type\"\n"
+"      -V\ttaispeáin cur síos níos faide de gach ORDÚ\n"
+"    \n"
+"    Stádas Scortha:\n"
+"    Aischuirtear an stádas scortha ó ORDÚ, nó teip mura aimsítear ORDÚ."
+
+#: builtins.c:487
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set variable values and attributes.\n"
 "    \n"
@@ -2952,20 +4973,34 @@ msgid ""
 "    Options:\n"
 "      -f\trestrict action or display to function names and definitions\n"
 "      -F\trestrict display to function names only (plus line number and\n"
+<<<<<<< HEAD
 "    \t\tsource file when debugging)\n"
 "      -g\tcreate global variables when used in a shell function; otherwise\n"
 "    \t\tignored\n"
+=======
+"    \tsource file when debugging)\n"
+"      -g\tcreate global variables when used in a shell function; otherwise\n"
+"    \tignored\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -p\tdisplay the attributes and value of each NAME\n"
 "    \n"
 "    Options which set attributes:\n"
 "      -a\tto make NAMEs indexed arrays (if supported)\n"
 "      -A\tto make NAMEs associative arrays (if supported)\n"
 "      -i\tto make NAMEs have the `integer' attribute\n"
+<<<<<<< HEAD
 "      -l\tto convert the value of each NAME to lower case on assignment\n"
 "      -n\tmake NAME a reference to the variable named by its value\n"
 "      -r\tto make NAMEs readonly\n"
 "      -t\tto make NAMEs have the `trace' attribute\n"
 "      -u\tto convert the value of each NAME to upper case on assignment\n"
+=======
+"      -l\tto convert NAMEs to lower case on assignment\n"
+"      -n\tmake NAME a reference to the variable named by its value\n"
+"      -r\tto make NAMEs readonly\n"
+"      -t\tto make NAMEs have the `trace' attribute\n"
+"      -u\tto convert NAMEs to upper case on assignment\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -x\tto make NAMEs export\n"
 "    \n"
 "    Using `+' instead of `-' turns off the given attribute.\n"
@@ -2981,6 +5016,7 @@ msgid ""
 "    Returns success unless an invalid option is supplied or a variable\n"
 "    assignment error occurs."
 msgstr ""
+<<<<<<< HEAD
 "Socraíonn \"declare\" luachanna agus airíonna athróige.\n"
 "    \n"
 "    Fograíonn \"declare\" athróga agus tugann sé aitreabúidí dóibh. Gan\n"
@@ -3034,6 +5070,21 @@ msgstr ""
 "    Comhchiallach le \"declare\". Feic \"help declare\"."
 
 #: builtins.c:538
+=======
+
+#: builtins.c:527
+msgid ""
+"Set variable values and attributes.\n"
+"    \n"
+"    Obsolete.  See `help declare'."
+msgstr ""
+"Socraigh luachanna agus airíonna athróg.\n"
+"    \n"
+"    Imithe i léig. Feic \"help declare\"."
+
+#: builtins.c:535
+#, fuzzy
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Define local variables.\n"
 "    \n"
@@ -3047,23 +5098,40 @@ msgid ""
 "    Returns success unless an invalid option is supplied, a variable\n"
 "    assignment error occurs, or the shell is not executing a function."
 msgstr ""
+<<<<<<< HEAD
 "Sainíonn \"local\" athróga logánta.\n"
 "    \n"
 "    Cruthaítear athróg logánta darbh ainm AINM, agus cuirtear LUACH leis.\n"
 "    Is féidir ceann ar bith de na roghanna a ghlacann \"declare\" leo a "
 "úsáid\n"
 "    mar ROGHA.\n"
+=======
+"Sainigh athróga logánta.\n"
+"    \n"
+"    Cruthaítear athróg logánta darbh ainm AINM, agus cuirtear LUACH leis. "
+"Is\n"
+"    féidir le ROGHA a bheith ceann ar bith de na roghanna a ghlacann "
+"\"declare\" leo.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Ní féidir athróga logánta a úsáid ach laistigh de fheidhm. Tá siad "
 "infheicthe\n"
 "    san fheidhm ina shainítear iad agus a mic amháin.\n"
 "    \n"
 "    Stádas Scortha:\n"
+<<<<<<< HEAD
 "    Aischuirtear rath ach sa chás go dtugtar rogha neamhbhailí, nó go "
 "dtarlaíonn earráid,\n"
 "    nó go bhfuil an bhlaosc ag rith feidhme."
 
 #: builtins.c:555
+=======
+"    Aischuirtear rath mura thugtar rogha neamhbhailí, nó mura tharlaíonn "
+"earráid,\n"
+"    nó mura bhfuil an bhlaosc ag rith feidhme."
+
+#: builtins.c:552
+>>>>>>> orgin/bash-4.3-testing
 #, fuzzy
 msgid ""
 "Write arguments to the standard output.\n"
@@ -3090,6 +5158,7 @@ msgid ""
 "      \\v\tvertical tab\n"
 "      \\\\\tbackslash\n"
 "      \\0nnn\tthe character whose ASCII code is NNN (octal).  NNN can be\n"
+<<<<<<< HEAD
 "    \t\t0 to 3 octal digits\n"
 "      \\xHH\tthe eight-bit character whose value is HH (hexadecimal).  HH\n"
 "    \t\tcan be one or two hex digits\n"
@@ -3099,12 +5168,18 @@ msgid ""
 "      \\UHHHHHHHH the Unicode character whose value is the hexadecimal "
 "value\n"
 "    \t\tHHHHHHHH. HHHHHHHH can be one to eight hex digits.\n"
+=======
+"    \t0 to 3 octal digits\n"
+"      \\xHH\tthe eight-bit character whose value is HH (hexadecimal).  HH\n"
+"    \tcan be one or two hex digits\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless a write error occurs."
 msgstr ""
 "Scríobh na hargóintí ar an ngnáthaschur.\n"
 "    \n"
+<<<<<<< HEAD
 "    Taispeántar na hARGÓINTÍ ar an ngnáthaschur le carachtair spáis eatarthu "
 "agus\n"
 "    líne nua ina ndiadh.\n"
@@ -3114,11 +5189,23 @@ msgstr ""
 "      -e\tcumasaítear na héaluithe cúlslaise thíos\n"
 "      -E\tdíchumasaítear na héaluithe cúlslaise\n"
 "    Tuigeann 'echo' na carachtair éalaithe le cúlslais seo a leanas:\n"
+=======
+"    Taispeáin na hARGÓINTÍ ar an ngnáthaschur agus líne nua ina ndiadh.\n"
+"    \n"
+"    Roghanna:\n"
+"      -n\tná hiarcheangail líne nua\n"
+"      -n\tcumasaigh na héaluithe cúlslaise       -E\tdíchumasaigh na "
+"héaluithe cúlslaise    \n"
+"    Tuigeann \"echo\" na carachtair éalaithe le cúlslais seo a leanas:\n"
+>>>>>>> orgin/bash-4.3-testing
 "      \\a\tairdeall (clog)\n"
 "      \\b\tcúlspás\n"
 "      \\c\tcur deireadh le aschur\n"
 "      \\e\tcaractar éalaithe\n"
+<<<<<<< HEAD
 "      \\E\tcaractar éalaithe\n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "      \\f\tfotha foirme\n"
 "      \\n\tlíne nua\n"
 "      \\r\taisfhilleadh carráiste\n"
@@ -3135,7 +5222,11 @@ msgstr ""
 "    Stádas Scortha:\n"
 "    Aischuirtear rath ach i gcás earráide scríofa."
 
+<<<<<<< HEAD
 #: builtins.c:595
+=======
+#: builtins.c:588
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Write arguments to the standard output.\n"
 "    \n"
@@ -3157,7 +5248,11 @@ msgstr ""
 "    Stádas Scortha:\n"
 "    Aischuirtear rath ach i gcás earráide scríofa."
 
+<<<<<<< HEAD
 #: builtins.c:610
+=======
+#: builtins.c:603
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Enable and disable shell builtins.\n"
 "    \n"
@@ -3184,7 +5279,11 @@ msgid ""
 "    Returns success unless NAME is not a shell builtin or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:638
+=======
+#: builtins.c:631
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute arguments as a shell command.\n"
 "    \n"
@@ -3204,7 +5303,11 @@ msgstr ""
 "    Aischuirtear stádas scortha an ordaithe, nó rath más ordú neamhnitheach "
 "é."
 
+<<<<<<< HEAD
 #: builtins.c:650
+=======
+#: builtins.c:643
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Parse option arguments.\n"
 "    \n"
@@ -3245,7 +5348,11 @@ msgid ""
 "    encountered or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:692
+=======
+#: builtins.c:685
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Replace the shell with the given command.\n"
 "    \n"
@@ -3256,8 +5363,13 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -a name\tpass NAME as the zeroth argument to COMMAND\n"
+<<<<<<< HEAD
 "      -c\texecute COMMAND with an empty environment\n"
 "      -l\tplace a dash in the zeroth argument to COMMAND\n"
+=======
+"      -c\t\texecute COMMAND with an empty environment\n"
+"      -l\t\tplace a dash in the zeroth argument to COMMAND\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    If the command cannot be executed, a non-interactive shell exits, "
 "unless\n"
@@ -3267,6 +5379,7 @@ msgid ""
 "    Returns success unless COMMAND is not found or a redirection error "
 "occurs."
 msgstr ""
+<<<<<<< HEAD
 "Cuir an t-ordú sonraithe in áit na blaoisce.\n"
 "    \n"
 "    Ritear ORDÚ, agus an ríomhchlár sonraithe curtha in áit na blaoisce "
@@ -3288,6 +5401,10 @@ msgstr ""
 "    earráid atreoraithe."
 
 #: builtins.c:713
+=======
+
+#: builtins.c:706
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Exit the shell.\n"
 "    \n"
@@ -3299,7 +5416,11 @@ msgstr ""
 "    Scoireann den bhlaosc le stádas N. Má fhágtar N ar lár, is é stádas\n"
 "    an chéad ordaithe deireanaigh an stádas scortha."
 
+<<<<<<< HEAD
 #: builtins.c:722
+=======
+#: builtins.c:715
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Exit a login shell.\n"
 "    \n"
@@ -3312,7 +5433,11 @@ msgstr ""
 "    Scoireann de bhlaosc logála isteach le stádas scortha N. Aischuirtear\n"
 "    earráid má ritear é i mblaosc nach blaosc logála isteach í."
 
+<<<<<<< HEAD
 #: builtins.c:732
+=======
+#: builtins.c:725
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display or execute commands from the history list.\n"
 "    \n"
@@ -3357,17 +5482,30 @@ msgstr ""
 "      -n\tfág uimhreacha na línte ar lár agus liosta á thaispeáint\n"
 "      -r\taisiompaigh ord na línte (.i. liostaigh an ceann is nuaí ar dtús)\n"
 "    \n"
+<<<<<<< HEAD
 "    San fhormáid 'fc -s [PATRÚN=IONADAÍ ...] [ORDÚ]', ath-ritear ORDÚ\n"
 "    tar éis an t-ionadú SEAN=NUA a dhéanamh.\n"
 "    \n"
 "    Ailias úsáideach is ea r='fc -s', sa chaoi go ritheann 'r cc' an t-ordú "
 "is deireanaí\n"
 "    a thosaíonn le 'cc', agus ath-ritheann 'r' an t-ordú is deireanaí.\n"
+=======
+"    San fhormáid \"fc -s [PATRÚN=IONADAÍ ...] [ORDÚ]\", ath-ritear ORDÚ\n"
+"    tar éis an t-ionadú SEAN=NUA a dhéanamh.\n"
+"    \n"
+"    Ailias úsáideach is ea r='fc -s', sa chaoi go ritheann \"r cc\" an t-"
+"ordú is deireanaí\n"
+"    a thosaíonn le \"cc\", agus ath-ritheann \"r\" an t-ordú is deireanaí.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Stádas Scortha:n\\     Aischuirtear rath nó stádas an ordaithe rite; "
 "neamh-nialas má tharlaíonn earráid."
 
+<<<<<<< HEAD
 #: builtins.c:762
+=======
+#: builtins.c:755
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Move job to the foreground.\n"
 "    \n"
@@ -3378,6 +5516,7 @@ msgid ""
 "    Exit Status:\n"
 "    Status of command placed in foreground, or failure if an error occurs."
 msgstr ""
+<<<<<<< HEAD
 "Bog tasc go dtí an tulra.\n"
 "    \n"
 "    Cuirtear an tasc a shonraítear le SONRÚ_TASC sa tulra agus é mar an tasc "
@@ -3390,6 +5529,19 @@ msgstr ""
 "tharlaíonn earráid."
 
 #: builtins.c:777
+=======
+"Bog jab go dtí an tulra.\n"
+"    \n"
+"    Cuir an jab a shonraítear le SONRÚ_JAB sa tulra agus é mar an jab "
+"reatha.\n"
+"    Mura bhfuil SONRÚ_JAB ann, úsáidtear cibé jab atá reatha de réir na "
+"blaoisce.\n"
+"    \n"
+"    Stádas Scortha:\n"
+"    Stádas an ordaithe curtha sa tulra, nó teip má tharlaíonn earráid."
+
+#: builtins.c:770
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Move jobs to the background.\n"
 "    \n"
@@ -3402,6 +5554,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns success unless job control is not enabled or an error occurs."
 msgstr ""
+<<<<<<< HEAD
 "Bog tascanna go dtí an cúlra.\n"
 "    \n"
 "    Cuirtear an tasc a shonraítear le SONRÚ_TASC sa chúlra cosúil le é a "
@@ -3414,6 +5567,20 @@ msgstr ""
 "    rialú tascanna cumasaithe."
 
 #: builtins.c:791
+=======
+"Bog jabanna go dtí an cúlra.\n"
+"    \n"
+"    Cuir an jab a shonraítear le SONRÚ_JAB sa chúlra cosúil le é a thosú le "
+"\"&\".\n"
+"    Mura bhfuil SONRÚ_JAB ann, úsáidtear cibé jab atá reatha de réir na "
+"blaoisce.\n"
+"    \n"
+"    Stádas Scortha:\n"
+"    Aischuirtear rath ach má tharlaíonn earráid nó mura bhfuil\n"
+"    rialú jabanna cumasaithe."
+
+#: builtins.c:784
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remember or display program locations.\n"
 "    \n"
@@ -3422,6 +5589,7 @@ msgid ""
 "displayed.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -d\tforget the remembered location of each NAME\n"
 "      -l\tdisplay in a format that may be reused as input\n"
 "      -p pathname\tuse PATHNAME as the full pathname of NAME\n"
@@ -3431,11 +5599,23 @@ msgid ""
 "    \t\tNAMEs are given\n"
 "    Arguments:\n"
 "      NAME\tEach NAME is searched for in $PATH and added to the list\n"
+=======
+"      -d\t\tforget the remembered location of each NAME\n"
+"      -l\t\tdisplay in a format that may be reused as input\n"
+"      -p pathname\tuse PATHNAME as the full pathname of NAME\n"
+"      -r\t\tforget all remembered locations\n"
+"      -t\t\tprint the remembered location of each NAME, preceding\n"
+"    \t\teach location with the corresponding NAME if multiple\n"
+"    \t\tNAMEs are given\n"
+"    Arguments:\n"
+"      NAME\t\tEach NAME is searched for in $PATH and added to the list\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \t\tof remembered commands.\n"
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless NAME is not found or an invalid option is given."
 msgstr ""
+<<<<<<< HEAD
 "Cuimhnigh ar nó taispeáin suíomhanna ríomhchláracha.\n"
 "    \n"
 "    Faigh agus cuimhnigh ar an gconair iomlán le haghaidh gach AINM.\n"
@@ -3460,6 +5640,10 @@ msgstr ""
 "    rogha neamhbhailí ann."
 
 #: builtins.c:816
+=======
+
+#: builtins.c:809
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display information about builtin commands.\n"
 "    \n"
@@ -3471,10 +5655,17 @@ msgid ""
 "      -d\toutput short description for each topic\n"
 "      -m\tdisplay usage in pseudo-manpage format\n"
 "      -s\toutput only a short usage synopsis for each topic matching\n"
+<<<<<<< HEAD
 "    \t\tPATTERN\n"
 "    \n"
 "    Arguments:\n"
 "      PATTERN\tPattern specifying a help topic\n"
+=======
+"    \tPATTERN\n"
+"    \n"
+"    Arguments:\n"
+"      PATTERN\tPattern specifiying a help topic\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless PATTERN is not found or an invalid option is "
@@ -3488,10 +5679,16 @@ msgstr ""
 "    i gcásanna eile taispeántar liosta na n-ábhar cabhrach.\n"
 "    \n"
 "    Roghanna:\n"
+<<<<<<< HEAD
 "      -d\ttaispeántar cur síos gairid ar gach ábhar\n"
 "      -m\ttaispeántar úsáid i bhformáid cosúil leis an lámhleabhar man(1)\n"
 "      -s\tní thaispeántar ach achoimre gairid úsáide le haghaidh gach ábhair "
 "a\n"
+=======
+"      -d\ttaispeáin cur síos gairid ar gach ábhar\n"
+"      -m\ttaispeáin úsáid i bhformáid cosúil leis an lámhleabhar man(1)\n"
+"      -s\tná taispeáin ach achoimre gairid úsáide le haghaidh gach ábhair a\n"
+>>>>>>> orgin/bash-4.3-testing
 "        \tmheatseálann PATRÚN\n"
 "    \n"
 "    Argóintí:\n"
@@ -3501,7 +5698,11 @@ msgstr ""
 "    Aischuirtear rath ach sa chás nach n-aimsítear PATRÚN nó go dtugtar\n"
 "    rogha neamhbhailí."
 
+<<<<<<< HEAD
 #: builtins.c:840
+=======
+#: builtins.c:833
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display or manipulate the history list.\n"
 "    \n"
@@ -3510,6 +5711,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -c\tclear the history list by deleting all of the entries\n"
+<<<<<<< HEAD
 "      -d offset\tdelete the history entry at position OFFSET. Negative\n"
 "    \t\toffsets count back from the end of the history list\n"
 "    \n"
@@ -3528,6 +5730,25 @@ msgid ""
 "    if HISTFILE has a value, that is used, else ~/.bash_history.\n"
 "    \n"
 "    If the HISTTIMEFORMAT variable is set and not null, its value is used\n"
+=======
+"      -d offset\tdelete the history entry at offset OFFSET.\n"
+"    \n"
+"      -a\tappend history lines from this session to the history file\n"
+"      -n\tread all history lines not already read from the history file\n"
+"      -r\tread the history file and append the contents to the history\n"
+"    \tlist\n"
+"      -w\twrite the current history to the history file\n"
+"    \tand append them to the history list\n"
+"    \n"
+"      -p\tperform history expansion on each ARG and display the result\n"
+"    \twithout storing it in the history list\n"
+"      -s\tappend the ARGs to the history list as a single entry\n"
+"    \n"
+"    If FILENAME is given, it is used as the history file.  Otherwise,\n"
+"    if $HISTFILE has a value, that is used, else ~/.bash_history.\n"
+"    \n"
+"    If the $HISTTIMEFORMAT variable is set and not null, its value is used\n"
+>>>>>>> orgin/bash-4.3-testing
 "    as a format string for strftime(3) to print the time stamp associated\n"
 "    with each displayed history entry.  No time stamps are printed "
 "otherwise.\n"
@@ -3536,7 +5757,11 @@ msgid ""
 "    Returns success unless an invalid option is given or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:877
+=======
+#: builtins.c:869
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display status of jobs.\n"
 "    \n"
@@ -3545,8 +5770,13 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -l\tlists process IDs in addition to the normal information\n"
+<<<<<<< HEAD
 "      -n\tlists only processes that have changed status since the last\n"
 "    \t\tnotification\n"
+=======
+"      -n\tlist only processes that have changed status since the last\n"
+"    \tnotification\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -p\tlists process IDs only\n"
 "      -r\trestrict output to running jobs\n"
 "      -s\trestrict output to stopped jobs\n"
@@ -3559,6 +5789,7 @@ msgid ""
 "    Returns success unless an invalid option is given or an error occurs.\n"
 "    If -x is used, returns the exit status of COMMAND."
 msgstr ""
+<<<<<<< HEAD
 "Taispeáin stádas tascanna.\n"
 "   \n"
 "   Liostáiltear na tascanna gníomhacha. Le SONRÚ_TAISC, ní thaispeántar ach "
@@ -3584,6 +5815,10 @@ msgstr ""
 "   Má úsáidtear -x, aischuirtear an stádas scortha ó ORDÚ.  "
 
 #: builtins.c:904
+=======
+
+#: builtins.c:896
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remove jobs from current shell.\n"
 "    \n"
@@ -3593,12 +5828,17 @@ msgid ""
 "    Options:\n"
 "      -a\tremove all jobs if JOBSPEC is not supplied\n"
 "      -h\tmark each JOBSPEC so that SIGHUP is not sent to the job if the\n"
+<<<<<<< HEAD
 "    \t\tshell receives a SIGHUP\n"
+=======
+"    \tshell receives a SIGHUP\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -r\tremove only running jobs\n"
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless an invalid option or JOBSPEC is given."
 msgstr ""
+<<<<<<< HEAD
 "Bain tascanna den mblaosc reatha.\n"
 "    \n"
 "    Baintear gach SONRÚ_TAISC den tábla de tascanna gníomhacha. Gan\n"
@@ -3616,6 +5856,24 @@ msgstr ""
 "SONRÚ_TAISC neamhbhailí."
 
 #: builtins.c:923
+=======
+"Bain jabanna den mblaosc reatha.\n"
+"    \n"
+"    Baintear gach SONRÚ_JAB den tábla de jabanna gníomhacha. Gan\n"
+"    SONRÚ_JAB ar bith úsáidtear an jab atá reatha dar leis an mblaosc.\n"
+"    \n"
+"    Roghanna:\n"
+"      -a\tbain gach jab mura sholáraítear SONRÚ_JAB\n"
+"      -h\tmarcáil gach SONRÚ_JAB sa chaoi nach seolfar SIGHUP chuige má\n"
+"        \tfhaigheann an bhlaosc féin SIGHUP\n"
+"      -r\tná bain ach jabanna atá ag rith\n"
+"    \n"
+"    Stádas Scortha:\n"
+"    Aischuirtear rath ach sa chás go dtugtar rogha neamhbhailí\n"
+"    nó SONRÚ_JAB neamhbhailí."
+
+#: builtins.c:915
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Send a signal to a job.\n"
 "    \n"
@@ -3627,8 +5885,12 @@ msgid ""
 "      -s sig\tSIG is a signal name\n"
 "      -n sig\tSIG is a signal number\n"
 "      -l\tlist the signal names; if arguments follow `-l' they are\n"
+<<<<<<< HEAD
 "    \t\tassumed to be signal numbers for which names should be listed\n"
 "      -L\tsynonym for -l\n"
+=======
+"    \tassumed to be signal numbers for which names should be listed\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Kill is a shell builtin for two reasons: it allows job IDs to be used\n"
 "    instead of process IDs, and allows processes to be killed if the limit\n"
@@ -3637,6 +5899,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns success unless an invalid option is given or an error occurs."
 msgstr ""
+<<<<<<< HEAD
 "Seol comhartha chuig tasc.\n"
 "    \n"
 "    Seoltar an comhartha ainmnithe ag SONRÚ_COMHARTHA nó UIMHIR_CHOMHARTHA "
@@ -3667,6 +5930,10 @@ msgstr ""
 "earráid."
 
 #: builtins.c:947
+=======
+
+#: builtins.c:938
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate arithmetic expressions.\n"
 "    \n"
@@ -3711,7 +5978,11 @@ msgid ""
 "    If the last ARG evaluates to 0, let returns 1; let returns 0 otherwise."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:992
+=======
+#: builtins.c:983
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Read a line from the standard input and split it into fields.\n"
 "    \n"
@@ -3732,6 +6003,7 @@ msgid ""
 "    \t\tvariable ARRAY, starting at zero\n"
 "      -d delim\tcontinue until the first character of DELIM is read, rather\n"
 "    \t\tthan newline\n"
+<<<<<<< HEAD
 "      -e\tuse Readline to obtain the line\n"
 "      -i text\tuse TEXT as the initial text for Readline\n"
 "      -n nchars\treturn after reading NCHARS characters rather than waiting\n"
@@ -3754,6 +6026,29 @@ msgid ""
 "    \t\tfile descriptor.  The exit status is greater than 128\n"
 "    \t\tif the timeout is exceeded\n"
 "      -u fd\tread from file descriptor FD instead of the standard input\n"
+=======
+"      -e\t\tuse Readline to obtain the line in an interactive shell\n"
+"      -i text\tUse TEXT as the initial text for Readline\n"
+"      -n nchars\treturn after reading NCHARS characters rather than waiting\n"
+"    \t\tfor a newline, but honor a delimiter if fewer than NCHARS\n"
+"    \t\tcharacters are read before the delimiter\n"
+"      -N nchars\treturn only after reading exactly NCHARS characters, "
+"unless\n"
+"    \t\tEOF is encountered or read times out, ignoring any delimiter\n"
+"      -p prompt\toutput the string PROMPT without a trailing newline before\n"
+"    \t\tattempting to read\n"
+"      -r\t\tdo not allow backslashes to escape any characters\n"
+"      -s\t\tdo not echo input coming from a terminal\n"
+"      -t timeout\ttime out and return failure if a complete line of input "
+"is\n"
+"    \t\tnot read within TIMEOUT seconds.  The value of the TMOUT\n"
+"    \t\tvariable is the default timeout.  TIMEOUT may be a\n"
+"    \t\tfractional number.  If TIMEOUT is 0, read returns immediately,\n"
+"    \t\twithout trying to read any data, returning success only if\n"
+"    \t\tinput is available on the specified file descriptor.  The\n"
+"    \t\texit status is greater than 128 if the timeout is exceeded\n"
+"      -u fd\t\tread from file descriptor FD instead of the standard input\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    The return code is zero, unless end-of-file is encountered, read times "
@@ -3763,7 +6058,11 @@ msgid ""
 "    or an invalid file descriptor is supplied as the argument to -u."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1039
+=======
+#: builtins.c:1028
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return from a shell function.\n"
 "    \n"
@@ -3785,7 +6084,11 @@ msgstr ""
 "    Aischuirtear N, nó teip sa chás nach bhfuil an bhlaosc ag rith feidhme "
 "nó scripte."
 
+<<<<<<< HEAD
 #: builtins.c:1052
+=======
+#: builtins.c:1041
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set or unset values of shell options and positional parameters.\n"
 "    \n"
@@ -3853,8 +6156,12 @@ msgid ""
 "          by default when the shell is interactive.\n"
 "      -P  If set, do not resolve symbolic links when executing commands\n"
 "          such as cd which change the current directory.\n"
+<<<<<<< HEAD
 "      -T  If set, the DEBUG and RETURN traps are inherited by shell "
 "functions.\n"
+=======
+"      -T  If set, the DEBUG trap is inherited by shell functions.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      --  Assign any remaining arguments to the positional parameters.\n"
 "          If there are no remaining arguments, the positional parameters\n"
 "          are unset.\n"
@@ -3871,7 +6178,11 @@ msgid ""
 "    Returns success unless an invalid option is given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1137
+=======
+#: builtins.c:1126
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Unset values and attributes of shell variables and functions.\n"
 "    \n"
@@ -3881,7 +6192,11 @@ msgid ""
 "      -f\ttreat each NAME as a shell function\n"
 "      -v\ttreat each NAME as a shell variable\n"
 "      -n\ttreat each NAME as a name reference and unset the variable itself\n"
+<<<<<<< HEAD
 "    \t\trather than the variable it references\n"
+=======
+"    \trather than the variable it references\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Without options, unset first tries to unset a variable, and if that "
 "fails,\n"
@@ -3893,7 +6208,11 @@ msgid ""
 "    Returns success unless an invalid option is given or a NAME is read-only."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1159
+=======
+#: builtins.c:1148
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set export attribute for shell variables.\n"
 "    \n"
@@ -3911,6 +6230,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns success unless an invalid option is given or NAME is invalid."
 msgstr ""
+<<<<<<< HEAD
 "Socraíonn \"export\" an aitreabúid easpórtála le haghaidh athróga blaoisce.\n"
 "    \n"
 "    Marcáiltear gach AINM le haghaidh easpórtáil uathoibríoch go dtí "
@@ -3930,6 +6250,10 @@ msgstr ""
 "AINM neamhbhailí."
 
 #: builtins.c:1178
+=======
+
+#: builtins.c:1167
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Mark shell variables as unchangeable.\n"
 "    \n"
@@ -3941,8 +6265,14 @@ msgid ""
 "      -a\trefer to indexed array variables\n"
 "      -A\trefer to associative array variables\n"
 "      -f\trefer to shell functions\n"
+<<<<<<< HEAD
 "      -p\tdisplay a list of all readonly variables or functions,\n"
 "    \t\tdepending on whether or not the -f option is given\n"
+=======
+"      -p\tdisplay a list of all readonly variables or functions, depending "
+"on\n"
+"            whether or not the -f option is given\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    An argument of `--' disables further option processing.\n"
 "    \n"
@@ -3950,7 +6280,11 @@ msgid ""
 "    Returns success unless an invalid option is given or NAME is invalid."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1200
+=======
+#: builtins.c:1189
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Shift positional parameters.\n"
 "    \n"
@@ -3960,6 +6294,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns success unless N is negative or greater than $#."
 msgstr ""
+<<<<<<< HEAD
 "Iomlaoidigh paraiméadair ionaid.\n"
 "    \n"
 "    Athainmnítear na paraiméadair ionaid $N+1,$N+2 ... mar $1,$2 ...\n"
@@ -3969,6 +6304,10 @@ msgstr ""
 "    Aischuirtear rath ach sa chás go bhfuil N diúltach, nó níos mó ná $#."
 
 #: builtins.c:1212 builtins.c:1227
+=======
+
+#: builtins.c:1201 builtins.c:1216
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands from a file in the current shell.\n"
 "    \n"
@@ -3981,6 +6320,7 @@ msgid ""
 "    Returns the status of the last command executed in FILENAME; fails if\n"
 "    FILENAME cannot be read."
 msgstr ""
+<<<<<<< HEAD
 "Rith orduithe ó chomhad sa bhlaosc reatha.\n"
 "    \n"
 "    Léitear agus ritear orduithe ó AINM_CHOMHAID sa bhlaosc reatha.\n"
@@ -3994,6 +6334,10 @@ msgstr ""
 "    Teipeann air sa chás nach féidir AINM_CHOMHAID a léamh."
 
 #: builtins.c:1243
+=======
+
+#: builtins.c:1232
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Suspend shell execution.\n"
 "    \n"
@@ -4006,6 +6350,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns success unless job control is not enabled or an error occurs."
 msgstr ""
+<<<<<<< HEAD
 "Cuir rith na blaoisce ar fionraí.\n"
 "    \n"
 "    Cuirtear rith na blaoisce seo ar fionraí go dtí go bhfaigheann sí\n"
@@ -4021,6 +6366,10 @@ msgstr ""
 "    nó go dtarlaíonn earráid."
 
 #: builtins.c:1259
+=======
+
+#: builtins.c:1248
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate conditional expression.\n"
 "    \n"
@@ -4084,9 +6433,15 @@ msgid ""
 "    Other operators:\n"
 "    \n"
 "      -o OPTION      True if the shell option OPTION is enabled.\n"
+<<<<<<< HEAD
 "      -v VAR         True if the shell variable VAR is set.\n"
 "      -R VAR         True if the shell variable VAR is set and is a name\n"
 "                     reference.\n"
+=======
+"      -v VAR\t True if the shell variable VAR is set\n"
+"      -R VAR\t True if the shell variable VAR is set and is a name "
+"reference.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      ! EXPR         True if expr is false.\n"
 "      EXPR1 -a EXPR2 True if both expr1 AND expr2 are true.\n"
 "      EXPR1 -o EXPR2 True if either expr1 OR expr2 is true.\n"
@@ -4103,7 +6458,11 @@ msgid ""
 "    false or an invalid argument is given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1341
+=======
+#: builtins.c:1329
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate conditional expression.\n"
 "    \n"
@@ -4116,7 +6475,11 @@ msgstr ""
 "    caithfear \"]\" go díreach a bheith ann mar an argóint\n"
 "    dheireanach, le bheith comhoiriúnach leis an \"[\" ag an tús."
 
+<<<<<<< HEAD
 #: builtins.c:1350
+=======
+#: builtins.c:1338
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display process times.\n"
 "    \n"
@@ -4136,7 +6499,11 @@ msgstr ""
 "    Stádas Scortha:\n"
 "    Éiríonn leis i gcónaí."
 
+<<<<<<< HEAD
 #: builtins.c:1362
+=======
+#: builtins.c:1350
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Trap signals and other events.\n"
 "    \n"
@@ -4180,7 +6547,11 @@ msgid ""
 "given."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1398
+=======
+#: builtins.c:1386
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display information about command type.\n"
 "    \n"
@@ -4189,6 +6560,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -a\tdisplay all locations containing an executable named NAME;\n"
+<<<<<<< HEAD
 "    \t\tincludes aliases, builtins, and functions, if and only if\n"
 "    \t\tthe `-p' option is not also used\n"
 "      -f\tsuppress shell function lookup\n"
@@ -4201,6 +6573,20 @@ msgid ""
 "    \t\t`function', `builtin', `file' or `', if NAME is an alias,\n"
 "    \t\tshell reserved word, shell function, shell builtin, disk file,\n"
 "    \t\tor not found, respectively\n"
+=======
+"    \tincludes aliases, builtins, and functions, if and only if\n"
+"    \tthe `-p' option is not also used\n"
+"      -f\tsuppress shell function lookup\n"
+"      -P\tforce a PATH search for each NAME, even if it is an alias,\n"
+"    \tbuiltin, or function, and returns the name of the disk file\n"
+"    \tthat would be executed\n"
+"      -p\treturns either the name of the disk file that would be executed,\n"
+"    \tor nothing if `type -t NAME' would not return `file'.\n"
+"      -t\toutput a single word which is one of `alias', `keyword',\n"
+"    \t`function', `builtin', `file' or `', if NAME is an alias, shell\n"
+"    \treserved word, shell function, shell builtin, disk file, or not\n"
+"    \tfound, respectively\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Arguments:\n"
 "      NAME\tCommand name to be interpreted.\n"
@@ -4210,7 +6596,11 @@ msgid ""
 "found."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1429
+=======
+#: builtins.c:1417
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Modify shell resource limits.\n"
 "    \n"
@@ -4228,7 +6618,10 @@ msgid ""
 "      -e\tthe maximum scheduling priority (`nice')\n"
 "      -f\tthe maximum size of files written by the shell and its children\n"
 "      -i\tthe maximum number of pending signals\n"
+<<<<<<< HEAD
 "      -k\tthe maximum number of kqueues allocated for this process\n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "      -l\tthe maximum size a process may lock into memory\n"
 "      -m\tthe maximum resident set size\n"
 "      -n\tthe maximum number of open file descriptors\n"
@@ -4240,8 +6633,12 @@ msgid ""
 "      -u\tthe maximum number of user processes\n"
 "      -v\tthe size of virtual memory\n"
 "      -x\tthe maximum number of file locks\n"
+<<<<<<< HEAD
 "      -P\tthe maximum number of pseudoterminals\n"
 "      -T\tthe maximum number of threads\n"
+=======
+"      -T    the maximum number of threads\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Not all options are available on all platforms.\n"
 "    \n"
@@ -4259,7 +6656,11 @@ msgid ""
 "    Returns success unless an invalid option is supplied or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1479
+=======
+#: builtins.c:1465
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display or set file mode mask.\n"
 "    \n"
@@ -4276,6 +6677,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns success unless MODE is invalid or an invalid option is given."
 msgstr ""
+<<<<<<< HEAD
 "Taispeáin nó socraigh masc mhód na gcomhad.\n"
 "    \n"
 "    Athraítear masc cruthaithe comhaid an úsáideora go MÓD. Gan MÓD,\n"
@@ -4294,6 +6696,10 @@ msgstr ""
 "    nó go sonraítear rogha neamhbhailí."
 
 #: builtins.c:1499
+=======
+
+#: builtins.c:1485
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Wait for job completion and return exit status.\n"
 "    \n"
@@ -4301,19 +6707,28 @@ msgid ""
 "a\n"
 "    job specification, and reports its termination status.  If ID is not\n"
 "    given, waits for all currently active child processes, and the return\n"
+<<<<<<< HEAD
 "    status is zero.  If ID is a job specification, waits for all processes\n"
+=======
+"    status is zero.  If ID is a a job specification, waits for all "
+"processes\n"
+>>>>>>> orgin/bash-4.3-testing
 "    in that job's pipeline.\n"
 "    \n"
 "    If the -n option is supplied, waits for the next job to terminate and\n"
 "    returns its exit status.\n"
 "    \n"
+<<<<<<< HEAD
 "    If the -f option is supplied, and job control is enabled, waits for the\n"
 "    specified ID to terminate, instead of waiting for it to change status.\n"
 "    \n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "    Exit Status:\n"
 "    Returns the status of the last ID; fails if ID is invalid or an invalid\n"
 "    option is given."
 msgstr ""
+<<<<<<< HEAD
 "Fanann \"wait\" go gcríochnaíonn tasc agus aischuireann a stádas scortha.\n"
 "    \n"
 "    Fantar le gach próiseas ata sonraithe le AITHEANTAS, a d'fhéadann a "
@@ -4340,6 +6755,10 @@ msgstr ""
 "    AITHEANTAS neamhbhailí nó má sonraítear rogha neamhbhailí."
 
 #: builtins.c:1523
+=======
+
+#: builtins.c:1506
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Wait for process completion and return exit status.\n"
 "    \n"
@@ -4353,6 +6772,7 @@ msgid ""
 "invalid\n"
 "    option is given."
 msgstr ""
+<<<<<<< HEAD
 "Fanann \"wait\" go gcríochnaíonn próiseas agus aischuireann an stádas "
 "scortha.\n"
 "    \n"
@@ -4367,6 +6787,10 @@ msgstr ""
 "    rogha neamhbhailí."
 
 #: builtins.c:1538
+=======
+
+#: builtins.c:1521
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands for each member in a list.\n"
 "    \n"
@@ -4378,6 +6802,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns the status of the last command executed."
 msgstr ""
+<<<<<<< HEAD
 "Rith orduithe le haghaidh gach mír i liosta.\n"
 "    \n"
 "    Ritheann an lúb 'for' sraith ordaithe le haghaidh gach mír i liosta\n"
@@ -4389,6 +6814,10 @@ msgstr ""
 "    Aischuirtear stádas an ordaithe dheireanaigh a ritheadh."
 
 #: builtins.c:1552
+=======
+
+#: builtins.c:1535
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Arithmetic for loop.\n"
 "    \n"
@@ -4409,7 +6838,11 @@ msgstr ""
 "    Mar an gcéanna le\n"
 "    \t(( SLONN1 ))\n"
 "    \twhile (( SLONN2 )); do\n"
+<<<<<<< HEAD
 "    \t\tORDUITHE\n"
+=======
+"    \t\tORDAITHE\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \t\t(( SLONN3 ))\n"
 "    \tdone\n"
 "    Is sloinn uimhreachtúla iad SLONN1, SLONN2 agus SLONN3.\n"
@@ -4419,7 +6852,11 @@ msgstr ""
 "    Stádas Scortha:\n"
 "    Aischuirtear stádas an ordaithe dheireanaigh a ritheadh."
 
+<<<<<<< HEAD
 #: builtins.c:1570
+=======
+#: builtins.c:1553
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Select words from a list and execute commands.\n"
 "    \n"
@@ -4439,7 +6876,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1591
+=======
+#: builtins.c:1574
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Report time consumed by pipeline's execution.\n"
 "    \n"
@@ -4454,6 +6895,7 @@ msgid ""
 "    Exit Status:\n"
 "    The return status is the return status of PIPELINE."
 msgstr ""
+<<<<<<< HEAD
 "Tuairscíonn \"time\" tréimhse rite píblíne.\n"
 "    \n"
 "    Ritear PÍBLÍNE agus taispeántar achoimre den fhíor-am, am LAP\n"
@@ -4469,6 +6911,10 @@ msgstr ""
 "    Is é stadas aischuir PÍBLÍNE an stádas aischuir ó \"time\"."
 
 #: builtins.c:1608
+=======
+
+#: builtins.c:1591
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands based on pattern matching.\n"
 "    \n"
@@ -4478,6 +6924,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns the status of the last command executed."
 msgstr ""
+<<<<<<< HEAD
 "Rith orduithe de réir mheaitseála patrún.\n"
 "    \n"
 "    Ritear ORDUITHE de réir mar a mheaitseálann FOCAL an PATRÚN.\n"
@@ -4487,6 +6934,10 @@ msgstr ""
 "    Aischuirtear stádas an ordaithe dheireanaigh a ritheadh."
 
 #: builtins.c:1620
+=======
+
+#: builtins.c:1603
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands based on conditional.\n"
 "    \n"
@@ -4507,7 +6958,11 @@ msgid ""
 "    Returns the status of the last command executed."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1637
+=======
+#: builtins.c:1620
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands as long as a test succeeds.\n"
 "    \n"
@@ -4517,6 +6972,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns the status of the last command executed."
 msgstr ""
+<<<<<<< HEAD
 "Rith orduithe chomh fada agus a éiríonn le tástáil.\n"
 "   \n"
 "   Fairsingítear agus ritear ORDUITHE2 chomh fada agus atá stádas scortha\n"
@@ -4526,6 +6982,10 @@ msgstr ""
 "   Aischuirtear stádas an ordaithe deireanach a ritheadh."
 
 #: builtins.c:1649
+=======
+
+#: builtins.c:1632
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands as long as a test does not succeed.\n"
 "    \n"
@@ -4535,6 +6995,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns the status of the last command executed."
 msgstr ""
+<<<<<<< HEAD
 "Rith orduithe chomh fada agus a theipeann ar tástáil.\n"
 "   \n"
 "   Fairsingítear agus ritear ORDUITHE chomh fada agus atá stádas scortha\n"
@@ -4544,6 +7005,10 @@ msgstr ""
 "   Aischuirtear stádas an ordaithe deireanach a ritheadh."
 
 #: builtins.c:1661
+=======
+
+#: builtins.c:1644
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Create a coprocess named NAME.\n"
 "    \n"
@@ -4553,6 +7018,7 @@ msgid ""
 "    The default NAME is \"COPROC\".\n"
 "    \n"
 "    Exit Status:\n"
+<<<<<<< HEAD
 "    The coproc command returns an exit status of 0."
 msgstr ""
 "Cruthaíonn \"coproc\" comhphróiseas ainmnithe AINM.\n"
@@ -4566,6 +7032,12 @@ msgstr ""
 "    Aischuireann an t-ordú \"coproc\" stádas scortha de 0."
 
 #: builtins.c:1675
+=======
+"    Returns the exit status of COMMAND."
+msgstr ""
+
+#: builtins.c:1658
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Define shell function.\n"
 "    \n"
@@ -4589,7 +7061,11 @@ msgstr ""
 "    Stádas Scortha:\n"
 "    Aischuirtear rath mura bhfuil AINM inléite amháin."
 
+<<<<<<< HEAD
 #: builtins.c:1689
+=======
+#: builtins.c:1672
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Group commands as a unit.\n"
 "    \n"
@@ -4607,7 +7083,11 @@ msgstr ""
 "    Stádas Scortha:\n"
 "    Aischuirtear stádas an ordaithe dheireanaigh a ritheadh."
 
+<<<<<<< HEAD
 #: builtins.c:1701
+=======
+#: builtins.c:1684
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Resume job in foreground.\n"
 "    \n"
@@ -4620,6 +7100,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns the status of the resumed job."
 msgstr ""
+<<<<<<< HEAD
 "Tosaigh tasc arís sa tulra.\n"
 "\n"
 "   Is ionann é seo agus an argóint SONRÚ_TAISC don ordú 'fg'.\n"
@@ -4631,6 +7112,10 @@ msgstr ""
 "   Aischuirtear stádas an taisc atosaithe."
 
 #: builtins.c:1716
+=======
+
+#: builtins.c:1699
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate arithmetic expression.\n"
 "    \n"
@@ -4640,6 +7125,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns 1 if EXPRESSION evaluates to 0; returns 0 otherwise."
 msgstr ""
+<<<<<<< HEAD
 "Faigh luach sloinn uimhríochtúil.\n"
 "    \n"
 "    Faightear luach an tSLOINN de réir na rialacha a bhaineann le\n"
@@ -4651,6 +7137,10 @@ msgstr ""
 "eile."
 
 #: builtins.c:1728
+=======
+
+#: builtins.c:1711
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute conditional command.\n"
 "    \n"
@@ -4678,7 +7168,11 @@ msgid ""
 "    0 or 1 depending on value of EXPRESSION."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1754
+=======
+#: builtins.c:1737
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Common shell variable names and usage.\n"
 "    \n"
@@ -4732,7 +7226,11 @@ msgid ""
 "    \t\tcommands should be saved on the history list.\n"
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1811
+=======
+#: builtins.c:1794
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Add directories to stack.\n"
 "    \n"
@@ -4742,6 +7240,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -n\tSuppresses the normal change of directory when adding\n"
+<<<<<<< HEAD
 "    \t\tdirectories to the stack, so only the stack is manipulated.\n"
 "    \n"
 "    Arguments:\n"
@@ -4755,6 +7254,21 @@ msgid ""
 "    \n"
 "      dir\tAdds DIR to the directory stack at the top, making it the\n"
 "    \t\tnew current working directory.\n"
+=======
+"    \tdirectories to the stack, so only the stack is manipulated.\n"
+"    \n"
+"    Arguments:\n"
+"      +N\tRotates the stack so that the Nth directory (counting\n"
+"    \tfrom the left of the list shown by `dirs', starting with\n"
+"    \tzero) is at the top.\n"
+"    \n"
+"      -N\tRotates the stack so that the Nth directory (counting\n"
+"    \tfrom the right of the list shown by `dirs', starting with\n"
+"    \tzero) is at the top.\n"
+"    \n"
+"      dir\tAdds DIR to the directory stack at the top, making it the\n"
+"    \tnew current working directory.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The `dirs' builtin displays the directory stack.\n"
 "    \n"
@@ -4762,6 +7276,7 @@ msgid ""
 "    Returns success unless an invalid argument is supplied or the directory\n"
 "    change fails."
 msgstr ""
+<<<<<<< HEAD
 "Cuir comhadlanna ar an gcruach.\n"
 "    \n"
 "    Cuireann comhadlann ar bharr na cruaiche comhadlanna, nó rothlaíonn\n"
@@ -4792,6 +7307,10 @@ msgstr ""
 "    go dteipeann ar an athrú comhadlainne."
 
 #: builtins.c:1845
+=======
+
+#: builtins.c:1828
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remove directories from stack.\n"
 "    \n"
@@ -4800,6 +7319,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -n\tSuppresses the normal change of directory when removing\n"
+<<<<<<< HEAD
 "    \t\tdirectories from the stack, so only the stack is manipulated.\n"
 "    \n"
 "    Arguments:\n"
@@ -4810,6 +7330,18 @@ msgid ""
 "      -N\tRemoves the Nth entry counting from the right of the list\n"
 "    \t\tshown by `dirs', starting with zero.  For example: `popd -0'\n"
 "    \t\tremoves the last directory, `popd -1' the next to last.\n"
+=======
+"    \tdirectories from the stack, so only the stack is manipulated.\n"
+"    \n"
+"    Arguments:\n"
+"      +N\tRemoves the Nth entry counting from the left of the list\n"
+"    \tshown by `dirs', starting with zero.  For example: `popd +0'\n"
+"    \tremoves the first directory, `popd +1' the second.\n"
+"    \n"
+"      -N\tRemoves the Nth entry counting from the right of the list\n"
+"    \tshown by `dirs', starting with zero.  For example: `popd -0'\n"
+"    \tremoves the last directory, `popd -1' the next to last.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The `dirs' builtin displays the directory stack.\n"
 "    \n"
@@ -4817,6 +7349,7 @@ msgid ""
 "    Returns success unless an invalid argument is supplied or the directory\n"
 "    change fails."
 msgstr ""
+<<<<<<< HEAD
 "Bain comhadlanna ón gcruach.\n"
 "    \n"
 "    Baintear comhadlanna ón gcruach comhadlanna. Gan argóintí, baintear an\n"
@@ -4848,6 +7381,10 @@ msgstr ""
 "    go dteipeann ar an athrú comhadlainne."
 
 #: builtins.c:1875
+=======
+
+#: builtins.c:1858
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display directory stack.\n"
 "    \n"
@@ -4858,6 +7395,7 @@ msgid ""
 "    Options:\n"
 "      -c\tclear the directory stack by deleting all of the elements\n"
 "      -l\tdo not print tilde-prefixed versions of directories relative\n"
+<<<<<<< HEAD
 "    \t\tto your home directory\n"
 "      -p\tprint the directory stack with one entry per line\n"
 "      -v\tprint the directory stack with one entry per line prefixed\n"
@@ -4871,10 +7409,26 @@ msgid ""
 "      -N\tDisplays the Nth entry counting from the right of the list\n"
 "    \t\tshown by dirs when invoked without options, starting with\n"
 "    \t\tzero.\n"
+=======
+"    \tto your home directory\n"
+"      -p\tprint the directory stack with one entry per line\n"
+"      -v\tprint the directory stack with one entry per line prefixed\n"
+"    \twith its position in the stack\n"
+"    \n"
+"    Arguments:\n"
+"      +N\tDisplays the Nth entry counting from the left of the list shown "
+"by\n"
+"    \tdirs when invoked without options, starting with zero.\n"
+"    \n"
+"      -N\tDisplays the Nth entry counting from the right of the list shown "
+"by\n"
+"    \tdirs when invoked without options, starting with zero.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless an invalid option is supplied or an error occurs."
 msgstr ""
+<<<<<<< HEAD
 "Taispeáin cruach na gcomhadlann.\n"
 "    \n"
 "    Taispeáin liosta na gcomhadlann a bhfuil cuimhne orthu faoi láthair.\n"
@@ -4905,12 +7459,22 @@ msgstr ""
 "earráid."
 
 #: builtins.c:1906
+=======
+
+#: builtins.c:1887
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set and unset shell options.\n"
 "    \n"
 "    Change the setting of each shell option OPTNAME.  Without any option\n"
+<<<<<<< HEAD
 "    arguments, list each supplied OPTNAME, or all shell options if no\n"
 "    OPTNAMEs are given, with an indication of whether or not each is set.\n"
+=======
+"    arguments, list all shell options with an indication of whether or not "
+"each\n"
+"    is set.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Options:\n"
 "      -o\trestrict OPTNAMEs to those defined for use with `set -o'\n"
@@ -4923,6 +7487,7 @@ msgid ""
 "    Returns success if OPTNAME is enabled; fails if an invalid option is\n"
 "    given or OPTNAME is disabled."
 msgstr ""
+<<<<<<< HEAD
 "Socraigh agus díshocraigh roghanna na blaoisce.\n"
 "    \n"
 "    Athraítear socrú gach rogha blaoisce AINM_ROGHA. Gan argóintí roghnacha "
@@ -4944,6 +7509,10 @@ msgstr ""
 "    rogha neamhbhailí, nó má tá AINM_ROGHA díchumasaithe."
 
 #: builtins.c:1927
+=======
+
+#: builtins.c:1908
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Formats and prints ARGUMENTS under control of the FORMAT.\n"
 "    \n"
@@ -4960,15 +7529,26 @@ msgid ""
 "successive\n"
 "    argument.\n"
 "    \n"
+<<<<<<< HEAD
 "    In addition to the standard format specifications described in printf"
 "(1),\n"
+=======
+"    In addition to the standard format specifications described in "
+"printf(1),\n"
+>>>>>>> orgin/bash-4.3-testing
 "    printf interprets:\n"
 "    \n"
 "      %b\texpand backslash escape sequences in the corresponding argument\n"
 "      %q\tquote the argument in a way that can be reused as shell input\n"
+<<<<<<< HEAD
 "      %(fmt)T\toutput the date-time string resulting from using FMT as a "
 "format\n"
 "    \t        string for strftime(3)\n"
+=======
+"      %(fmt)T output the date-time string resulting from using FMT as a "
+"format\n"
+"            string for strftime(3)\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The format is re-used as necessary to consume all of the arguments.  If\n"
 "    there are fewer arguments than the format requires,  extra format\n"
@@ -4982,7 +7562,11 @@ msgid ""
 "    error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1961
+=======
+#: builtins.c:1942
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Specify how arguments are to be completed by Readline.\n"
 "    \n"
@@ -4995,6 +7579,7 @@ msgid ""
 "    Options:\n"
 "      -p\tprint existing completion specifications in a reusable format\n"
 "      -r\tremove a completion specification for each NAME, or, if no\n"
+<<<<<<< HEAD
 "    \t\tNAMEs are supplied, all completion specifications\n"
 "      -D\tapply the completions and actions as the default for commands\n"
 "    \t\twithout any specific completion defined\n"
@@ -5008,12 +7593,27 @@ msgid ""
 "supplied,\n"
 "    the -D option takes precedence over -E, and both take precedence over -"
 "I.\n"
+=======
+"    \tNAMEs are supplied, all completion specifications\n"
+"      -D\tapply the completions and actions as the default for commands\n"
+"    \twithout any specific completion defined\n"
+"      -E\tapply the completions and actions to \"empty\" commands --\n"
+"    \tcompletion attempted on a blank line\n"
+"    \n"
+"    When completion is attempted, the actions are applied in the order the\n"
+"    uppercase-letter options are listed above.  The -D option takes\n"
+"    precedence over -E.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless an invalid option is supplied or an error occurs."
 msgstr ""
 
+<<<<<<< HEAD
 #: builtins.c:1991
+=======
+#: builtins.c:1970
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display possible completions depending on the options.\n"
 "    \n"
@@ -5027,6 +7627,7 @@ msgid ""
 msgstr ""
 "Taispeáin na hiomlánaithe atá ar fáil de réir na roghanna.\n"
 "    \n"
+<<<<<<< HEAD
 "    Tá sé seo ceaptha le húsáid i bhfeidmeanna blaoisce a dhéanann "
 "iomlánaithe.\n"
 "    Má thugtar an argóint roghnach FOCAL, cruthaítear iomlánaithe\n"
@@ -5037,6 +7638,18 @@ msgstr ""
 "dtarlaíonn earráid."
 
 #: builtins.c:2006
+=======
+"    Tá sé seo ceaptha le húsáid i bhfeidmeanna blaoisce a chruthaíonn "
+"iomlánaithe.\n"
+"     Má thugtar an argóint roghnach FOCAL, cruthaítear iomlánaithe\n"
+"     atá comhoiriúnach le FOCAL.\n"
+"    \n"
+"    Stádas Scortha:\n"
+"    Aischuirtear rath mura thugtar rogha neamhbhailí agus mura tharlaíonn "
+"earráid."
+
+#: builtins.c:1985
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Modify or display completion options.\n"
 "    \n"
@@ -5051,7 +7664,10 @@ msgid ""
 "    \t-o option\tSet completion option OPTION for each NAME\n"
 "    \t-D\t\tChange options for the \"default\" command completion\n"
 "    \t-E\t\tChange options for the \"empty\" command completion\n"
+<<<<<<< HEAD
 "    \t-I\t\tChange options for completion on the initial word\n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Using `+o' instead of `-o' turns off the specified option.\n"
 "    \n"
@@ -5067,6 +7683,7 @@ msgid ""
 "    Returns success unless an invalid option is supplied or NAME does not\n"
 "    have a completion specification defined."
 msgstr ""
+<<<<<<< HEAD
 "Athraíonn nó taispeánann \"compopt\" na roghanna iomlánaithe.\n"
 "        Athraítear na roghanna iomlánaithe le haghaidh gach AINM,\n"
 "    nó gan AINMneacha taispeántar an t-iomlánú atá á dhéanamh faoi láthair.\n"
@@ -5096,6 +7713,10 @@ msgstr ""
 "    bhfuil sonrú iomlánaithe ann le haghaih AINM."
 
 #: builtins.c:2037
+=======
+
+#: builtins.c:2015
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Read lines from the standard input into an indexed array variable.\n"
 "    \n"
@@ -5106,6 +7727,7 @@ msgid ""
 "    is the default ARRAY.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -d delim\tUse DELIM to terminate lines, instead of newline\n"
 "      -n count\tCopy at most COUNT lines.  If COUNT is 0, all lines are "
 "copied\n"
@@ -5121,6 +7743,22 @@ msgid ""
 "    \n"
 "    Arguments:\n"
 "      ARRAY\tArray variable name to use for file data\n"
+=======
+"      -n count\tCopy at most COUNT lines.  If COUNT is 0, all lines are "
+"copied.\n"
+"      -O origin\tBegin assigning to ARRAY at index ORIGIN.  The default "
+"index is 0.\n"
+"      -s count \tDiscard the first COUNT lines read.\n"
+"      -t\t\tRemove a trailing newline from each line read.\n"
+"      -u fd\t\tRead lines from file descriptor FD instead of the standard "
+"input.\n"
+"      -C callback\tEvaluate CALLBACK each time QUANTUM lines are read.\n"
+"      -c quantum\tSpecify the number of lines read between each call to "
+"CALLBACK.\n"
+"    \n"
+"    Arguments:\n"
+"      ARRAY\t\tArray variable name to use for file data.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    If -C is supplied without -c, the default quantum is 5000.  When\n"
 "    CALLBACK is evaluated, it is supplied the index of the next array\n"
@@ -5136,6 +7774,7 @@ msgid ""
 "or\n"
 "    not an indexed array."
 msgstr ""
+<<<<<<< HEAD
 "Léann \"mapfile\" línte ón ngnáthionchur agus cuireann in athróg eagair "
 "innéacsaithe iad.\n"
 "    \n"
@@ -5184,11 +7823,16 @@ msgstr ""
 "      EAGAR inléite amháin, nó nach eagar innéacsaithe é EAGAR."
 
 #: builtins.c:2073
+=======
+
+#: builtins.c:2049
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Read lines from a file into an array variable.\n"
 "    \n"
 "    A synonym for `mapfile'."
 msgstr ""
+<<<<<<< HEAD
 "Léann línte ó chomhad agus cuireann in athróg eagair iad.\n"
 "    \n"
 "    Comhchiallach le \"mapfile\"."
@@ -5207,6 +7851,26 @@ msgstr ""
 
 #~ msgid "times"
 #~ msgstr "times"
+=======
+"Léigh línte ó chomhad agus cuir in athróg eagair iad.\n"
+"    \n"
+"    Comhchiallach le \"mapfile\"."
+
+#, fuzzy
+#~ msgid "Copyright (C) 2009 Free Software Foundation, Inc.\n"
+#~ msgstr "Cóipcheart © 2009 Free Software Foundation, Inc."
+
+#, fuzzy
+#~ msgid ""
+#~ "License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl."
+#~ "html>\n"
+#~ msgstr ""
+#~ "Ceadúnas GPLv3+: GNU GPL leagan 3 nó níos déanaí <http://gnu.org/licenses/"
+#~ "gpl.html>\n"
+
+#~ msgid "wait [pid]"
+#~ msgstr "wait [aitheantas_próisis]"
+>>>>>>> orgin/bash-4.3-testing
 
 #~ msgid "xrealloc: cannot reallocate %lu bytes (%lu bytes allocated)"
 #~ msgstr ""

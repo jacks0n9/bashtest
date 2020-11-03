@@ -1,6 +1,10 @@
 /* strtrans.c - Translate and untranslate strings with ANSI-C escape sequences. */
 
+<<<<<<< HEAD
 /* Copyright (C) 2000-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2000-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -60,10 +64,14 @@ ansicstr (string, len, flags, sawc, rlen)
     return ((char *)NULL);
 
 #if defined (HANDLE_MULTIBYTE)
+<<<<<<< HEAD
   temp = 4*len + 1;
   if (temp < 12)
     temp = 12;				/* ensure enough for eventual u32cesc */
   ret = (char *)xmalloc (temp);
+=======
+  ret = (char *)xmalloc (4*len + 1);
+>>>>>>> orgin/bash-4.3-testing
 #else
   ret = (char *)xmalloc (2*len + 1);	/* 2*len for possible CTLESC */
 #endif
@@ -230,9 +238,17 @@ ansic_quote (str, flags, rlen)
   *r++ = '$';
   *r++ = '\'';
 
+<<<<<<< HEAD
   for (s = str; c = *s; s++)
     {
       b = l = 1;		/* 1 == add backslash; 0 == no backslash */
+=======
+  s = str;
+
+  for (s = str; c = *s; s++)
+    {
+      l = 1;		/* 1 == add backslash; 0 == no backslash */
+>>>>>>> orgin/bash-4.3-testing
       clen = 1;
 
       switch (c)
@@ -258,7 +274,11 @@ ansic_quote (str, flags, rlen)
 #if defined (HANDLE_MULTIBYTE)
 	  b = is_basic (c);
 	  /* XXX - clen comparison to 0 is dicey */
+<<<<<<< HEAD
 	  if ((b == 0 && ((clen = mbrtowc (&wc, s, MB_CUR_MAX, 0)) < 0 || MB_INVALIDCH (clen) || iswprint (wc) == 0)) ||
+=======
+	  if ((b == 0 && ((clen = mbrtowc (&wc, s, MB_CUR_MAX, 0)) < 0 || iswprint (wc) == 0)) ||
+>>>>>>> orgin/bash-4.3-testing
 	      (b == 1 && ISPRINT (c) == 0))
 #else
 	  if (ISPRINT (c) == 0)
@@ -282,11 +302,16 @@ ansic_quote (str, flags, rlen)
       if (clen == 1)
 	*r++ = c;
       else
+<<<<<<< HEAD
 	{
 	  for (b = 0; b < (int)clen; b++)
 	    *r++ = (unsigned char)s[b];
 	  s += clen - 1;	/* -1 because of the increment above */
 	}
+=======
+	for (b = 0; b < (int)clen; c = b ? *++s : c)
+	  *r++ = c;
+>>>>>>> orgin/bash-4.3-testing
     }
 
   *r++ = '\'';
@@ -303,6 +328,7 @@ ansic_wshouldquote (string)
 {
   const wchar_t *wcs;
   wchar_t wcc;
+<<<<<<< HEAD
   wchar_t *wcstr = NULL;
   size_t slen;
 
@@ -311,6 +337,17 @@ ansic_wshouldquote (string)
   if (slen == (size_t)-1)
     return 1;
 
+=======
+
+  wchar_t *wcstr = NULL;
+  size_t slen;
+
+
+  slen = mbstowcs (wcstr, string, 0);
+
+  if (slen == -1)
+    slen = 0;
+>>>>>>> orgin/bash-4.3-testing
   wcstr = (wchar_t *)xmalloc (sizeof (wchar_t) * (slen + 1));
   mbstowcs (wcstr, string, slen + 1);
 

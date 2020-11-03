@@ -369,11 +369,14 @@ builtin cd "$MYDIR"
 ${THIS_SH} ./extglob1.sub
 
 ${THIS_SH} ./extglob1a.sub
+<<<<<<< HEAD
 
 ${THIS_SH} ./extglob3.sub
 
 ${THIS_SH} ./extglob4.sub
 
 ${THIS_SH} ./extglob5.sub
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 exit 0

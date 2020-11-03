@@ -9,7 +9,11 @@
 #
 # Currently only man2html is built
 #
+<<<<<<< HEAD
 # Copyright (C) 1998-2018 Free Software Foundation, Inc.
+=======
+# Copyright (C) 1998-2009 Free Software Foundation, Inc.     
+>>>>>>> orgin/bash-4.3-testing
 
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
@@ -80,9 +84,16 @@ man2html$(EXEEXT): $(OBJ1)
 	$(CC_FOR_BUILD) $(CCFLAGS_FOR_BUILD) $(OBJ1) -o $@ ${LIBS_FOR_BUILD}
 
 clean:
+<<<<<<< HEAD
 	$(RM) man2html$(EXEEXT) $(OBJ1)
 
 distclean maintainer-clean mostlyclean: clean
 	$(RM) bash.pc bashbug.sh
+=======
+	$(RM) man2html$(EXEEXT)
+
+distclean maintainer-clean mostlyclean: clean
+	$(RM) $(OBJ1)
+>>>>>>> orgin/bash-4.3-testing
 
 man2html.o: man2html.c

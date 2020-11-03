@@ -1,6 +1,10 @@
 /* bind.c -- key binding and startup file support for the readline library. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.
@@ -74,6 +78,7 @@ Keymap rl_binding_keymap;
 
 static int _rl_skip_to_delim PARAMS((char *, int, int));
 
+<<<<<<< HEAD
 #if defined (USE_VARARGS) && defined (PREFER_STDARG)
 static void _rl_init_file_error (const char *, ...)  __attribute__((__format__ (printf, 1, 2)));
 #else
@@ -82,6 +87,8 @@ static void _rl_init_file_error ();
 
 static rl_command_func_t *_rl_function_of_keyseq_internal PARAMS((const char *, size_t, Keymap, int *));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 static char *_rl_read_file PARAMS((char *, size_t *));
 static int _rl_read_init_file PARAMS((const char *, int));
 static int glean_key_from_name PARAMS((char *));
@@ -89,6 +96,7 @@ static int glean_key_from_name PARAMS((char *));
 static int find_boolean_var PARAMS((const char *));
 static int find_string_var PARAMS((const char *));
 
+<<<<<<< HEAD
 static const char *boolean_varname PARAMS((int));
 static const char *string_varname PARAMS((int));
 
@@ -97,6 +105,10 @@ static int substring_member_of_array PARAMS((const char *, const char * const *)
 
 static int _rl_get_keymap_by_name PARAMS((const char *));
 static int _rl_get_keymap_by_map PARAMS((Keymap));
+=======
+static char *_rl_get_string_variable_value PARAMS((const char *));
+static int substring_member_of_array PARAMS((const char *, const char * const *));
+>>>>>>> orgin/bash-4.3-testing
 
 static int currently_reading_init_file;
 
@@ -194,6 +206,7 @@ rl_bind_key_in_map (int key, rl_command_func_t *function, Keymap map)
 }
 
 /* Bind key sequence KEYSEQ to DEFAULT_FUNC if KEYSEQ is unbound.  Right
+<<<<<<< HEAD
    now, this is always used to attempt to bind the arrow keys. */
 int
 rl_bind_key_if_unbound_in_map (int key, rl_command_func_t *default_func, Keymap kmap)
@@ -201,15 +214,40 @@ rl_bind_key_if_unbound_in_map (int key, rl_command_func_t *default_func, Keymap 
   char *keyseq;
 
   keyseq = rl_untranslate_keyseq ((unsigned char)key);
+=======
+   now, this is always used to attempt to bind the arrow keys, hence the
+   check for rl_vi_movement_mode. */
+int
+rl_bind_key_if_unbound_in_map (key, default_func, kmap)
+     int key;
+     rl_command_func_t *default_func;
+     Keymap kmap;
+{
+  char keyseq[2];
+
+  keyseq[0] = (unsigned char)key;
+  keyseq[1] = '\0';
+>>>>>>> orgin/bash-4.3-testing
   return (rl_bind_keyseq_if_unbound_in_map (keyseq, default_func, kmap));
 }
 
 int
+<<<<<<< HEAD
 rl_bind_key_if_unbound (int key, rl_command_func_t *default_func)
 {
   char *keyseq;
 
   keyseq = rl_untranslate_keyseq ((unsigned char)key);
+=======
+rl_bind_key_if_unbound (key, default_func)
+     int key;
+     rl_command_func_t *default_func;
+{
+  char keyseq[2];
+
+  keyseq[0] = (unsigned char)key;
+  keyseq[1] = '\0';
+>>>>>>> orgin/bash-4.3-testing
   return (rl_bind_keyseq_if_unbound_in_map (keyseq, default_func, _rl_keymap));
 }
 
@@ -262,7 +300,13 @@ rl_unbind_command_in_map (const char *command, Keymap map)
    FUNCTION, starting in the current keymap.  This makes new
    keymaps as necessary. */
 int
+<<<<<<< HEAD
 rl_bind_keyseq (const char *keyseq, rl_command_func_t *function)
+=======
+rl_bind_keyseq (keyseq, function)
+     const char *keyseq;
+     rl_command_func_t *function;
+>>>>>>> orgin/bash-4.3-testing
 {
   return (rl_generic_bind (ISFUNC, keyseq, (char *)function, _rl_keymap));
 }
@@ -271,14 +315,28 @@ rl_bind_keyseq (const char *keyseq, rl_command_func_t *function)
    FUNCTION.  This makes new keymaps as necessary.  The initial
    place to do bindings is in MAP. */
 int
+<<<<<<< HEAD
 rl_bind_keyseq_in_map (const char *keyseq, rl_command_func_t *function, Keymap map)
+=======
+rl_bind_keyseq_in_map (keyseq, function, map)
+     const char *keyseq;
+     rl_command_func_t *function;
+     Keymap map;
+>>>>>>> orgin/bash-4.3-testing
 {
   return (rl_generic_bind (ISFUNC, keyseq, (char *)function, map));
 }
 
 /* Backwards compatibility; equivalent to rl_bind_keyseq_in_map() */
 int
+<<<<<<< HEAD
 rl_set_key (const char *keyseq, rl_command_func_t *function, Keymap map)
+=======
+rl_set_key (keyseq, function, map)
+     const char *keyseq;
+     rl_command_func_t *function;
+     Keymap map;
+>>>>>>> orgin/bash-4.3-testing
 {
   return (rl_generic_bind (ISFUNC, keyseq, (char *)function, map));
 }
@@ -287,6 +345,7 @@ rl_set_key (const char *keyseq, rl_command_func_t *function, Keymap map)
    now, this is always used to attempt to bind the arrow keys, hence the
    check for rl_vi_movement_mode. */
 int
+<<<<<<< HEAD
 rl_bind_keyseq_if_unbound_in_map (const char *keyseq, rl_command_func_t *default_func, Keymap kmap)
 {
   rl_command_func_t *func;
@@ -305,6 +364,18 @@ rl_bind_keyseq_if_unbound_in_map (const char *keyseq, rl_command_func_t *default
 	}
       func = rl_function_of_keyseq_len (keys, keys_len, kmap, (int *)NULL);
       xfree (keys);
+=======
+rl_bind_keyseq_if_unbound_in_map (keyseq, default_func, kmap)
+     const char *keyseq;
+     rl_command_func_t *default_func;
+     Keymap kmap;
+{
+  rl_command_func_t *func;
+
+  if (keyseq)
+    {
+      func = rl_function_of_keyseq (keyseq, kmap, (int *)NULL);
+>>>>>>> orgin/bash-4.3-testing
 #if defined (VI_MODE)
       if (!func || func == rl_do_lowercase_version || func == rl_vi_movement_mode)
 #else
@@ -318,7 +389,13 @@ rl_bind_keyseq_if_unbound_in_map (const char *keyseq, rl_command_func_t *default
 }
 
 int
+<<<<<<< HEAD
 rl_bind_keyseq_if_unbound (const char *keyseq, rl_command_func_t *default_func)
+=======
+rl_bind_keyseq_if_unbound (keyseq, default_func)
+     const char *keyseq;
+     rl_command_func_t *default_func;
+>>>>>>> orgin/bash-4.3-testing
 {
   return (rl_bind_keyseq_if_unbound_in_map (keyseq, default_func, _rl_keymap));
 }
@@ -481,7 +558,10 @@ rl_generic_bind (int type, const char *keyseq, char *data, Keymap map)
       rl_discard_keymap (rl_binding_keymap);
       rl_binding_keymap = prevmap;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   xfree (keys);
   return 0;
 }
@@ -617,7 +697,12 @@ rl_translate_keyseq (const char *seq, char *array, int *len)
 }
 
 static int
+<<<<<<< HEAD
 _rl_isescape (int c)
+=======
+_rl_isescape (c)
+     int c;
+>>>>>>> orgin/bash-4.3-testing
 {
   switch (c)
     {
@@ -633,7 +718,12 @@ _rl_isescape (int c)
 }
 
 static int
+<<<<<<< HEAD
 _rl_escchar (int c)
+=======
+_rl_escchar (c)
+     int c;
+>>>>>>> orgin/bash-4.3-testing
 {
   switch (c)
     {
@@ -699,7 +789,13 @@ rl_untranslate_keyseq (int seq)
 }
 
 char *
+<<<<<<< HEAD
 _rl_untranslate_macro_value (char *seq, int use_escapes)
+=======
+_rl_untranslate_macro_value (seq, use_escapes)
+     char *seq;
+     int use_escapes;
+>>>>>>> orgin/bash-4.3-testing
 {
   char *ret, *r, *s;
   int c;
@@ -1038,6 +1134,7 @@ _rl_init_file_error (va_alist)
 
   fprintf (stderr, "readline: ");
   if (currently_reading_init_file)
+<<<<<<< HEAD
     fprintf (stderr, "%s: line %d: ", current_readline_init_file,
 		     current_readline_init_lineno);
 
@@ -1102,6 +1199,12 @@ parse_comparison_op (s, indp)
 
   *indp = i;
   return op;        
+=======
+    _rl_errmsg ("%s: line %d: %s\n", current_readline_init_file,
+		     current_readline_init_lineno, msg);
+  else
+    _rl_errmsg ("%s", msg);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* **************************************************************** */
@@ -1455,7 +1558,13 @@ handle_parser_directive (char *statement)
 /* Start at STRING[START] and look for DELIM.  Return I where STRING[I] ==
    DELIM or STRING[I] == 0.  DELIM is usually a double quote. */
 static int
+<<<<<<< HEAD
 _rl_skip_to_delim (char *string, int start, int delim)
+=======
+_rl_skip_to_delim (string, start, delim)
+     char *string;
+     int start, delim;
+>>>>>>> orgin/bash-4.3-testing
 {
   int i, c, passc;
 
@@ -1615,11 +1724,14 @@ remove_trailing:
       i = _rl_skip_to_delim (string, i+1, *funname);
       if (string[i])
 	i++;
+<<<<<<< HEAD
       else
 	{
 	  _rl_init_file_error ("`%s': missing closing quote for macro", funname);
 	  return 1;
 	}
+=======
+>>>>>>> orgin/bash-4.3-testing
     }
 
   /* Advance to the end of the string.  */
@@ -1760,7 +1872,10 @@ static const struct {
   { "blink-matching-paren",	&rl_blink_matching_paren,	V_SPECIAL },
   { "byte-oriented",		&rl_byte_oriented,		0 },
 #if defined (COLOR_SUPPORT)
+<<<<<<< HEAD
   { "colored-completion-prefix",&_rl_colored_completion_prefix,	0 },
+=======
+>>>>>>> orgin/bash-4.3-testing
   { "colored-stats",		&_rl_colored_stats,		0 },
 #endif
   { "completion-ignore-case",	&_rl_completion_case_fold,	0 },
@@ -1768,7 +1883,10 @@ static const struct {
   { "convert-meta",		&_rl_convert_meta_chars_to_ascii, 0 },
   { "disable-completion",	&rl_inhibit_completion,		0 },
   { "echo-control-characters",	&_rl_echo_control_chars,	0 },
+<<<<<<< HEAD
   { "enable-bracketed-paste",	&_rl_enable_bracketed_paste,	0 },
+=======
+>>>>>>> orgin/bash-4.3-testing
   { "enable-keypad",		&_rl_enable_keypad,		0 },
   { "enable-meta-key",		&_rl_enable_meta,		0 },
   { "expand-tilde",		&rl_complete_with_tilde_expansion, 0 },
@@ -1856,13 +1974,19 @@ static int sv_dispprefix PARAMS((const char *));
 static int sv_compquery PARAMS((const char *));
 static int sv_compwidth PARAMS((const char *));
 static int sv_editmode PARAMS((const char *));
+<<<<<<< HEAD
 static int sv_emacs_modestr PARAMS((const char *));
+=======
+>>>>>>> orgin/bash-4.3-testing
 static int sv_histsize PARAMS((const char *));
 static int sv_isrchterm PARAMS((const char *));
 static int sv_keymap PARAMS((const char *));
 static int sv_seqtimeout PARAMS((const char *));
+<<<<<<< HEAD
 static int sv_viins_modestr PARAMS((const char *));
 static int sv_vicmd_modestr PARAMS((const char *));
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 static const struct {
   const char * const name;
@@ -1875,13 +1999,19 @@ static const struct {
   { "completion-prefix-display-length", V_INT,	sv_dispprefix },
   { "completion-query-items", V_INT,	sv_compquery },
   { "editing-mode",	V_STRING,	sv_editmode },
+<<<<<<< HEAD
   { "emacs-mode-string", V_STRING,	sv_emacs_modestr },  
+=======
+>>>>>>> orgin/bash-4.3-testing
   { "history-size",	V_INT,		sv_histsize },
   { "isearch-terminators", V_STRING,	sv_isrchterm },
   { "keymap",		V_STRING,	sv_keymap },
   { "keyseq-timeout",	V_INT,		sv_seqtimeout },
+<<<<<<< HEAD
   { "vi-cmd-mode-string", V_STRING,	sv_vicmd_modestr }, 
   { "vi-ins-mode-string", V_STRING,	sv_viins_modestr }, 
+=======
+>>>>>>> orgin/bash-4.3-testing
   { (char *)NULL,	0, (_rl_sv_func_t *)0 }
 };
 
@@ -1906,7 +2036,12 @@ string_varname (int i)
    the value is null or empty, `on' (case-insensitive), or "1".  Any other
    values result in 0 (false). */
 static int
+<<<<<<< HEAD
 bool_to_int (const char *value)
+=======
+bool_to_int (value)
+     const char *value;
+>>>>>>> orgin/bash-4.3-testing
 {
   return (value == 0 || *value == '\0' ||
 		(_rl_stricmp (value, "on") == 0) ||
@@ -1914,7 +2049,12 @@ bool_to_int (const char *value)
 }
 
 char *
+<<<<<<< HEAD
 rl_variable_value (const char *name)
+=======
+rl_variable_value (name)
+     const char *name;
+>>>>>>> orgin/bash-4.3-testing
 {
   register int i;
 
@@ -1995,7 +2135,12 @@ sv_combegin (const char *value)
 }
 
 static int
+<<<<<<< HEAD
 sv_dispprefix (const char *value)
+=======
+sv_dispprefix (value)
+     const char *value;
+>>>>>>> orgin/bash-4.3-testing
 {
   int nval = 0;
 
@@ -2010,7 +2155,12 @@ sv_dispprefix (const char *value)
 }
 
 static int
+<<<<<<< HEAD
 sv_compquery (const char *value)
+=======
+sv_compquery (value)
+     const char *value;
+>>>>>>> orgin/bash-4.3-testing
 {
   int nval = 100;
 
@@ -2025,7 +2175,12 @@ sv_compquery (const char *value)
 }
 
 static int
+<<<<<<< HEAD
 sv_compwidth (const char *value)
+=======
+sv_compwidth (value)
+     const char *value;
+>>>>>>> orgin/bash-4.3-testing
 {
   int nval = -1;
 
@@ -2037,7 +2192,12 @@ sv_compwidth (const char *value)
 }
 
 static int
+<<<<<<< HEAD
 sv_histsize (const char *value)
+=======
+sv_histsize (value)
+     const char *value;
+>>>>>>> orgin/bash-4.3-testing
 {
   int nval;
 
@@ -2056,7 +2216,12 @@ sv_histsize (const char *value)
 }
 
 static int
+<<<<<<< HEAD
 sv_keymap (const char *value)
+=======
+sv_keymap (value)
+     const char *value;
+>>>>>>> orgin/bash-4.3-testing
 {
   Keymap kmap;
 
@@ -2070,7 +2235,12 @@ sv_keymap (const char *value)
 }
 
 static int
+<<<<<<< HEAD
 sv_seqtimeout (const char *value)
+=======
+sv_seqtimeout (value)
+     const char *value;
+>>>>>>> orgin/bash-4.3-testing
 {
   int nval;
 
@@ -2086,7 +2256,12 @@ sv_seqtimeout (const char *value)
 }
 
 static int
+<<<<<<< HEAD
 sv_bell_style (const char *value)
+=======
+sv_bell_style (value)
+     const char *value;
+>>>>>>> orgin/bash-4.3-testing
 {
   if (value == 0 || *value == '\0')
     _rl_bell_preference = AUDIBLE_BELL;
@@ -2258,8 +2433,13 @@ glean_key_from_name (char *name)
 }
 
 /* Auxiliary functions to manage keymaps. */
+<<<<<<< HEAD
 struct name_and_keymap {
   char *name;
+=======
+static const struct {
+  const char * const name;
+>>>>>>> orgin/bash-4.3-testing
   Keymap map;
 };
 
@@ -2786,7 +2966,12 @@ rl_dump_macros (int count, int key)
 }
 
 static char *
+<<<<<<< HEAD
 _rl_get_string_variable_value (const char *name)
+=======
+_rl_get_string_variable_value (name)
+     const char *name;
+>>>>>>> orgin/bash-4.3-testing
 {
   static char numbuf[32];
   char *ret;
@@ -2855,12 +3040,15 @@ _rl_get_string_variable_value (const char *name)
       sprintf (numbuf, "%d", _rl_keyseq_timeout);    
       return (numbuf);
     }
+<<<<<<< HEAD
   else if (_rl_stricmp (name, "emacs-mode-string") == 0)
     return (_rl_emacs_mode_str ? _rl_emacs_mode_str : RL_EMACS_MODESTR_DEFAULT);
   else if (_rl_stricmp (name, "vi-cmd-mode-string") == 0)
     return (_rl_vi_cmd_mode_str ? _rl_vi_cmd_mode_str : RL_VI_CMD_MODESTR_DEFAULT);
   else if (_rl_stricmp (name, "vi-ins-mode-string") == 0)
     return (_rl_vi_ins_mode_str ? _rl_vi_ins_mode_str : RL_VI_INS_MODESTR_DEFAULT);
+=======
+>>>>>>> orgin/bash-4.3-testing
   else
     return (0);
 }
@@ -2908,7 +3096,13 @@ rl_dump_variables (int count, int key)
 
 /* Return non-zero if any members of ARRAY are a substring in STRING. */
 static int
+<<<<<<< HEAD
 substring_member_of_array (const char *string, const char * const *array)
+=======
+substring_member_of_array (string, array)
+     const char *string;
+     const char * const *array;
+>>>>>>> orgin/bash-4.3-testing
 {
   while (*array)
     {

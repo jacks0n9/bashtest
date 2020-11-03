@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ${THIS_SH} ./invert.tests 2>&1 | grep -v '^expect' > ${BASH_TSTOUT}
 diff ${BASH_TSTOUT} invert.right && rm -f ${BASH_TSTOUT}
+=======
+${THIS_SH} ./invert.tests 2>&1 | grep -v '^expect' > /tmp/xx
+diff /tmp/xx invert.right && rm -f /tmp/xx
+>>>>>>> orgin/bash-4.3-testing

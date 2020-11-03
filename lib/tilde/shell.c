@@ -1,7 +1,11 @@
 /* shell.c -- tilde utility functions that are normally provided by
 	      bash when readline is linked as part of the shell. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1998-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1998-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Tilde Library.
 

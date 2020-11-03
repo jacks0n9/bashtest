@@ -1,6 +1,10 @@
 /* arrayfunc.c -- High-level array functions used by other parts of the shell. */
 
+<<<<<<< HEAD
 /* Copyright (C) 2001-2016 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 2001-2011 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -30,7 +34,10 @@
 #include "bashintl.h"
 
 #include "shell.h"
+<<<<<<< HEAD
 #include "execute_cmd.h"
+=======
+>>>>>>> orgin/bash-4.3-testing
 #include "pathexp.h"
 
 #include "shmbutil.h"
@@ -40,6 +47,7 @@
 
 #include "builtins/common.h"
 
+<<<<<<< HEAD
 /* This variable means to not expand associative array subscripts more than
    once, when performing variable expansion. */
 int assoc_expand_once = 0;
@@ -53,6 +61,18 @@ static SHELL_VAR *assign_array_element_internal __P((SHELL_VAR *, char *, char *
 static char *quote_assign __P((const char *));
 static void quote_array_assignment_chars __P((WORD_LIST *));
 static char *array_value_internal __P((const char *, int, int, int *, arrayind_t *));
+=======
+extern char *this_command_name;
+extern int last_command_exit_value;
+extern int array_needs_making;
+
+static SHELL_VAR *bind_array_var_internal __P((SHELL_VAR *, arrayind_t, char *, char *, int));
+static SHELL_VAR *assign_array_element_internal __P((SHELL_VAR *, char *, char *, char *, int, char *, int));
+
+static char *quote_assign __P((const char *));
+static void quote_array_assignment_chars __P((WORD_LIST *));
+static char *array_value_internal __P((char *, int, int, int *, arrayind_t *));
+>>>>>>> orgin/bash-4.3-testing
 
 /* Standard error message to use when encountering an invalid array subscript */
 const char * const bash_badsub_errmsg = N_("bad array subscript");
@@ -128,12 +148,15 @@ convert_var_to_assoc (var)
   VSETATTR (var, att_assoc);
   VUNSETATTR (var, att_invisible);
 
+<<<<<<< HEAD
   /* Make sure it's not marked as an indexed array any more */
   VUNSETATTR (var, att_array);
 
   /* Since namerefs can't be array variables, turn off nameref attribute */
   VUNSETATTR (var, att_nameref);
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   return var;
 }
 
@@ -198,9 +221,12 @@ bind_array_var_internal (entry, ind, key, value, flags)
     array_insert (array_cell (entry), ind, newval);
   FREE (newval);
 
+<<<<<<< HEAD
   VUNSETATTR (entry, att_invisible);	/* no longer invisible */
 
   /* check mark_modified_variables if we ever want to export array vars */
+=======
+>>>>>>> orgin/bash-4.3-testing
   return (entry);
 }
 
@@ -264,7 +290,14 @@ bind_assoc_variable (entry, name, key, value, flags)
      char *value;
      int flags;
 {
+<<<<<<< HEAD
   if ((readonly_p (entry) && (flags&ASS_FORCE) == 0) || noassign_p (entry))
+=======
+  SHELL_VAR *dentry;
+  char *newval;
+
+  if (readonly_p (entry) || noassign_p (entry))
+>>>>>>> orgin/bash-4.3-testing
     {
       if (readonly_p (entry))
 	err_readonly (name);
@@ -283,7 +316,11 @@ assign_array_element (name, value, flags)
      int flags;
 {
   char *sub, *vname;
+<<<<<<< HEAD
   int sublen, isassoc;
+=======
+  int sublen;
+>>>>>>> orgin/bash-4.3-testing
   SHELL_VAR *entry;
 
   vname = array_variable_name (name, (flags & ASS_NOEXPAND) != 0, &sub, &sublen);
@@ -294,13 +331,58 @@ assign_array_element (name, value, flags)
   entry = find_variable (vname);
   isassoc = entry && assoc_p (entry);
 
+<<<<<<< HEAD
   if (((isassoc == 0 || (flags & ASS_NOEXPAND) == 0) && (ALL_ELEMENT_SUB (sub[0]) && sub[1] == ']')) || (sublen <= 1))
+=======
+  entry = find_variable (vname);
+  entry = assign_array_element_internal (entry, name, vname, sub, sublen, value, flags);
+
+  free (vname);
+  return entry;
+}
+
+static SHELL_VAR *
+assign_array_element_internal (entry, name, vname, sub, sublen, value, flags)
+     SHELL_VAR *entry;
+     char *name;		/* only used for error messages */
+     char *vname;
+     char *sub;
+     int sublen;
+     char *value;
+     int flags;
+{
+  char *akey;
+  arrayind_t ind;
+
+  if (entry && assoc_p (entry))
+>>>>>>> orgin/bash-4.3-testing
     {
-      free (vname);
-      err_badarraysub (name);
-      return ((SHELL_VAR *)NULL);
+      sub[sublen-1] = '\0';
+      akey = expand_assignment_string_to_string (sub, 0);	/* [ */
+      sub[sublen-1] = ']';
+      if (akey == 0 || *akey == 0)
+	{
+	  err_badarraysub (name);
+	  FREE (akey);
+	  return ((SHELL_VAR *)NULL);
+	}
+      entry = bind_assoc_variable (entry, vname, akey, value, flags);
+    }
+  else
+    {
+      ind = array_expand_index (entry, sub, sublen);
+      /* negative subscripts to indexed arrays count back from end */
+      if (entry && ind < 0)
+	ind = (array_p (entry) ? array_max_index (array_cell (entry)) : 0) + 1 + ind;
+      if (ind < 0)
+	{
+	  err_badarraysub (name);
+	  return ((SHELL_VAR *)NULL);
+	}
+      entry = bind_array_variable (vname, ind, value, flags);
     }
 
+<<<<<<< HEAD
   entry = assign_array_element_internal (entry, name, vname, sub, sublen, value, flags);
 
   free (vname);
@@ -350,6 +432,8 @@ assign_array_element_internal (entry, name, vname, sub, sublen, value, flags)
       entry = bind_array_variable (vname, ind, value, flags);
     }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   return (entry);
 }
 
@@ -371,6 +455,7 @@ find_or_make_array_variable (name, flags)
     {
       /* See if we have a nameref pointing to a variable that hasn't been
 	 created yet. */
+<<<<<<< HEAD
       var = find_variable_last_nameref (name, 1);
       if (var && nameref_p (var) && invisible_p (var))
 	{
@@ -386,6 +471,11 @@ find_or_make_array_variable (name, flags)
 	    }
 	  var = (flags & 2) ? make_new_assoc_variable (nameref_cell (var)) : make_new_array_variable (nameref_cell (var));
 	}
+=======
+      var = find_variable_last_nameref (name);
+      if (var && nameref_p (var))
+	var = (flags & 2) ? make_new_assoc_variable (nameref_cell (var)) : make_new_array_variable (nameref_cell (var));
+>>>>>>> orgin/bash-4.3-testing
     }
 
   if (var == 0)
@@ -417,11 +507,19 @@ assign_array_from_string (name, value, flags)
 {
   SHELL_VAR *var;
   int vflags;
+<<<<<<< HEAD
 
   vflags = 1;
   if (flags & ASS_MKASSOC)
     vflags |= 2;
 
+=======
+
+  vflags = 1;
+  if (flags & ASS_MKASSOC)
+    vflags |= 2;
+
+>>>>>>> orgin/bash-4.3-testing
   var = find_or_make_array_variable (name, vflags);
   if (var == 0)
     return ((SHELL_VAR *)NULL);
@@ -445,10 +543,17 @@ assign_array_var_from_word_list (var, list, flags)
   i = (flags & ASS_APPEND) ? array_max_index (a) + 1 : 0;
 
   for (l = list; l; l = l->next, i++)
+<<<<<<< HEAD
     bind_array_var_internal (var, i, 0, l->word->word, flags & ~ASS_APPEND);
 
   VUNSETATTR (var, att_invisible);	/* no longer invisible */
 
+=======
+    if (var->assign_func)
+      (*var->assign_func) (var, l->word->word, i, 0);
+    else
+      array_insert (a, i, l->word->word);
+>>>>>>> orgin/bash-4.3-testing
   return var;
 }
 
@@ -459,6 +564,10 @@ expand_compound_array_assignment (var, value, flags)
      int flags;
 {
   WORD_LIST *list, *nlist;
+<<<<<<< HEAD
+=======
+  WORD_LIST *hd, *tl, *t, *n;
+>>>>>>> orgin/bash-4.3-testing
   char *val;
   int ni;
 
@@ -517,7 +626,11 @@ assign_compound_array_list (var, nlist, flags)
   ARRAY *a;
   HASH_TABLE *h;
   WORD_LIST *list;
+<<<<<<< HEAD
   char *w, *val, *nval, *savecmd;
+=======
+  char *w, *val, *nval;
+>>>>>>> orgin/bash-4.3-testing
   int len, iflags, free_val;
   arrayind_t ind, last_ind;
   char *akey;
@@ -542,9 +655,13 @@ assign_compound_array_list (var, nlist, flags)
 
   for (list = nlist; list; list = list->next)
     {
+<<<<<<< HEAD
       /* Don't allow var+=(values) to make assignments in VALUES append to
 	 existing values by default. */
       iflags = flags & ~ASS_APPEND;
+=======
+      iflags = flags;
+>>>>>>> orgin/bash-4.3-testing
       w = list->word->word;
 
       /* We have a word of the form [ind]=value */
@@ -591,7 +708,11 @@ assign_compound_array_list (var, nlist, flags)
 
 	  if (array_p (var))
 	    {
+<<<<<<< HEAD
 	      ind = array_expand_index (var, w + 1, len, 0);
+=======
+	      ind = array_expand_index (var, w + 1, len);
+>>>>>>> orgin/bash-4.3-testing
 	      /* negative subscripts to indexed arrays count back from end */
 	      if (ind < 0)
 		ind = array_max_index (array_cell (var)) + 1 + ind;
@@ -602,6 +723,7 @@ assign_compound_array_list (var, nlist, flags)
 		}
 
 	      last_ind = ind;
+<<<<<<< HEAD
 	    }
 	  else if (assoc_p (var))
 	    {
@@ -624,6 +746,30 @@ assign_compound_array_list (var, nlist, flags)
 	      iflags |= ASS_APPEND;
 	      val = w + len + 3;
 	    }
+=======
+	    }
+	  else if (assoc_p (var))
+	    {
+	      /* This is not performed above, see expand_compound_array_assignment */
+	      w[len] = '\0';	/*[*/
+	      akey = expand_assignment_string_to_string (w+1, 0);
+	      w[len] = ']';
+	      /* And we need to expand the value also, see below */
+	      if (akey == 0 || *akey == 0)
+		{
+		  err_badarraysub (w);
+		  FREE (akey);
+		  continue;
+		}
+	    }
+
+	  /* XXX - changes for `+=' -- just accept the syntax.  ksh93 doesn't do this */
+	  if (w[len + 1] == '+' && w[len + 2] == '=')
+	    {
+	      iflags |= ASS_APPEND;
+	      val = w + len + 3;
+	    }
+>>>>>>> orgin/bash-4.3-testing
 	  else
 	    val = w + len + 2;	    
 	}
@@ -644,6 +790,7 @@ assign_compound_array_list (var, nlist, flags)
       if (assoc_p (var))
 	{
 	  val = expand_assignment_string_to_string (val, 0);
+<<<<<<< HEAD
 	  if (val == 0)
 	    {
 	      val = (char *)xmalloc (1);
@@ -653,16 +800,25 @@ assign_compound_array_list (var, nlist, flags)
 	}
 
       savecmd = this_command_name;
+=======
+	  free_val = 1;
+	}
+
+>>>>>>> orgin/bash-4.3-testing
       if (integer_p (var))
 	this_command_name = (char *)NULL;	/* no command name for errors */
       bind_array_var_internal (var, ind, akey, val, iflags);
       last_ind++;
+<<<<<<< HEAD
       this_command_name = savecmd;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
       if (free_val)
 	free (val);
     }
 }
+<<<<<<< HEAD
 
 /* Perform a compound array assignment:  VAR->name=( VALUE ).  The
    VALUE has already had the parentheses stripped. */
@@ -686,6 +842,27 @@ assign_array_var_from_string (var, value, flags)
   if (var)
     VUNSETATTR (var, att_invisible);	/* no longer invisible */
 
+=======
+
+/* Perform a compound array assignment:  VAR->name=( VALUE ).  The
+   VALUE has already had the parentheses stripped. */
+SHELL_VAR *
+assign_array_var_from_string (var, value, flags)
+     SHELL_VAR *var;
+     char *value;
+     int flags;
+{
+  WORD_LIST *nlist;
+
+  if (value == 0)
+    return var;
+
+  nlist = expand_compound_array_assignment (var, value, flags);
+  assign_compound_array_list (var, nlist, flags);
+
+  if (nlist)
+    dispose_words (nlist);
+>>>>>>> orgin/bash-4.3-testing
   return (var);
 }
 
@@ -779,7 +956,11 @@ unbind_array_element (var, sub, flags)
   char *akey;
   ARRAY_ELEMENT *ae;
 
+<<<<<<< HEAD
   len = skipsubscript (sub, 0, (flags&1) || (var && assoc_p(var)));	/* XXX */
+=======
+  len = skipsubscript (sub, 0, 0);
+>>>>>>> orgin/bash-4.3-testing
   if (sub[len] != ']' || len == 0)
     {
       builtin_error ("%s[%s: %s", var->name, sub, _(bash_badsub_errmsg));
@@ -800,7 +981,11 @@ unbind_array_element (var, sub, flags)
 
   if (assoc_p (var))
     {
+<<<<<<< HEAD
       akey = (flags & 1) ? sub : expand_assignment_string_to_string (sub, 0);
+=======
+      akey = expand_assignment_string_to_string (sub, 0);     /* [ */
+>>>>>>> orgin/bash-4.3-testing
       if (akey == 0 || *akey == 0)
 	{
 	  builtin_error ("[%s]: %s", sub, _(bash_badsub_errmsg));
@@ -808,6 +993,7 @@ unbind_array_element (var, sub, flags)
 	  return -1;
 	}
       assoc_remove (assoc_cell (var), akey);
+<<<<<<< HEAD
       if (akey != sub)
 	free (akey);
     }
@@ -839,6 +1025,25 @@ unbind_array_element (var, sub, flags)
       else
 	return -2;	/* any subscript other than 0 is invalid with scalar variables */
     }
+=======
+      free (akey);
+    }
+  else
+    {
+      ind = array_expand_index (var, sub, len+1);
+      /* negative subscripts to indexed arrays count back from end */
+      if (ind < 0)
+	ind = array_max_index (array_cell (var)) + 1 + ind;
+      if (ind < 0)
+	{
+	  builtin_error ("[%s]: %s", sub, _(bash_badsub_errmsg));
+	  return -1;
+	}
+      ae = array_remove (array_cell (var), ind);
+      if (ae)
+	array_dispose_element (ae);
+    }
+>>>>>>> orgin/bash-4.3-testing
 
   return 0;
 }
@@ -902,7 +1107,10 @@ valid_array_reference (name, flags)
   SHELL_VAR *entry;
 
   t = mbschr (name, '[');	/* ] */
+<<<<<<< HEAD
   isassoc = 0;
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (t)
     {
       *t = '\0';
@@ -912,6 +1120,7 @@ valid_array_reference (name, flags)
       *t = '[';
       if (r == 0)
 	return 0;
+<<<<<<< HEAD
 
       if (isassoc && ((flags & (VA_NOEXPAND|VA_ONEWORD)) == (VA_NOEXPAND|VA_ONEWORD)))
 	len = strlen (t) - 1;
@@ -922,6 +1131,11 @@ valid_array_reference (name, flags)
 	len = skipsubscript (t, 0, 0);		/* arithmetic expression */
 
       if (t[len] != ']' || len == 1 || t[len+1] != '\0')
+=======
+      /* Check for a properly-terminated non-blank subscript. */
+      len = skipsubscript (t, 0, 0);
+      if (t[len] != ']' || len == 1)
+>>>>>>> orgin/bash-4.3-testing
 	return 0;
 
 #if 0
@@ -941,7 +1155,11 @@ valid_array_reference (name, flags)
 
 /* Expand the array index beginning at S and extending LEN characters. */
 arrayind_t
+<<<<<<< HEAD
 array_expand_index (var, s, len, flags)
+=======
+array_expand_index (var, s, len)
+>>>>>>> orgin/bash-4.3-testing
      SHELL_VAR *var;
      char *s;
      int len;
@@ -954,6 +1172,7 @@ array_expand_index (var, s, len, flags)
   exp = (char *)xmalloc (len);
   strncpy (exp, s, len - 1);
   exp[len - 1] = '\0';
+<<<<<<< HEAD
 #if 0	/* XXX - not yet -- maybe bash-5.1 */
   if ((flags & AV_NOEXPAND) == 0)
     t = expand_arith_string (exp, Q_DOUBLE_QUOTES|Q_ARITH|Q_ARRAYSUB);	/* XXX - Q_ARRAYSUB for future use */
@@ -962,6 +1181,9 @@ array_expand_index (var, s, len, flags)
 #endif
   t = expand_arith_string (exp, Q_DOUBLE_QUOTES|Q_ARITH|Q_ARRAYSUB);	/* XXX - Q_ARRAYSUB for future use */
   savecmd = this_command_name;
+=======
+  t = expand_arith_string (exp, 0);
+>>>>>>> orgin/bash-4.3-testing
   this_command_name = (char *)NULL;
   val = evalexp (t, 0, &expok);
   this_command_name = savecmd;
@@ -972,8 +1194,11 @@ array_expand_index (var, s, len, flags)
     {
       last_command_exit_value = EXECUTION_FAILURE;
 
+<<<<<<< HEAD
       if (no_longjmp_on_fatal_error)
 	return 0;
+=======
+>>>>>>> orgin/bash-4.3-testing
       top_level_cleanup ();      
       jump_to_top_level (DISCARD);
     }
@@ -1004,7 +1229,11 @@ array_variable_name (s, flags, subp, lenp)
       return ((char *)NULL);
     }
   ind = t - s;
+<<<<<<< HEAD
   ni = skipsubscript (s, ind, flags);	/* XXX - was 0 not flags */
+=======
+  ni = skipsubscript (s, ind, 0);
+>>>>>>> orgin/bash-4.3-testing
   if (ni <= ind + 1 || s[ni] != ']')
     {
       err_badarraysub (s);
@@ -1046,7 +1275,15 @@ array_variable_part (s, flags, subp, lenp)
   var = find_variable (t);		/* XXX - handle namerefs here? */
 
   free (t);
+<<<<<<< HEAD
   return var;	/* now return invisible variables; caller must handle */
+=======
+#if 0
+  return (var == 0 || invisible_p (var)) ? (SHELL_VAR *)0 : var;
+#else
+  return var;	/* now return invisible variables; caller must handle */
+#endif
+>>>>>>> orgin/bash-4.3-testing
 }
 
 #define INDEX_ERROR() \
@@ -1071,7 +1308,11 @@ array_variable_part (s, flags, subp, lenp)
    reference is name[@], and 0 otherwise. */
 static char *
 array_value_internal (s, quoted, flags, rtype, indp)
+<<<<<<< HEAD
      const char *s;
+=======
+     char *s;
+>>>>>>> orgin/bash-4.3-testing
      int quoted, flags, *rtype;
      arrayind_t *indp;
 {
@@ -1106,8 +1347,11 @@ array_value_internal (s, quoted, flags, rtype, indp)
 	  return ((char *)NULL);
 	}
       else if (var == 0 || value_cell (var) == 0)	/* XXX - check for invisible_p(var) ? */
+<<<<<<< HEAD
 	return ((char *)NULL);
       else if (invisible_p (var))
+=======
+>>>>>>> orgin/bash-4.3-testing
 	return ((char *)NULL);
       else if (array_p (var) == 0 && assoc_p (var) == 0)
 	l = add_string_to_list (value_cell (var), (WORD_LIST *)NULL);
@@ -1128,12 +1372,21 @@ array_value_internal (s, quoted, flags, rtype, indp)
 	 retval if rtype == 0, so this is not a memory leak */
       if (t[0] == '*' && (quoted & (Q_HERE_DOCUMENT|Q_DOUBLE_QUOTES)))
 	{
+<<<<<<< HEAD
 	  temp = string_list_dollar_star (l, quoted, (flags & AV_ASSIGNRHS) ? PF_ASSIGNRHS : 0);
 	  retval = quote_string (temp);
 	  free (temp);
 	}
       else	/* ${name[@]} or unquoted ${name[*]} */
 	retval = string_list_dollar_at (l, quoted, (flags & AV_ASSIGNRHS) ? PF_ASSIGNRHS : 0);
+=======
+	  temp = string_list_dollar_star (l);
+	  retval = quote_string (temp);		/* XXX - leak here */
+	  free (temp);
+	}
+      else	/* ${name[@]} or unquoted ${name[*]} */
+	retval = string_list_dollar_at (l, quoted);	/* XXX - leak here */
+>>>>>>> orgin/bash-4.3-testing
 
       dispose_words (l);
     }
@@ -1144,6 +1397,7 @@ array_value_internal (s, quoted, flags, rtype, indp)
       if (var == 0 || array_p (var) || assoc_p (var) == 0)
 	{
 	  if ((flags & AV_USEIND) == 0 || indp == 0)
+<<<<<<< HEAD
 	    {
 	      ind = array_expand_index (var, t, len, flags);
 	      if (ind < 0)
@@ -1173,6 +1427,34 @@ array_value_internal (s, quoted, flags, rtype, indp)
 	      FREE (akey);
 	      INDEX_ERROR();
 	    }
+=======
+	    {
+	      ind = array_expand_index (var, t, len);
+	      if (ind < 0)
+		{
+		  /* negative subscripts to indexed arrays count back from end */
+		  if (var && array_p (var))
+		    ind = array_max_index (array_cell (var)) + 1 + ind;
+		  if (ind < 0)
+		    INDEX_ERROR();
+		}
+	      if (indp)
+		*indp = ind;
+	    }
+	  else if (indp)
+	    ind = *indp;
+	}
+      else if (assoc_p (var))
+	{
+	  t[len - 1] = '\0';
+	  akey = expand_assignment_string_to_string (t, 0);	/* [ */
+	  t[len - 1] = ']';
+	  if (akey == 0 || *akey == 0)
+	    {
+	      FREE (akey);
+	      INDEX_ERROR();
+	    }
+>>>>>>> orgin/bash-4.3-testing
 	}
      
       if (var == 0 || value_cell (var) == 0)	/* XXX - check invisible_p(var) ? */
@@ -1180,11 +1462,14 @@ array_value_internal (s, quoted, flags, rtype, indp)
           FREE (akey);
 	  return ((char *)NULL);
 	}
+<<<<<<< HEAD
       else if (invisible_p (var))
 	{
           FREE (akey);
 	  return ((char *)NULL);
 	}
+=======
+>>>>>>> orgin/bash-4.3-testing
       if (array_p (var) == 0 && assoc_p (var) == 0)
 	return (ind == 0 ? value_cell (var) : (char *)NULL);
       else if (assoc_p (var))
@@ -1203,7 +1488,11 @@ array_value_internal (s, quoted, flags, rtype, indp)
    subscript contained in S, obeying quoting for subscripts * and @. */
 char *
 array_value (s, quoted, flags, rtype, indp)
+<<<<<<< HEAD
      const char *s;
+=======
+     char *s;
+>>>>>>> orgin/bash-4.3-testing
      int quoted, flags, *rtype;
      arrayind_t *indp;
 {
@@ -1216,7 +1505,11 @@ array_value (s, quoted, flags, rtype, indp)
    evaluator in expr.c. */
 char *
 get_array_value (s, flags, rtype, indp)
+<<<<<<< HEAD
      const char *s;
+=======
+     char *s;
+>>>>>>> orgin/bash-4.3-testing
      int flags, *rtype;
      arrayind_t *indp;
 {
@@ -1233,7 +1526,11 @@ array_keys (s, quoted)
   WORD_LIST *l;
   SHELL_VAR *var;
 
+<<<<<<< HEAD
   var = array_variable_part (s, 0, &t, &len);
+=======
+  var = array_variable_part (s, &t, &len);
+>>>>>>> orgin/bash-4.3-testing
 
   /* [ */
   if (var == 0 || ALL_ELEMENT_SUB (t[0]) == 0 || t[1] != ']')
@@ -1253,12 +1550,20 @@ array_keys (s, quoted)
 
   if (t[0] == '*' && (quoted & (Q_HERE_DOCUMENT|Q_DOUBLE_QUOTES)))
     {
+<<<<<<< HEAD
       temp = string_list_dollar_star (l, quoted, 0);
+=======
+      temp = string_list_dollar_star (l);
+>>>>>>> orgin/bash-4.3-testing
       retval = quote_string (temp);
       free (temp);
     }
   else	/* ${!name[@]} or unquoted ${!name[*]} */
+<<<<<<< HEAD
     retval = string_list_dollar_at (l, quoted, 0);
+=======
+    retval = string_list_dollar_at (l, quoted);
+>>>>>>> orgin/bash-4.3-testing
 
   dispose_words (l);
   return retval;

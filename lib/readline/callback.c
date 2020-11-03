@@ -1,6 +1,10 @@
 /* callback.c -- functions to use readline as an X `callback' mechanism. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.
@@ -49,6 +53,7 @@
    rl_callback_read_char for more details. */
 _rl_callback_func_t *_rl_callback_func = 0;
 _rl_callback_generic_arg *_rl_callback_data = 0;
+<<<<<<< HEAD
 
 /* Applications can set this to non-zero to have readline's signal handlers
    installed during the entire duration of reading a complete line, as in
@@ -61,6 +66,12 @@ int rl_persistent_signal_handlers = 0;
 /* **************************************************************** */
 /*								    */
 /*			Callback Readline Functions		    */
+=======
+
+/* **************************************************************** */
+/*								    */
+/*			Callback Readline Functions		 */
+>>>>>>> orgin/bash-4.3-testing
 /*								    */
 /* **************************************************************** */
 
@@ -90,11 +101,14 @@ _rl_callback_newline (void)
 
       if (rl_prep_term_function)
 	(*rl_prep_term_function) (_rl_meta_flag);
+<<<<<<< HEAD
 
 #if defined (HANDLE_SIGNALS)
       if (rl_persistent_signal_handlers)
 	rl_set_signals ();
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
     }
 
   readline_internal_setup ();
@@ -114,8 +128,12 @@ rl_callback_handler_install (const char *prompt, rl_vcpfunc_t *linefunc)
 #if defined (HANDLE_SIGNALS)
 #define CALLBACK_READ_RETURN() \
   do { \
+<<<<<<< HEAD
     if (rl_persistent_signal_handlers == 0) \
       rl_clear_signals (); \
+=======
+    rl_clear_signals (); \
+>>>>>>> orgin/bash-4.3-testing
     return; \
   } while (0)
 #else
@@ -152,8 +170,12 @@ rl_callback_read_char (void)
 
 #if defined (HANDLE_SIGNALS)
   /* Install signal handlers only when readline has control. */
+<<<<<<< HEAD
   if (rl_persistent_signal_handlers == 0)
     rl_set_signals ();
+=======
+  rl_set_signals ();
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
   do
@@ -174,6 +196,7 @@ rl_callback_read_char (void)
 	  CALLBACK_READ_RETURN ();
 	}
 #if defined (VI_MODE)
+<<<<<<< HEAD
       /* States that can occur while in state VIMOTION have to be checked
 	 before RL_STATE_VIMOTION */
       else if (RL_ISSTATE (RL_STATE_CHARSEARCH))
@@ -204,6 +227,8 @@ rl_callback_read_char (void)
 
 	  _rl_internal_char_cleanup ();
 	}
+=======
+>>>>>>> orgin/bash-4.3-testing
       else if (RL_ISSTATE (RL_STATE_VIMOTION))
 	{
 	  eof = _rl_vi_domove_callback (_rl_vimvcxt);
@@ -314,7 +339,12 @@ rl_callback_handler_remove (void)
 }
 
 _rl_callback_generic_arg *
+<<<<<<< HEAD
 _rl_callback_data_alloc (int count)
+=======
+_rl_callback_data_alloc (count)
+     int count;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_callback_generic_arg *arg;
 
@@ -326,12 +356,18 @@ _rl_callback_data_alloc (int count)
   return arg;
 }
 
+<<<<<<< HEAD
 void
 _rl_callback_data_dispose (_rl_callback_generic_arg *arg)
+=======
+void _rl_callback_data_dispose (arg)
+     _rl_callback_generic_arg *arg;
+>>>>>>> orgin/bash-4.3-testing
 {
   xfree (arg);
 }
 
+<<<<<<< HEAD
 /* Make sure that this agrees with cases in rl_callback_read_char */
 void
 rl_callback_sigcleanup (void)
@@ -357,4 +393,6 @@ rl_callback_sigcleanup (void)
 
   _rl_callback_func = 0;
 }
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif

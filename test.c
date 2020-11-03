@@ -622,6 +622,7 @@ unary_test (op, arg)
       return (minus_o_option_value (arg) == 1);
 
     case 'v':
+<<<<<<< HEAD
 #if defined (ARRAY_VARS)
       if (valid_array_reference (arg, 0))
 	{
@@ -655,6 +656,14 @@ unary_test (op, arg)
     case 'R':
       v = find_variable_noref (arg);
       return ((v && invisible_p (v) == 0 && var_isset (v) && nameref_p (v)) ? TRUE : FALSE);
+=======
+      v = find_variable (arg);
+      return (v && invisible_p (v) == 0 && var_isset (v) ? TRUE : FALSE);
+
+    case 'R':
+      v = find_variable (arg);
+      return (v && invisible_p (v) == 0 && var_isset (v) && nameref_p (v) ? TRUE : FALSE);
+>>>>>>> orgin/bash-4.3-testing
     }
 
   /* We can't actually get here, but this shuts up gcc. */
@@ -720,7 +729,11 @@ int
 test_unop (op)
      char *op;
 {
+<<<<<<< HEAD
   if (op[0] != '-' || (op[1] && op[2] != 0))
+=======
+  if (op[0] != '-' || op[2] != 0)
+>>>>>>> orgin/bash-4.3-testing
     return (0);
 
   switch (op[1])

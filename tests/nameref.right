@@ -27,15 +27,22 @@ changevar: expect <three four five>
 argv[1] = <three four five>
 expect <three four five>
 argv[1] = <three four five>
+<<<<<<< HEAD
 ./nameref.tests: line 93: foo: readonly variable
+=======
+./nameref.tests: line 93: bar: readonly variable
+>>>>>>> orgin/bash-4.3-testing
 ./nameref.tests: line 94: foo: readonly variable
 one
 one
 ./nameref.tests: line 106: foo: readonly variable
 ./nameref.tests: line 103: foo: readonly variable
 one
+<<<<<<< HEAD
 abxde
 abxde
+=======
+>>>>>>> orgin/bash-4.3-testing
 one
 bar
 
@@ -48,7 +55,11 @@ argv[1] = <unset>
 expect <bar>
 argv[1] = <bar>
 expect <unset>
+<<<<<<< HEAD
 ./nameref3.sub: line 16: foo: invalid indirect expansion
+=======
+argv[1] = <unset>
+>>>>>>> orgin/bash-4.3-testing
 ./nameref3.sub: line 21: unset: bar: cannot unset: readonly variable
 expect <two>
 two
@@ -111,7 +122,10 @@ ref -> two, value: 2
 ref -> three, value: 3
 final state: ref -> three, value: 3
 ./nameref6.sub: line 2: typeset: x: nameref variable self references not allowed
+<<<<<<< HEAD
 ./nameref6.sub: line 5: typeset: x[3]: reference variable cannot be an array
+=======
+>>>>>>> orgin/bash-4.3-testing
 ./nameref6.sub: line 12: typeset: x: reference variable cannot be an array
 the -- 1
 42 -- 0
@@ -121,6 +135,7 @@ y -- 0
 y -- 0
 bar
 unset
+<<<<<<< HEAD
 ./nameref8.sub: line 3: typeset: warning: v: circular name reference
 ./nameref8.sub: line 3: warning: v: circular name reference
 ./nameref8.sub: line 5: warning: v: circular name reference
@@ -134,11 +149,18 @@ foo
 ./nameref8.sub: line 38: typeset: warning: v: circular name reference
 ./nameref8.sub: line 38: warning: v: circular name reference
 ./nameref8.sub: line 38: warning: v: circular name reference
+=======
+inside
+inside: one
+outside: two
+foo
+>>>>>>> orgin/bash-4.3-testing
 local
 ./nameref8.sub: line 47: typeset: v: nameref variable self references not allowed
 ./nameref8.sub: line 54: warning: x: circular name reference
 ./nameref8.sub: line 55: warning: x: circular name reference
 x =
+<<<<<<< HEAD
 idx2
 idX2
 idx2
@@ -483,3 +505,5 @@ declare -n ref="var"
 declare -ai var=([1]="0")
 declare -n ref="var"
 declare -- var="1"
+=======
+>>>>>>> orgin/bash-4.3-testing

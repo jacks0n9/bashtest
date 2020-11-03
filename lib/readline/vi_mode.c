@@ -1,7 +1,11 @@
 /* vi_mode.c -- A vi emulation mode for Bash.
    Derived from code written by Jeff Sparkes (jsparkes@bnr.ca).  */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2018 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -63,6 +67,7 @@
 #define member(c, s) ((c) ? (char *)strchr ((s), (c)) != (char *)NULL : 0)
 #endif
 
+<<<<<<< HEAD
 /* Increment START to the next character in RL_LINE_BUFFER, handling multibyte chars */
 #if defined (HANDLE_MULTIBYTE)
 #define INCREMENT_POS(start) \
@@ -78,13 +83,18 @@
 
 /* This is global so other parts of the code can check whether the last
    command was a text modification command. */
+=======
+>>>>>>> orgin/bash-4.3-testing
 int _rl_vi_last_command = 'i';	/* default `.' puts you in insert mode */
 
 _rl_vimotion_cxt *_rl_vimvcxt = 0;
 
+<<<<<<< HEAD
 /* Non-zero indicates we are redoing a vi-mode command with `.' */
 int _rl_vi_redoing;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Non-zero means enter insertion mode. */
 static int _rl_vi_doing_insert;
 
@@ -131,7 +141,11 @@ static void _rl_vi_save_insert PARAMS((UNDO_LIST *));
 
 static void vi_save_insert_buffer PARAMS ((int, int));
 
+<<<<<<< HEAD
 static inline void _rl_vi_backup PARAMS((void));
+=======
+static void _rl_vi_backup PARAMS((void));
+>>>>>>> orgin/bash-4.3-testing
 
 static int _rl_vi_arg_dispatch PARAMS((int));
 static int rl_digit_loop1 PARAMS((void));
@@ -139,9 +153,12 @@ static int rl_digit_loop1 PARAMS((void));
 static int _rl_vi_set_mark PARAMS((void));
 static int _rl_vi_goto_mark PARAMS((void));
 
+<<<<<<< HEAD
 static inline int _rl_vi_advance_point PARAMS((void));
 static inline int _rl_vi_backup_point PARAMS((void));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 static void _rl_vi_append_forward PARAMS((int));
 
 static int _rl_vi_callback_getchar PARAMS((char *, int));
@@ -195,10 +212,17 @@ _rl_vi_set_last (int key, int repeat, int sign)
 /* A convenience function that calls _rl_vi_set_last to save the last command
    information and enters insertion mode. */
 void
+<<<<<<< HEAD
 rl_vi_start_inserting (int key, int repeat, int sign)
 {
   _rl_vi_set_last (key, repeat, sign);
   rl_begin_undo_group ();		/* ensure inserts aren't concatenated */
+=======
+rl_vi_start_inserting (key, repeat, sign)
+     int key, repeat, sign;
+{
+  _rl_vi_set_last (key, repeat, sign);
+>>>>>>> orgin/bash-4.3-testing
   rl_vi_insertion_mode (1, key);
 }
 
@@ -231,7 +255,28 @@ _rl_vi_replace_insert (int count)
 }
 
 static void
+<<<<<<< HEAD
 _rl_vi_stuff_insert (int count)
+=======
+_rl_vi_replace_insert (count)
+     int count;
+{
+  int nchars;
+
+  nchars = strlen (vi_insert_buffer);
+
+  rl_begin_undo_group ();
+  while (count--)
+    /* nchars-1 to compensate for _rl_replace_text using `end+1' in call
+       to rl_delete_text */
+    _rl_replace_text (vi_insert_buffer, rl_point, rl_point+nchars-1);
+  rl_end_undo_group ();
+}
+
+static void
+_rl_vi_stuff_insert (count)
+     int count;
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_begin_undo_group ();
   while (count--)
@@ -607,7 +652,11 @@ rl_vi_eWord (int count, int ignore)
       /* Move to the next non-whitespace character (to the start of the
 	 next word). */
       while (rl_point < rl_end && whitespace (rl_line_buffer[rl_point]))
+<<<<<<< HEAD
 	_rl_vi_advance_point ();
+=======
+	rl_point++;
+>>>>>>> orgin/bash-4.3-testing
 
       if (rl_point && rl_point < rl_end)
 	{
@@ -755,6 +804,7 @@ rl_vi_insert_beg (int count, int key)
 }
 
 static void
+<<<<<<< HEAD
 _rl_vi_append_forward (int key)
 {
   _rl_vi_advance_point ();
@@ -763,6 +813,35 @@ _rl_vi_append_forward (int key)
 int
 rl_vi_append_mode (int count, int key)
 {
+=======
+_rl_vi_append_forward (key)
+     int key;
+{
+  int point;
+
+  if (rl_point < rl_end)
+    {
+      if (MB_CUR_MAX == 1 || rl_byte_oriented)
+	rl_point++;
+      else
+	{
+	  point = rl_point;
+#if 0
+	  rl_forward_char (1, key);
+#else
+	  rl_point = _rl_forward_char_internal (1);
+#endif
+	  if (point == rl_point)
+	    rl_point = rl_end;
+	}
+    }
+}
+
+int
+rl_vi_append_mode (count, key)
+     int count, key;
+{
+>>>>>>> orgin/bash-4.3-testing
   _rl_vi_append_forward (key);
   rl_vi_start_inserting (key, 1, rl_arg_sign);
   return (0);
@@ -798,14 +877,24 @@ rl_vi_insertion_mode (int count, int key)
 }
 
 int
+<<<<<<< HEAD
 rl_vi_insert_mode (int count, int key)
+=======
+rl_vi_insert_mode (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_vi_start_inserting (key, 1, rl_arg_sign);
   return (0);
 }
 
 static void
+<<<<<<< HEAD
 vi_save_insert_buffer (int start, int len)
+=======
+vi_save_insert_buffer (start, len)
+     int start, len;
+>>>>>>> orgin/bash-4.3-testing
 {
   /* Same code as _rl_vi_save_insert below */
   if (len >= vi_insert_buffer_size)
@@ -818,7 +907,11 @@ vi_save_insert_buffer (int start, int len)
 }
 
 static void
+<<<<<<< HEAD
 _rl_vi_save_replace (void)
+=======
+_rl_vi_save_replace ()
+>>>>>>> orgin/bash-4.3-testing
 {
   int len, start, end;
   UNDO_LIST *up;
@@ -841,7 +934,12 @@ _rl_vi_save_replace (void)
 }
 
 static void
+<<<<<<< HEAD
 _rl_vi_save_insert (UNDO_LIST *up)
+=======
+_rl_vi_save_insert (up)
+      UNDO_LIST *up;
+>>>>>>> orgin/bash-4.3-testing
 {
   int len, start, end;
 
@@ -966,7 +1064,11 @@ _rl_vi_change_mbchar_case (int count)
 	  rl_begin_undo_group ();
 	  rl_vi_delete (1, 0);
 	  if (rl_point < p)	/* Did we retreat at EOL? */
+<<<<<<< HEAD
 	    _rl_vi_advance_point ();
+=======
+	    rl_point++;	/* XXX - should we advance more than 1 for mbchar? */
+>>>>>>> orgin/bash-4.3-testing
 	  rl_insert_text (mb);
 	  rl_end_undo_group ();
 	  rl_vi_check ();
@@ -1038,12 +1140,33 @@ rl_vi_put (int count, int key)
   return (0);
 }
 
+<<<<<<< HEAD
 /* Move the cursor back one character if you're at the end of the line */
+=======
+static void
+_rl_vi_backup ()
+{
+  if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+    rl_point = _rl_find_prev_mbchar (rl_line_buffer, rl_point, MB_FIND_NONZERO);
+  else
+    rl_point--;
+}
+
+>>>>>>> orgin/bash-4.3-testing
 int
 rl_vi_check (void)
 {
   if (rl_point && rl_point == rl_end)
+<<<<<<< HEAD
     _rl_vi_backup ();
+=======
+    {
+      if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
+	rl_point = _rl_find_prev_mbchar (rl_line_buffer, rl_point, MB_FIND_NONZERO);
+      else
+	rl_point--;
+    }
+>>>>>>> orgin/bash-4.3-testing
   return (0);
 }
 
@@ -1065,7 +1188,12 @@ rl_vi_column (int count, int key)
    argument should be aborted, 0 if we should not read any more chars, and
    1 if we should continue to read chars. */
 static int
+<<<<<<< HEAD
 _rl_vi_arg_dispatch (int c)
+=======
+_rl_vi_arg_dispatch (c)
+     int c;
+>>>>>>> orgin/bash-4.3-testing
 {
   int key;
 
@@ -1099,7 +1227,11 @@ _rl_vi_arg_dispatch (int c)
    Don't recognize minus sign?
    Should this do rl_save_prompt/rl_restore_prompt? */
 static int
+<<<<<<< HEAD
 rl_digit_loop1 (void)
+=======
+rl_digit_loop1 ()
+>>>>>>> orgin/bash-4.3-testing
 {
   int c, r;
 
@@ -1119,12 +1251,19 @@ rl_digit_loop1 (void)
   return (0);
 }
 
+<<<<<<< HEAD
 /* This set of functions is basically to handle the commands that take a
    motion argument while in callback mode: read the command, read the motion
    command modifier, find the extent of the text to affect, and dispatch the
    command for execution. */
 static void
 _rl_mvcxt_init (_rl_vimotion_cxt *m, int op, int key)
+=======
+static void
+_rl_mvcxt_init (m, op, key)
+     _rl_vimotion_cxt *m;
+     int op, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   m->op = op;
   m->state = m->flags = 0;
@@ -1137,7 +1276,12 @@ _rl_mvcxt_init (_rl_vimotion_cxt *m, int op, int key)
 }
 
 static _rl_vimotion_cxt *
+<<<<<<< HEAD
 _rl_mvcxt_alloc (int op, int key)
+=======
+_rl_mvcxt_alloc (op, key)
+     int op, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_vimotion_cxt *m;
 
@@ -1147,15 +1291,28 @@ _rl_mvcxt_alloc (int op, int key)
 }
 
 static void
+<<<<<<< HEAD
 _rl_mvcxt_dispose (_rl_vimotion_cxt *m)
+=======
+_rl_mvcxt_dispose (m)
+     _rl_vimotion_cxt *m;
+>>>>>>> orgin/bash-4.3-testing
 {
   xfree (m);
 }
 
 static int
+<<<<<<< HEAD
 rl_domove_motion_callback (_rl_vimotion_cxt *m)
 {
   int c;
+=======
+rl_domove_motion_callback (m)
+     _rl_vimotion_cxt *m;
+{
+  int c, save, r;
+  int old_end;
+>>>>>>> orgin/bash-4.3-testing
 
   _rl_vi_last_motion = c = m->motion;
 
@@ -1221,7 +1378,11 @@ _rl_vi_domove_motion_cleanup (int c, _rl_vimotion_cxt *m)
       /* Posix.2 says that if cw or cW moves the cursor towards the end of
 	 the line, the character under the cursor should be deleted. */
       if (rl_point == rl_mark)
+<<<<<<< HEAD
 	_rl_vi_advance_point ();
+=======
+	rl_point++;
+>>>>>>> orgin/bash-4.3-testing
       else
 	{
 	  /* Move past the end of the word so that the kill doesn't
@@ -1244,11 +1405,20 @@ _rl_vi_domove_motion_cleanup (int c, _rl_vimotion_cxt *m)
 
   return (r);
 }
+<<<<<<< HEAD
 
 #define RL_VIMOVENUMARG()	(RL_ISSTATE (RL_STATE_VIMOTION) && RL_ISSTATE (RL_STATE_NUMERICARG))
 
 static int
 rl_domove_read_callback (_rl_vimotion_cxt *m)
+=======
+
+#define RL_VIMOVENUMARG()	(RL_ISSTATE (RL_STATE_VIMOTION) && RL_ISSTATE (RL_STATE_NUMERICARG))
+
+static int
+rl_domove_read_callback (m)
+     _rl_vimotion_cxt *m;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c, save;
 
@@ -1282,6 +1452,7 @@ rl_domove_read_callback (_rl_vimotion_cxt *m)
     }
   /* Readine vi motion char starting numeric argument */
   else if (_rl_digit_p (c) && RL_ISSTATE (RL_STATE_CALLBACK) && RL_ISSTATE (RL_STATE_VIMOTION) && (RL_ISSTATE (RL_STATE_NUMERICARG) == 0))
+<<<<<<< HEAD
     {
       RL_SETSTATE (RL_STATE_NUMERICARG);
       return (_rl_vi_arg_dispatch (c));
@@ -1289,6 +1460,15 @@ rl_domove_read_callback (_rl_vimotion_cxt *m)
 #endif
   else if (_rl_digit_p (c))
     {
+=======
+    {
+      RL_SETSTATE (RL_STATE_NUMERICARG);
+      return (_rl_vi_arg_dispatch (c));
+    }
+#endif
+  else if (_rl_digit_p (c))
+    {
+>>>>>>> orgin/bash-4.3-testing
       /* This code path taken when not in callback mode */
       save = rl_numeric_arg;
       rl_numeric_arg = _rl_digit_value (c);
@@ -1314,7 +1494,12 @@ rl_domove_read_callback (_rl_vimotion_cxt *m)
 }
 
 static int
+<<<<<<< HEAD
 rl_vi_domove_getchar (_rl_vimotion_cxt *m)
+=======
+rl_vi_domove_getchar (m)
+     _rl_vimotion_cxt *m;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c;
 
@@ -1327,22 +1512,39 @@ rl_vi_domove_getchar (_rl_vimotion_cxt *m)
 
 #if defined (READLINE_CALLBACKS)
 int
+<<<<<<< HEAD
 _rl_vi_domove_callback (_rl_vimotion_cxt *m)
+=======
+_rl_vi_domove_callback (m)
+     _rl_vimotion_cxt *m;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c, r;
 
   m->motion = c = rl_vi_domove_getchar (m);
+<<<<<<< HEAD
   if (c < 0)
     return 1;		/* EOF */
+=======
+  /* XXX - what to do if this returns -1?  Should we return 1 for eof to
+     callback code? */
+>>>>>>> orgin/bash-4.3-testing
   r = rl_domove_read_callback (m);
 
   return ((r == 0) ? r : 1);	/* normalize return values */
 }
 #endif
 
+<<<<<<< HEAD
 /* This code path is taken when not in callback mode. */
 int
 rl_vi_domove (int x, int *ignore)
+=======
+/* This code path taken when not in callback mode. */
+int
+rl_vi_domove (x, ignore)
+     int x, *ignore;
+>>>>>>> orgin/bash-4.3-testing
 {
   int r;
   _rl_vimotion_cxt *m;
@@ -1360,19 +1562,29 @@ rl_vi_domove (int x, int *ignore)
 }
 
 static int
+<<<<<<< HEAD
 vi_delete_dispatch (_rl_vimotion_cxt *m)
+=======
+vi_delete_dispatch (m)
+     _rl_vimotion_cxt *m;
+>>>>>>> orgin/bash-4.3-testing
 {
   /* These are the motion commands that do not require adjusting the
      mark. */
   if (((strchr (" l|h^0bBFT`", m->motion) == 0) && (rl_point >= m->start)) &&
       (rl_mark < rl_end))
+<<<<<<< HEAD
     INCREMENT_POS (rl_mark);
+=======
+    rl_mark++;
+>>>>>>> orgin/bash-4.3-testing
 
   rl_kill_text (rl_point, rl_mark);
   return (0);
 }
 
 int
+<<<<<<< HEAD
 rl_vi_delete_to (int count, int key)
 {
   int c, r;
@@ -1413,6 +1625,49 @@ rl_vi_delete_to (int count, int key)
     {
       rl_ding ();
       r = -1;
+=======
+rl_vi_delete_to (count, key)
+     int count, key;
+{
+  int c, r;
+
+  _rl_vimvcxt = _rl_mvcxt_alloc (VIM_DELETE, key);
+  _rl_vimvcxt->start = rl_point;
+
+  rl_mark = rl_point;
+  if (_rl_uppercase_p (key))
+    {
+      _rl_vimvcxt->motion = '$';
+      r = rl_domove_motion_callback (_rl_vimvcxt);
+    }
+  else if (vi_redoing && _rl_vi_last_motion != 'd')	/* `dd' is special */
+    {
+      _rl_vimvcxt->motion = _rl_vi_last_motion;
+      r = rl_domove_motion_callback (_rl_vimvcxt);
+    }
+  else if (vi_redoing)		/* handle redoing `dd' here */
+    {
+      _rl_vimvcxt->motion = _rl_vi_last_motion;
+      rl_mark = rl_end;
+      rl_beg_of_line (1, key);
+      RL_UNSETSTATE (RL_STATE_VIMOTION);
+      r = vidomove_dispatch (_rl_vimvcxt);
+>>>>>>> orgin/bash-4.3-testing
+    }
+#if defined (READLINE_CALLBACKS)
+  else if (RL_ISSTATE (RL_STATE_CALLBACK))
+    {
+      RL_SETSTATE (RL_STATE_VIMOTION);
+      return (0);
+    }
+#endif
+  else
+    r = rl_vi_domove (key, &c);
+
+  if (r < 0)
+    {
+      rl_ding ();
+      r = -1;
     }
 
   _rl_mvcxt_dispose (_rl_vimvcxt);
@@ -1421,15 +1676,31 @@ rl_vi_delete_to (int count, int key)
   return r;
 }
 
+<<<<<<< HEAD
+  _rl_mvcxt_dispose (_rl_vimvcxt);
+  _rl_vimvcxt = 0;
+
+  return r;
+}
+
 static int
 vi_change_dispatch (_rl_vimotion_cxt *m)
+=======
+static int
+vi_change_dispatch (m)
+     _rl_vimotion_cxt *m;
+>>>>>>> orgin/bash-4.3-testing
 {
   /* These are the motion commands that do not require adjusting the
      mark.  c[wW] are handled by special-case code in rl_vi_domove(),
      and already leave the mark at the correct location. */
   if (((strchr (" l|hwW^0bBFT`", m->motion) == 0) && (rl_point >= m->start)) &&
       (rl_mark < rl_end))
+<<<<<<< HEAD
     INCREMENT_POS (rl_mark);
+=======
+    rl_mark++;
+>>>>>>> orgin/bash-4.3-testing
 
   /* The cursor never moves with c[wW]. */
   if ((_rl_to_upper (m->motion) == 'W') && rl_point < m->start)
@@ -1461,7 +1732,12 @@ vi_change_dispatch (_rl_vimotion_cxt *m)
 }
 
 int
+<<<<<<< HEAD
 rl_vi_change_to (int count, int key)
+=======
+rl_vi_change_to (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c, r;
 
@@ -1474,12 +1750,20 @@ rl_vi_change_to (int count, int key)
       _rl_vimvcxt->motion = '$';
       r = rl_domove_motion_callback (_rl_vimvcxt);
     }
+<<<<<<< HEAD
   else if (_rl_vi_redoing && _rl_vi_last_motion != 'c')	/* `cc' is special */
+=======
+  else if (vi_redoing && _rl_vi_last_motion != 'c')	/* `cc' is special */
+>>>>>>> orgin/bash-4.3-testing
     {
       _rl_vimvcxt->motion = _rl_vi_last_motion;
       r = rl_domove_motion_callback (_rl_vimvcxt);
     }
+<<<<<<< HEAD
   else if (_rl_vi_redoing)		/* handle redoing `cc' here */
+=======
+  else if (vi_redoing)		/* handle redoing `cc' here */
+>>>>>>> orgin/bash-4.3-testing
     {
       _rl_vimvcxt->motion = _rl_vi_last_motion;
       rl_mark = rl_end;
@@ -1510,13 +1794,22 @@ rl_vi_change_to (int count, int key)
 }
 
 static int
+<<<<<<< HEAD
 vi_yank_dispatch (_rl_vimotion_cxt *m)
+=======
+vi_yank_dispatch (m)
+     _rl_vimotion_cxt *m;
+>>>>>>> orgin/bash-4.3-testing
 {
   /* These are the motion commands that do not require adjusting the
      mark. */
   if (((strchr (" l|h^0%bBFT`", m->motion) == 0) && (rl_point >= m->start)) &&
       (rl_mark < rl_end))
+<<<<<<< HEAD
     INCREMENT_POS (rl_mark);
+=======
+    rl_mark++;
+>>>>>>> orgin/bash-4.3-testing
 
   rl_begin_undo_group ();
   rl_kill_text (rl_point, rl_mark);
@@ -1528,7 +1821,12 @@ vi_yank_dispatch (_rl_vimotion_cxt *m)
 }
 
 int
+<<<<<<< HEAD
 rl_vi_yank_to (int count, int key)
+=======
+rl_vi_yank_to (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c, r;
 
@@ -1541,12 +1839,20 @@ rl_vi_yank_to (int count, int key)
       _rl_vimvcxt->motion = '$';
       r = rl_domove_motion_callback (_rl_vimvcxt);
     }
+<<<<<<< HEAD
   else if (_rl_vi_redoing && _rl_vi_last_motion != 'y')	/* `yy' is special */
+=======
+  else if (vi_redoing && _rl_vi_last_motion != 'y')	/* `yy' is special */
+>>>>>>> orgin/bash-4.3-testing
     {
       _rl_vimvcxt->motion = _rl_vi_last_motion;
       r = rl_domove_motion_callback (_rl_vimvcxt);
     }
+<<<<<<< HEAD
   else if (_rl_vi_redoing)			/* handle redoing `yy' here */
+=======
+  else if (vi_redoing)			/* handle redoing `yy' here */
+>>>>>>> orgin/bash-4.3-testing
     {
       _rl_vimvcxt->motion = _rl_vi_last_motion;
       rl_mark = rl_end;
@@ -1577,7 +1883,12 @@ rl_vi_yank_to (int count, int key)
 }
 
 static int
+<<<<<<< HEAD
 vidomove_dispatch (_rl_vimotion_cxt *m)
+=======
+vidomove_dispatch (m)
+     _rl_vimotion_cxt *m;
+>>>>>>> orgin/bash-4.3-testing
 {
   int r;
 
@@ -1603,7 +1914,12 @@ vidomove_dispatch (_rl_vimotion_cxt *m)
 }
 
 int
+<<<<<<< HEAD
 rl_vi_rubout (int count, int key)
+=======
+rl_vi_rubout (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   int opoint;
 
@@ -1613,7 +1929,11 @@ rl_vi_rubout (int count, int key)
   if (rl_point == 0)
     {
       rl_ding ();
+<<<<<<< HEAD
       return 1;
+=======
+      return -1;
+>>>>>>> orgin/bash-4.3-testing
     }
 
   opoint = rl_point;
@@ -1633,7 +1953,12 @@ rl_vi_rubout (int count, int key)
 }
 
 int
+<<<<<<< HEAD
 rl_vi_delete (int count, int key)
+=======
+rl_vi_delete (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
   int end;
 
@@ -1736,7 +2061,12 @@ static int _rl_cs_dir, _rl_cs_orig_dir;
 
 #if defined (READLINE_CALLBACKS)
 static int
+<<<<<<< HEAD
 _rl_vi_callback_char_search (_rl_callback_generic_arg *data)
+=======
+_rl_vi_callback_char_search (data)
+     _rl_callback_generic_arg *data;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c;
 #if defined (HANDLE_MULTIBYTE)
@@ -1748,10 +2078,14 @@ _rl_vi_callback_char_search (_rl_callback_generic_arg *data)
 #endif
 
   if (c <= 0)
+<<<<<<< HEAD
     {
       RL_UNSETSTATE (RL_STATE_CHARSEARCH);
       return -1;
     }
+=======
+    return -1;
+>>>>>>> orgin/bash-4.3-testing
 
 #if !defined (HANDLE_MULTIBYTE)
   _rl_vi_last_search_char = c;
@@ -1759,7 +2093,10 @@ _rl_vi_callback_char_search (_rl_callback_generic_arg *data)
 
   _rl_callback_func = 0;
   _rl_want_redisplay = 1;
+<<<<<<< HEAD
   RL_UNSETSTATE (RL_STATE_CHARSEARCH);
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #if defined (HANDLE_MULTIBYTE)
   return (_rl_char_search_internal (data->count, _rl_cs_dir, _rl_vi_last_search_mbchar, _rl_vi_last_search_mblen));
@@ -1783,6 +2120,7 @@ rl_vi_char_search (int count, int key)
   if (key == ';' || key == ',')
     {
       if (_rl_cs_orig_dir == 0)
+<<<<<<< HEAD
 	return 1;
 #if defined (HANDLE_MULTIBYTE)
       if (_rl_vi_last_search_mblen == 0)
@@ -1790,6 +2128,15 @@ rl_vi_char_search (int count, int key)
 #else
       if (_rl_vi_last_search_char == 0)
 	return 1;
+=======
+	return -1;
+#if defined (HANDLE_MULTIBYTE)
+      if (_rl_vi_last_search_mblen == 0)
+	return -1;
+#else
+      if (_rl_vi_last_search_char == 0)
+	return -1;
+>>>>>>> orgin/bash-4.3-testing
 #endif
       _rl_cs_dir = (key == ';') ? _rl_cs_orig_dir : -_rl_cs_orig_dir;
     }
@@ -1814,7 +2161,11 @@ rl_vi_char_search (int count, int key)
 	  break;
 	}
 
+<<<<<<< HEAD
       if (_rl_vi_redoing)
+=======
+      if (vi_redoing)
+>>>>>>> orgin/bash-4.3-testing
 	{
 	  /* set target and tlen below */
 	}
@@ -1823,9 +2174,13 @@ rl_vi_char_search (int count, int key)
 	{
 	  _rl_callback_data = _rl_callback_data_alloc (count);
 	  _rl_callback_data->i1 = _rl_cs_dir;
+<<<<<<< HEAD
 	  _rl_callback_data->i2 = key;
 	  _rl_callback_func = _rl_vi_callback_char_search;
 	  RL_SETSTATE (RL_STATE_CHARSEARCH);
+=======
+	  _rl_callback_func = _rl_vi_callback_char_search;
+>>>>>>> orgin/bash-4.3-testing
 	  return (0);
 	}
 #endif
@@ -1850,6 +2205,7 @@ rl_vi_char_search (int count, int key)
 #if defined (HANDLE_MULTIBYTE)
   target = _rl_vi_last_search_mbchar;
   tlen = _rl_vi_last_search_mblen;
+<<<<<<< HEAD
 #else
   target = _rl_vi_last_search_char;
 #endif
@@ -1857,6 +2213,15 @@ rl_vi_char_search (int count, int key)
 #if defined (HANDLE_MULTIBYTE)
   return (_rl_char_search_internal (count, _rl_cs_dir, target, tlen));
 #else
+=======
+#else
+  target = _rl_vi_last_search_char;
+#endif
+
+#if defined (HANDLE_MULTIBYTE)
+  return (_rl_char_search_internal (count, _rl_cs_dir, target, tlen));
+#else
+>>>>>>> orgin/bash-4.3-testing
   return (_rl_char_search_internal (count, _rl_cs_dir, target));
 #endif
 }
@@ -1967,7 +2332,13 @@ rl_vi_bracktype (int c)
 }
 
 static int
+<<<<<<< HEAD
 _rl_vi_change_char (int count, int c, char *mb)
+=======
+_rl_vi_change_char (count, c, mb)
+     int count, c;
+     char *mb;
+>>>>>>> orgin/bash-4.3-testing
 {
   int p;
 
@@ -1980,7 +2351,11 @@ _rl_vi_change_char (int count, int c, char *mb)
       p = rl_point;
       rl_vi_delete (1, c);
       if (rl_point < p)		/* Did we retreat at EOL? */
+<<<<<<< HEAD
 	_rl_vi_append_forward (c);
+=======
+	rl_point++;
+>>>>>>> orgin/bash-4.3-testing
 #if defined (HANDLE_MULTIBYTE)
       if (MB_CUR_MAX > 1 && rl_byte_oriented == 0)
 	rl_insert_text (mb);
@@ -1998,7 +2373,13 @@ _rl_vi_change_char (int count, int c, char *mb)
 }
 
 static int
+<<<<<<< HEAD
 _rl_vi_callback_getchar (char *mb, int mlen)
+=======
+_rl_vi_callback_getchar (mb, mlen)
+     char *mb;
+     int mlen;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c;
 
@@ -2019,6 +2400,7 @@ _rl_vi_callback_getchar (char *mb, int mlen)
 
 #if defined (READLINE_CALLBACKS)
 static int
+<<<<<<< HEAD
 _rl_vi_callback_change_char (_rl_callback_generic_arg *data)
 {
   int c;
@@ -2031,6 +2413,15 @@ _rl_vi_callback_change_char (_rl_callback_generic_arg *data)
   _rl_vi_last_replacement[0] = c;
 #endif
   _rl_vi_last_replacement[MB_LEN_MAX] = '\0';	/* XXX */
+=======
+_rl_vi_callback_change_char (data)
+     _rl_callback_generic_arg *data;
+{
+  int c;
+  char mb[MB_LEN_MAX];
+
+  _rl_vi_last_replacement = c = _rl_vi_callback_getchar (mb, MB_LEN_MAX);
+>>>>>>> orgin/bash-4.3-testing
 
   if (c < 0)
     return -1;
@@ -2042,6 +2433,39 @@ _rl_vi_callback_change_char (_rl_callback_generic_arg *data)
 }
 #endif
 
+<<<<<<< HEAD
+=======
+int
+rl_vi_change_char (count, key)
+     int count, key;
+{
+  int c;
+  char mb[MB_LEN_MAX];
+
+  if (vi_redoing)
+    {
+      c = _rl_vi_last_replacement;
+      mb[0] = c;
+      mb[1] = '\0';
+    }
+#if defined (READLINE_CALLBACKS)
+  else if (RL_ISSTATE (RL_STATE_CALLBACK))
+    {
+      _rl_callback_data = _rl_callback_data_alloc (count);
+      _rl_callback_func = _rl_vi_callback_change_char;
+      return (0);
+    }
+#endif
+  else
+    _rl_vi_last_replacement = c = _rl_vi_callback_getchar (mb, MB_LEN_MAX);
+
+  if (c < 0)
+    return -1;
+
+  return (_rl_vi_change_char (count, c, mb));
+}
+
+>>>>>>> orgin/bash-4.3-testing
 int
 rl_vi_change_char (int count, int key)
 {
@@ -2083,7 +2507,11 @@ int
 rl_vi_subst (int count, int key)
 {
   /* If we are redoing, rl_vi_change_to will stuff the last motion char */
+<<<<<<< HEAD
   if (_rl_vi_redoing == 0)
+=======
+  if (vi_redoing == 0)
+>>>>>>> orgin/bash-4.3-testing
     rl_stuff_char ((key == 'S') ? 'c' : 'l');	/* `S' == `cc', `s' == `cl' */
 
   return (rl_vi_change_to (count, 'c'));
@@ -2212,7 +2640,11 @@ rl_vi_possible_completions (void)
 
 /* Functions to save and restore marks. */
 static int
+<<<<<<< HEAD
 _rl_vi_set_mark (void)
+=======
+_rl_vi_set_mark ()
+>>>>>>> orgin/bash-4.3-testing
 {
   int ch;
 
@@ -2232,7 +2664,12 @@ _rl_vi_set_mark (void)
 
 #if defined (READLINE_CALLBACKS)
 static int
+<<<<<<< HEAD
 _rl_vi_callback_set_mark (_rl_callback_generic_arg *data)
+=======
+_rl_vi_callback_set_mark (data)
+     _rl_callback_generic_arg *data;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_callback_func = 0;
   _rl_want_redisplay = 1;
@@ -2242,6 +2679,7 @@ _rl_vi_callback_set_mark (_rl_callback_generic_arg *data)
 #endif
 
 int
+<<<<<<< HEAD
 rl_vi_set_mark (int count, int key)
 {
 #if defined (READLINE_CALLBACKS)
@@ -2258,6 +2696,25 @@ rl_vi_set_mark (int count, int key)
 
 static int
 _rl_vi_goto_mark (void)
+=======
+rl_vi_set_mark (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
+{
+#if defined (READLINE_CALLBACKS)
+  if (RL_ISSTATE (RL_STATE_CALLBACK))
+    {
+      _rl_callback_data = 0;
+      _rl_callback_func = _rl_vi_callback_set_mark;
+      return (0);
+    }
+#endif
+
+  return (_rl_vi_set_mark ());
+}
+
+static int
+_rl_vi_goto_mark ()
 {
   int ch;
 
@@ -2288,7 +2745,12 @@ _rl_vi_goto_mark (void)
 
 #if defined (READLINE_CALLBACKS)
 static int
+<<<<<<< HEAD
 _rl_vi_callback_goto_mark (_rl_callback_generic_arg *data)
+=======
+_rl_vi_callback_goto_mark (data)
+     _rl_callback_generic_arg *data;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_callback_func = 0;
   _rl_want_redisplay = 1;
@@ -2298,7 +2760,12 @@ _rl_vi_callback_goto_mark (_rl_callback_generic_arg *data)
 #endif
 
 int
+<<<<<<< HEAD
 rl_vi_goto_mark (int count, int key)
+=======
+rl_vi_goto_mark (count, key)
+     int count, key;
+>>>>>>> orgin/bash-4.3-testing
 {
 #if defined (READLINE_CALLBACKS)
   if (RL_ISSTATE (RL_STATE_CALLBACK))

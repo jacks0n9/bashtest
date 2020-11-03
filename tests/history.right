@@ -97,7 +97,11 @@ line 2 for history
 6	 HISTFILE=$TMPDIR/newhistory
 7	 echo displaying \$HISTFILE after history -a
 8	 cat $HISTFILE
+<<<<<<< HEAD
 ./history.tests: line 76: fc: history specification out of range
+=======
+./history.tests: line 75: fc: history specification out of range
+>>>>>>> orgin/bash-4.3-testing
    14  set -H
    15  echo line 2 for history
    16  unset HISTSIZE
@@ -107,7 +111,11 @@ echo xx xb xc
 xx xb xc
 echo 44 48 4c
 44 48 4c
+<<<<<<< HEAD
 ./history.tests: line 91: fc: no command found
+=======
+./history.tests: line 90: fc: no command found
+>>>>>>> orgin/bash-4.3-testing
 aa
 bb
 cc
@@ -140,6 +148,7 @@ three
 one
 two
 three
+<<<<<<< HEAD
 5.0
 echo ${BASH_VERSION%\.*}
 5.0
@@ -178,3 +187,9 @@ i
     4  echo g
     5  echo h
 
+=======
+4.3
+echo ${BASH_VERSION%\.*}
+4.3
+	 echo ${BASH_VERSION%\.*}
+>>>>>>> orgin/bash-4.3-testing

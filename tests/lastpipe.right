@@ -8,6 +8,7 @@ last = c
 1 -- 0 0 1
 1 -- 0 1 0
 lastpipe1.sub returns 14
+<<<<<<< HEAD
 A1
 A2
 B1
@@ -18,3 +19,5 @@ A2
 B1
 B2
 HI -- 42 -- 0 42
+=======
+>>>>>>> orgin/bash-4.3-testing

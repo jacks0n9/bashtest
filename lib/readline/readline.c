@@ -1,7 +1,11 @@
 /* readline.c -- a general facility for reading lines of input
    with emacs style editing and completion. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -311,11 +315,14 @@ int _rl_echo_control_chars = 1;
    the editing mode: @ for emacs, : for vi-command, + for vi-insert. */
 int _rl_show_mode_in_prompt = 0;
 
+<<<<<<< HEAD
 /* Non-zero means to attempt to put the terminal in `bracketed paste mode',
    where it will prefix pasted text with an escape sequence and send
    another to mark the end of the paste. */
 int _rl_enable_bracketed_paste = 0;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* **************************************************************** */
 /*								    */
 /*			Top Level Functions			    */
@@ -387,7 +394,11 @@ readline (const char *prompt)
     RL_SETSTATE (RL_STATE_CALLBACK);
 #endif
 
+<<<<<<< HEAD
 #if HAVE_DECL_AUDIT_USER_TTY && defined (HAVE_LIBAUDIT_H) && defined (ENABLE_TTY_AUDIT_SUPPORT)
+=======
+#if HAVE_DECL_AUDIT_TTY && defined (ENABLE_TTY_AUDIT_SUPPORT)
+>>>>>>> orgin/bash-4.3-testing
   if (value)
     _rl_audit_tty (value);
 #endif
@@ -420,10 +431,14 @@ readline_internal_setup (void)
 #if defined (VI_MODE)
   if (rl_editing_mode == vi_mode)
     rl_vi_insertion_mode (1, 'i');	/* don't want to reset last */
+<<<<<<< HEAD
   else
 #endif /* VI_MODE */
     if (_rl_show_mode_in_prompt)
       _rl_reset_prompt ();
+=======
+#endif /* VI_MODE */
+>>>>>>> orgin/bash-4.3-testing
 
   /* If we're not echoing, we still want to at least print a prompt, because
      rl_redisplay will not do it for us.  If the calling application has a
@@ -496,7 +511,11 @@ readline_internal_teardown (int eof)
 }
 
 void
+<<<<<<< HEAD
 _rl_internal_char_cleanup (void)
+=======
+_rl_internal_char_cleanup ()
+>>>>>>> orgin/bash-4.3-testing
 {
 #if defined (VI_MODE)
   /* In vi mode, when you exit insert mode, the cursor moves back
@@ -566,7 +585,12 @@ readline_internal_charloop (void)
 	{
 	  /* Then initialize the argument and number of keys read. */
 	  _rl_reset_argument ();
+<<<<<<< HEAD
 	  rl_executing_keyseq[rl_key_sequence_length = 0] = '\0';
+=======
+	  rl_key_sequence_length = 0;
+	  rl_executing_keyseq[0] = 0;
+>>>>>>> orgin/bash-4.3-testing
 	}
 
       RL_SETSTATE(RL_STATE_READCMD);
@@ -588,10 +612,16 @@ readline_internal_charloop (void)
 #endif
 	}
 
+<<<<<<< HEAD
       /* EOF typed to a non-blank line is ^D the first time, EOF the second
 	 time in a row.  This won't return any partial line read from the tty.
 	 If we want to change this, to force any existing line to be returned
 	 when read(2) reads EOF, for example, this is the place to change. */
+=======
+      /* EOF typed to a non-blank line is a <NL>.  If we want to change this,
+	 to force any existing line to be ignored when read(2) reads EOF,
+	 for example, this is the place to change. */
+>>>>>>> orgin/bash-4.3-testing
       if (c == EOF && rl_end)
 	{
 	  if (RL_SIG_RECEIVED ())
@@ -629,7 +659,11 @@ readline_internal_charloop (void)
 	}
 
       lastc = c;
+<<<<<<< HEAD
       r = _rl_dispatch ((unsigned char)c, _rl_keymap);
+=======
+      _rl_dispatch ((unsigned char)c, _rl_keymap);
+>>>>>>> orgin/bash-4.3-testing
       RL_CHECK_SIGNALS ();
 
       /* If there was no change in _rl_last_command_was_kill, then no kill
@@ -688,7 +722,11 @@ _rl_set_the_line (void)
 
 #if defined (READLINE_CALLBACKS)
 _rl_keyseq_cxt *
+<<<<<<< HEAD
 _rl_keyseq_cxt_alloc (void)
+=======
+_rl_keyseq_cxt_alloc ()
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_keyseq_cxt *cxt;
 
@@ -704,13 +742,22 @@ _rl_keyseq_cxt_alloc (void)
 }
 
 void
+<<<<<<< HEAD
 _rl_keyseq_cxt_dispose (_rl_keyseq_cxt *cxt)
+=======
+_rl_keyseq_cxt_dispose (cxt)
+    _rl_keyseq_cxt *cxt;
+>>>>>>> orgin/bash-4.3-testing
 {
   xfree (cxt);
 }
 
 void
+<<<<<<< HEAD
 _rl_keyseq_chain_dispose (void)
+=======
+_rl_keyseq_chain_dispose ()
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_keyseq_cxt *cxt;
 
@@ -724,7 +771,12 @@ _rl_keyseq_chain_dispose (void)
 #endif
 
 static int
+<<<<<<< HEAD
 _rl_subseq_getchar (int key)
+=======
+_rl_subseq_getchar (key)
+     int key;
+>>>>>>> orgin/bash-4.3-testing
 {
   int k;
 
@@ -741,7 +793,12 @@ _rl_subseq_getchar (int key)
 
 #if defined (READLINE_CALLBACKS)
 int
+<<<<<<< HEAD
 _rl_dispatch_callback (_rl_keyseq_cxt *cxt)
+=======
+_rl_dispatch_callback (cxt)
+     _rl_keyseq_cxt *cxt;
+>>>>>>> orgin/bash-4.3-testing
 {
   int nkey, r;
 
@@ -769,8 +826,12 @@ _rl_dispatch_callback (_rl_keyseq_cxt *cxt)
     r = _rl_subseq_result (r, cxt->oldmap, cxt->okey, (cxt->flags & KSEQ_SUBSEQ));
 
   RL_CHECK_SIGNALS ();
+<<<<<<< HEAD
   /* We only treat values < 0 specially to simulate recursion. */
   if (r >= 0 || (r == -1 && (cxt->flags & KSEQ_SUBSEQ) == 0))	/* success! or failure! */
+=======
+  if (r == 0)			/* success! */
+>>>>>>> orgin/bash-4.3-testing
     {
       _rl_keyseq_chain_dispose ();
       RL_UNSETSTATE (RL_STATE_MULTIKEY);
@@ -838,7 +899,11 @@ _rl_dispatch_subseq (register int key, Keymap map, int got_subseq)
 	  /* Special case rl_do_lowercase_version (). */
 	  if (func == rl_do_lowercase_version)
 	    /* Should we do anything special if key == ANYOTHERKEY? */
+<<<<<<< HEAD
 	    return (_rl_dispatch (_rl_to_lower ((unsigned char)key), map));
+=======
+	    return (_rl_dispatch (_rl_to_lower (key), map));
+>>>>>>> orgin/bash-4.3-testing
 
 	  rl_executing_keymap = map;
 	  rl_executing_key = key;
@@ -908,10 +973,15 @@ _rl_dispatch_subseq (register int key, Keymap map, int got_subseq)
 	     default) or a timeout determined by the value of `keyseq-timeout' */
 	  /* _rl_keyseq_timeout specified in milliseconds; _rl_input_queued
 	     takes microseconds, so multiply by 1000 */
+<<<<<<< HEAD
 	  if (rl_editing_mode == vi_mode && key == ESC && map == vi_insertion_keymap &&
 	      (RL_ISSTATE (RL_STATE_INPUTPENDING|RL_STATE_MACROINPUT) == 0) &&
               _rl_pushed_input_available () == 0 &&
 	      _rl_input_queued ((_rl_keyseq_timeout > 0) ? _rl_keyseq_timeout*1000 : 0) == 0)
+=======
+	  if (rl_editing_mode == vi_mode && key == ESC && map == vi_insertion_keymap
+	      && _rl_input_queued ((_rl_keyseq_timeout > 0) ? _rl_keyseq_timeout*1000 : 0) == 0)
+>>>>>>> orgin/bash-4.3-testing
 	    return (_rl_dispatch (ANYOTHERKEY, FUNCTION_TO_KEYMAP (map, key)));
 	  /* This is a very specific test.  It can possibly be generalized in
 	     the future, but for now it handles a specific case of ESC being
@@ -931,6 +1001,7 @@ _rl_dispatch_subseq (register int key, Keymap map, int got_subseq)
 	  /* Allocate new context here.  Use linked contexts (linked through
 	     cxt->ocxt) to simulate recursion */
 #if defined (READLINE_CALLBACKS)
+<<<<<<< HEAD
 #  if defined (VI_MODE)
 	  /* If we're redoing a vi mode command and we know there is a shadowed
 	     function corresponding to this key, just call it -- all the redoable
@@ -941,6 +1012,8 @@ _rl_dispatch_subseq (register int key, Keymap map, int got_subseq)
 	      map[ANYOTHERKEY].function != 0)
 	    return (_rl_subseq_result (-2, map, key, got_subseq));
 #  endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  if (RL_ISSTATE (RL_STATE_CALLBACK))
 	    {
 	      /* Return 0 only the first time, to indicate success to
@@ -1007,7 +1080,11 @@ _rl_dispatch_subseq (register int key, Keymap map, int got_subseq)
 #if defined (VI_MODE)
   if (rl_editing_mode == vi_mode && _rl_keymap == vi_movement_keymap &&
       key != ANYOTHERKEY &&
+<<<<<<< HEAD
       _rl_dispatching_keymap == vi_movement_keymap &&
+=======
+      rl_key_sequence_length == 1 &&	/* XXX */
+>>>>>>> orgin/bash-4.3-testing
       _rl_vi_textmod_command (key))
     _rl_vi_set_last (key, rl_numeric_arg, rl_arg_sign);
 #endif
@@ -1016,7 +1093,14 @@ _rl_dispatch_subseq (register int key, Keymap map, int got_subseq)
 }
 
 static int
+<<<<<<< HEAD
 _rl_subseq_result (int r, Keymap map, int key, int got_subseq)
+=======
+_rl_subseq_result (r, map, key, got_subseq)
+     int r;
+     Keymap map;
+     int key, got_subseq;
+>>>>>>> orgin/bash-4.3-testing
 {
   Keymap m;
   int type, nt;
@@ -1033,6 +1117,7 @@ _rl_subseq_result (int r, Keymap map, int key, int got_subseq)
       type = m[ANYOTHERKEY].type;
       func = m[ANYOTHERKEY].function;
       if (type == ISFUNC && func == rl_do_lowercase_version)
+<<<<<<< HEAD
 	r = _rl_dispatch (_rl_to_lower ((unsigned char)key), map);
       else if (type == ISFUNC)
 	{
@@ -1041,22 +1126,40 @@ _rl_subseq_result (int r, Keymap map, int key, int got_subseq)
 	     Let's use this one.  Then we can dispatch using the original
 	     key, since there are commands (e.g., in vi mode) for which it
 	     matters. */
+=======
+	r = _rl_dispatch (_rl_to_lower (key), map);
+      else if (type == ISFUNC && func == rl_insert)
+	{
+	  /* If the function that was shadowed was self-insert, we
+	     somehow need a keymap with map[key].func == self-insert.
+	     Let's use this one. */
+>>>>>>> orgin/bash-4.3-testing
 	  nt = m[key].type;
 	  nf = m[key].function;
 
 	  m[key].type = type;
 	  m[key].function = func;
+<<<<<<< HEAD
 	  /* Don't change _rl_dispatching_keymap, set it here */
 	  _rl_dispatching_keymap = map;		/* previous map */
 	  r = _rl_dispatch_subseq (key, m, 0);
+=======
+	  r = _rl_dispatch (key, m);
+>>>>>>> orgin/bash-4.3-testing
 	  m[key].type = nt;
 	  m[key].function = nf;
 	}
       else
+<<<<<<< HEAD
 	/* We probably shadowed a keymap, so keep going. */
 	r = _rl_dispatch (ANYOTHERKEY, m);
     }
   else if (r < 0 && map[ANYOTHERKEY].function)
+=======
+	r = _rl_dispatch (ANYOTHERKEY, m);
+    }
+  else if (r && map[ANYOTHERKEY].function)
+>>>>>>> orgin/bash-4.3-testing
     {
       /* We didn't match (r is probably -1), so return something to
 	 tell the caller that it should try ANYOTHERKEY for an
@@ -1068,7 +1171,11 @@ _rl_subseq_result (int r, Keymap map, int key, int got_subseq)
       _rl_dispatching_keymap = map;
       return -2;
     }
+<<<<<<< HEAD
   else if (r < 0 && got_subseq)		/* XXX */
+=======
+  else if (r && got_subseq)
+>>>>>>> orgin/bash-4.3-testing
     {
       /* OK, back up the chain. */
       if (RL_ISSTATE (RL_STATE_MACROINPUT))
@@ -1225,17 +1332,24 @@ readline_initialize_everything (void)
   /* Try to bind a common arrow key prefix, if not already bound. */
   bind_arrow_keys ();
 
+<<<<<<< HEAD
   /* Bind the bracketed paste prefix assuming that the user will enable
      it on terminals that support it. */
   bind_bracketed_paste_prefix ();
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   /* If the completion parser's default word break characters haven't
      been set yet, then do so now. */
   if (rl_completer_word_break_characters == (char *)NULL)
     rl_completer_word_break_characters = (char *)rl_basic_word_break_characters;
 
 #if defined (COLOR_SUPPORT)
+<<<<<<< HEAD
   if (_rl_colored_stats || _rl_colored_completion_prefix)
+=======
+  if (_rl_colored_stats)
+>>>>>>> orgin/bash-4.3-testing
     _rl_parse_colors ();
 #endif
 
@@ -1260,6 +1374,18 @@ static void
 reset_default_bindings (void)
 {
   if (_rl_bind_stty_chars)
+<<<<<<< HEAD
+=======
+    rl_tty_set_default_bindings (_rl_keymap);
+}
+
+/* Reset the default bindings for the terminal special characters we're
+   interested in back to rl_insert and read the new ones. */
+static void
+reset_default_bindings ()
+{
+  if (_rl_bind_stty_chars)
+>>>>>>> orgin/bash-4.3-testing
     {
       rl_tty_unset_default_bindings (_rl_keymap);
       rl_tty_set_default_bindings (_rl_keymap);
@@ -1296,6 +1422,7 @@ bind_arrow_keys_internal (Keymap map)
   rl_bind_keyseq_if_unbound ("\033OH", rl_beg_of_line);
   rl_bind_keyseq_if_unbound ("\033OF", rl_end_of_line);
 
+<<<<<<< HEAD
   /* Key bindings for control-arrow keys */
   rl_bind_keyseq_if_unbound ("\033[1;5C", rl_forward_word);
   rl_bind_keyseq_if_unbound ("\033[1;5D", rl_backward_word);
@@ -1305,6 +1432,8 @@ bind_arrow_keys_internal (Keymap map)
   rl_bind_keyseq_if_unbound ("\033[1;3C", rl_forward_word);
   rl_bind_keyseq_if_unbound ("\033[1;3D", rl_backward_word);
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if defined (__MINGW32__)
   rl_bind_keyseq_if_unbound ("\340H", rl_get_previous_history);
   rl_bind_keyseq_if_unbound ("\340P", rl_get_next_history);

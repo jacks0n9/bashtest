@@ -49,6 +49,14 @@ $END
 #include "builtext.h"	/* for jobs_builtin */
 
 extern int check_jobs_at_exit;
+<<<<<<< HEAD
+=======
+extern int last_command_exit_value;
+extern int running_trap, trap_saved_exit_value;
+extern int subshell_environment;
+extern sh_builtin_func_t *this_shell_builtin;
+extern sh_builtin_func_t *last_shell_builtin;
+>>>>>>> orgin/bash-4.3-testing
 
 static int exit_or_logout __P((WORD_LIST *));
 static int sourced_logout;

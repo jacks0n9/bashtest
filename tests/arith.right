@@ -141,8 +141,11 @@ ok
 -7
 7
 7
+<<<<<<< HEAD
 2
 2
+=======
+>>>>>>> orgin/bash-4.3-testing
 ./arith1.sub: line 2: 4-- : syntax error: operand expected (error token is "- ")
 ./arith1.sub: line 3: 4++ : syntax error: operand expected (error token is "+ ")
 ./arith1.sub: line 4: 4 -- : syntax error: operand expected (error token is "- ")
@@ -236,6 +239,7 @@ ok
 0
 0, 0
 0, 1
+<<<<<<< HEAD
 efg
 e
 efg
@@ -253,11 +257,21 @@ efg
 ./arith.tests: line 297: ((: x=9 y=41 : syntax error in expression (error token is "y=41 ")
 ./arith.tests: line 301: a b: syntax error in expression (error token is "b")
 ./arith.tests: line 302: ((: a b: syntax error in expression (error token is "b")
+=======
+8 12
+./arith.tests: line 286: ((: x=9 y=41 : syntax error in expression (error token is "y=41 ")
+./arith.tests: line 290: a b: syntax error in expression (error token is "b")
+./arith.tests: line 291: ((: a b: syntax error in expression (error token is "b")
+>>>>>>> orgin/bash-4.3-testing
 42
 42
 42
 42
 42
 42
+<<<<<<< HEAD
 ./arith.tests: line 314: 'foo' : syntax error: operand expected (error token is "'foo' ")
 ./arith.tests: line 318: b[c]d: syntax error in expression (error token is "d")
+=======
+./arith.tests: line 302: b[c]d: syntax error in expression (error token is "d")
+>>>>>>> orgin/bash-4.3-testing

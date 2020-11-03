@@ -1,6 +1,10 @@
 /* bashhist.c -- bash interface to the GNU history library. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1993-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1993-2012 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -58,10 +62,13 @@
 #if defined (READLINE)
 #  include "bashline.h"
 extern int rl_done, rl_dispatching;	/* should really include readline.h */
+<<<<<<< HEAD
 #endif
 
 #ifndef HISTSIZE_DEFAULT
 #  define HISTSIZE_DEFAULT "500"
+=======
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 #if !defined (errno)
@@ -88,8 +95,13 @@ static struct ignorevar histignore =
 /* Non-zero means to remember lines typed to the shell on the history
    list.  This is different than the user-controlled behaviour; this
    becomes zero when we read lines from a file, for example. */
+<<<<<<< HEAD
 int remember_on_history = 0;
 int enable_history_list = 0;	/* value for `set -o history' */
+=======
+int remember_on_history = 1;
+int enable_history_list = 1;	/* value for `set -o history' */
+>>>>>>> orgin/bash-4.3-testing
 
 /* The number of lines that Bash has added to this history session.  The
    difference between the number of the top element in the history list
@@ -192,7 +204,16 @@ int hist_verify;
 /* Non-zero means to not save function definitions in the history list. */
 int dont_save_function_defs;
 
+<<<<<<< HEAD
 #if defined (BANG_HISTORY)
+=======
+/* Variables declared in other files used here. */
+extern int current_command_line_count;
+
+extern struct dstack dstack;
+extern int parser_state;
+
+>>>>>>> orgin/bash-4.3-testing
 static int bash_history_inhibit_expansion __P((char *, int));
 #endif
 #if defined (READLINE)
@@ -273,6 +294,10 @@ bash_initialize_history ()
   history_search_delimiter_chars = ";&()|<>";
 #if defined (BANG_HISTORY)
   history_inhibit_expansion_function = bash_history_inhibit_expansion;
+<<<<<<< HEAD
+=======
+#if defined (BANG_HISTORY)
+>>>>>>> orgin/bash-4.3-testing
   sv_histchars ("histchars");
 #endif
 }
@@ -282,8 +307,15 @@ bash_history_reinit (interact)
      int interact;
 {
 #if defined (BANG_HISTORY)
+<<<<<<< HEAD
   history_expansion = (interact == 0) ? histexp_flag : HISTEXPAND_DEFAULT;
   history_expansion_inhibited = (interact == 0) ? 1 - histexp_flag : 0;	/* changed in bash_history_enable() */
+=======
+  history_expansion = interact != 0;
+  history_expansion_inhibited = 1;
+#endif
+  remember_on_history = enable_history_list = interact != 0;
+>>>>>>> orgin/bash-4.3-testing
   history_inhibit_expansion_function = bash_history_inhibit_expansion;
 #endif
   remember_on_history = enable_history_list;
@@ -320,7 +352,11 @@ load_history ()
      Note that the history file is automatically truncated to the
      size of HISTSIZE if the user does not explicitly set the size
      differently. */
+<<<<<<< HEAD
   set_if_not ("HISTSIZE", HISTSIZE_DEFAULT);
+=======
+  set_if_not ("HISTSIZE", "500");
+>>>>>>> orgin/bash-4.3-testing
   sv_histsize ("HISTSIZE");
 
   set_if_not ("HISTFILESIZE", get_string_value ("HISTSIZE"));
@@ -347,7 +383,10 @@ bash_clear_history ()
 {
   clear_history ();
   history_lines_this_session = 0;
+<<<<<<< HEAD
   /* XXX - reset history_lines_read_from_file? */
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Delete and free the history list entry at offset I. */
@@ -366,6 +405,7 @@ bash_delete_histent (i)
 }
 
 int
+<<<<<<< HEAD
 bash_delete_history_range (first, last)
      int first, last;
 {
@@ -381,6 +421,8 @@ bash_delete_history_range (first, last)
 }
 
 int
+=======
+>>>>>>> orgin/bash-4.3-testing
 bash_delete_last_history ()
 {
   register int i;
@@ -440,7 +482,11 @@ maybe_append_history (filename)
   struct stat buf;
 
   result = EXECUTION_SUCCESS;
+<<<<<<< HEAD
   if (history_lines_this_session > 0 && (history_lines_this_session <= where_history ()))
+=======
+  if (history_lines_this_session && (history_lines_this_session <= where_history ()))
+>>>>>>> orgin/bash-4.3-testing
     {
       /* If the filename was supplied, then create it if necessary. */
       if (stat (filename, &buf) == -1 && errno == ENOENT)
@@ -723,9 +769,13 @@ hc_erasedups (line)
       if (STREQ (temp->line, line))
 	{
 	  r = where_history ();
+<<<<<<< HEAD
 	  temp = remove_history (r);
 	  if (temp)
 	    free_history_entry (temp);
+=======
+	  remove_history (r);
+>>>>>>> orgin/bash-4.3-testing
 	}
     }
   using_history ();
@@ -760,7 +810,11 @@ maybe_add_history (line)
   if (current_command_line_count > 1)
     {
       if (current_command_first_line_saved &&
+<<<<<<< HEAD
 	  ((parser_state & PST_HEREDOC) || literal_history || dstack.delimiter_depth != 0 || is_comment != 1))
+=======
+	  ((parser_state & PST_HEREDOC) || literal_history || dstack.delimiter_depth != 0 || shell_comment (line) == 0))
+>>>>>>> orgin/bash-4.3-testing
 	bash_add_history (line);
       current_command_line_comment = is_comment ? current_command_line_count : -2;
       return;
@@ -802,6 +856,7 @@ check_add_history (line, force)
 #if defined (SYSLOG_HISTORY)
 #define SYSLOG_MAXLEN 600
 
+<<<<<<< HEAD
 #ifndef OPENLOG_OPTS
 #define OPENLOG_OPTS 0
 #endif
@@ -812,11 +867,14 @@ int syslog_history = SYSLOG_SHOPT;
 int syslog_history = 1;
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 void
 bash_syslog_history (line)
      const char *line;
 {
   char trunc[SYSLOG_MAXLEN];
+<<<<<<< HEAD
   static int first = 1;
 
   if (first)
@@ -824,6 +882,8 @@ bash_syslog_history (line)
       openlog (shell_name, OPENLOG_OPTS, SYSLOG_FACILITY);
       first = 0;
     }
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   if (strlen(line) < SYSLOG_MAXLEN)
     syslog (SYSLOG_FACILITY|SYSLOG_LEVEL, "HISTORY: PID=%d UID=%d %s", getpid(), current_user.uid, line);
@@ -861,12 +921,17 @@ bash_add_history (line)
 	 so we have to duplicate some of what that function does here. */
       if ((parser_state & PST_HEREDOC) && literal_history && current_command_line_count > 2 && line[strlen (line) - 1] == '\n')
 	chars_to_add = "";
+<<<<<<< HEAD
       else if (current_command_line_count == current_command_line_comment+1)
 	chars_to_add = "\n";
       else if (literal_history)
 	chars_to_add = "\n";
       else
 	chars_to_add = history_delimiting_chars (line);
+=======
+      else
+	chars_to_add = literal_history ? "\n" : history_delimiting_chars (line);
+>>>>>>> orgin/bash-4.3-testing
 
       using_history ();
       current = previous_history ();
@@ -915,8 +980,12 @@ bash_add_history (line)
     really_add_history (line);
 
 #if defined (SYSLOG_HISTORY)
+<<<<<<< HEAD
   if (syslog_history)
     bash_syslog_history (line);
+=======
+  bash_syslog_history (line);
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
   using_history ();

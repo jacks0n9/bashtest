@@ -1,4 +1,9 @@
 PATH=$PATH:`pwd`
 export PATH
+<<<<<<< HEAD
 ${THIS_SH} ./extglob3.tests > ${BASH_TSTOUT}
 diff ${BASH_TSTOUT} extglob3.right && rm -f ${BASH_TSTOUT}
+=======
+${THIS_SH} ./extglob3.tests > /tmp/xx
+diff /tmp/xx extglob3.right && rm -f /tmp/xx
+>>>>>>> orgin/bash-4.3-testing

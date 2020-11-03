@@ -66,12 +66,15 @@ argv[2] = <ab>
 ${
 argv[1] = <(")>
 argv[1] = <(")>
+<<<<<<< HEAD
 string \
 string \
 string \
 string \
 string \
 string \}
+=======
+>>>>>>> orgin/bash-4.3-testing
 'weferfds'\''dsfsdf' 
 'weferfdsdsfsdf'
 'weferfds'\''dsfsdf'
@@ -86,6 +89,7 @@ test'string
 a'b'c
 foo b   c baz
 foo 'bar baz
+<<<<<<< HEAD
 argv[1] = <>
 argv[1] = <>
 argv[1] = <>
@@ -120,3 +124,5 @@ argv[1] = <>
 argv[1] = <>
 argv[1] = <>
 argv[1] = <>
+=======
+>>>>>>> orgin/bash-4.3-testing

@@ -1,6 +1,10 @@
 /* shquote - functions to quote and dequote strings */
 
+<<<<<<< HEAD
 /* Copyright (C) 1999-2015 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1999 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -33,12 +37,15 @@
 #include "syntax.h"
 #include <xmalloc.h>
 
+<<<<<<< HEAD
 #include "shmbchar.h"
 #include "shmbutil.h"
 
 extern char *ansic_quote __P((char *, int, int *));
 extern int ansic_shouldquote __P((const char *));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Default set of characters that should be backslash-quoted in strings */
 static const char bstab[256] =
   {
@@ -148,11 +155,16 @@ sh_double_quote (string)
       /* Backslash-newline disappears within double quotes, so don't add one. */
       if ((sh_syntaxtab[c] & CBSDQUOTE) && c != '\n')
 	*r++ = '\\';
+<<<<<<< HEAD
 #if 0
       /* Assume that the string will not be further expanded. */
       else if (c == CTLESC || c == CTLNUL)
 	*r++ = CTLESC;		/* could be '\\'? */
 #endif
+=======
+      else if (c == CTLESC || c == CTLNUL)
+	*r++ = CTLESC;		/* could be '\\'? */
+>>>>>>> orgin/bash-4.3-testing
 
       *r++ = c;
     }
@@ -228,8 +240,12 @@ sh_un_double_quote (string)
    going through the shell parser, which will protect the internal
    quoting characters.  TABLE, if set, points to a map of the ascii code
    set with char needing to be backslash-quoted if table[char]==1.  FLAGS,
+<<<<<<< HEAD
    if 1, causes tildes to be quoted as well.  If FLAGS&2, backslash-quote
    other shell blank characters. */
+=======
+   if 1, causes tildes to be quoted as well. */
+>>>>>>> orgin/bash-4.3-testing
    
 char *
 sh_backslash_quote (string, table, flags)
@@ -237,10 +253,15 @@ sh_backslash_quote (string, table, flags)
      char *table;
      int flags;
 {
+<<<<<<< HEAD
   int c, mb_cur_max;
   size_t slen;
   char *result, *r, *s, *backslash_table, *send;
   DECLARE_MBSTATE;
+=======
+  int c;
+  char *result, *r, *s, *backslash_table;
+>>>>>>> orgin/bash-4.3-testing
 
   slen = strlen (string);
   send = string + slen;
@@ -249,8 +270,10 @@ sh_backslash_quote (string, table, flags)
   backslash_table = table ? table : (char *)bstab;
   mb_cur_max = MB_CUR_MAX;
 
+  backslash_table = table ? table : (char *)bstab;
   for (r = result, s = string; s && (c = *s); s++)
     {
+<<<<<<< HEAD
 #if defined (HANDLE_MULTIBYTE)
       /* XXX - isascii, even if is_basic(c) == 0 - works in most cases. */
       if (c >= 0 && c <= 127 && backslash_table[(unsigned char)c] == 1)
@@ -267,6 +290,9 @@ sh_backslash_quote (string, table, flags)
 	}
 #endif
       if (backslash_table[(unsigned char)c] == 1)
+=======
+      if (backslash_table[c] == 1)
+>>>>>>> orgin/bash-4.3-testing
 	*r++ = '\\';
       else if (c == '#' && s == string)			/* comment char */
 	*r++ = '\\';
@@ -274,8 +300,11 @@ sh_backslash_quote (string, table, flags)
         /* Tildes are special at the start of a word or after a `:' or `='
 	   (technically unquoted, but it doesn't make a difference in practice) */
 	*r++ = '\\';
+<<<<<<< HEAD
       else if ((flags&2) && shellblank((unsigned char)c))
 	*r++ = '\\';
+=======
+>>>>>>> orgin/bash-4.3-testing
       *r++ = c;
     }
 

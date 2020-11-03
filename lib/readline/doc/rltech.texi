@@ -7,7 +7,11 @@ This document describes the GNU Readline Library, a utility for aiding
 in the consistency of user interface across discrete programs that need
 to provide a command line interface.
 
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 Copyright (C) 1988--2016 Free Software Foundation, Inc.
+=======
+Copyright (C) 1988--2014 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -288,7 +292,11 @@ At the very least, it should be aware that it can be passed a
 negative argument.
 
 A command function should return 0 if its action completes successfully,
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 and a value greater than zero if some error occurs.
+=======
+and a non-zero value if some error occurs.
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 This is the convention obeyed by all of the builtin Readline bindable
 command functions.
 
@@ -475,6 +483,25 @@ the value of @var{keyseq-timeout}, it should increase the timeout or set
 this hook appropriately even when not using the callback interface.
 In general, an application that sets @var{rl_getc_function} should consider
 setting @var{rl_input_available_hook} as well.
+@end deftypevar
+
+@deftypevar {rl_hook_func_t *} rl_signal_event_hook
+If non-zero, this is the address of a function to call if a read system
+call is interrupted when Readline is reading terminal input.
+@end deftypevar
+
+@deftypevar {rl_hook_func_t *} rl_input_available_hook
+If non-zero, Readline will use this function's return value when it needs
+to determine whether or not there is available input on the current input
+source.
+Readline queries for available input when implementing intra-key-sequence
+timeouts during input and incremental searches.
+This may use an application-specific timeout before returning a value;
+Readline uses the value passed to @code{rl_set_keyboard_input_timeout()}
+or the value of the user-settable @var{keyseq-timeout} variable.
+This is designed for use by functions using Readline's callback interface
+(@pxref{Alternate Interface}), which may not use the traditional
+@code{read(2)} and file descriptor interface.
 @end deftypevar
 
 @deftypevar {rl_voidfunc_t *} rl_redisplay_function
@@ -692,11 +719,14 @@ The caller should free @var{keymap}.
 @deftypefun void rl_free_keymap (Keymap keymap)
 Free all storage associated with @var{keymap}.  This calls
 @code{rl_discard_keymap} to free subordindate keymaps and macros.
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 @end deftypefun
 
 @deftypefun int rl_empty_keymap (Keymap keymap)
 Return non-zero if there are no keys bound to functions in @var{keymap};
 zero if there are any keys bound.
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 @end deftypefun
 
 Readline has several internal keymaps.  These functions allow you to
@@ -1063,7 +1093,11 @@ It returns the number of visible characters on the last line of the
 Applications may indicate that the prompt contains characters that take
 up no physical screen space when displayed by bracketing a sequence of
 such characters with the special markers @code{RL_PROMPT_START_IGNORE}
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 and @code{RL_PROMPT_END_IGNORE} (declared in @file{readline.h}).  This may
+=======
+and @code{RL_PROMPT_END_IGNORE} (declared in @file{readline.h}.  This may
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 be used to embed terminal-specific escape sequences in prompts.
 @end deftypefun
 
@@ -1177,6 +1211,7 @@ The bindings are performed in @var{kmap}.
 Reset the bindings manipulated by @code{rl_tty_set_default_bindings} so
 that the terminal editing characters are bound to @code{rl_insert}.
 The bindings are performed in @var{kmap}.
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 @end deftypefun
 
 @deftypefun int rl_tty_set_echoing (int value)
@@ -1185,6 +1220,8 @@ stream (@var{rl_outstream}).  If @var{value} is 0, Readline does not display
 output to @var{rl_outstream}; any other value enables output.  The initial
 value is set when Readline initializes the terminal settings.
 This function returns the previous value.
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 @end deftypefun
 
 @deftypefun int rl_reset_terminal (const char *terminal_name)
@@ -1358,8 +1395,11 @@ expanded value of @var{prompt}.  Save the value of @var{lhandler} to
 use as a handler function to call when a complete line of input has been
 entered.
 The handler function receives the text of the line as an argument.
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 As with @code{readline()}, the handler function should @code{free} the
 line when it it finished with it.
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 @end deftypefun
 
 @deftypefun void rl_callback_read_char (void)
@@ -1474,16 +1514,23 @@ It understands the EOF character or "exit" to exit the program.
 @example
 /* Standard include files. stdio.h is required. */
 #include <stdlib.h>
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 #include <string.h>
 #include <unistd.h>
 #include <locale.h>
+=======
+#include <unistd.h>
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 
 /* Used for select(2) */
 #include <sys/types.h>
 #include <sys/select.h>
 
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 #include <signal.h>
 
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 #include <stdio.h>
 
 /* Standard readline include files. */
@@ -1491,6 +1538,7 @@ It understands the EOF character or "exit" to exit the program.
 #include <readline/history.h>
 
 static void cb_linehandler (char *);
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 static void sighandler (int);
 
 int running;
@@ -1505,6 +1553,12 @@ sighandler (int sig)
   sigwinch_received = 1;
 @}
 
+=======
+
+int running;
+const char *prompt = "rltest$ ";
+
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 /* Callback function called for each line when accept-line executed, EOF
    seen, or EOF character read.  This sets a flag and returns; it could
    also call exit(3). */
@@ -1539,6 +1593,7 @@ main (int c, char **v)
   fd_set fds;
   int r;
 
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
   /* Set the default locale values according to environment variables. */
   setlocale (LC_ALL, "");
 
@@ -1546,6 +1601,8 @@ main (int c, char **v)
      characters. */
   signal (SIGWINCH, sighandler);
 
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
   /* Install the line handler. */
   rl_callback_handler_install (prompt, cb_linehandler);
 
@@ -1560,12 +1617,17 @@ main (int c, char **v)
       FD_SET (fileno (rl_instream), &fds);    
 
       r = select (FD_SETSIZE, &fds, NULL, NULL, NULL);
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
       if (r < 0 && errno != EINTR)
+=======
+      if (r < 0)
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
         @{
           perror ("rltest: select");
           rl_callback_handler_remove ();
           break;
         @}
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
       if (sigwinch_received)
 	@{
 	  rl_resize_terminal ();
@@ -1573,6 +1635,8 @@ main (int c, char **v)
 	@}
       if (r < 0)
 	continue;     
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 
       if (FD_ISSET (fileno (rl_instream), &fds))
         rl_callback_read_char ();
@@ -1667,6 +1731,7 @@ Readline will install a signal handler for @code{SIGWINCH}.
 The default value of @code{rl_catch_sigwinch} is 1.
 @end deftypevar
 
+<<<<<<< HEAD:lib/readline/doc/rltech.texi
 @deftypevar int rl_persistent_signal_handlers
 If an application using the callback interface wishes Readline's signal
 handlers to be installed and active during the set of calls to
@@ -1676,6 +1741,8 @@ it should set this variable to a non-zero value.
 The default value of @code{rl_persistent_signal_handlers} is 0.
 @end deftypevar
 
+=======
+>>>>>>> orgin/bash-4.3-testing:lib/readline/doc/rltech.texinfo
 @deftypevar int rl_change_environment
 If this variable is set to a non-zero value,
 and Readline is handling @code{SIGWINCH}, Readline will modify the

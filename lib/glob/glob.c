@@ -1,6 +1,10 @@
 /* glob.c -- file-name wildcard pattern matching for Bash.
 
+<<<<<<< HEAD
    Copyright (C) 1985-2017 Free Software Foundation, Inc.
+=======
+   Copyright (C) 1985-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne-Again SHell.
    
@@ -84,7 +88,11 @@ struct globval
   };
 
 extern void throw_to_top_level __P((void));
+<<<<<<< HEAD
 extern int sh_eaccess __P((const char *, int));
+=======
+extern int sh_eaccess __P((char *, int));
+>>>>>>> orgin/bash-4.3-testing
 extern char *sh_makepath __P((const char *, const char *, int));
 extern int signal_is_pending __P((int));
 extern void run_pending_traps __P((void));
@@ -123,11 +131,14 @@ static char **glob_dir_to_array __P((char *, char **, int));
 extern char *glob_patscan __P((char *, char *, int));
 extern wchar_t *glob_patscan_wc __P((wchar_t *, wchar_t *, int));
 
+<<<<<<< HEAD
 /* And this from gmisc.c/gm_loop.c */
 extern int wextglob_pattern_p __P((wchar_t *));
 
 extern char *glob_dirscan __P((char *, int));
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Compile `glob_loop.c' for single-byte characters. */
 #define GCHAR	unsigned char
 #define CHAR	char
@@ -186,6 +197,7 @@ extglob_skipname (pat, dname, flags)
      char *pat, *dname;
      int flags;
 {
+<<<<<<< HEAD
   char *pp, *pe, *t, *se;
   int n, r, negate, wild;
 
@@ -227,12 +239,34 @@ extglob_skipname (pat, dname, flags)
 #else
       r = skipname (pp, dname, flags);
 #endif
+=======
+  char *pp, *pe, *t;
+  int n, r;
+
+  pp = pat + 2;
+  pe = pp + strlen (pp) - 1;	/*(*/
+  if (*pe != ')')
+    return 0;
+  if ((t = strchr (pp, '|')) == 0)	/* easy case first */
+    {
+      *pe = '\0';
+      r = skipname (pp, dname, flags);	/*(*/
+      *pe = ')';
+      return r;
+    }
+  while (t = glob_patscan (pp, pe, '|'))
+    {
+      n = t[-1];
+      t[-1] = '\0';
+      r = skipname (pp, dname, flags);
+>>>>>>> orgin/bash-4.3-testing
       t[-1] = n;
       if (r == 0)	/* if any pattern says not skip, we don't skip */
         return r;
       pp = t;
     }	/*(*/
 
+<<<<<<< HEAD
   /* glob_patscan might find end of string */
   if (pp == se)
     return r;
@@ -241,6 +275,19 @@ extglob_skipname (pat, dname, flags)
   if (wild && *pe)	/* if we can match zero instances, check further */
     return (skipname (pe, dname, flags));
   return 1;
+=======
+  if (pp == pe)		/* glob_patscan might find end of pattern */
+    return r;
+
+  *pe = '\0';
+#  if defined (HANDLE_MULTIBYTE)
+  r = mbskipname (pp, dname, flags);	/*(*/
+#  else
+  r = skipname (pp, dname, flags);	/*(*/
+#  endif
+  *pe = ')';
+  return r;
+>>>>>>> orgin/bash-4.3-testing
 }
 #endif
 
@@ -276,6 +323,7 @@ skipname (pat, dname, flags)
 #if HANDLE_MULTIBYTE
 
 static int
+<<<<<<< HEAD
 wskipname (pat, dname, flags)
      wchar_t *pat, *dname;
      int flags;
@@ -286,13 +334,30 @@ wskipname (pat, dname, flags)
 	(pat[0] != L'\\' || pat[1] != L'.') &&
 	(dname[0] == L'.' &&
 	  (dname[1] == L'\0' || (dname[1] == L'.' && dname[2] == L'\0'))))
+=======
+wchkname (pat_wc, dn_wc)
+     wchar_t *pat_wc, *dn_wc;
+{
+  /* If a leading dot need not be explicitly matched, and the
+     pattern doesn't start with a `.', don't match `.' or `..' */
+  if (noglob_dot_filenames == 0 && pat_wc[0] != L'.' &&
+	(pat_wc[0] != L'\\' || pat_wc[1] != L'.') &&
+	(dn_wc[0] == L'.' &&
+	  (dn_wc[1] == L'\0' || (dn_wc[1] == L'.' && dn_wc[2] == L'\0'))))
+>>>>>>> orgin/bash-4.3-testing
     return 1;
 
   /* If a leading dot must be explicitly matched, check to see if the
      pattern and dirname both have one. */
+<<<<<<< HEAD
  else if (noglob_dot_filenames && dname[0] == L'.' &&
 	pat[0] != L'.' &&
 	   (pat[0] != L'\\' || pat[1] != L'.'))
+=======
+ else if (noglob_dot_filenames && dn_wc[0] == L'.' &&
+	pat_wc[0] != L'.' &&
+	   (pat_wc[0] != L'\\' || pat_wc[1] != L'.'))
+>>>>>>> orgin/bash-4.3-testing
     return 1;
 
   return 0;
@@ -304,6 +369,7 @@ wextglob_skipname (pat, dname, flags)
      int flags;
 {
 #if EXTENDED_GLOB
+<<<<<<< HEAD
   wchar_t *pp, *pe, *t, n, *se;
   int r, negate, wild;
 
@@ -332,6 +398,27 @@ wextglob_skipname (pat, dname, flags)
       else
 	t[-1] = L'\0';
       r = wskipname (pp, dname, flags);
+=======
+  wchar_t *pp, *pe, *t, n;
+  int r;
+
+  pp = pat + 2;
+  pe = pp + wcslen (pp) - 1;	/*(*/
+  if (*pe != L')')
+    return 0;
+  if ((t = wcschr (pp, L'|')) == 0)
+    {
+      *pe = L'\0';
+      r = wchkname (pp, dname); /*(*/
+      *pe = L')';
+      return r;
+    }
+  while (t = glob_patscan_wc (pp, pe, '|'))
+    {
+      n = t[-1];
+      t[-1] = L'\0';
+      r = wchkname (pp, dname);
+>>>>>>> orgin/bash-4.3-testing
       t[-1] = n;
       if (r == 0)
 	return 0;
@@ -341,12 +428,21 @@ wextglob_skipname (pat, dname, flags)
   if (pp == pe)		/* glob_patscan_wc might find end of pattern */
     return r;
 
+<<<<<<< HEAD
   /* but if it doesn't then we didn't match a leading dot */
   if (wild && *pe != L'\0')
     return (wskipname (pe, dname, flags));
   return 1;
 #else
   return (wskipname (pat, dname, flags));
+=======
+  *pe = L'\0';
+  r = wchkname (pp, dname);	/*(*/
+  *pe = L')';
+  return r;
+#else
+  return (wchkname (pat, dname));
+>>>>>>> orgin/bash-4.3-testing
 #endif
 }
 
@@ -377,7 +473,11 @@ mbskipname (pat, dname, flags)
 
   ret = 0;
   if (pat_n != (size_t)-1 && dn_n !=(size_t)-1)
+<<<<<<< HEAD
     ret = ext ? wextglob_skipname (pat_wc, dn_wc, flags) : wskipname (pat_wc, dn_wc, flags);
+=======
+    ret = ext ? wextglob_skipname (pat_wc, dn_wc, flags) : wchkname (pat_wc, dn_wc);
+>>>>>>> orgin/bash-4.3-testing
   else
     ret = skipname (pat, dname, flags);
 
@@ -486,6 +586,7 @@ glob_testdir (dir, flags)
   struct stat finfo;
   int r;
 
+<<<<<<< HEAD
 /*itrace("glob_testdir: testing %s" flags = %d, dir, flags);*/
 #if defined (HAVE_LSTAT)
   r = (flags & GX_ALLDIRS) ? lstat (dir, &finfo) : stat (dir, &finfo);
@@ -493,6 +594,10 @@ glob_testdir (dir, flags)
   r = stat (dir, &finfo);
 #endif
   if (r < 0)
+=======
+/*itrace("glob_testdir: testing %s", dir);*/
+  if (stat (dir, &finfo) < 0)
+>>>>>>> orgin/bash-4.3-testing
     return (-1);
 
 #if defined (S_ISLNK)
@@ -613,11 +718,17 @@ glob_vector (pat, dir, flags)
 
   lastlink = 0;
   count = lose = skip = add_current = 0;
+<<<<<<< HEAD
 
   firstmalloc = 0;
   nalloca = 0;
 
   name_vector = NULL;
+=======
+
+  firstmalloc = 0;
+  nalloca = 0;
+>>>>>>> orgin/bash-4.3-testing
 
 /*itrace("glob_vector: pat = `%s' dir = `%s' flags = 0x%x", pat, dir, flags);*/
   /* If PAT is empty, skip the loop, but return one (empty) filename. */
@@ -740,15 +851,26 @@ glob_vector (pat, dir, flags)
 	{
 	  /* Make globbing interruptible in the shell. */
 	  if (interrupt_state || terminating_signal)
+<<<<<<< HEAD
 	    {
 	      lose = 1;
 	      break;
 	    }
 	  else if (signal_is_pending (SIGINT))	/* XXX - make SIGINT traps responsive */
+=======
+>>>>>>> orgin/bash-4.3-testing
 	    {
 	      lose = 1;
 	      break;
 	    }
+<<<<<<< HEAD
+=======
+	  else if (signal_is_pending (SIGINT))	/* XXX - make SIGINT traps responsive */
+	    {
+	      lose = 1;
+	      break;
+	    }
+>>>>>>> orgin/bash-4.3-testing
 
 	  dp = readdir (d);
 	  if (dp == NULL)
@@ -773,6 +895,7 @@ glob_vector (pat, dir, flags)
 
 	  /* If we're only interested in directories, don't bother with files */
 	  if (flags & (GX_MATCHDIRS|GX_ALLDIRS))
+<<<<<<< HEAD
 	    {
 	      pflags = (flags & GX_ALLDIRS) ? MP_RMDOT : 0;
 	      if (flags & GX_NULLDIR)
@@ -788,6 +911,23 @@ glob_vector (pat, dir, flags)
 
 	  if (flags & GX_ALLDIRS)
 	    {
+=======
+	    {
+	      pflags = (flags & GX_ALLDIRS) ? MP_RMDOT : 0;
+	      if (flags & GX_NULLDIR)
+		pflags |= MP_IGNDOT;
+	      subdir = sh_makepath (dir, dp->d_name, pflags);
+	      isdir = glob_testdir (subdir);
+	      if (isdir < 0 && (flags & GX_MATCHDIRS))
+		{
+		  free (subdir);
+		  continue;
+		}
+	    }
+
+	  if (flags & GX_ALLDIRS)
+	    {
+>>>>>>> orgin/bash-4.3-testing
 	      if (isdir == 0)
 		{
 		  dirlist = finddirs (pat, subdir, (flags & ~GX_ADDCURDIR), &e, &ndirs);
@@ -807,6 +947,7 @@ glob_vector (pat, dir, flags)
 		    }
 		}
 
+<<<<<<< HEAD
 	      /* When FLAGS includes GX_ALLDIRS, we want to skip a symlink
 	         to a directory, since we will pick the directory up later. */
 	      if (isdir == -2 && glob_testdir (subdir, 0) == 0)
@@ -816,6 +957,8 @@ glob_vector (pat, dir, flags)
 		}
 
 	      /* XXX - should we even add this if it's not a directory? */
+=======
+>>>>>>> orgin/bash-4.3-testing
 	      nextlink = (struct globval *) malloc (sizeof (struct globval));
 	      if (firstmalloc == 0)
 		firstmalloc = nextlink;
@@ -1058,10 +1201,17 @@ glob_filename (pathname, flags)
 {
   char **result, **new_result;
   unsigned int result_size;
+<<<<<<< HEAD
   char *directory_name, *filename, *dname, *fn;
   unsigned int directory_len;
   int free_dirname;			/* flag */
   int dflags, hasglob;
+=======
+  char *directory_name, *filename, *dname;
+  unsigned int directory_len;
+  int free_dirname;			/* flag */
+  int dflags;
+>>>>>>> orgin/bash-4.3-testing
 
   result = (char **) malloc (sizeof (char *));
   result_size = 1;
@@ -1099,10 +1249,14 @@ glob_filename (pathname, flags)
       directory_name = (char *) malloc (directory_len + 1);
 
       if (directory_name == 0)		/* allocation failed? */
+<<<<<<< HEAD
 	{
 	  free (result);
 	  return (NULL);
 	}
+=======
+	return (NULL);
+>>>>>>> orgin/bash-4.3-testing
 
       bcopy (pathname, directory_name, directory_len);
       directory_name[directory_len] = '\0';
@@ -1112,10 +1266,15 @@ glob_filename (pathname, flags)
 
   hasglob = 0;
   /* If directory_name contains globbing characters, then we
+<<<<<<< HEAD
      have to expand the previous levels.  Just recurse.
      If glob_pattern_p returns != [0,1] we have a pattern that has backslash
      quotes but no unquoted glob pattern characters. We dequote it below. */
   if (directory_len > 0 && (hasglob = glob_pattern_p (directory_name)) == 1)
+=======
+     have to expand the previous levels.  Just recurse. */
+  if (directory_len > 0 && glob_pattern_p (directory_name))
+>>>>>>> orgin/bash-4.3-testing
     {
       char **directories, *d, *p;
       register unsigned int i;
@@ -1174,12 +1333,21 @@ glob_filename (pathname, flags)
 	{
 	  directory_len -= 3;
 	}
+<<<<<<< HEAD
 
       if (d[directory_len - 1] == '/')
 	d[directory_len - 1] = '\0';
 
       directories = glob_filename (d, dflags|GX_RECURSE);
 
+=======
+
+      if (d[directory_len - 1] == '/')
+	d[directory_len - 1] = '\0';
+
+      directories = glob_filename (d, dflags);
+
+>>>>>>> orgin/bash-4.3-testing
       if (free_dirname)
 	{
 	  free (directory_name);

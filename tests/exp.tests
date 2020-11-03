@@ -30,6 +30,7 @@ expect "<^A>"
 recho `echo `
 expect "<^?>"
 recho `echo `
+<<<<<<< HEAD:tests/exp.tests
 
 expect "bar"
 recho ${foo:-"`echo bar`"}
@@ -42,6 +43,8 @@ expect "<^A>"
 recho "`echo `"
 expect "<^?>"
 recho "`echo `"
+=======
+>>>>>>> orgin/bash-4.3-testing:tests/exp-tests
 
 # Test null strings without variable expansion
 expect "<abcdefgh>"
@@ -402,9 +405,12 @@ ${THIS_SH} ./exp4.sub
 ${THIS_SH} ./exp5.sub
 
 ${THIS_SH} ./exp6.sub
+<<<<<<< HEAD:tests/exp.tests
 ${THIS_SH} ./exp7.sub
 ${THIS_SH} ./exp8.sub
 ${THIS_SH} ./exp9.sub
 ${THIS_SH} ./exp10.sub
 ${THIS_SH} ./exp11.sub
 ${THIS_SH} ./exp12.sub
+=======
+>>>>>>> orgin/bash-4.3-testing:tests/exp-tests

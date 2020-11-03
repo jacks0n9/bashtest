@@ -3,7 +3,11 @@
 /* This file works with both POSIX and BSD systems.  It implements job
    control. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1989-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1989-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -95,7 +99,11 @@ extern int killpg __P((pid_t, int));
 #endif
 
 #if !MAX_CHILD_MAX
+<<<<<<< HEAD
 #  define MAX_CHILD_MAX 32768
+=======
+#  define MAX_CHILD_MAX 8192
+>>>>>>> orgin/bash-4.3-testing
 #endif
 
 #if !defined (DEBUG)
@@ -104,10 +112,13 @@ extern int killpg __P((pid_t, int));
 #define MAX_JOBS_IN_ARRAY 128		/* testing */
 #endif
 
+<<<<<<< HEAD
 /* XXX for now */
 #define PIDSTAT_TABLE_SZ 4096
 #define BGPIDS_TABLE_SZ 512
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* Flag values for second argument to delete_job */
 #define DEL_WARNSTOPPED		1	/* warn about deleting stopped jobs */
 #define DEL_NOBGPID		2	/* don't add pgrp leader to bgpids */
@@ -165,9 +176,22 @@ extern int killpg __P((pid_t, int));
 typedef int sh_job_map_func_t __P((JOB *, int, int, int));
 
 /* Variables used here but defined in other files. */
+<<<<<<< HEAD
+=======
+extern int subshell_environment, line_number;
+extern int posixly_correct, shell_level;
+extern int last_command_exit_value, last_command_exit_signal;
+extern int loop_level, breaking;
+extern int executing_list;
+extern int sourcelevel;
+extern int running_trap;
+extern sh_builtin_func_t *this_shell_builtin;
+extern char *shell_name, *this_command_name;
+>>>>>>> orgin/bash-4.3-testing
 extern sigset_t top_level_mask;
 extern WORD_LIST *subst_assign_varlist;
 
+<<<<<<< HEAD
 extern SigHandler **original_signals;
 
 extern void set_original_signal __P((int, SigHandler *));
@@ -176,6 +200,11 @@ static struct jobstats zerojs = { -1L, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NO_JOB, NO_
 struct jobstats js = { -1L, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NO_JOB, NO_JOB, 0, 0 };
 
 ps_index_t pidstat_table[PIDSTAT_TABLE_SZ];
+=======
+static struct jobstats zerojs = { -1L, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NO_JOB, NO_JOB, 0, 0 };
+struct jobstats js = { -1L, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NO_JOB, NO_JOB, 0, 0 };
+
+>>>>>>> orgin/bash-4.3-testing
 struct bgpids bgpids = { 0, 0, 0 };
 
 /* The array of known jobs. */
@@ -208,6 +237,17 @@ pid_t pipeline_pgrp = (pid_t)0;
 int pgrp_pipe[2] = { -1, -1 };
 #endif
 
+<<<<<<< HEAD
+=======
+#if 0
+/* The job which is current; i.e. the one that `%+' stands for. */
+int current_job = NO_JOB;
+
+/* The previous job; i.e. the one that `%-' stands for. */
+int previous_job = NO_JOB;
+#endif
+
+>>>>>>> orgin/bash-4.3-testing
 /* Last child made by the shell.  */
 volatile pid_t last_made_pid = NO_PID;
 
@@ -232,10 +272,13 @@ int check_window_size = CHECKWINSIZE_DEFAULT;
 
 PROCESS *last_procsub_child = (PROCESS *)NULL;
 
+<<<<<<< HEAD
 /* Functions local to this file. */
 
 void debug_print_pgrps (void);
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 static sighandler wait_sigint_handler __P((int));
 static sighandler sigchld_handler __P((int));
 static sighandler sigcont_sighandler __P((int));
@@ -274,6 +317,10 @@ static void cleanup_dead_jobs __P((void));
 static int processes_in_job __P((int));
 static void realloc_jobs_list __P((void));
 static int compact_jobs_list __P((int));
+<<<<<<< HEAD
+=======
+static int discard_pipeline __P((PROCESS *));
+>>>>>>> orgin/bash-4.3-testing
 static void add_process __P((char *, pid_t));
 static void print_pipeline __P((PROCESS *, int, int, FILE *));
 static void pretty_print_job __P((int, int, FILE *));
@@ -289,21 +336,29 @@ static void restore_sigint_handler __P((void));
 static void pipe_read __P((int *));
 #endif
 
+<<<<<<< HEAD
 /* Hash table manipulation */
 
 static ps_index_t *pshash_getbucket __P((pid_t));
 static void pshash_delindex __P((ps_index_t));
 
 /* Saved background process status management */
+=======
+static struct pidstat *bgp_alloc __P((pid_t, int));
+>>>>>>> orgin/bash-4.3-testing
 static struct pidstat *bgp_add __P((pid_t, int));
 static int bgp_delete __P((pid_t));
 static void bgp_clear __P((void));
 static int bgp_search __P((pid_t));
+<<<<<<< HEAD
 
 static struct pipeline_saver *alloc_pipeline_saver __P((void));
 
 static ps_index_t bgp_getindex __P((void));
 static void bgp_resize __P((void));	/* XXX */
+=======
+static void bgp_prune __P((void));
+>>>>>>> orgin/bash-4.3-testing
 
 #if defined (ARRAY_VARS)
 static int *pstatuses;		/* list of pipeline statuses */
@@ -438,6 +493,7 @@ cleanup_the_pipeline ()
 
   if (disposer)
     discard_pipeline (disposer);
+<<<<<<< HEAD
 }
 
 void
@@ -464,12 +520,15 @@ alloc_pipeline_saver ()
   ret->pipeline = 0;
   ret->next = 0;
   return ret;
+=======
+>>>>>>> orgin/bash-4.3-testing
 }
 
 void
 save_pipeline (clear)
      int clear;
 {
+<<<<<<< HEAD
   sigset_t set, oset;
   struct pipeline_saver *saver;
 
@@ -482,6 +541,12 @@ save_pipeline (clear)
     the_pipeline = (PROCESS *)NULL;
   saved_already_making_children = already_making_children;
   UNBLOCK_CHILD (oset);
+=======
+  saved_pipeline = the_pipeline;
+  if (clear)
+    the_pipeline = (PROCESS *)NULL;
+  saved_already_making_children = already_making_children;
+>>>>>>> orgin/bash-4.3-testing
 }
 
 PROCESS *
@@ -499,6 +564,7 @@ restore_pipeline (discard)
   saved_pipeline = saved_pipeline->next;
   free (saver);
   already_making_children = saved_already_making_children;
+<<<<<<< HEAD
   UNBLOCK_CHILD (oset);
 
   if (discard && old_pipeline)
@@ -507,6 +573,10 @@ restore_pipeline (discard)
       return ((PROCESS *)NULL);
     }
   return old_pipeline;
+=======
+  if (discard && old_pipeline)
+    discard_pipeline (old_pipeline);
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Start building a pipeline.  */
@@ -700,11 +770,18 @@ stop_pipeline (async, deferred)
 	   * the parent gives it away.
 	   *
 	   * Don't give the terminal away if this shell is an asynchronous
+<<<<<<< HEAD
 	   * subshell or if we're a (presumably non-interactive) shell running
 	   * in the background.
 	   *
 	   */
 	  if (job_control && newjob->pgrp && (subshell_environment&SUBSHELL_ASYNC) == 0 && running_in_background == 0)
+=======
+	   * subshell.
+	   *
+	   */
+	  if (job_control && newjob->pgrp && (subshell_environment&SUBSHELL_ASYNC) == 0)
+>>>>>>> orgin/bash-4.3-testing
 	    maybe_give_terminal_to (shell_pgrp, newjob->pgrp, 0);
 	}
     }
@@ -715,6 +792,7 @@ stop_pipeline (async, deferred)
 }
 
 /* Functions to manage the list of exited background pids whose status has
+<<<<<<< HEAD
    been saved.
 
    pidstat_table:
@@ -925,10 +1003,110 @@ bgp_clear ()
 /* Search for PID in the list of saved background pids; return its status if
    found.  If not found, return -1.  We hash to the right spot in pidstat_table
    and follow the bucket chain to the end. */
+=======
+   been saved. */
+
+static struct pidstat *
+bgp_alloc (pid, status)
+     pid_t pid;
+     int status;
+{
+  struct pidstat *ps;
+
+  ps = (struct pidstat *)xmalloc (sizeof (struct pidstat));
+  ps->pid = pid;
+  ps->status = status;
+  ps->next = (struct pidstat *)0;
+  return ps;
+}
+
+static struct pidstat *
+bgp_add (pid, status)
+     pid_t pid;
+     int status;
+{
+  struct pidstat *ps;
+
+  ps = bgp_alloc (pid, status);
+
+  if (bgpids.list == 0)
+    {
+      bgpids.list = bgpids.end = ps;
+      bgpids.npid = 0;			/* just to make sure */
+    }
+  else
+    {
+      bgpids.end->next = ps;
+      bgpids.end = ps;
+    }
+  bgpids.npid++;
+
+  if (bgpids.npid > js.c_childmax)
+    bgp_prune ();
+
+  return ps;
+}
+
+static int
+bgp_delete (pid)
+     pid_t pid;
+{
+  struct pidstat *prev, *p;
+
+  for (prev = p = bgpids.list; p; prev = p, p = p->next)
+    if (p->pid == pid)
+      {
+	prev->next = p->next;	/* remove from list */
+	break;
+      }
+
+  if (p == 0)
+    return 0;		/* not found */
+
+#if defined (DEBUG)
+  itrace("bgp_delete: deleting %d", pid);
+#endif
+
+  /* Housekeeping in the border cases. */
+  if (p == bgpids.list)
+    bgpids.list = bgpids.list->next;
+  else if (p == bgpids.end)
+    bgpids.end = prev;
+
+  bgpids.npid--;
+  if (bgpids.npid == 0)
+    bgpids.list = bgpids.end = 0;
+  else if (bgpids.npid == 1)
+    bgpids.end = bgpids.list;		/* just to make sure */
+
+  free (p);
+  return 1;
+}
+
+/* Clear out the list of saved statuses */
+static void
+bgp_clear ()
+{
+  struct pidstat *ps, *p;
+
+  for (ps = bgpids.list; ps; )
+    {
+      p = ps;
+      ps = ps->next;
+      free (p);
+    }
+  bgpids.list = bgpids.end = 0;
+  bgpids.npid = 0;
+}
+
+/* Search for PID in the list of saved background pids; return its status if
+   found.  If not found, return -1. */
+>>>>>>> orgin/bash-4.3-testing
 static int
 bgp_search (pid)
      pid_t pid;
 {
+<<<<<<< HEAD
   ps_index_t psi, orig_psi;
 
   if (bgpids.storage == 0 || bgpids.nalloc == 0 || bgpids.npid == 0)
@@ -956,6 +1134,29 @@ bgp_prune ()
   return;
 }
 #endif
+=======
+  struct pidstat *ps;
+
+  for (ps = bgpids.list ; ps; ps = ps->next)
+    if (ps->pid == pid)
+      return ps->status;
+  return -1;
+}
+
+static void
+bgp_prune ()
+{
+  struct pidstat *ps;
+
+  while (bgpids.npid > js.c_childmax)
+    {
+      ps = bgpids.list;
+      bgpids.list = bgpids.list->next;
+      free (ps);
+      bgpids.npid--;
+    }
+}
+>>>>>>> orgin/bash-4.3-testing
 
 /* Reset the values of js.j_lastj and js.j_firstj after one or both have
    been deleted.  The caller should check whether js.j_njobs is 0 before
@@ -1027,6 +1228,7 @@ cleanup_dead_jobs ()
 	delete_job (i, 0);
     }
 
+<<<<<<< HEAD
 #if defined (PROCESS_SUBSTITUTION)
   if (last_procsub_child && last_procsub_child->running == PS_DONE)
     {
@@ -1037,6 +1239,8 @@ cleanup_dead_jobs ()
     }
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 #if defined (COPROCESS_SUPPORT)
   coproc_reap ();
 #endif
@@ -1088,6 +1292,7 @@ delete_old_job (pid)
 	}
     }
 }
+<<<<<<< HEAD
 
 /* Reallocate and compress the jobs list.  This returns with a jobs array
    whose size is a multiple of JOB_SLOTS and can hold the current number of
@@ -1099,6 +1304,19 @@ realloc_jobs_list ()
   int nsize, i, j, ncur, nprev;
   JOB **nlist;
 
+=======
+
+/* Reallocate and compress the jobs list.  This returns with a jobs array
+   whose size is a multiple of JOB_SLOTS and can hold the current number of
+   jobs.  Heuristics are used to minimize the number of new reallocs. */
+static void
+realloc_jobs_list ()
+{
+  sigset_t set, oset;
+  int nsize, i, j, ncur, nprev;
+  JOB **nlist;
+
+>>>>>>> orgin/bash-4.3-testing
   ncur = nprev = NO_JOB;
   nsize = ((js.j_njobs + JOB_SLOTS - 1) / JOB_SLOTS);
   nsize *= JOB_SLOTS;
@@ -1205,9 +1423,16 @@ delete_job (job_index, dflags)
   if (temp == 0)
     return;
 
+<<<<<<< HEAD
   if ((dflags & DEL_NOBGPID) == 0 && (temp->flags & (J_ASYNC|J_FOREGROUND)) == J_ASYNC)
     {
       proc = find_last_proc (job_index, 0);
+=======
+  if ((dflags & DEL_NOBGPID) == 0)
+    {
+      proc = find_last_proc (job_index, 0);
+      /* Could do this just for J_ASYNC jobs, but we save all. */
+>>>>>>> orgin/bash-4.3-testing
       if (proc)
 	bgp_add (proc->pid, process_exit_status (proc->status));
     }
@@ -1265,7 +1490,11 @@ nohup_job (job_index)
 }
 
 /* Get rid of the data structure associated with a process chain. */
+<<<<<<< HEAD
 int
+=======
+static int
+>>>>>>> orgin/bash-4.3-testing
 discard_pipeline (chain)
      register PROCESS *chain;
 {
@@ -1651,7 +1880,11 @@ j_strsignal (s)
   if (x == 0)
     {
       x = retcode_name_buffer;
+<<<<<<< HEAD
       snprintf (x, sizeof(retcode_name_buffer), _("Signal %d"), s);
+=======
+      sprintf (x, _("Signal %d"), s);
+>>>>>>> orgin/bash-4.3-testing
     }
   return x;
 }
@@ -1674,7 +1907,11 @@ printable_job_status (j, p, format)
       else
 	{
 	  temp = retcode_name_buffer;
+<<<<<<< HEAD
 	  snprintf (temp, sizeof(retcode_name_buffer), _("Stopped(%s)"), signal_name (WSTOPSIG (p->status)));
+=======
+	  sprintf (temp, _("Stopped(%s)"), signal_name (WSTOPSIG (p->status)));
+>>>>>>> orgin/bash-4.3-testing
 	}
     }
   else if (RUNNING (j))
@@ -1690,6 +1927,7 @@ printable_job_status (j, p, format)
 	  temp = retcode_name_buffer;
 	  es = WEXITSTATUS (p->status);
 	  if (es == 0)
+<<<<<<< HEAD
 	    {
 	      strncpy (temp, _("Done"), sizeof (retcode_name_buffer) - 1);
 	      temp[sizeof (retcode_name_buffer) - 1] = '\0';
@@ -1698,6 +1936,13 @@ printable_job_status (j, p, format)
 	    snprintf (temp, sizeof(retcode_name_buffer), _("Done(%d)"), es);
 	  else
 	    snprintf (temp, sizeof(retcode_name_buffer), _("Exit %d"), es);
+=======
+	    strcpy (temp, _("Done"));
+	  else if (posixly_correct)
+	    sprintf (temp, _("Done(%d)"), es);
+	  else
+	    sprintf (temp, _("Exit %d"), es);
+>>>>>>> orgin/bash-4.3-testing
 	}
       else
 	temp = _("Unknown status");
@@ -1954,21 +2199,30 @@ make_child (command, async_p)
   while ((pid = fork ()) < 0 && errno == EAGAIN && forksleep < FORKSLEEP_MAX)
     {
       /* bash-4.2 */
+<<<<<<< HEAD
       sigprocmask (SIG_SETMASK, &oset, (sigset_t *)NULL);
       /* If we can't create any children, try to reap some dead ones. */
       waitchld (-1, 0);
 
       errno = EAGAIN;		/* restore errno */
+=======
+      /* If we can't create any children, try to reap some dead ones. */
+      waitchld (-1, 0);
+
+>>>>>>> orgin/bash-4.3-testing
       sys_error ("fork: retry");
       RESET_SIGTERM;
 
       if (sleep (forksleep) != 0)
 	break;
       forksleep <<= 1;
+<<<<<<< HEAD
 
       if (interrupt_state)
 	break;
       sigprocmask (SIG_SETMASK, &set, (sigset_t *)NULL);
+=======
+>>>>>>> orgin/bash-4.3-testing
     }
 
   if (pid != 0)
@@ -2042,7 +2296,11 @@ make_child (command, async_p)
 	     In this case, we don't want to give the terminal to the
 	     shell's process group (we could be in the middle of a
 	     pipeline, for example). */
+<<<<<<< HEAD
 	  if (async_p == 0 && pipeline_pgrp != shell_pgrp && ((subshell_environment&(SUBSHELL_ASYNC|SUBSHELL_PIPE)) == 0) && running_in_background == 0)
+=======
+	  if (async_p == 0 && pipeline_pgrp != shell_pgrp && ((subshell_environment&SUBSHELL_ASYNC) == 0))
+>>>>>>> orgin/bash-4.3-testing
 	    give_terminal_to (pipeline_pgrp, 0);
 
 #if defined (PGRP_PIPE)
@@ -2395,8 +2653,12 @@ wait_for_single_pid (pid, flags)
 
   if (child == 0)
     {
+<<<<<<< HEAD
       if (flags & JWAIT_PERROR)
 	internal_error (_("wait: pid %ld is not a child of this shell"), (long)pid);
+=======
+      internal_error (_("wait: pid %ld is not a child of this shell"), (long)pid);
+>>>>>>> orgin/bash-4.3-testing
       return (127);
     }
 
@@ -2454,12 +2716,15 @@ wait_for_background_pids ()
 	  if (i > js.j_lastj && jobs[i])
 	    itrace("wait_for_background_pids: job %d non-null after js.j_lastj (%d)", i, js.j_lastj);
 #endif
+<<<<<<< HEAD
 	  if (jobs[i] && STOPPED (i))
 	    {
 	      builtin_warning ("job %d[%d] stopped", i+1, find_last_pid (i, 0));
 	      any_stopped = 1;
 	    }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 	  if (jobs[i] && RUNNING (i) && IS_FOREGROUND (i) == 0)
 	    break;
 	}
@@ -2517,6 +2782,7 @@ static int wait_sigint_received;
 static int child_caught_sigint;
 static int waiting_for_child;
 
+<<<<<<< HEAD
 /* Clean up state after longjmp to wait_intr_buf */
 void
 wait_sigint_cleanup ()
@@ -2525,6 +2791,8 @@ wait_sigint_cleanup ()
   waiting_for_child = 0;
 }
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 static void
 restore_sigint_handler ()
 {
@@ -2558,10 +2826,17 @@ wait_sigint_handler (sig)
 	{
 	  trap_handler (SIGINT);	/* set pending_traps[SIGINT] */
 	  wait_signal_received = SIGINT;
+<<<<<<< HEAD
 	  if (interrupt_immediately && wait_intr_flag)
 	    {
 	      interrupt_immediately = 0;
 	      sh_longjmp (wait_intr_buf, 1);
+=======
+	  if (interrupt_immediately)
+	    {
+	      interrupt_immediately = 0;
+	      longjmp (wait_intr_buf, 1);
+>>>>>>> orgin/bash-4.3-testing
 	    }
 	  else
 	    /* Let CHECK_WAIT_INTR handle it in wait_for/waitchld */
@@ -2641,11 +2916,15 @@ raw_job_exit_status (job)
   int fail;
   WAIT ret;
 
+<<<<<<< HEAD
 #if 0
   if (pipefail_opt)
 #else
   if (jobs[job]->flags & J_PIPEFAIL)
 #endif
+=======
+  if (pipefail_opt)
+>>>>>>> orgin/bash-4.3-testing
     {
       fail = 0;
       p = jobs[job]->pipe;
@@ -2729,6 +3008,7 @@ wait_for (pid)
   wait_sigint_received = child_caught_sigint = 0;
   if (job_control == 0 || (subshell_environment&SUBSHELL_COMSUB))
     {
+<<<<<<< HEAD
       SigHandler *temp_sigint_handler;
 
       temp_sigint_handler = set_signal_handler (SIGINT, wait_sigint_handler);
@@ -2740,6 +3020,9 @@ wait_for (pid)
         }
       else
 	old_sigint_handler = temp_sigint_handler;
+=======
+      old_sigint_handler = set_signal_handler (SIGINT, wait_sigint_handler);
+>>>>>>> orgin/bash-4.3-testing
       waiting_for_child = 0;
       if (old_sigint_handler == SIG_IGN)
 	set_signal_handler (SIGINT, old_sigint_handler);
@@ -2768,7 +3051,11 @@ wait_for (pid)
 	 job to finish.  Otherwise, we are waiting for the child to finish.
 	 We check for JDEAD in case the job state has been set by waitchld
 	 after receipt of a SIGCHLD. */
+<<<<<<< HEAD
       if (job == NO_JOB && pid != ANY_PID)	/* XXX -- && pid != ANY_PID ? */
+=======
+      if (job == NO_JOB)
+>>>>>>> orgin/bash-4.3-testing
 	job = find_job (pid, 0, NULL);
 
       /* waitchld() takes care of setting the state of the job.  If the job
@@ -2814,8 +3101,12 @@ itrace("wait_for: blocking wait for %d returns %d child = %p", (int)pid, r, chil
 	  if (r == -1 && errno == ECHILD && this_shell_builtin == wait_builtin)
 	    {
 	      termination_state = -1;
+<<<<<<< HEAD
 	      /* XXX - restore sigint handler here */
 	      restore_sigint_handler ();
+=======
+	      /* XXX - restore sigint handler here? */
+>>>>>>> orgin/bash-4.3-testing
 	      goto wait_for_return;
 	    }
 
@@ -2859,12 +3150,18 @@ itrace("wait_for: blocking wait for %d returns %d child = %p", (int)pid, r, chil
       CHECK_WAIT_INTR;
 
       if (pid == ANY_PID)
+<<<<<<< HEAD
 	{
 	  /* XXX - could set child but we don't have a handle on what waitchld
 	    reaps.  Leave termination_state alone. */
 	  restore_sigint_handler ();
 	  goto wait_for_return;
 	}
+=======
+        /* XXX - could set child but we don't have a handle on what waitchld
+	   reaps.  Leave termination_state alone. */
+	goto wait_for_return;
+>>>>>>> orgin/bash-4.3-testing
     }
   while (PRUNNING (child) || (job != NO_JOB && RUNNING (job)));
 
@@ -2876,12 +3173,21 @@ itrace("wait_for: blocking wait for %d returns %d child = %p", (int)pid, r, chil
      of the last child in the pipeline is the significant one.  If the command
      or job was terminated by a signal, note that value also. */
   termination_state = (job != NO_JOB) ? job_exit_status (job)
+<<<<<<< HEAD
 				      : (child ? process_exit_status (child->status) : EXECUTION_SUCCESS);
   last_command_exit_signal = (job != NO_JOB) ? job_exit_signal (job)
 					     : (child ? process_exit_signal (child->status) : 0);
 
   /* XXX */
   if ((job != NO_JOB && JOBSTATE (job) == JSTOPPED) || (child && WIFSTOPPED (child->status)))
+=======
+				      : process_exit_status (child->status);
+  last_command_exit_signal = (job != NO_JOB) ? job_exit_signal (job)
+					     : process_exit_signal (child->status);
+
+  /* XXX */
+  if ((job != NO_JOB && JOBSTATE (job) == JSTOPPED) || WIFSTOPPED (child->status))
+>>>>>>> orgin/bash-4.3-testing
     termination_state = 128 + WSTOPSIG (child->status);
 
   if (job == NO_JOB || IS_JOBCONTROL (job))
@@ -2903,6 +3209,7 @@ itrace("wait_for: blocking wait for %d returns %d child = %p", (int)pid, r, chil
 if (job == NO_JOB)
   itrace("wait_for: job == NO_JOB, giving the terminal to shell_pgrp (%ld)", (long)shell_pgrp);
 #endif
+<<<<<<< HEAD
       /* Don't modify terminal pgrp if we are running in background or a
 	 subshell.  Make sure subst.c:command_substitute uses the same
 	 conditions to determine whether or not it should undo this and
@@ -2910,6 +3217,9 @@ if (job == NO_JOB)
       
       if (running_in_background == 0 && (subshell_environment&(SUBSHELL_ASYNC|SUBSHELL_PIPE)) == 0)
 	give_terminal_to (shell_pgrp, 0);
+=======
+      give_terminal_to (shell_pgrp, 0);
+>>>>>>> orgin/bash-4.3-testing
     }
 
   /* If the command did not exit cleanly, or the job is just
@@ -2962,6 +3272,7 @@ if (job == NO_JOB)
 		 well, so the loop can be broken.  This doesn't call the
 		 SIGINT signal handler; maybe it should. */
 	      if (signal_is_trapped (SIGINT) == 0 && (loop_level || (shell_compatibility_level > 32 && executing_list)))
+<<<<<<< HEAD
 		ADDINTERRUPT;
 	      /* Call any SIGINT trap handler if the shell is running a loop, so
 		 the loop can be broken.  This seems more useful and matches the
@@ -2974,6 +3285,8 @@ if (job == NO_JOB)
 	      /* If an interactive shell with job control enabled is sourcing
 		 a file, allow the interrupt to terminate the file sourcing. */
 	      else if (interactive_shell && signal_is_trapped (SIGINT) == 0 && sourcelevel)
+=======
+>>>>>>> orgin/bash-4.3-testing
 		ADDINTERRUPT;
 	      else
 		{
@@ -2989,6 +3302,11 @@ if (job == NO_JOB)
 	     something like a while loop or a for loop, simulate getting
 	     and being killed by the SIGINT to pass the status back to our
 	     parent. */
+<<<<<<< HEAD
+=======
+	  s = job_signal_status (job);
+
+>>>>>>> orgin/bash-4.3-testing
 	  if (child_caught_sigint == 0 && signal_is_trapped (SIGINT) == 0)
 	    {
 	      UNBLOCK_CHILD (oset);
@@ -2999,6 +3317,7 @@ if (job == NO_JOB)
 		kill (getpid (), SIGINT);
 	    }
 	}
+<<<<<<< HEAD
       else if (interactive_shell == 0 && subshell_environment == 0 && IS_FOREGROUND (job))
 	{
 	  s = job_signal_status (job);
@@ -3013,6 +3332,10 @@ if (job == NO_JOB)
 	  if (check_window_size)
 	    get_new_window_size (0, (int *)0, (int *)0);
 	}
+=======
+      else if (interactive_shell == 0 && IS_FOREGROUND (job) && check_window_size)
+	get_new_window_size (0, (int *)0, (int *)0);
+>>>>>>> orgin/bash-4.3-testing
 
       /* Moved here from set_job_status_and_cleanup, which is in the SIGCHLD
          signal handler path */
@@ -3048,8 +3371,12 @@ wait_for_job (job, flags)
   sigset_t set, oset;
 
   BLOCK_CHILD(set, oset);
+<<<<<<< HEAD
   state = JOBSTATE (job);
   if (state == JSTOPPED)
+=======
+  if (JOBSTATE (job) == JSTOPPED)
+>>>>>>> orgin/bash-4.3-testing
     internal_warning (_("wait_for_job: job %d is stopped"), job+1);
 
   pid = find_last_pid (job, 0);
@@ -3085,11 +3412,18 @@ wait_for_job (job, flags)
    the next exiting job, -1 if there are no background jobs.  The caller
    is responsible for translating -1 into the right return value. */
 int
+<<<<<<< HEAD
 wait_for_any_job (flags)
      int flags;
 {
   pid_t pid;
   int i, r;
+=======
+wait_for_any_job ()
+{
+  pid_t pid;
+  int i, r, waited_for;
+>>>>>>> orgin/bash-4.3-testing
   sigset_t set, oset;
 
   if (jobs_list_frozen)
@@ -3116,7 +3450,11 @@ return_job:
 
   /* At this point, we have no dead jobs in the jobs table.  Wait until we
      get one, even if it takes multiple pids exiting. */
+<<<<<<< HEAD
   for (;;)
+=======
+  for (waited_for = 0;;)
+>>>>>>> orgin/bash-4.3-testing
     {
       /* Make sure there is a background job to wait for */
       BLOCK_CHILD (set, oset);
@@ -3567,7 +3905,10 @@ waitchld (wpid, block)
   WAIT status;
   PROCESS *child;
   pid_t pid;
+<<<<<<< HEAD
   int ind;
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   int call_set_current, last_stopped_job, job, children_exited, waitpid_flags;
   static int wcontinued = WCONTINUED;	/* run-time fix for glibc problem */
@@ -3602,10 +3943,13 @@ waitchld (wpid, block)
 if (wpid != -1 && block)
   itrace("waitchld: blocking waitpid returns %d", pid);
 #endif
+<<<<<<< HEAD
 #if 0
 if (wpid != -1)
   itrace("waitchld: %s waitpid returns %d", block?"blocking":"non-blocking", pid);
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
       /* WCONTINUED may be rejected by waitpid as invalid even when defined */
       if (wcontinued && pid < 0 && errno == EINVAL)
 	{
@@ -3629,7 +3973,11 @@ if (wpid != -1)
 	}
 
 #if 0
+<<<<<<< HEAD
 itrace("waitchld: waitpid returns %d block = %d children_exited = %d", pid, block, children_exited);
+=======
+itrace("waitchld: waitpid returns %d block = %d", pid, block);
+>>>>>>> orgin/bash-4.3-testing
 #endif
       /* If waitpid returns 0, there are running children.  If it returns -1,
 	 the only other error POSIX says it can return is EINTR. */
@@ -3647,6 +3995,7 @@ itrace("waitchld: waitpid returns %d block = %d children_exited = %d", pid, bloc
       if (pid <= 0)
 	continue;	/* jumps right to the test */
 
+<<<<<<< HEAD
       /* Linux kernels appear to signal the parent but not interrupt the
 	 waitpid() (or restart it even without SA_RESTART) on SIGINT, so if
 	 we saw a SIGINT and the process exited or died due to some other
@@ -3654,6 +4003,8 @@ itrace("waitchld: waitpid returns %d block = %d children_exited = %d", pid, bloc
       if (wait_sigint_received && (WIFSIGNALED (status) == 0 || WTERMSIG (status) != SIGINT))
 	child_caught_sigint = 1;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
       /* If the child process did die due to SIGINT, forget our assumption
 	 that it caught or otherwise handled it. */
       if (WIFSIGNALED (status) && WTERMSIG (status) == SIGINT)
@@ -3673,6 +4024,7 @@ itrace("waitchld: waitpid returns %d block = %d children_exited = %d", pid, bloc
 #if defined (COPROCESS_SUPPORT)
       coproc_pidchk (pid, WSTATUS(status));
 #endif
+<<<<<<< HEAD
 
 #if defined (PROCESS_SUBSTITUTION)
       /* Only manipulate the list of process substitutions while SIGCHLD
@@ -3681,6 +4033,8 @@ itrace("waitchld: waitpid returns %d block = %d children_exited = %d", pid, bloc
 	set_procsub_status (ind, pid, WSTATUS (status));
 	/* XXX - save in bgpids list? */
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
       /* It is not an error to have a child terminate that we did
 	 not have a record of.  This child could have been part of
@@ -3703,7 +4057,11 @@ itrace("waitchld: waitpid returns %d block = %d children_exited = %d", pid, bloc
 	  if (job != NO_JOB)
 	    js.c_reaped++;
 	}
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> orgin/bash-4.3-testing
       if (job == NO_JOB)
 	continue;
 
@@ -3734,6 +4092,7 @@ itrace("waitchld: waitpid returns %d block = %d children_exited = %d", pid, bloc
       if (posixly_correct && this_shell_builtin && this_shell_builtin == wait_builtin)
 	{
 	  interrupt_immediately = 0;
+<<<<<<< HEAD
 	  /* This was trap_handler (SIGCHLD) but that can lose traps if
 	     children_exited > 1 */
 	  queue_sigchld_trap (children_exited);
@@ -3742,16 +4101,27 @@ itrace("waitchld: waitpid returns %d block = %d children_exited = %d", pid, bloc
 	     run_pending_traps will call run_sigchld_trap later  */
 	  if (sigchld == 0 && wait_intr_flag)
 	    sh_longjmp (wait_intr_buf, 1);
+=======
+	  trap_handler (SIGCHLD);	/* set pending_traps[SIGCHLD] */
+	  wait_signal_received = SIGCHLD;
+	  /* If we're in a signal handler, let CHECK_WAIT_INTR pick it up;
+	     run_pending_traps will call run_sigchld_trap later  */
+	  if (sigchld == 0)
+	    longjmp (wait_intr_buf, 1);
+>>>>>>> orgin/bash-4.3-testing
 	}
       /* If not in posix mode and not executing the wait builtin, queue the
 	 signal for later handling.  Run the trap immediately if we are
 	 executing the wait builtin, but don't break out of `wait'. */
       else if (sigchld)	/* called from signal handler */
 	queue_sigchld_trap (children_exited);
+<<<<<<< HEAD
       else if (signal_in_progress (SIGCHLD))
 	queue_sigchld_trap (children_exited);     
       else if (trap_list[SIGCHLD] == (char *)IMPOSSIBLE_TRAP_HANDLER)
 	queue_sigchld_trap (children_exited);
+=======
+>>>>>>> orgin/bash-4.3-testing
       else if (running_trap)
 	queue_sigchld_trap (children_exited);
       else if (this_shell_builtin == wait_builtin)
@@ -3893,10 +4263,14 @@ set_job_status_and_cleanup (job)
 	 seen it, and wait_sigint_received is non-zero, because keyboard
 	 signals are sent to process groups) or via kill(2) to the foreground
 	 process by another process (or itself).  If the shell did receive the
+<<<<<<< HEAD
 	 SIGINT, it needs to perform normal SIGINT processing.  XXX - should
 	 this change its behavior depending on whether the last command in an
 	 pipeline exited due to SIGINT, or any process in the pipeline?  Right
 	 now it does this if any process in the pipeline exits due to SIGINT. */
+=======
+	 SIGINT, it needs to perform normal SIGINT processing. */
+>>>>>>> orgin/bash-4.3-testing
       else if (wait_sigint_received &&
 	      child_caught_sigint == 0 &&
 	      IS_FOREGROUND (job) && IS_JOBCONTROL (job) == 0)
@@ -3936,7 +4310,11 @@ set_job_status_and_cleanup (job)
 		 In this case, we have to fix things up.  What a crock. */
 	      if (temp_handler == trap_handler && signal_is_trapped (SIGINT) == 0)
 		  temp_handler = trap_to_sighandler (SIGINT);
+<<<<<<< HEAD
 	      restore_sigint_handler ();
+=======
+		restore_sigint_handler ();
+>>>>>>> orgin/bash-4.3-testing
 	      if (temp_handler == SIG_DFL)
 		termsig_handler (SIGINT);	/* XXX */
 	      else if (temp_handler != SIG_IGN)
@@ -4016,6 +4394,11 @@ run_sigchld_trap (nchild)
 
   running_trap = SIGCHLD + 1;
 
+<<<<<<< HEAD
+=======
+  running_trap = SIGCHLD + 1;
+
+>>>>>>> orgin/bash-4.3-testing
   set_impossible_sigchld_trap ();
   jobs_list_frozen = 1;
   for (i = 0; i < nchild; i++)
@@ -4073,8 +4456,10 @@ notify_of_job_status ()
 		((DEADJOB (job) && IS_FOREGROUND (job) == 0) || STOPPED (job)))
 	    continue;
 	  
+#if 0
 	  /* If job control is disabled, don't print the status messages.
 	     Mark dead jobs as notified so that they get cleaned up.  If
+<<<<<<< HEAD
 	     startup_state == 2 and subshell_environment has the
 	     SUBSHELL_COMSUB bit turned on, we were started to run a command
 	     substitution, so don't print anything.
@@ -4087,6 +4472,19 @@ notify_of_job_status ()
 	  if ((job_control == 0 && interactive_shell) ||
 	      (startup_state == 2 && (subshell_environment & SUBSHELL_COMSUB)) ||
 	      (startup_state == 2 && posixly_correct && (subshell_environment & SUBSHELL_COMSUB) == 0))
+=======
+	     startup_state == 2, we were started to run `-c command', so
+	     don't print anything. */
+	  if ((job_control == 0 && interactive_shell) || startup_state == 2)
+#else
+	  /* If job control is disabled, don't print the status messages.
+	     Mark dead jobs as notified so that they get cleaned up.  If
+	     startup_state == 2 and subshell_environment has the
+	     SUBSHELL_COMSUB bit turned on, we were started to run a command
+	     substitution, so don't print anything. */
+	  if ((job_control == 0 && interactive_shell) ||
+	      (startup_state == 2 && (subshell_environment & SUBSHELL_COMSUB)))
+>>>>>>> orgin/bash-4.3-testing
 #endif
 	    {
 	      /* POSIX.2 compatibility:  if the shell is not interactive,
@@ -4179,7 +4577,11 @@ initialize_job_control (force)
      int force;
 {
   pid_t t;
+<<<<<<< HEAD
   int t_errno, tty_sigs;
+=======
+  int t_errno;
+>>>>>>> orgin/bash-4.3-testing
 
   t_errno = -1;
   shell_pgrp = getpgid (0);
@@ -4324,11 +4726,14 @@ just_bail:
   if (js.c_childmax < 0)
     js.c_childmax = DEFAULT_CHILD_MAX;
 
+<<<<<<< HEAD
 #if 0
   if (js.c_childmax > MAX_CHILD_MAX)
     js.c_childmax = MAX_CHILD_MAX;
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   return job_control;
 }
 
@@ -4512,7 +4917,11 @@ maybe_give_terminal_to (opgrp, npgrp, flags)
   else if (tpgrp != opgrp)
     {
 #if defined (DEBUG)
+<<<<<<< HEAD
       internal_warning ("%d: maybe_give_terminal_to: terminal pgrp == %d shell pgrp = %d new pgrp = %d in_background = %d", (int)getpid(), tpgrp, opgrp, npgrp, running_in_background);
+=======
+      internal_warning ("maybe_give_terminal_to: terminal pgrp == %d shell pgrp = %d new pgrp = %d", tpgrp, opgrp, npgrp);
+>>>>>>> orgin/bash-4.3-testing
 #endif
       return -1;
     }
@@ -4549,12 +4958,16 @@ delete_all_jobs (running_only)
 	    itrace("delete_all_jobs: job %d non-null after js.j_lastj (%d)", i, js.j_lastj);
 #endif
 	  if (jobs[i] && (running_only == 0 || (running_only && RUNNING(i))))
+<<<<<<< HEAD
 	    /* We don't want to add any of these pids to bgpids.  If running_only
 	       is non-zero, we don't want to add running jobs to the list.
 	       If we are interested in all jobs, not just running jobs, and
 	       we are going to clear the bgpids list below (bgp_clear()), we
 	       don't need to bother. */
 	    delete_job (i, DEL_WARNSTOPPED|DEL_NOBGPID);
+=======
+	    delete_job (i, DEL_WARNSTOPPED);
+>>>>>>> orgin/bash-4.3-testing
 	}
       if (running_only == 0)
 	{
@@ -4704,11 +5117,14 @@ mark_dead_jobs_as_notified (force)
     js.c_childmax = getmaxchild ();
   if (js.c_childmax < 0)
     js.c_childmax = DEFAULT_CHILD_MAX;
+<<<<<<< HEAD
 
 #if 0
   if (js.c_childmax > MAX_CHILD_MAX)
     js.c_childmax = MAX_CHILD_MAX;
 #endif
+=======
+>>>>>>> orgin/bash-4.3-testing
 
   /* Don't do anything if the number of dead processes is less than CHILD_MAX
      and we're not forcing a cleanup. */
@@ -4759,6 +5175,7 @@ itrace("mark_dead_jobs_as_notified: child_max = %d ndead = %d ndeadproc = %d", j
 
 /* Here to allow other parts of the shell (like the trap stuff) to
    freeze and unfreeze the jobs list. */
+<<<<<<< HEAD
 int
 freeze_jobs_list ()
 {
@@ -4767,6 +5184,12 @@ freeze_jobs_list ()
   o = jobs_list_frozen;
   jobs_list_frozen = 1;
   return o;
+=======
+void
+freeze_jobs_list ()
+{
+  jobs_list_frozen = 1;
+>>>>>>> orgin/bash-4.3-testing
 }
 
 void
@@ -4793,6 +5216,7 @@ set_job_control (arg)
   old = job_control;
   job_control = arg;
 
+<<<<<<< HEAD
   if (terminal_pgrp == NO_PID)
     terminal_pgrp = tcgetpgrp (shell_tty);
   
@@ -4808,6 +5232,8 @@ set_job_control (arg)
     }
 #endif
 
+=======
+>>>>>>> orgin/bash-4.3-testing
   /* If we're turning on job control, reset pipeline_pgrp so make_child will
      put new child processes into the right pgrp */
   if (job_control != old && job_control)

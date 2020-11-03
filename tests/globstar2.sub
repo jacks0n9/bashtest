@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 olddir=$PWD
 : ${TMPDIR:=/var/tmp}
 EMPTY=$TMPDIR/empty
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 shopt -s globstar
 s()
 {
@@ -12,8 +15,13 @@ p()
   printf '<%q>\n' "$@"
 }
 
+<<<<<<< HEAD
 mkdir -p $EMPTY/a/a/a
 cd $EMPTY
+=======
+mkdir -p /tmp/empty/a/a/a
+cd /tmp/empty
+>>>>>>> orgin/bash-4.3-testing
 
 # good
 p **
@@ -21,8 +29,13 @@ p **/**
 p **/**/**
 
 rm -rf a
+<<<<<<< HEAD
 mkdir -p $EMPTY/{a,b}/{a,b}/{a,b}/{a,b}
 cd $EMPTY
+=======
+mkdir -p /tmp/empty/{a,b}/{a,b}/{a,b}/{a,b}
+cd /tmp/empty
+>>>>>>> orgin/bash-4.3-testing
 
 # good
 s '**/a'
@@ -80,5 +93,10 @@ p **/a/**/**/**
 s '**/**/a/**'
 p **/**/a/**
 
+<<<<<<< HEAD
 cd "$olddir"
 rm -rf $EMPTY
+=======
+cd -
+rm -rf /tmp/empty
+>>>>>>> orgin/bash-4.3-testing

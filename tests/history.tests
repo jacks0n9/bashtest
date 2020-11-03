@@ -110,7 +110,13 @@ shopt -q -o history
 echo $?
 
 ${THIS_SH} ./history1.sub
+<<<<<<< HEAD
 rm -f $TMPDIR/foohist-*
 
 ${THIS_SH} ./history2.sub
 ${THIS_SH} ./history3.sub
+=======
+rm foohist-*
+
+${THIS_SH} ./history2.sub
+>>>>>>> orgin/bash-4.3-testing

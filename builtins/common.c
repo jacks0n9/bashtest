@@ -1,6 +1,10 @@
 /* common.c - utility functions for all builtins */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2010 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -68,6 +72,15 @@
 extern int errno;   
 #endif /* !errno */
 
+<<<<<<< HEAD
+=======
+extern int indirection_level, subshell_environment;
+extern int line_number;
+extern int last_command_exit_value;
+extern int running_trap;
+extern int posixly_correct;
+extern char *this_command_name, *shell_name;
+>>>>>>> orgin/bash-4.3-testing
 extern const char * const bash_getcwd_errstr;
 
 /* Used by some builtins and the mainline code. */
@@ -236,7 +249,11 @@ sh_invalidnum (s)
 {
   char *msg;
 
+<<<<<<< HEAD
   if (*s == '0' && isdigit ((unsigned char)s[1]))
+=======
+  if (*s == '0' && isdigit (s[1]))
+>>>>>>> orgin/bash-4.3-testing
     msg = _("invalid octal number");
   else if (*s == '0' && s[1] == 'x')
     msg = _("invalid hex number");
@@ -337,9 +354,13 @@ int
 sh_chkwrite (s)
      int s;
 {
+<<<<<<< HEAD
   QUIT;
   fflush (stdout);
   QUIT;
+=======
+  fflush (stdout);
+>>>>>>> orgin/bash-4.3-testing
   if (ferror (stdout))
     {
       sh_wrerror ();
@@ -678,7 +699,11 @@ get_job_spec (list)
   if (DIGIT (*word) && all_digits (word))
     {
       job = atoi (word);
+<<<<<<< HEAD
       return ((job < 0 || job > js.j_jobslots) ? NO_JOB : job - 1);
+=======
+      return (job > js.j_jobslots ? NO_JOB : job - 1);
+>>>>>>> orgin/bash-4.3-testing
     }
 
   jflags = 0;

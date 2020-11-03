@@ -97,6 +97,7 @@ echo ${TEXT^^}
 
 echo ${TEXT2^}
 echo ${TEXT2^^}
+<<<<<<< HEAD
 
 M1=${S1^^[aeiou]}
 M2=${U2,,[AEIOU]}
@@ -111,3 +112,5 @@ echo $lower
 declare -u upper=aBcDe
 upper+=xYZ
 echo $upper
+=======
+>>>>>>> orgin/bash-4.3-testing

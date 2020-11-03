@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 ${THIS_SH} ./coproc.tests > ${BASH_TSTOUT} 2>&1
 diff ${BASH_TSTOUT} coproc.right && rm -f ${BASH_TSTOUT}
+=======
+echo "warning: the process IDs printed will differ on every run" >&2
+echo "warning: and generate diffs" >&2
+${THIS_SH} ./coproc.tests > /tmp/xx 2>&1
+diff /tmp/xx coproc.right && rm -f /tmp/xx
+>>>>>>> orgin/bash-4.3-testing

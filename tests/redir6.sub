@@ -6,5 +6,8 @@ pwd
 echo $?
 echo $?
 echo $?
+<<<<<<< HEAD
 
 cd $OLDPWD
+=======
+>>>>>>> orgin/bash-4.3-testing

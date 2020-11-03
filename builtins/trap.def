@@ -1,7 +1,11 @@
 This file is trap.def, from which is created trap.c.
 It implements the builtin "trap" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2010 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -97,6 +101,11 @@ static int display_traps __P((WORD_LIST *));
 #define REVERT 1		/* Revert to this signals original value. */
 #define IGNORE 2		/* Ignore this signal. */
 
+<<<<<<< HEAD
+=======
+extern int posixly_correct, subshell_environment;
+
+>>>>>>> orgin/bash-4.3-testing
 int
 trap_builtin (list)
      WORD_LIST *list;

@@ -1,4 +1,5 @@
 # Swedish translation of bash
+<<<<<<< HEAD
 # Copyright © 2008, 2009, 2010, 2011, 2013, 2014, 2015, 2016, 2018 Free Software Foundation, Inc.
 # This file is distributed under the same license as the bash package.
 #
@@ -31,51 +32,111 @@ msgid "%s: removing nameref attribute"
 msgstr "%s: tar bort attributet namnreferens"
 
 #: arrayfunc.c:402 builtins/declare.def:851
+=======
+# Copyright © 2008, 2009, 2010, 2011, 2013 Free Software Foundation, Inc.
+# This file is distributed under the same license as the bash package.
+# Göran Uddeborg <goeran@uddeborg.se>, 2008, 2009, 2010, 2011, 2013.
+#
+# $Revision: 1.13 $
+msgid ""
+msgstr ""
+"Project-Id-Version: bash 4.3-pre2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-23 16:04-0500\n"
+"PO-Revision-Date: 2013-08-25 20:00+0200\n"
+"Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: arrayfunc.c:51
+msgid "bad array subscript"
+msgstr "felaktigt vektorindex"
+
+#: arrayfunc.c:356 builtins/declare.def:566
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot convert indexed to associative array"
 msgstr "%s: det går inte att konvertera en indexerad vektor till associativ"
 
+<<<<<<< HEAD
 #: arrayfunc.c:586
+=======
+#: arrayfunc.c:539
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid associative array key"
 msgstr "%s: ogiltig nyckel till associativ vektor"
 
+<<<<<<< HEAD
 #: arrayfunc.c:588
+=======
+#: arrayfunc.c:541
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot assign to non-numeric index"
 msgstr "%s: det går inte att tilldela till ickenumeriska index"
 
+<<<<<<< HEAD
 #: arrayfunc.c:633
+=======
+#: arrayfunc.c:586
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: must use subscript when assigning associative array"
 msgstr "%s: %s: måste använda index vid tilldelning av associativ vektor"
 
+<<<<<<< HEAD
 #: bashhist.c:451
+=======
+#: bashhist.c:388
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot create: %s"
 msgstr "%s: det går inte att skapa: %s"
 
+<<<<<<< HEAD
 #: bashline.c:4144
+=======
+#: bashline.c:3971
+>>>>>>> orgin/bash-4.3-testing
 msgid "bash_execute_unix_command: cannot find keymap for command"
 msgstr ""
 "bash_execute_unix_command: det går inte att hitta en tangentbindning för "
 "kommandot"
 
+<<<<<<< HEAD
 #: bashline.c:4254
+=======
+#: bashline.c:4058
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: first non-whitespace character is not `\"'"
 msgstr "%s: första ickeblanka tecknet är inte '\"'"
 
+<<<<<<< HEAD
 #: bashline.c:4283
 #, c-format
 msgid "no closing `%c' in %s"
 msgstr "ingen avslutande ”%c” i %s"
 
 #: bashline.c:4317
+=======
+#: bashline.c:4087
+#, c-format
+msgid "no closing `%c' in %s"
+msgstr "ingen avslutande \"%c\" i %s"
+
+#: bashline.c:4121
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: missing colon separator"
 msgstr "%s: kolonseparator saknas"
 
+<<<<<<< HEAD
 #: braces.c:331
 #, c-format
 msgid "brace expansion: cannot allocate memory for %s"
@@ -97,23 +158,64 @@ msgid "`%s': invalid alias name"
 msgstr "”%s”: ogiltigt aliasnamn"
 
 #: builtins/bind.def:122 builtins/bind.def:125
+=======
+#: braces.c:321
+#, c-format
+msgid "brace expansion: cannot allocate memory for %s"
+msgstr ""
+
+#: braces.c:413
+#, c-format
+msgid "brace expansion: failed to allocate memory for %d elements"
+msgstr ""
+
+#: braces.c:452
+#, c-format
+msgid "brace expansion: failed to allocate memory for `%s'"
+msgstr ""
+
+#: builtins/alias.def:132
+#, c-format
+msgid "`%s': invalid alias name"
+msgstr "\"%s\": ogiltigt aliasnamn"
+
+#: builtins/bind.def:123 builtins/bind.def:126
+>>>>>>> orgin/bash-4.3-testing
 msgid "line editing not enabled"
 msgstr "radredigering är inte aktiverat"
 
 #: builtins/bind.def:212
 #, c-format
 msgid "`%s': invalid keymap name"
+<<<<<<< HEAD
 msgstr "”%s”: ogiltigt tangentbindningsnamn"
 
 #: builtins/bind.def:252
+=======
+msgstr "\"%s\": ogiltigt tangentbindningsnamn"
+
+#: builtins/bind.def:251
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot read: %s"
 msgstr "%s: det går inte att läsa: %s"
 
+<<<<<<< HEAD
 #: builtins/bind.def:304 builtins/bind.def:334
 #, c-format
 msgid "`%s': unknown function name"
 msgstr "”%s”: okänt funktionsnamn"
+=======
+#: builtins/bind.def:266
+#, c-format
+msgid "`%s': cannot unbind"
+msgstr "\"%s\": det går inte att avbinda"
+
+#: builtins/bind.def:304 builtins/bind.def:334
+#, c-format
+msgid "`%s': unknown function name"
+msgstr "\"%s\": okänt funktionsnamn"
+>>>>>>> orgin/bash-4.3-testing
 
 #: builtins/bind.def:312
 #, c-format
@@ -125,6 +227,7 @@ msgstr "%s är inte bundet till några tangenter.\n"
 msgid "%s can be invoked via "
 msgstr "%s kan anropas via "
 
+<<<<<<< HEAD
 #: builtins/bind.def:353 builtins/bind.def:368
 #, c-format
 msgid "`%s': cannot unbind"
@@ -139,6 +242,17 @@ msgid "only meaningful in a `for', `while', or `until' loop"
 msgstr "endast meningsfullt i en ”for”-, ”while”- eller ”until”-slinga"
 
 #: builtins/caller.def:136
+=======
+#: builtins/break.def:77 builtins/break.def:117
+msgid "loop count"
+msgstr "slingräknare"
+
+#: builtins/break.def:137
+msgid "only meaningful in a `for', `while', or `until' loop"
+msgstr "endast meningsfullt i en \"for\"-, \"while\"- eller \"until\"-slinga"
+
+#: builtins/caller.def:134
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Returns the context of the current subroutine call.\n"
 "    \n"
@@ -148,6 +262,7 @@ msgstr ""
 "    \n"
 "    Utan UTTR, returnerar "
 
+<<<<<<< HEAD
 #: builtins/cd.def:326
 msgid "HOME not set"
 msgstr "HOME är inte satt"
@@ -165,45 +280,89 @@ msgid "OLDPWD not set"
 msgstr "OLDPWD är inte satt"
 
 #: builtins/common.c:96
+=======
+#: builtins/cd.def:319
+msgid "HOME not set"
+msgstr "HOME är inte satt"
+
+#: builtins/cd.def:327 builtins/common.c:166 test.c:855
+msgid "too many arguments"
+msgstr "för många argument"
+
+#: builtins/cd.def:338
+msgid "OLDPWD not set"
+msgstr "OLDPWD är inte satt"
+
+#: builtins/common.c:101
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "line %d: "
 msgstr "rad %d: "
 
+<<<<<<< HEAD
 #: builtins/common.c:134 error.c:264
+=======
+#: builtins/common.c:139 error.c:265
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "warning: "
 msgstr "varning: "
 
+<<<<<<< HEAD
 #: builtins/common.c:148
+=======
+#: builtins/common.c:153
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: usage: "
 msgstr "%s: användning: "
 
+<<<<<<< HEAD
 #: builtins/common.c:193 shell.c:510 shell.c:838
+=======
+#: builtins/common.c:191 shell.c:506 shell.c:788
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: option requires an argument"
 msgstr "%s: flaggan kräver ett argument"
 
+<<<<<<< HEAD
 #: builtins/common.c:200
+=======
+#: builtins/common.c:198
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: numeric argument required"
 msgstr "%s: numeriskt argument krävs"
 
+<<<<<<< HEAD
 #: builtins/common.c:207
+=======
+#: builtins/common.c:205
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not found"
 msgstr "%s: finns inte"
 
+<<<<<<< HEAD
 #: builtins/common.c:216 shell.c:851
+=======
+#: builtins/common.c:214 shell.c:801
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid option"
 msgstr "%s: ogiltig flagga"
 
+<<<<<<< HEAD
 #: builtins/common.c:223
+=======
+#: builtins/common.c:221
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid option name"
 msgstr "%s: ogiltigt flaggnamn"
 
+<<<<<<< HEAD
 #: builtins/common.c:230 execute_cmd.c:2372 general.c:352 general.c:357
 #, c-format
 msgid "`%s': not a valid identifier"
@@ -222,102 +381,197 @@ msgid "invalid number"
 msgstr "ogiltigt tal"
 
 #: builtins/common.c:252
+=======
+#: builtins/common.c:228 general.c:234 general.c:239
+#, c-format
+msgid "`%s': not a valid identifier"
+msgstr "\"%s\": inte en giltig identifierare"
+
+#: builtins/common.c:238
+msgid "invalid octal number"
+msgstr "ogiltigt oktalt tal"
+
+#: builtins/common.c:240
+msgid "invalid hex number"
+msgstr "ogiltigt hexadecimalt tal"
+
+#: builtins/common.c:242 expr.c:1470
+msgid "invalid number"
+msgstr "ogiltigt tal"
+
+#: builtins/common.c:250
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid signal specification"
 msgstr "%s: ogiltig signalspecifikation"
 
+<<<<<<< HEAD
 #: builtins/common.c:259
 #, c-format
 msgid "`%s': not a pid or valid job spec"
 msgstr "”%s”: inte en pid eller giltig jobbspecifikation"
 
 #: builtins/common.c:266 error.c:510
+=======
+#: builtins/common.c:257
+#, c-format
+msgid "`%s': not a pid or valid job spec"
+msgstr "\"%s\": inte en pid eller giltig jobbspecifikation"
+
+#: builtins/common.c:264 error.c:488
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: readonly variable"
 msgstr "%s: endast läsbar variabel"
 
+<<<<<<< HEAD
 #: builtins/common.c:274
+=======
+#: builtins/common.c:272
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s out of range"
 msgstr "%s: %s utanför giltigt intervall"
 
+<<<<<<< HEAD
 #: builtins/common.c:274 builtins/common.c:276
 msgid "argument"
 msgstr "argument"
 
 #: builtins/common.c:276
+=======
+#: builtins/common.c:272 builtins/common.c:274
+msgid "argument"
+msgstr "argument"
+
+#: builtins/common.c:274
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s out of range"
 msgstr "%s utanför giltigt intervall"
 
+<<<<<<< HEAD
 #: builtins/common.c:284
+=======
+#: builtins/common.c:282
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: no such job"
 msgstr "%s: inget sådant jobb"
 
+<<<<<<< HEAD
 #: builtins/common.c:292
+=======
+#: builtins/common.c:290
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: no job control"
 msgstr "%s: ingen jobbstyrning"
 
+<<<<<<< HEAD
 #: builtins/common.c:294
 msgid "no job control"
 msgstr "ingen jobbstyrning"
 
 #: builtins/common.c:304
+=======
+#: builtins/common.c:292
+msgid "no job control"
+msgstr "ingen jobbstyrning"
+
+#: builtins/common.c:302
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: restricted"
 msgstr "%s: begränsat"
 
+<<<<<<< HEAD
 #: builtins/common.c:306
 msgid "restricted"
 msgstr "begränsat"
 
 #: builtins/common.c:314
+=======
+#: builtins/common.c:304
+msgid "restricted"
+msgstr "begränsat"
+
+#: builtins/common.c:312
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not a shell builtin"
 msgstr "%s: inte inbyggt i skalet"
 
+<<<<<<< HEAD
 #: builtins/common.c:323
+=======
+#: builtins/common.c:321
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "write error: %s"
 msgstr "skrivfel: %s"
 
+<<<<<<< HEAD
 #: builtins/common.c:331
+=======
+#: builtins/common.c:329
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "error setting terminal attributes: %s"
 msgstr "fel när terminalattribut ställdes in: %s"
 
+<<<<<<< HEAD
 #: builtins/common.c:333
+=======
+#: builtins/common.c:331
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "error getting terminal attributes: %s"
 msgstr "fel när terminalattribut hämtades: %s"
 
+<<<<<<< HEAD
 #: builtins/common.c:579
+=======
+#: builtins/common.c:563
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: error retrieving current directory: %s: %s\n"
 msgstr "%s: fel när aktuell katalog hämtades: %s: %s\n"
 
+<<<<<<< HEAD
 #: builtins/common.c:645 builtins/common.c:647
+=======
+#: builtins/common.c:629 builtins/common.c:631
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: ambiguous job spec"
 msgstr "%s: tvetydig jobbspecifikation"
 
+<<<<<<< HEAD
 #: builtins/common.c:908
 msgid "help not available in this version"
 msgstr "hjälp är inte tillgängligt i denna version"
 
 #: builtins/complete.def:281
+=======
+#: builtins/complete.def:277
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid action name"
 msgstr "%s: ogiltigt åtgärdsnamn"
 
+<<<<<<< HEAD
 #: builtins/complete.def:474 builtins/complete.def:679
 #: builtins/complete.def:910
+=======
+#: builtins/complete.def:450 builtins/complete.def:645
+#: builtins/complete.def:855
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: no completion specification"
 msgstr "%s: ingen kompletteringsspecifikation"
 
+<<<<<<< HEAD
 #: builtins/complete.def:733
 msgid "warning: -F option may not work as you expect"
 msgstr "varning: flaggan -F fungerar kanske inte som du väntar dig"
@@ -335,15 +589,39 @@ msgid "can only be used in a function"
 msgstr "kan endast användas i en funktion"
 
 #: builtins/declare.def:369 builtins/declare.def:756
+=======
+#: builtins/complete.def:697
+msgid "warning: -F option may not work as you expect"
+msgstr "varning: flaggan -F fungerar kanske inte som du väntar dig"
+
+#: builtins/complete.def:699
+msgid "warning: -C option may not work as you expect"
+msgstr "varning: flaggan -C fungerar kanske inte som du väntar dig"
+
+#: builtins/complete.def:828
+msgid "not currently executing completion function"
+msgstr "kör inte en kompletteringsfunktion"
+
+#: builtins/declare.def:126
+msgid "can only be used in a function"
+msgstr "kan endast användas i en funktion"
+
+#: builtins/declare.def:315 builtins/declare.def:509
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: reference variable cannot be an array"
 msgstr "%s: en referensvariabel kan inte vara en vektor"
 
+<<<<<<< HEAD
 #: builtins/declare.def:380 variables.c:3363
+=======
+#: builtins/declare.def:324
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: nameref variable self references not allowed"
 msgstr "%s: att en namnreferensvariabel självrefererar är inte tillåtet"
 
+<<<<<<< HEAD
 #: builtins/declare.def:385 variables.c:2084 variables.c:3272 variables.c:3285
 #: variables.c:3360
 #, c-format
@@ -360,98 +638,171 @@ msgid "cannot use `-f' to make functions"
 msgstr "det går inte att använda ”-f” för att göra funktioner"
 
 #: builtins/declare.def:532 execute_cmd.c:5852
+=======
+#: builtins/declare.def:398
+msgid "cannot use `-f' to make functions"
+msgstr "det går inte att använda \"-f\" för att göra funktioner"
+
+#: builtins/declare.def:410 execute_cmd.c:5349
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: readonly function"
 msgstr "%s: endast läsbar funktion"
 
+<<<<<<< HEAD
 #: builtins/declare.def:824
 #, c-format
 msgid "%s: quoted compound array assignment deprecated"
 msgstr "%s: citerad sammansatt tilldelning av vektorer undanbedes"
 
 #: builtins/declare.def:838
+=======
+#: builtins/declare.def:553
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot destroy array variables in this way"
 msgstr "%s: det går inte att förstöra vektorvariabler på detta sätt"
 
+<<<<<<< HEAD
 #: builtins/declare.def:845 builtins/read.def:788
+=======
+#: builtins/declare.def:560 builtins/read.def:733
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot convert associative to indexed array"
 msgstr "%s: det går inte att konvertera en associativ vektor till indexerad"
 
+<<<<<<< HEAD
 #: builtins/enable.def:143 builtins/enable.def:151
 msgid "dynamic loading not available"
 msgstr "dynamisk laddning är inte tillgängligt"
 
 #: builtins/enable.def:343
+=======
+#: builtins/enable.def:137 builtins/enable.def:145
+msgid "dynamic loading not available"
+msgstr "dynamisk laddning är inte tillgängligt"
+
+#: builtins/enable.def:312
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot open shared object %s: %s"
 msgstr "det går inte att öppna delat objekt %s: %s"
 
+<<<<<<< HEAD
 #: builtins/enable.def:369
+=======
+#: builtins/enable.def:335
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot find %s in shared object %s: %s"
 msgstr "kan inte hitta %s i det delade objektet %s: %s"
 
+<<<<<<< HEAD
 #: builtins/enable.def:387
 #, c-format
 msgid "load function for %s returns failure (%d): not loaded"
 msgstr "inläsningsfunktionen för %s returnerar misslyckande (%d): inte inläst"
 
 #: builtins/enable.def:512
+=======
+#: builtins/enable.def:459
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not dynamically loaded"
 msgstr "%s: inte dynamiskt laddad"
 
+<<<<<<< HEAD
 #: builtins/enable.def:538
+=======
+#: builtins/enable.def:474
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot delete: %s"
 msgstr "%s: kan inte ta bort: %s"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:138 builtins/hash.def:184 execute_cmd.c:5684
+=======
+#: builtins/evalfile.c:140 builtins/hash.def:171 execute_cmd.c:5196
+#: shell.c:1481
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: is a directory"
 msgstr "%s: är en katalog"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:144
+=======
+#: builtins/evalfile.c:146
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not a regular file"
 msgstr "%s: inte en normal fil"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:153
+=======
+#: builtins/evalfile.c:155
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: file is too large"
 msgstr "%s: filen är för stor"
 
+<<<<<<< HEAD
 #: builtins/evalfile.c:188 builtins/evalfile.c:206 shell.c:1623
+=======
+#: builtins/evalfile.c:190 builtins/evalfile.c:208 shell.c:1491
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot execute binary file"
 msgstr "%s: det går inte att köra binär fil"
 
+<<<<<<< HEAD
 #: builtins/exec.def:156 builtins/exec.def:158 builtins/exec.def:243
+=======
+#: builtins/exec.def:154 builtins/exec.def:156 builtins/exec.def:228
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot execute: %s"
 msgstr "%s: kan inte köra: %s"
 
+<<<<<<< HEAD
 #: builtins/exit.def:64
+=======
+#: builtins/exit.def:65
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "logout\n"
 msgstr "utloggning\n"
 
+<<<<<<< HEAD
 #: builtins/exit.def:89
 msgid "not login shell: use `exit'"
 msgstr "inte ett inloggningsskal: använd ”exit”"
 
 #: builtins/exit.def:121
+=======
+#: builtins/exit.def:88
+msgid "not login shell: use `exit'"
+msgstr "inte ett inloggningsskal: använd \"exit\""
+
+#: builtins/exit.def:120
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "There are stopped jobs.\n"
 msgstr "Det finns stoppade jobb.\n"
 
+<<<<<<< HEAD
 #: builtins/exit.def:123
+=======
+#: builtins/exit.def:122
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "There are running jobs.\n"
 msgstr "Det finns körande jobb.\n"
 
+<<<<<<< HEAD
 #: builtins/fc.def:265
 msgid "no command found"
 msgstr "hittar inget kommando"
@@ -461,15 +812,34 @@ msgid "history specification"
 msgstr "historiespecifikation"
 
 #: builtins/fc.def:393
+=======
+#: builtins/fc.def:262
+msgid "no command found"
+msgstr "hittar inget kommando"
+
+#: builtins/fc.def:320 builtins/fc.def:369
+msgid "history specification"
+msgstr "historiespecifikation"
+
+#: builtins/fc.def:390
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot open temp file: %s"
 msgstr "%s: det går inte att öppna temporärfil: %s"
 
+<<<<<<< HEAD
 #: builtins/fg_bg.def:152 builtins/jobs.def:284
 msgid "current"
 msgstr "aktuell"
 
 #: builtins/fg_bg.def:161
+=======
+#: builtins/fg_bg.def:149 builtins/jobs.def:282
+msgid "current"
+msgstr "aktuell"
+
+#: builtins/fg_bg.def:158
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "job %d started without job control"
 msgstr "jobb %d startade utan jobbstyrning"
@@ -484,40 +854,70 @@ msgstr "%s: ogiltig flagga -- %c\n"
 msgid "%s: option requires an argument -- %c\n"
 msgstr "%s: flaggan kräver ett argument -- %c\n"
 
+<<<<<<< HEAD
 #: builtins/hash.def:91
 msgid "hashing disabled"
 msgstr "hashning avslaget"
+=======
+#: builtins/hash.def:92
+msgid "hashing disabled"
+msgstr "hasning avslaget"
+>>>>>>> orgin/bash-4.3-testing
 
 #: builtins/hash.def:138
 #, c-format
 msgid "%s: hash table empty\n"
 msgstr "%s: hashtabellen tom\n"
 
+<<<<<<< HEAD
 #: builtins/hash.def:266
+=======
+#: builtins/hash.def:245
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "hits\tcommand\n"
 msgstr "träffar\tkommando\n"
 
+<<<<<<< HEAD
 #: builtins/help.def:133
+=======
+#: builtins/help.def:130
+#, c-format
+>>>>>>> orgin/bash-4.3-testing
 msgid "Shell commands matching keyword `"
 msgid_plural "Shell commands matching keywords `"
 msgstr[0] "Skalkommandon som matchar nyckelordet '"
 msgstr[1] "Skalkommandon som matchar nyckelorden '"
 
+<<<<<<< HEAD
 #: builtins/help.def:185
+=======
+#: builtins/help.def:182
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "no help topics match `%s'.  Try `help help' or `man -k %s' or `info %s'."
 msgstr ""
+<<<<<<< HEAD
 "inget hjälpämne matchar ”%s”.  Prova ”help help” eller ”man -k %s” eller "
 "”info %s”."
 
 #: builtins/help.def:224
+=======
+"inget hjälpämne matchar \"%s\".  Prova \"help help\" eller \"man -k %s\" "
+"eller \"info %s\"."
+
+#: builtins/help.def:199
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot open: %s"
 msgstr "%s: det går inte att öppna: %s"
 
+<<<<<<< HEAD
 #: builtins/help.def:524
+=======
+#: builtins/help.def:485
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "These shell commands are defined internally.  Type `help' to see this list.\n"
@@ -528,10 +928,17 @@ msgid ""
 "A star (*) next to a name means that the command is disabled.\n"
 "\n"
 msgstr ""
+<<<<<<< HEAD
 "Dessa skalkommandon är definierade internt.  Skriv ”help” för att se\n"
 "denna lista.  Skriv ”help namn” för att få reda på mer om funktionen\n"
 "”namn”.  Använd ”info bash” för att få reda på mer om skalet rent\n"
 "allmänt.  Använd ”man -k” eller ”info” för att få reda på mer om\n"
+=======
+"Dessa skalkommandon är definierade internt.  Skriv \"help\" för att se\n"
+"denna lista.  Skriv \"help namn\" för att få reda på mer om funktionen\n"
+"\"namn\".  Använd \"info bash\" får att få reda på mer om skalet rent\n"
+"allmänt.  Använd \"man -k\" eller \"info\" för att få reda på mer om\n"
+>>>>>>> orgin/bash-4.3-testing
 "kommandon som inte är i listan.\n"
 "\n"
 "En stjärna (*) bredvid ett namn betyder att det kommandot är avstängt.\n"
@@ -541,6 +948,7 @@ msgstr ""
 msgid "cannot use more than one of -anrw"
 msgstr "det går inte att använda mer än en av -anrw"
 
+<<<<<<< HEAD
 #: builtins/history.def:187 builtins/history.def:197 builtins/history.def:212
 #: builtins/history.def:229 builtins/history.def:241 builtins/history.def:248
 msgid "history position"
@@ -552,6 +960,13 @@ msgid "%s: invalid timestamp"
 msgstr "%s: ogiltig tidsstämpel"
 
 #: builtins/history.def:442
+=======
+#: builtins/history.def:186
+msgid "history position"
+msgstr "historieposition"
+
+#: builtins/history.def:366
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: history expansion failed"
 msgstr "%s: historieexpansionen misslyckades"
@@ -563,6 +978,7 @@ msgstr "%s: inlib misslyckades"
 
 #: builtins/jobs.def:109
 msgid "no other options allowed with `-x'"
+<<<<<<< HEAD
 msgstr "inga andra flaggor är tillåtna med ”-x”"
 
 #: builtins/kill.def:211
@@ -579,30 +995,66 @@ msgid "expression expected"
 msgstr "uttryck förväntades"
 
 #: builtins/mapfile.def:178
+=======
+msgstr "inga andra flaggor är tillåtna med \"-x\""
+
+#: builtins/kill.def:200
+#, c-format
+msgid "%s: arguments must be process or job IDs"
+msgstr "%s: argument måste vara processer eller job-id:n"
+
+#: builtins/kill.def:263
+msgid "Unknown error"
+msgstr "Okänt fel"
+
+#: builtins/let.def:95 builtins/let.def:120 expr.c:583 expr.c:598
+msgid "expression expected"
+msgstr "uttryck förväntades"
+
+#: builtins/mapfile.def:172
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not an indexed array"
 msgstr "%s: inte en indexerad vektor"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:271 builtins/read.def:307
 #, c-format
 msgid "%s: invalid file descriptor specification"
 msgstr "%s: ogiltig filbeskrivarspecifikation"
 
 #: builtins/mapfile.def:279 builtins/read.def:314
+=======
+#: builtins/mapfile.def:259 builtins/read.def:302
+#, c-format
+msgid "%s: invalid file descriptor specification"
+msgstr "%s: ogiltig filidentifierarspecifikation"
+
+#: builtins/mapfile.def:267 builtins/read.def:309
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%d: invalid file descriptor: %s"
 msgstr "%d: ogiltig filbeskrivare: %s"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:288 builtins/mapfile.def:326
+=======
+#: builtins/mapfile.def:276 builtins/mapfile.def:314
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid line count"
 msgstr "%s: ogiltigt radantal"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:299
+=======
+#: builtins/mapfile.def:287
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid array origin"
 msgstr "%s: ogiltig vektorstart"
 
+<<<<<<< HEAD
 #: builtins/mapfile.def:316
 #, c-format
 msgid "%s: invalid callback quantum"
@@ -632,10 +1084,42 @@ msgid "`%c': invalid format character"
 msgstr "”%c”: ogiltigt formateringstecken"
 
 #: builtins/printf.def:703
+=======
+#: builtins/mapfile.def:304
+#, c-format
+msgid "%s: invalid callback quantum"
+msgstr "%s: ogiltigt återanropskvanta"
+
+#: builtins/mapfile.def:336
+msgid "empty array variable name"
+msgstr "tomt vektorvariabelnamn"
+
+#: builtins/mapfile.def:357
+msgid "array variable support required"
+msgstr "stöd för vektorvariabler krävs"
+
+#: builtins/printf.def:402
+#, c-format
+msgid "`%s': missing format character"
+msgstr "\"%s\": formateringstecken saknas"
+
+#: builtins/printf.def:456
+#, c-format
+msgid "`%c': invalid time format specification"
+msgstr "\"%c\": ogiltig specifikation av tidsformat"
+
+#: builtins/printf.def:658
+#, c-format
+msgid "`%c': invalid format character"
+msgstr "\"%c\": ogiltigt formateringstecken"
+
+#: builtins/printf.def:684
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "warning: %s: %s"
 msgstr "varning: %s: %s"
 
+<<<<<<< HEAD
 #: builtins/printf.def:789
 #, c-format
 msgid "format parsing problem: %s"
@@ -646,19 +1130,40 @@ msgid "missing hex digit for \\x"
 msgstr "hexadecimal siffra saknas för \\x"
 
 #: builtins/printf.def:901
+=======
+#: builtins/printf.def:768
+#, c-format
+msgid "format parsing problem: %s"
+msgstr ""
+
+#: builtins/printf.def:865
+msgid "missing hex digit for \\x"
+msgstr "hexadecimal siffra saknas för \\x"
+
+#: builtins/printf.def:880
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "missing unicode digit for \\%c"
 msgstr "unicode-siffra saknas för \\%c"
 
+<<<<<<< HEAD
 #: builtins/pushd.def:199
 msgid "no other directory"
 msgstr "ingen annan katalog"
 
 #: builtins/pushd.def:360
+=======
+#: builtins/pushd.def:195
+msgid "no other directory"
+msgstr "ingen annan katalog"
+
+#: builtins/pushd.def:354
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid argument"
 msgstr "%s: ogiltigt argument"
 
+<<<<<<< HEAD
 #: builtins/pushd.def:480
 msgid "<no current directory>"
 msgstr "<ingen aktuell katalog>"
@@ -672,6 +1177,21 @@ msgid "directory stack index"
 msgstr "katalogstackindex"
 
 #: builtins/pushd.def:701
+=======
+#: builtins/pushd.def:468
+msgid "<no current directory>"
+msgstr "<ingen aktuell katalog>"
+
+#: builtins/pushd.def:512
+msgid "directory stack empty"
+msgstr "katalogstacken är tom"
+
+#: builtins/pushd.def:514
+msgid "directory stack index"
+msgstr "katalogstackindex"
+
+#: builtins/pushd.def:689
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display the list of currently remembered directories.  Directories\n"
 "    find their way onto the list with the `pushd' command; you can get\n"
@@ -695,8 +1215,13 @@ msgid ""
 "\tdirs when invoked without options, starting with zero."
 msgstr ""
 "Visa listan av kataloger i minnet just nu.  Kataloger hamnar i listan\n"
+<<<<<<< HEAD
 "    med kommandot ”pushd”.  Du kan komma tillbaka upp genom listan med\n"
 "    kommandot ”popd”.\n"
+=======
+"    med kommandot \"pushd\" command.  Du kan komma tillbaka upp genom\n"
+"    listan med kommandot \"popd\".\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Flaggor:\n"
 "      -c\tnollställ katalogstacken genom att bo bort alla elementen\n"
@@ -710,10 +1235,17 @@ msgstr ""
 "      +N\tVisa den N:e posten räknat från vänster i listan som visas\n"
 "    \tav dirs när det anropas utan flaggor, räknat från noll.\n"
 "    \n"
+<<<<<<< HEAD
 "      -N\tVisa den N:e posten räknat från höger i listan som visas\n"
 "\tav dirs när det anropas utan flaggor, räknat från noll."
 
 #: builtins/pushd.def:723
+=======
+"      -N\tVisa den N:e posten räkntat från höger i listan som visas\n"
+"\tav dirs när det anropas utan flaggor, räknat från noll."
+
+#: builtins/pushd.def:711
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Adds a directory to the top of the directory stack, or rotates\n"
 "    the stack, making the new top of the stack the current working\n"
@@ -747,19 +1279,33 @@ msgstr ""
 "    \n"
 "    Argument:\n"
 "      +N\tRoterar stacken så att den N:e katalogen (räknat från\n"
+<<<<<<< HEAD
 "    \tvänster i listan som visas av ”dirs”, med början på noll) hamnar\n"
 "    \tpå toppen.\n"
 "    \n"
 "      -N\tRoterar stacken så att den N:e katalogen (räknat från\n"
 "    \thöger i listan som visas av ”dirs”, med början på noll) hamnar\n"
+=======
+"    \tvänster i listan som visas av \"dirs\", med början på noll) hamnar\n"
+"    \tpå toppen.\n"
+"    \n"
+"      -N\tRoterar stacken så att den N:e katalogen (räknat från\n"
+"    \thöger i listan som visas av \"dirs\", med början på noll) hamnar\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \tpå toppen.\n"
 "    \n"
 "      kat\tLägger till KAT till toppen av katalogstacken, och gör den\n"
 "    \ttill den nya aktuella arbetskatalogen.\n"
 "    \n"
+<<<<<<< HEAD
 "    Den inbyggda ”dirs” visar katalogstacken."
 
 #: builtins/pushd.def:748
+=======
+"    Den inbyggda \"dirs\" visar katalogstacken."
+
+#: builtins/pushd.def:736
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Removes entries from the directory stack.  With no arguments, removes\n"
 "    the top directory from the stack, and changes to the new top directory.\n"
@@ -788,6 +1334,7 @@ msgstr ""
 "    \n"
 "    Arguments:\n"
 "      +N\tTar bort den N:e posten räknat från vänster i listan\n"
+<<<<<<< HEAD
 "    \tsom visas av ”dirs”, med början på noll.  Till exempel: ”popd +0”\n"
 "    \ttar bort den första katalogen, ”popd +1” den andra.\n"
 "    \n"
@@ -798,15 +1345,32 @@ msgstr ""
 "    Den inbyggda ”dirs” visar katalogstacken."
 
 #: builtins/read.def:279
+=======
+"    \tsom visas av \"dirs\", med början på noll.  Till exempel: \"popd +0\"\n"
+"    \ttar bort den första katalogen, \"popd +1\" den andra.\n"
+"    \n"
+"      -N\tTar bort den N:e posten räknat från höger i listan\n"
+"    \tsom visas av \"dirs\", med början på noll.  Till exempel: \"popd -0\"\n"
+"    \ttar bort den sista katalogen, \"popd -1\" den näst sista.\n"
+"    \n"
+"    Den inbyggda \"dirs\" visar katalogstacken."
+
+#: builtins/read.def:275
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid timeout specification"
 msgstr "%s: ogiltig tidsgränsspecifikation"
 
+<<<<<<< HEAD
 #: builtins/read.def:733
+=======
+#: builtins/read.def:678
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "read error: %d: %s"
 msgstr "läsfel: %d: %s"
 
+<<<<<<< HEAD
 #: builtins/return.def:68
 msgid "can only `return' from a function or sourced script"
 msgstr ""
@@ -817,25 +1381,50 @@ msgid "cannot simultaneously unset a function and a variable"
 msgstr "det går inte att samtidigt ta bort en funktion och en variabel"
 
 #: builtins/set.def:904
+=======
+#: builtins/return.def:75
+msgid "can only `return' from a function or sourced script"
+msgstr ""
+"det går bara att göra \"return\" från en funktion eller källinläst skript"
+
+#: builtins/set.def:782
+msgid "cannot simultaneously unset a function and a variable"
+msgstr "det går inte att samtidigt ta bort en funktion och en variabel"
+
+#: builtins/set.def:826
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot unset"
 msgstr "%s: det går inte att ta bort tilldelning"
 
+<<<<<<< HEAD
 #: builtins/set.def:925 variables.c:3813
+=======
+#: builtins/set.def:843
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot unset: readonly %s"
 msgstr "%s: det går inte att ta bort tilldelning: endast läsbar %s"
 
+<<<<<<< HEAD
 #: builtins/set.def:938
+=======
+#: builtins/set.def:854
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not an array variable"
 msgstr "%s: inte en vektorvariabel"
 
+<<<<<<< HEAD
 #: builtins/setattr.def:189
+=======
+#: builtins/setattr.def:187
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: not a function"
 msgstr "%s: inte en funktion"
 
+<<<<<<< HEAD
 #: builtins/setattr.def:194
 #, c-format
 msgid "%s: cannot export"
@@ -850,19 +1439,39 @@ msgid "cannot set and unset shell options simultaneously"
 msgstr "det går inte att sätta och ta bort skalflaggor samtidigt"
 
 #: builtins/shopt.def:420
+=======
+#: builtins/shift.def:71 builtins/shift.def:77
+msgid "shift count"
+msgstr "skiftantal"
+
+#: builtins/shopt.def:279
+msgid "cannot set and unset shell options simultaneously"
+msgstr "det går inte att sätta och ta bort skalflaggor samtidigt"
+
+#: builtins/shopt.def:346
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid shell option name"
 msgstr "%s: ogiltigt skalflaggsnamn"
 
+<<<<<<< HEAD
 #: builtins/source.def:128
 msgid "filename argument required"
 msgstr "filnamnsargument krävs"
 
 #: builtins/source.def:154
+=======
+#: builtins/source.def:130
+msgid "filename argument required"
+msgstr "filnamnsargument krävs"
+
+#: builtins/source.def:155
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: file not found"
 msgstr "%s: filen finns inte"
 
+<<<<<<< HEAD
 #: builtins/suspend.def:102
 msgid "cannot suspend"
 msgstr "det går inte att suspendera"
@@ -877,59 +1486,113 @@ msgid "%s is aliased to `%s'\n"
 msgstr "%s är ett alias för ”%s”\n"
 
 #: builtins/type.def:256
+=======
+#: builtins/suspend.def:101
+msgid "cannot suspend"
+msgstr "det går inte att suspendera"
+
+#: builtins/suspend.def:111
+msgid "cannot suspend a login shell"
+msgstr "det går inte att suspendera ett inloggningsskal"
+
+#: builtins/type.def:234
+#, c-format
+msgid "%s is aliased to `%s'\n"
+msgstr "%s är ett alias för \"%s\"\n"
+
+#: builtins/type.def:255
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is a shell keyword\n"
 msgstr "%s är ett nyckelord i skalet\n"
 
+<<<<<<< HEAD
 #: builtins/type.def:275
+=======
+#: builtins/type.def:274
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is a function\n"
 msgstr "%s är en funktion\n"
 
+<<<<<<< HEAD
 #: builtins/type.def:299
 #, c-format
 msgid "%s is a special shell builtin\n"
 msgstr "%s är en special inbyggd i skalet\n"
 
 #: builtins/type.def:301
+=======
+#: builtins/type.def:296
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is a shell builtin\n"
 msgstr "%s är inbyggt i skalet\n"
 
+<<<<<<< HEAD
 #: builtins/type.def:323 builtins/type.def:408
+=======
+#: builtins/type.def:317 builtins/type.def:393
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is %s\n"
 msgstr "%s är %s\n"
 
+<<<<<<< HEAD
 #: builtins/type.def:343
+=======
+#: builtins/type.def:337
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s is hashed (%s)\n"
 msgstr "%s är hashad (%s)\n"
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:396
+=======
+#: builtins/ulimit.def:383
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid limit argument"
 msgstr "%s: ogiltigt gränsargument"
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:422
 #, c-format
 msgid "`%c': bad command"
 msgstr "”%c”: felaktigt kommando"
 
 #: builtins/ulimit.def:451
+=======
+#: builtins/ulimit.def:409
+#, c-format
+msgid "`%c': bad command"
+msgstr "\"%c\": felaktigt kommando"
+
+#: builtins/ulimit.def:438
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot get limit: %s"
 msgstr "%s: kan inte avgöra gränsen: %s"
 
+<<<<<<< HEAD
 #: builtins/ulimit.def:477
 msgid "limit"
 msgstr "gräns"
 
 #: builtins/ulimit.def:489 builtins/ulimit.def:789
+=======
+#: builtins/ulimit.def:464
+msgid "limit"
+msgstr "gräns"
+
+#: builtins/ulimit.def:476 builtins/ulimit.def:776
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot modify limit: %s"
 msgstr "%s: kan inte ändra gränsen: %s"
 
+<<<<<<< HEAD
 #: builtins/umask.def:115
 msgid "octal number"
 msgstr "oktalt tal"
@@ -949,15 +1612,41 @@ msgid " line "
 msgstr " rad "
 
 #: error.c:164
+=======
+#: builtins/umask.def:114
+msgid "octal number"
+msgstr "oktalt tal"
+
+#: builtins/umask.def:227
+#, c-format
+msgid "`%c': invalid symbolic mode operator"
+msgstr "\"%c\": ogiltig operator för symboliskt läge"
+
+#: builtins/umask.def:282
+#, c-format
+msgid "`%c': invalid symbolic mode character"
+msgstr "\"%c\": ogiltigt tecken för symboliskt läge"
+
+#: error.c:90 error.c:325 error.c:327 error.c:329
+msgid " line "
+msgstr " rad "
+
+#: error.c:165
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "last command: %s\n"
 msgstr "senaste kommando: %s\n"
 
+<<<<<<< HEAD
 #: error.c:172
+=======
+#: error.c:173
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Aborting..."
 msgstr "Avbryter..."
 
+<<<<<<< HEAD
 #. TRANSLATORS: this is a prefix for informational messages.
 #: error.c:287
 #, c-format
@@ -981,15 +1670,39 @@ msgid "bad jump"
 msgstr "felaktigt hopp"
 
 #: error.c:503
+=======
+#: error.c:440
+msgid "unknown command error"
+msgstr "okänt kommandofel"
+
+#: error.c:441
+msgid "bad command type"
+msgstr "felaktig kommandotyp"
+
+#: error.c:442
+msgid "bad connector"
+msgstr "felaktig anslutning"
+
+#: error.c:443
+msgid "bad jump"
+msgstr "felaktigt hopp"
+
+#: error.c:481
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: unbound variable"
 msgstr "%s: obunden variabel"
 
+<<<<<<< HEAD
 #: eval.c:245
+=======
+#: eval.c:189
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "\atimed out waiting for input: auto-logout\n"
 msgstr "\atiden gick ut i väntan på indata: automatisk utloggning\n"
 
+<<<<<<< HEAD
 #: execute_cmd.c:536
 #, c-format
 msgid "cannot redirect standard input from /dev/null: %s"
@@ -1020,45 +1733,92 @@ msgid "%s: maximum source nesting level exceeded (%d)"
 msgstr "%s: maximal nästning av source överskriden (%d)"
 
 #: execute_cmd.c:4791
+=======
+#: execute_cmd.c:512
+#, c-format
+msgid "cannot redirect standard input from /dev/null: %s"
+msgstr "det går inte att omdiregera standard in från /dev/null: %s"
+
+#: execute_cmd.c:1233
+#, c-format
+msgid "TIMEFORMAT: `%c': invalid format character"
+msgstr "TIMEFORMAT: \"%c\": ogiltigt formateringstecken"
+
+#: execute_cmd.c:2287
+msgid "pipe error"
+msgstr "rörfel"
+
+#: execute_cmd.c:4374
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: maximum function nesting level exceeded (%d)"
 msgstr "%s: maximal nästning av funktioner överskriden (%d)"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5340
 #, c-format
 msgid "%s: restricted: cannot specify `/' in command names"
 msgstr "%s: begränsat: det går inte att ange ”/” i kommandonamn"
 
 #: execute_cmd.c:5438
+=======
+#: execute_cmd.c:4872
+#, c-format
+msgid "%s: restricted: cannot specify `/' in command names"
+msgstr "%s: begränsat: det går inte att ange \"/\" i kommandonamn"
+
+#: execute_cmd.c:4961
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: command not found"
 msgstr "%s: kommandot finns inte"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5682
+=======
+#: execute_cmd.c:5194
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s"
 msgstr "%s: %s"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5720
+=======
+#: execute_cmd.c:5231
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: bad interpreter"
 msgstr "%s: %s: felaktig tolk"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5757
+=======
+#: execute_cmd.c:5268
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot execute binary file: %s"
 msgstr "%s: det går inte att köra binär fil: %s"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5843
+=======
+#: execute_cmd.c:5340
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "`%s': is a special builtin"
 msgstr "”%s”: är en speciell inbyggd"
 
+<<<<<<< HEAD
 #: execute_cmd.c:5895
+=======
+#: execute_cmd.c:5392
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot duplicate fd %d to fd %d"
 msgstr "det går inte att duplicera fb %d till fb %d"
 
+<<<<<<< HEAD
 #: expr.c:263
 msgid "expression recursion level exceeded"
 msgstr "rekursionsnivå i uttryck överskriden"
@@ -1125,30 +1885,111 @@ msgid "value too great for base"
 msgstr "värdet är för stort för basen"
 
 #: expr.c:1637
+=======
+#: expr.c:259
+msgid "expression recursion level exceeded"
+msgstr "rekursionsnivå i uttryck överskriden"
+
+#: expr.c:283
+msgid "recursion stack underflow"
+msgstr "underspill i rekursionsstacken"
+
+#: expr.c:431
+msgid "syntax error in expression"
+msgstr "syntaxfel i uttrycket"
+
+#: expr.c:475
+msgid "attempted assignment to non-variable"
+msgstr "försök att tilldela till en icke-variabel"
+
+#: expr.c:495 expr.c:858
+msgid "division by 0"
+msgstr "division med 0"
+
+#: expr.c:542
+msgid "bug: bad expassign token"
+msgstr "bug: felaktig expassign-token"
+
+#: expr.c:595
+msgid "`:' expected for conditional expression"
+msgstr "\":\" förväntades i villkorligt uttryck"
+
+#: expr.c:919
+msgid "exponent less than 0"
+msgstr "exponenten är mindre än 0"
+
+#: expr.c:976
+msgid "identifier expected after pre-increment or pre-decrement"
+msgstr "en identifierare förväntades efter pre-ökning eller pre-minskning"
+
+#: expr.c:1002
+msgid "missing `)'"
+msgstr "\")\" saknas"
+
+#: expr.c:1053 expr.c:1390
+msgid "syntax error: operand expected"
+msgstr "syntaxfel: en operand förväntades"
+
+#: expr.c:1392
+msgid "syntax error: invalid arithmetic operator"
+msgstr "syntaxfel: ogiltig aritmetisk operator"
+
+#: expr.c:1416
+#, c-format
+msgid "%s%s%s: %s (error token is \"%s\")"
+msgstr "%s%s%s: %s (felsymbol är \"%s\")"
+
+#: expr.c:1474
+msgid "invalid arithmetic base"
+msgstr "ogiltig aritmetisk bas"
+
+#: expr.c:1494
+msgid "value too great for base"
+msgstr "värdet är för stort för basen"
+
+#: expr.c:1543
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: expression error\n"
 msgstr "%s: uttrycksfel\n"
 
+<<<<<<< HEAD
 #: general.c:69
 msgid "getcwd: cannot access parent directories"
 msgstr "getcwd: det går inte att komma åt föräldrakatalogen"
 
 #: input.c:99 subst.c:5930
+=======
+#: general.c:61
+msgid "getcwd: cannot access parent directories"
+msgstr "getcwd: det går inte att komma åt föräldrakatalogen"
+
+#: input.c:102 subst.c:5168
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot reset nodelay mode for fd %d"
 msgstr "det går inte att återställa fördröjningsfritt läge för fb %d"
 
+<<<<<<< HEAD
 #: input.c:266
+=======
+#: input.c:269
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot allocate new file descriptor for bash input from fd %d"
 msgstr ""
 "det går inte att allokera en ny filbeskrivare för bashindata från fb %d"
 
+<<<<<<< HEAD
 #: input.c:274
+=======
+#: input.c:277
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "save_bash_input: buffer already exists for new fd %d"
 msgstr "save_bash_input: buffert finns redan för ny fb %d"
 
+<<<<<<< HEAD
 #: jobs.c:529
 msgid "start_pipeline: pgrp pipe"
 msgstr "start_pipeline: pgrp rör"
@@ -1159,30 +2000,59 @@ msgid "forked pid %d appears in running job %d"
 msgstr "avgrenad pid %d finns i körande jobb %d"
 
 #: jobs.c:1203
+=======
+#: jobs.c:471
+msgid "start_pipeline: pgrp pipe"
+msgstr "start_pipeline: pgrp rör"
+
+#: jobs.c:893
+#, c-format
+msgid "forked pid %d appears in running job %d"
+msgstr "avgrenad pid %d fins i körande jobb %d"
+
+#: jobs.c:1012
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "deleting stopped job %d with process group %ld"
 msgstr "tar bort stoppat jobb %d med processgrupp %ld"
 
+<<<<<<< HEAD
 #: jobs.c:1307
+=======
+#: jobs.c:1117
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "add_process: process %5ld (%s) in the_pipeline"
 msgstr "add_process: process %5ld (%s) i the_pipeline"
 
+<<<<<<< HEAD
 #: jobs.c:1310
+=======
+#: jobs.c:1120
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "add_process: pid %5ld (%s) marked as still alive"
 msgstr "add_process: pid %5ld (%s) markerad som fortfarande vid liv"
 
+<<<<<<< HEAD
 #: jobs.c:1639
+=======
+#: jobs.c:1435
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "describe_pid: %ld: no such pid"
 msgstr "describe_pid: %ld: ingen sådan pid"
 
+<<<<<<< HEAD
 #: jobs.c:1654
+=======
+#: jobs.c:1450
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Signal %d"
 msgstr "Signal %d"
 
+<<<<<<< HEAD
 #: jobs.c:1668 jobs.c:1694
 msgid "Done"
 msgstr "Klart"
@@ -1201,78 +2071,155 @@ msgid "Running"
 msgstr "Kör"
 
 #: jobs.c:1698
+=======
+#: jobs.c:1464 jobs.c:1489
+msgid "Done"
+msgstr "Klart"
+
+#: jobs.c:1469 siglist.c:123
+msgid "Stopped"
+msgstr "Stoppat"
+
+#: jobs.c:1473
+#, c-format
+msgid "Stopped(%s)"
+msgstr "Stoppat(%s)"
+
+#: jobs.c:1477
+msgid "Running"
+msgstr "Kör"
+
+#: jobs.c:1491
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Done(%d)"
 msgstr "Klart(%d)"
 
+<<<<<<< HEAD
 #: jobs.c:1700
+=======
+#: jobs.c:1493
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "Exit %d"
 msgstr "Avslut %d"
 
+<<<<<<< HEAD
 #: jobs.c:1703
 msgid "Unknown status"
 msgstr "Okänd status"
 
 #: jobs.c:1790
+=======
+#: jobs.c:1496
+msgid "Unknown status"
+msgstr "Okänd status"
+
+#: jobs.c:1583
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "(core dumped) "
 msgstr "(minnesutskrift skapad) "
 
+<<<<<<< HEAD
 #: jobs.c:1809
+=======
+#: jobs.c:1602
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "  (wd: %s)"
 msgstr "  (ak: %s)"
 
+<<<<<<< HEAD
 #: jobs.c:2037
+=======
+#: jobs.c:1819
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "child setpgid (%ld to %ld)"
 msgstr "barns setpgid (%ld till %ld)"
 
+<<<<<<< HEAD
 #: jobs.c:2399 nojobs.c:657
+=======
+#: jobs.c:2138 nojobs.c:605
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "wait: pid %ld is not a child of this shell"
 msgstr "wait: pid %ld är inte ett barn till detta skal"
 
+<<<<<<< HEAD
 #: jobs.c:2695
+=======
+#: jobs.c:2385
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "wait_for: No record of process %ld"
 msgstr "wait_for: Ingen uppgift om process %ld"
 
+<<<<<<< HEAD
 #: jobs.c:3055
+=======
+#: jobs.c:2694
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "wait_for_job: job %d is stopped"
 msgstr "wait_for_job: jobb %d är stoppat"
 
+<<<<<<< HEAD
 #: jobs.c:3362
+=======
+#: jobs.c:2986
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: job has terminated"
 msgstr "%s: jobbet har avslutat"
 
+<<<<<<< HEAD
 #: jobs.c:3371
+=======
+#: jobs.c:2995
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: job %d already in background"
 msgstr "%s: jobb %d är redan i bakgrunden"
 
+<<<<<<< HEAD
 #: jobs.c:3597
 msgid "waitchld: turning on WNOHANG to avoid indefinite block"
 msgstr "waitchld: slår på WNOHANG för att undvika oändlig blockering"
 
 #: jobs.c:4120
+=======
+#: jobs.c:3220
+msgid "waitchld: turning on WNOHANG to avoid indefinite block"
+msgstr "waitchld: slår på WNOHANG för att undvika oändlig blockering"
+
+#: jobs.c:3711
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: line %d: "
 msgstr "%s: rad %d: "
 
+<<<<<<< HEAD
 #: jobs.c:4134 nojobs.c:900
+=======
+#: jobs.c:3725 nojobs.c:843
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid " (core dumped)"
 msgstr " (minnesutskrift skapad)"
 
+<<<<<<< HEAD
 #: jobs.c:4146 jobs.c:4159
+=======
+#: jobs.c:3737 jobs.c:3750
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "(wd now: %s)\n"
 msgstr "(ak nu: %s)\n"
 
+<<<<<<< HEAD
 #: jobs.c:4191
 msgid "initialize_job_control: getpgrp failed"
 msgstr "initialize_job_control: getpgrp misslyckades"
@@ -1290,20 +2237,47 @@ msgid "initialize_job_control: setpgid"
 msgstr "initialize_job_control: setpgid"
 
 #: jobs.c:4294 jobs.c:4303
+=======
+#: jobs.c:3782
+msgid "initialize_job_control: getpgrp failed"
+msgstr "initialize_job_control: getpgrp misslyckades"
+
+#: jobs.c:3843
+msgid "initialize_job_control: line discipline"
+msgstr "initialize_job_control: linjedisciplin"
+
+#: jobs.c:3853
+msgid "initialize_job_control: setpgid"
+msgstr "initialize_job_control: setpgid"
+
+#: jobs.c:3874 jobs.c:3883
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot set terminal process group (%d)"
 msgstr "det går inte att sätta terminalprocessgrupp (%d)"
 
+<<<<<<< HEAD
 #: jobs.c:4308
 msgid "no job control in this shell"
 msgstr "ingen jobbstyrning i detta skal"
 
 #: lib/malloc/malloc.c:331
+=======
+#: jobs.c:3888
+msgid "no job control in this shell"
+msgstr "ingen jobbstyrning i detta skal"
+
+#: lib/malloc/malloc.c:296
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "malloc: failed assertion: %s\n"
 msgstr "malloc: försäkran misslyckades: %s\n"
 
+<<<<<<< HEAD
 #: lib/malloc/malloc.c:347
+=======
+#: lib/malloc/malloc.c:312
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "\r\n"
@@ -1312,6 +2286,7 @@ msgstr ""
 "\r\n"
 "malloc: %s:%d: försäkran gick fel\r\n"
 
+<<<<<<< HEAD
 #: lib/malloc/malloc.c:348
 msgid "unknown"
 msgstr "okänd"
@@ -1349,16 +2324,63 @@ msgid "realloc: start and end chunk sizes differ"
 msgstr "realloc: start- och slutstyckesstorlekar skiljer"
 
 #: lib/malloc/table.c:191
+=======
+#: lib/malloc/malloc.c:313
+msgid "unknown"
+msgstr "okänd"
+
+#: lib/malloc/malloc.c:801
+msgid "malloc: block on free list clobbered"
+msgstr "malloc: block på frilista överskrivet"
+
+#: lib/malloc/malloc.c:878
+msgid "free: called with already freed block argument"
+msgstr "free: anropad med redan frigjort block som argument"
+
+#: lib/malloc/malloc.c:881
+msgid "free: called with unallocated block argument"
+msgstr "free: anropad med oallokerat block som argument"
+
+#: lib/malloc/malloc.c:900
+msgid "free: underflow detected; mh_nbytes out of range"
+msgstr "free: underspill upptäckt: mh_nbytes utanför giltigt intervall"
+
+#: lib/malloc/malloc.c:906
+msgid "free: start and end chunk sizes differ"
+msgstr "free: start- och slutstyckesstorlekar skiljer"
+
+#: lib/malloc/malloc.c:1005
+msgid "realloc: called with unallocated block argument"
+msgstr "realloc: anropat med oallokerat block som argument"
+
+#: lib/malloc/malloc.c:1020
+msgid "realloc: underflow detected; mh_nbytes out of range"
+msgstr "realloc: underspill upptäckt: mh_nbytes utanför giltigt intervall"
+
+#: lib/malloc/malloc.c:1026
+msgid "realloc: start and end chunk sizes differ"
+msgstr "realloc: start- och slutstycesstorlekar skiljer"
+
+#: lib/malloc/table.c:194
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "register_alloc: alloc table is full with FIND_ALLOC?\n"
 msgstr "register_alloc: allokeringstabellen är full med FIND_ALLOC?\n"
 
+<<<<<<< HEAD
 #: lib/malloc/table.c:200
+=======
+#: lib/malloc/table.c:203
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "register_alloc: %p already in table as allocated?\n"
 msgstr "register_alloc: %p finns redan i tabellen som allokerat?\n"
 
+<<<<<<< HEAD
 #: lib/malloc/table.c:253
+=======
+#: lib/malloc/table.c:256
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "register_free: %p already in table as free?\n"
 msgstr "register_free: %p finns redan i tabellen som fritt?\n"
@@ -1382,26 +2404,46 @@ msgstr "%s: ogiltig tjänst"
 msgid "%s: bad network path specification"
 msgstr "%s: felaktig specifikation av nätverkssökväg"
 
+<<<<<<< HEAD
 #: lib/sh/netopen.c:347
 msgid "network operations not supported"
 msgstr "nätverksoperationer stöds inte"
 
 #: locale.c:205
+=======
+#: lib/sh/netopen.c:346
+msgid "network operations not supported"
+msgstr "nätverksoperationer stöds inte"
+
+#: locale.c:200
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "setlocale: LC_ALL: cannot change locale (%s)"
 msgstr "setlocale: LC_ALL: det går inte att ändra lokal (%s)"
 
+<<<<<<< HEAD
 #: locale.c:207
+=======
+#: locale.c:202
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "setlocale: LC_ALL: cannot change locale (%s): %s"
 msgstr "setlocale: LC_ALL: det går inte att ändra lokal (%s): %s"
 
+<<<<<<< HEAD
 #: locale.c:272
+=======
+#: locale.c:259
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "setlocale: %s: cannot change locale (%s)"
 msgstr "setlocale: %s: det går inte att ändra lokal (%s)"
 
+<<<<<<< HEAD
 #: locale.c:274
+=======
+#: locale.c:261
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "setlocale: %s: cannot change locale (%s): %s"
 msgstr "setlocale: %s: det går inte att ändra lokal (%s): %s"
@@ -1419,6 +2461,7 @@ msgstr "Du har ny post i $_"
 msgid "The mail in %s has been read\n"
 msgstr "Posten i %s har lästs\n"
 
+<<<<<<< HEAD
 #: make_cmd.c:317
 msgid "syntax error: arithmetic expression required"
 msgstr "syntaxfel: aritmetiskt uttryck krävs"
@@ -1433,10 +2476,27 @@ msgid "syntax error: `((%s))'"
 msgstr "syntaxfel: ”((%s))”"
 
 #: make_cmd.c:572
+=======
+#: make_cmd.c:323
+msgid "syntax error: arithmetic expression required"
+msgstr "syntaxfel: aritmetiskt uttryck krävs"
+
+#: make_cmd.c:325
+msgid "syntax error: `;' unexpected"
+msgstr "syntaxfel: oväntat \";\""
+
+#: make_cmd.c:326
+#, c-format
+msgid "syntax error: `((%s))'"
+msgstr "syntaxfel: \"((%s))\""
+
+#: make_cmd.c:578
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "make_here_document: bad instruction type %d"
 msgstr "make_here_document: felaktig instruktionstyp %d"
 
+<<<<<<< HEAD
 #: make_cmd.c:657
 #, c-format
 msgid "here-document at line %d delimited by end-of-file (wanted `%s')"
@@ -1526,10 +2586,89 @@ msgid "unexpected token `%s' in conditional command"
 msgstr "oväntad symbol ”%s” i villkorligt kommando"
 
 #: parse.y:4823
+=======
+#: make_cmd.c:662
+#, c-format
+msgid "here-document at line %d delimited by end-of-file (wanted `%s')"
+msgstr "här-dokument på rad %d avgränsas av filslut (ville ha \"%s\")"
+
+#: make_cmd.c:759
+#, c-format
+msgid "make_redirection: redirection instruction `%d' out of range"
+msgstr ""
+"make_redirection: omdirigeringsinstruktion \"%d\" utanför giltigt intervall"
+
+#: parse.y:3273 parse.y:3556
+#, c-format
+msgid "unexpected EOF while looking for matching `%c'"
+msgstr "oväntat filslut vid sökning efter matchande \"%c\""
+
+#: parse.y:4163
+msgid "unexpected EOF while looking for `]]'"
+msgstr "oväntat filslut vid sökning efter \"]]\""
+
+#: parse.y:4168
+#, c-format
+msgid "syntax error in conditional expression: unexpected token `%s'"
+msgstr "syntaxfel i villkorligt uttryck: oväntad symbol \"%s\""
+
+#: parse.y:4172
+msgid "syntax error in conditional expression"
+msgstr "syntaxfel i villkorligt uttryck"
+
+#: parse.y:4250
+#, c-format
+msgid "unexpected token `%s', expected `)'"
+msgstr "oväntad symbol \"%s\", \")\" förväntades"
+
+#: parse.y:4254
+msgid "expected `)'"
+msgstr "\")\" förväntades"
+
+#: parse.y:4282
+#, c-format
+msgid "unexpected argument `%s' to conditional unary operator"
+msgstr "oväntat argument \"%s\" till villkorlig unär operator"
+
+#: parse.y:4286
+msgid "unexpected argument to conditional unary operator"
+msgstr "oväntat argument till villkorlig unär operator"
+
+#: parse.y:4332
+#, c-format
+msgid "unexpected token `%s', conditional binary operator expected"
+msgstr "oväntad symbol \"%s\", villkorlig binär operator förväntades"
+
+#: parse.y:4336
+msgid "conditional binary operator expected"
+msgstr "villkorlig binär operato förväntades"
+
+#: parse.y:4358
+#, c-format
+msgid "unexpected argument `%s' to conditional binary operator"
+msgstr "oväntat argument \"%s\" till villkorlig binär operator"
+
+#: parse.y:4362
+msgid "unexpected argument to conditional binary operator"
+msgstr "oväntat argument till villkorlig binär operator"
+
+#: parse.y:4373
+#, c-format
+msgid "unexpected token `%c' in conditional command"
+msgstr "oväntad symbol \"%c\" i villkorligt kommando"
+
+#: parse.y:4376
+#, c-format
+msgid "unexpected token `%s' in conditional command"
+msgstr "oväntad symbol \"%s\" i villkorligt kommando"
+
+#: parse.y:4380
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "unexpected token %d in conditional command"
 msgstr "oväntad symbol %d i villkorligt kommando"
 
+<<<<<<< HEAD
 #: parse.y:6245
 #, c-format
 msgid "syntax error near unexpected token `%s'"
@@ -1566,31 +2705,82 @@ msgstr "komplettering: funktion ”%s” finns inte"
 #, c-format
 msgid "programmable_completion: %s: possible retry loop"
 msgstr "programmable_completion: %s: möjlig slinga av omförsök"
+=======
+#: parse.y:5730
+#, c-format
+msgid "syntax error near unexpected token `%s'"
+msgstr "syntaxfel nära den oväntade symbolen \"%s\""
+
+#: parse.y:5748
+#, c-format
+msgid "syntax error near `%s'"
+msgstr "syntaxfel nära \"%s\""
+
+#: parse.y:5758
+msgid "syntax error: unexpected end of file"
+msgstr "syntaxfel: oväntat filslut"
+
+#: parse.y:5758
+msgid "syntax error"
+msgstr "syntaxfel"
+
+#: parse.y:5820
+#, c-format
+msgid "Use \"%s\" to leave the shell.\n"
+msgstr "Använd \"%s\" fär att lämna skalet.\n"
+
+#: parse.y:5982
+msgid "unexpected EOF while looking for matching `)'"
+msgstr "oväntat filslut när matchande \")\" söktes"
+
+#: pcomplete.c:1094
+#, c-format
+msgid "completion: function `%s' not found"
+msgstr "komplettering: funktion \"%s\" finns inte"
+>>>>>>> orgin/bash-4.3-testing
 
 #: pcomplib.c:182
 #, c-format
 msgid "progcomp_insert: %s: NULL COMPSPEC"
 msgstr "progcomp_insert: %s: NULL COMPSPEC"
 
+<<<<<<< HEAD
 #: print_cmd.c:302
 #, c-format
 msgid "print_command: bad connector `%d'"
 msgstr "print_command: felaktig anslutning ”%d”"
 
 #: print_cmd.c:375
+=======
+#: print_cmd.c:300
+#, c-format
+msgid "print_command: bad connector `%d'"
+msgstr "print_command: felaktig anslutning \"%d\""
+
+#: print_cmd.c:373
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "xtrace_set: %d: invalid file descriptor"
 msgstr "xtrace_set: %d: ogiltig filbeskrivare"
 
+<<<<<<< HEAD
 #: print_cmd.c:380
 msgid "xtrace_set: NULL file pointer"
 msgstr "xtrace_set: NULL-filpekare"
 
 #: print_cmd.c:384
+=======
+#: print_cmd.c:378
+msgid "xtrace_set: NULL file pointer"
+msgstr "xtrace_set: NULL-filpekare"
+
+#: print_cmd.c:382
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "xtrace fd (%d) != fileno xtrace fp (%d)"
 msgstr "xtrace fd (%d) != fileno xtrace fp (%d)"
 
+<<<<<<< HEAD
 #: print_cmd.c:1540
 #, c-format
 msgid "cprintf: `%c': invalid format character"
@@ -1601,10 +2791,23 @@ msgid "file descriptor out of range"
 msgstr "filbeskrivare utanför giltigt intervall"
 
 #: redir.c:174
+=======
+#: print_cmd.c:1518
+#, c-format
+msgid "cprintf: `%c': invalid format character"
+msgstr "cprintf: \"%c\": ogiltigt formateringstecken"
+
+#: redir.c:123 redir.c:170
+msgid "file descriptor out of range"
+msgstr "filbeskrivare utanför giltigt intervall"
+
+#: redir.c:177
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: ambiguous redirect"
 msgstr "%s: tvetydig omdirigering"
 
+<<<<<<< HEAD
 #: redir.c:178
 #, c-format
 msgid "%s: cannot overwrite existing file"
@@ -1616,15 +2819,33 @@ msgid "%s: restricted: cannot redirect output"
 msgstr "%s: begränsat: det går inte att omdirigera utdata"
 
 #: redir.c:188
+=======
+#: redir.c:181
+#, c-format
+msgid "%s: cannot overwrite existing file"
+msgstr "%s: begränsad: det går inte att skriva över en existerande fil"
+
+#: redir.c:186
+#, c-format
+msgid "%s: restricted: cannot redirect output"
+msgstr "%s: begränsad: det går inte att omdirigera utdata"
+
+#: redir.c:191
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot create temp file for here-document: %s"
 msgstr "det går inte att skapa temporärfil för här-dokument: %s"
 
+<<<<<<< HEAD
 #: redir.c:192
+=======
+#: redir.c:195
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot assign fd to variable"
 msgstr "%s: det går inte att tilldela fb till variabel"
 
+<<<<<<< HEAD
 #: redir.c:591
 msgid "/dev/(tcp|udp)/host/port not supported without networking"
 msgstr "/dev/(tcp|udp)/host/port stöds inte utan nätverksfunktion"
@@ -1646,10 +2867,30 @@ msgid "pretty-printing mode ignored in interactive shells"
 msgstr "läget för snygg utskrift ignoreras i interaktiva skal"
 
 #: shell.c:940
+=======
+#: redir.c:582
+msgid "/dev/(tcp|udp)/host/port not supported without networking"
+msgstr "/dev/(tcp|udp)/host/port stöds inte utan nätverksfunktion"
+
+#: redir.c:861 redir.c:973 redir.c:1034 redir.c:1199
+msgid "redirection error: cannot duplicate fd"
+msgstr "omdirigeringsfel: det går inte att duplicera fb"
+
+#: shell.c:339
+msgid "could not find /tmp, please create!"
+msgstr "hittade inte /tmp, var god skapa!"
+
+#: shell.c:343
+msgid "/tmp must be a valid directory name"
+msgstr "/tmp måste vara ett giltigt katalognamn"
+
+#: shell.c:890
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%c%c: invalid option"
 msgstr "%c%c: ogiltig flagga"
 
+<<<<<<< HEAD
 #: shell.c:1299
 #, c-format
 msgid "cannot set uid to %d: effective uid %d"
@@ -1674,11 +2915,22 @@ msgid "I have no name!"
 msgstr "Jag har inget namn!"
 
 #: shell.c:1980
+=======
+#: shell.c:1682
+msgid "I have no name!"
+msgstr "Jag har inget namn!"
+
+#: shell.c:1827
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "GNU bash, version %s-(%s)\n"
 msgstr "GNU bash, version %s-(%s)\n"
 
+<<<<<<< HEAD
 #: shell.c:1981
+=======
+#: shell.c:1828
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "Usage:\t%s [GNU long option] [option] ...\n"
@@ -1687,6 +2939,7 @@ msgstr ""
 "Användning:\t%s [GNU lång flagga] [flagga] ...\n"
 "\t\t%s [GNU lång flagga] [flagga] skriptfil ...\n"
 
+<<<<<<< HEAD
 #: shell.c:1983
 msgid "GNU long options:\n"
 msgstr "GNU långa flaggor:\n"
@@ -1700,10 +2953,26 @@ msgid "\t-ilrsD or -c command or -O shopt_option\t\t(invocation only)\n"
 msgstr "\t-ilrsD eller -c kommando eller -O shopt_flagga\t\t(bara uppstart)\n"
 
 #: shell.c:2007
+=======
+#: shell.c:1830
+msgid "GNU long options:\n"
+msgstr "GNU långa flaggor:\n"
+
+#: shell.c:1834
+msgid "Shell options:\n"
+msgstr "Skalflaggor:\n"
+
+#: shell.c:1835
+msgid "\t-ilrsD or -c command or -O shopt_option\t\t(invocation only)\n"
+msgstr "\t-ilrsD eller -c kommando eller -O shopt_flagga\t\t(bara uppstart)\n"
+
+#: shell.c:1850
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "\t-%s or -o option\n"
 msgstr "\t-%s eller -o flagga\n"
 
+<<<<<<< HEAD
 #: shell.c:2013
 #, c-format
 msgid "Type `%s -c \"help set\"' for more information about shell options.\n"
@@ -1733,13 +3002,37 @@ msgstr ""
 "Allmän hjälp i att använda GNU-program: <http://www.gnu.org/gethelp/>\n"
 
 #: sig.c:730
+=======
+#: shell.c:1856
+#, c-format
+msgid "Type `%s -c \"help set\"' for more information about shell options.\n"
+msgstr "Skriv \"%s -c 'help set'\" för mer information om skalflaggor.\n"
+
+#: shell.c:1857
+#, c-format
+msgid "Type `%s -c help' for more information about shell builtin commands.\n"
+msgstr "Skriv \"%s -c help\" för mer information om inbyggda skalkommandon.\n"
+
+#: shell.c:1858
+#, c-format
+msgid "Use the `bashbug' command to report bugs.\n"
+msgstr ""
+"Använd kommandot \"bashbug\" för att rapportera fel.\n"
+"Skicka synpunkter på översättningen till <tp-sv@listor.tp-sv.se>.\n"
+
+#: sig.c:691
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "sigprocmask: %d: invalid operation"
 msgstr "sigprocmask: %d: ogiltig operation"
 
 #: siglist.c:48
 msgid "Bogus signal"
+<<<<<<< HEAD
 msgstr "Felaktig signal"
+=======
+msgstr "Felatkig signal"
+>>>>>>> orgin/bash-4.3-testing
 
 #: siglist.c:51
 msgid "Hangup"
@@ -1871,7 +3164,11 @@ msgstr "strömavbrott omedelbart förestående"
 
 #: siglist.c:191
 msgid "system crash imminent"
+<<<<<<< HEAD
 msgstr "systemkrasch omedelbart förestående"
+=======
+msgstr "systemkrash omedelbart förestående"
+>>>>>>> orgin/bash-4.3-testing
 
 #: siglist.c:195
 msgid "migrate process to another CPU"
@@ -1887,11 +3184,19 @@ msgstr "HFT-övervakningsläge givet"
 
 #: siglist.c:207
 msgid "HFT monitor mode retracted"
+<<<<<<< HEAD
 msgstr "HFT-övervakare borttagen"
 
 #: siglist.c:211
 msgid "HFT sound sequence has completed"
 msgstr "HFT-ljudsekvens har avslutat"
+=======
+msgstr "HFT-överakare borttagen"
+
+#: siglist.c:211
+msgid "HFT sound sequence has completed"
+msgstr "HFT-ljudsekevens har avslutat"
+>>>>>>> orgin/bash-4.3-testing
 
 #: siglist.c:215
 msgid "Information request"
@@ -1906,16 +3211,26 @@ msgstr "Okänd signal nr "
 msgid "Unknown Signal #%d"
 msgstr "Okänd signal nr %d"
 
+<<<<<<< HEAD
 #: subst.c:1454 subst.c:1644
 #, c-format
 msgid "bad substitution: no closing `%s' in %s"
 msgstr "felaktig substitution: ingen avslutande ”%s” i %s"
 
 #: subst.c:3231
+=======
+#: subst.c:1362 subst.c:1520
+#, c-format
+msgid "bad substitution: no closing `%s' in %s"
+msgstr "felaktig substitution: ingen avslutande \"%s\" i %s"
+
+#: subst.c:2847
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot assign list to array member"
 msgstr "%s: det går inte att tilldela listor till vektormedlemmar"
 
+<<<<<<< HEAD
 #: subst.c:5789 subst.c:5805
 msgid "cannot make pipe for process substitution"
 msgstr "det går inte att skapa rör för processubstitution"
@@ -1925,20 +3240,40 @@ msgid "cannot make child for process substitution"
 msgstr "det går inte att skapa barn för processubstitution"
 
 #: subst.c:5920
+=======
+#: subst.c:5065 subst.c:5081
+msgid "cannot make pipe for process substitution"
+msgstr "det går inte att skapa rör för processubstitution"
+
+#: subst.c:5113
+msgid "cannot make child for process substitution"
+msgstr "det går inte att skapa barn för processubstitution"
+
+#: subst.c:5158
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot open named pipe %s for reading"
 msgstr "det går inte att öppna namngivet rör %s för läsning"
 
+<<<<<<< HEAD
 #: subst.c:5922
+=======
+#: subst.c:5160
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot open named pipe %s for writing"
 msgstr "det går inte att öppna namngivet rör %s för skrivning"
 
+<<<<<<< HEAD
 #: subst.c:5945
+=======
+#: subst.c:5178
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "cannot duplicate named pipe %s as fd %d"
 msgstr "det går inte att duplicera namngivet rör %s som fb %d"
 
+<<<<<<< HEAD
 #: subst.c:6062
 msgid "command substitution: ignored null byte in input"
 msgstr "kommandoersättning: ignorerade nollbyte i indata"
@@ -1956,10 +3291,26 @@ msgid "command_substitute: cannot duplicate pipe as fd 1"
 msgstr "command_substitute: det går inte att duplicera rör som fb 1"
 
 #: subst.c:6710 subst.c:9623
+=======
+#: subst.c:5376
+msgid "cannot make pipe for command substitution"
+msgstr "det går inte att skapa rör för kommandosubstitution"
+
+#: subst.c:5414
+msgid "cannot make child for command substitution"
+msgstr "det går inte att skapa barn för kommandosubstitution"
+
+#: subst.c:5433
+msgid "command_substitute: cannot duplicate pipe as fd 1"
+msgstr "command_substitute: det går inte att duplicera rör som fb 1"
+
+#: subst.c:5837 subst.c:8050
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: invalid variable name for name reference"
 msgstr "%s: ogiltigt variabelnamn för referens"
 
+<<<<<<< HEAD
 #: subst.c:6806 subst.c:6824 subst.c:6979
 #, c-format
 msgid "%s: invalid indirect expansion"
@@ -1976,31 +3327,51 @@ msgid "%s: parameter not set"
 msgstr "%s: parametern är inte satt"
 
 #: subst.c:7058
+=======
+#: subst.c:6048
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: parameter null or not set"
 msgstr "%s: parametern tom eller inte satt"
 
+<<<<<<< HEAD
 #: subst.c:7295 subst.c:7310
+=======
+#: subst.c:6320 subst.c:6335
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: substring expression < 0"
 msgstr "%s: delstränguttryck < 0"
 
+<<<<<<< HEAD
 #: subst.c:8973 subst.c:8994
+=======
+#: subst.c:7506
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: bad substitution"
 msgstr "%s: felaktig substitution"
 
+<<<<<<< HEAD
 #: subst.c:9082
+=======
+#: subst.c:7583
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "$%s: cannot assign in this way"
 msgstr "$%s: det går inte att tilldela på detta sätt"
 
+<<<<<<< HEAD
 #: subst.c:9485
+=======
+#: subst.c:7917
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "future versions of the shell will force evaluation as an arithmetic "
 "substitution"
 msgstr ""
 "framtida versioner av skalet kommer att framtvinga evaluering som en "
+<<<<<<< HEAD
 "aritmetisk substitution"
 
 #: subst.c:10043
@@ -2012,6 +3383,19 @@ msgstr "felaktig ersättning: ingen avslutande ”`” i %s"
 #, c-format
 msgid "no match: %s"
 msgstr "ingen matchning: %s"
+=======
+"aritmetisk substition"
+
+#: subst.c:8421
+#, c-format
+msgid "bad substitution: no closing \"`\" in %s"
+msgstr "felaktig ersättning: ingen avslutande \"`\" i %s"
+
+#: subst.c:9322
+#, c-format
+msgid "no match: %s"
+msgstr "ingen match: %s"
+>>>>>>> orgin/bash-4.3-testing
 
 #: test.c:147
 msgid "argument expected"
@@ -2022,6 +3406,7 @@ msgstr "argument förväntades"
 msgid "%s: integer expression expected"
 msgstr "%s: heltalsuttryck förväntades"
 
+<<<<<<< HEAD
 #: test.c:265
 msgid "`)' expected"
 msgstr "”)” förväntades"
@@ -2032,15 +3417,32 @@ msgid "`)' expected, found %s"
 msgstr "”)” förväntades, fann %s"
 
 #: test.c:282 test.c:750 test.c:753
+=======
+#: test.c:264
+msgid "`)' expected"
+msgstr "\")\" förväntades"
+
+#: test.c:266
+#, c-format
+msgid "`)' expected, found %s"
+msgstr "\")\" förväntades, fann %s"
+
+#: test.c:281 test.c:721 test.c:724
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: unary operator expected"
 msgstr "%s: unär operator förväntades"
 
+<<<<<<< HEAD
 #: test.c:469 test.c:793
+=======
+#: test.c:468 test.c:764
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: binary operator expected"
 msgstr "%s: binär operator förväntades"
 
+<<<<<<< HEAD
 #: test.c:875
 msgid "missing `]'"
 msgstr "”]” saknas"
@@ -2055,11 +3457,26 @@ msgid "trap handler: maximum trap handler level exceeded (%d)"
 msgstr "fällhanterare: maximal nivå av fällhanterare överskriden (%d)"
 
 #: trap.c:408
+=======
+#: test.c:839
+msgid "missing `]'"
+msgstr "\"]\" saknas"
+
+#: trap.c:217
+msgid "invalid signal number"
+msgstr "ogiltigt signalnummer"
+
+#: trap.c:371
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "run_pending_traps: bad value in trap_list[%d]: %p"
 msgstr "run_pending_traps: felaktigt värde i trap_list[%d]: %p"
 
+<<<<<<< HEAD
 #: trap.c:412
+=======
+#: trap.c:375
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid ""
 "run_pending_traps: signal handler is SIG_DFL, resending %d (%s) to myself"
@@ -2067,30 +3484,57 @@ msgstr ""
 "run_pending_traps: signalhanterare är SIG_DFL, skickar om %d (%s) till mig "
 "själv"
 
+<<<<<<< HEAD
 #: trap.c:470
+=======
+#: trap.c:428
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "trap_handler: bad signal %d"
 msgstr "trap_handler: felaktig signal %d"
 
+<<<<<<< HEAD
 #: variables.c:412
 #, c-format
 msgid "error importing function definition for `%s'"
 msgstr "fel vid import av funktionsdefinition för ”%s”"
 
 #: variables.c:821
+=======
+#: variables.c:382
+#, c-format
+msgid "error importing function definition for `%s'"
+msgstr "fel vid import av funktionsdefinition för \"%s\""
+
+#: variables.c:780
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "shell level (%d) too high, resetting to 1"
 msgstr "skalnivå (%d) för hög, återställer till 1"
 
+<<<<<<< HEAD
 #: variables.c:2655
 msgid "make_local_variable: no function context at current scope"
 msgstr "make_local_variable: ingen funktionskontext i aktuellt sammanhang"
 
 #: variables.c:2674
+=======
+#: variables.c:1865
+#, fuzzy, c-format
+msgid "%s: circular name reference"
+msgstr "%s: ogiltigt variabelnamn för referens"
+
+#: variables.c:2228
+msgid "make_local_variable: no function context at current scope"
+msgstr "make_local_variable: ingen funktionskontext i aktuellt sammanhang"
+
+#: variables.c:2247
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: variable may not be assigned value"
 msgstr "%s: variabeln får inte tilldelas ett värde"
 
+<<<<<<< HEAD
 #: variables.c:3453
 #, c-format
 msgid "%s: assigning integer to name reference"
@@ -2101,52 +3545,99 @@ msgid "all_local_variables: no function context at current scope"
 msgstr "all_local_variables: ingen funktionskontext i aktuellt sammanhang"
 
 #: variables.c:4698
+=======
+#: variables.c:3646
+msgid "all_local_variables: no function context at current scope"
+msgstr "all_local_variables: ingen funktionskontext i aktuellt sammanhang"
+
+#: variables.c:3891
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s has null exportstr"
 msgstr "%s har tom exportstr"
 
+<<<<<<< HEAD
 #: variables.c:4703 variables.c:4712
+=======
+#: variables.c:3896 variables.c:3905
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "invalid character %d in exportstr for %s"
 msgstr "ogiltigt tecken %d i exportstr för %s"
 
+<<<<<<< HEAD
 #: variables.c:4718
 #, c-format
 msgid "no `=' in exportstr for %s"
 msgstr "inget ”=” i exportstr för %s"
 
 #: variables.c:5243
+=======
+#: variables.c:3911
+#, c-format
+msgid "no `=' in exportstr for %s"
+msgstr "inget \"=\" i exportstr för %s"
+
+#: variables.c:4344
+>>>>>>> orgin/bash-4.3-testing
 msgid "pop_var_context: head of shell_variables not a function context"
 msgstr ""
 "pop_var_context: huvudet på shell_variables är inte en funktionskontext"
 
+<<<<<<< HEAD
 #: variables.c:5256
 msgid "pop_var_context: no global_variables context"
 msgstr "pop_var_context: ingen kontext global_variables"
 
 #: variables.c:5336
+=======
+#: variables.c:4357
+msgid "pop_var_context: no global_variables context"
+msgstr "pop_var_context: ingen kontext global_variables"
+
+#: variables.c:4431
+>>>>>>> orgin/bash-4.3-testing
 msgid "pop_scope: head of shell_variables not a temporary environment scope"
 msgstr ""
 "pop_scope: huvudet på shell_variables är inte en temporär omgivningsräckvidd"
 
+<<<<<<< HEAD
 #: variables.c:6272
+=======
+#: variables.c:5257
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: cannot open as FILE"
 msgstr "%s: %s: går inte att öppna som FILE"
 
+<<<<<<< HEAD
 #: variables.c:6277
+=======
+#: variables.c:5262
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: invalid value for trace file descriptor"
 msgstr "%s: %s: ogiltigt värde för spårningsfilbeskrivare"
 
+<<<<<<< HEAD
 #: variables.c:6322
+=======
+#: variables.c:5307
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s: compatibility value out of range"
 msgstr "%s: %s: kompatibilitetsvärde utanför giltigt intervall"
 
+<<<<<<< HEAD
 #: version.c:46 version2.c:46
 msgid "Copyright (C) 2018 Free Software Foundation, Inc."
 msgstr "Copyright © 2018 Free Software Foundation, Inc."
+=======
+#: version.c:46
+#, fuzzy
+msgid "Copyright (C) 2013 Free Software Foundation, Inc."
+msgstr "Copyright © 2012 Free Software Foundation, Inc."
+>>>>>>> orgin/bash-4.3-testing
 
 #: version.c:47 version2.c:47
 msgid ""
@@ -2164,32 +3655,57 @@ msgstr "GNU bash, version %s (%s)\n"
 #: version.c:91 version2.c:91
 msgid "This is free software; you are free to change and redistribute it."
 msgstr ""
+<<<<<<< HEAD
 "Detta är fri programvara, du får fritt ändra och vidaredistribuera den."
+=======
+"Detta är fri programvara, det får fritt ändra och vidaredistribuera den."
+>>>>>>> orgin/bash-4.3-testing
 
 #: version.c:92 version2.c:92
 msgid "There is NO WARRANTY, to the extent permitted by law."
 msgstr "Det finns INGEN GARANTI, så långt lagen tillåter."
 
+<<<<<<< HEAD
 #: xmalloc.c:93
+=======
+#: version2.c:46
+msgid "Copyright (C) 2012 Free Software Foundation, Inc."
+msgstr "Copyright © 2012 Free Software Foundation, Inc."
+
+#: xmalloc.c:91
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot allocate %lu bytes (%lu bytes allocated)"
 msgstr "%s: det går inte att allokera %lu byte (%lu byte allokerade)"
 
+<<<<<<< HEAD
 #: xmalloc.c:95
+=======
+#: xmalloc.c:93
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: cannot allocate %lu bytes"
 msgstr "%s: det går inte att allokera %lu byte"
 
+<<<<<<< HEAD
 #: xmalloc.c:165
+=======
+#: xmalloc.c:163
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s:%d: cannot allocate %lu bytes (%lu bytes allocated)"
 msgstr "%s: %s:%d: det går inte att allokera %lu byte (%lu byte allokerade)"
 
+<<<<<<< HEAD
 #: xmalloc.c:167
+=======
+#: xmalloc.c:165
+>>>>>>> orgin/bash-4.3-testing
 #, c-format
 msgid "%s: %s:%d: cannot allocate %lu bytes"
 msgstr "%s: %s:%d: det går inte att allokera %lu byte"
 
+<<<<<<< HEAD
 #: builtins.c:45
 msgid "alias [-p] [name[=value] ... ]"
 msgstr "alias [-p] [namn[=värde] ... ]"
@@ -2199,10 +3715,22 @@ msgid "unalias [-a] name [name ...]"
 msgstr "unalias [-a] namn [namn ...]"
 
 #: builtins.c:53
+=======
+#: builtins.c:43
+msgid "alias [-p] [name[=value] ... ]"
+msgstr "alias [-p] [namn[=värde] ... ]"
+
+#: builtins.c:47
+msgid "unalias [-a] name [name ...]"
+msgstr "unalias [-a] namn [namn ...]"
+
+#: builtins.c:51
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "bind [-lpsvPSVX] [-m keymap] [-f filename] [-q name] [-u name] [-r keyseq] [-"
 "x keyseq:shell-command] [keyseq:readline-function or readline-command]"
 msgstr ""
+<<<<<<< HEAD
 "bind [-lpvsPVSX] [-m tangentkarta] [-f filnamn] [-q namn] [-u namn] [-r "
 "tangentsekv] [-x tangentsekv:skalkommando] [tangentsekv:readline-funktion "
 "eller readline-kommando]"
@@ -2280,10 +3808,103 @@ msgid "logout [n]"
 msgstr "logout [n]"
 
 #: builtins.c:105
+=======
+"bind [-lpvsPVSX] [-m tangentkarta] [-f filenamn] [-q namn] [-u namn] [-r "
+"tangentsekv] [-x tangentsekv:skalkommando] [tangentsekv:readline-funktion "
+"eller readline-kommando]"
+
+#: builtins.c:54
+msgid "break [n]"
+msgstr "break [n]"
+
+#: builtins.c:56
+msgid "continue [n]"
+msgstr "continue [n]"
+
+#: builtins.c:58
+msgid "builtin [shell-builtin [arg ...]]"
+msgstr "builtin [skalinbyggd [arg ...]]"
+
+#: builtins.c:61
+msgid "caller [expr]"
+msgstr "caller [uttr]"
+
+#: builtins.c:64
+#, fuzzy
+msgid "cd [-L|[-P [-e]] [-@]] [dir]"
+msgstr "cd [-L|[-P [-e]]] [kat]"
+
+#: builtins.c:66
+msgid "pwd [-LP]"
+msgstr "pwd [-LP]"
+
+#: builtins.c:68
+msgid ":"
+msgstr ":"
+
+#: builtins.c:70
+msgid "true"
+msgstr "true"
+
+#: builtins.c:72
+msgid "false"
+msgstr "false"
+
+#: builtins.c:74
+msgid "command [-pVv] command [arg ...]"
+msgstr "command [-pVv] kommando [arg ...]"
+
+#: builtins.c:76
+msgid "declare [-aAfFgilnrtux] [-p] [name[=value] ...]"
+msgstr "declare [-aAfFgilnrtux] [-p] [namn[=värde] …]"
+
+#: builtins.c:78
+msgid "typeset [-aAfFgilrtux] [-p] name[=value] ..."
+msgstr "typeset [-aAfFgilrtux] [-p] namn[=värde] ..."
+
+#: builtins.c:80
+msgid "local [option] name[=value] ..."
+msgstr "local [flagga] namn[=värde] ..."
+
+#: builtins.c:83
+msgid "echo [-neE] [arg ...]"
+msgstr "echo [-neE] [arg ...]"
+
+#: builtins.c:87
+msgid "echo [-n] [arg ...]"
+msgstr "echo [-n] [arg ...]"
+
+#: builtins.c:90
+msgid "enable [-a] [-dnps] [-f filename] [name ...]"
+msgstr "enable [-a] [-dnps] [-f filenamn] [namn ...]"
+
+#: builtins.c:92
+msgid "eval [arg ...]"
+msgstr "eval [arg ...]"
+
+#: builtins.c:94
+msgid "getopts optstring name [arg]"
+msgstr "getopts flgsträng namn [arg]"
+
+#: builtins.c:96
+msgid "exec [-cl] [-a name] [command [arguments ...]] [redirection ...]"
+msgstr "exec [-cl] [-a namn] [kommando [argument ...]] [omdirigering ...]"
+
+#: builtins.c:98
+msgid "exit [n]"
+msgstr "exit [n]"
+
+#: builtins.c:100
+msgid "logout [n]"
+msgstr "logout [n]"
+
+#: builtins.c:103
+>>>>>>> orgin/bash-4.3-testing
 msgid "fc [-e ename] [-lnr] [first] [last] or fc -s [pat=rep] [command]"
 msgstr ""
 "fc [-e rnamn] [-lnr] [första] [sista] eller fc -s [mnst=ers] [kommando]"
 
+<<<<<<< HEAD
 #: builtins.c:109
 msgid "fg [job_spec]"
 msgstr "fg [jobbspec]"
@@ -2301,6 +3922,25 @@ msgid "help [-dms] [pattern ...]"
 msgstr "help [-dms] [mönster ...]"
 
 #: builtins.c:123
+=======
+#: builtins.c:107
+msgid "fg [job_spec]"
+msgstr "fg [jobbspec]"
+
+#: builtins.c:111
+msgid "bg [job_spec ...]"
+msgstr "bg [jobbspec ...]"
+
+#: builtins.c:114
+msgid "hash [-lr] [-p pathname] [-dt] [name ...]"
+msgstr "hash [-lr] [-p sökväg] [-dt] [namn ...]"
+
+#: builtins.c:117
+msgid "help [-dms] [pattern ...]"
+msgstr "help [-dms] [mönster ...]"
+
+#: builtins.c:121
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "history [-c] [-d offset] [n] or history -anrw [filename] or history -ps arg "
 "[arg...]"
@@ -2308,6 +3948,7 @@ msgstr ""
 "history [-c] [-d avstånd] [n] eller history -anrw [filnamn] eller history -"
 "ps arg [arg...]"
 
+<<<<<<< HEAD
 #: builtins.c:127
 msgid "jobs [-lnprs] [jobspec ...] or jobs -x command [args]"
 msgstr "jobs [-lnprs] [jobbspec ...] eller jobs -x kommando [arg]"
@@ -2317,6 +3958,17 @@ msgid "disown [-h] [-ar] [jobspec ... | pid ...]"
 msgstr "disown [-h] [-ar] [jobbspec … | pid …]"
 
 #: builtins.c:134
+=======
+#: builtins.c:125
+msgid "jobs [-lnprs] [jobspec ...] or jobs -x command [args]"
+msgstr "jobs [-lnprs] [jobbspec ...] eller jobs -x kommando [arg]"
+
+#: builtins.c:129
+msgid "disown [-h] [-ar] [jobspec ...]"
+msgstr "disown [-h] [-ar] [jobbspec ...]"
+
+#: builtins.c:132
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l "
 "[sigspec]"
@@ -2324,11 +3976,19 @@ msgstr ""
 "kill [-s sigspec | -n signum | -sigspec] pid | jobbspec ... eller kill -l "
 "[sigspec]"
 
+<<<<<<< HEAD
 #: builtins.c:136
 msgid "let arg [arg ...]"
 msgstr "let arg [arg ...]"
 
 #: builtins.c:138
+=======
+#: builtins.c:134
+msgid "let arg [arg ...]"
+msgstr "let arg [arg ...]"
+
+#: builtins.c:136
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "read [-ers] [-a array] [-d delim] [-i text] [-n nchars] [-N nchars] [-p "
 "prompt] [-t timeout] [-u fd] [name ...]"
@@ -2336,6 +3996,7 @@ msgstr ""
 "read [-ers] [-a vektor] [-d avgr] [-i text] [-n ntkn] [-N ntkn] [-p prompt] "
 "[-t tidgräns] [-u fb] [namn ...]"
 
+<<<<<<< HEAD
 #: builtins.c:140
 msgid "return [n]"
 msgstr "return [n]"
@@ -2425,6 +4086,101 @@ msgid "case WORD in [PATTERN [| PATTERN]...) COMMANDS ;;]... esac"
 msgstr "case ORD in [MÖNSTER [| MÖNSTER]...) KOMMANDON ;;]... esac"
 
 #: builtins.c:194
+=======
+#: builtins.c:138
+msgid "return [n]"
+msgstr "return [n]"
+
+#: builtins.c:140
+msgid "set [-abefhkmnptuvxBCHP] [-o option-name] [--] [arg ...]"
+msgstr "set [-abefhkmnptuvxBCHP] [-o flaggnamn] [--] [arg ...]"
+
+#: builtins.c:142
+msgid "unset [-f] [-v] [-n] [name ...]"
+msgstr "unset [-f] [-v] [-n] [namn …]"
+
+#: builtins.c:144
+msgid "export [-fn] [name[=value] ...] or export -p"
+msgstr "export [-fn] [namn[=värde] ...] eller export -p"
+
+#: builtins.c:146
+msgid "readonly [-aAf] [name[=value] ...] or readonly -p"
+msgstr "readonly [-aAf] [namn[=värde] ...] eller readonly -p"
+
+#: builtins.c:148
+msgid "shift [n]"
+msgstr "skift [n]"
+
+#: builtins.c:150
+msgid "source filename [arguments]"
+msgstr "source filnamn [argument]"
+
+#: builtins.c:152
+msgid ". filename [arguments]"
+msgstr ". filnamn [argument]"
+
+#: builtins.c:155
+msgid "suspend [-f]"
+msgstr "suspend [-f]"
+
+#: builtins.c:158
+msgid "test [expr]"
+msgstr "test [uttr]"
+
+#: builtins.c:160
+msgid "[ arg... ]"
+msgstr "[ arg... ]"
+
+#: builtins.c:162
+msgid "times"
+msgstr "times"
+
+#: builtins.c:164
+msgid "trap [-lp] [[arg] signal_spec ...]"
+msgstr "trap [-lp] [[arg] signalspec ...]"
+
+#: builtins.c:166
+msgid "type [-afptP] name [name ...]"
+msgstr "type [-afptP] namn [namn ...]"
+
+#: builtins.c:169
+msgid "ulimit [-SHabcdefilmnpqrstuvxT] [limit]"
+msgstr "ulimit [-SHabcdefilmnpqrstuvxT] [gräns]"
+
+#: builtins.c:172
+msgid "umask [-p] [-S] [mode]"
+msgstr "umask [-p] [-S] [rättigheter]"
+
+#: builtins.c:175
+msgid "wait [-n] [id ...]"
+msgstr "wait [-n] [id …]"
+
+#: builtins.c:179
+msgid "wait [pid ...]"
+msgstr "wait [pid …]"
+
+#: builtins.c:182
+msgid "for NAME [in WORDS ... ] ; do COMMANDS; done"
+msgstr "for NAMN [in ORD ... ] ; do KOMMANDON; done"
+
+#: builtins.c:184
+msgid "for (( exp1; exp2; exp3 )); do COMMANDS; done"
+msgstr "for (( utr1; utr2; utr3 )); do KOMMANDON; done"
+
+#: builtins.c:186
+msgid "select NAME [in WORDS ... ;] do COMMANDS; done"
+msgstr "select NAMN [in ORD ... ;] do KOMMANDON; done"
+
+#: builtins.c:188
+msgid "time [-p] pipeline"
+msgstr "time [-p] rör"
+
+#: builtins.c:190
+msgid "case WORD in [PATTERN [| PATTERN]...) COMMANDS ;;]... esac"
+msgstr "case ORD in [MÖNSTER [| MÖNSTER]...) KOMMANDON ;;]... esac"
+
+#: builtins.c:192
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "if COMMANDS; then COMMANDS; [ elif COMMANDS; then COMMANDS; ]... [ else "
 "COMMANDS; ] fi"
@@ -2432,6 +4188,7 @@ msgstr ""
 "if KOMMANDON; then KOMMANDON; [ elif KOMMANDON; then KOMMANDON; ]... [ else "
 "KOMMANDON; ] fi"
 
+<<<<<<< HEAD
 #: builtins.c:196
 msgid "while COMMANDS; do COMMANDS; done"
 msgstr "while KOMMANDON; do KOMMANDON; done"
@@ -2501,12 +4258,84 @@ msgstr ""
 #: builtins.c:235
 msgid ""
 "compgen [-abcdefgjksuv] [-o option] [-A action] [-G globpat] [-W wordlist]  "
+=======
+#: builtins.c:194
+msgid "while COMMANDS; do COMMANDS; done"
+msgstr "while KOMMANDON; do KOMMANDON; done"
+
+#: builtins.c:196
+msgid "until COMMANDS; do COMMANDS; done"
+msgstr "until KOMMANDON; do KOMMANDON; done"
+
+#: builtins.c:198
+msgid "coproc [NAME] command [redirections]"
+msgstr "coproc [NAMN] kommando [omdirigeringar]"
+
+#: builtins.c:200
+msgid "function name { COMMANDS ; } or name () { COMMANDS ; }"
+msgstr "function namn { KOMMANDON ; } or namn () { KOMMANDON ; }"
+
+#: builtins.c:202
+msgid "{ COMMANDS ; }"
+msgstr "{ KOMMANDON ; }"
+
+#: builtins.c:204
+msgid "job_spec [&]"
+msgstr "jobbspec [&]"
+
+#: builtins.c:206
+msgid "(( expression ))"
+msgstr "(( uttryck ))"
+
+#: builtins.c:208
+msgid "[[ expression ]]"
+msgstr "[[ uttryck ]]"
+
+#: builtins.c:210
+msgid "variables - Names and meanings of some shell variables"
+msgstr "variabler - Namn och betydelse av några skalvariabler"
+
+#: builtins.c:213
+msgid "pushd [-n] [+N | -N | dir]"
+msgstr "pushd [-n] [+N | -N | kat]"
+
+#: builtins.c:217
+msgid "popd [-n] [+N | -N]"
+msgstr "popd [-n] [+N | -N]"
+
+#: builtins.c:221
+msgid "dirs [-clpv] [+N] [-N]"
+msgstr "dirs [-clpv] [+N] [-N]"
+
+#: builtins.c:224
+msgid "shopt [-pqsu] [-o] [optname ...]"
+msgstr "shopt [-pqsu] [-o] [flgnamn ...]"
+
+#: builtins.c:226
+msgid "printf [-v var] format [arguments]"
+msgstr "printf [-v var] format [argument]"
+
+#: builtins.c:229
+msgid ""
+"complete [-abcdefgjksuv] [-pr] [-DE] [-o option] [-A action] [-G globpat] [-"
+"W wordlist]  [-F function] [-C command] [-X filterpat] [-P prefix] [-S "
+"suffix] [name ...]"
+msgstr ""
+"complete [-abcdefgjksuv] [-pr] [-DE] [-o flagga] [-A åtgärd] [-G globmnst] [-"
+"W ordlista]  [-F funktion] [-C kommando] [-X filtermnst] [-P prefix] [-S "
+"suffix] [namn ...]"
+
+#: builtins.c:233
+msgid ""
+"compgen [-abcdefgjksuv] [-o option]  [-A action] [-G globpat] [-W wordlist]  "
+>>>>>>> orgin/bash-4.3-testing
 "[-F function] [-C command] [-X filterpat] [-P prefix] [-S suffix] [word]"
 msgstr ""
 "compgen [-abcdefgjksuv] [-o flagga]  [-A åtgärd] [-G globmnst] [-W "
 "ordlista]  [-F funktion] [-C kommando] [-X filtermnst] [-P prefix] [-S "
 "suffix] [ord]"
 
+<<<<<<< HEAD
 #: builtins.c:239
 msgid "compopt [-o|+o option] [-DEI] [name ...]"
 msgstr "compopt [-o|+o flagga] [-DEI] [namn …]"
@@ -2528,6 +4357,29 @@ msgstr ""
 "återanrop] [-c kvanta] [vektor]"
 
 #: builtins.c:256
+=======
+#: builtins.c:237
+msgid "compopt [-o|+o option] [-DE] [name ...]"
+msgstr "compopt [-o|+o flagga] [-DE] [namn ...]"
+
+#: builtins.c:240
+msgid ""
+"mapfile [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c "
+"quantum] [array]"
+msgstr ""
+"mapfile [-n antal] [-O start] [-s antal] [-t] [-u fb] [-C återanrop] [-c "
+"kvanta] [vektor]"
+
+#: builtins.c:242
+msgid ""
+"readarray [-n count] [-O origin] [-s count] [-t] [-u fd] [-C callback] [-c "
+"quantum] [array]"
+msgstr ""
+"readarray [-n antal] [-O start] [-s antal] [-t] [-u fb] [-C återanrop] [-c "
+"kvanta] [vektor]"
+
+#: builtins.c:254
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Define or display aliases.\n"
 "    \n"
@@ -2539,7 +4391,11 @@ msgid ""
 "    alias substitution when the alias is expanded.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -p\tprint all defined aliases in a reusable format\n"
+=======
+"      -p\tPrint all defined aliases in a reusable format\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    alias returns true unless a NAME is supplied for which no alias has "
@@ -2548,6 +4404,7 @@ msgid ""
 msgstr ""
 "Definiera eller visa alias.\n"
 "    \n"
+<<<<<<< HEAD
 "    Utan argument skriver ”alias” listan på alias på den återanvändbara "
 "formen\n"
 "    ”alias NAMN=VÄRDE” på standard ut.\n"
@@ -2558,28 +4415,56 @@ msgstr ""
 "    \n"
 "    Flaggor:\n"
 "      -p\tskriv alla definierade alias på en återanvändbar form\n"
+=======
+"    Utan argumen skriver \"alias\" listan på alias på den återanvändbara "
+"formen\n"
+"    \"alias NAMN=VÄRDE\" på standard ut.\n"
+"    \n"
+"    Annars är ett alias definierat för varje NAMN vars VÄRDE är angivet.\n"
+"    Ett avlutande blanktecken i VÄRDE gör att nästa ord undersöks för\n"
+"    aliassubstitution när aliaset expanderas.\n"
+"    \n"
+"    Flaggor:\n"
+"      -p\tSkriv alla definerade alias i på en återanvändbar form\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    alias returnerar sant om inte ett NAMN ges för vilket inget alias har\n"
 "    definierats."
 
+<<<<<<< HEAD
 #: builtins.c:278
+=======
+#: builtins.c:276
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remove each NAME from the list of defined aliases.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -a\tremove all alias definitions\n"
+=======
+"      -a\tremove all alias definitions.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Return success unless a NAME is not an existing alias."
 msgstr ""
 "Ta bort alla NAMN från listan med definierade alias.\n"
 "    \n"
 "    Flaggor:\n"
+<<<<<<< HEAD
 "      -a\tta bort alla aliasdefinitioner\n"
 "    \n"
 "    Returnerar framgång om inte ett NAMN inte är ett existerande alias."
 
 #: builtins.c:291
+=======
+"      -a\tta bort alla aliasdefinitioner.\n"
+"    \n"
+"    Returnerar framgång om inte ett NAMN inte är ett existerande alias."
+
+#: builtins.c:289
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set Readline key bindings and variables.\n"
 "    \n"
@@ -2613,8 +4498,12 @@ msgid ""
 "      -f  filename       Read key bindings from FILENAME.\n"
 "      -x  keyseq:shell-command\tCause SHELL-COMMAND to be executed when\n"
 "    \t\t\t\tKEYSEQ is entered.\n"
+<<<<<<< HEAD
 "      -X                 List key sequences bound with -x and associated "
 "commands\n"
+=======
+"      -X\t\t     List key sequences bound with -x and associated commands\n"
+>>>>>>> orgin/bash-4.3-testing
 "                         in a form that can be reused as input.\n"
 "    \n"
 "    Exit Status:\n"
@@ -2636,21 +4525,34 @@ msgstr ""
 "move,\n"
 "                         vi-command och vi-insert.\n"
 "      -l                 Lista namnen på funktioner.\n"
+<<<<<<< HEAD
 "      -P                 Lista funktionsnamn och bindningar.\n"
 "      -p                 Lista funktioner och bindningar på ett sätt som "
 "kan\n"
+=======
+"      -P                 List funktionsnamn och bindningar.\n"
+"      -p                 List funktioner och bindningar på ett sätt som kan\n"
+>>>>>>> orgin/bash-4.3-testing
 "                         återanvändas som indata.\n"
 "      -S                 Lista tangentsekvenser som anropar makron och "
 "deras\n"
 "                         värden.\n"
+<<<<<<< HEAD
 "      -s                 Lista tangentsekvenser som anropar makron och "
+=======
+"      -s                 Lista tangentskevenser som anropar makron och "
+>>>>>>> orgin/bash-4.3-testing
 "deras\n"
 "                         värden på ett sätt som kan återanvändas som "
 "indata.\n"
 "      -V                 Lista variabelnamn och värden\n"
 "      -v                 Lista variabelnamn och värden på ett sätt som kan\n"
 "                         återanvändas som indata.\n"
+<<<<<<< HEAD
 "      -q  funktionsnamn  Fråga efter vilka tangenter som anropar den "
+=======
+"      -q  funktionsnamn  Fråga efter vilka tangenter som anroper den "
+>>>>>>> orgin/bash-4.3-testing
 "namngivna\n"
 "                         funktionen\n"
 "      -u  funktionsnamn  Tag bort alla tangenter som är bundna till den\n"
@@ -2659,15 +4561,23 @@ msgstr ""
 "      -f  filnamn        Läs tangentbindningar från FILNAMN.\n"
 "      -x  tangentsekv:skalkommando  Gör så att SKALKOMMANDO körs när\n"
 "    \t\t\t\t    TANGENTSEKV skrivs.\n"
+<<<<<<< HEAD
 "      -X                 Lista tangentsekvenser bundna med -x och "
 "tillhörande\n"
+=======
+"      -X\t\t Lista tangentsekvenser bundna med -x och tillhörande\n"
+>>>>>>> orgin/bash-4.3-testing
 "                         kommandon på ett format som kan återanvändas som\n"
 "                         indata.\n"
 "    \n"
 "    Slutstatus:\n"
 "    bind returnerar 0 om inte en okänd flagga ges eller ett fel inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:330
+=======
+#: builtins.c:328
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Exit for, while, or until loops.\n"
 "    \n"
@@ -2685,7 +4595,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Returvärdet är 0 förutsatt att N är större eller lika med 1."
 
+<<<<<<< HEAD
 #: builtins.c:342
+=======
+#: builtins.c:340
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Resume for, while, or until loops.\n"
 "    \n"
@@ -2704,7 +4618,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Slutstatus är 0 förutsatt att N är större eller lika med 1."
 
+<<<<<<< HEAD
 #: builtins.c:354
+=======
+#: builtins.c:352
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute shell builtins.\n"
 "    \n"
@@ -2715,7 +4633,11 @@ msgid ""
 "    \n"
 "    Exit Status:\n"
 "    Returns the exit status of SHELL-BUILTIN, or false if SHELL-BUILTIN is\n"
+<<<<<<< HEAD
 "    not a shell builtin."
+=======
+"    not a shell builtin.."
+>>>>>>> orgin/bash-4.3-testing
 msgstr ""
 "Exekvera en i skalet inbyggd funktion.\n"
 "    \n"
@@ -2726,11 +4648,19 @@ msgstr ""
 "    skalfunktionen.\n"
 "    \n"
 "    Slutstatus:\n"
+<<<<<<< HEAD
 "    Returnerar slutstatus från SKALINBYGGD, eller falskt om SKALINBYGGD "
 "inte\n"
 "    är inbyggd i skalet."
 
 #: builtins.c:369
+=======
+"    Returnerar slutstatus från SKALINBYGGD, eller falkst om SKALINBYGGD "
+"inte\n"
+"    är inbyggd i skalet."
+
+#: builtins.c:367
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return the context of the current subroutine call.\n"
 "    \n"
@@ -2747,8 +4677,13 @@ msgid ""
 msgstr ""
 "Returnera kontexten för det aktuella funktionsanropet.\n"
 "    \n"
+<<<<<<< HEAD
 "    Utan UTTR, returneras ”$rad $filnamn”.  Med UTTR, returneras\n"
 "    ”$rad $subrutin $filnamn”.  Denna extra information kan användas för\n"
+=======
+"    Utan UTTR, returneras \"$rad $filnamn\".  Med UTTR, returneras\n"
+"    \"$rad $subrutin $filnamn\".  Denna extra information kan användas för\n"
+>>>>>>> orgin/bash-4.3-testing
 "    att ge en stackspårning.\n"
 "    \n"
 "    Värdet på UTTR indikerar hur många anropsramar att gå tillbaka före den\n"
@@ -2758,7 +4693,12 @@ msgstr ""
 "    Returnerar 0 om inte skalet inte kör en skalfunktion eller UTTR är\n"
 "    ogiltigt."
 
+<<<<<<< HEAD
 #: builtins.c:387
+=======
+#: builtins.c:385
+#, fuzzy
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Change the shell working directory.\n"
 "    \n"
@@ -2781,6 +4721,7 @@ msgid ""
 "    its value is used for DIR.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -L\tforce symbolic links to be followed: resolve symbolic\n"
 "    \t\tlinks in DIR after processing instances of `..'\n"
 "      -P\tuse the physical directory structure without following\n"
@@ -2791,6 +4732,18 @@ msgid ""
 "    \t\ta non-zero status\n"
 "      -@\ton systems that support it, present a file with extended\n"
 "    \t\tattributes as a directory containing the file attributes\n"
+=======
+"        -L\tforce symbolic links to be followed: resolve symbolic links in\n"
+"    \tDIR after processing instances of `..'\n"
+"        -P\tuse the physical directory structure without following symbolic\n"
+"    \tlinks: resolve symbolic links in DIR before processing instances\n"
+"    \tof `..'\n"
+"        -e\tif the -P option is supplied, and the current working directory\n"
+"    \tcannot be determined successfully, exit with a non-zero status\n"
+"        -@  on systems that support it, present a file with extended "
+"attributes\n"
+"            as a directory containing the file attributes\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The default is to follow symbolic links, as if `-L' were specified.\n"
 "    `..' is processed by removing the immediately previous pathname "
@@ -2824,11 +4777,16 @@ msgstr ""
 "    \t”..”\n"
 "        -e\tom flaggan -P ges, och det inte går att avgöra den aktuella\n"
 "    \tkatalogen, returnera då med status skild från noll\n"
+<<<<<<< HEAD
 "        -@  på system som stödjer det, presentera en fil med utökade "
 "attribut\n"
 "            som en katalog som innehåller filattributen\n"
 "    \n"
 "    Standardvärde är att följa symboliska länkar, som om ”-L” vore angivet.\n"
+=======
+"    \n"
+"    Standardvärde är att följa symboliska längar, som om ”-L” vore angivet.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    ”..” behandlas genom att ta bort den omedelbart föregående\n"
 "    sökvägskomponenten tillbaka till ett snedstreck eller början av KAT\n"
 "    \n"
@@ -2836,13 +4794,21 @@ msgstr ""
 "    Returnerar 0 om katalogen är ändrad, och om $PWD satts korrekt om -P\n"
 "    angetts; skilt från noll annars."
 
+<<<<<<< HEAD
 #: builtins.c:425
+=======
+#: builtins.c:422
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Print the name of the current working directory.\n"
 "    \n"
 "    Options:\n"
 "      -L\tprint the value of $PWD if it names the current working\n"
+<<<<<<< HEAD
 "    \t\tdirectory\n"
+=======
+"    \tdirectory\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -P\tprint the physical directory, without any symbolic links\n"
 "    \n"
 "    By default, `pwd' behaves as if `-L' were specified.\n"
@@ -2855,17 +4821,28 @@ msgstr ""
 "    \n"
 "    Flaggor:\n"
 "      -L\tskriv värdet på $PWD om det är namnet på den aktuella\n"
+<<<<<<< HEAD
 "    \t\tarbetskatalogen\n"
 "      -P\tskriv den fysiska katalogen, utan några symboliska länkar\n"
 "    \n"
 "    Som standard beter sig ”pwd” som om ”-L” vore angivet.\n"
+=======
+"    \tarbetskatalogen\n"
+"      -P\tskriv den fysiska katalogen, utan några symboliska länkar\n"
+"    \n"
+"    Som standard beter sig \"pwd\" som om \"-L\" vore angivet.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar 0 om inte en ogiltig flagga anges eller den aktuella "
 "katalogen\n"
 "    inte kan läsas."
 
+<<<<<<< HEAD
 #: builtins.c:442
+=======
+#: builtins.c:439
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Null command.\n"
 "    \n"
@@ -2881,7 +4858,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Lyckas alltid."
 
+<<<<<<< HEAD
 #: builtins.c:453
+=======
+#: builtins.c:450
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return a successful result.\n"
 "    \n"
@@ -2893,7 +4874,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Lyckas alltid."
 
+<<<<<<< HEAD
 #: builtins.c:462
+=======
+#: builtins.c:459
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return an unsuccessful result.\n"
 "    \n"
@@ -2905,7 +4890,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Misslyckas alltid."
 
+<<<<<<< HEAD
 #: builtins.c:471
+=======
+#: builtins.c:468
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute a simple command or display information about commands.\n"
 "    \n"
@@ -2915,10 +4904,17 @@ msgid ""
 "    on disk when a function with the same name exists.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -p    use a default value for PATH that is guaranteed to find all of\n"
 "            the standard utilities\n"
 "      -v    print a description of COMMAND similar to the `type' builtin\n"
 "      -V    print a more verbose description of each COMMAND\n"
+=======
+"      -p\tuse a default value for PATH that is guaranteed to find all of\n"
+"    \tthe standard utilities\n"
+"      -v\tprint a description of COMMAND similar to the `type' builtin\n"
+"      -V\tprint a more verbose description of each COMMAND\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns exit status of COMMAND, or failure if COMMAND is not found."
@@ -2930,17 +4926,28 @@ msgstr ""
 "    anropa kommandon på disk när det finns en funktion med samma namn.\n"
 "    \n"
 "    Flaggor:\n"
+<<<<<<< HEAD
 "      -p    använd ett standardvärde på PATH som är garanterat att hitta\n"
 "    \t    alla standardverktygen\n"
 "      -v    skriv en beskrivning av KOMMANDO liknande den inbyggda ”type”\n"
 "      -V    skriv en mer utförlig beskrivning om varje KOMMANDO\n"
+=======
+"      -p\tanvänd ett standardvärde på PATH som är garanterat att hitta\n"
+"    \talla standardverktygen\n"
+"      -v\tskriv en beskrivning av KOMMANDO liknande den inbyggda \"type\"\n"
+"      -V\tskriv en mer utförlig beskrivning om varje KOMMANDO\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar slutstatus från KOMMANDO, eller misslyckande om KOMMANDO "
 "inte\n"
 "    finns."
 
+<<<<<<< HEAD
 #: builtins.c:490
+=======
+#: builtins.c:487
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set variable values and attributes.\n"
 "    \n"
@@ -2950,20 +4957,34 @@ msgid ""
 "    Options:\n"
 "      -f\trestrict action or display to function names and definitions\n"
 "      -F\trestrict display to function names only (plus line number and\n"
+<<<<<<< HEAD
 "    \t\tsource file when debugging)\n"
 "      -g\tcreate global variables when used in a shell function; otherwise\n"
 "    \t\tignored\n"
+=======
+"    \tsource file when debugging)\n"
+"      -g\tcreate global variables when used in a shell function; otherwise\n"
+"    \tignored\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -p\tdisplay the attributes and value of each NAME\n"
 "    \n"
 "    Options which set attributes:\n"
 "      -a\tto make NAMEs indexed arrays (if supported)\n"
 "      -A\tto make NAMEs associative arrays (if supported)\n"
 "      -i\tto make NAMEs have the `integer' attribute\n"
+<<<<<<< HEAD
 "      -l\tto convert the value of each NAME to lower case on assignment\n"
 "      -n\tmake NAME a reference to the variable named by its value\n"
 "      -r\tto make NAMEs readonly\n"
 "      -t\tto make NAMEs have the `trace' attribute\n"
 "      -u\tto convert the value of each NAME to upper case on assignment\n"
+=======
+"      -l\tto convert NAMEs to lower case on assignment\n"
+"      -n\tmake NAME a reference to the variable named by its value\n"
+"      -r\tto make NAMEs readonly\n"
+"      -t\tto make NAMEs have the `trace' attribute\n"
+"      -u\tto convert NAMEs to upper case on assignment\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -x\tto make NAMEs export\n"
 "    \n"
 "    Using `+' instead of `-' turns off the given attribute.\n"
@@ -2987,14 +5008,21 @@ msgstr ""
 "    Flaggor:\n"
 "      -f\tbegränsa åtgärden till att visa funktionsnamn och -definitioner\n"
 "      -F\tbegränsa visandet till endast funktionsnamn (plus radnummer\n"
+<<<<<<< HEAD
 "    \t\toch källkodsfil vid felsökning)\n"
 "      -g\tskapa globala variabler när använt i en skalfunktion, ignoreras\n"
 "    \t\ti övrigt\n"
+=======
+"    \toch källkodsfil vid felsökning)\n"
+"      -g\tskapa globala variabler när använt i en skalfunktion, ignoreras\n"
+"    \ti övrigt\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -p\tvisa attributen och värden på varje NAMN\n"
 "    \n"
 "    Flaggor som sätter attribut:\n"
 "      -a\tför att göra NAMN till indexerade vektorer (om det stöds)\n"
 "      -A\tför att göra NAMN till associativa vektorer (om det stöds)\n"
+<<<<<<< HEAD
 "      -i\tför att ge NAMN attributet ”heltal”\n"
 "      -l\tför att konvertera värdet av varje NAMN till gemena vid "
 "tilldelning\n"
@@ -3013,11 +5041,30 @@ msgstr ""
 "    Vid användning i en funktion gör ”declare” NAMN lokala, som med "
 "kommandot\n"
 "    ”local”.  Flaggan ”-g” åsidosätter detta beteende.\n"
+=======
+"      -i\tför att ge NAMN attributet \"heltal\"\n"
+"      -l\tför att konvertera NAMN till gemena vid tilldelning\n"
+"      -n\tgör NAMN till en referens till variablen som namnges som värde\n"
+"      -r\tför att göra NAMN endast läsbart\n"
+"      -t\tför att ge NAMN attributet \"spåra\"\n"
+"      -u\tför att konvertera NAMN till versaler vid tilldelning\n"
+"      -x\tför att exportera NAMN\n"
+"    \n"
+"    Användning av \"+\" istället för \"-\" slår av det angivna attributet.\n"
+"    \n"
+"    För variabler med attributet heltal utförs atitmetisk beräkning (se\n"
+"    kommandot \"let\") när variabeln tilldelas ett värde.\n"
+"    \n"
+"    Vid användning i en funktion gör \"declare\" NAMN lokala, som med "
+"kommandot\n"
+"    \"local\".  Flaggan \"-g\" åsidosätter detta beteende.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en ogiltig flagga ges eller ett fel vid\n"
 "    variabeltilldelning inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:530
 msgid ""
 "Set variable values and attributes.\n"
@@ -3029,6 +5076,19 @@ msgstr ""
 "    En synonym för ”declare”.  Se ”help declare”."
 
 #: builtins.c:538
+=======
+#: builtins.c:527
+msgid ""
+"Set variable values and attributes.\n"
+"    \n"
+"    Obsolete.  See `help declare'."
+msgstr ""
+"Sätt variabelvärden och -attribut.\n"
+"    \n"
+"    Föråldrat.  Se \"help declare\"."
+
+#: builtins.c:535
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Define local variables.\n"
 "    \n"
@@ -3053,10 +5113,16 @@ msgstr ""
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en ogiltig flagga ges, ett fel vid\n"
+<<<<<<< HEAD
 "    variabeltilldelning inträffar eller skalet inte exekverar en funktion."
 
 #: builtins.c:555
 #, fuzzy
+=======
+"    variabeltilldelning  inträffar eller skalet inte exekverar en funktion."
+
+#: builtins.c:552
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Write arguments to the standard output.\n"
 "    \n"
@@ -3082,6 +5148,7 @@ msgid ""
 "      \\v\tvertical tab\n"
 "      \\\\\tbackslash\n"
 "      \\0nnn\tthe character whose ASCII code is NNN (octal).  NNN can be\n"
+<<<<<<< HEAD
 "    \t\t0 to 3 octal digits\n"
 "      \\xHH\tthe eight-bit character whose value is HH (hexadecimal).  HH\n"
 "    \t\tcan be one or two hex digits\n"
@@ -3091,6 +5158,11 @@ msgid ""
 "      \\UHHHHHHHH the Unicode character whose value is the hexadecimal "
 "value\n"
 "    \t\tHHHHHHHH. HHHHHHHH can be one to eight hex digits.\n"
+=======
+"    \t0 to 3 octal digits\n"
+"      \\xHH\tthe eight-bit character whose value is HH (hexadecimal).  HH\n"
+"    \tcan be one or two hex digits\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless a write error occurs."
@@ -3118,14 +5190,24 @@ msgstr ""
 "      \\v\tvertikal tabulator\n"
 "      \\\\\tbakstreck\n"
 "      \\0nnn\ttecknet vars ASCII-kod är NNN (oktalt).  NNN kan vara\n"
+<<<<<<< HEAD
 "    \t\t0 till 3 oktala siffror\n"
 "      \\xHH\tdet åttabitarstecken vars värde är HH (hexadecimalt).  HH\n"
 "    \t\tkan vara en eller två hexadecimala siffror\n"
+=======
+"    \t0 till 3 oktala siffror\n"
+"      \\xHH\tdet åttabitarstecken vars värde är HH (hexadecimalt).  HH\n"
+"    \tkan vara en eller två hexadecimala siffror\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte ett skrivfel inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:595
+=======
+#: builtins.c:588
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Write arguments to the standard output.\n"
 "    \n"
@@ -3147,7 +5229,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Returnerar framgång om inte ett skrivfel inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:610
+=======
+#: builtins.c:603
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Enable and disable shell builtins.\n"
 "    \n"
@@ -3184,24 +5270,42 @@ msgstr ""
 "    \taktiverade eller ej\n"
 "      -n\tavaktivera varje NAMN eller visa en lista av avaktiverade\n"
 "    \tkommandon\n"
+<<<<<<< HEAD
 "      -p\tskriv listan av inbyggda kommandon på en återanvändbar\n"
 "    \tform\n"
 "      -s\tskriv endast namnen på Posix ”special”-inbyggda\n"
 "    \n"
 "    Flaggor som styr dynamisk inläsning:\n"
 "      -f\tLäs in inbyggt NAMN från en delad objektfil FILNAMN\n"
+=======
+"      -p\tskriv listan av inbyggda kommandon på en återanvändningsbar\n"
+"    \tform\n"
+"      -s\tskriv endast namnen på Posix \"special\"-inbyggda\n"
+"    \n"
+"    Flaggor som styr dynamisk inläsning:\n"
+"      -f\tLäs int inbyggt NAMN från en delad objektfil FILNAMN\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -d\tTa bort en inbyggd inläst med -f\n"
 "    \n"
 "    Utan flaggor aktiveras varje NAMN.\n"
 "    \n"
+<<<<<<< HEAD
 "    För att använda den ”test” som finns i sökvägen istället för den i\n"
 "    skalet inbyggda versionen, skriv ”enable -n test”.\n"
+=======
+"    För att använda den \"test\" som finns i sökvägen istället för den i\n"
+"    skalet inbyggda versionen, skriv \"enable -n test\".\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte NAMN inte är inbyggd i skalet eller ett fel\n"
 "    inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:638
+=======
+#: builtins.c:631
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute arguments as a shell command.\n"
 "    \n"
@@ -3221,7 +5325,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Returnerar slutstatus av kommandot eller framgång om kommandot är tomt."
 
+<<<<<<< HEAD
 #: builtins.c:650
+=======
+#: builtins.c:643
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Parse option arguments.\n"
 "    \n"
@@ -3273,7 +5381,11 @@ msgstr ""
 "    Varje gång det anropas kommer getopts placera nästa flagga i skal-\n"
 "    variabeln $namn, initiera namnet om det inte redan finns, och\n"
 "    index på nästa argument läggas i skalvariabeln OPTIND.  OPTIND\n"
+<<<<<<< HEAD
 "    initieras till 1 varje gång skalet eller ett skalskript startas.  När\n"
+=======
+"    initieras till 1 varje gång skalet eller ett skalskrpt startas.  När\n"
+>>>>>>> orgin/bash-4.3-testing
 "    en flagga behöver ett argument placerar getopts det argumentet i\n"
 "    skalvariabeln OPTARG.\n"
 "    \n"
@@ -3281,10 +5393,17 @@ msgstr ""
 "    i OPTSTRING är ett kolon använder getopts tyst felrapportering.  I\n"
 "    detta läge skrivs inget felmeddelande ut.  Om en ogiltig flagga ses\n"
 "    placerar getopts det funna flaggtecknet i OPTARG.  Om ett nödvändigt\n"
+<<<<<<< HEAD
 "    argument inte finns placerar getopts ett ”:” i NAMN och sätter OPTARG\n"
 "    till det funna flaggtecknet.  Om getopts inte är i tyst läge och en\n"
 "    felaktig flagga upptäcks placerar getopts ”?” i NAMN och tar bort\n"
 "    OPTARG.  Om ett nödvändigt argument inte hittas placeras ett ”?” i\n"
+=======
+"    argument inte finns placerar getopts ett \":\" i NAMN och sätter OPTARG\n"
+"    till det funna flaggtecknet.  Om getopts inte är i tyst läge och en\n"
+"    felaktig flagga upptäcks placerar getopts \"?\" i NAMN och tar bort\n"
+"    OPTARG.  Om ett nödvändigt argument inte hittas placeras ett \"?\" i\n"
+>>>>>>> orgin/bash-4.3-testing
 "    NAMN, OPTARG tas bort och ett felmeddelande skrivs.\n"
 "    \n"
 "    Om skalvariabeln OPTERR har värdet 0 avaktiverar getopts utskriften\n"
@@ -3298,7 +5417,11 @@ msgstr ""
 "    Returnerar framgång om en flagga hittas, misslyckas om slutet av\n"
 "    flaggorna nås eller ett fel inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:692
+=======
+#: builtins.c:685
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Replace the shell with the given command.\n"
 "    \n"
@@ -3309,8 +5432,13 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -a name\tpass NAME as the zeroth argument to COMMAND\n"
+<<<<<<< HEAD
 "      -c\texecute COMMAND with an empty environment\n"
 "      -l\tplace a dash in the zeroth argument to COMMAND\n"
+=======
+"      -c\t\texecute COMMAND with an empty environment\n"
+"      -l\t\tplace a dash in the zeroth argument to COMMAND\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    If the command cannot be executed, a non-interactive shell exits, "
 "unless\n"
@@ -3333,6 +5461,7 @@ msgstr ""
 "      -l\tplacera ett streck i det nollte argumentet till KOMMANDO\n"
 "    \n"
 "    Om kommandot inte kan exekveras avslutar ett ickeinteraktivt skal, om\n"
+<<<<<<< HEAD
 "    inte skalflaggan ”execfail” är satt.\n"
 "    \n"
 "    Slutstatus:\n"
@@ -3340,6 +5469,15 @@ msgstr ""
 "    omdirigering inträffar."
 
 #: builtins.c:713
+=======
+"    inte skalflaggan \"execfail\" är satt.\n"
+"    \n"
+"    Sluttatus:\n"
+"    Returnerar framgång om inte KOMMANDO inte finns eller ett fel vid\n"
+"    omdirigering inträffar."
+
+#: builtins.c:706
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Exit the shell.\n"
 "    \n"
@@ -3351,7 +5489,11 @@ msgstr ""
 "    Avslutar skalet med statusen N.  Om N utelämnas är slutstatusen den\n"
 "    hos det sist körda kommandot."
 
+<<<<<<< HEAD
 #: builtins.c:722
+=======
+#: builtins.c:715
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Exit a login shell.\n"
 "    \n"
@@ -3364,7 +5506,11 @@ msgstr ""
 "    Avslutar ett inloggningsskal med slutstatus N.  Returnerar ett fel om\n"
 "    det inte körs i ett inloggningsskal."
 
+<<<<<<< HEAD
 #: builtins.c:732
+=======
+#: builtins.c:725
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display or execute commands from the history list.\n"
 "    \n"
@@ -3407,19 +5553,32 @@ msgstr ""
 "      -n\tutelämna radnummer vid listningen\n"
 "      -r\treversera ordningen på raderna (nyaste listas först)\n"
 "    \n"
+<<<<<<< HEAD
 "    Med formatet ”fc -s [mnst=ers ...] [kommando]” körs KOMMANDO om efter\n"
+=======
+"    Med formatet \"fc -s [mnst=ers ...] [kommando]\" körs KOMMANDO om efter\n"
+>>>>>>> orgin/bash-4.3-testing
 "    att substitutionen GAMMALT=NYTT har utförts.\n"
 "    \n"
 "    Ett användbart alias att använda med detta är r=\"fc -s\", så att "
 "skriva\n"
+<<<<<<< HEAD
 "    ”r cc” kör senaste kommandot som börjar med ”cc” och att skriva ”r” kör\n"
+=======
+"    \"r cc\" kör senaste kommandot som börjar med \"cc\" och att skriva \"r"
+"\" kör\n"
+>>>>>>> orgin/bash-4.3-testing
 "    om senaste kommandot.\n"
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång eller status på exekverat kommando, skilt från noll\n"
 "    om ett fel inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:762
+=======
+#: builtins.c:755
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Move job to the foreground.\n"
 "    \n"
@@ -3440,7 +5599,11 @@ msgstr ""
 "    Status på kommandot som placerades i förgrunden, eller misslyckande om\n"
 "    ett fel inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:777
+=======
+#: builtins.c:770
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Move jobs to the background.\n"
 "    \n"
@@ -3455,9 +5618,16 @@ msgid ""
 msgstr ""
 "Flytta jobb till bakgrunden.\n"
 "    \n"
+<<<<<<< HEAD
 "    Placera jobben som identifieras av varje JOBBSPEC i bakgrunden som om "
 "de\n"
 "    hade startats med ”&”.  Om ingen JOBBSPEC finns används skalets begrepp\n"
+=======
+"    Placera jobben som idintifieras av varje JOBBSPEC i bakgrunden som om "
+"de\n"
+"    hade startats med \"&\".  Om ingen JOBBSPEC finns används skalets "
+"begrepp\n"
+>>>>>>> orgin/bash-4.3-testing
 "    om det aktuella jobbet.\n"
 "    \n"
 "    Slutstatus:\n"
@@ -3465,7 +5635,12 @@ msgstr ""
 "fel\n"
 "    inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:791
+=======
+#: builtins.c:784
+#, fuzzy
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remember or display program locations.\n"
 "    \n"
@@ -3474,6 +5649,7 @@ msgid ""
 "displayed.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -d\tforget the remembered location of each NAME\n"
 "      -l\tdisplay in a format that may be reused as input\n"
 "      -p pathname\tuse PATHNAME as the full pathname of NAME\n"
@@ -3483,6 +5659,17 @@ msgid ""
 "    \t\tNAMEs are given\n"
 "    Arguments:\n"
 "      NAME\tEach NAME is searched for in $PATH and added to the list\n"
+=======
+"      -d\t\tforget the remembered location of each NAME\n"
+"      -l\t\tdisplay in a format that may be reused as input\n"
+"      -p pathname\tuse PATHNAME as the full pathname of NAME\n"
+"      -r\t\tforget all remembered locations\n"
+"      -t\t\tprint the remembered location of each NAME, preceding\n"
+"    \t\teach location with the corresponding NAME if multiple\n"
+"    \t\tNAMEs are given\n"
+"    Arguments:\n"
+"      NAME\t\tEach NAME is searched for in $PATH and added to the list\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \t\tof remembered commands.\n"
 "    \n"
 "    Exit Status:\n"
@@ -3495,6 +5682,7 @@ msgstr ""
 "minnet.\n"
 "    \n"
 "    Flaggor:\n"
+<<<<<<< HEAD
 "      -d\tglöm platsen i minnet för varje NAMN\n"
 "      -l\tvisa i ett format som kan återanvändas som indata\n"
 "      -p sökväg använd SÖKVÄG som den fullständiga sökvägen till NAMN\n"
@@ -3503,12 +5691,26 @@ msgstr ""
 "    \t\tvarje motsvarande plats om flera NAMN ges\n"
 "    Argument:\n"
 "      NAMN\tVarje NAMN söks efter i $PATH och läggs till i listan\n"
+=======
+"      -d\t\tglöm platsen i minnet för varje NAMN\n"
+"      -l\t\tvisa i ett format som kan återanvändas som indata\n"
+"      -p sökväg \tanvänd SÖKVÄG som den fullständiga sökvägen till NAMN\n"
+"      -r\t\tglömm alla platser i minnet\n"
+"      -t\t\tskriv platsen i minnet för varje NAMN, med NAMN före\n"
+"    \t\tvarje motsvarande plats om flera NAMN ges\n"
+"    Argument:\n"
+"      NAMN\t\tVarje NAMN söks efter i $PATH och läggs till i listan\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \t\tav kommandon i minnet.\n"
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte NAMN inte hittas eller en ogiltig flagga ges."
 
+<<<<<<< HEAD
 #: builtins.c:816
+=======
+#: builtins.c:809
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display information about builtin commands.\n"
 "    \n"
@@ -3520,10 +5722,17 @@ msgid ""
 "      -d\toutput short description for each topic\n"
 "      -m\tdisplay usage in pseudo-manpage format\n"
 "      -s\toutput only a short usage synopsis for each topic matching\n"
+<<<<<<< HEAD
 "    \t\tPATTERN\n"
 "    \n"
 "    Arguments:\n"
 "      PATTERN\tPattern specifying a help topic\n"
+=======
+"    \tPATTERN\n"
+"    \n"
+"    Arguments:\n"
+"      PATTERN\tPattern specifiying a help topic\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless PATTERN is not found or an invalid option is "
@@ -3540,7 +5749,11 @@ msgstr ""
 "      -d\tvisa en kort beskrivning för varje ämne\n"
 "      -m\tvisa användning i låtsas-mansideformat\n"
 "      -s\tvisa endast ett kort användningsformat för varje ämne som\n"
+<<<<<<< HEAD
 "    \t\tmatchar MÖNSTER\n"
+=======
+"    \tmatchar MÖNSTER\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Argument:\n"
 "      MÖNSTER\tMönster som anger hjälpämnen\n"
@@ -3549,7 +5762,11 @@ msgstr ""
 "    Returnerar framgång om inte MÖNSTER inte finns eller en ogiltig flagga "
 "ges."
 
+<<<<<<< HEAD
 #: builtins.c:840
+=======
+#: builtins.c:833
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display or manipulate the history list.\n"
 "    \n"
@@ -3558,6 +5775,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -c\tclear the history list by deleting all of the entries\n"
+<<<<<<< HEAD
 "      -d offset\tdelete the history entry at position OFFSET. Negative\n"
 "    \t\toffsets count back from the end of the history list\n"
 "    \n"
@@ -3576,6 +5794,25 @@ msgid ""
 "    if HISTFILE has a value, that is used, else ~/.bash_history.\n"
 "    \n"
 "    If the HISTTIMEFORMAT variable is set and not null, its value is used\n"
+=======
+"      -d offset\tdelete the history entry at offset OFFSET.\n"
+"    \n"
+"      -a\tappend history lines from this session to the history file\n"
+"      -n\tread all history lines not already read from the history file\n"
+"      -r\tread the history file and append the contents to the history\n"
+"    \tlist\n"
+"      -w\twrite the current history to the history file\n"
+"    \tand append them to the history list\n"
+"    \n"
+"      -p\tperform history expansion on each ARG and display the result\n"
+"    \twithout storing it in the history list\n"
+"      -s\tappend the ARGs to the history list as a single entry\n"
+"    \n"
+"    If FILENAME is given, it is used as the history file.  Otherwise,\n"
+"    if $HISTFILE has a value, that is used, else ~/.bash_history.\n"
+"    \n"
+"    If the $HISTTIMEFORMAT variable is set and not null, its value is used\n"
+>>>>>>> orgin/bash-4.3-testing
 "    as a format string for strftime(3) to print the time stamp associated\n"
 "    with each displayed history entry.  No time stamps are printed "
 "otherwise.\n"
@@ -3586,6 +5823,7 @@ msgstr ""
 "Visa eller hantera historielistan.\n"
 "    \n"
 "    Visa historielistan med radnummer, inled varje modifierad post med en\n"
+<<<<<<< HEAD
 "    ”*”.  Ett argument N listar endast de N senaste posterna.\n"
 "    \n"
 "    Flaggor:\n"
@@ -3607,6 +5845,30 @@ msgstr ""
 "    ett värde används det, annars ~/.bash_history.\n"
 "    \n"
 "    Om variabeln HISTTIMEFORMAT är satt och inte tom används dess värde som\n"
+=======
+"    \"*\".  Ett argument N listar endast de N senaste posterna.\n"
+"    \n"
+"    Flaggor:\n"
+"      -c\tnollställ historielistan genom att ta bort alla poster\n"
+"      -d avstånd\tta bort historieposten på avstånd AVSTÅND\n"
+"    \n"
+"      -a\tlägg till historierader från denna session till historiefilen\n"
+"      -n\tläs alla historierader som inte redan lästs från historiefilen\n"
+"      -r\tläs historiefilen och lägg till innehållet till historielistan\n"
+"      -w\tskriv den aktuella historien till hstoriefilen och lägg till\n"
+"    \tdem till historielistan\n"
+"    \n"
+"      -p\tutför historieexpansion på varje ARG och visa resultatet utan\n"
+"    \tatt lagra det i historielistan\n"
+"      -s\tlägg till ARG till historielistan som en ensam post\n"
+"    \n"
+"    Om FILENAMN anges används det som historiefil.  Annars, om $HISTFILE "
+"har\n"
+"    ett värde används det, annars ~/.bash_history.\n"
+"    \n"
+"    Om variabeln $HISTTIMEFORMAT är satt och inte tom används dess värde "
+"som\n"
+>>>>>>> orgin/bash-4.3-testing
 "    en formatsträng till strftime(3) för att skriva tidsstämplar "
 "tillhörande\n"
 "    varje visad historiepost.  Inga tidsstämplar skrivs annars.\n"
@@ -3615,7 +5877,11 @@ msgstr ""
 "    Returnerar framgång om inte en ogiltig flagga ges eller ett fel "
 "inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:877
+=======
+#: builtins.c:869
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display status of jobs.\n"
 "    \n"
@@ -3624,8 +5890,13 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -l\tlists process IDs in addition to the normal information\n"
+<<<<<<< HEAD
 "      -n\tlists only processes that have changed status since the last\n"
 "    \t\tnotification\n"
+=======
+"      -n\tlist only processes that have changed status since the last\n"
+"    \tnotification\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -p\tlists process IDs only\n"
 "      -r\trestrict output to running jobs\n"
 "      -s\trestrict output to stopped jobs\n"
@@ -3646,7 +5917,11 @@ msgstr ""
 "    Flaggor:\n"
 "      -l\tlistar process-id:n utöver den normala informationen\n"
 "      -n\tlistar endast processer som har ändrat status sedan senaste\n"
+<<<<<<< HEAD
 "                notifiering\n"
+=======
+"    \tnotifiering\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -p\tlistar endast process-id:n\n"
 "      -r\tbegränsar utdata till körande jobb\n"
 "      -s\tbegränsar utdata till stoppade jobb\n"
@@ -3659,7 +5934,11 @@ msgstr ""
 "inträffar.\n"
 "    Om -x används returneras slutstatus från KOMMANDO."
 
+<<<<<<< HEAD
 #: builtins.c:904
+=======
+#: builtins.c:896
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remove jobs from current shell.\n"
 "    \n"
@@ -3669,7 +5948,11 @@ msgid ""
 "    Options:\n"
 "      -a\tremove all jobs if JOBSPEC is not supplied\n"
 "      -h\tmark each JOBSPEC so that SIGHUP is not sent to the job if the\n"
+<<<<<<< HEAD
 "    \t\tshell receives a SIGHUP\n"
+=======
+"    \tshell receives a SIGHUP\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -r\tremove only running jobs\n"
 "    \n"
 "    Exit Status:\n"
@@ -3683,13 +5966,21 @@ msgstr ""
 "    Flaggor:\n"
 "      -a\tta bort alla jobb om JOBBSPEC inte anges\n"
 "      -h\tmärk varje JOBBSPEC så att SIGHUP inte skickas till jobbet om\n"
+<<<<<<< HEAD
 "    \t\tskalet tar emot en SIGHUP\n"
+=======
+"    \tskalet tar emot en SIGHUP\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -r\ttar bara bort körande jobb\n"
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en ogiltig flagga eller JOBBSPEC ges."
 
+<<<<<<< HEAD
 #: builtins.c:923
+=======
+#: builtins.c:915
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Send a signal to a job.\n"
 "    \n"
@@ -3701,8 +5992,12 @@ msgid ""
 "      -s sig\tSIG is a signal name\n"
 "      -n sig\tSIG is a signal number\n"
 "      -l\tlist the signal names; if arguments follow `-l' they are\n"
+<<<<<<< HEAD
 "    \t\tassumed to be signal numbers for which names should be listed\n"
 "      -L\tsynonym for -l\n"
+=======
+"    \tassumed to be signal numbers for which names should be listed\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Kill is a shell builtin for two reasons: it allows job IDs to be used\n"
 "    instead of process IDs, and allows processes to be killed if the limit\n"
@@ -3721,9 +6016,14 @@ msgstr ""
 "    Flaggor:\n"
 "      -s sig\tSIG är ett signalnamn\n"
 "      -n sig\tSIG är ett signalnummer\n"
+<<<<<<< HEAD
 "      -l\tlista signalnamnen.  Om argument följer ”-l” antas de vara\n"
 "    \t\tsignalnummer som namn skall listas för\n"
 "      -L\tsynonym för -l\n"
+=======
+"      -l\tlista signalnamnen.  Om argument följer \"-l\" antas de vara\n"
+"    \tsignalnummer som namn skall listas för\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Kill är inbyggt i skalet av två skäl: det tillåter att jobb-id:n "
 "används\n"
@@ -3735,7 +6035,11 @@ msgstr ""
 "    Returnerar framgång om inte en ogiltig flagga angivits eller ett fel\n"
 "    inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:947
+=======
+#: builtins.c:938
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate arithmetic expressions.\n"
 "    \n"
@@ -3793,7 +6097,11 @@ msgstr ""
 "    \t++id, --id\tpreinkrementering av variabel, predekrementering\n"
 "    \t-, +\t\tunärt minus, plus\n"
 "    \t!, ~\t\tlogisk och bitvis negering\n"
+<<<<<<< HEAD
 "    \t**\t\texponentiering\n"
+=======
+"    \t**\t\texponentiatiering\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \t*, /, %\t\tmultiplikation, division, rest\n"
 "    \t+, -\t\taddition, subtraktion\n"
 "    \t<<, >>\t\tvänster och höger bitvisa skift\n"
@@ -3804,7 +6112,11 @@ msgstr ""
 "    \t|\t\tbitvis ELLER\n"
 "    \t&&\t\tlogiskt OCH\n"
 "    \t||\t\tlogiskt ELLER\n"
+<<<<<<< HEAD
 "    \tuttr ? uttr : uttr\n"
+=======
+"    \tuttf ? uttr : uttr\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \t\t\tvillkorlig operator\n"
 "    \t=, *=, /=, %=,\n"
 "    \t+=, -=, <<=, >>=,\n"
@@ -3815,7 +6127,11 @@ msgstr ""
 "    uttryck.  Variablerna behöver inte ha sina heltalsattribut påslagna för\n"
 "    att användas i ett uttryck.\n"
 "    \n"
+<<<<<<< HEAD
 "    Operatorer beräknas i precedensordning.  Deluttryck i parenteser "
+=======
+"    Operatorer beräknas i precedensordning.  Delutryck i parenteser "
+>>>>>>> orgin/bash-4.3-testing
 "beräknas\n"
 "    först och kan åsidosätta precedensreglerna ovan.\n"
 "    \n"
@@ -3823,7 +6139,11 @@ msgstr ""
 "    Om det sista ARG beräknas till 0, returnerar let 1; let returnerar 0 "
 "annars."
 
+<<<<<<< HEAD
 #: builtins.c:992
+=======
+#: builtins.c:983
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Read a line from the standard input and split it into fields.\n"
 "    \n"
@@ -3844,6 +6164,7 @@ msgid ""
 "    \t\tvariable ARRAY, starting at zero\n"
 "      -d delim\tcontinue until the first character of DELIM is read, rather\n"
 "    \t\tthan newline\n"
+<<<<<<< HEAD
 "      -e\tuse Readline to obtain the line\n"
 "      -i text\tuse TEXT as the initial text for Readline\n"
 "      -n nchars\treturn after reading NCHARS characters rather than waiting\n"
@@ -3866,6 +6187,29 @@ msgid ""
 "    \t\tfile descriptor.  The exit status is greater than 128\n"
 "    \t\tif the timeout is exceeded\n"
 "      -u fd\tread from file descriptor FD instead of the standard input\n"
+=======
+"      -e\t\tuse Readline to obtain the line in an interactive shell\n"
+"      -i text\tUse TEXT as the initial text for Readline\n"
+"      -n nchars\treturn after reading NCHARS characters rather than waiting\n"
+"    \t\tfor a newline, but honor a delimiter if fewer than NCHARS\n"
+"    \t\tcharacters are read before the delimiter\n"
+"      -N nchars\treturn only after reading exactly NCHARS characters, "
+"unless\n"
+"    \t\tEOF is encountered or read times out, ignoring any delimiter\n"
+"      -p prompt\toutput the string PROMPT without a trailing newline before\n"
+"    \t\tattempting to read\n"
+"      -r\t\tdo not allow backslashes to escape any characters\n"
+"      -s\t\tdo not echo input coming from a terminal\n"
+"      -t timeout\ttime out and return failure if a complete line of input "
+"is\n"
+"    \t\tnot read within TIMEOUT seconds.  The value of the TMOUT\n"
+"    \t\tvariable is the default timeout.  TIMEOUT may be a\n"
+"    \t\tfractional number.  If TIMEOUT is 0, read returns immediately,\n"
+"    \t\twithout trying to read any data, returning success only if\n"
+"    \t\tinput is available on the specified file descriptor.  The\n"
+"    \t\texit status is greater than 128 if the timeout is exceeded\n"
+"      -u fd\t\tread from file descriptor FD instead of the standard input\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    The return code is zero, unless end-of-file is encountered, read times "
@@ -3887,12 +6231,21 @@ msgstr ""
 "    Om inga NAMN anges, lagras den inlästa raden i variabeln REPLY.\n"
 "    \n"
 "    Flaggor:\n"
+<<<<<<< HEAD
 "      -a vektor\ttilldela de inlästa orden till sekventiella index i "
+=======
+"      -a vektor\ttilldela de inlästa orden till sekvensiella index i "
+>>>>>>> orgin/bash-4.3-testing
 "vektor-\n"
 "    \t\tvariabeln VEKTOR, med start från noll\n"
 "      -d avgr\tfortsätt tills det första tecknet i AVGR lästs, istället för\n"
 "    \t\tnyrad\n"
+<<<<<<< HEAD
 "      -e\tanvänd Readline för att få in raden\n"
+=======
+"      -e\t\tanvänd Readline för att få in raden i ett interaktivt\n"
+"    \t\t\tskal\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -i text\tAnvänd TEXT som starttext för Readline\n"
 "      -n ntkn\treturnera efter att ha läst NTKN tecken istället för att\n"
 "    \t\tvänta på en nyrad, men ta hänsyn till en avgränsare om färre\n"
@@ -3903,8 +6256,13 @@ msgstr ""
 "    \t\talla avgränsare\n"
 "      -p prompt\tskriv ut strängen PROMPT utan en avslutande nyrad före\n"
 "    \t\tförsök att läsa\n"
+<<<<<<< HEAD
 "      -r\ttillåt inte bakstreck att skydda några tecken\n"
 "      -s\teka inte indata som kommer från terminalen\n"
+=======
+"      -r\t\ttillåt inte bakstreck att skydda några tecken\n"
+"      -s\t\teka inte indata som kommer från terminalen\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -t tidgräns\tsluta vänta och returnera misslyckande om inte en\n"
 "    \t\tkomplett rad lästs inom TIDSGRÄNS sekunder.  Värdet på variabeln\n"
 "    \t\tTMOUT är standardvärdet på tidsgränsen.  TIDSGRÄNS kan vara ett\n"
@@ -3913,7 +6271,11 @@ msgstr ""
 "bara\n"
 "\t\tom det finns indata tillgängligt på den angivna filbeskrivaren.\n"
 "                Slutstatus är större än 128 om tidsgränsen överskrids\n"
+<<<<<<< HEAD
 "      -u fb\tläs från filbeskrivare FB istället för standard in\n"
+=======
+"      -u fb\t\tläs från filbeskrivare FB istället för standard in\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returkoden är noll om inte filslut nås, läsningens tidsgräns överskrids\n"
@@ -3921,7 +6283,11 @@ msgstr ""
 "eller\n"
 "    en ogiltig filbeskrivare ges som argument till -u."
 
+<<<<<<< HEAD
 #: builtins.c:1039
+=======
+#: builtins.c:1028
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Return from a shell function.\n"
 "    \n"
@@ -3942,7 +6308,11 @@ msgstr ""
 "    Returnerar N, eller misslyckande om skalet inte kör en funktion eller\n"
 "    skript."
 
+<<<<<<< HEAD
 #: builtins.c:1052
+=======
+#: builtins.c:1041
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set or unset values of shell options and positional parameters.\n"
 "    \n"
@@ -4010,8 +6380,12 @@ msgid ""
 "          by default when the shell is interactive.\n"
 "      -P  If set, do not resolve symbolic links when executing commands\n"
 "          such as cd which change the current directory.\n"
+<<<<<<< HEAD
 "      -T  If set, the DEBUG and RETURN traps are inherited by shell "
 "functions.\n"
+=======
+"      -T  If set, the DEBUG trap is inherited by shell functions.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      --  Assign any remaining arguments to the positional parameters.\n"
 "          If there are no remaining arguments, the positional parameters\n"
 "          are unset.\n"
@@ -4034,7 +6408,11 @@ msgstr ""
 "    \n"
 "    Flaggor:\n"
 "      -a  Markera variabler om ändras eller skapas för export.\n"
+<<<<<<< HEAD
 "      -b  Rapportera om avslutade jobb omedelbart.\n"
+=======
+"      -b  Rapportera om avlutade jobb omedelbart.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -e  Avsluta omedelbart om ett kommando avslutar med nollskild status.\n"
 "      -f  Avaktivera filnamnsgenerering (globbing).\n"
 "      -h  Kom ihåg platsen för kommandon när de slås upp.\n"
@@ -4071,7 +6449,11 @@ msgstr ""
 "              physical     samma som -P\n"
 "              pipefail     returvärdet av ett rör är status på det sista\n"
 "                           kommandot som avslutas med en status skild från\n"
+<<<<<<< HEAD
 "                           noll, eller noll om inget kommando avslutas med\n"
+=======
+"                           noll, eller nol om inget kommando avslutas med\n"
+>>>>>>> orgin/bash-4.3-testing
 "                           en status skild från noll\n"
 "              posix        ändra beteendet på bash där standardbeteendet\n"
 "                           skiljer sig från Posixstandarden till att stämma\n"
@@ -4093,11 +6475,19 @@ msgstr ""
 "      -C  Om satt tillåts inte existerande normala filer att skrivas över\n"
 "          av omdirigering av utdata.\n"
 "      -E  Om satt ärvs ERR-fällan av skalfunktioner.\n"
+<<<<<<< HEAD
 "      -H  Aktivera historiesubstitution i !-stil.  Denna flagga är på som\n"
 "          standard när skalet är interaktivt.\n"
 "      -P  Om satt löses inte symboliska länkar upp när kommandon såsom cd\n"
 "          körs som ändrar aktuell katalog.\n"
 "      -T  Om satt ärvs DEBUG och RETURN-fällorna av skalfunktioner.\n"
+=======
+"      -H  Aktivera historiesubstituion i !-stil.  Denna flagga är på som\n"
+"          standard när skalet är interaktivt.\n"
+"      -P  Om satt löses inte symboliska länkar upp när kommandon såsom cd\n"
+"          körs som ändrar aktuell katalog.\n"
+"      -T  Om satt ärvs DEBUG-fällan av skalfunktioner.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      --  Tilldela eventuella återstående argument till "
 "positionsparametrar.\n"
 "          Om det inte finns några återstående argument nollställs\n"
@@ -4116,7 +6506,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en ogiltig flagga ges."
 
+<<<<<<< HEAD
 #: builtins.c:1137
+=======
+#: builtins.c:1126
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Unset values and attributes of shell variables and functions.\n"
 "    \n"
@@ -4126,7 +6520,11 @@ msgid ""
 "      -f\ttreat each NAME as a shell function\n"
 "      -v\ttreat each NAME as a shell variable\n"
 "      -n\ttreat each NAME as a name reference and unset the variable itself\n"
+<<<<<<< HEAD
 "    \t\trather than the variable it references\n"
+=======
+"    \trather than the variable it references\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Without options, unset first tries to unset a variable, and if that "
 "fails,\n"
@@ -4145,7 +6543,11 @@ msgstr ""
 "      -f\tbehandla varje NAMN som en skalfunktion\n"
 "      -v\tbehandla varje NAMN som en skalvariabel\n"
 "      -n\tbehandla varje NAMN som en namnreferens tar bort värdet på\n"
+<<<<<<< HEAD
 "                variabeln själv istället för variabeln den refererar\n"
+=======
+"    \tvariabeln själv istället för variabeln den refererar\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Utan flaggor försöker unset först att ta bort en variabel, och, om det\n"
 "    misslyckas, försöker den ta bort en funktion.\n"
@@ -4156,7 +6558,11 @@ msgstr ""
 "    Returnerar framgång om inte en ogiltig flagga ges eller NAMN endast är\n"
 "    läsbart."
 
+<<<<<<< HEAD
 #: builtins.c:1159
+=======
+#: builtins.c:1148
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set export attribute for shell variables.\n"
 "    \n"
@@ -4184,12 +6590,21 @@ msgstr ""
 "      -n\tta bort exportegenskapen från varje NAMN\n"
 "      -p\tvisa en lista av alla exporterade variabler och funktioner\n"
 "    \n"
+<<<<<<< HEAD
 "    Ett argument ”--” avslutar vidare flaggbearbetning.\n"
+=======
+"    Ett argument \"--\" avslutar vidare flaggbearbetning.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en ogiltig flagga ges eller NAMN är ogiltigt."
 
+<<<<<<< HEAD
 #: builtins.c:1178
+=======
+#: builtins.c:1167
+#, fuzzy
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Mark shell variables as unchangeable.\n"
 "    \n"
@@ -4201,8 +6616,14 @@ msgid ""
 "      -a\trefer to indexed array variables\n"
 "      -A\trefer to associative array variables\n"
 "      -f\trefer to shell functions\n"
+<<<<<<< HEAD
 "      -p\tdisplay a list of all readonly variables or functions,\n"
 "    \t\tdepending on whether or not the -f option is given\n"
+=======
+"      -p\tdisplay a list of all readonly variables or functions, depending "
+"on\n"
+"            whether or not the -f option is given\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    An argument of `--' disables further option processing.\n"
 "    \n"
@@ -4217,17 +6638,29 @@ msgstr ""
 "    \n"
 "    Flaggor:\n"
 "      -a\treferera till indexerade vektorvariabler\n"
+<<<<<<< HEAD
 "      -A\trefererar till associativa vektorvariabler\n"
 "      -f\treferera till skalfunktioner\n"
 "      -p\tvisa en lista över alla oföränderliga variabler eller funktioner,\n"
 "                beroende på huruvida flaggan -f ges\n"
 "    \n"
 "    Ett argument ”--” avslutar vidare flaggbearbetning.\n"
+=======
+"      -A\trefererar till assoicativa vektorvariabler\n"
+"      -f\treferara till skalfunktioner\n"
+"      -p\tvisa en lista över alla oföränderliga variabler och funktioner\n"
+"    \n"
+"    Ett argument \"--\" avslutar vidare flaggbearbetning.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en ogiltig flagga ges eller NAMN är ogiltigt."
 
+<<<<<<< HEAD
 #: builtins.c:1200
+=======
+#: builtins.c:1189
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Shift positional parameters.\n"
 "    \n"
@@ -4246,7 +6679,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Returnerar framgång om inte N är negativt eller större än $#."
 
+<<<<<<< HEAD
 #: builtins.c:1212 builtins.c:1227
+=======
+#: builtins.c:1201 builtins.c:1216
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands from a file in the current shell.\n"
 "    \n"
@@ -4270,7 +6707,11 @@ msgstr ""
 "    Returnerar status på det sista kommandot som körs i FILNAMN, misslyckas\n"
 "    om FILNAMN inte kan läsas."
 
+<<<<<<< HEAD
 #: builtins.c:1243
+=======
+#: builtins.c:1232
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Suspend shell execution.\n"
 "    \n"
@@ -4296,7 +6737,11 @@ msgstr ""
 "fel\n"
 "    inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:1259
+=======
+#: builtins.c:1248
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate conditional expression.\n"
 "    \n"
@@ -4360,9 +6805,15 @@ msgid ""
 "    Other operators:\n"
 "    \n"
 "      -o OPTION      True if the shell option OPTION is enabled.\n"
+<<<<<<< HEAD
 "      -v VAR         True if the shell variable VAR is set.\n"
 "      -R VAR         True if the shell variable VAR is set and is a name\n"
 "                     reference.\n"
+=======
+"      -v VAR\t True if the shell variable VAR is set\n"
+"      -R VAR\t True if the shell variable VAR is set and is a name "
+"reference.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      ! EXPR         True if expr is false.\n"
 "      EXPR1 -a EXPR2 True if both expr1 AND expr2 are true.\n"
 "      EXPR1 -o EXPR2 True if either expr1 OR expr2 is true.\n"
@@ -4396,7 +6847,11 @@ msgstr ""
 "      -d FIL         Sant om filen är en katalog.\n"
 "      -e FIL         Sant om filen finns.\n"
 "      -f FIL         Sant om filen finns, och är en normal fil.\n"
+<<<<<<< HEAD
 "      -g FIL         Sant om filen är sätt-grupp-id.\n"
+=======
+"      -g FIL         Sant om filen är sätt-gruppid.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -h FIL         Sant om filen är en symbolisk länk.\n"
 "      -L FIL         Sant om filen är en symbolisk länk.\n"
 "      -k FIL         Sant om filen har ”fastbiten” satt.\n"
@@ -4405,7 +6860,11 @@ msgstr ""
 "      -s FIL         Sant om filen finns och inte är tom.\n"
 "      -S FIL         Sant om filen är ett uttag (socket).\n"
 "      -t FB          Sant om FB är öppnad mot en terminal.\n"
+<<<<<<< HEAD
 "      -u FIL         Sant om filen är sätt-användar-id.\n"
+=======
+"      -u FIL         Sant om filen är sätt-användarid.\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -w FIL         Sant om filen är skrivbar av dig.\n"
 "      -x FIL         Sant om filen är exekverbar av dig.\n"
 "      -O FIL         Sant om filen ägs av din verksamma användare.\n"
@@ -4456,7 +6915,11 @@ msgstr ""
 "    Returnerar framgång om UTTR beräknas till sant.  Misslyckas ifall UTTR\n"
 "    beräknas till falskt eller ett ogiltigt argument ges."
 
+<<<<<<< HEAD
 #: builtins.c:1341
+=======
+#: builtins.c:1329
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate conditional expression.\n"
 "    \n"
@@ -4465,10 +6928,18 @@ msgid ""
 msgstr ""
 "Beräkna villkorligt uttryck.\n"
 "    \n"
+<<<<<<< HEAD
 "    Detta är en synonym till det inbyggda ”test”, men det sista argumentet\n"
 "    måste vara en bokstavlig ”]”, för att matcha den inledande ”[”."
 
 #: builtins.c:1350
+=======
+"    Detta är en synonym till det inbyggda \"test\", men det sista "
+"argumentet\n"
+"    måste vara en bokstavlig \"]\", för att matcha den inledande \"[\"."
+
+#: builtins.c:1338
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display process times.\n"
 "    \n"
@@ -4488,7 +6959,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Lyckas alltid."
 
+<<<<<<< HEAD
 #: builtins.c:1362
+=======
+#: builtins.c:1350
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Trap signals and other events.\n"
 "    \n"
@@ -4538,8 +7013,13 @@ msgstr ""
 "    \n"
 "    ARG är ett kommando som skall läsas och exekveras när skalet tar emot\n"
 "    signalen SIGNALSPEC.  Om ARG inte anges (och en ensam SIGNALSPEC ges)\n"
+<<<<<<< HEAD
 "    eller ”-” återställs varje angiven signal till sitt originalvärde.  Om\n"
 "    ARG är den tomma strängen ignoreras varje SIGNALSPEC av skalet och av\n"
+=======
+"    eller \"-\" återställs varje angiven signal till sitt orginalvärde.  Om\n"
+"    ARG är den tomma strängen ingoreras varje SIGNALSPEC av skalet och av\n"
+>>>>>>> orgin/bash-4.3-testing
 "    kommandon det startar.\n"
 "    \n"
 "    Om en SIGNALSPEC är EXIT (0) exekveras ARG vid avslut från skalet.  Om\n"
@@ -4547,7 +7027,11 @@ msgstr ""
 "    en SIGNALSPEC är RETURN exekveras ARG varje gång en skalfunktion eller\n"
 "    ett skript kört med den inbyggda . eller source avslutar körningen.  En\n"
 "    SIGNALSPEC ERR betyder att köra ARG varje gång ett kommandos felstatus\n"
+<<<<<<< HEAD
 "    skulle fått skalet att avsluta om flaggan -e vore satt.\n"
+=======
+"    skulle fått skalet att avsluta om flaggan -e ovre satt.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Om inga argument ges skriver trap listan av kommandon som hör till "
 "varje\n"
@@ -4559,14 +7043,22 @@ msgstr ""
 "    \n"
 "    Varje SIGNALSPEC är antingen ett signalnamn i <signal.h> eller ett\n"
 "    signalnummer.  Signalnamn är skiftlägesokänsliga och SIG-prefixet är\n"
+<<<<<<< HEAD
 "    frivilligt.  En signal kan skickas till skalet med ”kill -signal $$”.\n"
+=======
+"    frivilligt.  En signal kan skickas till skalet med \"kill -signal $$\".\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en SIGSPEC är ogiltig eller en ogiltig "
 "flagga\n"
 "    ges."
 
+<<<<<<< HEAD
 #: builtins.c:1398
+=======
+#: builtins.c:1386
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display information about command type.\n"
 "    \n"
@@ -4575,6 +7067,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -a\tdisplay all locations containing an executable named NAME;\n"
+<<<<<<< HEAD
 "    \t\tincludes aliases, builtins, and functions, if and only if\n"
 "    \t\tthe `-p' option is not also used\n"
 "      -f\tsuppress shell function lookup\n"
@@ -4587,6 +7080,20 @@ msgid ""
 "    \t\t`function', `builtin', `file' or `', if NAME is an alias,\n"
 "    \t\tshell reserved word, shell function, shell builtin, disk file,\n"
 "    \t\tor not found, respectively\n"
+=======
+"    \tincludes aliases, builtins, and functions, if and only if\n"
+"    \tthe `-p' option is not also used\n"
+"      -f\tsuppress shell function lookup\n"
+"      -P\tforce a PATH search for each NAME, even if it is an alias,\n"
+"    \tbuiltin, or function, and returns the name of the disk file\n"
+"    \tthat would be executed\n"
+"      -p\treturns either the name of the disk file that would be executed,\n"
+"    \tor nothing if `type -t NAME' would not return `file'.\n"
+"      -t\toutput a single word which is one of `alias', `keyword',\n"
+"    \t`function', `builtin', `file' or `', if NAME is an alias, shell\n"
+"    \treserved word, shell function, shell builtin, disk file, or not\n"
+"    \tfound, respectively\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Arguments:\n"
 "      NAME\tCommand name to be interpreted.\n"
@@ -4601,6 +7108,7 @@ msgstr ""
 "    kommandonamn.\n"
 "    \n"
 "    Flaggor:\n"
+<<<<<<< HEAD
 "      -a\tvisa alla platser som innehåller ett körbart program med namnet\n"
 "    \t\tNAMN, inklusive alias, inbyggda och funktioner, om och endast\n"
 "    \t\tom flaggan ”-p” inte också används\n"
@@ -4617,11 +7125,35 @@ msgstr ""
 "    \n"
 "    Argument:\n"
 "      NAMN\tKommandonamn som skall tolkas.\n"
+=======
+"      -a\tvisa alla platser som innehåller ett körbart program med\n"
+"    \tnamnet NAMN, inklusive alias, inbyggda och funktioner, om och endast\n"
+"    \tom flaggan \"-p\" inte också används\n"
+"      -f\tutelämna uppslagning av skalfunktioner\n"
+"      -P\tframtvinga en PATH-sökning för varje NAMN, även om det är ett\n"
+"    \talias, inbyggt eller funktion, och returnera namnet på diskfilen som\n"
+"    \tskulle blivit exekverad\n"
+"      -p\treturnerar antingen namnet på diskfilen som skulle exekverats,\n"
+"    \teller ingenting om \"type -t NAMN\" inte skulle returnerat \"file\".\n"
+"      -t\tskriv ut ett ensamt ord som är ett av \"alias\", \"keyword\",\n"
+"    \t\"function\", \"builtin\", \"file\" eller \"\", om NAMN är ett alias, "
+"ett\n"
+"    \treserverat ord i skalet, en skalfunktion, inbyggt i skalet, en "
+"diskfil\n"
+"    \trespektive inte finns\n"
+"    \n"
+"    Argument:\n"
+"      NAMN\tKomandonamn som skall tolkas.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om alla NAMNen finns, misslyckas om något inte finns."
 
+<<<<<<< HEAD
 #: builtins.c:1429
+=======
+#: builtins.c:1417
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Modify shell resource limits.\n"
 "    \n"
@@ -4639,7 +7171,10 @@ msgid ""
 "      -e\tthe maximum scheduling priority (`nice')\n"
 "      -f\tthe maximum size of files written by the shell and its children\n"
 "      -i\tthe maximum number of pending signals\n"
+<<<<<<< HEAD
 "      -k\tthe maximum number of kqueues allocated for this process\n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "      -l\tthe maximum size a process may lock into memory\n"
 "      -m\tthe maximum resident set size\n"
 "      -n\tthe maximum number of open file descriptors\n"
@@ -4651,8 +7186,12 @@ msgid ""
 "      -u\tthe maximum number of user processes\n"
 "      -v\tthe size of virtual memory\n"
 "      -x\tthe maximum number of file locks\n"
+<<<<<<< HEAD
 "      -P\tthe maximum number of pseudoterminals\n"
 "      -T\tthe maximum number of threads\n"
+=======
+"      -T    the maximum number of threads\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Not all options are available on all platforms.\n"
 "    \n"
@@ -4681,31 +7220,49 @@ msgstr ""
 "      -a\talla aktuella gränser rapporteras\n"
 "      -b\tstorleken på uttagsbuffertar\n"
 "      -c\tden maximala storleken på minnesutskrifter som skapas\n"
+<<<<<<< HEAD
 "      -d\tden maximala storleken på en process datasegment\n"
+=======
+"      -d\tden maximala storleken på en process datasegmen\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -e\tden maximala schemaläggningsprioriteten (”nice”)\n"
 "      -f\tden maximala storleken på filer som skrivs av skalet och dess\n"
 "        \tbarn\n"
 "      -i\tdet maximala antalet väntande signaler\n"
+<<<<<<< HEAD
 "      -k\tdet maximala antalet kqueue:r allokerade för denna process\n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "      -l\tden maximala storleken en process kan låsa i minnet\n"
 "      -m\tden maximala residenta mängdstorleken\n"
 "      -n\tdet maximala antalet öppna filbeskrivare\n"
 "      -p\trörbuffertstorleken\n"
 "      -q\tdet maximala antalet byte i POSIX-meddelandeköer\n"
+<<<<<<< HEAD
 "      -r\tden maximala prioriteten för realtidsschemaläggning\n"
+=======
+"      -r\tden maximala realtidsschemaläggningsprioriteten\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -s\tden maximala stackstorleken\n"
 "      -t\tden maximala mängden cpu-tid i sekunder\n"
 "      -u\tdet maximala antalet användarprocesser\n"
 "      -v\tstorleken på det virtuella minnet\n"
 "      -x\tdet maximala antalet fillås\n"
+<<<<<<< HEAD
 "      -P        det maximala antalet pseudoterminaler\n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "      -T        det maximala antalet trådar\n"
 "    \n"
 "    Alla flaggor är inte tillgängliga på alla plattformar.\n"
 "    \n"
 "    Om GRÄNS anges är det ett nytt värde för den specificerade resursen; de\n"
 "    speciella GRÄNS-värdena ”soft”, ”hard” och ”unlimited” står för den\n"
+<<<<<<< HEAD
 "    aktuella mjuka gränsen, den aktuella hårda gränsen respektive ingen "
+=======
+"    aktuella mjuka gränsen, den aktuella hårda grånsen respektive inge "
+>>>>>>> orgin/bash-4.3-testing
 "gräns.\n"
 "    Annars skrivs det aktuella värdet på den specificerade resursen.  Om\n"
 "    ingen flagga ges antas -f.\n"
@@ -4718,7 +7275,11 @@ msgstr ""
 "    Returnerar framgång om inte en ogiltig flagga anges eller ett fel "
 "inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:1479
+=======
+#: builtins.c:1465
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display or set file mode mask.\n"
 "    \n"
@@ -4754,7 +7315,11 @@ msgstr ""
 "flagga\n"
 "    ges."
 
+<<<<<<< HEAD
 #: builtins.c:1499
+=======
+#: builtins.c:1485
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Wait for job completion and return exit status.\n"
 "    \n"
@@ -4762,15 +7327,23 @@ msgid ""
 "a\n"
 "    job specification, and reports its termination status.  If ID is not\n"
 "    given, waits for all currently active child processes, and the return\n"
+<<<<<<< HEAD
 "    status is zero.  If ID is a job specification, waits for all processes\n"
+=======
+"    status is zero.  If ID is a a job specification, waits for all "
+"processes\n"
+>>>>>>> orgin/bash-4.3-testing
 "    in that job's pipeline.\n"
 "    \n"
 "    If the -n option is supplied, waits for the next job to terminate and\n"
 "    returns its exit status.\n"
 "    \n"
+<<<<<<< HEAD
 "    If the -f option is supplied, and job control is enabled, waits for the\n"
 "    specified ID to terminate, instead of waiting for it to change status.\n"
 "    \n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "    Exit Status:\n"
 "    Returns the status of the last ID; fails if ID is invalid or an invalid\n"
 "    option is given."
@@ -4784,17 +7357,27 @@ msgstr ""
 "jobbspecifikation, \n"
 "    vänta på alla processer i det jobbets rör.\n"
 "    \n"
+<<<<<<< HEAD
 "    Om flaggan -n ges väntar på nästa jobb att avsluta och returnera dess\n"
 "    slutstatus.\n"
 "    \n"
 "    Om flaggan -f anges, och jobbstyrning är aktiverat, väntar på att det\n"
 "    angivna ID:t avslutas, istället för att vänta på att det ändrar status.\n"
 "    \n"
+=======
+"    Om flaggan -n ges väntar på nästa jobb att avsluta och retunera dess\n"
+"    slutstatus.\n"
+"    \n"
+>>>>>>> orgin/bash-4.3-testing
 "    Slutstatus:\n"
 "    Returnerar status på den sista ID, misslyckas ifall ID är ogiltig\n"
 "    eller en ogiltig flagga ges."
 
+<<<<<<< HEAD
 #: builtins.c:1523
+=======
+#: builtins.c:1506
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Wait for process completion and return exit status.\n"
 "    \n"
@@ -4818,7 +7401,11 @@ msgstr ""
 "    Returnerar status på den sista PID, misslyckas ifall PID är ogiltig\n"
 "    eller en ogiltig flagga ges."
 
+<<<<<<< HEAD
 #: builtins.c:1538
+=======
+#: builtins.c:1521
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands for each member in a list.\n"
 "    \n"
@@ -4832,15 +7419,25 @@ msgid ""
 msgstr ""
 "Exekvera kommandon för varje medlem i en lista.\n"
 "    \n"
+<<<<<<< HEAD
 "    ”for”-slingan exekverar en sekvens av kommandon för varje medlem i en\n"
 "    lista av element.  Om ”in ORD ...;” inte är med antas 'in \"$@\"'.  För\n"
+=======
+"    \"for\"-slingan exekverar en sekvens av kommandon för varje medlem i en\n"
+"    lista av element.  Om \"in ORD ...;\" inte är med antas 'in \"$@\"'.  "
+"För\n"
+>>>>>>> orgin/bash-4.3-testing
 "    varje element i ORD sätts NAMN till det elementet, och KOMMANDON\n"
 "    exekveras.\n"
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar status för det sist exekverade kommandot."
 
+<<<<<<< HEAD
 #: builtins.c:1552
+=======
+#: builtins.c:1535
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Arithmetic for loop.\n"
 "    \n"
@@ -4870,7 +7467,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Returnerar statusen från det sist exekverade kommandot."
 
+<<<<<<< HEAD
 #: builtins.c:1570
+=======
+#: builtins.c:1553
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Select words from a list and execute commands.\n"
 "    \n"
@@ -4902,10 +7503,17 @@ msgstr ""
 "    REPLY.  KOMMANDON exekveras efter varje val tills ett\n"
 "    break-kommando exekveras.\n"
 "    \n"
+<<<<<<< HEAD
 "    Slutstatus:\n"
 "    Returnerar statusen från det sist exekverade kommandot."
 
 #: builtins.c:1591
+=======
+"    Sluttatus:\n"
+"    Returnerar statusen från det sist exekverade kommandot."
+
+#: builtins.c:1574
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Report time consumed by pipeline's execution.\n"
 "    \n"
@@ -4929,12 +7537,20 @@ msgstr ""
 "    Flaggor:\n"
 "      -p\tskriv tidssammanfattningen i det portabla Posix-formatet\n"
 "    \n"
+<<<<<<< HEAD
 "    Värdet på variabeln TIMEFORMAT används som utmatningsformat.\n"
+=======
+"    Värdet på variablen TIMEFORMAT används som utmatningsformat.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returstatusen är returstatusen från RÖR."
 
+<<<<<<< HEAD
 #: builtins.c:1608
+=======
+#: builtins.c:1591
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands based on pattern matching.\n"
 "    \n"
@@ -4947,12 +7563,20 @@ msgstr ""
 "Exekvera kommandon baserat på mönstermatchning.\n"
 "    \n"
 "    Välj att exekvera KOMMANDON baserat på om ORD matchar MÖNSTER.  Ett\n"
+<<<<<<< HEAD
 "    ”|” används för att separera flera mönster.\n"
+=======
+"    \"|\" används för att separera flera mönster.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar statusen från det sist exekverade kommandot."
 
+<<<<<<< HEAD
 #: builtins.c:1620
+=======
+#: builtins.c:1603
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands based on conditional.\n"
 "    \n"
@@ -4972,6 +7596,7 @@ msgid ""
 "    Exit Status:\n"
 "    Returns the status of the last command executed."
 msgstr ""
+<<<<<<< HEAD
 "Exekvera kommandon baserat på ett villkor.\n"
 "    \n"
 "    Listan ”if KOMMANDON” exekveras.  Om dess slutstatus är noll så "
@@ -4981,13 +7606,29 @@ msgstr ""
 "    lista ”then KOMMANDON” och if-kommandot avslutar.  Annars exekveras "
 "listan\n"
 "    ”else KOMMANDON” om den finns.  Slutstatus av hela konstruktionen är\n"
+=======
+"Exekvera kommndon baserat på ett villkor.\n"
+"    \n"
+"    Listan \"if KOMMANDON\" exekveras.  Om des slutstatus är noll så "
+"exekveras\n"
+"    listan \"then COMMANDS\".  Annars exekveras varje lista \"elif KOMMANDON"
+"\"\n"
+"    i tur och ordning, och om dess slutstatus är noll exekveras motsvarande\n"
+"    lista \"then COMMANDS\" och if-kommandot avslutar.  Annars exekveras "
+"listan\n"
+"    \"else COMMANDS\" om den finns.  Slutstatus av hela konstruktionen är\n"
+>>>>>>> orgin/bash-4.3-testing
 "    slutstatusen på det sist exekverade kommandot, eller noll om inget\n"
 "    villkor returnerade sant.\n"
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar status från det sist exekverade kommandot."
 
+<<<<<<< HEAD
 #: builtins.c:1637
+=======
+#: builtins.c:1620
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands as long as a test succeeds.\n"
 "    \n"
@@ -4999,13 +7640,22 @@ msgid ""
 msgstr ""
 "Exekvera kommandon så länge ett test lyckas.\n"
 "    \n"
+<<<<<<< HEAD
 "    Expandera och exekvera KOMMANDON så länge det sista kommandot i\n"
 "    ”while”-KOMMANDONa har en slutstatus på noll.\n"
+=======
+"    Expandera och exekvera KOMMANDON så länge det sista kommandont i\n"
+"    \"while\"-KOMMANDONa har en sluttstatus på noll.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar statusen från det sist exekverade kommandot."
 
+<<<<<<< HEAD
 #: builtins.c:1649
+=======
+#: builtins.c:1632
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute commands as long as a test does not succeed.\n"
 "    \n"
@@ -5018,12 +7668,20 @@ msgstr ""
 "Exekvera kommandon så länge ett test inte lyckas.\n"
 "    \n"
 "    Expandera och exekvera KOMMANDON så länge det sista kommandot i\n"
+<<<<<<< HEAD
 "    ”until”-KOMMANDONa har en slutstatus som inte är noll.\n"
+=======
+"    \"until\"-KOMMANDONa har en slutstatus som inte är noll.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar statusen från det sist exekverade kommandot."
 
+<<<<<<< HEAD
 #: builtins.c:1661
+=======
+#: builtins.c:1644
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Create a coprocess named NAME.\n"
 "    \n"
@@ -5033,6 +7691,7 @@ msgid ""
 "    The default NAME is \"COPROC\".\n"
 "    \n"
 "    Exit Status:\n"
+<<<<<<< HEAD
 "    The coproc command returns an exit status of 0."
 msgstr ""
 "Skapa en ko-process med namnet NAMN.\n"
@@ -5046,6 +7705,21 @@ msgstr ""
 "    Kommandot coproc returnerar slutstatusen 0."
 
 #: builtins.c:1675
+=======
+"    Returns the exit status of COMMAND."
+msgstr ""
+"Skapa en koprocess med namnet NAMN.\n"
+"    \n"
+"    Kör KOMMANDO asynkront, med standard ut och standard in för kommandot\n"
+"    ansluta via ett rör till fildeskriptorer tilldelade indexen 0 och 1 i\n"
+"    en vektorvariabel NAMN i skalet som kör.  Standardvärde på NAMN är\n"
+"    \"COPROC\".\n"
+"    \n"
+"    Slutstatus:\n"
+"    Returnerar statusen från KOMMANDO."
+
+#: builtins.c:1658
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Define shell function.\n"
 "    \n"
@@ -5068,7 +7742,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    Returnerar framgång om inte NAMN endast är läsbart."
 
+<<<<<<< HEAD
 #: builtins.c:1689
+=======
+#: builtins.c:1672
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Group commands as a unit.\n"
 "    \n"
@@ -5080,6 +7758,7 @@ msgid ""
 msgstr ""
 "Gruppera kommandon som en enhet.\n"
 "    \n"
+<<<<<<< HEAD
 "    Kör ett antal kommandon i en grupp.  Detta är ett sätt att omdirigera\n"
 "    en hel mängd kommandon.\n"
 "    \n"
@@ -5087,6 +7766,15 @@ msgstr ""
 "    Returnerar statusen från det sist exekverade kommandot."
 
 #: builtins.c:1701
+=======
+"    Kör ett antal kommandon i en grupp.  Detta är ett sätt at omdirigera\n"
+"    en hel mängd kommandon.\n"
+"    \n"
+"    Slutstatus:\n"
+"    Returnerar stutusen från det sist exekverade kommandot."
+
+#: builtins.c:1684
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Resume job in foreground.\n"
 "    \n"
@@ -5101,16 +7789,28 @@ msgid ""
 msgstr ""
 "Återuppta jobb i förgrunden.\n"
 "    \n"
+<<<<<<< HEAD
 "    Likvärdigt med JOBBSPEC-argumentet till kommandot ”fg”.  Återuppta\n"
 "    ett stoppat eller bakgrundsjobb.  JOBBSPEC kan ange antingen ett\n"
 "    jobbnamn eller ett jobbnummer.  Om JOBBSPEC följs av ett ”&” placeras\n"
 "    jobbet i bakgrunden, som om jobbspecifikationen hade givits som ett\n"
 "    argument till ”bg”.\n"
+=======
+"    Likvärdigt med JOBBSPEC-argumentet till kommandot \"fg\".  Återuppta\n"
+"    ett stoppat eller bakgrundsjobb.  JOBBSPEC kan ange antingen ett\n"
+"    jobbnamn eller ett jobbnummer.  Om JOBBSPEC följs av ett \"&\" placeras\n"
+"    jobbet i bakgrunden, som om jobbspecifikationen hade givits som ett\n"
+"    argument till \"bg\".\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar statusen på det återupptagna jobbet."
 
+<<<<<<< HEAD
 #: builtins.c:1716
+=======
+#: builtins.c:1699
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Evaluate arithmetic expression.\n"
 "    \n"
@@ -5123,12 +7823,20 @@ msgstr ""
 "Beräkna aritmetiskt uttryck.\n"
 "    \n"
 "    UTTRYCKet beräknas enligt reglerna för aritmetisk beräkning.\n"
+<<<<<<< HEAD
 "    Likvärdigt med ”let UTTRYCK”.\n"
+=======
+"    Likvärdigt med \"let UTTRYCK\".\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar 1 om UTTRYCK beräknas till 0, returnerar 0 annars."
 
+<<<<<<< HEAD
 #: builtins.c:1728
+=======
+#: builtins.c:1711
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Execute conditional command.\n"
 "    \n"
@@ -5160,7 +7868,11 @@ msgstr ""
 "    Returnerar en status av 0 eller 1 beroende på evalueringen av det\n"
 "    villkorliga uttrycket UTTRYCK.  Uttryck är sammansatta av samma "
 "primitiver\n"
+<<<<<<< HEAD
 "    som används av det inbyggda ”test”, och kan kombineras med följande\n"
+=======
+"    som används av det inbyggda \"test\", och kan kombineras med följande\n"
+>>>>>>> orgin/bash-4.3-testing
 "    operatorer:\n"
 "    \n"
 "      ( UTTRYCK )\tReturnerar värdet på UTTRYCK\n"
@@ -5169,8 +7881,14 @@ msgstr ""
 "      UTTR1 || UTTR2\tSant om antingen UTTR1 eller UTTR2 är sant, annars\n"
 "                        falskt\n"
 "    \n"
+<<<<<<< HEAD
 "    När operatorerna ”==” och ”!=” används används strängen till höger om\n"
 "    som ett mönster och mönstermatchning utförs.  När operatorn ”=~” "
+=======
+"    När operatorerna \"==\" och \"!=\" används används strängen till höger "
+"om\n"
+"    som ett mönster och mönstermatchning utförs.  När operatorn \"=~\" "
+>>>>>>> orgin/bash-4.3-testing
 "används\n"
 "    matchas strängen till höger om operatorn som ett reguljärt uttryck.\n"
 "    \n"
@@ -5180,7 +7898,11 @@ msgstr ""
 "    Slutstatus:\n"
 "    0 eller 1 beroende på värdet av UTTRYCK."
 
+<<<<<<< HEAD
 #: builtins.c:1754
+=======
+#: builtins.c:1737
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Common shell variable names and usage.\n"
 "    \n"
@@ -5237,11 +7959,19 @@ msgstr ""
 "    \n"
 "    BASH_VERSION\tVersionsinformation för denna Bash.\n"
 "    CDPATH\tEn kolonseparerad lista av kataloger att söka i efter\n"
+<<<<<<< HEAD
 "    \t\tkataloger givna som argument till ”cd”.\n"
 "    GLOBIGNORE\tEn kolonseparerad lista av mönster som beskriver filnamn\n"
 "    \t\tatt ignorera vid söknamnsexpansion.\n"
 "    HISTFILE\tNamnet på filen där din kommandohistorik sparas.\n"
 "    HISTFILESIZE\tDet maximala antalet rader denna fil kan innehålla.\n"
+=======
+"    \t\tkataloger givna som argument till \"cd\".\n"
+"    GLOBIGNORE\tEn kolonseparerad lista av mönster som beskriver filnamn\n"
+"    \t\tatt ignorera vid söknamnsexpansion.\n"
+"    HISTFILE\tNamnet på filen där din kommandohistorik sparas.\n"
+"    HISTFILESIZE\tDet maximala antalet rade denna fil kan innehålla.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    HISTSIZE\tDet maximala antalet historierade ett körande skal kan\n"
 "    \t\tkomma åt.\n"
 "    HOME\tDen fullständiga sökvägen till din inloggningskatalog.\n"
@@ -5252,7 +7982,11 @@ msgstr ""
 "    \t\tfilslutstecken som kan ses i rad på en tom rad innan\n"
 "    \t\tskalet avslutar (10 som standard).  När den inte är satt\n"
 "    \t\tbetyder filslut slut på indata.\n"
+<<<<<<< HEAD
 "    MACHTYPE\tEn sträng som beskriver det aktuella systemet Bash kör på.\n"
+=======
+"    MACHTYPE\tEn sträng som bexkriver det aktuella systemet Bash kör på.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    MAILCHECK\tHur ofta, i sekunder, Bash tittar efter ny post.\n"
 "    MAILPATH\tEn kolonseparerad lista av filnamn som Bash tittar efter\n"
 "    \t\tny post i.\n"
@@ -5267,6 +8001,7 @@ msgstr ""
 "    SHELLOPTS\tEn kolonseparerad lista av aktiverade skalflaggor.\n"
 "    TERM\tNamnet på den aktuella terminaltypen.\n"
 "    TIMEFORMAT\tUtmatningsformatet för tidsstatistik som visas av det\n"
+<<<<<<< HEAD
 "    \t\treserverade ordet ”time”.\n"
 "    auto_resume\tOm inte tomt betyder att ett kommandoord som förekommer\n"
 "    \t\tensamt på en rad först letas efter i listan av för tillfället\n"
@@ -5274,11 +8009,21 @@ msgstr ""
 "    \t\tförgrunden.  Ett värde av ”exact” betyder att kommandoordet\n"
 "    \t\texakt måste stämma med ett kommando i listan över stoppade\n"
 "    \t\tjobb.  Ett värde av ”substring” betyder att kommandoordet\n"
+=======
+"    \t\treserverade ordet \"time\".\n"
+"    auto_resume\tOm inte tomt betyder att ett kommandoord som förekommer\n"
+"    \t\tensamt på en rad först letas efter i listan av för tillfället\n"
+"    \t\tstoppade jobb.  Om det hittas där läggs det jobbet i\n"
+"    \t\tförgrunden.  Ett värde av \"exact\" betyder att kommandoordet\n"
+"    \t\texakt måste stämma med ett kommando i listan över stoppade\n"
+"    \t\tjobb.  Ett värde av \"substring\" betyder att kommandoordet\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \t\tmåste stämma med en delsträng av jobbet.  Alla andra värden\n"
 "    \t\tbetyder att kommandot måste vara ett prefix av ett stoppat\n"
 "    \t\tjobb.\n"
 "    histchars\tTecken som styr historieexpansion och snabbsubstitution.\n"
 "    \t\tDet första tecknet är tecknet för historiesubstitution,\n"
+<<<<<<< HEAD
 "    \t\tvanligen ”!”.  Det andra tecknet är tecknet för ”snabb\n"
 "    \t\tsubstitution”, vanligen ”^”.  Det tredje är tecknet för\n"
 "    \t\t”historiekommentar”, vanligen ”#”.\n"
@@ -5286,6 +8031,15 @@ msgstr ""
 "    \t\tbestämma vilka kommandon som skall sparas i historielistan.\n"
 
 #: builtins.c:1811
+=======
+"    \t\tvanligen \"!\".  Det andra tecknet är tecknet för \"snabb\n"
+"    \t\tsubstitution\", vanligen \"^\".  Det tredje är tecknet för\n"
+"    \t\t\"historiekommentar\", vanligen \"#\".\n"
+"    HISTIGNORE\tEn kolonseparerad lista av mönster som används för att\n"
+"    \t\tbestämma vilka kommandon som skall sparas i historielistan.\n"
+
+#: builtins.c:1794
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Add directories to stack.\n"
 "    \n"
@@ -5295,6 +8049,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -n\tSuppresses the normal change of directory when adding\n"
+<<<<<<< HEAD
 "    \t\tdirectories to the stack, so only the stack is manipulated.\n"
 "    \n"
 "    Arguments:\n"
@@ -5308,6 +8063,21 @@ msgid ""
 "    \n"
 "      dir\tAdds DIR to the directory stack at the top, making it the\n"
 "    \t\tnew current working directory.\n"
+=======
+"    \tdirectories to the stack, so only the stack is manipulated.\n"
+"    \n"
+"    Arguments:\n"
+"      +N\tRotates the stack so that the Nth directory (counting\n"
+"    \tfrom the left of the list shown by `dirs', starting with\n"
+"    \tzero) is at the top.\n"
+"    \n"
+"      -N\tRotates the stack so that the Nth directory (counting\n"
+"    \tfrom the right of the list shown by `dirs', starting with\n"
+"    \tzero) is at the top.\n"
+"    \n"
+"      dir\tAdds DIR to the directory stack at the top, making it the\n"
+"    \tnew current working directory.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The `dirs' builtin displays the directory stack.\n"
 "    \n"
@@ -5323,6 +8093,7 @@ msgstr ""
 "    \n"
 "    Flaggor:\n"
 "      -n\tUndertryck det normala bytet av katalog när kataloger\n"
+<<<<<<< HEAD
 "    \t\tläggs till på stacken, så att endast stacken ändras.\n"
 "    \n"
 "    Argument:\n"
@@ -5338,12 +8109,33 @@ msgstr ""
 "    \t\tden till den nya aktuella arbetskatalogen.\n"
 "    \n"
 "    Den inbyggda ”dirs” visar katalogstacken.\n"
+=======
+"    \tläggs till på stacken, så att endast stacken ändras.\n"
+"    \n"
+"    Argument:\n"
+"      +N\tRotera stacken så att den N:e katalogen (räknat från\n"
+"    \tvänster i listan som visas av \"dirs\", med start på noll) hamnar\n"
+"    \tpå toppen.\n"
+"    \n"
+"      -N\tRotera stacken så att den N:e katalogen (räknat från\n"
+"    \thöger i listan som visas av \"dirs\", med start på noll) hamnar\n"
+"    \tpå toppen.\n"
+"    \n"
+"      kat\tLägger till KAT till toppen av katalogstacken, och gör\n"
+"    \tden till den nya aktuella arbetskatalogen.\n"
+"    \n"
+"    Den inbyggda \"dirs\" visar katalogstacken.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte ett ogiltigt argument ges eller bytet av\n"
 "    katalog misslyckas."
 
+<<<<<<< HEAD
 #: builtins.c:1845
+=======
+#: builtins.c:1828
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Remove directories from stack.\n"
 "    \n"
@@ -5352,6 +8144,7 @@ msgid ""
 "    \n"
 "    Options:\n"
 "      -n\tSuppresses the normal change of directory when removing\n"
+<<<<<<< HEAD
 "    \t\tdirectories from the stack, so only the stack is manipulated.\n"
 "    \n"
 "    Arguments:\n"
@@ -5362,6 +8155,18 @@ msgid ""
 "      -N\tRemoves the Nth entry counting from the right of the list\n"
 "    \t\tshown by `dirs', starting with zero.  For example: `popd -0'\n"
 "    \t\tremoves the last directory, `popd -1' the next to last.\n"
+=======
+"    \tdirectories from the stack, so only the stack is manipulated.\n"
+"    \n"
+"    Arguments:\n"
+"      +N\tRemoves the Nth entry counting from the left of the list\n"
+"    \tshown by `dirs', starting with zero.  For example: `popd +0'\n"
+"    \tremoves the first directory, `popd +1' the second.\n"
+"    \n"
+"      -N\tRemoves the Nth entry counting from the right of the list\n"
+"    \tshown by `dirs', starting with zero.  For example: `popd -0'\n"
+"    \tremoves the last directory, `popd -1' the next to last.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The `dirs' builtin displays the directory stack.\n"
 "    \n"
@@ -5376,6 +8181,7 @@ msgstr ""
 "    \n"
 "    Flaggor:\n"
 "      -n\tUndertryck det normala bytet av katalog när kataloger\n"
+<<<<<<< HEAD
 "    \t\ttas bort från stacken, så att endast stacken ändras.\n"
 "    \n"
 "    Argument:\n"
@@ -5388,12 +8194,30 @@ msgstr ""
 "    \t\ttar bort den sista katalogen, ”popd -1” den näst sista.\n"
 "    \n"
 "    Den inbyggda ”dirs” visar katalogstacken.\n"
+=======
+"    \ttas bort från stacken, så att endast stacken ändras.\n"
+"    \n"
+"    Argument:\n"
+"      +N\tTar bort den N:e katalogen räknat från vänster i listan\n"
+"    \tsom visas av \"dirs\", med start på noll.  Till exempel: \"popd +0\"\n"
+"    \ttar bort den första katalogen, \"popd +1\" den andra.\n"
+"    \n"
+"      -N\tTar bort den N:e katalogen räknat från höger i listan\n"
+"    \tsom visas av \"dirs\", med start på noll.  Till exempel: \"popd -0\"\n"
+"    \ttar bort den sista katalogen, \"popd -1\" den näst sista.\n"
+"    \n"
+"    Den inbyggda \"dirs\" visar katalogstacken.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte ett ogiltigt argument ges eller bytet av\n"
 "    katalog misslyckas."
 
+<<<<<<< HEAD
 #: builtins.c:1875
+=======
+#: builtins.c:1858
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display directory stack.\n"
 "    \n"
@@ -5404,6 +8228,7 @@ msgid ""
 "    Options:\n"
 "      -c\tclear the directory stack by deleting all of the elements\n"
 "      -l\tdo not print tilde-prefixed versions of directories relative\n"
+<<<<<<< HEAD
 "    \t\tto your home directory\n"
 "      -p\tprint the directory stack with one entry per line\n"
 "      -v\tprint the directory stack with one entry per line prefixed\n"
@@ -5417,6 +8242,21 @@ msgid ""
 "      -N\tDisplays the Nth entry counting from the right of the list\n"
 "    \t\tshown by dirs when invoked without options, starting with\n"
 "    \t\tzero.\n"
+=======
+"    \tto your home directory\n"
+"      -p\tprint the directory stack with one entry per line\n"
+"      -v\tprint the directory stack with one entry per line prefixed\n"
+"    \twith its position in the stack\n"
+"    \n"
+"    Arguments:\n"
+"      +N\tDisplays the Nth entry counting from the left of the list shown "
+"by\n"
+"    \tdirs when invoked without options, starting with zero.\n"
+"    \n"
+"      -N\tDisplays the Nth entry counting from the right of the list shown "
+"by\n"
+"    \tdirs when invoked without options, starting with zero.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless an invalid option is supplied or an error occurs."
@@ -5424,12 +8264,18 @@ msgstr ""
 "Visa katalogstacken.\n"
 "    \n"
 "    Visa listan av kataloger i minnet för närvarande.  Kataloger kommer\n"
+<<<<<<< HEAD
 "    in på listan med kommandot ”pushd”.  Du kan komma tillbaka upp genom\n"
 "    listan med kommandot ”popd”.\n"
+=======
+"    in på listan med kommandot \"pushd\".  Du kan komma tillbaka upp genom\n"
+"    listan med kommandot \"popd\".\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Flaggor:\n"
 "      -c\tnollställer katalogstacken genom att ta bort alla element\n"
 "      -l\tskriv inte ut versioner med tildeprefix av kataloger som\n"
+<<<<<<< HEAD
 "    \t\tär relativa till din hemkatalog\n"
 "      -p\tskriv katalogstacken med en post per rad\n"
 "      -v\tskriv katalogstacken med en post per rad föregångna av\n"
@@ -5441,18 +8287,41 @@ msgstr ""
 "    \n"
 "      -N\tVisar den N:e posten räknat från höger i listan som visas\n"
 "    \t\tav dirs när det anropas utan flaggor, med början från noll.\n"
+=======
+"    \tär relativa till din hemkatalog\n"
+"      -p\tskriv katalogstacken med en post per rad\n"
+"      -v\tskriv katalogstacken med en post per rad föregångna av\n"
+"    \tdess position i stacken\n"
+"    \n"
+"    Argument:\n"
+"      +N\tVisar den N:e posten räknat från vänster i listan som visas\n"
+"    \tav dirs när det anropas utan flaggor, med början från noll.\n"
+"    \n"
+"      -N\tVisar den N:e posten räknat från höger i listan som visas\n"
+"    \tav dirs när det anropas utan fläggor, med början från noll.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en ogiltig flagga ges eller ett fel "
 "inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:1906
+=======
+#: builtins.c:1887
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Set and unset shell options.\n"
 "    \n"
 "    Change the setting of each shell option OPTNAME.  Without any option\n"
+<<<<<<< HEAD
 "    arguments, list each supplied OPTNAME, or all shell options if no\n"
 "    OPTNAMEs are given, with an indication of whether or not each is set.\n"
+=======
+"    arguments, list all shell options with an indication of whether or not "
+"each\n"
+"    is set.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Options:\n"
 "      -o\trestrict OPTNAMEs to those defined for use with `set -o'\n"
@@ -5468,12 +8337,20 @@ msgstr ""
 "Slå på och av skalflaggor.\n"
 "    \n"
 "    Ändra inställningen av varje flagga FLGNAMN.  Utan några flaggargument\n"
+<<<<<<< HEAD
 "    lista varje angivet FLGNAMN, eller alla skalflaggor med om inga FLGNAMN\n"
 "    anges, en indikation av huruvida var och en är satt eller inte.\n"
 "    \n"
 "    Flaggor:\n"
 "      -o\tbegränsa FLGNAMN till de som kan användas med ”set -o”\n"
 "      -p\tskriv varje skalflagga med en indikation på dess status\n"
+=======
+"    listas alla skalflaggor med en indikation om var och en är satt.\n"
+"    \n"
+"    Flaggor:\n"
+"      -o\tbegränsa FLGNAMN till de som kan användas med \"set -o\"\n"
+"      -p\tskriv raje skalflagga med en indikation på dess status\n"
+>>>>>>> orgin/bash-4.3-testing
 "      -q\tutelämna utmatning\n"
 "      -s\taktivera (slå på) varje FLGNAMN\n"
 "      -u\tavaktivera (slå av) varje FLGNAMN\n"
@@ -5482,7 +8359,11 @@ msgstr ""
 "    Returnerar framgång om FLGNAMN är aktiverat, misslyckas om en ogiltig\n"
 "    flagga ges eller FLGNAMN är avaktiverat."
 
+<<<<<<< HEAD
 #: builtins.c:1927
+=======
+#: builtins.c:1908
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Formats and prints ARGUMENTS under control of the FORMAT.\n"
 "    \n"
@@ -5499,15 +8380,26 @@ msgid ""
 "successive\n"
 "    argument.\n"
 "    \n"
+<<<<<<< HEAD
 "    In addition to the standard format specifications described in printf"
 "(1),\n"
+=======
+"    In addition to the standard format specifications described in "
+"printf(1),\n"
+>>>>>>> orgin/bash-4.3-testing
 "    printf interprets:\n"
 "    \n"
 "      %b\texpand backslash escape sequences in the corresponding argument\n"
 "      %q\tquote the argument in a way that can be reused as shell input\n"
+<<<<<<< HEAD
 "      %(fmt)T\toutput the date-time string resulting from using FMT as a "
 "format\n"
 "    \t        string for strftime(3)\n"
+=======
+"      %(fmt)T output the date-time string resulting from using FMT as a "
+"format\n"
+"            string for strftime(3)\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    The format is re-used as necessary to consume all of the arguments.  If\n"
 "    there are fewer arguments than the format requires,  extra format\n"
@@ -5526,11 +8418,19 @@ msgstr ""
 "      -v var\ttilldela utdata till skalvariabeln VAR istället för att\n"
 "    \t\tskriva den på standard ut\n"
 "    \n"
+<<<<<<< HEAD
 "    FORMAT är en teckensträng som innehåller tre sorters objekt: vanliga\n"
+=======
+"    FORMAT är en teckensträng som innehåller tre sortes objekt: vanliga\n"
+>>>>>>> orgin/bash-4.3-testing
 "    tecken, som helt enkelt kopieras till standard ut, teckenstyrsekvenser\n"
 "    som konverteras och kopieras till standard ut och "
 "formatspecifikationer,\n"
 "    där var och en medför utskrift av det nästföljande argumentet.\n"
+<<<<<<< HEAD
+=======
+"    argument.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Förutom de standardformatspecifikationer som beskrivs a printf(1),\n"
 "    tolkar printf:\n"
@@ -5550,8 +8450,12 @@ msgstr ""
 "    Returnerar framgång om inte en ogiltig flagga ges eller ett skriv-\n"
 "    eller tilldelningsfel inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:1961
 #, fuzzy
+=======
+#: builtins.c:1942
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Specify how arguments are to be completed by Readline.\n"
 "    \n"
@@ -5564,6 +8468,7 @@ msgid ""
 "    Options:\n"
 "      -p\tprint existing completion specifications in a reusable format\n"
 "      -r\tremove a completion specification for each NAME, or, if no\n"
+<<<<<<< HEAD
 "    \t\tNAMEs are supplied, all completion specifications\n"
 "      -D\tapply the completions and actions as the default for commands\n"
 "    \t\twithout any specific completion defined\n"
@@ -5577,6 +8482,17 @@ msgid ""
 "supplied,\n"
 "    the -D option takes precedence over -E, and both take precedence over -"
 "I.\n"
+=======
+"    \tNAMEs are supplied, all completion specifications\n"
+"      -D\tapply the completions and actions as the default for commands\n"
+"    \twithout any specific completion defined\n"
+"      -E\tapply the completions and actions to \"empty\" commands --\n"
+"    \tcompletion attempted on a blank line\n"
+"    \n"
+"    When completion is attempted, the actions are applied in the order the\n"
+"    uppercase-letter options are listed above.  The -D option takes\n"
+"    precedence over -E.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Exit Status:\n"
 "    Returns success unless an invalid option is supplied or an error occurs."
@@ -5589,6 +8505,7 @@ msgstr ""
 "    \n"
 "    Flaggor:\n"
 "      -p\tskriv existerande kompletteringsspecifikationer på ett\n"
+<<<<<<< HEAD
 "                återanvändbart format\n"
 "      -r\tta bort en kompletteringsspecifikation för varje NAMN eller\n"
 "                om inga NAMN är givna, alla kompletteringsinformationer\n"
@@ -5600,12 +8517,29 @@ msgstr ""
 "    När komplettering försöker göras används åtgärderna i den ordning de\n"
 "    versala flaggorna är uppräknade ovan.  Om flera flaggor anges har\n"
 "    flaggan -D företräde framför -E, och båda har företräde framför -I.\n"
+=======
+"    \tåteranvändningsbart format\n"
+"      -r\tta bort en kompletteringsspecifikation för varje NAMN eller\n"
+"    \tom inga NAMN är givna, alla kompletteringsinformationer\n"
+"      -D\tanvänd kompletteringarna och åtgärderna som standard för\n"
+"    \tkommandon utan någon särskild komplettering definierad\n"
+"      -E\tanvänd kompletteringarna och åtgärderna för \"tomma\" kommandon\n"
+"    \t-- kompletteringar som försöks på en tom rad\n"
+"    \n"
+"    När komplettering försöker göras försöks åtgärder i den ordning de\n"
+"    versala flaggorna är uppräknade ovan.  Flaggan -D har företräde framför\n"
+"    -E.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en ogiltig flagga ges eller ett fel "
 "inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:1991
+=======
+#: builtins.c:1970
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Display possible completions depending on the options.\n"
 "    \n"
@@ -5627,7 +8561,11 @@ msgstr ""
 "    Returnerar framgång om inte en ogiltig flagga ges eller ett fel "
 "inträffar."
 
+<<<<<<< HEAD
 #: builtins.c:2006
+=======
+#: builtins.c:1985
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Modify or display completion options.\n"
 "    \n"
@@ -5642,7 +8580,10 @@ msgid ""
 "    \t-o option\tSet completion option OPTION for each NAME\n"
 "    \t-D\t\tChange options for the \"default\" command completion\n"
 "    \t-E\t\tChange options for the \"empty\" command completion\n"
+<<<<<<< HEAD
 "    \t-I\t\tChange options for completion on the initial word\n"
+=======
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Using `+o' instead of `-o' turns off the specified option.\n"
 "    \n"
@@ -5668,26 +8609,45 @@ msgstr ""
 "    \n"
 "    Flaggor:\n"
 "    \t-o flagga\tSätt kompletteringsflagga FLAGGA för varje NAMN\n"
+<<<<<<< HEAD
 "    \t-D\t\tÄndra flaggorna för ”standard” kommandokomplettering\n"
 "    \t-E\t\tÄndra flaggorna för den ”tomma” kommandokompletteringen\n"
 "    \t-I\t\tÄndra flaggorna för komplettering av den första flaggan.\n"
 "    \n"
 "    Genom att använda ”+o” istället för ”-o” slås den angivna flaggan av.\n"
+=======
+"    \t-D\t        Ändra flaggorna för standardkommandokompletteringen\n"
+"    \t-E\t\tÄndra flaggorna för komplettering av ett tomt kommando\n"
+"    \n"
+"    Genom att använda \"+o\" istället för \"-o\" slås den angivna flaggan "
+"av.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Argument:\n"
 "    \n"
 "    Varje NAMN refererar till ett kommando för vilket en kompletterings-\n"
+<<<<<<< HEAD
 "    specifikation måste ha definierats tidigare med det inbyggda "
 "”complete”.\n"
+=======
+"    specifikation måste ha definierats tidigare med det inbyggda \"complete"
+"\".\n"
+>>>>>>> orgin/bash-4.3-testing
 "    Om inget NAMN ges måste compopt anropas av en funktion som just nu\n"
 "    genererar kompletteringar, och flaggorna för den just nu exekverande\n"
 "    kompletteringsgeneratorn modifieras.\n"
 "    \n"
 "    Slutstatus:\n"
 "    Returnerar framgång om inte en ogiltig flagga ges eller NAMN inte har\n"
+<<<<<<< HEAD
 "    någon kompletteringsspecifikation definierad."
 
 #: builtins.c:2037
+=======
+"    någon kompletteringsspecifikaation definierad."
+
+#: builtins.c:2015
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Read lines from the standard input into an indexed array variable.\n"
 "    \n"
@@ -5698,6 +8658,7 @@ msgid ""
 "    is the default ARRAY.\n"
 "    \n"
 "    Options:\n"
+<<<<<<< HEAD
 "      -d delim\tUse DELIM to terminate lines, instead of newline\n"
 "      -n count\tCopy at most COUNT lines.  If COUNT is 0, all lines are "
 "copied\n"
@@ -5713,6 +8674,22 @@ msgid ""
 "    \n"
 "    Arguments:\n"
 "      ARRAY\tArray variable name to use for file data\n"
+=======
+"      -n count\tCopy at most COUNT lines.  If COUNT is 0, all lines are "
+"copied.\n"
+"      -O origin\tBegin assigning to ARRAY at index ORIGIN.  The default "
+"index is 0.\n"
+"      -s count \tDiscard the first COUNT lines read.\n"
+"      -t\t\tRemove a trailing newline from each line read.\n"
+"      -u fd\t\tRead lines from file descriptor FD instead of the standard "
+"input.\n"
+"      -C callback\tEvaluate CALLBACK each time QUANTUM lines are read.\n"
+"      -c quantum\tSpecify the number of lines read between each call to "
+"CALLBACK.\n"
+"    \n"
+"    Arguments:\n"
+"      ARRAY\t\tArray variable name to use for file data.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    If -C is supplied without -c, the default quantum is 5000.  When\n"
 "    CALLBACK is evaluated, it is supplied the index of the next array\n"
@@ -5735,6 +8712,7 @@ msgstr ""
 "    standard för VEKTOR.\n"
 "    \n"
 "    Flaggor:\n"
+<<<<<<< HEAD
 "      -d avgr   Använd AVGR för att avsluta rader, istället för nyrad\n"
 "      -n antal\tKopiera högs ANTAL rader.  Om ANTAL är 0 kopieras alla "
 "rader\n"
@@ -5750,6 +8728,21 @@ msgstr ""
 "    \n"
 "    Argument:\n"
 "      VEKTOR\tNamn på vektorvariabel att använda för fildata\n"
+=======
+"      -n antal\tKopiera högs ANTAL rader.  Om ANTAL är 0 kopieras alla "
+"rader.\n"
+"      -O start\tBörja tilldela till VEKTOR vid index START.  Standardindex "
+"är 0.\n"
+"      -s antal \tSläng de första ANTAL inlästa raderna.\n"
+"      -t\t\tTa bort en avslutande nyrad från varje inläst rad.\n"
+"      -u fb\t\tLäs rader från filbeskrivare FB istället för standard in.\n"
+"      -C återanrop\tBeräkna ÅTERANROP för varje KVANTA rader som läses.\n"
+"      -c kvanta \tAnge antalet rader att läsa mellan varje anrop av\n"
+"      \t\t \tÅTERANROP.\n"
+"    \n"
+"    Argument:\n"
+"      VEKTOR\t\tNamn på vektorvariabel att använda för fildata.\n"
+>>>>>>> orgin/bash-4.3-testing
 "    \n"
 "    Om -C ges utan -c är standardkvanta 5000.  När ÅTERANROP evalueras får\n"
 "    den indexet på nästa vektorelement att tilldelas och raden att "
@@ -5764,7 +8757,11 @@ msgstr ""
 "    Returnerar framgång om inte en ogiltig flagga ges eller VEKTOR är\n"
 "    oföränderlig eller inte en indexerad vektor."
 
+<<<<<<< HEAD
 #: builtins.c:2073
+=======
+#: builtins.c:2049
+>>>>>>> orgin/bash-4.3-testing
 msgid ""
 "Read lines from a file into an array variable.\n"
 "    \n"
@@ -5772,4 +8769,8 @@ msgid ""
 msgstr ""
 "Läs rader från en fil till en vektorvariabel.\n"
 "    \n"
+<<<<<<< HEAD
 "    En synonym till ”mapfile”."
+=======
+"    En synonym till \"mapfile\"."
+>>>>>>> orgin/bash-4.3-testing

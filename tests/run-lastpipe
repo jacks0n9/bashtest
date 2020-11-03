@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ${THIS_SH} ./lastpipe.tests > ${BASH_TSTOUT} 2>&1
 diff ${BASH_TSTOUT} lastpipe.right && rm -f ${BASH_TSTOUT}
+=======
+${THIS_SH} ./lastpipe.tests > /tmp/xx 2>&1
+diff /tmp/xx lastpipe.right && rm -f /tmp/xx
+>>>>>>> orgin/bash-4.3-testing

@@ -30,7 +30,10 @@
 #define GX_NULLDIR	0x100	/* internal -- no directory preceding pattern */
 #define GX_ADDCURDIR	0x200	/* internal -- add passed directory name */
 #define GX_GLOBSTAR	0x400	/* turn on special handling of ** */
+<<<<<<< HEAD
 #define GX_RECURSE	0x800	/* internal -- glob_filename called recursively */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 extern int glob_pattern_p __P((const char *));
 extern char **glob_vector __P((char *, char *, int));

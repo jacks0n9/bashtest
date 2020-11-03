@@ -107,6 +107,7 @@ kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill 
 after f
 ./errors2.sub: line 3: ${$NO_SUCH_VAR}: bad substitution
 1
+<<<<<<< HEAD
 ./errors3.sub: line 5: no_such_file: No such file or directory
 TEST
 ./errors3.sub: line 7: no_such_file: No such file or directory
@@ -196,3 +197,6 @@ ok 5
 ./errors8.sub: line 14: set: notanoption: invalid option name
 ok 6
 ./errors.tests: line 283: `!!': not a valid identifier
+=======
+./errors.tests: line 270: `!!': not a valid identifier
+>>>>>>> orgin/bash-4.3-testing

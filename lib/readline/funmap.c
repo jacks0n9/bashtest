@@ -1,6 +1,10 @@
 /* funmap.c -- attach names to functions. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1987-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1987-2010 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -122,7 +126,10 @@ static const FUNMAP default_funmap[] = {
 #endif
   { "possible-completions", rl_possible_completions },
   { "previous-history", rl_get_previous_history },
+<<<<<<< HEAD
   { "previous-screen-line", rl_previous_screen_line },
+=======
+>>>>>>> orgin/bash-4.3-testing
   { "print-last-kbd-macro", rl_print_last_kbd_macro },
   { "quoted-insert", rl_quoted_insert },
   { "re-read-init-file", rl_re_read_init_file },

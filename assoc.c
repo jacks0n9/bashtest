@@ -277,10 +277,14 @@ int starsub, quoted;
   for (i = 1; l && i < start; i++)
     l = l->next;
   if (l == 0)
+<<<<<<< HEAD
     {
       dispose_words (save);
       return ((char *)NULL);
     }
+=======
+    return ((char *)NULL);
+>>>>>>> orgin/bash-4.3-testing
   for (j = 0,h = t = l; l && j < nelem; j++)
     {
       t = l;
@@ -305,13 +309,21 @@ assoc_patsub (h, pat, rep, mflags)
      char *pat, *rep;
      int mflags;
 {
+<<<<<<< HEAD
   char	*t;
   int pchar, qflags;
   WORD_LIST *wl, *save;
+=======
+  BUCKET_CONTENTS *tlist;
+  int i, slen;
+  HASH_TABLE *h2;
+  char	*t, *sifs, *ifs;
+>>>>>>> orgin/bash-4.3-testing
 
   if (h == 0 || assoc_empty (h))
     return ((char *)NULL);
 
+<<<<<<< HEAD
   wl = assoc_to_word_list (h);
   if (wl == 0)
     return (char *)NULL;
@@ -328,6 +340,48 @@ assoc_patsub (h, pat, rep, mflags)
 
   t = string_list_pos_params (pchar, save, qflags);
   dispose_words (save);
+=======
+  h2 = assoc_copy (h);
+  for (i = 0; i < h2->nbuckets; i++)
+    for (tlist = hash_items (i, h2); tlist; tlist = tlist->next)
+      {
+	t = pat_subst ((char *)tlist->data, pat, rep, mflags);
+	FREE (tlist->data);
+	tlist->data = t;
+      }
+
+  if (mflags & MATCH_QUOTED)
+    assoc_quote (h2);
+  else
+    assoc_quote_escapes (h2);
+
+  if (mflags & MATCH_STARSUB)
+    {
+      assoc_remove_quoted_nulls (h2);
+      sifs = ifs_firstchar ((int *)NULL);
+      t = assoc_to_string (h2, sifs, 0);
+      free (sifs);
+    }
+  else if (mflags & MATCH_QUOTED)
+    {
+      /* ${array[@]} */
+      sifs = ifs_firstchar (&slen);
+      ifs = getifs ();
+      if (ifs == 0 || *ifs == 0)
+	{
+	  if (slen < 2)
+	    sifs = xrealloc (sifs, 2);
+	  sifs[0] = ' ';
+	  sifs[1] = '\0';
+	}
+      t = assoc_to_string (h2, sifs, 0);
+      free(sifs);
+    }
+  else
+    t = assoc_to_string (h2, " ", 0);
+
+  assoc_dispose (h2);
+>>>>>>> orgin/bash-4.3-testing
 
   return t;
 }
@@ -339,13 +393,21 @@ assoc_modcase (h, pat, modop, mflags)
      int modop;
      int mflags;
 {
+<<<<<<< HEAD
   char	*t;
   int pchar, qflags;
   WORD_LIST *wl, *save;
+=======
+  BUCKET_CONTENTS *tlist;
+  int i, slen;
+  HASH_TABLE *h2;
+  char	*t, *sifs, *ifs;
+>>>>>>> orgin/bash-4.3-testing
 
   if (h == 0 || assoc_empty (h))
     return ((char *)NULL);
 
+<<<<<<< HEAD
   wl = assoc_to_word_list (h);
   if (wl == 0)
     return ((char *)NULL);
@@ -362,6 +424,48 @@ assoc_modcase (h, pat, modop, mflags)
 
   t = string_list_pos_params (pchar, save, qflags);
   dispose_words (save);
+=======
+  h2 = assoc_copy (h);
+  for (i = 0; i < h2->nbuckets; i++)
+    for (tlist = hash_items (i, h2); tlist; tlist = tlist->next)
+      {
+	t = sh_modcase ((char *)tlist->data, pat, modop);
+	FREE (tlist->data);
+	tlist->data = t;
+      }
+
+  if (mflags & MATCH_QUOTED)
+    assoc_quote (h2);
+  else
+    assoc_quote_escapes (h2);
+
+  if (mflags & MATCH_STARSUB)
+    {
+      assoc_remove_quoted_nulls (h2);
+      sifs = ifs_firstchar ((int *)NULL);
+      t = assoc_to_string (h2, sifs, 0);
+      free (sifs);
+    }
+  else if (mflags & MATCH_QUOTED)
+    {
+      /* ${array[@]} */
+      sifs = ifs_firstchar (&slen);
+      ifs = getifs ();
+      if (ifs == 0 || *ifs == 0)
+	{
+	  if (slen < 2)
+	    sifs = xrealloc (sifs, 2);
+	  sifs[0] = ' ';
+	  sifs[1] = '\0';
+	}
+      t = assoc_to_string (h2, sifs, 0);
+      free(sifs);
+    }
+  else
+    t = assoc_to_string (h2, " ", 0);
+
+  assoc_dispose (h2);
+>>>>>>> orgin/bash-4.3-testing
 
   return t;
 }
@@ -386,6 +490,7 @@ assoc_to_assign (hash, quoted)
   for (i = 0; i < hash->nbuckets; i++)
     for (tlist = hash_items (i, hash); tlist; tlist = tlist->next)
       {
+<<<<<<< HEAD
 	if (ansic_shouldquote (tlist->key))
 	  istr = ansic_quote (tlist->key, 0, (int *)0);
 	else if (sh_contains_shell_metas (tlist->key))
@@ -399,6 +504,17 @@ assoc_to_assign (hash, quoted)
 				ansic_quote ((char *)tlist->data, 0, (int *)0) :
 				sh_double_quote ((char *)tlist->data))
 			   : (char *)0;
+=======
+#if 1
+	if (sh_contains_shell_metas (tlist->key))
+	  istr = sh_double_quote (tlist->key);
+	else
+	  istr = tlist->key;	
+#else
+	istr = tlist->key;
+#endif
+	vstr = tlist->data ? sh_double_quote ((char *)tlist->data) : (char *)0;
+>>>>>>> orgin/bash-4.3-testing
 
 	elen = STRLEN (istr) + 8 + STRLEN (vstr);
 	RESIZE_MALLOCED_BUFFER (ret, rlen, (elen+1), rsize, rsize);

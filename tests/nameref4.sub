@@ -66,9 +66,13 @@ ckval bar hello
 
 # XXX -- another self-referencing error?
 # ksh93 makes this another invalid self-reference
+<<<<<<< HEAD
 unset foo
 unset -n bar
 
+=======
+unset foo bar
+>>>>>>> orgin/bash-4.3-testing
 bar=123
 foobar()
 {
@@ -82,16 +86,24 @@ typeset -n short=long
 short=( a b )
 echo "expect <a b>"
 echo ${long[@]}
+<<<<<<< HEAD
 unset long
 unset -n short
+=======
+unset short long
+>>>>>>> orgin/bash-4.3-testing
 
 # assignment to a previously-unset variable
 typeset -n short=long
 short=foo
 echo "expect <foo>"
 echo ${long}
+<<<<<<< HEAD
 unset long
 unset -n short
+=======
+unset short long
+>>>>>>> orgin/bash-4.3-testing
 
 unset foo bar
 
@@ -114,8 +126,12 @@ barfunc()
 barfunc bar
 
 unset -f foobar
+<<<<<<< HEAD
 unset bar
 unset -n foo
+=======
+unset foo bar
+>>>>>>> orgin/bash-4.3-testing
 
 # should ref at global scope survive call to foobar()?
 unset ref x
@@ -156,8 +172,11 @@ echo "expect <zero> <one> <seven> <three> <four>"
 recho "${x[@]}"
 
 unset ref x
+<<<<<<< HEAD
 unset -n ref
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 typeset -n ref
 ref=x
 # make sure nameref to a previously-unset variable creates the variable
@@ -166,8 +185,11 @@ ckval x 42
 
 # make sure they work inside arithmetic expressions
 unset foo bar ref x xxx
+<<<<<<< HEAD
 unset -n ref
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 typeset -i ivar
 typeset -n iref=ivar
 

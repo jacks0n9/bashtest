@@ -1,6 +1,10 @@
 /* search.c - code for non-incremental searching in emacs and vi modes. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1992-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1992-2013 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of the GNU Readline Library (Readline), a library
    for reading lines of text with interactive input and history editing.      
@@ -73,13 +77,22 @@ static char *history_search_string;
 static int history_string_size;
 
 static void make_history_line_current PARAMS((HIST_ENTRY *));
+<<<<<<< HEAD
 static int noninc_search_from_pos PARAMS((char *, int, int, int, int *));
 static int noninc_dosearch PARAMS((char *, int, int));
+=======
+static int noninc_search_from_pos PARAMS((char *, int, int));
+static int noninc_dosearch PARAMS((char *, int));
+>>>>>>> orgin/bash-4.3-testing
 static int noninc_search PARAMS((int, int));
 static int rl_history_search_internal PARAMS((int, int));
 static void rl_history_search_reinit PARAMS((int));
 
 static _rl_search_cxt *_rl_nsearch_init PARAMS((int, int));
+<<<<<<< HEAD
+=======
+static int _rl_nsearch_cleanup PARAMS((_rl_search_cxt *, int));
+>>>>>>> orgin/bash-4.3-testing
 static void _rl_nsearch_abort PARAMS((_rl_search_cxt *));
 static int _rl_nsearch_dispatch PARAMS((_rl_search_cxt *, int));
 
@@ -157,7 +170,13 @@ noninc_search_from_pos (char *string, int pos, int dir, int flags, int *ncp)
    search is backwards through previous entries, else through subsequent
    entries.  Returns 1 if the search was successful, 0 otherwise. */
 static int
+<<<<<<< HEAD
 noninc_dosearch (char *string, int dir, int flags)
+=======
+noninc_dosearch (string, dir)
+     char *string;
+     int dir;
+>>>>>>> orgin/bash-4.3-testing
 {
   int oldpos, pos;
   HIST_ENTRY *entry;
@@ -200,7 +219,12 @@ noninc_dosearch (char *string, int dir, int flags)
 }
 
 static _rl_search_cxt *
+<<<<<<< HEAD
 _rl_nsearch_init (int dir, int pchar)
+=======
+_rl_nsearch_init (dir, pchar)
+     int dir, pchar;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_search_cxt *cxt;
   char *p;
@@ -208,10 +232,16 @@ _rl_nsearch_init (int dir, int pchar)
   cxt = _rl_scxt_alloc (RL_SEARCH_NSEARCH, 0);
   if (dir < 0)
     cxt->sflags |= SF_REVERSE;		/* not strictly needed */
+<<<<<<< HEAD
 #if defined (VI_MODE)
   if (VI_COMMAND_MODE() && (pchar == '?' || pchar == '/'))
     cxt->sflags |= SF_PATTERN;
 #endif
+=======
+
+  cxt->direction = dir;
+  cxt->history_pos = cxt->save_line;
+>>>>>>> orgin/bash-4.3-testing
 
   cxt->direction = dir;
   cxt->history_pos = cxt->save_line;
@@ -238,8 +268,15 @@ _rl_nsearch_init (int dir, int pchar)
   return cxt;
 }
 
+<<<<<<< HEAD
 int
 _rl_nsearch_cleanup (_rl_search_cxt *cxt, int r)
+=======
+static int
+_rl_nsearch_cleanup (cxt, r)
+     _rl_search_cxt *cxt;
+     int r;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_scxt_dispose (cxt, 0);
   _rl_nscxt = 0;
@@ -250,7 +287,12 @@ _rl_nsearch_cleanup (_rl_search_cxt *cxt, int r)
 }
 
 static void
+<<<<<<< HEAD
 _rl_nsearch_abort (_rl_search_cxt *cxt)
+=======
+_rl_nsearch_abort (cxt)
+     _rl_search_cxt *cxt;
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_maybe_unsave_line ();
   rl_clear_message ();
@@ -265,11 +307,18 @@ _rl_nsearch_abort (_rl_search_cxt *cxt)
    if the caller should abort the search, 0 if we should break out of the
    loop, and 1 if we should continue to read characters. */
 static int
+<<<<<<< HEAD
 _rl_nsearch_dispatch (_rl_search_cxt *cxt, int c)
 {
   if (c < 0)
     c = CTRL ('C');  
 
+=======
+_rl_nsearch_dispatch (cxt, c)
+     _rl_search_cxt *cxt;
+     int c;
+{
+>>>>>>> orgin/bash-4.3-testing
   switch (c)
     {
     case CTRL('W'):
@@ -319,7 +368,12 @@ _rl_nsearch_dispatch (_rl_search_cxt *cxt, int c)
    using _rl_nsearch_cleanup ().  Returns 1 if the search was successful,
    0 otherwise. */
 static int
+<<<<<<< HEAD
 _rl_nsearch_dosearch (_rl_search_cxt *cxt)
+=======
+_rl_nsearch_dosearch (cxt)
+     _rl_search_cxt *cxt;
+>>>>>>> orgin/bash-4.3-testing
 {
   rl_mark = cxt->save_mark;
 
@@ -352,7 +406,11 @@ _rl_nsearch_dosearch (_rl_search_cxt *cxt)
     }
 
   rl_restore_prompt ();
+<<<<<<< HEAD
   return (noninc_dosearch (noninc_search_string, cxt->direction, cxt->sflags&SF_PATTERN));
+=======
+  return (noninc_dosearch (noninc_search_string, cxt->direction));
+>>>>>>> orgin/bash-4.3-testing
 }
 
 /* Search non-interactively through the history list.  DIR < 0 means to
@@ -361,7 +419,13 @@ _rl_nsearch_dosearch (_rl_search_cxt *cxt)
    history list.  PCHAR is the character to use for prompting when reading
    the search string; if not specified (0), it defaults to `:'. */
 static int
+<<<<<<< HEAD
 noninc_search (int dir, int pchar)
+=======
+noninc_search (dir, pchar)
+     int dir;
+     int pchar;
+>>>>>>> orgin/bash-4.3-testing
 {
   _rl_search_cxt *cxt;
   int c, r;
@@ -377,12 +441,15 @@ noninc_search (int dir, int pchar)
     {
       c = _rl_search_getchar (cxt);
 
+<<<<<<< HEAD
       if (c < 0)
 	{
 	  _rl_nsearch_abort (cxt);
 	  return 1;
 	}
 	  
+=======
+>>>>>>> orgin/bash-4.3-testing
       if (c == 0)
 	break;
 
@@ -426,12 +493,16 @@ rl_noninc_forward_search_again (int count, int key)
       rl_ding ();
       return (1);
     }
+<<<<<<< HEAD
 #if defined (VI_MODE)
   if (VI_COMMAND_MODE() && key == 'N')
     r = noninc_dosearch (noninc_search_string, 1, SF_PATTERN);
   else
 #endif
     r = noninc_dosearch (noninc_search_string, 1, 0);
+=======
+  r = noninc_dosearch (noninc_search_string, 1);
+>>>>>>> orgin/bash-4.3-testing
   return (r != 1);
 }
 
@@ -448,28 +519,40 @@ rl_noninc_reverse_search_again (int count, int key)
       rl_ding ();
       return (1);
     }
+<<<<<<< HEAD
 #if defined (VI_MODE)
   if (VI_COMMAND_MODE() && key == 'n')
     r = noninc_dosearch (noninc_search_string, -1, SF_PATTERN);
   else
 #endif
     r = noninc_dosearch (noninc_search_string, -1, 0);
+=======
+  r = noninc_dosearch (noninc_search_string, -1);
+>>>>>>> orgin/bash-4.3-testing
   return (r != 1);
 }
 
 #if defined (READLINE_CALLBACKS)
 int
+<<<<<<< HEAD
 _rl_nsearch_callback (_rl_search_cxt *cxt)
+=======
+_rl_nsearch_callback (cxt)
+     _rl_search_cxt *cxt;
+>>>>>>> orgin/bash-4.3-testing
 {
   int c, r;
 
   c = _rl_search_getchar (cxt);
+<<<<<<< HEAD
   if (c <= 0)
     {
       if (c < 0)
         _rl_nsearch_abort (cxt);
       return 1;
     }
+=======
+>>>>>>> orgin/bash-4.3-testing
   r = _rl_nsearch_dispatch (cxt, c);
   if (r != 0)
     return 1;
@@ -483,7 +566,11 @@ static int
 rl_history_search_internal (int count, int dir)
 {
   HIST_ENTRY *temp;
+<<<<<<< HEAD
   int ret, oldpos, newcol;
+=======
+  int ret, oldpos;
+>>>>>>> orgin/bash-4.3-testing
   char *t;
 
   rl_maybe_save_line ();
@@ -497,7 +584,11 @@ rl_history_search_internal (int count, int dir)
   while (count)
     {
       RL_CHECK_SIGNALS ();
+<<<<<<< HEAD
       ret = noninc_search_from_pos (history_search_string, rl_history_search_pos + dir, dir, 0, &newcol);
+=======
+      ret = noninc_search_from_pos (history_search_string, rl_history_search_pos + dir, dir);
+>>>>>>> orgin/bash-4.3-testing
       if (ret == -1)
 	break;
 
@@ -540,17 +631,25 @@ rl_history_search_internal (int count, int dir)
   /* Copy the line we found into the current line buffer. */
   make_history_line_current (temp);
 
+<<<<<<< HEAD
   /* decide where to put rl_point -- need to change this for pattern search */
+=======
+>>>>>>> orgin/bash-4.3-testing
   if (rl_history_search_flags & ANCHORED_SEARCH)
     rl_point = rl_history_search_len;	/* easy case */
   else
     {
+<<<<<<< HEAD
 #if 0
       t = strstr (rl_line_buffer, history_search_string);	/* XXX */
       rl_point = t ? (int)(t - rl_line_buffer) + rl_history_search_len : rl_end;
 #else
       rl_point = (newcol >= 0) ? newcol : rl_end;
 #endif
+=======
+      t = strstr (rl_line_buffer, history_search_string);
+      rl_point = t ? (int)(t - rl_line_buffer) + rl_history_search_len : rl_end;
+>>>>>>> orgin/bash-4.3-testing
     }
   rl_mark = rl_end;
 
@@ -558,7 +657,12 @@ rl_history_search_internal (int count, int dir)
 }
 
 static void
+<<<<<<< HEAD
 rl_history_search_reinit (int flags)
+=======
+rl_history_search_reinit (flags)
+     int flags;
+>>>>>>> orgin/bash-4.3-testing
 {
   int sind;
 
@@ -625,7 +729,12 @@ rl_history_search_backward (int count, int ignore)
    search.  The search succeeds if the search string is present anywhere
    in the history line. */
 int
+<<<<<<< HEAD
 rl_history_substr_search_forward (int count, int ignore)
+=======
+rl_history_substr_search_forward (count, ignore)
+     int count, ignore;
+>>>>>>> orgin/bash-4.3-testing
 {
   if (count == 0)
     return (0);
@@ -643,7 +752,12 @@ rl_history_substr_search_forward (int count, int ignore)
    from the start of the line to rl_point.  This is a non-incremental
    search. */
 int
+<<<<<<< HEAD
 rl_history_substr_search_backward (int count, int ignore)
+=======
+rl_history_substr_search_backward (count, ignore)
+     int count, ignore;
+>>>>>>> orgin/bash-4.3-testing
 {
   if (count == 0)
     return (0);

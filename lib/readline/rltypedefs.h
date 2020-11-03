@@ -26,6 +26,7 @@
 extern "C" {
 #endif
 
+<<<<<<< HEAD
 /* Old-style, attempt to mark as deprecated in some way people will notice. */
 
 #if !defined (_FUNCTION_DEF)
@@ -45,6 +46,8 @@ typedef char **CPPFunction ();
 
 #endif /* _FUNCTION_DEF */
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* New style. */
 
 #if !defined (_RL_FUNCTION_TYPEDEF)

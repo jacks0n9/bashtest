@@ -36,12 +36,18 @@
 extern int errno;
 #endif
 
+<<<<<<< HEAD
 extern int optind;
 
 #define LOWER	1
 #define UPPER	2
 
 int
+=======
+#define LOWER	1
+#define UPPER	2
+
+>>>>>>> orgin/bash-4.3-testing
 main(ac, av)
 int	ac;
 char	**av;

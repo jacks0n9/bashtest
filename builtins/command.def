@@ -1,7 +1,11 @@
 This file is command.def, from which is created command.c.
 It implements the builtin "command" in Bash.
 
+<<<<<<< HEAD
 Copyright (C) 1987-2015 Free Software Foundation, Inc.
+=======
+Copyright (C) 1987-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
 This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -30,10 +34,17 @@ information about the specified COMMANDs.  Can be used to invoke commands
 on disk when a function with the same name exists.
 
 Options:
+<<<<<<< HEAD
   -p    use a default value for PATH that is guaranteed to find all of
         the standard utilities
   -v    print a description of COMMAND similar to the `type' builtin
   -V    print a more verbose description of each COMMAND
+=======
+  -p	use a default value for PATH that is guaranteed to find all of
+	the standard utilities
+  -v	print a description of COMMAND similar to the `type' builtin
+  -V	print a more verbose description of each COMMAND
+>>>>>>> orgin/bash-4.3-testing
 
 Exit Status:
 Returns exit status of COMMAND, or failure if COMMAND is not found.
@@ -103,6 +114,7 @@ command_builtin (list)
     }
 #endif
 
+<<<<<<< HEAD
   if (verbose)
     {
       int found, any_found;
@@ -123,6 +135,44 @@ command_builtin (list)
   begin_unwind_frame ("command_builtin");
 
 #define COMMAND_BUILTIN_FLAGS (CMD_NO_FUNCTIONS | CMD_INHIBIT_EXPANSION | CMD_COMMAND_BUILTIN | (use_standard_path ? CMD_STDPATH : 0))
+=======
+  begin_unwind_frame ("command_builtin");
+
+  if (use_standard_path)
+    {      
+      old_path = get_string_value ("PATH");
+      /* If old_path is NULL, $PATH is unset.  If so, we want to make sure
+	 it's unset after this command completes. */
+      if (old_path)
+	old_path = savestring (old_path);
+      add_unwind_protect ((Function *)restore_path, old_path);
+
+      standard_path = get_standard_path ();
+      bind_variable ("PATH", standard_path ? standard_path : "", 0);
+      stupidly_hack_special_variables ("PATH");
+      FREE (standard_path);
+    }
+
+  if (verbose)
+    {
+      int found, any_found;
+
+      for (any_found = 0; list; list = list->next)
+	{
+	  found = describe_command (list->word->word, verbose);
+
+	  if (found == 0 && verbose != CDESC_REUSABLE)
+	    sh_notfound (list->word->word);
+
+	  any_found += found;
+	}
+
+      run_unwind_frame ("command_builtin");
+      return (any_found ? EXECUTION_SUCCESS : EXECUTION_FAILURE);
+    }
+
+#define COMMAND_BUILTIN_FLAGS (CMD_NO_FUNCTIONS | CMD_INHIBIT_EXPANSION | CMD_COMMAND_BUILTIN)
+>>>>>>> orgin/bash-4.3-testing
 
   /* We don't want this to be reparsed (consider command echo 'foo &'), so
      just make a simple_command structure and call execute_command with it. */
@@ -139,3 +189,52 @@ command_builtin (list)
 
   return (result);
 }
+<<<<<<< HEAD
+=======
+
+/* Restore the value of the $PATH variable after replacing it when
+   executing `command -p'. */
+static void
+restore_path (var)
+     char *var;
+{
+  if (var)
+    {
+      bind_variable ("PATH", var, 0);
+      free (var);
+    }
+  else
+    unbind_variable ("PATH");
+
+  stupidly_hack_special_variables ("PATH");
+}
+
+/* Return a value for PATH that is guaranteed to find all of the standard
+   utilities.  This uses Posix.2 configuration variables, if present.  It
+   uses a value defined in config.h as a last resort. */
+static char *
+get_standard_path ()
+{
+#if defined (_CS_PATH) && defined (HAVE_CONFSTR)
+  char *p;
+  size_t len;
+
+  len = (size_t)confstr (_CS_PATH, (char *)NULL, (size_t)0);
+  if (len > 0)
+    {
+      p = (char *)xmalloc (len + 2);
+      *p = '\0';
+      confstr (_CS_PATH, p, len);
+      return (p);
+    }
+  else
+    return (savestring (STANDARD_UTILS_PATH));
+#else /* !_CS_PATH || !HAVE_CONFSTR  */
+#  if defined (CS_PATH)
+  return (savestring (CS_PATH));
+#  else
+  return (savestring (STANDARD_UTILS_PATH));
+#  endif /* !CS_PATH */
+#endif /* !_CS_PATH || !HAVE_CONFSTR */
+}
+>>>>>>> orgin/bash-4.3-testing

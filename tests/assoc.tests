@@ -35,7 +35,10 @@ chaff[hello world]=flip
 declare -p chaff
 
 # TEST - errors
+<<<<<<< HEAD
 waste[stuff]=other
+=======
+>>>>>>> orgin/bash-4.3-testing
 unset waste
 chaff[*]=12
 chaff=( [one]=a [*]=12 )
@@ -107,7 +110,11 @@ unset flix wheat
 
 # TEST - index expansion: no word splitting or globbing
 typeset -A wheat
+<<<<<<< HEAD
 cd ${TMPDIR:=/tmp}
+=======
+cd /tmp
+>>>>>>> orgin/bash-4.3-testing
 touch '[sfiri]'
 wheat=([s*]=6 [foo bar]=flix )
 
@@ -174,6 +181,7 @@ T='([a]=1)'
 echo "${T[@]}"
 unset T
 
+<<<<<<< HEAD
 # peculiar ksh93 semantics for unsubscripted assoc variable reference
 declare -A T
 T[0]='zero'
@@ -181,6 +189,8 @@ if [ "$T" != "${T[0]}" ]; then
 	echo 'assoc.tests: $T and ${T[0]} mismatch'
 fi
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 ${THIS_SH} ./assoc1.sub
 
 ${THIS_SH} ./assoc2.sub
@@ -194,6 +204,7 @@ ${THIS_SH} ./assoc5.sub
 ${THIS_SH} ./assoc6.sub
 
 ${THIS_SH} ./assoc7.sub
+<<<<<<< HEAD
 
 # test converting between scalars and assoc arrays
 unset assoc
@@ -219,3 +230,5 @@ ${THIS_SH} ./assoc8.sub
 ${THIS_SH} ./assoc9.sub
 
 ${THIS_SH} ./assoc10.sub
+=======
+>>>>>>> orgin/bash-4.3-testing

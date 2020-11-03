@@ -1,6 +1,10 @@
 /* jobs.h -- structures and definitions used by the jobs.c file. */
 
+<<<<<<< HEAD
 /* Copyright (C) 1993-2017 Free Software Foundation, Inc.
+=======
+/* Copyright (C) 1993-2009 Free Software Foundation, Inc.
+>>>>>>> orgin/bash-4.3-testing
 
    This file is part of GNU Bash, the Bourne Again SHell.
 
@@ -38,10 +42,13 @@
 /* I looked it up.  For pretty_print_job ().  The real answer is 24. */
 #define LONGEST_SIGNAL_DESC 24
 
+<<<<<<< HEAD
 /* Defines for the wait_for functions and for the wait builtin to use */
 #define JWAIT_PERROR		0x01
 #define JWAIT_FORCE		0x02 
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* The max time to sleep while retrying fork() on EAGAIN failure */
 #define FORKSLEEP_MAX	16
 
@@ -65,11 +72,14 @@ typedef struct process {
   char *command;	/* The particular program that is running. */
 } PROCESS;
 
+<<<<<<< HEAD
 struct pipeline_saver {
   struct process *pipeline;
   struct pipeline_saver *next;
 };
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 /* PALIVE really means `not exited' */
 #define PSTOPPED(p)	(WIFSTOPPED((p)->status))
 #define PRUNNING(p)	((p)->running == PS_RUNNING)
@@ -103,7 +113,10 @@ typedef enum { JNONE = -1, JRUNNING = 1, JSTOPPED = 2, JDEAD = 4, JMIXED = 8 } J
 #define J_NOHUP      0x08 /* Don't send SIGHUP to job if shell gets SIGHUP. */
 #define J_STATSAVED  0x10 /* A process in this job had had status saved via $! */
 #define J_ASYNC	     0x20 /* Job was started asynchronously */
+<<<<<<< HEAD
 #define J_PIPEFAIL   0x40 /* pipefail set when job was started */
+=======
+>>>>>>> orgin/bash-4.3-testing
 
 #define IS_FOREGROUND(j)	((jobs[j]->flags & J_FOREGROUND) != 0)
 #define IS_NOTIFIED(j)		((jobs[j]->flags & J_NOTIFIED) != 0)
@@ -147,6 +160,7 @@ struct jobstats {
   JOB *j_lastasync;	/* last async job allocated by stop_pipeline */
 };
 
+<<<<<<< HEAD
 /* Revised to accommodate new hash table bgpids implementation. */
 typedef pid_t ps_index_t;
 
@@ -169,6 +183,20 @@ struct bgpids {
 
 #define NO_PIDSTAT (ps_index_t)-1
 
+=======
+struct pidstat {
+ struct pidstat *next;
+ pid_t pid;
+ int status;
+};
+
+struct bgpids {
+  struct pidstat *list;
+  struct pidstat *end;
+  int npid;
+};
+
+>>>>>>> orgin/bash-4.3-testing
 #define NO_JOB  -1	/* An impossible job array index. */
 #define DUP_JOB -2	/* A possible return value for get_job_spec (). */
 #define BAD_JOBSPEC -3	/* Bad syntax for job spec. */
@@ -190,11 +218,14 @@ extern pid_t original_pgrp, shell_pgrp, pipeline_pgrp;
 extern volatile pid_t last_made_pid, last_asynchronous_pid;
 extern int asynchronous_notification;
 
+<<<<<<< HEAD
 extern int already_making_children;
 extern int running_in_background;
 
 extern PROCESS *last_procsub_child;
 
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern JOB **jobs;
 
 extern void making_children __P((void));
@@ -205,7 +236,10 @@ extern void save_pipeline __P((int));
 extern PROCESS *restore_pipeline __P((int));
 extern void start_pipeline __P((void));
 extern int stop_pipeline __P((int, COMMAND *));
+<<<<<<< HEAD
 extern int discard_pipeline __P((PROCESS *));
+=======
+>>>>>>> orgin/bash-4.3-testing
 extern void append_process __P((char *, pid_t, int, int));
 
 extern void delete_job __P((int, int));
@@ -241,6 +275,7 @@ extern int set_tty_state __P((void));
 extern int job_exit_status __P((int));
 extern int job_exit_signal __P((int));
 
+<<<<<<< HEAD
 extern int wait_for_single_pid __P((pid_t, int));
 extern void wait_for_background_pids __P((void));
 extern int wait_for __P((pid_t));
@@ -248,6 +283,13 @@ extern int wait_for_job __P((int, int));
 extern int wait_for_any_job __P((int));
 
 extern void wait_sigint_cleanup __P((void));
+=======
+extern int wait_for_single_pid __P((pid_t));
+extern void wait_for_background_pids __P((void));
+extern int wait_for __P((pid_t));
+extern int wait_for_job __P((int));
+extern int wait_for_any_job __P((void));
+>>>>>>> orgin/bash-4.3-testing
 
 extern void notify_and_cleanup __P((void));
 extern void reap_dead_jobs __P((void));
@@ -259,7 +301,11 @@ extern int give_terminal_to __P((pid_t, int));
 
 extern void run_sigchld_trap __P((int));
 
+<<<<<<< HEAD
 extern int freeze_jobs_list __P((void));
+=======
+extern void freeze_jobs_list __P((void));
+>>>>>>> orgin/bash-4.3-testing
 extern void unfreeze_jobs_list __P((void));
 extern void set_jobs_list_frozen __P((int));
 extern int set_job_control __P((int));
